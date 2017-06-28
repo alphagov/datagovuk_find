@@ -1,0 +1,28 @@
+engines:
+  rubocop:
+    enabled: true
+  eslint:
+    enabled: true
+  csslint:
+    enabled: true
+  duplication:
+    enabled: true
+    config:
+      languages:
+        ruby:
+          mass_threshold: 20
+        javascript:
+          mass_threshold: 50
+      
+ratings:
+  paths:
+  - app/**
+  - lib/**
+  - "**.rb"
+  - "**.go"
+exclude_paths:
+  - spec/**/*
+  - "**/vendor/**/*"
+  - config/environments/*.rb
+  - lib/tasks/*.rake
+  - db/seeds.rb
