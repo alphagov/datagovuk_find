@@ -1,0 +1,147 @@
+// govuk-* overrides
+
+#global-header {
+  #logo {
+    font-size: 26px;
+    line-height: 1.3;
+  }
+  .header-wrapper {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  #logo {
+    font-weight: normal;
+    background: none;
+    img {
+      display: none;
+    }
+  }
+  .phase-tag-logo {
+    @include phase-tag();
+    margin-top: 7px;
+  }
+  .header-proposition {
+    .content {
+      padding-top: 4px;
+    }
+    #proposition-links {
+      float: right;
+      li a {
+        font-weight: normal;
+        &.bold {
+          font-weight: 700;
+        }
+      }
+    }
+  }
+  @media (min-width: 769px) {
+    .header-proposition #proposition-links li {
+      padding-right: 13px;
+    }
+  }
+}
+
+@media (min-width: 769px) {
+  #global-header.with-proposition .header-wrapper .header-global {
+    width: 31%;
+  }
+  #global-header.with-proposition .header-wrapper .header-proposition {
+    width: 69%;
+  }
+}
+
+
+div#global-header-bar {
+  display: none;
+}
+
+#global-cookie-message p {
+  max-width: 960px;
+}
+
+.govuk-box-highlight a {
+  color: $white;
+}
+
+.form-date .form-group.form-group-day.form-group-error {
+  width: 130px;
+  input { width: 50px; }
+}
+
+.form-date .form-group.form-group-month.form-group-error {
+  width: 130px;
+  input { width: 50px; }
+}
+
+.form-date .form-group.form-group-year.form-group-error {
+  width: 130px;
+  input { width: 70px; }
+}
+
+.form-hint {
+  width: 100%;
+
+  @include media(tablet) {
+    width: 66.66%;
+  }
+}
+
+// govuk-* additions
+
+span.error.error-message {
+  display: inline-block;
+  padding-left: .5em;
+}
+
+.column-three-quarters {
+  @include grid-column(3 / 4);
+}
+
+span.separator::before {
+  content: " | ";
+  color: $grey-1;
+}
+
+ul.classic {
+  margin: 0 0 1em 2em;
+  list-style-type: disc;
+}
+
+table {
+  &.with-margin {
+    margin: 2em 0 3em 0;
+  }
+  tbody th {
+    font-weight: normal;
+  }
+  tfoot td {
+    border: 0
+  }
+}
+
+a.secondary-button, a.secondary-button:visited {
+  color: $link-colour;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+// =============================================================================
+// class-less HTML styles
+
+nav ul {
+  list-style-type: none;
+  margin-bottom: 1em;
+  li {
+    margin-bottom: 1em;
+    a {
+      text-decoration: none;
+      &:visited {
+        color: $link-colour;
+      }
+    }
+  }
+}
+
+table {
+  margin-bottom: 1em;
+}

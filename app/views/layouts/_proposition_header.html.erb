@@ -1,0 +1,26 @@
+<div class="header-proposition">
+  <div class="content">
+    <a href="#proposition-links" class="js-header-toggle menu">Menu</a>
+    <nav id="proposition-menu">
+      <% if user_signed_in? %>
+          <ul id="proposition-links">
+            <li>
+              <%= link_to "Tasks", tasks_path =%>
+            </li>
+            <li>
+              <%= link_to "Manage datasets", manage_path =%>
+            </li>
+            <li>
+              <%= link_to "Performance", tasks_path =%>
+            </li>
+            <li>
+              <%= link_to current_user.try(:name), account_show_path(current_user.id) =%>
+            </li>
+            <li>
+              <%= link_to "Sign out", destroy_user_session_path, method: :delete =%>
+            </li>
+          </ul>
+      <% end %>
+    </nav>
+  </div>
+</div>
