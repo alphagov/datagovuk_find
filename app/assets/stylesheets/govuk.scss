@@ -1,0 +1,53 @@
+$path: "/assets/";
+
+$helvetica-regular: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
+$nta-light-tabular: $helvetica-regular;
+$toolkit-font-stack: $helvetica-regular;
+$toolkit-font-stack-tabular: $helvetica-regular;
+$NTA-Light: $helvetica-regular;
+$NTA-Light-Tabular: $helvetica-regular;
+$Helvetica-Regular: $helvetica-regular;
+
+$alpine-fresh: #128400;
+
+
+// From GDS's alphagov/govuk_frontend_toolkit
+@import 'colours';
+//@import 'font_stack';
+@import 'measurements';
+@import 'conditionals';
+@import 'device-pixels';
+@import 'grid_layout';
+@import 'typography';
+@import 'shims';
+
+@import 'design-patterns/alpha-beta';
+@import 'design-patterns/buttons';
+@import 'design-patterns/breadcrumbs';
+
+// From GDS's alphagov/govuk_elements
+@import 'elements/helpers';
+@import 'elements/reset';
+
+// Base (unclassed HTML elements)
+// These are predefined by govuk_template
+// If you're not using govuk_template, uncomment the line below.
+// HTML elements, set by the GOV.UK template
+// @import 'elements/base'
+
+@import 'elements/layout';
+@import 'elements/elements-typography';
+@import 'elements/buttons';
+// @import 'elements/icons';
+@import 'elements/lists';
+@import 'elements/tables';
+@import 'elements/details';
+@import 'elements/panels';
+@import 'elements/forms';
+//@import 'elements/forms/form-block-labels';
+@import 'elements/forms/form-date';
+@import 'elements/forms/form-validation';
+@import 'elements/forms/form-multiple-choice';
+@import 'elements/breadcrumbs';
+@import 'elements/phase-banner';
+@import 'elements/components';
