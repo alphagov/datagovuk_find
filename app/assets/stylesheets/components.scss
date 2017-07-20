@@ -1,2 +1,31 @@
 // =============================================================================
 // Front-end components go here
+
+// Homepage custom styles __________________
+
+.search-submit {
+  position: relative;
+  top: -.15em;
+  vertical-align: middle;
+  box-sizing: border-box;
+  height: 38px;
+  width: 40px;
+  cursor: pointer;
+  overflow: hidden;
+  background: #0b0c0c url(https://assets.publishing.service.gov.uk/frontend/homepage/search-button-085aa82ff641b5cfb3eb090c888459f96be271efe9c1d98a73c8a181202d9063.png) no-repeat 2px 50%;
+  text-indent: -5000px;
+  border: 0;
+  padding: 0;
+}
+
+.search {
+  box-sizing: border-box;
+  height: 40px;
+  width: 100%;
+  margin-right: -40px;
+}
+
+#search-form {
+  padding-left: 0px;
+}
+// ______________________________________________________
