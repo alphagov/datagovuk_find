@@ -1,6 +1,13 @@
 class ApplicationController < ActionController::Base
-  httpauth_name = ENV.fetch('FIND_USERNAME', rand(100000000).to_s)
-  httpauth_pass = ENV.fetch('FIND_PASSWORD', rand(100000000).to_s)
-  http_basic_authenticate_with name: httpauth_name, password: httpauth_pass
+  before_action :authenticate
   protect_from_forgery with: :exception
+end
+
+
+def authenticate
+  httpauth_name = ENV['FIND_USERNAME']
+  httpauth_pass = ENV['FIND_PASSWORD']
+  authenticate_or_request_with_http_basic('Administration') do |username, password|
+    username == httpauth_name && password == httpauth_pass
+  end
 end
