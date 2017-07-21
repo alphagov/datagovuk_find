@@ -6,15 +6,20 @@
   <%= csrf_meta_tags %>
 <% end %>
 <% content_for :page_title do %>
-  Data.gov.uk - Find Data
+  Data.gov.uk - Publish Data
 <% end %>
 <% content_for :homepage_url do %>/<% end %>
 <% content_for :global_header_text do %>
-  data.gov.uk<span class="separator"></span>find
+  Find UK Government data <strong class="phase-tag">BETA</strong>
+<% end %>
+<% content_for :header_class do %>with-proposition<% end %>
+<% content_for :proposition_header do %>
+  <!-- to hold options for authenticated users -->
+  <%= render partial: 'layouts/proposition_header' %>
 <% end %>
 <% content_for :content do %>
   <main role="main" tabindex="-1" id="content">
-    <%= render partial: 'layouts/phase_banner' %>
+
     <%= yield %>
   </main>
 

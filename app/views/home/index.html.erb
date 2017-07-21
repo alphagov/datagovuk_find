@@ -1,22 +1,20 @@
-<h1 class="heading-xlarge">Find UK Government data</h1>
-
-<div class="grid-rowx">
-  <p class="lede search-blurb">You can use this data to learn
-    more about how government<br>works, carry out research or build
-    applications and services.
-  </p>
+<div class="masthead">
+  <div class="grid-row inner">
+    <div class="column-two-thirds">
+      <h1 class="heading-xlarge">
+        Welcome to Find UK government data
+      </h1>
+      <p class="lede">
+        Find data published by central government, local authorities, and public bodies to help you build products and services.
+      </p>
+    </div>
+  </div>
 </div>
 
-
-<div class="grid-row">
-  <form id="search-form" action="/dataset" method="GET" class="column-two-thirds">
-    <fieldset>
-      <div id="search-box">
-        <nobr>
-          <input id="q" name="q" type="text" placeholder="" class="form-control search" autocomplete="off" style="width: 100%; height: 50px;">
-          <button type="submit" class="button" style="height: 50px;  margin-top: -1px">Find data</button>
-        </nobr>
-      </div>
-    </fieldset>
-  </form>
-</div>
+<form id="search-form" action="/search-results" method="GET" class="column-two-thirds">
+  <fieldset>
+    <div id="search-box">
+      <input id="q" name="q" type="text" placeholder="" class="form-control search" autocomplete="off"/><button type="submit" class="search-submit">Find data</button>
+    </div>
+  </fieldset>
+</form>
