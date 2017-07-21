@@ -5,6 +5,9 @@ rvm:
   - 2.4
 services:
   - postgresql
+  - elasticsearch
+before_script:
+  - sleep 10
 script:
   - bundle exec rake db:create
   - bundle exec rake db:migrate
