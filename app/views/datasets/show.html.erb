@@ -18,7 +18,7 @@
         </dl>
 
         <h3 class="heading-small">
-            Summary
+          Summary
         </h3>
         <p class="summary" style="max-height: 250px; overflow: hidden"> Here's a summary </p>
       </div>
@@ -31,14 +31,16 @@
       </ul>
 
       <h3 class="heading-small related">Search UK Government data</h3>
-        <form id="search-form" action="/search-results" method="GET" class="top-search">
-          <fieldset>
-            <div id="search-box">
-              <input id="q" name="q" type="text" placeholder="" class="form-control search" autocomplete="off" value="{{query}}"/><button type="submit" class="search-submit">Find data</button>
-            </div>
-          </fieldset>
-        </form>
-        <%= link_to 'Search help', '#' %>
+      <form id="search-form" action="/search-results" method="GET" class="top-search">
+        <fieldset>
+          <div id="search-box">
+            <input id="q" name="q" type="text" placeholder="" class="form-control search" autocomplete="off" value="{{query}}"/>
+            <button type="submit" class="search-submit">Find data</button>
+          </div>
+        </fieldset>
+      </form>
+      <%= link_to 'Search help', '#' %>
     </div>
   </div>
+  <%= render "timeseries_data" %>
 </main>
