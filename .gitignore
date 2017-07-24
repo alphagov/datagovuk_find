@@ -43,4 +43,7 @@ bower.json
 # Ignore Byebug command history file.
 .byebug_history
 
+#Ignore Intellij
+.idea/
+
 .DS_Store
