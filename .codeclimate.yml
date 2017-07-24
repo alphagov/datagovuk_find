@@ -5,6 +5,8 @@ engines:
     enabled: true
   csslint:
     enabled: true
+  scsslint:
+
   duplication:
     enabled: true
     config:
