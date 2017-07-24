@@ -29,3 +29,48 @@
   padding-left: 0px;
 }
 // ______________________________________________________
+
+// Dataset show page custom styles ______________________
+
+.metadata-box {
+  background: #F8F8F8;
+  padding: 25px 30px 15px 30px;
+}
+
+.metadata {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  dt, dd {
+    display: inline-block;
+    margin-bottom: 5px;
+    vertical-align: top;
+  }
+  dt {
+    width: 35%;
+    font-weight: bold;
+  }
+  dd {
+    width: 64%;
+  }
+}
+
+.unavailable {
+  color: #6F777B;
+}
+
+.related-datasets {
+  padding-left: 25px;
+  h3:first-of-type {
+    margin-top: 134px;
+    padding-top: 30px;
+    border-top: 10px solid #F8F8F8;
+  }
+  ul li {
+    margin-bottom: 10px;
+  }
+}
+
+.search {
+  width: 100%;
+  margin-bottom: 10px;
+}
