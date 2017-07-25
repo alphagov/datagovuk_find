@@ -1,6 +1,6 @@
 <div class="grid-row">
   <div class="column-full">
-    <section>
+    <section class="dataset">
       <!-- accoridions for time series datasets -->
       <h2 class="heading-medium">Data links
         <span class="showHide-open-all">Open all</span>
@@ -10,8 +10,14 @@
         <% @groups.each do |yearGroup| %>
             <li class="showHide">
               <div class="year-expand showHide-control">
-                <h3 class="heading-small"> <%= yearGroup[:year] %></h3>
-                <div><span class="expand">+</span></div>
+                <h3 class="heading-small">
+                  <button class="button secondary">
+                    <%= yearGroup[:year] %>
+                  </button>
+                </h3>
+                <div>
+                  <button class="expand button secondary">+</button>
+                </div>
               </div>
               <div class="year-datasets showHide-content" style="">
                 <table>
@@ -52,7 +58,7 @@
         <% end %>
         </li>
       </ul>
-      <input class="button" type="submit" value="Download all">
+      <input class="button download" type="submit" value="Download all">
     </section>
   </div>
 </div>

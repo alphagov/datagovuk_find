@@ -1,0 +1,62 @@
+<section id="feedback">
+  <div>
+    <h2 class="heading-medium">
+      Was this page useful for you?
+    </h2>
+    <form>
+      <div class="form-group feedback-form">
+        <fieldset class="inline">
+
+          <legend class="visually-hidden">Was this page useful for you?</legend>
+
+          <div class="multiple-choice" data-target="helpful">
+            <input id="radio-inline-1" type="radio" name="radio-inline-group" value="Yes" aria-controls="helpful" aria-expanded="false">
+            <label for="radio-inline-1">Yes</label>
+          </div>
+
+          <div class="multiple-choice" data-target="not-helpful">
+            <input id="radio-inline-2" type="radio" name="radio-inline-group" value="No" aria-controls="not-helpful" aria-expanded="false">
+            <label for="radio-inline-2">No</label>
+          </div>
+
+          <div class="panel panel-border-narrow js-hidden" id="not-helpful" aria-hidden="true">
+            <div class="multiple-choice">
+              <input id="" name="" type="checkbox" value="true">
+              <label for="">I couldn't find what I was looking for</label>
+            </div>
+            <div class="multiple-choice">
+              <input id="" name="" type="checkbox" value="true">
+              <label for="">The data was incomplete</label>
+            </div>
+            <div class="multiple-choice">
+              <input id="" name="" type="checkbox" value="true">
+              <label for="">The data is too old</label>
+            </div>
+            <div class="multiple-choice">
+              <input id="" name="" type="checkbox" value="true">
+              <label for="">The data was in a format I couldn't use</label>
+            </div>
+            <div class="multiple-choice">
+              <input id="" name="" type="checkbox" value="true">
+              <label for="">The data links don't work</label>
+            </div>
+            <div class="multiple-choice">
+              <input id="" name="" type="checkbox" value="true">
+              <label for="">The data contained errors</label>
+            </div>
+            <div class="multiple-choice">
+              <input id="checkbox-telephone-number" name="contact-by-text-phone" type="checkbox" value="true">
+              <label for="checkbox-telephone-number">Other</label>
+            </div>
+            <input class="button" type="submit" value="Submit">
+          </div>
+
+          <div class="js-hidden" id="helpful" aria-hidden="true">
+            <input class="button" type="submit" value="Submit">
+          </div>
+
+        </fieldset>
+      </div>
+    </form>
+  </div>
+</section>

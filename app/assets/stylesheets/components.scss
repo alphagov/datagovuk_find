@@ -5,13 +5,9 @@
 
 .search-submit {
   position: relative;
-  top: -.15em;
-  vertical-align: middle;
-  box-sizing: border-box;
   height: 38px;
   width: 40px;
   cursor: pointer;
-  overflow: hidden;
   background: #0b0c0c image-url("search-button.png") no-repeat 2px 50%;
   text-indent: -5000px;
   border: 0;
@@ -74,3 +70,84 @@
   width: 100%;
   margin-bottom: 10px;
 }
+
+.dataset {
+  .download {
+    margin-top: 1.5em;
+  }
+}
+
+.additional-information {
+  max-width: 625px;
+}
+
+span.showHide-open-all {
+  font-size: 16px;
+  float: right;
+  font-weight: normal;
+  display: inline-block;
+  color: $link-colour;
+  text-decoration: underline;
+}
+
+button.button.secondary {
+  background: none;
+  color: $govuk-blue;
+  text-decoration: none;
+  box-shadow: none;
+  font-weight: bold;
+  padding: .8em 0 0 0;
+  &.expand {
+    font-size: 1.5em;
+  }
+}
+
+section .year-expand {
+  .showHide-control, .expand {
+    cursor: pointer;
+  }
+  overflow: hidden;
+  border-bottom: 1px solid #BFC1C3;
+  &:hover {
+    background: #F8F8F8;
+  }
+  h3 {
+    color: #005ea5;
+    display: inline-block;
+    float: left;
+    margin: 20px 0;
+  }
+  div {
+    float: right;
+    height: 30px;
+    span {
+      display: inline-block;
+      font-size: 36px;
+      color: #005ea5;
+      margin: 10px 0;
+    }
+  }
+}
+
+#feedback {
+  margin-top: 50px;
+}
+
+.feedback-form{
+  background: #F8F8F8;
+  padding: 1em 1em 0.2em 1em;
+}
+
+.feedback-form .multiple-choice {
+  float: none;
+  padding-bottom: 1em;
+}
+
+#search-box {
+  display: flex;
+}
+
+.search {
+  flex: 1;
+}
+

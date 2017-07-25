@@ -1,46 +1,6 @@
 <main id="content" role="main">
-  <div class="grid-row">
-    <div class="column-two-thirds">
-
-      <h1 class="heading-large">
-        Dataset title
-      </h1>
-      <div class="metadata-box">
-        <dl class="metadata">
-          <dt>Published by:</dt>
-          <dd><a href="">link</a></dd>
-          <dt>Last updated:</dt>
-          <dd>last updated</dd>
-          <dt>Expected update:</dt>
-          <dd>next updated</dd>
-          <dt>Geographical area:</dt>
-          <dd class="unavailable">Not applicable</dd>
-        </dl>
-
-        <h3 class="heading-small">
-          Summary
-        </h3>
-        <p class="summary" style="max-height: 250px; overflow: hidden"> Here's a summary </p>
-      </div>
-      <section class="data-links">
-    </div>
-    <div class="column-one-third related-datasets">
-      <h3 class="heading-small">Related datasets</h3>
-      <ul>
-        <li><a href="/dataset/dataset_id">related dataset 1</a></li>
-      </ul>
-
-      <h3 class="heading-small related">Search UK Government data</h3>
-      <form id="search-form" action="/search-results" method="GET" class="top-search">
-        <fieldset>
-          <div id="search-box">
-            <input id="q" name="q" type="text" placeholder="" class="form-control search" autocomplete="off" value="{{query}}"/>
-            <button type="submit" class="search-submit">Find data</button>
-          </div>
-        </fieldset>
-      </form>
-      <%= link_to 'Search help', '#' %>
-    </div>
-  </div>
+  <%= render "meta_data" %>
   <%= render "timeseries_data" %>
+  <%= render "additional_info" %>
+  <%= render "feedback" %>
 </main>
