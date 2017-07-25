@@ -11,5 +11,7 @@
 // about supported directives.
 //
 //= require rails-ujs
+//= require jquery
 //= require turbolinks
+//= require govuk_toolkit
 //= require_tree .
