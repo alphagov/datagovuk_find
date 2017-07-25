@@ -21,6 +21,8 @@ gem 'cancancan', '~> 1.10'
 gem "elasticsearch", "~> 5.0.4"
 gem "elasticsearch-model", "~> 5.0.1"
 gem "elasticsearch-rails", "~> 5.0.1"
+gem "elasticsearch-persistence", "~> 5", require: "elasticsearch/persistence/model"
+
 
 group :development, :test do
   gem 'byebug', '~> 9'
