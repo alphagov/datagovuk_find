@@ -28,5 +28,15 @@ class DatasetsController < ApplicationController
           last_updated: '25-12-14',
           format: 'CSV'}
     ]
+    @documents = [
+      { name: 'lovely doc',
+      url: 'lovely-doc.url',
+      last_updated: '20-01-17',
+      format: 'CSV'},
+      { name: 'boring doc',
+        url: 'boring-doc.url',
+        last_updated: '25-12-14',
+        format: 'CSV'}
+  ]
   end
 end
