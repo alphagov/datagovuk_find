@@ -4,11 +4,11 @@ class ApplicationController < ActionController::Base
 end
 
 def authenticate
-  httpauth_name = ENV['HTTP_USERNAME']
-  httpauth_pass = ENV['HTTP_PASSWORD']
-  if httpauth_name && httpauth_pass
-    authenticate_or_request_with_http_basic('Administration') do |username, password|
-      username == httpauth_name && password == httpauth_pass
-    end
+  return if Rails.env.development? || Rails.env.test?
+
+  httpauth_name = ENV['FIND_USERNAME']
+  httpauth_pass = ENV['FIND_PASSWORD']
+  authenticate_or_request_with_http_basic('Administration') do |username, password|
+    username == httpauth_name && password == httpauth_pass
   end
 end

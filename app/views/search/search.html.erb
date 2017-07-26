@@ -17,7 +17,7 @@
   </div>
   <div class="grid-row">
     <div class="column-full">
-        <span class="bold-small"><%= @results.length %></span>
+        <span class="bold-small"><%= @num_results %></span>
         results found <% if @query %>for
         <span class="bold-small">'<%= @query %>'<% end %></span>
         <% if @sorted_by %> sorted by
@@ -30,18 +30,17 @@
   </div>
 
     <div class="column-two-thirds filters">
-      {% for dataset in results %}
       <% @results.each do |result| %>
       <div class="result">
         <div class="">
           <h2 class="heading-medium">
-          <a href="/dataset/<%= result.id %>"><%= @result.title %></a>
+          <a href="/dataset/<%= result._id %>"><%= result.title %></a>
           </h2>
             <dl class="metadata">
               <dt>Published by:</dt>
-              <dd><a href="#"><%= result.organisation["title"] %></a></dd>
+              <dd><a href="#"><%= result.organisation['title'] %></a></dd>
               <dt>Last updated:</dt>
-              <dd><%= result.last_updated %></dd>
+              <dd><%= result.updated_at %></dd>
               <dt>Geographical area:</dt>
               <% if result.location1 %>
                 <dd><%= result.location1 %>></dd>
@@ -49,7 +48,7 @@
                 <dd class="unavailable">Not applicable</dd>
               <% end %>
             </dl>
-            <p><%= @result.summary %></p>
+            <p><%= result.summary %></p>
         </div>
       </div>
       <% end %>
