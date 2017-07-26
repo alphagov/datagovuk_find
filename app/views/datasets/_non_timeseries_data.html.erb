@@ -1,0 +1,37 @@
+<section class='data-links'>
+  <h2 class="heading-medium">Data</h2>
+  <table>
+    <tr>
+      <th class="title small">Link to the data</th>
+      <th>Format</th>
+      <th>Last updated</th>
+      <th> </th>
+      <th> </th>
+    </tr>
+    <tbody>
+      <% @dataset.each do |datafile| %>
+        <tr>
+          <td class="title small">
+            <%= datafile[:name] %>
+          </td>
+          <% if true %>
+            <td><%= datafile[:format] %> (347kb)</td>
+          <% else %>
+            <td>N/A</td>
+          <% end %>
+          <% if true %>
+            <td>
+               <%= datafile[:date_added] %>
+            </td>
+          <% else %>
+            <td class="not-available">
+              Not available
+          <% end %>
+            </td>
+            <td><a href="<%= datafile[:url] %>">Download</a></td>
+            <td><a href="/preview-1">Preview</a></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>
