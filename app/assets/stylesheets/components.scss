@@ -1,7 +1,7 @@
 // =============================================================================
 // Front-end components go here
 
-// Homepage custom styles __________________
+// Homepage custom styles ______________________
 
 .search-submit {
   position: relative;
@@ -24,10 +24,10 @@
 #search-form {
   padding-left: 0px;
 }
-// ______________________________________________________
 
 // Dataset show page custom styles ______________________
 
+// metadata______
 .metadata-box {
   background: #F8F8F8;
   padding: 25px 30px 15px 30px;
@@ -54,6 +54,7 @@
   color: #6F777B;
 }
 
+// related datasets______
 .related-datasets {
   padding-left: 25px;
   h3:first-of-type {
@@ -66,6 +67,7 @@
   }
 }
 
+// search box______
 .search {
   width: 100%;
   margin-bottom: 10px;
@@ -77,10 +79,12 @@
   }
 }
 
+// additional info______
 .additional-information {
   max-width: 625px;
 }
 
+//time-series datalinks______
 span.showHide-open-all {
   font-size: 16px;
   float: right;
@@ -88,6 +92,7 @@ span.showHide-open-all {
   display: inline-block;
   color: $link-colour;
   text-decoration: underline;
+  cursor: pointer;
 }
 
 button.button.secondary {
@@ -129,20 +134,26 @@ section .year-expand {
   }
 }
 
+// feedback form______
 #feedback {
   margin-top: 50px;
+  .button {
+    margin-top: 30px;
+    margin-bottom: .7em;
+  }
 }
 
-.feedback-form{
+.dgu-feedback-form {
   background: #F8F8F8;
   padding: 1em 1em 0.2em 1em;
 }
 
-.feedback-form .multiple-choice {
+.dgu-feedback-form .multiple-choice {
   float: none;
-  padding-bottom: 1em;
+  padding-bottom: 2.5em;
 }
 
+// search box______
 #search-box {
   display: flex;
 }
@@ -150,4 +161,3 @@ section .year-expand {
 .search {
   flex: 1;
 }
-
