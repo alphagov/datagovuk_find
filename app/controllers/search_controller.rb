@@ -1,4 +1,6 @@
 class SearchController < ApplicationController
-  def index
+  def search
+    @query = params["q"]
+    @results = Dataset.search(@query).datasets
   end
 end
