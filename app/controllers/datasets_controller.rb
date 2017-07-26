@@ -4,10 +4,9 @@ class DatasetsController < ApplicationController
     @dataset = current_dataset
   end
 
-private
+  private
 
-def current_dataset
-  Dataset.get({id: params[:id]})._source
-end
-
+  def current_dataset
+    Dataset.get({id: params[:id]})._source
+  end
 end
