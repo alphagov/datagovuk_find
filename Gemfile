@@ -22,7 +22,7 @@ gem "elasticsearch", "~> 5.0.4"
 gem "elasticsearch-model", "~> 5.0.1"
 gem "elasticsearch-rails", "~> 5.0.1"
 gem "elasticsearch-persistence", "~> 5", require: "elasticsearch/persistence/model"
-
+gem "webpacker", "~> 2.0"
 
 group :development, :test do
   gem 'byebug', '~> 9'
