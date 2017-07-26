@@ -3,24 +3,28 @@
     <section class="data-links">
       <div class="column-two-thirds">
         <h1 class="heading-large">
-          Dataset title
+          <%= @dataset['title'] %>
         </h1>
         <div class="metadata-box">
           <dl class="metadata">
             <dt>Published by:</dt>
-            <dd><a href="">link</a></dd>
+            <dd><a href="#"><%= @dataset["organisation"]["title"] %> </a></dd>
             <dt>Last updated:</dt>
-            <dd>last updated</dd>
+            <dd><%= @dataset["updated_at"] %></dd>
             <dt>Expected update:</dt>
             <dd>next updated</dd>
             <dt>Geographical area:</dt>
-            <dd class="unavailable">Not applicable</dd>
+            <% if @dataset["location1"] %>
+              <dd><%= @dataset["location1"] %></dd>
+            <% else %>
+              <dd class="unavailable">Not applicable</dd>
+            <% end %>
           </dl>
 
           <h3 class="heading-small">
             Summary
           </h3>
-          <p class="summary" style="max-height: 250px; overflow: hidden"> Here's a summary </p>
+          <p class="summary" style="max-height: 250px; overflow: hidden"> <%= @dataset["summary"] %> </p>
         </div>
       </div>
       <div class="column-one-third related-datasets">
