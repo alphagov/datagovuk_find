@@ -12,12 +12,14 @@
             <dt>Last updated:</dt>
             <dd><%= @dataset["updated_at"] %></dd>
             <dt>Expected update:</dt>
-            <dd>next updated</dd>
+            <% unless @dataset["frequency"].empty? %>
+              <dd><%= @dataset["frequency"] %></dd>
+            <% end %>
             <dt>Geographical area:</dt>
-            <% if @dataset["location1"] %>
-              <dd><%= @dataset["location1"] %></dd>
-            <% else %>
+            <% if @dataset["location1"].empty? %>
               <dd class="unavailable">Not applicable</dd>
+            <% else %>
+              <dd><%= @dataset["location1"] %></dd>
             <% end %>
           </dl>
 
