@@ -12,13 +12,13 @@
         </tr>
       </thead>
       <tbody>
-        <% @documents.each do |document| %>
+        <% documents.each do |doc| %>
           <tr>
             <td class="title">
-              <a href="<%= document[:url] %>"><%= document[:name ]%></a>
+              <a href="<%= doc['url'] %>"><%= doc['name']%></a>
             </td>
-            <td><%= document[:format] or "n/a" %></td>
-            <td><%= document[:start_date] or "n/a" %></td>
+            <td><%= doc["format"] or "n/a" %></td>
+            <td><%= doc["start_date"] or "n/a" %></td>
           </tr>
         <% end %>
       </tbody>

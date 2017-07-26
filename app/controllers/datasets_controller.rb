@@ -1,5 +1,5 @@
 class DatasetsController < ApplicationController
-
+  include DatasetsHelper
   def show
     @dataset = current_dataset
   end

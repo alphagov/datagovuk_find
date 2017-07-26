@@ -1,9 +1,23 @@
 <main id="content" role="main">
+
   <%= render "meta_data" %>
-  render "timeseries_data"
-  <%= render "non_timeseries_data" %>
-  render "additional_info"
-  render "supporting_docs"
-  <%= render "contact" %>
-  render "feedback"
+
+  <% unless @dataset['datafiles'].empty? %>
+    <%= render "non_timeseries_data" %>
+  <% end %>
+
+  <% if @dataset['notes'] %>
+    <%= render "additional_info" %>
+  <% end %>
+
+  <% unless @dataset['datafiles'].empty? || no_documents? %>
+    <%= render "supporting_docs" %>
+  <% end %>
+
+  <% if @dataset['organisation']['contact_name'] || @dataset['organisation']['contact_email'] %>
+    <%= render "contact" %>
+  <% end %>
+
+  <%= render "feedback" %>
+
 </main>
