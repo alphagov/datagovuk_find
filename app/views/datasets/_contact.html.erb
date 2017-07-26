@@ -1,0 +1,21 @@
+<section class = "contact">
+  <div>
+    <h2 class="heading-medium">
+      Contact
+    </h2>
+    <div class="column-one-half">
+      <h3 class="heading-small">
+        Enquiries
+      </h3>
+      <p><%= @organisation[:contact_name] %> </br> <a href=""><%= @organisation[:contact_email] %></a> </p>
+    </div>
+    <% if @organisation[:foi_name] or @organisation[:foi_email] %>
+      <div class="column-one-half foi">
+        <h3 class="heading-small">
+          Freedom of Information (FOI) requests
+        </h3>
+        <p><%= @organisation[:foi_name] %> </br> <a href=""><%= @organisation[:foi_email] %></a> </p>
+      </div>
+    <% end %>
+  </div>
+</section>

@@ -136,10 +136,13 @@ section .year-expand {
 
 // feedback form______
 #feedback {
-  margin-top: 50px;
+  margin-top: 200px;
   .button {
     margin-top: 30px;
     margin-bottom: .7em;
+  }
+  .heading-medium {
+    margin-top: 60px;
   }
 }
 
@@ -160,4 +163,14 @@ section .year-expand {
 
 .search {
   flex: 1;
+}
+
+// contact______
+.contact {
+  .column-one-half {
+    padding-left: 0;
+    &.foi {
+      padding-right: 0;
+    }
+  }
 }
