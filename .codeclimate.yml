@@ -5,6 +5,8 @@ engines:
     enabled: true
   csslint:
     enabled: true
+  scsslint:
+    enabled: true
   duplication:
     enabled: true
     config:
@@ -13,7 +15,7 @@ engines:
           mass_threshold: 20
         javascript:
           mass_threshold: 50
-      
+
 ratings:
   paths:
   - app/**

@@ -1,0 +1,66 @@
+<section class='data-links'>
+  <div class="grid-row">
+    <div class="column-full">
+      <section class="dataset">
+        <!-- accoridions for time series datasets -->
+        <h2 class="heading-medium">Data links
+          <span class="showHide-open-all">Open all</span>
+        </h2>
+        <div class="breaker"></div>
+        <ul>
+          <% @groups.each do |yearGroup| %>
+              <li class="showHide">
+                <div class="year-expand showHide-control">
+                  <h3 class="heading-small">
+                    <button class="button secondary">
+                      <%= yearGroup[:year] %>
+                    </button>
+                  </h3>
+                  <div>
+                    <button class="expand button secondary">+</button>
+                  </div>
+                </div>
+                <div class="year-datasets showHide-content" style="display:none">
+                  <table>
+                    <tr>
+                      <th class="title small">Link to the data</th>
+                      <th>Format</th>
+                      <th>Last updated</th>
+                      <th></th>
+                    </tr>
+                    <tbody>
+                    <% yearGroup[:datafiles].each do |datafile| %>
+                        <tr>
+                          <td class="title small">
+                            <% if datafile[:name] %> <%= datafile[:name] %>
+                            <% else %> Data Link
+                            <% end %>
+                          </td>
+                          <% if datafile[:format] %>
+                              <td> datafile.format (347kb)</td>
+                          <% else %>
+                              <td>N/A</td>
+                          <% end %>
+                          <% if datafile[:last_updated] %>
+                              <td>
+                                datafile.last_updated
+                              </td>
+                          <% else %>
+                              <td class="not-available">
+                                Not available
+                          <% end %>
+                          </td>
+                          <td><a href="">Download</a></td>
+                        </tr>
+                   <% end %>
+                    </tbody>
+                  </table>
+                </div>
+          <% end %>
+          </li>
+        </ul>
+        <input class="button download" type="submit" value="Download all">
+      </section>
+    </div>
+  </div>
+</section>

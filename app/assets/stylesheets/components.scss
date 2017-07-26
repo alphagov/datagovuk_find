@@ -1,17 +1,13 @@
 // =============================================================================
 // Front-end components go here
 
-// Homepage custom styles __________________
+// Homepage custom styles ______________________
 
 .search-submit {
   position: relative;
-  top: -.15em;
-  vertical-align: middle;
-  box-sizing: border-box;
   height: 38px;
   width: 40px;
   cursor: pointer;
-  overflow: hidden;
   background: #0b0c0c image-url("search-button.png") no-repeat 2px 50%;
   text-indent: -5000px;
   border: 0;
@@ -28,4 +24,153 @@
 #search-form {
   padding-left: 0px;
 }
-// ______________________________________________________
+
+// Dataset show page custom styles ______________________
+
+// metadata______
+.metadata-box {
+  background: #F8F8F8;
+  padding: 25px 30px 15px 30px;
+}
+
+.metadata {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  dt, dd {
+    display: inline-block;
+    margin-bottom: 5px;
+    vertical-align: top;
+  }
+  dt {
+    width: 35%;
+    font-weight: bold;
+  }
+  dd {
+    width: 64%;
+  }
+}
+
+.unavailable {
+  color: #6F777B;
+}
+
+// related datasets______
+.related-datasets {
+  padding-left: 25px;
+  h3:first-of-type {
+    margin-top: 134px;
+    padding-top: 30px;
+    border-top: 10px solid #F8F8F8;
+  }
+  ul li {
+    margin-bottom: 10px;
+  }
+}
+
+// search box______
+.search {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.dataset {
+  .download {
+    margin-top: 1.5em;
+  }
+}
+
+// additional info______
+.additional-information {
+  max-width: 625px;
+}
+
+//time-series datalinks______
+span.showHide-open-all {
+  font-size: 16px;
+  float: right;
+  font-weight: normal;
+  display: inline-block;
+  color: $link-colour;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+button.button.secondary {
+  background: none;
+  color: $govuk-blue;
+  text-decoration: none;
+  box-shadow: none;
+  font-weight: bold;
+  padding: .8em 0 0 0;
+  &.expand {
+    font-size: 1.5em;
+  }
+}
+
+section .year-expand {
+  .showHide-control, .expand {
+    cursor: pointer;
+  }
+  overflow: hidden;
+  border-bottom: 1px solid #BFC1C3;
+  &:hover {
+    background: #F8F8F8;
+  }
+  h3 {
+    color: #005ea5;
+    display: inline-block;
+    float: left;
+    margin: 20px 0;
+  }
+  div {
+    float: right;
+    height: 30px;
+    span {
+      display: inline-block;
+      font-size: 36px;
+      color: #005ea5;
+      margin: 10px 0;
+    }
+  }
+}
+
+// feedback form______
+#feedback {
+  margin-top: 200px;
+  .button {
+    margin-top: 30px;
+    margin-bottom: .7em;
+  }
+  .heading-medium {
+    margin-top: 60px;
+  }
+}
+
+.dgu-feedback-form {
+  background: #F8F8F8;
+  padding: 1em 1em 0.2em 1em;
+}
+
+.dgu-feedback-form .multiple-choice {
+  float: none;
+  padding-bottom: 2.5em;
+}
+
+// search box______
+#search-box {
+  display: flex;
+}
+
+.search {
+  flex: 1;
+}
+
+// contact______
+.contact {
+  .column-one-half {
+    padding-left: 0;
+    &.foi {
+      padding-right: 0;
+    }
+  }
+}
