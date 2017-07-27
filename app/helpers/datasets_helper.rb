@@ -10,6 +10,10 @@ module DatasetsHelper
     docs
   end
 
+  def format(timestamp)
+    Time.parse(timestamp).strftime("%d %B %Y")
+  end
+
   def no_documents?
     d = documents
     d.count == 0
