@@ -10,10 +10,12 @@
             <dt>Published by:</dt>
             <dd><a href="#"><%= @dataset["organisation"]["title"] %> </a></dd>
             <dt>Last updated:</dt>
-            <dd><%= @dataset["updated_at"] %></dd>
+            <dd><%= Time.parse(@dataset["updated_at"]).strftime("%d %B %Y") %></dd>
             <dt>Expected update:</dt>
-            <% unless @dataset["frequency"].empty? %>
-              <dd><%= @dataset["frequency"] %></dd>
+            <% if @dataset["frequency"] == 'never' %>
+              <dd class="unavailable">Not available</dd>
+            <% else %>
+                <%= @dataset["frequency"] %>
             <% end %>
             <dt>Geographical area:</dt>
             <% if @dataset["location1"].empty? %>

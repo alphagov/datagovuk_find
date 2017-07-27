@@ -11,14 +11,14 @@ describe "Datasets", elasticsearch: true do
   let(:client) { Elasticsearch::Client.new(config)}
 
   it "displays a dataset" do
-    datasetName = "Fancy pants dataset"
-    dataset = createDatasetWithName(datasetName)
+    name = "Fancy pants dataset"
+    dataset = createDatasetWithName(name)
     index(dataset)
 
     visit "/dataset/1"
 
     expect(page).to have_content("Published by")
-    expect(page).to have_content(datasetName)
+    expect(page).to have_content(name)
   end
 
   after(:each) do
