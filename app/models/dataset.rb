@@ -2,6 +2,10 @@ class DatasetSearchResponse
   include ActiveModel::Model
   attr_accessor :datasets, :raw
   # This class can be improved by porting over more metadata from the raw response
+
+  def num_results
+    self.raw["hits"]["total"]
+  end
 end
 
 class Dataset
@@ -18,7 +22,7 @@ class Dataset
 
   class << self
     def from_json(raw_json)
-      d = Dataset.new(raw_json)
+      d = Dataset.new(raw_json.merge(raw_json['_source']))
       d.json = raw_json
       d
     end

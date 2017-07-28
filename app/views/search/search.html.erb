@@ -1,0 +1,59 @@
+<% content_for :page_title do %>
+    Results for "<%= @query %>" - Find Data Alpha
+<% end %>
+
+<main class="results-page" id="content" role="main">
+  <div class="grid-row masthead">
+    <div class="search-section">
+      <h1 class="heading-large">Search results</h1>
+      <form id="search-form" action="/search" method="GET" class="column-two-thirds">
+        <fieldset>
+          <div id="search-box">
+              <input id="q" name="q" type="text" placeholder="" class="form-control search" autocomplete="off" value="<%= @query %>"/><button type="submit" class="search-submit">Find data</button>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+  <div class="grid-row">
+    <div class="column-full">
+        <span class="bold-small"><%= @num_results %></span>
+        results found <% if @query %>for
+        <span class="bold-small">'<%= @query %>'<% end %></span>
+        <% if @sorted_by %> sorted by
+        <span class="bold-small">'<%= @sorted_by %>'<% end %></span>
+        <% if @local || @central || @bodies %> published by
+        <span class="bold-small">'<%= @org_type %>'<% end %></span>
+        <% if @location %> filtered by
+        <span class="bold-small">'<%= @location %>'<% end %></span>
+    </div>
+  </div>
+
+	<%= render 'filters' %>
+
+    <div class="column-two-thirds filters">
+      <% @results.each do |result| %>
+      <div class="result">
+        <div class="">
+          <h2 class="heading-medium">
+          <a href="/dataset/<%= result._id %>"><%= result.title %></a>
+          </h2>
+            <dl class="metadata">
+              <dt>Published by:</dt>
+              <dd><a href="#"><%= result.organisation['title'] %></a></dd>
+              <dt>Last updated:</dt>
+              <dd><%= result.updated_at %></dd>
+              <dt>Geographical area:</dt>
+              <% if result.location1 %>
+                <dd><%= result.location1 %></dd>
+              <% else %>
+                <dd class="unavailable">Not applicable</dd>
+              <% end %>
+            </dl>
+            <p><%= truncate(strip_tags(result.summary), length: 200, seperator: ' ') %></p>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</main>

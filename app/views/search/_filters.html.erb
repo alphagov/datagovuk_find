@@ -1,0 +1,53 @@
+<div class="grid-row">
+  <div class="column-one-third filters">
+    <form>
+      <div class="form-group">
+        <fieldset>
+          <input name="q" type="hidden" class="form-control search" value="<%= @query %>"/>
+          <h2 class="heading-medium first-filter">Sort by</h2>
+          <legend class="visually-hidden">Sort by</legend>
+          <div class="multiple-choice">
+            <input id="sortby-best" type="radio" name="sortby" value="best" <%= "checked" if best? || no_sort? %>>
+            <label for="sortby-best">Best match</label>
+          </div>
+          <div class="multiple-choice">
+            <input id="sortby-recent" type="radio" name="sortby" value="recent" <%= "checked" if recent? %>>
+            <label for="sortby-recent">Most recent</label>
+          </div>
+          <div class="multiple-choice">
+            <input id="sortby-viewed" type="radio" name="sortby" value="viewed" <%= "checked" if viewed? %>>
+            <label for="sortby-viewed">Most viewed</label>
+          </div>
+        </fieldset>
+      </div>
+
+      <h2 class="heading-medium">Filter search results</h2>
+      <div class="form-group">
+        <label class="form-label">Select publisher</label>
+
+        <fieldset>
+          <legend class="visually-hidden">Select publisher</legend>
+          <div class="multiple-choice">
+            <input id="a" name="org-type" type="checkbox" value="central-gov" <%= "checked" if central? %>>
+            <label for="a">Central Government</label>
+          </div>
+          <div class="multiple-choice">
+            <input id="b" name="org-type" type="checkbox" value="local-auth" <%= "checked" if local? %>>
+            <label for="b">Local Authorities</label>
+          </div>
+          <div class="multiple-choice">
+            <input id="c" name="org-type" type="checkbox" value="bodies" <%= "checked" if bodies? %>>
+            <label for="c">Other Government bodies</label>
+          </div>
+        </fieldset>
+      </div>
+
+      <label for="location" class="form-label">
+        Enter geographical area
+      </label>
+      <input id="location" name="location" value="<%= @location %>" class="form-control location"></input>
+
+      <input class="button" type="submit" value="Filter">
+      <a href="?q=<%= @query %>" class="button secondary">Reset all filters</a>
+    </form>
+  </div>
