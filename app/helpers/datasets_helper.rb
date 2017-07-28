@@ -41,8 +41,7 @@ module DatasetsHelper
     freq = @dataset["frequency"]
 
     if FREQUENCIES.has_key?(freq)
-      next_update = last.advance(FREQUENCIES[freq])
-      "<dd>#{ next_update.strftime("%d %B %Y") }</dd>".html_safe
+      "<dd>#{ last.advance(FREQUENCIES[freq]).strftime("%d %B %Y") }</dd>".html_safe
     elsif NO_MORE.has_key?(freq)
       "<dd class='unavailable'> #{NO_MORE[freq]}</dd>".html_safe
     else
@@ -50,5 +49,13 @@ module DatasetsHelper
     end
   end
 
-
+  def dataset_location
+    locations =
+      ["location1", "location2", "location3"].map{ |loc| @dataset[loc] }
+    if locations.join(" ").strip.empty?
+        "<dd class='unavailable'>Not applicable</dd>".html_safe
+    else
+        "<dd>#{locations.join(" ").strip}</dd>".html_safe
+    end
+  end
 end

@@ -12,12 +12,7 @@
             <dt>Last updated:</dt>
             <dd><%= format(@dataset["updated_at"]) %></dd>
             <dt>Expected update:</dt> <%= expected_update %>
-            <dt>Geographical area:</dt>
-            <% if @dataset["location1"].empty? %>
-              <dd class="unavailable">Not applicable</dd>
-            <% else %>
-              <dd><%= @dataset["location1"] %></dd>
-            <% end %>
+            <dt>Geographical area:</dt> <%= dataset_location %>
           </dl>
 
           <h3 class="heading-small">
