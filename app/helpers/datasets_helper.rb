@@ -37,11 +37,12 @@ module DatasetsHelper
   end
 
   def expected_update
-    last = @dataset["updated_at"]
+    last = Time.parse(@dataset["updated_at"])
     freq = @dataset["frequency"]
 
     if FREQUENCIES.has_key?(freq)
-      "<dd>#{format(last.advance(FREQUENCIES[freq]))}</dd>".html_safe
+      next_update = last.advance(FREQUENCIES[freq])
+      "<dd>#{ next_update.strftime("%d %B %Y") }</dd>".html_safe
     elsif NO_MORE.has_key?(freq)
       "<dd class='unavailable'> #{NO_MORE[freq]}</dd>".html_safe
     else
