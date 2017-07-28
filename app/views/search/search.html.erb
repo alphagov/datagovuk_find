@@ -25,9 +25,11 @@
         <% if @local || @central || @bodies %> published by
         <span class="bold-small">'<%= @org_type %>'<% end %></span>
         <% if @location %> filtered by
-        <span class="bold-small">'<% @location %>'<% end %></span>
+        <span class="bold-small">'<%= @location %>'<% end %></span>
     </div>
   </div>
+
+	<%= render 'filters' %>
 
     <div class="column-two-thirds filters">
       <% @results.each do |result| %>
@@ -43,12 +45,12 @@
               <dd><%= result.updated_at %></dd>
               <dt>Geographical area:</dt>
               <% if result.location1 %>
-                <dd><%= result.location1 %>></dd>
+                <dd><%= result.location1 %></dd>
               <% else %>
                 <dd class="unavailable">Not applicable</dd>
               <% end %>
             </dl>
-            <p><%= result.summary %></p>
+            <p><%= truncate(strip_tags(result.summary), length: 200, seperator: ' ') %></p>
         </div>
       </div>
       <% end %>

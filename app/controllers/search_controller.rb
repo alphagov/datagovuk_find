@@ -4,5 +4,18 @@ class SearchController < ApplicationController
     datasets = Dataset.search({ q: @query })
     @results = datasets.datasets
     @num_results = datasets.num_results
+    @sorted_by = sort
+    @location = location
+  end
+
+  private
+  def sort
+    sort = params["sortby"]
+    %w(best recent viewed).include?(sort) ? sort : nil
+  end
+
+  def location
+    loc = params["location"]
+    loc.blank? ? nil : loc
   end
 end
