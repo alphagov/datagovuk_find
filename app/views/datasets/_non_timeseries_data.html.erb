@@ -9,26 +9,26 @@
       <th> </th>
     </tr>
     <tbody>
-      <% @dataset.each do |datafile| %>
+      <% @dataset['datafiles'].each do |datafile| %>
         <tr>
           <td class="title small">
-            <%= datafile[:name] %>
+            <%= datafile['name'] %>
           </td>
           <% if true %>
-            <td><%= datafile[:format] %> (347kb)</td>
+            <td><%= datafile['format'] %> (347kb)</td>
           <% else %>
             <td>N/A</td>
           <% end %>
           <% if true %>
             <td>
-               <%= datafile[:date_added] %>
+               <%= datafile['date_added'] %>
             </td>
           <% else %>
             <td class="not-available">
               Not available
           <% end %>
             </td>
-            <td><a href="<%= datafile[:url] %>">Download</a></td>
+            <td><a href="<%= datafile['url'] %>">Download</a></td>
             <td><a href="/preview-1">Preview</a></td>
         </tr>
       <% end %>
