@@ -28,7 +28,7 @@
         </ul>
 
         <h3 class="heading-small related">Search UK Government data</h3>
-        <form id="search-form" action="/search-results" method="GET" class="top-search">
+        <form id="search-form" action="/search" method="GET" class="top-search">
           <fieldset>
             <div id="search-box">
               <input id="q" name="q" type="text" placeholder="" class="form-control search" autocomplete="off" value=""/>
@@ -36,7 +36,7 @@
             </div>
           </fieldset>
         </form>
-        <%= link_to 'Search help', '#' %>
+        <%= link_to 'Search help', search_tips_path %>
       </div>
     </section>
   </div>

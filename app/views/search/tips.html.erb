@@ -1,0 +1,35 @@
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds tips">
+
+      <h1 class="heading-large">
+        Tips to get better search results
+      </h1>
+      <h2 class="heading-medium">How to search on data.gov.uk</h2>
+      <p>To help you find exactly what you’re looking for, we’ve lined up some helpful search tips. Just like all search engines, using keywords in the search box is a really good starting point.</p>
+      <p>You can search for exact phrases by putting quote marks around your search term
+eg. “Road safety”</p>
+      <p>You can exclude words or phrases from your search results by using a minus sign, or adding "NOT" eg. primary school-Middlesex</p>
+      <h2 class="heading-medium">Using filters</h2>
+      <p>We recommend you use the filters to help you choose the data you’d like to see. We’ve created 3 groups: Best match, most viewed and most recent.</p>
+      <p>To view specific data from a publisher, simply select the publisher you want. We’ve grouped them into 3 groups: Central government, Local authorities and Other government bodies.</p>
+      <p>To see data from a preferred geographical area, simply start typing the location name and we’ll automatically display the geographical areas we have data for.</p>
+      <h2 class="heading-medium">Finding data on <a href="https://www.gov.uk/">GOV.UK</a></h2>
+      <p>To see data or more information about data stored on the GOV.UK site, go directly to <a href="https://www.gov.uk/">www.gov.uk</a>.</p>
+
+      <div class="box search-tips">
+        <h3 class="heading-small">
+            Search UK Government data
+        </h3>
+          <form id="search-form" action="/search" method="GET" class="top-search">
+            <fieldset>
+              <div id="search-box">
+                <input id="q" name="q" type="text" placeholder="" class="form-control search" autocomplete="off" value="<%= @query %>"/><button type="submit" class="search-submit">Find data</button>
+              </div>
+            </fieldset>
+          </form>
+      </div>
+
+    </div>
+  </div>
+</main>
