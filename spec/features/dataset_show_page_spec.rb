@@ -1,9 +1,10 @@
 require 'rails_helper'
 
-describe "Datasets", elasticsearch: true do
+describe "Datasets are read from ES", elasticsearch: true do
+
   it "displays a dataset" do
     name = "Fancy pants dataset"
-    dataset = createDatasetWithName(name)
+    dataset = create_dataset(name)
     index(dataset)
 
     visit "/dataset/1"
@@ -11,54 +12,109 @@ describe "Datasets", elasticsearch: true do
     expect(page).to have_content("Published by")
     expect(page).to have_content(name)
   end
+end
 
-  def index(dataset)
-    ELASTIC.index index: "datasets-#{Rails.env}", type: 'all', id: 1, body: dataset
-    ELASTIC.indices.refresh index: "datasets-#{Rails.env}"
+describe "expected update metadata is displayed", elasticsearch: true do
+
+  context "when a dataset has datafiles with end dates" do
+
+    datafiles_w_enddate = [
+      {"id" => 1,
+       "name" => "I have no end date",
+       "url" => "https://good_data.co.uk",
+       "end_date" => nil,
+       "updated_at"=> "2016-08-31T14:40:57.528Z"
+     },
+      {"id" => 2,
+       "name" => "I have an end date",
+       "url" => "https://good_data.co.uk",
+       "end_date" => "24/03/2018",
+       "updated_at"=> "2016-08-31T14:40:57.528Z"
+     },
+      {"id" => 3,
+       "name" => "I have an end date",
+       "url" => "https://good_data.co.uk",
+       "end_date" => "01/12/2018",
+       "updated_at"=> "2016-08-31T14:40:57.528Z"
+      }
+    ]
+
+    it "annual" do
+      dataset = create_dataset("Lovely data", "annual", datafiles_w_enddate)
+      index_and_visit(dataset)
+      expect(page).to have_content("Expected update: 24 March 2019")
+    end
+
+    it "quarterly" do
+      dataset = create_dataset("Lovely data", "quarterly", datafiles_w_enddate)
+      index_and_visit(dataset)
+      expect(page).to have_content("Expected update: 24 July 2018")
+    end
+
+    it "monthly" do
+      dataset = create_dataset("Lovely data", "monthly", datafiles_w_enddate)
+      index_and_visit(dataset)
+      expect(page).to have_content("Expected update: 24 April 2018")
+    end
+
+    it "daily" do
+      dataset = create_dataset("Lovely data", "daily", datafiles_w_enddate)
+      index_and_visit(dataset)
+      expect(page).to have_content("Expected update: 25 March 2018")
+    end
+
+    it "never, one off" do
+      ["never", "one off"].each do |freq|
+        dataset = create_dataset("Lovely data", freq, datafiles_w_enddate)
+        index_and_visit(dataset)
+        expect(page).to have_content("No future updates")
+      end
+    end
+
+    it "discontinued" do
+      dataset = create_dataset("Lovely data", "discontinued", datafiles_w_enddate)
+      index_and_visit(dataset)
+      expect(page).to have_content("Dataset no longer updated")
+    end
   end
 
-  def createDatasetWithName(name)
-    {
-        name: name,
-        title: name,
-        summary: "Ethnicity data",
-        description: "Ethnicity data",
-        licence: "no-licence",
-        licence_other: "",
-        location1: "",
-        location2: "",
-        location3: "",
-        frequency: "never",
-        published_date: "2013-08-31T00:56:15.435Z",
-        harvested: false,
-        created_at: "2013-08-31T00:56:15.435Z",
-        updated_at: "2017-07-24T14:47:25.975Z",
-        uuid: "67436432-07c3-4964-a365-5eb58d68a152",
-        organisation: {
-            id: 582,
-            name: "ministry-of-defence",
-            title: "Ministry of Defence",
-            description: "We protect the security, independence and interests of our country at home and abroad. We work with our allies and partners whenever possible. Our aim is to ensure that the armed forces have the training, equipment and support necessary for their work, and that we keep within budget.\r\n\r\nMOD is a ministerial department, supported by 28 agencies and public bodies.\r\n\r\nhttps://www.gov.uk/government/organisations/ministry-of-defence\r\n\r\n",
-            abbreviation: "MOD",
-            replace_by: "[]",
-            contact_email: "",
-            contact_phone: "",
-            contact_name: "",
-            foi_email: "",
-            foi_phone: "",
-            foi_name: "",
-            foi_web: "",
-            category: "ministerial-department",
-            organisation_user_id: "",
-            created_at: "2017-07-24T12:54:26.087Z",
-            updated_at: "2017-07-24T12:54:26.087Z",
-            uuid: "5db6e904-ea2f-42a7-93bd-a61da059246f",
-            active: true,
-            org_type: "central-government",
-            ancestry: ""
-        },
-        datafiles: []
-    }
+  context "when a dataset has datafiles with no end dates" do
+
+    datafiles_no_enddate = [
+      {"id" => 1,
+       "name" => "I have no end date",
+       "url" => "https://good_data.co.uk",
+       "end_date" => nil,
+       "updated_at"=> "2016-08-31T14:40:57.528Z"
+     },
+      {"id" => 2,
+       "name" => "I have an end date",
+       "url" => "https://good_data.co.uk",
+       "end_date" => nil,
+       "updated_at"=> "2016-08-31T14:40:57.528Z"
+     }]
+
+     it "uses the updated_at field to calculate next update" do
+       dataset = create_dataset("Lovely data", "annual", datafiles_no_enddate)
+       index_and_visit(dataset)
+       expect(page).to have_content("Expected update: 31 August 2017")
+     end
+  end
+
+  context "when a dataset has no datafiles" do
+
+    it "no expected updated" do
+      dataset = create_dataset("Lovely data", "daily")
+      index_and_visit(dataset)
+      expect(page).to have_content("This dataset has no data yet")
+    end
   end
 end
 
+describe "location metadata", elasticsearch: true do
+  it 'displays a location if there is one' do
+    dataset = create_dataset("Lovely data")
+    index_and_visit(dataset)
+    expect(page).to have_content("Geographical area: London Southwark")
+  end
+end

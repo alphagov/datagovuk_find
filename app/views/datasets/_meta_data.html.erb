@@ -11,18 +11,8 @@
             <dd><a href="#"><%= @dataset["organisation"]["title"] %> </a></dd>
             <dt>Last updated:</dt>
             <dd><%= format(@dataset["updated_at"]) %></dd>
-            <dt>Expected update:</dt>
-            <% if @dataset["frequency"] == 'never' %>
-              <dd class="unavailable">Not available</dd>
-            <% else %>
-                <%= @dataset["frequency"] %>
-            <% end %>
-            <dt>Geographical area:</dt>
-            <% if @dataset["location1"].empty? %>
-              <dd class="unavailable">Not applicable</dd>
-            <% else %>
-              <dd><%= @dataset["location1"] %></dd>
-            <% end %>
+            <dt>Expected update:</dt> <%= expected_update %>
+            <dt>Geographical area:</dt> <%= dataset_location %>
           </dl>
 
           <h3 class="heading-small">
@@ -38,7 +28,7 @@
         </ul>
 
         <h3 class="heading-small related">Search UK Government data</h3>
-        <form id="search-form" action="/search-results" method="GET" class="top-search">
+        <form id="search-form" action="/search" method="GET" class="top-search">
           <fieldset>
             <div id="search-box">
               <input id="q" name="q" type="text" placeholder="" class="form-control search" autocomplete="off" value=""/>
@@ -46,7 +36,7 @@
             </div>
           </fieldset>
         </form>
-        <%= link_to 'Search help', '#' %>
+        <%= link_to 'Search help', search_tips_path %>
       </div>
     </section>
   </div>

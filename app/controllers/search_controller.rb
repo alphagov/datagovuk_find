@@ -8,6 +8,10 @@ class SearchController < ApplicationController
     @location = location
   end
 
+  def tips
+
+  end
+
   private
   def sort
     sort = params["sortby"]
