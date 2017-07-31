@@ -42,10 +42,11 @@ def create_dataset(name, frequency = nil)
   }
 end
 
-def index(dataset)
-  client.index index: "datasets-#{Rails.env}", type: 'all', id: 1, body: dataset
-  client.indices.refresh index: "datasets-#{Rails.env}"
-end
+
+  def index(dataset)
+    ELASTIC.index index: "datasets-#{Rails.env}", type: 'all', id: 1, body: dataset
+    ELASTIC.indices.refresh index: "datasets-#{Rails.env}"
+  end
 
 def index_and_visit(dataset)
   index(dataset)
