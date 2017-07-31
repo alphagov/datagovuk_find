@@ -1,15 +1,6 @@
 require 'rails_helper'
 
 describe "Datasets", elasticsearch: true do
-  config = {
-      host: ENV.fetch("ES_HOST", "http://127.0.0.1:9200"),
-      transport_options: {
-          request: {timeout: 5}
-      }
-  }
-
-  let(:client) { Elasticsearch::Client.new(config)}
-
   it "displays a dataset" do
     name = "Fancy pants dataset"
     dataset = createDatasetWithName(name)
@@ -21,13 +12,9 @@ describe "Datasets", elasticsearch: true do
     expect(page).to have_content(name)
   end
 
-  after(:each) do
-    client.indices.delete index: "datasets-#{Rails.env}"
-  end
-
   def index(dataset)
-    client.index index: "datasets-#{Rails.env}", type: 'all', id: 1, body: dataset
-    client.indices.refresh index: "datasets-#{Rails.env}"
+    ELASTIC.index index: "datasets-#{Rails.env}", type: 'all', id: 1, body: dataset
+    ELASTIC.indices.refresh index: "datasets-#{Rails.env}"
   end
 
   def createDatasetWithName(name)
