@@ -14,7 +14,7 @@
     <%= render "additional_info" %>
   <% end %>
 
-  <% unless @dataset['datafiles'].empty? || no_documents? %>
+  <% unless @dataset['datafiles'].empty? || no_documents?(@dataset['datafiles']) %>
     <%= render "supporting_docs" %>
   <% end %>
 

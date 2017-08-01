@@ -13,9 +13,9 @@ module DatasetsHelper
     'one off' => 'No future updates'
   }
 
-  def documents
+  def documents(datafiles)
     docs = []
-    @dataset['datafiles'].each do |file|
+    datafiles.each do |file|
       if documentation?(file['documentation'])
         docs << file['documentation']
       end
@@ -27,8 +27,8 @@ module DatasetsHelper
     Time.parse(timestamp).strftime("%d %B %Y")
   end
 
-  def no_documents?
-    d = documents
+  def no_documents?(datafiles)
+    d = documents(datafiles)
     d.count == 0
   end
 
@@ -79,5 +79,4 @@ module DatasetsHelper
         "<dd>#{locations.join(" ").strip}</dd>".html_safe
     end
   end
-
 end
