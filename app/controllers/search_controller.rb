@@ -21,7 +21,7 @@ class SearchController < ApplicationController
 
     case @sorted_by
     when "recent"
-      @dataset = @datasets.sort_by { |d| d.created_at }
+      @datasets = @datasets.sort_by { |d| d.created_at }
     end
   end
 
