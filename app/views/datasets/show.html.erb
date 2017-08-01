@@ -3,14 +3,18 @@
   <%= render "meta_data" %>
 
   <% unless @dataset['datafiles'].empty? %>
-    <%= render "non_timeseries_data" %>
+    if time_series_data?(@dataset)
+      render "timeseries_data"
+    else
+      <%= render "non_timeseries_data" %>
+    end
   <% end %>
 
   <% if @dataset['notes'] %>
     <%= render "additional_info" %>
   <% end %>
 
-  <% unless @dataset['datafiles'].empty? || no_documents? %>
+  <% unless @dataset['datafiles'].empty? || no_documents?(@dataset['datafiles']) %>
     <%= render "supporting_docs" %>
   <% end %>
 

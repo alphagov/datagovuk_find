@@ -13,9 +13,9 @@ module DatasetsHelper
     'one off' => 'No future updates'
   }
 
-  def documents
+  def documents(datafiles)
     docs = []
-    @dataset['datafiles'].each do |file|
+    datafiles.each do |file|
       if documentation?(file['documentation'])
         docs << file['documentation']
       end
@@ -27,8 +27,8 @@ module DatasetsHelper
     Time.parse(timestamp).strftime("%d %B %Y")
   end
 
-  def no_documents?
-    d = documents
+  def no_documents?(datafiles)
+    d = documents(datafiles)
     d.count == 0
   end
 
@@ -36,38 +36,38 @@ module DatasetsHelper
     key != nil && key != ""
   end
 
-  def expected_update
-    if @dataset["datafiles"].any?
-      datafile_next_updated(@dataset["frequency"])
-    else
-      # TODO placeholder error message - should we just hide field if there are no datafiles?
-      "<dd class='unavailable'> This dataset has no data yet </dd>".html_safe
-    end
+  def expected_update(dataset)
+    dataset['frequency'].nil? ? "Not available" : datafile_next_updated(dataset)
   end
 
-  def datafile_next_updated(freq)
-    last = Time.parse(most_recent_date)
-
+  def datafile_next_updated(dataset)
+    freq = dataset['frequency']
+    last = most_recent_date(dataset['datafiles'])
     if FREQUENCIES.has_key?(freq)
-      "<dd>#{ last.advance(FREQUENCIES[freq]).strftime("%d %B %Y") }</dd>".html_safe
+      last.advance(FREQUENCIES[freq]).strftime("%d %B %Y")
     elsif NO_MORE.has_key?(freq)
-      "<dd class='unavailable'> #{NO_MORE[freq]}</dd>".html_safe
+      NO_MORE[freq]
     else
-      "<dd class='unavailable'> Not available </dd>".html_safe
+      "Not available"
     end
   end
 
-  def no_end_date_on_datafiles?
-    @dataset["datafiles"].reject do |file|
+  def class_for(freq = nil)
+    NO_MORE.include?(freq)
+      "unavailable"
+  end
+
+  def no_end_date_on_datafiles?(datafiles)
+    datafiles.reject do |file|
       file["end_date"].nil?
     end.map{ |file| file }.empty?
   end
 
-  def most_recent_date
-    date_field = no_end_date_on_datafiles? ? "updated_at" : "end_date"
+  def most_recent_date(datafiles)
+    date_field = no_end_date_on_datafiles?(datafiles) ? "updated_at" : "end_date"
     most_recent_datafile =
-      @dataset["datafiles"].sort_by{ |file| file[date_field].to_s }.reverse[0]
-    most_recent_datafile[date_field]
+      datafiles.sort_by{ |file| file[date_field].to_s }.reverse[0]
+    Time.parse(most_recent_datafile[date_field])
   end
 
   def dataset_location
