@@ -1,15 +1,57 @@
 require 'rails_helper'
 
-# Specs in this file have access to a helper object that includes
-# the DatasetsHelper. For example:
-#
-# describe DatasetsHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       expect(helper.concat_strings("this","that")).to eq("this that")
-#     end
-#   end
-# end
-RSpec.describe DatasetsHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe DatasetsHelper, type: :helper do
+  it 'Should group time series data by year' do
+
+    unformattedDatasets = [
+        {'id' => 1,
+         'name' => 'Dataset 1',
+         'url' => 'https://good_data.co.uk',
+         'start_date' => '2017-09-24',
+         'end_date' => nil,
+         'updated_at' => '2017-08-31T14:40:57.528Z'
+        },
+        {'id' => 2,
+         'name' => 'Dataset 2',
+         'url' => 'https://good_data.co.uk',
+         'start_date' => '2015-09-25',
+         'end_date' => nil,
+         'updated_at' => '2015-10-31T14:40:57.528Z'
+        },
+        {'id' => 3,
+         'name' => 'Dataset 3',
+         'url' => 'https://good_data.co.uk',
+         'start_date' => '2015-09-24',
+         'end_date' => nil,
+         'updated_at' => '2015-08-31T14:40:57.528Z'
+        }]
+
+    formattedDatasets = {
+        '2017' => [{'id' => 1,
+                    'name' => 'Dataset 1',
+                    'url' => 'https://good_data.co.uk',
+                    'start_date' => '2017-09-24',
+                    'end_date' => nil,
+                    'updated_at' => '2017-08-31T14:40:57.528Z',
+                    'start_year' => '2017'
+                   }],
+        '2015' => [{'id' => 2,
+                    'name' => 'Dataset 2',
+                    'url' => 'https://good_data.co.uk',
+                    'start_date' => '2015-09-25',
+                    'end_date' => nil,
+                    'updated_at' => '2015-10-31T14:40:57.528Z',
+                    'start_year' => '2015'},
+                   {'id' => 3,
+                    'name' => 'Dataset 3',
+                    'url' => 'https://good_data.co.uk',
+                    'start_date' => '2015-09-24',
+                    'end_date' => nil,
+                    'updated_at' => '2015-08-31T14:40:57.528Z',
+                    'start_year' => '2015'
+                   }]
+    }
+
+    expect(helper.groupDatasets(unformattedDatasets)).to eql formattedDatasets
+  end
 end

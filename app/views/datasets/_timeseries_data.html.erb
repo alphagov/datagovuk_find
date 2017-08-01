@@ -8,7 +8,7 @@
         </h2>
         <div class="breaker"></div>
         <ul>
-          <% @groups.each do |yearGroup| %>
+          <% format(@dataset['datafiles']).each do |yearGroup| %>
               <li class="showHide">
                 <div class="year-expand showHide-control">
                   <h3 class="heading-small">

@@ -93,4 +93,14 @@ module DatasetsHelper
       end.map{ |file| file }.any?
     end
   end
+
+  def groupDatasets(datasets)
+    datasets_with_year = datasets.map do |dataset|
+      dataset_copy = dataset
+      dataset_copy['start_year'] = Time.parse(dataset['start_date']).year.to_s
+      dataset_copy
+    end
+
+    datasets_with_year.group_by { |dataset| dataset['start_year'] }
+  end
 end
