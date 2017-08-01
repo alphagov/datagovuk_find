@@ -2,9 +2,13 @@ require "simplecov"
 SimpleCov.start
 
 RSpec.configure do |config|
+  config.before(:each) do
+    delete_index
+    create_index
+  end
 
   config.after(:each) do
-    ELASTIC.indices.delete index: "datasets-#{Rails.env}"
+    delete_index
   end
 
   config.expect_with :rspec do |expectations|
@@ -24,4 +28,18 @@ RSpec.configure do |config|
   config.profile_examples = 10
   config.order = :random
   Kernel.srand config.seed
+end
+
+def delete_index
+  if Rails.env == "test"
+    begin
+      ELASTIC.indices.delete index: "datasets-test"
+    rescue
+      Rails.logger.debug("No test search index to delete")
+    end
+  end
+end
+
+def create_index
+  ELASTIC.indices.create index: "datasets-test"
 end
