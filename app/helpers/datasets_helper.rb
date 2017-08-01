@@ -79,4 +79,18 @@ module DatasetsHelper
         "<dd>#{locations.join(" ").strip}</dd>".html_safe
     end
   end
+
+  def timeseries_data(dataset)
+    years =
+      dataset['datafiles'].map{ |file| Time.parse(file['start_date']).year }.uniq
+    years
+  end
+
+  def has_start_dates?(dataset)
+    if dataset['datafiles'].any?
+      dataset['datafiles'].reject do |file|
+        file["start_date"].nil?
+      end.map{ |file| file }.any?
+    end
+  end
 end

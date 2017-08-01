@@ -8,6 +8,7 @@ class DatasetSearchResponse
   end
 end
 
+
 class Dataset
   include ActiveModel::Model
   attr_accessor :name, :title, :summary, :description,
