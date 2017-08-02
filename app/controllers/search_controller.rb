@@ -1,32 +1,30 @@
 class SearchController < ApplicationController
   def search
     @query = params["q"]
+    @search = Dataset.search(@query)
+    @num_results = @search.results.total
     @sorted_by = sort
     @location = location
-    results = Dataset.search({ q: @query })
-    @datasets = results.datasets
-    @num_results = results.num_results
-
-    sort_datasets!
+    @datasets = @search.page(page_number).results
   end
 
   def tips
-
   end
 
   private
+  def page_number
+    page = params["page"]
+
+    if page && page.to_i > 0
+      page.to_i
+    else
+      1
+    end
+  end
+
   def sort
     sort = params["sortby"]
     %w(best recent viewed).include?(sort) ? sort : nil
-  end
-
-  def sort_datasets!
-    return unless @sorted_by
-
-    case @sorted_by
-    when "recent"
-      @datasets = @datasets.sort_by { |d| d.created_at }
-    end
   end
 
   def location

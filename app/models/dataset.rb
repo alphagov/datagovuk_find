@@ -11,6 +11,7 @@ end
 
 class Dataset
   include ActiveModel::Model
+  include Elasticsearch::Model
   attr_accessor :name, :title, :summary, :description,
        :location1, :location2, :location3,
        :licence, :licence_other, :frequency,
@@ -19,7 +20,6 @@ class Dataset
        :inspire_dataset, :json,
        :_index, :_type, :_id, :_score, :_source,
        :_version
-  # TODO: subclass for datafiles
 
   class << self
     def from_json(raw_json)
@@ -28,29 +28,12 @@ class Dataset
       d
     end
 
-    def index
-      "datasets-#{Rails.env}"
-    end
-
-    def search(params)
-      results = ELASTIC.search(params.merge({index: Dataset.index}))
-      hits = results['hits']['hits']
-
-      datasets = hits.map do |hit|
-        Dataset.from_json(hit)
-      end
-
-      DatasetSearchResponse.new(datasets: datasets, raw: results)
-    end
-
     def get(params)
-      result = ELASTIC.get(params.merge({index: Dataset.index}))
+      result = ELASTIC.get(params.merge({index: Dataset.index_name}))
       result.delete 'found' # TODO: don't delete this
       Dataset.from_json(result)
     end
-
-    def _query(method, params)
-      ELASTIC.send(method, params.merge({index: Dataset.index}))
-    end
   end
+
+  index_name "datasets-#{Rails.env}"
 end
