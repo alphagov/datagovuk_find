@@ -21,5 +21,19 @@ class Dataset
        :_index, :_type, :_id, :_score, :_source,
        :_version
 
+  class << self
+		def from_json(raw_json)
+      d = Dataset.new(raw_json.merge(raw_json['_source']))
+      d.json = raw_json
+      d
+    end
+
+    def get(params)
+      result = ELASTIC.get(params.merge({index: Dataset.index_name}))
+      result.delete 'found' # TODO: don't delete this
+      Dataset.from_json(result)
+    end
+  end
+
   index_name "datasets-#{Rails.env}"
 end
