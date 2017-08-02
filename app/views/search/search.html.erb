@@ -32,25 +32,25 @@
 	<%= render 'filters' %>
 
     <div class="column-two-thirds filters">
-      <% @results.each do |result| %>
+      <% @datasets.each do |d| %>
       <div class="result">
         <div class="">
           <h2 class="heading-medium">
-          <a href="/dataset/<%= result._id %>"><%= result.title %></a>
+          <a href="/dataset/<%= d._id %>"><%= d.title %></a>
           </h2>
             <dl class="metadata">
               <dt>Published by:</dt>
-              <dd><a href="#"><%= result.organisation['title'] %></a></dd>
+              <dd><a href="#"><%= d.organisation['title'] %></a></dd>
               <dt>Last updated:</dt>
-              <dd><%= result.updated_at %></dd>
+              <dd><%= d.updated_at %></dd>
               <dt>Geographical area:</dt>
-              <% if result.location1 %>
-                <dd><%= result.location1 %></dd>
+              <% if d.location1 %>
+                <dd><%= d.location1 %></dd>
               <% else %>
                 <dd class="unavailable">Not applicable</dd>
               <% end %>
             </dl>
-            <p><%= truncate(strip_tags(result.summary), length: 200, seperator: ' ') %></p>
+            <p><%= truncate(strip_tags(d.summary), length: 200, seperator: ' ') %></p>
         </div>
       </div>
       <% end %>

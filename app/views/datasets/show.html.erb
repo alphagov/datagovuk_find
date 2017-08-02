@@ -13,8 +13,8 @@
           <%= render "additional_info" %>
       <% end %>
 
-      <% unless @dataset['datafiles'].empty? || no_documents? %>
-          <%= render "supporting_docs" %>
+      <% unless @dataset['datafiles'].empty? || no_documents?(@dataset['datafiles']) %>
+        <%= render "supporting_docs" %>
       <% end %>
 
       <% if @dataset['organisation']['contact_name'] || @dataset['organisation']['contact_email'] %>
