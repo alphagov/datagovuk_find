@@ -17,7 +17,7 @@ class Dataset
        :licence, :licence_other, :frequency,
        :published_date, :updated_at, :created_at,
        :harvested, :uuid, :organisation, :datafiles,
-       :inspire_dataset, :json,
+       :inspire_dataset, :json, :notes,
        :_index, :_type, :_id, :_score, :_source,
        :_version
 

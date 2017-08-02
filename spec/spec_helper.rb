@@ -2,6 +2,9 @@ require "simplecov"
 SimpleCov.start
 
 RSpec.configure do |config|
+  config.filter_run focus: true
+  config.run_all_when_everything_filtered = true
+
   config.before(:each) do
     delete_index
     create_index
@@ -25,7 +28,7 @@ RSpec.configure do |config|
     config.default_formatter = "doc"
   end
 
-  config.profile_examples = 10
+  config.profile_examples = 1
   config.order = :random
   Kernel.srand config.seed
 end

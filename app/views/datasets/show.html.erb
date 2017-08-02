@@ -3,21 +3,24 @@
   <%= render "meta_data" %>
 
   <% unless @dataset['datafiles'].empty? %>
-    <%= render "non_timeseries_data" %>
+      <% if timeseries_data?(@dataset['datafiles']) %>
+          <%= render "timeseries_data" %>
+      <% else %>
+          <%= render "non_timeseries_data" %>
+      <% end %>
+
+      <% if @dataset['notes'] %>
+          <%= render "additional_info" %>
+      <% end %>
+
+      <% unless @dataset['datafiles'].empty? || no_documents?(@dataset['datafiles']) %>
+          <%= render "supporting_docs" %>
+      <% end %>
+
+      <% if @dataset['organisation']['contact_name'] || @dataset['organisation']['contact_email'] %>
+          <%= render "contact" %>
+      <% end %>
+
+      <%= render "feedback" %>
   <% end %>
-
-  <% if @dataset['notes'] %>
-    <%= render "additional_info" %>
-  <% end %>
-
-  <% unless @dataset['datafiles'].empty? || no_documents?(@dataset['datafiles']) %>
-    <%= render "supporting_docs" %>
-  <% end %>
-
-  <% if @dataset['organisation']['contact_name'] || @dataset['organisation']['contact_email'] %>
-    <%= render "contact" %>
-  <% end %>
-
-  <%= render "feedback" %>
-
 </main>
