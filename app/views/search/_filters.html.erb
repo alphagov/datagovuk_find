@@ -31,10 +31,10 @@
       <label for="publisher" class="form-label">
         Enter publisher
       </label>
-      <div id="publisher" name="publisher" data-default="<%= @location %>" class="filter"></div>
+      <div id="publisher" name="publisher" data-default="<%= @organisation %>" class="filter"></div>
 
 
       <input class="button" type="submit" value="Apply filters"></input>
-      <a href="?q=<%= @query %>">Reset all filters</a>
+      <%= link_to 'Reset all filters', search_path(q: @query) %>
     </form>
   </div>

@@ -26,4 +26,8 @@ module SearchHelper
   def bodies?
     @org_type == "bodies"
   end
+
+  def format(timestamp)
+    Time.parse(timestamp).strftime("%d %B %Y")
+  end
 end
