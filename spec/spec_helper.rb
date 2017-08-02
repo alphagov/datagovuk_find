@@ -7,6 +7,9 @@ RSpec.configure do |config|
   #   ELASTIC.indices.delete index: "datasets-#{Rails.env}"
   # end
 
+  config.filter_run focus: true
+  config.run_all_when_everything_filtered = true
+
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end
@@ -21,7 +24,7 @@ RSpec.configure do |config|
     config.default_formatter = "doc"
   end
 
-  config.profile_examples = 10
+  config.profile_examples = 1
   config.order = :random
   Kernel.srand config.seed
 end
