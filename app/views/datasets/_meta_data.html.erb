@@ -26,7 +26,7 @@
           <h3 class="heading-small">
             Summary
           </h3>
-          <p class="summary" style="max-height: 250px; overflow: hidden"> <%= @dataset["summary"] %> </p>
+          <p class="summary" style="max-height: 250px; overflow: hidden"> <%= strip_tags(@dataset["summary"]) %> </p>
         </div>
       </div>
       <div class="column-one-third related-datasets">
