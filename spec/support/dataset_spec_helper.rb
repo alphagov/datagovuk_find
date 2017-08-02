@@ -1,4 +1,4 @@
-def create_dataset(name, frequency = nil, datafiles = nil)
+def create_dataset(name, frequency = nil, datafiles = [], notes = 'Some notes')
   {
       name: name,
       title: name,
@@ -38,7 +38,8 @@ def create_dataset(name, frequency = nil, datafiles = nil)
           org_type: "central-government",
           ancestry: ""
       },
-      datafiles: datafiles || []
+      datafiles: datafiles,
+      notes: notes
   }
 end
 

@@ -3,7 +3,7 @@
   <%= render "meta_data" %>
 
   <% unless @dataset['datafiles'].empty? %>
-      <% if timeseries_data?(@dataset) %>
+      <% if timeseries_data?(@dataset['datafiles']) %>
           <%= render "timeseries_data" %>
       <% else %>
           <%= render "non_timeseries_data" %>

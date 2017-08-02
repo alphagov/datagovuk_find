@@ -45,8 +45,8 @@ module DatasetsHelper
     NO_MORE['default'] if locations(dataset).empty?
   end
 
-  def timeseries_data?(dataset)
-    dataset['datafiles'].map {|file| Time.parse(file['start_date']).year}.uniq
+  def timeseries_data?(datafiles)
+    datafiles.map {|file| Time.parse(file['start_date']).year}.uniq.length > 1
   end
 
   def has_start_dates?(dataset)
