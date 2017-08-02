@@ -22,7 +22,7 @@ class Dataset
        :_version
 
   class << self
-		def from_json(raw_json)
+    def from_json(raw_json)
       d = Dataset.new(raw_json.merge(raw_json['_source']))
       d.json = raw_json
       d
