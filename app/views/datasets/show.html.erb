@@ -14,7 +14,7 @@
       <% end %>
 
       <% unless @dataset['datafiles'].empty? || no_documents?(@dataset['datafiles']) %>
-        <%= render "supporting_docs" %>
+          <%= render "supporting_docs" %>
       <% end %>
 
       <% if @dataset['organisation']['contact_name'] || @dataset['organisation']['contact_email'] %>
