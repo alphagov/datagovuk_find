@@ -208,4 +208,4 @@ function suggest_publishers (query, populateResults) {
 }
 
 
-const publishers = ["HMRC", "Cabinet Office", "Land Registry", "DVLA"]
+const publishers = ["Her Majesty's Revenue and Customs", "Cabinet Office", "Land Registry"]
