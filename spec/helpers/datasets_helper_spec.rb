@@ -52,6 +52,6 @@ describe DatasetsHelper, type: :helper do
                    }]
     }
 
-    expect(helper.groupDatasets(unformattedDatasets)).to eql formattedDatasets
+    expect(helper.group_by_year(unformattedDatasets)).to eql formattedDatasets
   end
 end

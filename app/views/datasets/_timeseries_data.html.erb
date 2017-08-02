@@ -2,18 +2,18 @@
   <div class="grid-row">
     <div class="column-full">
       <section class="dataset">
-        <!-- accoridions for time series datasets -->
+        <!-- accordions for time series datasets -->
         <h2 class="heading-medium">Data links
           <span class="showHide-open-all">Open all</span>
         </h2>
         <div class="breaker"></div>
         <ul>
-          <% format(@dataset['datafiles']).each do |yearGroup| %>
+          <% group_by_year(@dataset['datafiles']).each do |year, datafiles| %>
               <li class="showHide">
                 <div class="year-expand showHide-control">
                   <h3 class="heading-small">
                     <button class="button secondary">
-                      <%= yearGroup[:year] %>
+                      <%= year %>
                     </button>
                   </h3>
                   <div>
@@ -29,7 +29,7 @@
                       <th></th>
                     </tr>
                     <tbody>
-                    <% yearGroup[:datafiles].each do |datafile| %>
+                    <% datafiles.each do |datafile| %>
                         <tr>
                           <td class="title small">
                             <% if datafile[:name] %> <%= datafile[:name] %>

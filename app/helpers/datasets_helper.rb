@@ -80,7 +80,7 @@ module DatasetsHelper
     end
   end
 
-  def timeseries_data(dataset)
+  def timeseries_data?(dataset)
     years =
       dataset['datafiles'].map{ |file| Time.parse(file['start_date']).year }.uniq
     years
@@ -94,11 +94,10 @@ module DatasetsHelper
     end
   end
 
-  def groupDatasets(datasets)
+  def group_by_year(datasets)
     datasets_with_year = datasets.map do |dataset|
-      dataset_copy = dataset
-      dataset_copy['start_year'] = Time.parse(dataset['start_date']).year.to_s
-      dataset_copy
+      dataset['start_year'] = Time.parse(dataset['start_date']).year.to_s
+      dataset
     end
 
     datasets_with_year.group_by { |dataset| dataset['start_year'] }
