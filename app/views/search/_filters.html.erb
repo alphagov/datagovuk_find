@@ -1,5 +1,5 @@
-<div class="grid-row">
-  <div class="column-one-third filters">
+<div class="grid-row" id="filters">
+  <div class="column-one-third">
     <form>
       <div class="form-group">
         <fieldset>
@@ -21,33 +21,20 @@
         </fieldset>
       </div>
 
-      <h2 class="heading-medium">Filter search results</h2>
-      <div class="form-group">
-        <label class="form-label">Select publisher</label>
-
-        <fieldset>
-          <legend class="visually-hidden">Select publisher</legend>
-          <div class="multiple-choice">
-            <input id="a" name="org-type" type="checkbox" value="central-gov" <%= "checked" if central? %>>
-            <label for="a">Central Government</label>
-          </div>
-          <div class="multiple-choice">
-            <input id="b" name="org-type" type="checkbox" value="local-auth" <%= "checked" if local? %>>
-            <label for="b">Local Authorities</label>
-          </div>
-          <div class="multiple-choice">
-            <input id="c" name="org-type" type="checkbox" value="bodies" <%= "checked" if bodies? %>>
-            <label for="c">Other Government bodies</label>
-          </div>
-        </fieldset>
-      </div>
+      <h2 class="heading-medium">Filter by</h2>
 
       <label for="location" class="form-label">
         Enter geographical area
       </label>
-      <input id="location" name="location" value="<%= @location %>" class="form-control location"></input>
+      <div id="location" name="location" data-default="<%= @location %>" class="filter"></div>
 
-      <input class="button" type="submit" value="Filter">
-      <a href="?q=<%= @query %>" class="button secondary">Reset all filters</a>
+      <label for="publisher" class="form-label">
+        Enter publisher
+      </label>
+      <div id="publisher" name="publisher" data-default="<%= @organisation %>" class="filter"></div>
+
+
+      <input class="button" type="submit" value="Apply filters"></input>
+      <%= link_to 'Reset all filters', search_path(q: @query) %>
     </form>
   </div>

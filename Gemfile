@@ -23,6 +23,7 @@ gem "elasticsearch-model", "~> 5.0.1"
 gem "elasticsearch-rails", "~> 5.0.1"
 gem "elasticsearch-persistence", "~> 5", require: "elasticsearch/persistence/model"
 gem 'therubyracer'
+gem 'elasticsearch-dsl', "~> 0.1.5"
 
 
 group :development, :test do
@@ -35,6 +36,7 @@ group :development, :test do
   gem 'rspec', '~> 3.6'
 end
 
+
 group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
@@ -45,10 +47,12 @@ group :development do
   gem 'launchy'
 end
 
+
 group :test do
   gem "simplecov"
   gem "codeclimate-test-reporter", "~> 1.0.0"
   gem "capybara"
 end
+
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
