@@ -2,6 +2,7 @@ require 'cgi'
 
 class DatasetsController < ApplicationController
   include DatasetsHelper
+
   def show
     @query = get_query_referral
     @dataset = current_dataset
@@ -14,7 +15,12 @@ class DatasetsController < ApplicationController
   end
 
   def get_query_referral
-    query = URI(request.referrer).query
-    CGI::parse(query)['q'].join
+    referrer = request.referrer || ''
+    path = URI(referrer).path
+    query = URI(referrer).query
+
+    path != '/search' ?
+        nil :
+        CGI::parse(query)['q'].join
   end
 end

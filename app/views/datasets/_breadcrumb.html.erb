@@ -1,18 +1,20 @@
 <div class="grid-row">
-  <div class="breadcrumbs">
-    <ol role="breadcrumbs">
-      <li>
-        <%= link_to 'Home', root_path %>
-      </li>
-      <!-- Checking if 'search-results' is in the referrer URL
-      to pick up whether or not the user has come from our search results page,
-      or from say google. Need to change when we know our URL -->
-      <li>
-        <%= link_to 'Search', search_path(q: @query) %>
-      </li>
-      <li>
-        <%= @dataset['title'] %>
-      </li>
-    </ol>
-  </div>
+  <% unless @query.nil? %>
+      <div class="breadcrumbs">
+        <ol role="breadcrumbs">
+          <li>
+            <%= link_to 'Home', root_path %>
+          </li>
+          <!-- Checking if 'search' is in the referrer URL
+          to pick up whether or not the user has come from our search results page,
+          or from say google. Need to change when we know our URL -->
+          <li>
+            <%= link_to 'Search', search_path(q: @query) %>
+          </li>
+          <li>
+            <%= @dataset['title'] %>
+          </li>
+        </ol>
+      </div>
+  <% end %>
 </div>
