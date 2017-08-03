@@ -34,14 +34,10 @@
           <p class="summary" style="max-height: 250px; overflow: hidden"> <%= strip_tags(@dataset["summary"]) %> </p>
         </div>
       </div>
-      <div class="column-one-third related-datasets">
-        <h3 class="heading-small">Related datasets</h3>
-        <ul>
-          <li><a href="/dataset/dataset_id">related dataset 1</a></li>
-        </ul>
+      <div class="column-one-third top-search">
 
-        <h3 class="heading-small related">Search UK Government data</h3>
-        <form id="search-form" action="/search" method="GET" class="top-search">
+        <h3 class="heading-small">Search UK Government data</h3>
+        <form id="search-form" action="/search" method="GET" >
           <fieldset>
             <div id="search-box">
               <input id="q" name="q" type="text" placeholder="" class="form-control search" autocomplete="off" value=""/>
