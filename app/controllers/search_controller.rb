@@ -40,6 +40,11 @@ class SearchController < ApplicationController
   end
 
   def process_results(results)
+    results = process_organisation(results)
+    process_location(results)
+  end
+
+  def process_organisation(results)
     if @organisation.nil?
       results
     else
@@ -47,4 +52,11 @@ class SearchController < ApplicationController
     end
   end
 
+  def process_location(results)
+    if @location.nil?
+      results
+    else
+      results.select { |r| r.location1 == @location }
+    end
+  end
 end
