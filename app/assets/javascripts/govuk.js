@@ -31,6 +31,7 @@ $(document).ready(function () {
       id: 'location',
       name: locationInput.getAttribute('name'),
       source: suggest_locations,
+      showAllValues: true, dropdownArrow: () => '',
     })
   }
 
@@ -42,7 +43,6 @@ $(document).ready(function () {
       source: suggest_publishers
     })
   }
-
 
   new FoldableText('.summary', 200)
     .init()
