@@ -1,10 +1,10 @@
-require 'cgi'
+require 'uri'
 
 class DatasetsController < ApplicationController
   include DatasetsHelper
 
   def show
-    @query = get_query_referral
+    @query = get_referrer_query
     @dataset = current_dataset
   end
 
@@ -14,13 +14,14 @@ class DatasetsController < ApplicationController
     Dataset.get({id: params[:id]})._source
   end
 
-  def get_query_referral
-    referrer = request.referrer || ''
-    path = URI(referrer).path
-    query = URI(referrer).query
+  def get_referrer_query
+    unless request.referer.nil?
+      referer = request.referer
+      referer_host = URI(referer).host.to_s
+      referer_query = URI(referer).query
+      app_host = URI(request.host).to_s
 
-    path != '/search' ?
-        nil :
-        CGI::parse(query)['q'].join
+      referer_query if referer_host == app_host
+    end
   end
 end
