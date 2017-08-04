@@ -73,7 +73,7 @@ describe 'Dataset page', elasticsearch: true do
     end
 
     describe 'Feedback' do
-      it 'Is displayed if available' do
+      xit 'Is displayed if available' do
         dataset = create_dataset(DATA_TITLE, 'annual', DATA_FILES_WITH_ENDDATE)
         index_and_visit(dataset)
         expect(page).to have_content('Was this page useful for you?')
@@ -87,8 +87,8 @@ describe 'Dataset page', elasticsearch: true do
           'Data links',
           'Additional information',
           'Supporting documents',
-          'Contact',
-          'Feedback'
+          'Contact'
+          # 'Feedback'
       ]
 
       before(:each) do
