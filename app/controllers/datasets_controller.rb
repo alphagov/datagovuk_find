@@ -30,10 +30,9 @@ class DatasetsController < ApplicationController
 
   def get_referrer_query
     unless request.referer.nil?
-      referer = request.referer
-      referer_host = URI(referer).host.to_s
-      referer_query = URI(referer).query
+      referer_host = URI(request.referer).host.to_s
       app_host = URI(request.host).to_s
+      referer_query = URI(request.referer).query
 
       referer_query if referer_host == app_host
     end
