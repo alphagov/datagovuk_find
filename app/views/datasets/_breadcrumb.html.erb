@@ -1,0 +1,18 @@
+<div class="grid-row">
+  <!-- Only display breadcrumb if the referrer host matches the application host  -->
+  <% unless @query.nil? %>
+      <div class="breadcrumbs">
+        <ol role="breadcrumbs">
+          <li>
+            <%= link_to 'Home', root_path %>
+          </li>
+          <li>
+            <%= link_to 'Search', "/search?#{@query}" %>
+          </li>
+          <li>
+            <%= @dataset['title'] %>
+          </li>
+        </ol>
+      </div>
+  <% end %>
+</div>
