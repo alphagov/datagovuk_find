@@ -5,7 +5,6 @@ class SearchController < ApplicationController
     @location = location
     @organisation = organisation
 
-
     @search = Dataset.search(search_query)
     @num_results = @search.results.total_count
     @datasets = @search.page(page_number)
@@ -18,22 +17,30 @@ class SearchController < ApplicationController
   def search_query
     base_search_query = {
       query: {
-        multi_match: {
-          query: @query,
-          fields: %w(title summary description organisation^2 location*^2)
+        bool: {
+          must: {
+            multi_match: {
+              query: @query,
+              fields: %w(title summary description organisation^2 location*^2)
+            }
+          }
         }
       }
     }
 
-    if @sorted_by
-      sort_field = {}
+    case @sorted_by
+    when "recent"
+      base_search_query[:sort] = { updated_at: :desc }
+    end
 
-      case @sorted_by
-      when "recent"
-        sort_field = { updated_at: :desc }
-      end
+    if @location
+      base_search_query[:query][:bool][:filter] ||= []
+      base_search_query[:query][:bool][:filter] << { term: { location1: @location } }
+    end
 
-      base_search_query[:sort] = sort_field
+    if @organisation
+      base_search_query[:query][:bool][:filter] ||= []
+      base_search_query[:query][:bool][:filter] << { match: { :"organisation.title" => @organisation } }
     end
 
     base_search_query
