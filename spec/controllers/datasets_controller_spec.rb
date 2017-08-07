@@ -4,25 +4,35 @@ require 'rails_helper'
 describe DatasetsController, type: :controller do
   render_views
 
-  it 'will be displayed if the referrer host is the application host' do
-    request.env['HTTP_REFERER'] = 'http://test.host/search?q=fancypants'
+  describe 'Breadcrumb' do
+    context 'Visiting search results from within the application' do
+      it 'will not display the publisher name if the referrer host name is the application host name' do
+        request.env['HTTP_REFERER'] = 'http://test.host/search?q=fancypants'
 
-    create_dataset_and_visit
+        create_dataset_and_visit
 
-    expect(response.body).to have_css("div.breadcrumbs")
-  end
+        expect(response.body).to have_css('div.breadcrumbs')
+        expect(response.body).to_not have_css('li', text: 'Ministry of Defence')
+        expect(response.body).to have_css('li', text: 'Search')
+      end
+    end
 
-  it 'will not be displayed if the referrer host is not the application host' do
-    request.env['HTTP_REFERER'] = 'http://unknown.host/search?q=fancypants'
+    context 'Visiting search results from outside the application' do
+      it 'will display the publisher name if the user has visited the search page from outside the application' do
+        request.env['HTTP_REFERER'] = 'http://unknown.host/search?q=fancypants'
 
-    create_dataset_and_visit
+        create_dataset_and_visit
 
-    expect(response.body).to_not have_css("div.breadcrumbs")
+        expect(response.body).to have_css('div.breadcrumbs')
+        expect(response.body).to have_css('li', text: 'Ministry of Defence')
+        expect(response.body).to_not have_css('li', text: 'Search')
+      end
+    end
   end
 end
 
 def create_dataset_and_visit
-  dataset = create_dataset("A nice dataset")
+  dataset = create_dataset('A nice dataset')
   index(dataset)
   get :show, params: {id: 1}
 end
