@@ -18,7 +18,7 @@
   <div class="grid-row">
     <div class="column-full">
         <span class="bold-small"><%= @num_results %></span>
-        results found <% if @query %>for
+        results found <% unless @query.empty? %>for
         <span class="bold-small">'<%= @query %>'<% end %></span>
         <% if @sorted_by %> sorted by
         <span class="bold-small">'<%= @sorted_by %>'<% end %></span>
