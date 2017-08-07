@@ -5,8 +5,8 @@ class DatasetsController < ApplicationController
 
   def show
     @query = get_referrer_query
-    @dataset = current_dataset
     @related_datasets = Dataset.search(related_datasets_query)
+    @dataset = current_dataset
   end
 
   private
@@ -22,7 +22,8 @@ class DatasetsController < ApplicationController
         more_like_this: {
           fields: %w(title summary description organisation^2 location*^2),
           ids: [params[:id]],
-          min_term_freq: 1
+          min_term_freq: 1,
+          min_doc_freq: 1
         }
       }
     }
