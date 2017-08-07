@@ -1,6 +1,6 @@
 class SearchController < ApplicationController
   def search
-    @query = params["q"]
+    @query = params["q"] || ''
     @sorted_by = sort
     @location = location
     @organisation = organisation
