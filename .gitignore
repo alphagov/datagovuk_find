@@ -48,3 +48,4 @@ bower.json
 .idea/
 
 .DS_Store
+*.iml
