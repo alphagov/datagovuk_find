@@ -46,7 +46,9 @@ module DatasetsHelper
   end
 
   def timeseries_data?(datafiles)
-    datafiles.map {|file| Time.parse(file['start_date']).year}.uniq.length > 1
+    datafiles.select do |file|
+      Time.parse(file['start_date']).year if file['start_date'].present?
+    end.uniq.length > 1
   end
 
   def has_start_dates?(dataset)

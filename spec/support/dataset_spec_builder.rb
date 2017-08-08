@@ -67,7 +67,7 @@ end
 
 DATA_TITLE = 'Some very interesting data'
 
-DATA_FILES_WITH_ENDDATE = [
+DATA_FILES_WITH_START_AND_ENDDATE = [
     {'id' => 1,
      'name' => 'I have no end date',
      'url' => 'https://good_data.co.uk',
@@ -91,18 +91,18 @@ DATA_FILES_WITH_ENDDATE = [
     }
 ]
 
-DATAFILES_WITH_NO_ENDDATE = [
+DATAFILES_WITHOUT_START_AND_ENDDATE = [
     {'id' => 1,
      'name' => 'I have no end date',
      'url' => 'https://good_data.co.uk',
-     'start_date' => '1/1/15',
+     'start_date' => nil,
      'end_date' => nil,
      'updated_at' => '2016-08-31T14:40:57.528Z'
     },
     {'id' => 2,
      'name' => 'I have an end date',
      'url' => 'https://good_data.co.uk',
-     'start_date' => '1/1/15',
+     'start_date' => nil,
      'end_date' => nil,
      'updated_at' => '2016-08-31T14:40:57.528Z'
     }]

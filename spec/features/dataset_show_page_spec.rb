@@ -22,6 +22,40 @@ feature 'Dataset page', elasticsearch: true do
     end
   end
 
+  ffeature 'Datalinks' do
+    scenario 'displays if required fields present' do
+      dataset = DatasetBuilder.new
+                    .with_title(DATA_TITLE)
+                    .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
+                    .build
+
+      index_and_visit(dataset)
+
+      expect(page).to have_css('h2', 'Data links')
+    end
+
+    scenario 'do not display if datasets are missing' do
+      dataset = DatasetBuilder.new
+                    .with_title(DATA_TITLE)
+                    .build
+
+      index_and_visit(dataset)
+
+      expect(page).to_not have_css('h2', 'Data links')
+    end
+
+    scenario 'display if some information is missing' do
+      dataset = DatasetBuilder.new
+                    .with_title(DATA_TITLE)
+                    .with_datafiles(DATAFILES_WITHOUT_START_AND_ENDDATE)
+                    .build
+
+      index_and_visit(dataset)
+
+      expect(page).to have_css('h2', 'Data links')
+    end
+  end
+
   feature 'Related datasets' do
     scenario 'displays related datasets if there is a match' do
       first_id = 1
@@ -31,12 +65,12 @@ feature 'Dataset page', elasticsearch: true do
 
       first_dataset = DatasetBuilder.new
                           .with_title(first_dataset_title)
-                          .with_datafiles(DATA_FILES_WITH_ENDDATE)
+                          .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
                           .build
 
       second_dataset = DatasetBuilder.new
                           .with_title(second_dataset_title)
-                          .with_datafiles(DATA_FILES_WITH_ENDDATE)
+                          .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
                           .build
 
       index_data_with_id(first_dataset, first_id)
@@ -56,7 +90,7 @@ feature 'Dataset page', elasticsearch: true do
       notes = 'Some very interesting notes'
       dataset = DatasetBuilder.new
                     .with_title(DATA_TITLE)
-                    .with_datafiles(DATA_FILES_WITH_ENDDATE)
+                    .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
                     .with_notes(notes)
                     .build
 
@@ -71,7 +105,7 @@ feature 'Dataset page', elasticsearch: true do
       publisher = 'Ministry of Defence'
       dataset = DatasetBuilder.new
                     .with_title(DATA_TITLE)
-                    .with_datafiles(DATA_FILES_WITH_ENDDATE)
+                    .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
                     .build
 
       index_and_visit(dataset)
