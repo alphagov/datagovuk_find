@@ -70,7 +70,7 @@ feature 'Dataset page', elasticsearch: true do
     end
   end
 
-  scenario 'Datafiles are present' do
+  describe 'Datafiles are present' do
     describe 'Additional info' do
       it 'Is displayed if available' do
         notes = 'Some very interesting notes'
@@ -90,7 +90,7 @@ feature 'Dataset page', elasticsearch: true do
     end
   end
 
-  scenario 'Datafiles are not present' do
+  describe 'Datafiles are not present' do
     describe 'Sections' do
       SECTIONS = [
           'Data links',
