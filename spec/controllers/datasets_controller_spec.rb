@@ -32,7 +32,10 @@ describe DatasetsController, type: :controller do
 end
 
 def create_dataset_and_visit
-  dataset = create_dataset('A nice dataset')
+  dataset = DatasetBuilder.new
+                .with_title('A nice dataset')
+                .build
+
   index(dataset)
   get :show, params: {id: 1}
 end

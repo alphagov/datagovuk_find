@@ -44,5 +44,11 @@ def delete_index
 end
 
 def create_index
-  ELASTIC.indices.create index: "datasets-test"
+  if Rails.env == "test"
+    begin
+      ELASTIC.indices.create index: "datasets-test"
+    rescue
+      Rails.logger.debug("Could not create datasets-test index")
+    end
+  end
 end

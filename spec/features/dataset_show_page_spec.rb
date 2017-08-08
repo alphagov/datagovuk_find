@@ -43,73 +43,73 @@ feature 'Dataset page', elasticsearch: true do
        'updated_at' => '2016-08-31T14:40:57.528Z'
       }]
 
-  describe 'Meta data' do
-    it 'displays a location if there is one' do
-      dataset = create_dataset(DATA_TITLE)
+  feature 'Meta data' do
+    scenario 'displays a location if there is one' do
+      dataset = DatasetBuilder.new
+                    .with_title(DATA_TITLE)
+                    .build
+
       index_and_visit(dataset)
+
       expect(page).to have_content('Geographical area: London Southwark')
     end
   end
 
-  describe 'Related datasets' do
-    it 'displays related datasets if there is a match' do
+  feature 'Related datasets' do
+    scenario 'displays related datasets if there is a match' do
       first_id = 1
       second_id = 2
-      first_dataset = create_dataset('First dataset data','annual', DATA_FILES_WITH_ENDDATE)
-      second_dataset = create_dataset('Second dataset data', 'annual', DATA_FILES_WITH_ENDDATE)
+      first_dataset_title = 'First dataset title'
+      second_dataset_title = 'Second dataset data'
 
-      index_data_with_id(first_dataset,first_id)
-      index_data_with_id(second_dataset,second_id)
+      first_dataset = DatasetBuilder.new
+                          .with_title(first_dataset_title)
+                          .with_datafiles(DATA_FILES_WITH_ENDDATE)
+                          .build
+
+      second_dataset = DatasetBuilder.new
+                          .with_title(second_dataset_title)
+                          .with_datafiles(DATA_FILES_WITH_ENDDATE)
+                          .build
+
+      index_data_with_id(first_dataset, first_id)
+      index_data_with_id(second_dataset, second_id)
 
       refresh_index
 
       visit("/dataset/#{first_id}")
 
-      expect(page).to have_content('Second dataset data')
+      expect(page).to have_content(second_dataset_title)
 
     end
   end
 
-  describe 'Datafiles are present' do
-    describe 'Additional info' do
-      it 'Is displayed if available' do
-        notes = 'Some very interesting notes'
-        dataset = create_dataset(DATA_TITLE, 'annual', DATA_FILES_WITH_ENDDATE, notes)
-        index_and_visit(dataset)
-        expect(page).to have_content(notes)
-      end
-    end
+  feature 'Additional info' do
+    scenario 'Is displayed if available' do
+      notes = 'Some very interesting notes'
+      dataset = DatasetBuilder.new
+                    .with_title(DATA_TITLE)
+                    .with_datafiles(DATA_FILES_WITH_ENDDATE)
+                    .with_notes(notes)
+                    .build
 
-    describe 'Publisher' do
-      it 'Is displayed if available' do
-        dataset = create_dataset(DATA_TITLE, 'annual', DATA_FILES_WITH_ENDDATE)
-        index_and_visit(dataset)
-        publisher = 'Ministry of Defence'
-        expect(page).to have_content(publisher)
-      end
+      index_and_visit(dataset)
+
+      expect(page).to have_content(notes)
     end
   end
 
-  describe 'Datafiles are not present' do
-    describe 'Sections' do
-      SECTIONS = [
-          'Data links',
-          'Additional information',
-          'Supporting documents',
-          'Contact'
-      ]
+  feature 'Publisher' do
+    scenario 'Is displayed if available' do
+      publisher = 'Ministry of Defence'
+      dataset = DatasetBuilder.new
+                    .with_title(DATA_TITLE)
+                    .with_datafiles(DATA_FILES_WITH_ENDDATE)
+                    .build
 
-      before(:each) do
-        dataset = create_dataset(DATA_TITLE)
-        index_and_visit(dataset)
-      end
+      index_and_visit(dataset)
 
-
-      SECTIONS.each do |section|
-        it "does not display the section #{section}" do
-          expect(page).to have_no_content(section)
-        end
-      end
+      expect(page).to have_content(publisher)
     end
   end
 
