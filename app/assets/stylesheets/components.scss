@@ -193,3 +193,14 @@ section .year-expand {
 
   }
 }
+
+// Inline form button pairs (eg, submit / cancel)
+.inline-buttons {
+  .inline-buttons__left {
+    display: inline-block;
+  }
+  .inline-buttons__right {
+    display: inline-block;
+    vertical-align: -38%
+  }
+}

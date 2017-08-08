@@ -33,8 +33,13 @@
       </label>
       <div id="publisher" name="publisher" data-default="<%= @organisation %>" class="filter"></div>
 
-
-      <input class="button" type="submit" value="Apply filters"></input>
-      <%= link_to 'Reset all filters', search_path(q: @query) %>
+      <div class="inline-buttons">
+        <div class="inline-buttons__left">
+          <input class="button" type="submit" value="Apply filters"></input>
+        </div>
+        <div class="inline-buttons__right">
+          <%= link_to 'Reset all filters', search_path(q: @query) %>
+        </div>
+      </div>
     </form>
   </div>
