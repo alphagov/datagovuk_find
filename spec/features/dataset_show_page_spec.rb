@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Dataset page', elasticsearch: true do
+feature 'Dataset page', elasticsearch: true do
   DATA_TITLE = 'Some very interesting data'
 
   DATA_FILES_WITH_ENDDATE = [
@@ -52,7 +52,7 @@ describe 'Dataset page', elasticsearch: true do
   end
 
   describe 'Related datasets' do
-    it 'display related datasets if there is a match' do
+    it 'displays related datasets if there is a match' do
       first_id = 1
       second_id = 2
       first_dataset = create_dataset('First dataset data','annual', DATA_FILES_WITH_ENDDATE)
@@ -70,7 +70,7 @@ describe 'Dataset page', elasticsearch: true do
     end
   end
 
-  describe 'Datafiles are present' do
+  scenario 'Datafiles are present' do
     describe 'Additional info' do
       it 'Is displayed if available' do
         notes = 'Some very interesting notes'
@@ -90,7 +90,7 @@ describe 'Dataset page', elasticsearch: true do
     end
   end
 
-  describe 'Datafiles are not present' do
+  scenario 'Datafiles are not present' do
     describe 'Sections' do
       SECTIONS = [
           'Data links',
