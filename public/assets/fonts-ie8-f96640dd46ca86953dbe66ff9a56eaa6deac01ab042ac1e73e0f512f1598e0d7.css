@@ -1,0 +1,31 @@
+/* The below comment needs a ! so that the copyright message doesn't get removed during the minification step. See: http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#comments */
+
+/*! Copyright (c) 2011 by Margaret Calvert & Henrik Kubel. All rights reserved. The font has been customised for exclusive use on gov.uk. This cut is not commercially available. */
+
+
+
+@font-face {
+  font-family: 'nta';
+  src: url(/assets/fonts/GDSTransportWebsite-1a1bd902f82aaab4185bc1995206ccdead57a5b0adc91ff8403468fe7047c1b4.eot#) format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'nta';
+  src: url(/assets/fonts/GDSTransportWebsite-Bold-a49a59a7c9fc3873b9b864f9185ba79d7848db4b4e0f248ce87a819ee48fff93.eot#) format('embedded-opentype');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'ntatabularnumbers';
+  src: url(/assets/fonts/GDSTransportTabular-Light-c45387d8b19c716ac713adceddbbfaafc62bc7f94ee1745cc3497b1afbe7eb58.eot#) format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ntatabularnumbers';
+  src: url(/assets/fonts/GDSTransportTabular-Bold-0cff7dfafbfd65a765046861e6967892b25a903675cb8900b85d2fa4f4554f95.eot#) format('embedded-opentype');
+  font-weight: bold;
+}

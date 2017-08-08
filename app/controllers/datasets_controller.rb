@@ -4,9 +4,13 @@ class DatasetsController < ApplicationController
   include DatasetsHelper
 
   def show
+    @dataset = current_dataset
+
+    render :template => "errors/not_found", :status => 404 if @dataset.empty?
+
     @query = get_referrer_query
     @related_datasets = Dataset.search(related_datasets_query)
-    @dataset = current_dataset
+
   end
 
   private

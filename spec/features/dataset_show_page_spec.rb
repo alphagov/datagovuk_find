@@ -1,47 +1,14 @@
 require 'rails_helper'
 
 feature 'Dataset page', elasticsearch: true do
-  DATA_TITLE = 'Some very interesting data'
+  scenario 'Displays 404 page if a dataset is empty' do
+    empty_dataset = {}
 
-  DATA_FILES_WITH_ENDDATE = [
-      {'id' => 1,
-       'name' => 'I have no end date',
-       'url' => 'https://good_data.co.uk',
-       'start_date' => '1/1/15',
-       'end_date' => nil,
-       'updated_at' => '2016-08-31T14:40:57.528Z'
-      },
-      {'id' => 2,
-       'name' => 'I have an end date',
-       'url' => 'https://good_data.co.uk',
-       'start_date' => '1/1/15',
-       'end_date' => '24/03/2018',
-       'updated_at' => '2016-08-31T14:40:57.528Z'
-      },
-      {'id' => 3,
-       'name' => 'I have an end date',
-       'url' => 'https://good_data.co.uk',
-       'start_date' => '1/1/15',
-       'end_date' => '01/12/2018',
-       'updated_at' => '2016-08-31T14:40:57.528Z'
-      }
-  ]
+    index_and_visit(empty_dataset)
 
-  DATAFILES_WITH_NO_ENDDATE = [
-      {'id' => 1,
-       'name' => 'I have no end date',
-       'url' => 'https://good_data.co.uk',
-       'start_date' => '1/1/15',
-       'end_date' => nil,
-       'updated_at' => '2016-08-31T14:40:57.528Z'
-      },
-      {'id' => 2,
-       'name' => 'I have an end date',
-       'url' => 'https://good_data.co.uk',
-       'start_date' => '1/1/15',
-       'end_date' => nil,
-       'updated_at' => '2016-08-31T14:40:57.528Z'
-      }]
+    expect(page.status_code).to eq(404)
+    expect(page).to have_content('Not found')
+  end
 
   feature 'Meta data' do
     scenario 'displays a location if there is one' do

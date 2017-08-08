@@ -64,3 +64,45 @@ class DatasetBuilder
     @dataset
   end
 end
+
+DATA_TITLE = 'Some very interesting data'
+
+DATA_FILES_WITH_ENDDATE = [
+    {'id' => 1,
+     'name' => 'I have no end date',
+     'url' => 'https://good_data.co.uk',
+     'start_date' => '1/1/15',
+     'end_date' => nil,
+     'updated_at' => '2016-08-31T14:40:57.528Z'
+    },
+    {'id' => 2,
+     'name' => 'I have an end date',
+     'url' => 'https://good_data.co.uk',
+     'start_date' => '1/1/15',
+     'end_date' => '24/03/2018',
+     'updated_at' => '2016-08-31T14:40:57.528Z'
+    },
+    {'id' => 3,
+     'name' => 'I have an end date',
+     'url' => 'https://good_data.co.uk',
+     'start_date' => '1/1/15',
+     'end_date' => '01/12/2018',
+     'updated_at' => '2016-08-31T14:40:57.528Z'
+    }
+]
+
+DATAFILES_WITH_NO_ENDDATE = [
+    {'id' => 1,
+     'name' => 'I have no end date',
+     'url' => 'https://good_data.co.uk',
+     'start_date' => '1/1/15',
+     'end_date' => nil,
+     'updated_at' => '2016-08-31T14:40:57.528Z'
+    },
+    {'id' => 2,
+     'name' => 'I have an end date',
+     'url' => 'https://good_data.co.uk',
+     'start_date' => '1/1/15',
+     'end_date' => nil,
+     'updated_at' => '2016-08-31T14:40:57.528Z'
+    }]
