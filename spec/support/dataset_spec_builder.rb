@@ -45,18 +45,23 @@ class DatasetBuilder
   end
 
   def with_title(title)
-    @dataset['name'] = title
-    @dataset['title'] = title
+    @dataset[:name] = title
+    @dataset[:title] = title
+    self
+  end
+
+  def with_contact_email(contact_email)
+    @dataset[:organisation][:contact_email] = contact_email
     self
   end
 
   def with_datafiles(datafiles)
-    @dataset['datafiles'] = datafiles
+    @dataset[:datafiles] = datafiles
     self
   end
 
   def with_notes(notes)
-    @dataset['notes'] = notes
+    @dataset[:notes] = notes
     self
   end
 

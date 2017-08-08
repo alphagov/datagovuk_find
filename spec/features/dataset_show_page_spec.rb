@@ -8,19 +8,8 @@ feature 'Dataset page', elasticsearch: true do
     expect(page).to have_content('Not found')
   end
 
-  scenario 'Displays a 404 if the meta data is missing a title' do
-    dataset = DatasetBuilder.new
-                  .with_title(nil)
-                  .build
-
-    index_and_visit(dataset)
-
-    expect(page.status_code).to eq(404)
-    expect(page).to have_content('Not found')
-  end
-
   feature 'Meta data' do
-    scenario 'displays a location if there is one' do
+    scenario 'Display a location if there is one' do
       dataset = DatasetBuilder.new
                     .with_title(DATA_TITLE)
                     .build
@@ -28,6 +17,17 @@ feature 'Dataset page', elasticsearch: true do
       index_and_visit(dataset)
 
       expect(page).to have_content('Geographical area: London Southwark')
+    end
+
+    scenario 'Display a 404 page if dataset is missing a title' do
+      dataset = DatasetBuilder.new
+                    .with_title(nil)
+                    .build
+
+      index_and_visit(dataset)
+
+      expect(page.status_code).to eq(404)
+      expect(page).to have_content('Not found')
     end
   end
 
@@ -117,6 +117,7 @@ feature 'Dataset page', elasticsearch: true do
 
       index_and_visit(dataset)
 
+      expect(page).to have_css('h2', text: 'Additional information')
       expect(page).to have_content(notes)
     end
 
@@ -132,9 +133,22 @@ feature 'Dataset page', elasticsearch: true do
     end
   end
 
-  feature 'Publisher' do
+  feature 'Contact' do
     scenario 'Is displayed if available' do
-      publisher = 'Ministry of Defence'
+      contact_email = 'contact@somewhere.com'
+      dataset = DatasetBuilder.new
+                    .with_title(DATA_TITLE)
+                    .with_contact_email(contact_email)
+                    .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
+                    .build
+
+      index_and_visit(dataset)
+
+      expect(page).to have_css('h2', text: 'Contact')
+      expect(page).to have_css('a', text: contact_email)
+    end
+
+    scenario 'Is not displayed if not available' do
       dataset = DatasetBuilder.new
                     .with_title(DATA_TITLE)
                     .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
@@ -142,7 +156,7 @@ feature 'Dataset page', elasticsearch: true do
 
       index_and_visit(dataset)
 
-      expect(page).to have_content(publisher)
+      expect(page).to_not have_css('h2', text: 'Contact')
     end
   end
 

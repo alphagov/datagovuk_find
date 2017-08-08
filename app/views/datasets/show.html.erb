@@ -19,7 +19,7 @@
       <%= render "supporting_docs" %>
   <% end %>
 
-  <% if @dataset['organisation']['contact_name'] || @dataset['organisation']['contact_email'] %>
+  <% if @dataset['organisation']['contact_email'].present? %>
       <%= render "contact" %>
   <% end %>
 
