@@ -10,7 +10,6 @@ class DatasetsController < ApplicationController
 
     @query = get_referrer_query
     @related_datasets = Dataset.search(related_datasets_query)
-
   end
 
   private

@@ -22,7 +22,7 @@ feature 'Dataset page', elasticsearch: true do
     end
   end
 
-  ffeature 'Datalinks' do
+  feature 'Datalinks' do
     scenario 'displays if required fields present' do
       dataset = DatasetBuilder.new
                     .with_title(DATA_TITLE)
@@ -31,7 +31,7 @@ feature 'Dataset page', elasticsearch: true do
 
       index_and_visit(dataset)
 
-      expect(page).to have_css('h2', 'Data links')
+      expect(page).to have_css('h2', text: 'Data links')
     end
 
     scenario 'do not display if datasets are missing' do
@@ -41,7 +41,7 @@ feature 'Dataset page', elasticsearch: true do
 
       index_and_visit(dataset)
 
-      expect(page).to_not have_css('h2', 'Data links')
+      expect(page).to_not have_css('h2', text: 'Data links')
     end
 
     scenario 'display if some information is missing' do
@@ -52,7 +52,7 @@ feature 'Dataset page', elasticsearch: true do
 
       index_and_visit(dataset)
 
-      expect(page).to have_css('h2', 'Data links')
+      expect(page).to have_css('h2', text: 'Data links')
     end
   end
 
@@ -81,7 +81,19 @@ feature 'Dataset page', elasticsearch: true do
       visit("/dataset/#{first_id}")
 
       expect(page).to have_content(second_dataset_title)
+    end
 
+    scenario 'does not display if related datasets is empty' do
+      allow(Dataset).to receive(:search).and_return([])
+
+      dataset = DatasetBuilder.new
+                    .with_title(DATA_TITLE)
+                    .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
+                    .build
+
+      index_and_visit(dataset)
+
+      expect(page).to_not have_css('h3', text: 'Related datasets')
     end
   end
 
