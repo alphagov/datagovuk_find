@@ -1,10 +1,19 @@
 require 'rails_helper'
 
 feature 'Dataset page', elasticsearch: true do
-  scenario 'Displays 404 page if a dataset is empty' do
-    empty_dataset = {}
+  scenario 'Displays 404 page if a dataset does not exist' do
+    visit '/dataset/does-not-exist'
 
-    index_and_visit(empty_dataset)
+    expect(page.status_code).to eq(404)
+    expect(page).to have_content('Not found')
+  end
+
+  scenario 'Displays a 404 if the meta data is missing a title' do
+    dataset = DatasetBuilder.new
+                  .with_title(nil)
+                  .build
+
+    index_and_visit(dataset)
 
     expect(page.status_code).to eq(404)
     expect(page).to have_content('Not found')
@@ -34,7 +43,7 @@ feature 'Dataset page', elasticsearch: true do
       expect(page).to have_css('h2', text: 'Data links')
     end
 
-    scenario 'do not display if datasets are missing' do
+    scenario 'do not display if datafiles are not present' do
       dataset = DatasetBuilder.new
                     .with_title(DATA_TITLE)
                     .build
@@ -109,6 +118,17 @@ feature 'Dataset page', elasticsearch: true do
       index_and_visit(dataset)
 
       expect(page).to have_content(notes)
+    end
+
+    scenario 'Is not displayed if not available' do
+      dataset = DatasetBuilder.new
+                    .with_title(DATA_TITLE)
+                    .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
+                    .build
+
+      index_and_visit(dataset)
+
+      expect(page).to_not have_css('h2', text: 'Additional information')
     end
   end
 
