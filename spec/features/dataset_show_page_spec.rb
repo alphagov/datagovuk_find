@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Dataset page', elasticsearch: true do
+feature 'Dataset page', elasticsearch: true do
   DATA_TITLE = 'Some very interesting data'
 
   DATA_FILES_WITH_ENDDATE = [
@@ -51,9 +51,26 @@ describe 'Dataset page', elasticsearch: true do
     end
   end
 
-  describe 'Datafiles are present' do
-    describe 'Data links'
+  describe 'Related datasets' do
+    it 'displays related datasets if there is a match' do
+      first_id = 1
+      second_id = 2
+      first_dataset = create_dataset('First dataset data','annual', DATA_FILES_WITH_ENDDATE)
+      second_dataset = create_dataset('Second dataset data', 'annual', DATA_FILES_WITH_ENDDATE)
 
+      index_data_with_id(first_dataset,first_id)
+      index_data_with_id(second_dataset,second_id)
+
+      refresh_index
+
+      visit("/dataset/#{first_id}")
+
+      expect(page).to have_content('Second dataset data')
+
+    end
+  end
+
+  describe 'Datafiles are present' do
     describe 'Additional info' do
       it 'Is displayed if available' do
         notes = 'Some very interesting notes'
@@ -71,24 +88,15 @@ describe 'Dataset page', elasticsearch: true do
         expect(page).to have_content(publisher)
       end
     end
-
-    describe 'Feedback' do
-      xit 'Is displayed if available' do
-        dataset = create_dataset(DATA_TITLE, 'annual', DATA_FILES_WITH_ENDDATE)
-        index_and_visit(dataset)
-        expect(page).to have_content('Was this page useful for you?')
-      end
-    end
   end
 
   describe 'Datafiles are not present' do
-    context 'Sections' do
+    describe 'Sections' do
       SECTIONS = [
           'Data links',
           'Additional information',
           'Supporting documents',
           'Contact'
-          # 'Feedback'
       ]
 
       before(:each) do
@@ -103,5 +111,9 @@ describe 'Dataset page', elasticsearch: true do
         end
       end
     end
+  end
+
+  def index_data_with_id(data, id)
+    ELASTIC.index index: INDEX, type: 'dataset', id: id, body: data
   end
 end

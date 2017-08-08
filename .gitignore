@@ -46,6 +46,7 @@ bower.json
 
 #Ignore Intellij
 .idea/
+*.iml
 
 .DS_Store
 *.iml

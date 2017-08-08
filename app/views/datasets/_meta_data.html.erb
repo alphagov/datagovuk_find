@@ -34,7 +34,15 @@
           <p class="summary" style="max-height: 250px; overflow: hidden"> <%= strip_tags(@dataset["summary"]) %> </p>
         </div>
       </div>
-      <div class="column-one-third top-search">
+      <div class="column-one-third related-datasets">
+        <h3 class="heading-small">Related datasets</h3>
+        <ul>
+          <% @related_datasets.each do |dataset| %>
+              <li>
+                <%= link_to dataset.title, dataset_path(dataset._id) %>
+              </li>
+          <% end %>
+        </ul>
 
         <h3 class="heading-small">Search UK Government data</h3>
         <form id="search-form" action="/search" method="GET" >
