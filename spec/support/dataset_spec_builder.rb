@@ -45,18 +45,23 @@ class DatasetBuilder
   end
 
   def with_title(title)
-    @dataset['name'] = title
-    @dataset['title'] = title
+    @dataset[:name] = title
+    @dataset[:title] = title
+    self
+  end
+
+  def with_contact_email(contact_email)
+    @dataset[:organisation][:contact_email] = contact_email
     self
   end
 
   def with_datafiles(datafiles)
-    @dataset['datafiles'] = datafiles
+    @dataset[:datafiles] = datafiles
     self
   end
 
   def with_notes(notes)
-    @dataset['notes'] = notes
+    @dataset[:notes] = notes
     self
   end
 
@@ -64,3 +69,118 @@ class DatasetBuilder
     @dataset
   end
 end
+
+DATA_TITLE = 'Some very interesting data'
+
+DATA_FILES_WITH_START_AND_ENDDATE = [
+    {'id' => 1,
+     'name' => 'I have no end date',
+     'url' => 'https://good_data.co.uk',
+     'start_date' => '1/1/15',
+     'end_date' => nil,
+     'updated_at' => '2016-08-31T14:40:57.528Z'
+    },
+    {'id' => 2,
+     'name' => 'I have an end date',
+     'url' => 'https://good_data.co.uk',
+     'start_date' => '1/1/15',
+     'end_date' => '24/03/2018',
+     'updated_at' => '2016-08-31T14:40:57.528Z'
+    },
+    {'id' => 3,
+     'name' => 'I have an end date',
+     'url' => 'https://good_data.co.uk',
+     'start_date' => '1/1/15',
+     'end_date' => '01/12/2018',
+     'updated_at' => '2016-08-31T14:40:57.528Z'
+    }
+]
+
+DATAFILES_WITHOUT_START_AND_ENDDATE = [
+    {'id' => 1,
+     'name' => 'I have no end date',
+     'url' => 'https://good_data.co.uk',
+     'start_date' => nil,
+     'end_date' => nil,
+     'updated_at' => '2016-08-31T14:40:57.528Z'
+    },
+    {'id' => 2,
+     'name' => 'I have an end date',
+     'url' => 'https://good_data.co.uk',
+     'start_date' => nil,
+     'end_date' => nil,
+     'updated_at' => '2016-08-31T14:40:57.528Z'
+    }]
+
+UNFORMATTED_DATASETS_MULTIYEAR = [
+    {'id' => 1,
+     'name' => 'Dataset 1',
+     'url' => 'https://good_data.co.uk',
+     'start_date' => '2017-09-24',
+     'end_date' => nil,
+     'updated_at' => '2017-08-31T14:40:57.528Z'
+    },
+    {'id' => 2,
+     'name' => 'Dataset 2',
+     'url' => 'https://good_data.co.uk',
+     'start_date' => '2015-09-25',
+     'end_date' => nil,
+     'updated_at' => '2015-10-31T14:40:57.528Z'
+    },
+    {'id' => 3,
+     'name' => 'Dataset 3',
+     'url' => 'https://good_data.co.uk',
+     'start_date' => '2015-09-24',
+     'end_date' => nil,
+     'updated_at' => '2015-08-31T14:40:57.528Z'
+    }]
+
+UNFORMATTED_DATASETS_SINGLEYEAR = [
+    {'id' => 1,
+     'name' => 'Dataset 1',
+     'url' => 'https://good_data.co.uk',
+     'start_date' => '2017-09-24',
+     'end_date' => nil,
+     'updated_at' => '2017-08-31T14:40:57.528Z'
+    },
+    {'id' => 2,
+     'name' => 'Dataset 2',
+     'url' => 'https://good_data.co.uk',
+     'start_date' => '2017-09-25',
+     'end_date' => nil,
+     'updated_at' => '2015-10-31T14:40:57.528Z'
+    },
+    {'id' => 3,
+     'name' => 'Dataset 3',
+     'url' => 'https://good_data.co.uk',
+     'start_date' => '2017-09-24',
+     'end_date' => nil,
+     'updated_at' => '2015-08-31T14:40:57.528Z'
+    }]
+
+
+FORMATTED_DATASETS = {
+    '2017' => [{'id' => 1,
+                'name' => 'Dataset 1',
+                'url' => 'https://good_data.co.uk',
+                'start_date' => '2017-09-24',
+                'end_date' => nil,
+                'updated_at' => '2017-08-31T14:40:57.528Z',
+                'start_year' => '2017'
+               }],
+    '2015' => [{'id' => 2,
+                'name' => 'Dataset 2',
+                'url' => 'https://good_data.co.uk',
+                'start_date' => '2015-09-25',
+                'end_date' => nil,
+                'updated_at' => '2015-10-31T14:40:57.528Z',
+                'start_year' => '2015'},
+               {'id' => 3,
+                'name' => 'Dataset 3',
+                'url' => 'https://good_data.co.uk',
+                'start_date' => '2015-09-24',
+                'end_date' => nil,
+                'updated_at' => '2015-08-31T14:40:57.528Z',
+                'start_year' => '2015'
+               }]
+}

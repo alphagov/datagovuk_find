@@ -1,50 +1,15 @@
 require 'rails_helper'
 
 feature 'Dataset page', elasticsearch: true do
-  DATA_TITLE = 'Some very interesting data'
+  scenario 'Displays 404 page if a dataset does not exist' do
+    visit '/dataset/does-not-exist'
 
-  DATA_FILES_WITH_ENDDATE = [
-      {'id' => 1,
-       'name' => 'I have no end date',
-       'url' => 'https://good_data.co.uk',
-       'start_date' => '1/1/15',
-       'end_date' => nil,
-       'updated_at' => '2016-08-31T14:40:57.528Z'
-      },
-      {'id' => 2,
-       'name' => 'I have an end date',
-       'url' => 'https://good_data.co.uk',
-       'start_date' => '1/1/15',
-       'end_date' => '24/03/2018',
-       'updated_at' => '2016-08-31T14:40:57.528Z'
-      },
-      {'id' => 3,
-       'name' => 'I have an end date',
-       'url' => 'https://good_data.co.uk',
-       'start_date' => '1/1/15',
-       'end_date' => '01/12/2018',
-       'updated_at' => '2016-08-31T14:40:57.528Z'
-      }
-  ]
-
-  DATAFILES_WITH_NO_ENDDATE = [
-      {'id' => 1,
-       'name' => 'I have no end date',
-       'url' => 'https://good_data.co.uk',
-       'start_date' => '1/1/15',
-       'end_date' => nil,
-       'updated_at' => '2016-08-31T14:40:57.528Z'
-      },
-      {'id' => 2,
-       'name' => 'I have an end date',
-       'url' => 'https://good_data.co.uk',
-       'start_date' => '1/1/15',
-       'end_date' => nil,
-       'updated_at' => '2016-08-31T14:40:57.528Z'
-      }]
+    expect(page.status_code).to eq(404)
+    expect(page).to have_content('Not found')
+  end
 
   feature 'Meta data' do
-    scenario 'displays a location if there is one' do
+    scenario 'Display a location if there is one' do
       dataset = DatasetBuilder.new
                     .with_title(DATA_TITLE)
                     .build
@@ -52,6 +17,51 @@ feature 'Dataset page', elasticsearch: true do
       index_and_visit(dataset)
 
       expect(page).to have_content('Geographical area: London Southwark')
+    end
+
+    scenario 'Display a 404 page if dataset is missing a title' do
+      dataset = DatasetBuilder.new
+                    .with_title(nil)
+                    .build
+
+      index_and_visit(dataset)
+
+      expect(page.status_code).to eq(404)
+      expect(page).to have_content('Not found')
+    end
+  end
+
+  feature 'Datalinks' do
+    scenario 'displays if required fields present' do
+      dataset = DatasetBuilder.new
+                    .with_title(DATA_TITLE)
+                    .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
+                    .build
+
+      index_and_visit(dataset)
+
+      expect(page).to have_css('h2', text: 'Data links')
+    end
+
+    scenario 'do not display if datafiles are not present' do
+      dataset = DatasetBuilder.new
+                    .with_title(DATA_TITLE)
+                    .build
+
+      index_and_visit(dataset)
+
+      expect(page).to_not have_css('h2', text: 'Data links')
+    end
+
+    scenario 'display if some information is missing' do
+      dataset = DatasetBuilder.new
+                    .with_title(DATA_TITLE)
+                    .with_datafiles(DATAFILES_WITHOUT_START_AND_ENDDATE)
+                    .build
+
+      index_and_visit(dataset)
+
+      expect(page).to have_css('h2', text: 'Data links')
     end
   end
 
@@ -64,12 +74,12 @@ feature 'Dataset page', elasticsearch: true do
 
       first_dataset = DatasetBuilder.new
                           .with_title(first_dataset_title)
-                          .with_datafiles(DATA_FILES_WITH_ENDDATE)
+                          .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
                           .build
 
       second_dataset = DatasetBuilder.new
                           .with_title(second_dataset_title)
-                          .with_datafiles(DATA_FILES_WITH_ENDDATE)
+                          .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
                           .build
 
       index_data_with_id(first_dataset, first_id)
@@ -80,7 +90,19 @@ feature 'Dataset page', elasticsearch: true do
       visit("/dataset/#{first_id}")
 
       expect(page).to have_content(second_dataset_title)
+    end
 
+    scenario 'does not display if related datasets is empty' do
+      allow(Dataset).to receive(:search).and_return([])
+
+      dataset = DatasetBuilder.new
+                    .with_title(DATA_TITLE)
+                    .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
+                    .build
+
+      index_and_visit(dataset)
+
+      expect(page).to_not have_css('h3', text: 'Related datasets')
     end
   end
 
@@ -89,27 +111,52 @@ feature 'Dataset page', elasticsearch: true do
       notes = 'Some very interesting notes'
       dataset = DatasetBuilder.new
                     .with_title(DATA_TITLE)
-                    .with_datafiles(DATA_FILES_WITH_ENDDATE)
+                    .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
                     .with_notes(notes)
                     .build
 
       index_and_visit(dataset)
 
+      expect(page).to have_css('h2', text: 'Additional information')
       expect(page).to have_content(notes)
     end
-  end
 
-  feature 'Publisher' do
-    scenario 'Is displayed if available' do
-      publisher = 'Ministry of Defence'
+    scenario 'Is not displayed if not available' do
       dataset = DatasetBuilder.new
                     .with_title(DATA_TITLE)
-                    .with_datafiles(DATA_FILES_WITH_ENDDATE)
+                    .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
                     .build
 
       index_and_visit(dataset)
 
-      expect(page).to have_content(publisher)
+      expect(page).to_not have_css('h2', text: 'Additional information')
+    end
+  end
+
+  feature 'Contact' do
+    scenario 'Is displayed if available' do
+      contact_email = 'contact@somewhere.com'
+      dataset = DatasetBuilder.new
+                    .with_title(DATA_TITLE)
+                    .with_contact_email(contact_email)
+                    .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
+                    .build
+
+      index_and_visit(dataset)
+
+      expect(page).to have_css('h2', text: 'Contact')
+      expect(page).to have_css('a', text: contact_email)
+    end
+
+    scenario 'Is not displayed if not available' do
+      dataset = DatasetBuilder.new
+                    .with_title(DATA_TITLE)
+                    .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
+                    .build
+
+      index_and_visit(dataset)
+
+      expect(page).to_not have_css('h2', text: 'Contact')
     end
   end
 

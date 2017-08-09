@@ -4,9 +4,16 @@ class DatasetsController < ApplicationController
   include DatasetsHelper
 
   def show
+    begin
+      @dataset = current_dataset
+      raise 'Metadata missing' if @dataset['title'].empty?
+
+    rescue
+      render :template => "errors/not_found", :status => 404
+    end
+
     @query = get_referrer_query
     @related_datasets = Dataset.search(related_datasets_query)
-    @dataset = current_dataset
   end
 
   private
