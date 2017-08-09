@@ -7,9 +7,9 @@
       </li>
       <li>
         <% if @query.nil? %>
-           <%= @dataset['organisation']['title'] %>
+          <%= @dataset['organisation']['title'] %>
         <% else %>
-            <%= link_to 'Search', "/search?#{@query}" %>
+          <%= link_to 'Search', "/search?#{@query}" %>
         <% end %>
       </li>
       <li>

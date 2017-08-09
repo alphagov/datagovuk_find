@@ -1,4 +1,4 @@
-<section class = "contact">
+<section class="contact">
   <div>
     <h2 class="heading-medium">
       Contact
@@ -7,14 +7,16 @@
       <h3 class="heading-small">
         Enquiries
       </h3>
-      <p><%= @dataset['organisation']['contact_name'] %> </br> <a href=""><%= @dataset['organisation']['contact_email'] %></a> </p>
+      <p><%= @dataset['organisation']['contact_name'] %> </br>
+        <a href=""><%= @dataset['organisation']['contact_email'] %></a></p>
     </div>
     <% if @dataset['organisation']['foi_name'] or @dataset['organisation']['foi_email'] %>
       <div class="column-one-half foi">
         <h3 class="heading-small">
           Freedom of Information (FOI) requests
         </h3>
-        <p><%= @dataset['organisation']['foi_name'] %> </br> <a href=""><%= @dataset['organisation']['foi_email'] %></a> </p>
+        <p><%= @dataset['organisation']['foi_name'] %> </br> <a href=""><%= @dataset['organisation']['foi_email'] %></a>
+        </p>
       </div>
     <% end %>
   </div>

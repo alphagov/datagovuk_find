@@ -9,53 +9,53 @@
         <div class="breaker"></div>
         <ul>
           <% group_by_year(@dataset['datafiles']).each do |year, datafiles| %>
-              <li class="showHide">
-                <div class="year-expand showHide-control">
-                  <h3 class="heading-small">
-                    <button class="button secondary">
-                      <%= year %>
-                    </button>
-                  </h3>
-                  <div>
-                    <button class="expand button secondary">+</button>
-                  </div>
+            <li class="showHide">
+              <div class="year-expand showHide-control">
+                <h3 class="heading-small">
+                  <button class="button secondary">
+                    <%= year %>
+                  </button>
+                </h3>
+                <div>
+                  <button class="expand button secondary">+</button>
                 </div>
-                <div class="year-datasets showHide-content" style="display:none">
-                  <table>
+              </div>
+              <div class="year-datasets showHide-content" style="display:none">
+                <table>
+                  <tr>
+                    <th class="title small">Link to the data</th>
+                    <th>Format</th>
+                    <th>Last updated</th>
+                    <th></th>
+                  </tr>
+                  <tbody>
+                  <% datafiles.each do |datafile| %>
                     <tr>
-                      <th class="title small">Link to the data</th>
-                      <th>Format</th>
-                      <th>Last updated</th>
-                      <th></th>
+                      <td class="title small">
+                        <% if datafile[:name] %> <%= datafile[:name] %>
+                        <% else %> Data Link
+                        <% end %>
+                      </td>
+                      <% if datafile[:format] %>
+                        <td> datafile.format (347kb)</td>
+                      <% else %>
+                        <td>N/A</td>
+                      <% end %>
+                      <% if datafile[:last_updated] %>
+                        <td>
+                          datafile.last_updated
+                        </td>
+                      <% else %>
+                        <td class="not-available">
+                          Not available
+                      <% end %>
+                      </td>
+                      <td><a href="">Download</a></td>
                     </tr>
-                    <tbody>
-                    <% datafiles.each do |datafile| %>
-                        <tr>
-                          <td class="title small">
-                            <% if datafile[:name] %> <%= datafile[:name] %>
-                            <% else %> Data Link
-                            <% end %>
-                          </td>
-                          <% if datafile[:format] %>
-                              <td> datafile.format (347kb)</td>
-                          <% else %>
-                              <td>N/A</td>
-                          <% end %>
-                          <% if datafile[:last_updated] %>
-                              <td>
-                                datafile.last_updated
-                              </td>
-                          <% else %>
-                              <td class="not-available">
-                                Not available
-                          <% end %>
-                          </td>
-                          <td><a href="">Download</a></td>
-                        </tr>
-                   <% end %>
-                    </tbody>
-                  </table>
-                </div>
+                  <% end %>
+                  </tbody>
+                </table>
+              </div>
           <% end %>
           </li>
         </ul>

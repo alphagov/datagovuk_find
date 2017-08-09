@@ -3,24 +3,24 @@
     Supporting documents
   </h2>
 
-    <table>
-      <thead>
-        <tr>
-          <th class="title">Link to the document</th>
-          <th>Format</th>
-          <th>Date added</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% documents.each do |doc| %>
-          <tr>
-            <td class="title">
-              <a href="<%= doc['url'] %>"><%= doc['name']%></a>
-            </td>
-            <td><%= doc["format"] or "n/a" %></td>
-            <td><%= doc["start_date"] or "n/a" %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+  <table>
+    <thead>
+    <tr>
+      <th class="title">Link to the document</th>
+      <th>Format</th>
+      <th>Date added</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% documents.each do |doc| %>
+      <tr>
+        <td class="title">
+          <a href="<%= doc['url'] %>"><%= doc['name'] %></a>
+        </td>
+        <td><%= doc["format"] or "n/a" %></td>
+        <td><%= doc["start_date"] or "n/a" %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
 </section>
