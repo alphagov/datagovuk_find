@@ -192,7 +192,7 @@ const locations = ["England", "Wales", "Scotland", "Northern Ireland", "Great Br
 
 
 function suggest_locations (query, populateResults) {
-  const filteredResults =
+  var filteredResults =
     locations.filter(
       result => result.toLowerCase().indexOf(query.toLowerCase()) !== -1
     )
@@ -200,12 +200,15 @@ function suggest_locations (query, populateResults) {
 }
 
 function suggest_publishers (query, populateResults) {
-  const filteredResults =
-    publishers.filter(
-      result => result.toLowerCase().indexOf(query.toLowerCase()) !== -1
-    )
-  populateResults(filteredResults)
+  const publisherTitles = [];
+  $.getJSON("http://publish-data-beta.herokuapp.com/api/organisations", query, function(data) {
+    $.each( data, function(key,value) {
+      publisherTitles.push(value['title'])
+    })
+    const filteredResults =
+      publisherTitles.filter(
+        result => result.toLowerCase().indexOf(query.toLowerCase()) !== -1
+      )
+    populateResults(filteredResults)
+  });
 }
-
-
-const publishers = ["Her Majesty's Revenue and Customs", "Cabinet Office", "HM Land Registry"]
