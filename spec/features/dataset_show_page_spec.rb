@@ -9,26 +9,14 @@ feature 'Dataset page', elasticsearch: true do
   end
 
   feature 'Meta data' do
-    fscenario 'Display a location if there is one' do
+    scenario 'Display a location if there is one' do
       dataset = DatasetBuilder.new
                     .with_title(DATA_TITLE)
                     .build
 
-      index(dataset)
-      visit "/dataset/#{dataset[:name]}"
-
-      expect(page).to have_content('Geographical area: London Southwark')
-    end
-
-    scenario 'Display a 404 page if dataset is missing a title' do
-      dataset = DatasetBuilder.new
-                    .with_title(nil)
-                    .build
-
       index_and_visit(dataset)
 
-      expect(page.status_code).to eq(404)
-      expect(page).to have_content('Not found')
+      expect(page).to have_content('Geographical area: London Southwark')
     end
   end
 
@@ -70,16 +58,20 @@ feature 'Dataset page', elasticsearch: true do
     scenario 'displays related datasets if there is a match' do
       first_id = 1
       second_id = 2
-      first_dataset_title = 'First dataset title'
+      first_dataset_title = 'First dataset data'
+      first_dataset_slug = 'first-dataset-data'
       second_dataset_title = 'Second dataset data'
+      second_dataset_slug = 'second-dataset-data'
 
       first_dataset = DatasetBuilder.new
                           .with_title(first_dataset_title)
+                          .with_name(first_dataset_slug)
                           .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
                           .build
 
       second_dataset = DatasetBuilder.new
                           .with_title(second_dataset_title)
+                          .with_name(second_dataset_slug)
                           .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
                           .build
 
@@ -88,13 +80,13 @@ feature 'Dataset page', elasticsearch: true do
 
       refresh_index
 
-      visit("/dataset/#{first_id}")
+      visit("/dataset/#{first_dataset_slug}")
 
-      expect(page).to have_content(second_dataset_title)
+      expect(page).to have_content('Related datasets')
     end
 
     scenario 'does not display if related datasets is empty' do
-      allow(Dataset).to receive(:search).and_return([])
+      allow(Dataset).to receive(:related_to).and_return([])
 
       dataset = DatasetBuilder.new
                     .with_title(DATA_TITLE)

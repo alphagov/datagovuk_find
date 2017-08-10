@@ -1,7 +1,7 @@
 class DatasetBuilder
   def initialize
     @dataset =  {
-        name: 'Default dataset name',
+        name: 'default-dataset-name',
         title: 'Default dataset title',
         summary: 'Ethnicity data',
         description: 'Ethnicity data',
@@ -45,8 +45,12 @@ class DatasetBuilder
   end
 
   def with_title(title)
-    @dataset[:name] = title
     @dataset[:title] = title
+    self
+  end
+
+  def with_name(slug)
+    @dataset[:name] = slug
     self
   end
 
