@@ -1,24 +1,24 @@
 <main id="content" role="main">
-
+  <%= render "breadcrumb" %>
   <%= render "meta_data" %>
 
-  <% unless @dataset['datafiles'].empty? %>
-    <% if timeseries_data?(@dataset['datafiles']) %>
+  <% unless @dataset.datafiles.empty? %>
+    <% if timeseries_data?(@dataset.datafiles) %>
       <%= render "timeseries_data" %>
     <% else %>
       <%= render "non_timeseries_data" %>
     <% end %>
   <% end %>
 
-  <% if @dataset['notes'].present? %>
+  <% if @dataset.notes.present? %>
     <%= render "additional_info" %>
   <% end %>
 
-  <% unless no_documents?(@dataset['datafiles']) %>
+  <% unless no_documents?(@dataset.datafiles) %>
     <%= render "supporting_docs" %>
   <% end %>
 
-  <% if @dataset['organisation']['contact_email'].present? %>
+  <% if @dataset.organisation['contact_email'].present? %>
     <%= render "contact" %>
   <% end %>
 

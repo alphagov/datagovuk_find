@@ -3,17 +3,17 @@
     <section class="data-links">
       <div class="column-two-thirds">
         <h1 class="heading-large">
-          <%= @dataset['title'] %>
+          <%= @dataset.title %>
         </h1>
         <div class="metadata-box">
           <dl class="metadata">
             <dt>Published by:</dt>
-            <dd><a href="#"><%= @dataset["organisation"]["title"] %> </a></dd>
+            <dd><a href="#"><%= @dataset.organisation['title'] %> </a></dd>
             <dt>Last updated:</dt>
-            <dd><%= format(@dataset["updated_at"]) %></dd>
+            <dd><%= format(@dataset.updated_at) %></dd>
             <dt>Expected update:</dt>
-            <% if @dataset["datafiles"].any? %>
-              <dd class="<%= expected_update_class_for(@dataset['frequency']) %>">
+            <% if @dataset.datafiles.any? %>
+              <dd class="<%= expected_update_class_for(@dataset.frequency) %>">
                 <%= expected_update(@dataset) %>
               </dd>
             <% else %>
@@ -30,7 +30,7 @@
           <h3 class="heading-small">
             Summary
           </h3>
-          <p class="summary" style="max-height: 250px; overflow: hidden"> <%= strip_tags(@dataset["summary"]) %> </p>
+          <p class="summary" style="max-height: 250px; overflow: hidden"> <%= strip_tags(@dataset.summary) %> </p>
         </div>
       </div>
 
