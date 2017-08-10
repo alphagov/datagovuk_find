@@ -1,6 +1,5 @@
 config = {
   host: ENV.fetch("ES_HOST", "http://127.0.0.1:9200"),
-  log: true,
   transport_options: {
     request: { timeout: 5 }
   }
