@@ -14,7 +14,7 @@ class DatasetsController < ApplicationController
     @query = get_referrer_query
 
     unless @dataset.nil?
-      @related_datasets = related_datasets(@dataset._id)
+      @related_datasets = related_datasets
     end
   end
 
@@ -24,8 +24,8 @@ class DatasetsController < ApplicationController
     Dataset.get(params[:name])
   end
 
-  def related_datasets(id)
-    Dataset.related_to(id)
+  def related_datasets
+    Dataset.related_to(@dataset._id)
   end
 
   def get_referrer_query

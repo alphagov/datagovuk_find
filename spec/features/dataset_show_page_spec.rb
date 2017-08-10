@@ -83,6 +83,7 @@ feature 'Dataset page', elasticsearch: true do
       visit("/dataset/#{first_dataset_slug}")
 
       expect(page).to have_content('Related datasets')
+      expect(page).to have_content(second_dataset_title)
     end
 
     scenario 'does not display if related datasets is empty' do

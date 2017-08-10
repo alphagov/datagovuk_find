@@ -51,7 +51,7 @@ class Dataset
         query: {
           more_like_this: {
             fields: %w(title summary description organisation^2 location*^2),
-            ids: [365],
+            ids: [id],
             min_term_freq: 1,
             min_doc_freq: 1
           }
