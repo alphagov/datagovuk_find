@@ -70,7 +70,7 @@ class DatasetBuilder
   end
 end
 
-DATA_TITLE = 'Some very interesting data'
+DATA_TITLE = 'some-very-interesting-data'
 
 DATA_FILES_WITH_START_AND_ENDDATE = [
     {'id' => 1,

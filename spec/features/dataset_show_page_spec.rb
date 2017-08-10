@@ -9,12 +9,13 @@ feature 'Dataset page', elasticsearch: true do
   end
 
   feature 'Meta data' do
-    scenario 'Display a location if there is one' do
+    fscenario 'Display a location if there is one' do
       dataset = DatasetBuilder.new
                     .with_title(DATA_TITLE)
                     .build
 
-      index_and_visit(dataset)
+      index(dataset)
+      visit "/dataset/#{dataset[:name]}"
 
       expect(page).to have_content('Geographical area: London Southwark')
     end

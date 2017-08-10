@@ -6,34 +6,26 @@ class DatasetsController < ApplicationController
   def show
     begin
       @dataset = current_dataset
-      raise 'Metadata missing' if @dataset['title'].empty?
-
+      raise 'Metadata missing' if @dataset.title.empty?
     rescue
       render :template => "errors/not_found", :status => 404
     end
 
     @query = get_referrer_query
-    @related_datasets = Dataset.search(related_datasets_query)
+
+    unless @dataset.nil?
+      @related_datasets = related_datasets(@dataset._id)
+    end
   end
 
   private
 
   def current_dataset
-    Dataset.get({id: params[:id]})._source
+    Dataset.get(params[:name])
   end
 
-  def related_datasets_query
-    {
-      size: 4,
-      query: {
-        more_like_this: {
-          fields: %w(title summary description organisation^2 location*^2),
-          ids: [params[:id]],
-          min_term_freq: 1,
-          min_doc_freq: 1
-        }
-      }
-    }
+  def related_datasets(id)
+    Dataset.related_to(id)
   end
 
   def get_referrer_query

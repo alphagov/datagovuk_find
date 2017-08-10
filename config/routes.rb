@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   get 'search/tips', to: 'search#tips'
   root to: 'home#index'
 
-  resources :datasets, :path => "dataset", only: :show
+  resources :datasets, :path => "dataset", param: :name, only: :show
 end
