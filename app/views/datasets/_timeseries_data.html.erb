@@ -8,7 +8,7 @@
         </h2>
         <div class="breaker"></div>
         <ul>
-          <% group_by_year(@dataset['datafiles']).each do |year, datafiles| %>
+          <% group_by_year(@dataset.datafiles).each do |year, datafiles| %>
             <li class="showHide">
               <div class="year-expand showHide-control">
                 <h3 class="heading-small">
@@ -32,18 +32,18 @@
                   <% datafiles.each do |datafile| %>
                     <tr>
                       <td class="title small">
-                        <% if datafile[:name] %> <%= datafile[:name] %>
+                        <% if datafile['name'] %> <%= datafile['name'] %>
                         <% else %> Data Link
                         <% end %>
                       </td>
-                      <% if datafile[:format] %>
-                        <td> datafile.format (347kb)</td>
+                      <% if datafile['format'] %>
+                        <td><%= datafile['format'] %> (347kb)</td>
                       <% else %>
                         <td>N/A</td>
                       <% end %>
-                      <% if datafile[:last_updated] %>
+                      <% if datafile['last_updated'] %>
                         <td>
-                          datafile.last_updated
+                          <%= datafile['last_updated'] %>
                         </td>
                       <% else %>
                         <td class="not-available">
