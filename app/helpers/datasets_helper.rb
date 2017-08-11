@@ -27,7 +27,7 @@ module DatasetsHelper
   end
 
   def expected_update(dataset)
-    dataset['frequency'].nil? ?
+    dataset.frequency.nil? ?
         NO_MORE['default'] :
         datafile_next_updated(dataset)
   end
@@ -73,8 +73,8 @@ module DatasetsHelper
   private
 
   def datafile_next_updated(dataset)
-    freq = dataset['frequency']
-    last = most_recent_date(dataset['datafiles'])
+    freq = dataset.frequency
+    last = most_recent_date(dataset.datafiles)
 
     return last.advance(FREQUENCIES[freq]).strftime("%d %B %Y") if FREQUENCIES.has_key?(freq)
     return NO_MORE[freq] if NO_MORE.has_key?(freq)
@@ -102,7 +102,7 @@ module DatasetsHelper
 
   def locations(dataset)
     ['location1', 'location2', 'location3']
-        .map {|loc| dataset[loc]}
+        .map {|loc| dataset.send(loc) }
         .join(" ")
         .strip
   end

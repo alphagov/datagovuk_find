@@ -11,5 +11,5 @@ end
 
 def index_and_visit(dataset)
   index(dataset)
-  visit "/dataset/1"
+  visit "/dataset/#{dataset[:name]}"
 end

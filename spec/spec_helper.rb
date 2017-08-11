@@ -11,7 +11,7 @@ RSpec.configure do |config|
   end
 
   config.after(:each) do
-    delete_index
+  #   delete_index
   end
 
   config.expect_with :rspec do |expectations|
@@ -44,9 +44,27 @@ def delete_index
 end
 
 def create_index
+  mappings = {
+    dataset: {
+      properties: {
+        name: {
+          type: "string",
+          index: "not_analyzed"
+        }
+      }
+    }
+  }
+
   if Rails.env == "test"
     begin
-      ELASTIC.indices.create index: "datasets-test"
+      Rails.logger.info("Creating datasets-test index")
+
+      ELASTIC.indices.create(
+        index: "datasets-test",
+        body: {
+            mappings: mappings
+        }
+      )
     rescue
       Rails.logger.debug("Could not create datasets-test index")
     end
