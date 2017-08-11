@@ -6,10 +6,9 @@ class DatasetsController < ApplicationController
   def show
     begin
       @dataset = current_dataset
-      raise 'Metadata missing' if @dataset.title.empty?
+      # raise 'Metadata missing' if @dataset.title.empty?
     rescue => e
-      Rails.logger.debug "ERROR! => " + e.message
-      render :template => "errors/not_found", :status => 404
+      handle_error(e)
     end
 
     @query = get_referrer_query
@@ -20,6 +19,12 @@ class DatasetsController < ApplicationController
   end
 
   private
+
+  def handle_error(e)
+    Rails.logger.debug "ERROR! => " + e.message
+    e.backtrace.each { |line| logger.error line }
+    render :template => "errors/not_found", :status => 404
+  end
 
   def current_dataset
     Dataset.get(params[:name])
