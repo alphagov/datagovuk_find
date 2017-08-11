@@ -10,3 +10,4 @@ if File.exist?("config/elasticsearch.yml")
 end
 
 ELASTIC = Elasticsearch::Client.new(config)
+Elasticsearch::Model.client = ELASTIC
