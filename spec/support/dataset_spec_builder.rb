@@ -137,6 +137,13 @@ UNFORMATTED_DATASETS_MULTIYEAR = [
      'start_date' => '2015-09-24',
      'end_date' => nil,
      'updated_at' => '2015-08-31T14:40:57.528Z'
+    },
+    {'id' => 4,
+     'name' => 'Dataset 4',
+     'url' => 'https://good_data.co.uk',
+     'start_date' => nil,
+     'end_date' => nil,
+     'updated_at' => '2015-10-31T14:40:57.528Z'
     }]
 
 UNFORMATTED_DATASETS_SINGLEYEAR = [
@@ -186,5 +193,13 @@ FORMATTED_DATASETS = {
                 'end_date' => nil,
                 'updated_at' => '2015-08-31T14:40:57.528Z',
                 'start_year' => '2015'
-               }]
+               }],
+        "" => [{'id' => 4,
+         'name' => 'Dataset 4',
+         'url' => 'https://good_data.co.uk',
+         'start_date' => nil,
+         'end_date' => nil,
+         'updated_at' => '2015-10-31T14:40:57.528Z',
+         'start_year' => ''
+        }]
 }
