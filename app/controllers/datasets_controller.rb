@@ -7,7 +7,8 @@ class DatasetsController < ApplicationController
     begin
       @dataset = current_dataset
       raise 'Metadata missing' if @dataset.title.empty?
-    rescue
+    rescue => e
+      Rails.logger.debug "ERROR! => " + e.message
       render :template => "errors/not_found", :status => 404
     end
 
