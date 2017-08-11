@@ -11,7 +11,6 @@ feature 'Dataset page', elasticsearch: true do
   feature 'Meta data' do
     scenario 'Display a location if there is one' do
       dataset = DatasetBuilder.new
-                    .with_title(DATA_TITLE)
                     .build
 
       index_and_visit(dataset)
@@ -23,7 +22,6 @@ feature 'Dataset page', elasticsearch: true do
   feature 'Datalinks' do
     scenario 'displays if required fields present' do
       dataset = DatasetBuilder.new
-                    .with_title(DATA_TITLE)
                     .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
                     .build
 
@@ -34,7 +32,6 @@ feature 'Dataset page', elasticsearch: true do
 
     scenario 'do not display if datafiles are not present' do
       dataset = DatasetBuilder.new
-                    .with_title(DATA_TITLE)
                     .build
 
       index_and_visit(dataset)
@@ -44,7 +41,6 @@ feature 'Dataset page', elasticsearch: true do
 
     scenario 'display if some information is missing' do
       dataset = DatasetBuilder.new
-                    .with_title(DATA_TITLE)
                     .with_datafiles(DATAFILES_WITHOUT_START_AND_ENDDATE)
                     .build
 
@@ -90,7 +86,6 @@ feature 'Dataset page', elasticsearch: true do
       allow(Dataset).to receive(:related_to).and_return([])
 
       dataset = DatasetBuilder.new
-                    .with_title(DATA_TITLE)
                     .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
                     .build
 
@@ -104,7 +99,6 @@ feature 'Dataset page', elasticsearch: true do
     scenario 'Is displayed if available' do
       notes = 'Some very interesting notes'
       dataset = DatasetBuilder.new
-                    .with_title(DATA_TITLE)
                     .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
                     .with_notes(notes)
                     .build
@@ -117,7 +111,6 @@ feature 'Dataset page', elasticsearch: true do
 
     scenario 'Is not displayed if not available' do
       dataset = DatasetBuilder.new
-                    .with_title(DATA_TITLE)
                     .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
                     .build
 
@@ -131,7 +124,6 @@ feature 'Dataset page', elasticsearch: true do
     scenario 'Is displayed if available' do
       contact_email = 'contact@somewhere.com'
       dataset = DatasetBuilder.new
-                    .with_title(DATA_TITLE)
                     .with_contact_email(contact_email)
                     .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
                     .build
@@ -144,7 +136,6 @@ feature 'Dataset page', elasticsearch: true do
 
     scenario 'Is not displayed if not available' do
       dataset = DatasetBuilder.new
-                    .with_title(DATA_TITLE)
                     .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
                     .build
 
