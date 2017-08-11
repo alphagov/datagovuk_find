@@ -51,7 +51,7 @@ feature 'Dataset page', elasticsearch: true do
   end
 
   feature 'Related datasets' do
-    scenario 'displays related datasets if there is a match' do
+    fscenario 'displays related datasets if there is a match' do
       first_id = 1
       second_id = 2
       first_dataset_title = 'First dataset data'
