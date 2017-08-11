@@ -4,7 +4,7 @@
 // Warn about using the kit in production
 var publisherTitles = [];
 
-$.getJSON("http://publish-data-beta.herokuapp.com/api/organisations", function(data) {
+$.getJSON("https://publish-data-beta.herokuapp.com/api/organisations", function(data) {
   $.each( data, function(key,value) {
     publisherTitles.push(value['title'])
   })
