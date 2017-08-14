@@ -3,9 +3,9 @@ class SearchController < ApplicationController
     @query = params["q"] || ''
     @sorted_by = sort
     @location = location
-    @organisation = params['org'] || params['input-autocomplete']
+    @organisation =  params['publisher']
     @search =
-      if params['org'] || params['input-autocomplete']
+      if params['publisher']
         Dataset.search(org_search)
       else
         Dataset.search(search_query)
@@ -63,9 +63,9 @@ class SearchController < ApplicationController
                 must: [
                   {
                     match: {
-                      "organisation.name": params['org']
+                      "organisation.title": params['publisher']
                     }
-                  }
+                  }\
                 ]
               }
             }
