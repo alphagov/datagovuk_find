@@ -41,7 +41,7 @@ class Dataset
         }
       }
 
-      result = ELASTIC.search index: "datasets-#{Rails.env}", body: dataset_by_name_query
+      result = ELASTIC.search body: dataset_by_name_query
       Dataset.from_json(result['hits']['hits'][0])
     end
 
@@ -62,7 +62,7 @@ class Dataset
         }
       }
 
-      result = ELASTIC.search index: "datasets-#{Rails.env}", body: related_datasets_query
+      result = ELASTIC.search body: related_datasets_query
 
       result['hits']['hits'].map{|hit| Dataset.from_json(hit)}
     end
