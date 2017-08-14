@@ -56,7 +56,7 @@ feature 'Dataset page', elasticsearch: true do
       second_id = 2
       first_dataset_title = 'First dataset data'
       first_dataset_slug = 'first-dataset-data'
-      second_dataset_title = 'Second dataset data'
+      second_dataset_title = '2 Data Set'
       second_dataset_slug = 'second-dataset-data'
 
       first_dataset = DatasetBuilder.new
