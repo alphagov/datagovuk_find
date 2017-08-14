@@ -177,22 +177,27 @@ section .year-expand {
 }
 
 // filters on search page
-#filters {
-  .filter {
-    padding-bottom: 10px;
+.dgu-filters {
+  h2 {
+    margin-top: 0;
   }
-  .form-label {
-
+  &__filter {
+    padding-bottom: 10px;
   }
 }
 
 // Inline form button pairs (eg, submit / cancel)
 .inline-buttons {
-  .inline-buttons__left {
+  &__left {
     display: inline-block;
   }
-  .inline-buttons__right {
+  &__right {
     display: inline-block;
     vertical-align: -38%
   }
+}
+
+// search results
+.results {
+  margin-top: 2em;
 }
