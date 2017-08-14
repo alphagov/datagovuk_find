@@ -5,6 +5,7 @@
 
 .search-submit {
   position: relative;
+  top: -4px;
   height: 38px;
   width: 40px;
   cursor: pointer;
@@ -163,15 +164,6 @@ section .year-expand {
 .dgu-feedback-form .multiple-choice {
   float: none;
   padding-bottom: 2.5em;
-}
-
-// search box______
-#search-box {
-  display: flex;
-}
-
-.search {
-  flex: 1;
 }
 
 // contact______
