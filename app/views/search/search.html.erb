@@ -40,7 +40,7 @@
           </h2>
             <dl class="metadata">
               <dt>Published by:</dt>
-              <dd><%= link_to d.organisation['title'], search_path(org: d.organisation['title']) %></dd>
+              <dd><%= link_to d.organisation['title'], search_path(org: d.organisation['name']) %></dd>
               <dt>Last updated:</dt>
               <dd><%= format(d.updated_at) %></dd>
               <dt>Geographical area:</dt>

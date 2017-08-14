@@ -3,9 +3,13 @@ class SearchController < ApplicationController
     @query = params["q"] || ''
     @sorted_by = sort
     @location = location
-    @organisation = organisation
-
-    @search = Dataset.search(search_query)
+    @organisation = params['org'] || params['input-autocomplete']
+    @search =
+      if params['org'] || params['input-autocomplete']
+        Dataset.search(org_search)
+      else
+        Dataset.search(search_query)
+      end
     @num_results = @search.results.total_count
     @datasets = @search.page(page_number)
   end
@@ -40,10 +44,35 @@ class SearchController < ApplicationController
 
     if @organisation
       base_search_query[:query][:bool][:filter] ||= []
-      base_search_query[:query][:bool][:filter] << { match: { :"organisation.title" => @organisation } }
+      base_search_query[:query][:bool][:filter] << { term: { 'organisation.title' => @organisation } }
     end
 
     base_search_query
+  end
+
+  def org_search
+    {
+  query: {
+    bool: {
+      must: [
+        {
+          nested: {
+            path: "organisation",
+            query: {
+              bool: {
+                must: [
+                  {
+                    match: {
+                      "organisation.name": params['org']
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ]
+}}}
   end
 
   def page_number
@@ -66,8 +95,4 @@ class SearchController < ApplicationController
     loc.blank? ? nil : loc
   end
 
-  def organisation
-    org = params["org"] || params["input-autocomplete"]
-    org.blank? ? nil : org
-  end
 end
