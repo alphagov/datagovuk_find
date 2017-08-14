@@ -53,21 +53,13 @@ module DatasetsHelper
     start_dates.uniq.length > 1
   end
 
-  def has_start_dates?(dataset)
-    if dataset['datafiles'].any?
-      dataset['datafiles'].reject do |file|
-        file["start_date"].nil?
-      end.map {|file| file}.any?
-    end
-  end
-
   def group_by_year(datasets)
     datasets_with_year = datasets.map do |dataset|
-      dataset['start_year'] = Time.parse(dataset['start_date']).year.to_s
+      dataset['start_year'] =
+          dataset['start_date'] ? Time.parse(dataset['start_date']).year.to_s : ''
       dataset
     end
-
-    datasets_with_year.group_by {|dataset| dataset['start_year']}
+    Hash[datasets_with_year.group_by {|dataset| dataset['start_year']}.sort.reverse]
   end
 
   private
