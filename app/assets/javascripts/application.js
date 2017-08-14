@@ -12,7 +12,6 @@
 //
 //= require rails-ujs
 //= require jquery
-//= require turbolinks
 //= require govuk_toolkit
 //= require_tree .
 //= require accessible-autocomplete.min.js
