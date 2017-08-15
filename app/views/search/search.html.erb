@@ -13,22 +13,31 @@
   </div>
 </div>
 
-<div class="grid-row results">
+<form class="dgu-filters">
   <div class="column-one-third">
     <%= render 'filters' %>
   </div>
+  <div class="column-two-thirds">
+    <%= render 'sort' %>
+  </div>
+</form>
 
+<div class="column-one-third"><p></p></div>
   <div class="column-two-thirds filters">
     <div>
-      <span class="bold-small"><%= @num_results %></span>
-      results found <% unless @query.empty? %>for
-      <span class="bold-small">'<%= @query %>'<% end %></span>
-      <% if @sorted_by %> sorted by
-      <span class="bold-small">'<%= @sorted_by %>'<% end %></span>
-      <% if @organisation %> published by
+      <% if @query.present? %>
+        <span class="bold-small"><%= @num_results %></span>
+        results found for <span class="bold-small">'<%= @query %>'</span>
+      <% end %>
+
+      <% unless @organisation.blank? %>
+        <% if @query.empty? %>Datasets <% end %>published by
       <span class="bold-small">'<%= @organisation %>'<% end %></span>
-      <% if @location %> filtered by
+      <% unless @sort.blank? %>sorted by
+      <span class="bold-small">'<%= display_sort(@sort) %>'<% end %></span>
+      <% unless @location.blank? %>filtered by
       <span class="bold-small">'<%= @location %>'<% end %></span>
+
     </div>
 
     <% if @num_results == 0 %>
@@ -64,4 +73,3 @@
       <% end %>
     </div>
   </div>
-</div>
