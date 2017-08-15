@@ -1,7 +1,11 @@
 class SearchController < ApplicationController
   def search
     @query = params["q"] || ''
-    @sorted_by = sort
+    # these instance vars are used by the search template to display
+    # the number of results stuff.
+    @sort = params['sort']
+    @organisation = params['publisher']
+    @location = params['location']
     @search = Dataset.search(search_query)
     @num_results = @search.results.total_count
     @datasets = @search.page(page_number)
@@ -17,18 +21,18 @@ class SearchController < ApplicationController
         bool: {}
       }
     }
+    # Elastic search returns results sorted by relevance (aka match) by default
 
-    case @sorted_by
-      when "recent"
-        query[:sort] = {updated_at: :desc}
+    if @sort == "recent"
+      query[:sort] = { "updated_at": { "order": "desc" }}
     end
 
-    unless params['publisher'].blank?
+    unless @organisation.blank?
       query[:query][:bool][:must] ||= []
       query[:query][:bool][:must] << publisher_filter_query
     end
 
-    unless params['location'].blank?
+    unless @location.blank?
       query[:query][:bool][:filter] ||= []
       query[:query][:bool][:filter] << {term: {location1: params['location']}}
     end
@@ -59,7 +63,7 @@ class SearchController < ApplicationController
             must: [
               {
                 match: {
-                  "organisation.title": params['publisher']
+                  "organisation.title": @organisation
                 }
               }
             ]
@@ -79,8 +83,4 @@ class SearchController < ApplicationController
     end
   end
 
-  def sort
-    sort = params["sortby"]
-    %w(best recent viewed).include?(sort) ? sort : nil
-  end
 end
