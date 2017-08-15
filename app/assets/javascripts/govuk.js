@@ -35,10 +35,12 @@ $(document).ready(function () {
     })
   }
 
+
   var publisherInput = document.getElementById('publisher')
   if (publisherInput) {
     accessibleAutocomplete({
       element: publisherInput,
+        name: publisherInput.getAttribute('name'),
       id: 'publisher',
       source: suggest_publishers
     })

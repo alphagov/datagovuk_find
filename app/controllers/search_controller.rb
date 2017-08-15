@@ -2,9 +2,6 @@ class SearchController < ApplicationController
   def search
     @query = params["q"] || ''
     @sorted_by = sort
-    @location = location
-    @organisation = organisation
-
     @search = Dataset.search(search_query)
     @num_results = @search.results.total_count
     @datasets = @search.page(page_number)
@@ -15,35 +12,61 @@ class SearchController < ApplicationController
 
   private
   def search_query
-    base_search_query = {
+    query = {
       query: {
-        bool: {
-          must: {
-            multi_match: {
-              query: @query,
-              fields: %w(title summary description organisation^2 location*^2)
-            }
-          }
-        }
+        bool: {}
       }
     }
 
     case @sorted_by
-    when "recent"
-      base_search_query[:sort] = { updated_at: :desc }
+      when "recent"
+        query[:sort] = {updated_at: :desc}
     end
 
-    if @location
-      base_search_query[:query][:bool][:filter] ||= []
-      base_search_query[:query][:bool][:filter] << { term: { location1: @location } }
+    unless params['publisher'].blank?
+      query[:query][:bool][:must] ||= []
+      query[:query][:bool][:must] << publisher_filter_query
     end
 
-    if @organisation
-      base_search_query[:query][:bool][:filter] ||= []
-      base_search_query[:query][:bool][:filter] << { match: { :"organisation.title" => @organisation } }
+    unless params['location'].blank?
+      query[:query][:bool][:filter] ||= []
+      query[:query][:bool][:filter] << {term: {location1: params['location']}}
     end
 
-    base_search_query
+    unless @query.blank?
+      query[:query][:bool][:must] ||= []
+      query[:query][:bool][:must] << multi_match_query
+    end
+
+    query
+  end
+
+  def multi_match_query
+    {
+      multi_match: {
+        query: @query,
+        fields: %w(title summary description organisation^2 location*^2)
+      }
+    }
+  end
+
+  def publisher_filter_query
+    {
+      nested: {
+        path: "organisation",
+        query: {
+          bool: {
+            must: [
+              {
+                match: {
+                  "organisation.title": params['publisher']
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
   end
 
   def page_number
@@ -59,15 +82,5 @@ class SearchController < ApplicationController
   def sort
     sort = params["sortby"]
     %w(best recent viewed).include?(sort) ? sort : nil
-  end
-
-  def location
-    loc = params["location"]
-    loc.blank? ? nil : loc
-  end
-
-  def organisation
-    org = params["org"] || params["input-autocomplete"]
-    org.blank? ? nil : org
   end
 end
