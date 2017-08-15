@@ -9,10 +9,11 @@
   </div>
 </div>
 
-<form id="search-form" action="/search" method="GET" class="column-two-thirds">
-  <fieldset>
-    <div id="search-box">
-      <input id="q" name="q" type="text" placeholder="" class="form-control search" autocomplete="off"/><button type="submit" class="search-submit">Find data</button>
-    </div>
-  </fieldset>
-</form>
+<div class="grid-row">
+  <div class="column-two-thirds">
+    <form action="/search" method="GET" class="dgu-search-box">
+      <label for="q" class="visuallyhidden">Search</label>
+      <input id="q" name="q" type="text" class="form-control dgu-search-box__input"/><button type="submit" class="dgu-search-box__button">Find data</button>
+    </form>
+  </div>
+</div>

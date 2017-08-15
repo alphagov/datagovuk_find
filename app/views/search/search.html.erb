@@ -2,18 +2,14 @@
   Results for "<%= @query %>" - Find Data Alpha
 <% end %>
 
+<h1 class="heading-large">Search results</h1>
+
 <div class="grid-row">
-  <div class="column-full">
-    <div class="search-section">
-      <h1 class="heading-large">Search results</h1>
-      <form id="search-form" action="/search" method="GET" class="column-two-thirds">
-        <fieldset>
-          <div id="search-box">
-            <input id="q" name="q" type="text" placeholder="" class="form-control search" autocomplete="off" value="<%= @query %>"/><button type="submit" class="search-submit">Find data</button>
-          </div>
-        </fieldset>
-      </form>
-    </div>
+  <div class="column-two-thirds">
+    <form id="dgu-search-box" action="/search" method="GET">
+      <label for="q" class="visuallyhidden">Search</label>
+      <input id="q" name="q" type="text" class="form-control dgu-search-box__input" value="<%= @query %>"/><button type="submit" class="dgu-search-box__button">Find data</button>
+    </form>
   </div>
 </div>
 
