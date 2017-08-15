@@ -31,29 +31,37 @@
       <span class="bold-small">'<%= @location %>'<% end %></span>
     </div>
 
-    <% @datasets.each do |d| %>
-      <div class="result">
-        <div class="">
-          <h2 class="heading-medium">
-            <a href="/dataset/<%= d.name %>"><%= d.title %></a>
-          </h2>
-          <dl class="metadata">
-            <dt>Published by:</dt>
-            <dd><%= link_to d.organisation['title'], search_path(publisher: d.organisation['title']) %></dd>
-            <dt>Last updated:</dt>
-            <dd><%= format(d.updated_at) %></dd>
-            <dt>Geographical area:</dt>
-            <% if d.location1.present? %>
-              <dd><%= d.location1 %></dd>
-            <% else %>
-              <dd class="unavailable">Not applicable</dd>
-            <% end %>
-          </dl>
-          <p><%= truncate(strip_tags(d.summary), length: 200, separator: ' ') %></p>
-        </div>
-      <% end %>
+    <% if @num_results == 0 %>
+      <h2 class="heading-medium">Please try:</h2>
+      <ul class="list list-bullet">
+        <li>searching again using different words</li>
+        <li>clearing your filters</li>
+      </ul>
+    <% else %>
 
-      <%= paginate @datasets %>
+      <% @datasets.each do |d| %>
+        <div class="result">
+          <div class="">
+            <h2 class="heading-medium">
+              <a href="/dataset/<%= d.name %>"><%= d.title %></a>
+            </h2>
+            <dl class="metadata">
+              <dt>Published by:</dt>
+              <dd><%= link_to d.organisation['title'], search_path(publisher: d.organisation['title']) %></dd>
+              <dt>Last updated:</dt>
+              <dd><%= format(d.updated_at) %></dd>
+              <dt>Geographical area:</dt>
+              <% if d.location1.present? %>
+                <dd><%= d.location1 %></dd>
+              <% else %>
+                <dd class="unavailable">Not applicable</dd>
+              <% end %>
+            </dl>
+            <p><%= truncate(strip_tags(d.summary), length: 200, separator: ' ') %></p>
+          </div>
+        <% end %>
+        <%= paginate @datasets %>
+      <% end %>
     </div>
   </div>
 </div>
