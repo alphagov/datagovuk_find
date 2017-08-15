@@ -54,7 +54,7 @@ feature 'Dataset page', elasticsearch: true do
     scenario 'displays related datasets if there is a match' do
       first_id = 1
       second_id = 2
-      first_dataset_title = 'First dataset data'
+      first_dataset_title = '1 Data Set'
       first_dataset_slug = 'first-dataset-data'
       second_dataset_title = '2 Data Set'
       second_dataset_slug = 'second-dataset-data'

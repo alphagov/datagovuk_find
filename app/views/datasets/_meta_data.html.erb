@@ -40,7 +40,7 @@
           <ul>
             <% @related_datasets.each do |dataset| %>
               <li>
-                <%= link_to dataset.title, dataset_path(dataset._id) %>
+                <%= link_to dataset.title, dataset_path(dataset.name) %>
               </li>
             <% end %>
           </ul>
