@@ -17,19 +17,10 @@ eg. “Road safety”</p>
       <h2 class="heading-medium">Finding data on <a href="https://www.gov.uk/">GOV.UK</a></h2>
       <p>To see data or more information about data stored on the GOV.UK site, go directly to <a href="https://www.gov.uk/">www.gov.uk</a>.</p>
 
-      <div class="box search-tips">
-        <h3 class="heading-small">
-            Search UK Government data
-        </h3>
-          <form id="search-form" action="/search" method="GET" class="top-search">
-            <fieldset>
-              <div id="search-box">
-                <input id="q" name="q" type="text" placeholder="" class="form-control search" autocomplete="off" value="<%= @query %>"/><button type="submit" class="search-submit">Find data</button>
-              </div>
-            </fieldset>
-          </form>
-      </div>
-
-    </div>
+      <h2 class="heading-medium">Search UK Government data</h2>
+      <form action="/search" method="GET" class="dgu-search-box">
+        <label for="q" class="visuallyhidden">Search</label>
+        <input id="q" name="q" type="text" class="form-control dgu-search-box__input"/><button type="submit" class="dgu-search-box__button">Find data</button>
+      </form>
   </div>
 </main>

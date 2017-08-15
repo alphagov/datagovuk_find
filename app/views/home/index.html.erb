@@ -1,20 +1,19 @@
-<div class="masthead">
-  <div class="grid-row inner">
-    <div class="column-two-thirds">
-      <h1 class="heading-xlarge">
-        Welcome to Find UK government data
-      </h1>
-      <p class="lede">
-        Find data published by central government, local authorities, and public bodies to help you build products and services.
-      </p>
-    </div>
+<div class="grid-row inner">
+  <div class="column-two-thirds">
+    <h1 class="heading-xlarge">
+      Welcome to Find UK government data
+    </h1>
+    <p class="lede">
+      Find data published by central government, local authorities, and public bodies to help you build products and services.
+    </p>
   </div>
 </div>
 
-<form id="search-form" action="/search" method="GET" class="column-two-thirds">
-  <fieldset>
-    <div id="search-box">
-      <input id="q" name="q" type="text" placeholder="" class="form-control search" autocomplete="off"/><button type="submit" class="search-submit">Find data</button>
-    </div>
-  </fieldset>
-</form>
+<div class="grid-row">
+  <div class="column-two-thirds">
+    <form action="/search" method="GET" class="dgu-search-box">
+      <label for="q" class="visuallyhidden">Search</label>
+      <input id="q" name="q" type="text" class="form-control dgu-search-box__input"/><button type="submit" class="dgu-search-box__button">Find data</button>
+    </form>
+  </div>
+</div>
