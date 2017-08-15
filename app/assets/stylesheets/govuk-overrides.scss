@@ -30,4 +30,22 @@
   margin-top: 1.5em;
   margin-bottom: 40px;
 }
+
 // ______________________________________________________
+
+// Error pages
+
+.not-found {
+  .suggestions {
+    padding-left: 1em;
+
+    ul {
+      list-style-type: disc;
+      padding-left: 0px;
+
+      li {
+        list-style-position: outside;
+      }
+    }
+  }
+}
