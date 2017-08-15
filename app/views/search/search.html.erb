@@ -63,7 +63,7 @@
         <div class="pagination">
           <nav>
             <%= page_entries_info @datasets, entry_name: 'dataset' %>
-            <span class="paginate"><%= paginate @datasets, window: 2, class:'paginate' %></span>
+            <span class="pagination__numbers"><%= paginate @datasets, window: 2, class:'paginate' %></span>
           </nav>
         </div>
       <% end %>
