@@ -1,28 +1,32 @@
 // =============================================================================
 // Front-end components go here
 
-// Homepage custom styles ______________________
+// Homepage custom styles
 
-.search-submit {
-  position: relative;
-  height: 38px;
-  width: 40px;
-  cursor: pointer;
-  background: #0b0c0c image-url("search-button.png") no-repeat 2px 50%;
-  text-indent: -5000px;
-  border: 0;
-  padding: 0;
-}
 
-.search {
-  box-sizing: border-box;
-  height: 40px;
-  width: 100%;
-  margin-right: -40px;
-}
-
-#search-form {
+// Search box ==================================================================
+.dgu-search-box {
   padding-left: 0px;
+
+  &__input {
+    box-sizing: border-box;
+    height: 40px;
+    width: 100%;
+    margin-right: -40px;
+    margin-bottom: 10px;
+  }
+
+  &__button {
+    position: relative;
+    top: -4px;
+    height: 38px;
+    width: 40px;
+    cursor: pointer;
+    background: #0b0c0c image-url("search-button.png") no-repeat 2px 50%;
+    text-indent: -5000px;
+    border: 0;
+    padding: 0;
+  }
 }
 
 // Dataset show page custom styles ______________________
@@ -72,21 +76,12 @@
   }
 }
 
-// search box______
-.search {
-  width: 100%;
-  margin-bottom: 10px;
-}
-
 .dataset {
   .download {
     margin-top: 1.5em;
   }
 }
 
-.top-search {
-  padding-top: 150px;
-}
 
 // additional info______
 .additional-information {
@@ -165,15 +160,6 @@ section .year-expand {
   padding-bottom: 2.5em;
 }
 
-// search box______
-#search-box {
-  display: flex;
-}
-
-.search {
-  flex: 1;
-}
-
 // contact______
 .contact {
   .column-one-half {
@@ -185,21 +171,24 @@ section .year-expand {
 }
 
 // filters on search page
-#filters {
-  .filter {
-    padding-bottom: 10px;
+.dgu-filters {
+  @media (max-width: 641px) {
+    margin-bottom: 2em;
   }
-  .form-label {
-
+  h2 {
+    margin-top: 0;
+  }
+  &__filter {
+    padding-bottom: 10px;
   }
 }
 
 // Inline form button pairs (eg, submit / cancel)
 .inline-buttons {
-  .inline-buttons__left {
+  &__left {
     display: inline-block;
   }
-  .inline-buttons__right {
+  &__right {
     display: inline-block;
     vertical-align: -38%
   }
@@ -219,4 +208,9 @@ section .year-expand {
   border-color: grey;
   margin-top: 25px;
   padding-top: 25px;
+}
+
+// search results
+.results {
+  margin-top: 2em;
 }

@@ -5,7 +5,7 @@ feature 'Dataset page', elasticsearch: true do
     visit '/dataset/does-not-exist'
 
     expect(page.status_code).to eq(404)
-    expect(page).to have_content('Not found')
+    expect(page).to have_content('Page not found')
   end
 
   feature 'Meta data' do

@@ -1,43 +1,50 @@
 <% content_for :page_title do %>
-    Results for "<%= @query %>" - Find Data Alpha
+  Results for "<%= @query %>" - Find Data Alpha
 <% end %>
 
-<main class="results-page" id="content" role="main">
-  <div class="grid-row masthead">
-    <div class="search-section">
-      <h1 class="heading-large">Search results</h1>
-      <form id="search-form" action="/search" method="GET" class="column-two-thirds">
-        <fieldset>
-          <div id="search-box">
-              <input id="q" name="q" type="text" placeholder="" class="form-control search" autocomplete="off" value="<%= @query %>"/><button type="submit" class="search-submit">Find data</button>
-          </div>
-        </fieldset>
-      </form>
-    </div>
+<h1 class="heading-large">Search results</h1>
+
+<div class="grid-row">
+  <div class="column-two-thirds">
+    <form id="dgu-search-box" action="/search" method="GET">
+      <label for="q" class="visuallyhidden">Search</label>
+      <input id="q" name="q" type="text" class="form-control dgu-search-box__input" value="<%= @query %>"/><button type="submit" class="dgu-search-box__button">Find data</button>
+    </form>
   </div>
-  <div class="grid-row">
-    <div class="column-full">
-        <span class="bold-small"><%= @num_results %></span>
-        results found <% unless @query.empty? %>for
-        <span class="bold-small">'<%= @query %>'<% end %></span>
-        <% if @sorted_by %> sorted by
-        <span class="bold-small">'<%= @sorted_by %>'<% end %></span>
-        <% if @organisation %> published by
-        <span class="bold-small">'<%= @organisation %>'<% end %></span>
-        <% if @location %> filtered by
-        <span class="bold-small">'<%= @location %>'<% end %></span>
-    </div>
+</div>
+
+<div class="grid-row results">
+  <div class="column-one-third">
+    <%= render 'filters' %>
   </div>
 
-	<%= render 'filters' %>
+  <div class="column-two-thirds filters">
+    <div>
+      <span class="bold-small"><%= @num_results %></span>
+      results found <% unless @query.empty? %>for
+      <span class="bold-small">'<%= @query %>'<% end %></span>
+      <% if @sorted_by %> sorted by
+      <span class="bold-small">'<%= @sorted_by %>'<% end %></span>
+      <% if @organisation %> published by
+      <span class="bold-small">'<%= @organisation %>'<% end %></span>
+      <% if @location %> filtered by
+      <span class="bold-small">'<%= @location %>'<% end %></span>
+    </div>
 
-    <div class="column-two-thirds filters">
+    <% if @num_results == 0 %>
+      <h2 class="heading-medium">Please try:</h2>
+      <ul class="list list-bullet">
+        <li>searching again using different words</li>
+        <li>clearing your filters</li>
+      </ul>
+    <% else %>
+
       <% @datasets.each do |d| %>
-      <div class="result">
-        <div class="">
-          <h2 class="heading-medium">
-          <a href="/dataset/<%= d.name %>"><%= d.title %></a>
-          </h2>
+        <div class="result">
+          <div class="">
+            <h2 class="heading-medium">
+              <a href="/dataset/<%= d.name %>"><%= d.title %></a>
+            </h2>
             <dl class="metadata">
               <dt>Published by:</dt>
               <dd><%= link_to d.organisation['title'], search_path(publisher: d.organisation['title']) %></dd>
@@ -50,14 +57,16 @@
                 <dd class="unavailable">Not applicable</dd>
               <% end %>
             </dl>
-            <p><%= truncate(strip_tags(d.summary), length: 200, seperator: ' ') %></p>
+            <p><%= truncate(strip_tags(d.summary), length: 200, separator: ' ') %></p>
+          </div>
+        <% end %>
+        <div class="pagination">
+          <nav>
+            <%= page_entries_info @datasets, entry_name: 'dataset' %>
+            <span class="paginate"><%= paginate @datasets, class:'paginate' %></span>
+          </nav>
         </div>
-      </div>
       <% end %>
-      <div class="pagination">
-        <nav>
-          <%= page_entries_info @datasets, entry_name: 'dataset' %>
-          <span class="paginate"><%= paginate @datasets, class:'paginate' %></span>
-        </nav>
-      </div>
-</main>
+    </div>
+  </div>
+</div>
