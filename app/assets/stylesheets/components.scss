@@ -172,6 +172,9 @@ section .year-expand {
 
 // filters on search page
 .dgu-filters {
+  @media (max-width: 641px) {
+    margin-bottom: 2em;
+  }
   h2 {
     margin-top: 0;
   }
