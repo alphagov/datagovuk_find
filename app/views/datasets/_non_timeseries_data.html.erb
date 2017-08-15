@@ -29,6 +29,7 @@
           <% end %>
             </td>
             <td><a href="<%= datafile['url'] %>">Download</a></td>
+            <td><a href="<%= file_preview_url(file_id: datafile['id']) %>">Preview</a></td>
         </tr>
       <% end %>
     </tbody>
