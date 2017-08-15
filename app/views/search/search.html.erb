@@ -18,7 +18,7 @@
     <%= render 'filters' %>
   </div>
 
-  <div class="column-two-thirds">
+  <div class="column-two-thirds filters">
     <div>
       <span class="bold-small"><%= @num_results %></span>
       results found <% unless @query.empty? %>for
@@ -29,34 +29,31 @@
       <span class="bold-small">'<%= @organisation %>'<% end %></span>
       <% if @location %> filtered by
       <span class="bold-small">'<%= @location %>'<% end %></span>
-  </div>
-</div>
+    </div>
 
-<%= render 'filters' %>
+    <% @datasets.each do |d| %>
+      <div class="result">
+        <div class="">
+          <h2 class="heading-medium">
+            <a href="/dataset/<%= d.name %>"><%= d.title %></a>
+          </h2>
+          <dl class="metadata">
+            <dt>Published by:</dt>
+            <dd><%= link_to d.organisation['title'], search_path(publisher: d.organisation['title']) %></dd>
+            <dt>Last updated:</dt>
+            <dd><%= format(d.updated_at) %></dd>
+            <dt>Geographical area:</dt>
+            <% if d.location1.present? %>
+              <dd><%= d.location1 %></dd>
+            <% else %>
+              <dd class="unavailable">Not applicable</dd>
+            <% end %>
+          </dl>
+          <p><%= truncate(strip_tags(d.summary), length: 200, separator: ' ') %></p>
+        </div>
+      <% end %>
 
-<div class="column-two-thirds filters">
-  <% @datasets.each do |d| %>
-    <div class="result">
-      <div class="">
-        <h2 class="heading-medium">
-          <a href="/dataset/<%= d.name %>"><%= d.title %></a>
-        </h2>
-        <dl class="metadata">
-          <dt>Published by:</dt>
-          <dd><%= link_to d.organisation['title'], search_path(publisher: d.organisation['title']) %></dd>
-          <dt>Last updated:</dt>
-          <dd><%= format(d.updated_at) %></dd>
-          <dt>Geographical area:</dt>
-          <% if d.location1.present? %>
-            <dd><%= d.location1 %></dd>
-          <% else %>
-            <dd class="unavailable">Not applicable</dd>
-          <% end %>
-        </dl>
-        <p><%= truncate(strip_tags(d.summary), length: 200, separator: ' ') %></p>
-      </div>
-    <% end %>
-
-    <%= paginate @datasets %>
+      <%= paginate @datasets %>
+    </div>
   </div>
 </div>
