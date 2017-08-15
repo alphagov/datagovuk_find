@@ -83,7 +83,7 @@ feature 'Dataset page', elasticsearch: true do
     end
 
     scenario 'does not display if related datasets is empty' do
-      allow(Dataset).to receive(:related_to).and_return([])
+      allow(Dataset).to receive(:related).and_return([])
 
       dataset = DatasetBuilder.new
                     .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
