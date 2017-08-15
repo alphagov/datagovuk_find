@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/datagovuk/find_data_beta.png?label=ready&title=Ready)](https://waffle.io/datagovuk/find_data_beta?utm_source=badge)
 # Find Data Beta
 
 In order for the app to work, it needs the following environment variables
