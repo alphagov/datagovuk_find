@@ -1,0 +1,26 @@
+<%# The container tag
+  - available local variables
+    current_page:  a page object for the currently displayed page
+    total_pages:   total number of pages
+    per_page:      number of items to fetch per page
+    remote:        data-remote
+    paginator:     the paginator that renders the pagination tags inside
+-%>
+
+<%= link_to_prev_page @datasets, 'Prev' unless current_page.first?%>
+
+<%= paginator.render do -%>
+  &nbsp
+  <% each_page do |page| -%>
+    <% if page.display_tag? -%>
+      <%= page_tag page %>
+    <% elsif !page.was_truncated? -%>
+      <%= gap_tag %>
+    <% end -%>
+    &nbsp
+  <% end -%>
+<% end -%>
+
+<% unless current_page.out_of_range? %>
+  <%= link_to_next_page @datasets, 'Next' unless current_page.last? %>
+<% end %>

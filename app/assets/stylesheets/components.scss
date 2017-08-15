@@ -204,3 +204,19 @@ section .year-expand {
     vertical-align: -38%
   }
 }
+
+// Search results page _______________________________
+
+// Pagination
+.paginate{
+  padding-left: 20px;
+  float:right;
+}
+
+.pagination{
+  border-top: solid;
+  border-width: thin;
+  border-color: grey;
+  margin-top: 25px;
+  padding-top: 25px;
+}
