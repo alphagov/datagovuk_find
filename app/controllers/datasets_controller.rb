@@ -18,6 +18,13 @@ class DatasetsController < ApplicationController
     end
   end
 
+  def preview
+    @preview = RestClient.get(preview_url(params[:file_id]))
+    render json: @preview
+  rescue
+    render json: { "error": "No preview available" }, status: 404
+  end
+
   private
 
   def handle_error(e)
