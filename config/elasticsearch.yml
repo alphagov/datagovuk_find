@@ -3,6 +3,7 @@ default: &default
   transport_options:
     request:
       timeout: 5
+  send_get_body_as: 'POST'
 
 test:
   <<: *default

@@ -39,5 +39,5 @@ class Dataset
       result['hits']['hits'].map{|hit| Dataset.from_json(hit)}
     end
   end
-  index_name "datasets-#{Rails.env}"
+  index_name ENV.fetch("ES_INDEX", "data_discovery")
 end
