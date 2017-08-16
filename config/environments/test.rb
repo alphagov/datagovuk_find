@@ -1,4 +1,6 @@
 Rails.application.configure do
+  ENV["ES_HOST"] = "http://127.0.0.1:9200"
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # The test environment is used exclusively to run your application's
