@@ -41,7 +41,7 @@ class Dataset
         }
       }
 
-      result = ELASTIC.search body: dataset_by_name_query
+      result = ELASTIC.search index: "datasets-#{Rails.env}", type: 'dataset', body: dataset_by_name_query
       Dataset.from_json(result['hits']['hits'][0])
     end
 
@@ -53,7 +53,7 @@ class Dataset
             fields: %w(title summary description organisation^2 location*^2),
             like: {
               _index: "datasets-#{Rails.env}",
-              _type: "dataset",
+              _type: 'dataset',
               _id: id
             },
             min_term_freq: 1,
@@ -62,7 +62,13 @@ class Dataset
         }
       }
 
-      result = ELASTIC.search body: related_datasets_query
+      puts 'here is the query'
+      puts related_datasets_query.to_json
+
+      result = ELASTIC.search index: "datasets-#{Rails.env}", type: 'dataset', body: related_datasets_query
+
+      puts 'Here are the results'
+      puts result
 
       result['hits']['hits'].map{|hit| Dataset.from_json(hit)}
     end

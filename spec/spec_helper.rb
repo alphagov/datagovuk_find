@@ -11,7 +11,7 @@ RSpec.configure do |config|
   end
 
   config.after(:each) do
-  #   delete_index
+    delete_index
   end
 
   config.expect_with :rspec do |expectations|

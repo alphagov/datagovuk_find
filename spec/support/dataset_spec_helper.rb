@@ -1,7 +1,7 @@
 INDEX = "datasets-test"
 
 def index(dataset)
-  ELASTIC.index index: INDEX, type: 'all', id: 1, body: dataset
+  ELASTIC.index index: INDEX, type: 'dataset', id: 1, body: dataset
   refresh_index
 end
 
