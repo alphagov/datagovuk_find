@@ -7,7 +7,8 @@ config = {
     request: {
       timeout: ELASTIC_CONFIG['transport_options']['request']['timeout']
     }
-  }
+  },
+  send_get_body_as: 'POST'
 }
 
 ELASTIC = Elasticsearch::Client.new(config)
