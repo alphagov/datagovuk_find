@@ -194,6 +194,23 @@ section .year-expand {
   }
 }
 
+// Search results page _______________________________
+
+// Pagination
+
+.pagination {
+  border-top: solid;
+  border-width: thin;
+  border-color: grey;
+  margin-top: 25px;
+  padding-top: 25px;
+    &__numbers {
+      padding-left: 20px;
+      float:right;
+      word-spacing: 6px;
+    }
+}
+
 // search results
 .results {
   margin-top: 2em;

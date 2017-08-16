@@ -61,7 +61,12 @@
             <p><%= truncate(strip_tags(d.summary), length: 200, separator: ' ') %></p>
           </div>
         <% end %>
-        <%= paginate @datasets %>
+        <div class="pagination">
+          <nav>
+            <%= page_entries_info @datasets, entry_name: 'dataset' %>
+            <span class="pagination__numbers"><%= paginate @datasets, window: 2, class:'paginate' %></span>
+          </nav>
+        </div>
       <% end %>
     </div>
   </div>
