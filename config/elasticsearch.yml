@@ -1,0 +1,17 @@
+default: &default
+  host: http://localhost:9200
+  transport_options:
+    request:
+      timeout: 5
+  send_get_body_as: 'POST'
+
+test:
+  <<: *default
+
+staging: &default
+  <<: *default
+  host: <%= ENV['ES_HOST'] %>
+
+production: &default
+  <<: *default
+  host: <%= ENV['ES_HOST'] %>
