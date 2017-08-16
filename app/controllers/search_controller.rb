@@ -1,8 +1,10 @@
 class SearchController < ApplicationController
+  include QueryBuilder
+
   def search
     @query = params["q"] || ''
     @sorted_by = sort
-    @search = Dataset.search(QueryBuilder.search_query(params))
+    @search = Dataset.search(search_query(params))
     @num_results = @search.results.total_count
     @datasets = @search.page(page_number)
   end

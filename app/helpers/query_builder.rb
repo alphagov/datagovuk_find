@@ -2,7 +2,7 @@ require 'uri'
 
 module QueryBuilder
 
-  def self.get(name)
+  def get_query(name)
     {
       query: {
         constant_score: {
@@ -16,7 +16,7 @@ module QueryBuilder
     }
   end
 
-  def self.related_to(id)
+  def related_to_query(id)
     {
       size: 4,
       query: {
@@ -33,7 +33,7 @@ module QueryBuilder
     }
   end
 
-  def self.search_query(params)
+  def search_query(params)
     publisher_param = params['publisher']
     location_param = params['location']
     query_param = params['q']
@@ -52,7 +52,7 @@ module QueryBuilder
 
     unless publisher_param.blank?
       query[:query][:bool][:must] ||= []
-      query[:query][:bool][:must] << self.publisher_filter_query(publisher_param)
+      query[:query][:bool][:must] << publisher_filter_query(publisher_param)
     end
 
     unless location_param.blank?
@@ -62,13 +62,15 @@ module QueryBuilder
 
     unless query_param.blank?
       query[:query][:bool][:must] ||= []
-      query[:query][:bool][:must] << self.multi_match_query(query_param)
+      query[:query][:bool][:must] << multi_match_query(query_param)
     end
 
     query
   end
 
-  def self.multi_match_query(query)
+  private
+
+  def multi_match_query(query)
     {
       multi_match: {
         query: query,
@@ -77,7 +79,7 @@ module QueryBuilder
     }
   end
 
-  def self.publisher_filter_query(publisher)
+  def publisher_filter_query(publisher)
     {
       nested: {
         path: "organisation",

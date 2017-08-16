@@ -1,20 +1,21 @@
 
 class DatasetsController < ApplicationController
   include DatasetsHelper
+  include QueryBuilder
 
   def show
     begin
-      query = QueryBuilder.get(params[:name])
+      query = get_query(params[:name])
       @dataset = Dataset.get(query)
       raise 'Metadata missing' if @dataset.title.blank?
     rescue => e
       handle_error(e)
     end
 
-    @query = referrer_query
+    @referrer = referrer
 
     unless @dataset.nil?
-      query = QueryBuilder.related_to(@dataset._id)
+      query = related_to_query(@dataset._id)
       @related_datasets = Dataset.related(query)
     end
   end
@@ -27,7 +28,7 @@ class DatasetsController < ApplicationController
     render :template => "errors/not_found", :status => 404
   end
 
-  def referrer_query
+  def referrer
     unless request.referer.nil?
       referer_host = URI(request.referer).host.to_s
       app_host = URI(request.host).to_s
