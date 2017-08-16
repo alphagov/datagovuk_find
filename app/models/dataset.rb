@@ -35,9 +35,9 @@ class Dataset
 
     def related(query)
       result = ELASTIC.search body: query
-
       result['hits']['hits'].map{|hit| Dataset.from_json(hit)}
     end
   end
+
   index_name "datasets-#{Rails.env}"
 end
