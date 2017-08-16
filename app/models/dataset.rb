@@ -29,12 +29,12 @@ class Dataset
     end
 
     def get(query)
-      result = ELASTIC.search body: query
+      result = ELASTIC.search body: query, type: 'dataset'
       Dataset.from_json(result['hits']['hits'][0])
     end
 
     def related(query)
-      result = ELASTIC.search body: query
+      result = ELASTIC.search body: query, type: 'dataset'
       result['hits']['hits'].map{|hit| Dataset.from_json(hit)}
     end
   end
