@@ -1,4 +1,3 @@
-
 class DatasetsController < ApplicationController
   include DatasetsHelper
   include QueryBuilder
@@ -31,7 +30,7 @@ class DatasetsController < ApplicationController
 
   def handle_error(e)
     Rails.logger.debug "ERROR! => " + e.message
-    e.backtrace.each { |line| logger.error line }
+    e.backtrace.each {|line| logger.error line}
     render :template => "errors/not_found", :status => 404
   end
 

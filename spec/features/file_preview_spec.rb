@@ -1,9 +1,14 @@
 require 'rails_helper'
 
-feature 'Previews', elasticsearch: true do
+
+feature 'Previews' do
   scenario 'when a preview exists, show it' do
+
     expected_preview = JSON.dump({ "what is this?": "it's an example preview" })
-    expect(RestClient).to receive(:get).and_return(expected_preview)
+
+    stub_request(:any, "https://publish-data-beta.herokuapp.com").to_return(:status => 200, :body => expected_preview, :headers => {})
+
+    expect(RestClient).to receive(:get).with(anything).and_return(expected_preview)
 
     visit '/file/1/preview'
 
