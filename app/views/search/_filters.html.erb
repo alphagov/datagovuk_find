@@ -1,20 +1,19 @@
+<h2 class="heading-medium">Filter by</h2>
+<label for="location" class="form-label">
+  Enter geographical area
+</label>
+<div id="location" name="location" data-default="<%= @location %>" class="dgu-filters__filter"></div>
 
-  <h2 class="heading-medium">Filter by</h2>
-  <label for="location" class="form-label">
-    Enter geographical area
-  </label>
-  <div id="location" name="location" data-default="<%= @location %>" class="dgu-filters__filter"></div>
-
-  <label for="publisher" class="form-label">
-    Enter publisher
-  </label>
-  <div id="publisher" name="publisher" data-default="<%= @organisation %>" class="dgu-filters__filter"></div>
-  <div class="inline-buttons">
-    <div class="inline-buttons__left">
-      <input name="q" type="hidden" value="<%= @query %>"/>
-      <input class="button" type="submit" value="Apply filters"></input>
-    </div>
-    <div class="inline-buttons__right">
-      <%= link_to 'Remove filters', search_path(q: @query) %>
-    </div>
+<label for="publisher" class="form-label">
+  Enter publisher
+</label>
+<div id="publisher" name="publisher" data-default="<%= @organisation %>" class="dgu-filters__filter"></div>
+<div class="inline-buttons">
+  <div class="inline-buttons__left">
+    <input name="q" type="hidden" value="<%= @query %>"/>
+    <input class="button" type="submit" value="Apply filters"></input>
   </div>
+  <div class="inline-buttons__right">
+    <%= link_to 'Remove filters', search_path(q: @query) %>
+  </div>
+</div>
