@@ -8,7 +8,7 @@
         <div class="metadata-box">
           <dl class="metadata">
             <dt>Published by:</dt>
-            <dd><%= link_to d.organisation['title'], search_path(publisher: d.organisation['title']) %></dd>
+            <dd><%= link_to @dataset.organisation['title'], search_path(publisher: @dataset.organisation['title']) %></dd>
             <dt>Last updated:</dt>
             <dd><%= format(@dataset.updated_at) %></dd>
             <dt>Expected update:</dt>
