@@ -1,4 +1,6 @@
-<div class="sort" >
-  <input type="checkbox" name="sort" value="recent">Most recent</input>
-  <input type="checkbox" name="sort" value="match">Best match</input>
+<div class="dgu-dropdown">
+  <select name="sort">
+    <option <%= 'selected' if @sort=='recent' %> value="recent">Most recent</option>
+    <option <%= 'selected' if @sort=='best' %> value="best">Best match</option>
+  </select>
 </div>

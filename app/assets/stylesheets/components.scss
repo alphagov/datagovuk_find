@@ -1,8 +1,6 @@
 // =============================================================================
 // Front-end components go here
 
-// Homepage custom styles
-
 
 // Search box ==================================================================
 .dgu-search-box {
@@ -28,6 +26,27 @@
     padding: 0;
   }
 }
+
+
+// Styled Dropdown =============================================================
+.dgu-dropdown {
+  float: right;
+  overflow: hidden;
+  width: 140px;
+  background: image-url("triangle-down.png") no-repeat right center;
+  background-size: 10%;
+  select {
+    @include copy-19;
+    width: 200px;
+    background: transparent;
+    border: none;
+  }
+}
+
+
+
+//==============================================================================
+// Page-specific styles
 
 // Dataset show page custom styles ______________________
 
