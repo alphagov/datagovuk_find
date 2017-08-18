@@ -2,8 +2,8 @@
   <label>
     <span class="visuallyhidden">Sorting type</span>
     <select name="sort">
+      <option <%= 'selected' if @sort!='recent' %> value="best">Best match</option>
       <option <%= 'selected' if @sort=='recent' %> value="recent">Most recent</option>
-      <option <%= 'selected' if @sort=='best' %> value="best">Best match</option>
     </select>
   </label>
 </div>

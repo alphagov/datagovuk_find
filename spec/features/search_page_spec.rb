@@ -41,6 +41,12 @@ feature 'Search page', elasticsearch: true do
 
     index([old_dataset, new_dataset])
 
+    search_for('Old Interesting Dataset')
+    expect(page).to have_css('option[selected]', text: 'Best match')
+    elements = all('h2 a')
+    expect(elements[0]).to have_content 'Old'
+    expect(elements[1]).to have_content 'Recent'
+
     filtered_search_for('Interesting Dataset', 'Most recent')
     expect(page).to have_css('option[selected]', text: 'Most recent')
     elements = all('h2 a')
