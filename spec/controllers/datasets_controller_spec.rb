@@ -38,8 +38,7 @@ def create_dataset_and_visit
                 .with_title('A nice dataset')
                 .build
 
-  index(dataset)
+  index([dataset])
   get :show, params: {name: 'a-nice-dataset'}
 
 end
-
