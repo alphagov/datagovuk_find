@@ -33,6 +33,7 @@ group :development, :test do
   gem 'dotenv', '~> 2.2'
   gem 'rspec-rails', '~> 3.6'
   gem 'rspec', '~> 3.6'
+  gem 'webmock'
 end
 
 

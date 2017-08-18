@@ -1,4 +1,3 @@
-
 class DatasetsController < ApplicationController
   include DatasetsHelper
   include QueryBuilder
@@ -20,11 +19,18 @@ class DatasetsController < ApplicationController
     end
   end
 
+  def preview
+    @preview = RestClient.get(preview_url(params[:file_id]))
+    render json: @preview
+  rescue
+    render json: { "error": "No preview available" }, status: 404
+  end
+
   private
 
   def handle_error(e)
     Rails.logger.debug "ERROR! => " + e.message
-    e.backtrace.each { |line| logger.error line }
+    e.backtrace.each {|line| logger.error line}
     render :template => "errors/not_found", :status => 404
   end
 

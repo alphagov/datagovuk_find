@@ -1,5 +1,9 @@
 require "simplecov"
+require 'webmock/rspec'
+
 SimpleCov.start
+
+WebMock.allow_net_connect!
 
 RSpec.configure do |config|
   config.filter_run focus: true
