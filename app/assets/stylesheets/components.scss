@@ -30,9 +30,9 @@
 .dgu-dropdown {
   float: right;
   overflow: hidden;
-  width: 140px;
+  width: 132px;
   background: image-url("triangle-down.png") no-repeat right center;
-  background-size: 10%;
+  background-size: 8%;
   select {
     @include copy-19;
     width: 200px;
