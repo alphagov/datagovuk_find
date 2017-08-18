@@ -1,30 +1,7 @@
 module SearchHelper
-  def best?
-    @sorted_by == 'best'
-  end
 
-  def no_sort?
-    @sorted_by.nil? || @sorted_by.empty?
-  end
-
-  def recent?
-    @sorted_by == 'recent'
-  end
-
-  def viewed?
-    @sorted_by == 'viewed'
-  end
-
-  def central?
-    @org_type == "central"
-  end
-
-  def local?
-    @org_type == "local"
-  end
-
-  def bodies?
-    @org_type == "bodies"
+  def display_sort(sort)
+    sort == 'best' ? "Best Match" : "Most Recent"
   end
 
   def format(timestamp)

@@ -69,6 +69,11 @@ class DatasetBuilder
     self
   end
 
+  def updated_at(date_string)
+    @dataset[:updated_at] = date_string
+    self
+  end
+
   def build
     @dataset
   end

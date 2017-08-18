@@ -3,8 +3,11 @@ class SearchController < ApplicationController
 
   def search
     @query = params["q"] || ''
-    @sorted_by = sort
+    @sort = params['sort']
+    @organisation = params['publisher']
+    @location = params['location']
     @search = Dataset.search(search_query(params))
+
     @num_results = @search.results.total_count
     @datasets = @search.page(page_number)
   end
@@ -13,6 +16,7 @@ class SearchController < ApplicationController
   end
 
   private
+
   def page_number
     page = params["page"]
 
@@ -23,8 +27,4 @@ class SearchController < ApplicationController
     end
   end
 
-  def sort
-    sort = params["sortby"]
-    %w(best recent viewed).include?(sort) ? sort : nil
-  end
 end

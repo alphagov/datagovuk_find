@@ -37,7 +37,7 @@ module QueryBuilder
     publisher_param = params['publisher']
     location_param = params['location']
     query_param = params['q']
-    sort_param = params['sortby']
+    sort_param = params['sort']
 
     query = {
       query: {
@@ -47,7 +47,7 @@ module QueryBuilder
 
     case sort_param
       when "recent"
-        query[:sort] = {updated_at: :desc}
+        query[:sort] = { "updated_at": { "order": "desc" }}
     end
 
     unless publisher_param.blank?
