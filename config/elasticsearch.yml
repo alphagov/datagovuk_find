@@ -1,0 +1,16 @@
+default: &default
+  host: http://localhost:9200
+
+test:
+  <<: *default
+
+development:
+  <<: *default
+
+staging: &default
+  <<: *default
+  host: <%= ENV['ES_HOST'] %>
+
+production: &default
+  <<: *default
+  host: <%= ENV['ES_HOST'] %>
