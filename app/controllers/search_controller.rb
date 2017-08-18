@@ -2,7 +2,7 @@ class SearchController < ApplicationController
   include QueryBuilder
 
   def search
-    @query = params["q"] || ''
+    @query = params['q'] || ''
     @sort = params['sort']
     @organisation = params['publisher']
     @location = params['location']
