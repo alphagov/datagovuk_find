@@ -199,9 +199,15 @@ section .year-expand {
   &__filter {
     padding-bottom: 10px;
   }
+  &__apply-button {
+    margin-top: .5em;
+  }
+  &__remove-button {
+    margin-top: .7em;
+  }
 }
 
-// Inline form button pairs (eg, submit / cancel)
+// Filter
 .inline-buttons {
   &__left {
     display: inline-block;
