@@ -17,7 +17,7 @@ module QueryBuilder
   end
 
   def related_to_query(id)
-    query = {
+    {
       size: 4,
       query: {
         dis_max: {
@@ -49,8 +49,6 @@ module QueryBuilder
         }
       }
     }
-
-    query
   end
 
   def search_query(params)
