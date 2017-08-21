@@ -20,14 +20,32 @@ module QueryBuilder
     {
       size: 4,
       query: {
-        more_like_this: {
-          fields: %w(title summary description organisation^2 location*^2),
-          like: {
-            _type: "dataset",
-            _id: id
-          },
-          min_term_freq: 1,
-          min_doc_freq: 1
+        dis_max: {
+          queries: [
+            {
+              more_like_this: {
+                fields: %w(title summary description),
+                like: {
+                  _type: "dataset",
+                  _id: id
+                },
+                min_term_freq: 1,
+                min_doc_freq: 1
+              }
+            },
+            {
+              more_like_this: {
+                fields: %w(organisation^2 location*^2),
+                like: {
+                  _type: "dataset",
+                  _id: id
+                },
+                boost: 20,
+                min_term_freq: 1,
+                min_doc_freq: 1
+              }
+            }
+          ]
         }
       }
     }
@@ -47,7 +65,7 @@ module QueryBuilder
 
     case sort_param
       when "recent"
-        query[:sort] = { "updated_at": { "order": "desc" }}
+        query[:sort] = {"updated_at": {"order": "desc"}}
     end
 
     unless publisher_param.blank?

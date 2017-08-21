@@ -64,6 +64,21 @@ class DatasetBuilder
     self
   end
 
+  def with_location(location)
+    @dataset[:location1] = location
+    self
+  end
+
+  def with_summary(summary)
+    @dataset[:summary] = summary
+    self
+  end
+
+  def with_description(description)
+    @dataset[:description] = description
+    self
+  end
+
   def with_notes(notes)
     @dataset[:notes] = notes
     self
@@ -71,6 +86,12 @@ class DatasetBuilder
 
   def updated_at(date_string)
     @dataset[:updated_at] = date_string
+    self
+  end
+
+  def with_publisher(publisher)
+    @dataset[:organisation][:name] = publisher
+    @dataset[:organisation][:title] = publisher
     self
   end
 
