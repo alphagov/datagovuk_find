@@ -4,8 +4,6 @@
 
 // Search box ==================================================================
 .dgu-search-box {
-  padding-left: 0px;
-
   &__input {
     box-sizing: border-box;
     height: 40px;
@@ -32,9 +30,9 @@
 .dgu-dropdown {
   float: right;
   overflow: hidden;
-  width: 140px;
+  width: 132px;
   background: image-url("triangle-down.png") no-repeat right center;
-  background-size: 10%;
+  background-size: 8%;
   select {
     @include copy-19;
     width: 200px;
@@ -85,8 +83,8 @@
 // related datasets______
 .related-datasets {
   padding-left: 25px;
-  h3:first-of-type {
-    margin-top: 134px;
+  h3.top {
+    margin: 0;
     padding-top: 30px;
     border-top: 10px solid #F8F8F8;
   }
@@ -201,9 +199,15 @@ section .year-expand {
   &__filter {
     padding-bottom: 10px;
   }
+  &__apply-button {
+    margin-top: .5em;
+  }
+  &__remove-button {
+    margin-top: .7em;
+  }
 }
 
-// Inline form button pairs (eg, submit / cancel)
+// Filter
 .inline-buttons {
   &__left {
     display: inline-block;

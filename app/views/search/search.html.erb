@@ -24,14 +24,14 @@
 
       <% if @query.present? %>
         <span class="bold-small"><%= @num_results %></span>
-        results found for <span class="bold-small">'<%= @query %>'</span>
+        results found for <span class="bold-small">‘<%= @query %>’</span>
       <% end %>
 
       <% unless @organisation.blank? %>
       <% if @query.empty? %>Datasets <% end %>published by
-      <span class="bold-small">'<%= @organisation %>'<% end %></span>
+      <span class="bold-small">‘<%= @organisation %>’<% end %></span>
       <% unless @location.blank? %>filtered by
-      <span class="bold-small">'<%= @location %>'<% end %></span>
+      <span class="bold-small">‘<%= @location %>’<% end %></span>
 
       <div class="results">
         <% if @num_results == 0 %>

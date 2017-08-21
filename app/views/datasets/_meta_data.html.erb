@@ -1,42 +1,42 @@
 <section class="meta-data">
   <div class="grid-row">
-    <section class="data-links">
-      <div class="column-two-thirds">
-        <h1 class="heading-large">
-          <%= @dataset.title %>
-        </h1>
-        <div class="metadata-box">
-          <dl class="metadata">
-            <dt>Published by:</dt>
-            <dd><%= link_to @dataset.organisation['title'], search_path(publisher: @dataset.organisation['title']) %></dd>
-            <dt>Last updated:</dt>
-            <dd><%= format(@dataset.updated_at) %></dd>
-            <dt>Expected update:</dt>
-            <% if @dataset.datafiles.any? %>
-              <dd class="<%= expected_update_class_for(@dataset.frequency) %>">
-                <%= expected_update(@dataset) %>
-              </dd>
-            <% else %>
-              <dd class='unavailable'>
-                This dataset has no data yet
-              </dd>
-            <% end %>
-            <dt>Geographical area:</dt>
-            <dd class="<%= expected_location_class_for(@dataset) %>">
-              <%= dataset_location(@dataset) %>
+    <div class="column-two-thirds">
+      <h1 class="heading-large">
+        <%= @dataset.title %>
+      </h1>
+    </div>
+    <div class="grid-row">
+      <div class="metadata-box column-two-thirds">
+        <dl class="metadata">
+          <dt>Published by:</dt>
+          <dd><%= link_to @dataset.organisation['title'], search_path(publisher: @dataset.organisation['title']) %></dd>
+          <dt>Last updated:</dt>
+          <dd><%= format(@dataset.updated_at) %></dd>
+          <dt>Expected update:</dt>
+          <% if @dataset.datafiles.any? %>
+            <dd class="<%= expected_update_class_for(@dataset.frequency) %>">
+              <%= expected_update(@dataset) %>
             </dd>
-          </dl>
+          <% else %>
+            <dd class='unavailable'>
+              This dataset has no data yet
+            </dd>
+          <% end %>
+          <dt>Geographical area:</dt>
+          <dd class="<%= expected_location_class_for(@dataset) %>">
+            <%= dataset_location(@dataset) %>
+          </dd>
+        </dl>
 
-          <h3 class="heading-small">
-            Summary
-          </h3>
-          <p class="summary" style="max-height: 250px; overflow: hidden"> <%= strip_tags(@dataset.summary) %> </p>
-        </div>
+        <h3 class="heading-small">
+          Summary
+        </h3>
+        <p class="summary" style="max-height: 250px; overflow: hidden"> <%= strip_tags(@dataset.summary) %> </p>
       </div>
 
       <div class="column-one-third related-datasets">
         <% unless @related_datasets.empty? %>
-          <h3 class="heading-small">Related datasets</h3>
+          <h3 class="top heading-small">Related datasets</h3>
           <ul>
             <% @related_datasets.each do |dataset| %>
               <li>
@@ -45,9 +45,7 @@
             <% end %>
           </ul>
         <% end %>
-
         <h3 class="heading-small">Search UK Government data</h3>
-
         <form action="/search" method="GET" class="dgu-search-box">
           <label for="q" class="visuallyhidden">Search</label>
           <input id="q" name="q" type="text" class="form-control dgu-search-box__input"/><button type="submit" class="dgu-search-box__button">Find data</button>
@@ -55,6 +53,6 @@
 
         <%= link_to 'Search help', search_tips_path %>
       </div>
-    </section>
+    </div>
   </div>
 </section>
