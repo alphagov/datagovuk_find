@@ -1,7 +1,7 @@
 <div class="dgu-dropdown">
   <label>
     <span class="visuallyhidden">Sorting type</span>
-    <select name="sort">
+    <select id='sort-datasets' name="sort" onchange="sortDatasets()">
       <option <%= 'selected' if @sort!='recent' %> value="best">Best match</option>
       <option <%= 'selected' if @sort=='recent' %> value="recent">Most recent</option>
     </select>

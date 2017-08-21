@@ -1,4 +1,5 @@
 require 'uri'
+require 'json'
 
 module QueryBuilder
 
@@ -82,6 +83,10 @@ module QueryBuilder
       query[:query][:bool][:must] ||= []
       query[:query][:bool][:must] << multi_match_query(query_param)
     end
+
+    puts "Query"
+    puts query.to_json
+
 
     query
   end
