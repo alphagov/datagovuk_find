@@ -29,9 +29,11 @@ $(document).ready(function () {
     accessibleAutocomplete({
       element: locationInput,
       id: 'location',
+      placeholder: locationInput.getAttribute('placeholder'),
       name: locationInput.getAttribute('name'),
       source: suggest_locations,
-      showAllValues: true, dropdownArrow: () => '',
+      showAllValues: true,
+      dropdownArrow: () => ''
     })
   }
 
@@ -40,7 +42,8 @@ $(document).ready(function () {
   if (publisherInput) {
     accessibleAutocomplete({
       element: publisherInput,
-        name: publisherInput.getAttribute('name'),
+      name: publisherInput.getAttribute('name'),
+      placeholder: publisherInput.getAttribute('placeholder'),
       id: 'publisher',
       source: suggest_publishers
     })
