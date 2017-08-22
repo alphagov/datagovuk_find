@@ -62,6 +62,10 @@ module DatasetsHelper
     Hash[datasets_with_year.group_by {|dataset| dataset['start_year']}.sort.reverse]
   end
 
+  def format_button(datafile)
+    datafile["format"] == 'HTML' ? 'view' : 'download'
+  end
+
   private
 
   def datafile_next_updated(dataset)
@@ -98,4 +102,5 @@ module DatasetsHelper
         .join(" ")
         .strip
   end
+
 end
