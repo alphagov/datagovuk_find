@@ -7,6 +7,7 @@
 * Tweak location and organisation scoring in search results
 * Fix top vertical alignment of columns on dataset page (#148)
 * Fix positioning of remove filters link (#152)
+* Copy edits on 404 page
 
 ## 2017-08-22
 
