@@ -41,6 +41,46 @@
   }
 }
 
+// Twitter typeahead ===========================================================
+.twitter-typeahead {
+  width: 100%;
+  .tt-menu.tt-open {
+    width: 100%;
+    @include media(mobile) {
+      width: 100%;
+    }
+    border: 3px solid orange;
+    border-top: none;
+    left: -3px!important;
+    cursor: pointer;
+  }
+  .tt-cursor {
+    background: $grey-3;
+  }
+  .tt-hint {
+    color: $grey-1;
+  }
+  .tt-menu {
+    border: 1px solid $grey-1;
+    background: $page-colour;
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: 150px;
+  }
+  .tt-dropdown-menu {
+    width: 100%;
+  }
+  .tt-highlight {
+    text-decoration: underline;
+  }
+  .tt-cursor {
+    color: white;
+    background: $link-colour;
+  }
+  .tt-suggestion {
+    padding-left: 2px;
+  }
+}
 
 
 //==============================================================================
@@ -197,7 +237,7 @@ section .year-expand {
     margin-top: 0;
   }
   &__filter {
-    padding-bottom: 10px;
+    width: 100%;
   }
   &__apply-button {
     margin-top: .5em;
