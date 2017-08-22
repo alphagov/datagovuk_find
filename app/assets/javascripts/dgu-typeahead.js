@@ -1,10 +1,8 @@
 /* global $ */
 
 // ======== Autocomplete ===========
-var Typeahead = function (selector, name, values) {
-
-
-  var substringMatcher = function(strs) {
+var Typeahead = {
+  substringMatcher: function(strs) {
     return function findMatches(q, cb) {
       var matches, substringRegex
 
@@ -24,9 +22,9 @@ var Typeahead = function (selector, name, values) {
 
       cb(matches)
     }
-  }
+  },
 
-  var typeaheadOptions = {
+  options: {
     hint: true,
     highlight: true,
     minLength: 2,
@@ -34,14 +32,14 @@ var Typeahead = function (selector, name, values) {
       input: 'form-control tt-input',
       hint: 'form-control tt-hint'
     }
+  },
+
+  add: function (selector, name, values) {
+    var specificOptions = {
+      name: name,
+      source: this.substringMatcher(values),
+      limit: 10
+    }
+    $(selector).typeahead(this.options, specificOptions)
   }
-
-  var specificOptions = {
-    name: name,
-    source: substringMatcher(values),
-    limit: 10
-  }
-
-  $(selector).typeahead(typeaheadOptions, specificOptions)
-
 }
