@@ -6,3 +6,4 @@
 * Tweak location and organisation scoring in search results
 * Fix top vertical alignment of columns on dataset page (#148)
 * Fix positioning of remove filters link (#152)
+* Create empty state for dataset location and last updated (#151)
