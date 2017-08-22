@@ -11,3 +11,4 @@
 ## 2017-08-22
 
 * Reimplemented autocomplete using twitter-typeahead
+* Added GA tracking code. Needs GA_TRACKING_ID environment variable
