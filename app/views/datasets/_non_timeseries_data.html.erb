@@ -14,21 +14,18 @@
           <td class="title small">
             <%= datafile['name'] %>
           </td>
-          <% if true %>
+          <%if datafile['format'].blank? %>
+            <td class="unavailable">N/A</td>
+          <% else %>
             <td><%= datafile['format'] %></td>
-          <% else %>
-            <td>N/A</td>
           <% end %>
-          <% if true %>
-            <td>
-               <%= datafile['date_added'] %>
-            </td>
+
+          <% if datafile['date_added'].present? %>
+            <td><%= datafile['date_added'] %></td>
           <% else %>
-            <td class="not-available">
-              Not available
+            <td class="unavailable">Not available</td>
           <% end %>
-            </td>
-            <td><a href="<%= datafile['url'] %>">Download</a></td>
+          <td><a href="<%= datafile['url'] %>">Download</a></td>
         </tr>
       <% end %>
     </tbody>
