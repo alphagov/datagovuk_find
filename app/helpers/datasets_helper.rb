@@ -42,7 +42,7 @@ module DatasetsHelper
   end
 
   def expected_location_class_for(dataset)
-    NO_MORE['default'] if locations(dataset).empty?
+    "unavailable" if locations(dataset).empty?
   end
 
   def timeseries_data?(datafiles)
