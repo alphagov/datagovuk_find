@@ -50,7 +50,7 @@
                 <dt>Published by:</dt>
                 <dd><%= link_to d.organisation['title'], search_path(publisher: d.organisation['title']) %></dd>
                 <dt>Last updated:</dt>
-                <dd><%= format(d.updated_at) %></dd>
+                <dd><%= format(d.last_updated_at) %></dd>
                 <dt>Geographical area:</dt>
                 <% if d.location1.present? %>
                   <dd><%= d.location1 %></dd>
