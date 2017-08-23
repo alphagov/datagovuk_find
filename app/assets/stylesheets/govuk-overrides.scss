@@ -49,3 +49,22 @@
     }
   }
 }
+
+// ______________________________________________________
+
+// Search
+
+.apply-sort {
+  float: right;
+  margin-left: 1em;
+
+  input {
+    background: none;
+    border: none;
+    color: #005ea5;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
+// ______________________________________________________
