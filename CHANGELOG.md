@@ -16,3 +16,4 @@
 
 ## 2017-08-23
 * Create empty state for dataset location and last updated (#151)
+* Add status page that shows current git revision
