@@ -1,5 +1,4 @@
 require 'uri'
-require 'json'
 
 module QueryBuilder
 
