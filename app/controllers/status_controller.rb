@@ -1,6 +1,6 @@
 class StatusController < ApplicationController
   def status
-    commit = `git rev-parse HEAD`.strip || ENV.get('HEROKU_SLUG_COMMIT')
+    commit = ENV.fetch('HEROKU_SLUG_COMMIT', `git rev-parse HEAD`.strip)
 
     render json: {
       status: :ok,
