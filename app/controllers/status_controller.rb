@@ -4,7 +4,7 @@ class StatusController < ApplicationController
 
     render json: {
       status: :ok,
-      version: commit
+      version: commit[0, 7]
     }
   end
 end
