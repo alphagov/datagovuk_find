@@ -52,84 +52,84 @@ feature 'Dataset page', elasticsearch: true do
 
   feature 'Related datasets' do
     scenario 'displays related datasets if there is a match' do
-      ID_1 = 1
-      ID_2 = 2
-      TITLE_1 = '1 Data Set'
-      TITLE_2 = '2 Data Set'
-      SLUG_1 = 'first-dataset-data'
-      SLUG_2 = 'second-dataset-data'
+      id_1 = 1
+      id_2 = 2
+      title_1 = '1 Data Set'
+      title_2 = '2 Data Set'
+      slug_1 = 'first-dataset-data'
+      slug_2 = 'second-dataset-data'
 
       first_dataset = DatasetBuilder.new
-                        .with_title(TITLE_1)
-                        .with_name(SLUG_1)
+                        .with_title(title_1)
+                        .with_name(slug_1)
                         .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
                         .build
 
       second_dataset = DatasetBuilder.new
-                         .with_title(TITLE_2)
-                         .with_name(SLUG_2)
+                         .with_title(title_2)
+                         .with_name(slug_2)
                          .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
                          .build
 
-      index_data_with_id(first_dataset, ID_1)
-      index_data_with_id(second_dataset, ID_2)
+      index_data_with_id(first_dataset, id_1)
+      index_data_with_id(second_dataset, id_2)
 
       refresh_index
 
-      visit("/dataset/#{SLUG_1}")
+      visit("/dataset/#{slug_1}")
 
       expect(page).to have_content('Related datasets')
-      expect(page).to have_content(TITLE_2)
+      expect(page).to have_content(title_2)
     end
 
-    fscenario 'displays filtered related datasets if filters form part of search query' do
-      ID_1 = 1
-      ID_2 = 2
-      ID_3 = 3
-      TITLE_1 = 'First Dataset Data'
-      TITLE_2 = 'Second Dataset Data'
-      TITLE_3 = 'Completely unrelated'
-      SLUG_1 = 'first-dataset-data'
-      SLUG_2 = 'second-dataset-data'
-      SLUG_3 = 'completely-unrelated'
-      LONDON = 'London'
-      AUCKLAND = 'Auckland'
+    scenario 'displays filtered related datasets if filters form part of search query' do
+      id_1 = 1
+      id_2 = 2
+      id_3 = 3
+      title_1 = 'First Dataset Data'
+      title_2 = 'Second Dataset Data'
+      title_3 = 'Completely unrelated'
+      slug_1 = 'first-dataset-data'
+      slug_2 = 'second-dataset-data'
+      slug_3 = 'completely-unrelated'
+      london = 'London'
+      auckland = 'Auckland'
 
       first_dataset = DatasetBuilder.new
-                        .with_title(TITLE_1)
-                        .with_name(SLUG_1)
-                        .with_location(LONDON)
+                        .with_title(title_1)
+                        .with_name(slug_1)
+                        .with_location(london)
                         .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
                         .build
 
       second_dataset = DatasetBuilder.new
-                         .with_title(TITLE_2)
-                         .with_name(SLUG_2)
+                         .with_title(title_2)
+                         .with_name(slug_2)
                          .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
-                         .with_location(LONDON)
+                         .with_location(london)
                          .build
 
       third_dataset = DatasetBuilder.new
-                        .with_title(TITLE_3)
-                        .with_name(SLUG_3)
+                        .with_title(title_3)
+                        .with_name(slug_3)
                         .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
                         .with_summary('Nothing')
                         .with_description('Nothing')
-                        .with_location(AUCKLAND)
+                        .with_location(auckland)
                         .with_publisher('Unrelated publisher')
                         .build
 
-      index_data_with_id(first_dataset, ID_1)
-      index_data_with_id(second_dataset, ID_2)
-      index_data_with_id(third_dataset, ID_3)
+      index_data_with_id(first_dataset, id_1)
+      index_data_with_id(second_dataset, id_2)
+      index_data_with_id(third_dataset, id_3)
 
       refresh_index
 
-      visit("/dataset/#{SLUG_1}")
+      visit("/dataset/#{slug_1}")
 
       expect(page).to have_content('Related datasets')
-      expect(page).to have_content(TITLE_2)
-      expect(page).to_not have_content(TITLE_3)
+      expect(page).to have_content(title_2)
+      expect(page).to_not have_content(title_3)
     end
 
     scenario 'does not display if related datasets is empty' do
