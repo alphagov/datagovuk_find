@@ -7,5 +7,7 @@ Rails.application.routes.draw do
   resources :datasets, :path => "dataset", param: :name, only: :show
   get 'file/:file_id/preview', to: 'datasets#preview', as: :file_preview
 
+  get '/status', to: 'status#status'
+
   root to: 'home#index'
 end
