@@ -1,12 +1,10 @@
 class StatusController < ApplicationController
   def status
-    commit = `git rev-parse HEAD`.strip
-    commit_date = `git show -s --format=%ci #{commit}`.strip
+    commit = `git rev-parse HEAD`.strip || ENV.get('HEROKU_SLUG_COMMIT')
 
     render json: {
       status: :ok,
-      version: commit,
-      date: commit_date
+      version: commit
     }
   end
 end
