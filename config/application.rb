@@ -13,6 +13,8 @@ module FindDataBeta
     config.assets.initialize_on_precompile = false
     config.exceptions_app = self.routes
 
+    config.analytics_tracking_id = ENV['GA_TRACKING_ID']
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
