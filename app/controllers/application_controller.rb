@@ -1,3 +1,5 @@
+require 'private_beta_user'
+
 class ApplicationController < ActionController::Base
   before_action :authenticate
   protect_from_forgery with: :exception
@@ -9,9 +11,14 @@ def authenticate
   httpauth_name = ENV['HTTP_USERNAME']
   httpauth_pass = ENV['HTTP_PASSWORD']
 
-  return unless httpauth_name && httpauth_pass
-
   authenticate_or_request_with_http_basic('Administration') do |username, password|
-    username == httpauth_name && password == httpauth_pass
+    admin_login = username == httpauth_name && password == httpauth_pass
+    beta_login = PrivateBetaUser.authenticate?(username, password)
+
+    if beta_login
+      session[:beta_user] = username
+    end
+
+    admin_login || beta_login
   end
 end
