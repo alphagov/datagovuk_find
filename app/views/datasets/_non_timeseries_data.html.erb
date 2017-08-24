@@ -25,7 +25,11 @@
           <% else %>
             <td class="unavailable">Not available</td>
           <% end %>
-          <td><a href="<%= datafile['url'] %>">Download</a></td>
+            <td>
+              <a href="<%= datafile['url'] %>">
+                <%=format_button(datafile) %>
+              </a>
+            </td>
         </tr>
       <% end %>
     </tbody>

@@ -50,7 +50,11 @@
                           Not available
                       <% end %>
                       </td>
-                      <td><a href="<%= datafile['url'] %>">Download</a></td>
+                    <td>
+                      <a href="<%= datafile['url'] %>">
+                        <%=format_button(datafile) %>
+                      </a>
+                    </td>
                     </tr>
                   <% end %>
                   </tbody>
