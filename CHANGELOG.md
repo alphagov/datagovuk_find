@@ -14,6 +14,7 @@
 * Reimplemented autocomplete using twitter-typeahead
 * Added GA tracking code. Needs GA_TRACKING_ID environment variable
 
-## 2017-08-23
+## 2017-08-24
+
 * Create empty state for dataset location and last updated (#151)
 * Download or View depending if link is HTML or other (#147)
