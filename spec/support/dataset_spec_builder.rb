@@ -14,7 +14,7 @@ class DatasetBuilder
         published_date: '2013-08-31T00:56:15.435Z',
         harvested: false,
         created_at: '2013-08-31T00:56:15.435Z',
-        updated_at: '2017-07-24T14:47:25.975Z',
+        last_updated_at: '2017-07-24T14:47:25.975Z',
         uuid: '67436432-07c3-4964-a365-5eb58d68a152',
         organisation: {
             id: 582,
@@ -84,8 +84,8 @@ class DatasetBuilder
     self
   end
 
-  def updated_at(date_string)
-    @dataset[:updated_at] = date_string
+  def last_updated_at(date_string)
+    @dataset[:last_updated_at] = date_string
     self
   end
 

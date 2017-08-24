@@ -65,7 +65,7 @@ module QueryBuilder
 
     case sort_param
       when "recent"
-        query[:sort] = {"updated_at": {"order": "desc"}}
+        query[:sort] = {"last_updated_at": {"order": "desc"}}
     end
 
     unless publisher_param.blank?
