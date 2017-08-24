@@ -14,6 +14,12 @@ module DatasetsHelper
       'default' => 'Not available'
   }
 
+  def unescape(str)
+    str = strip_tags(str).html_safe
+    str = str.gsub(/&(amp;)+/, '&')
+    HTMLEntities.new.decode(str)
+  end
+
   def format(timestamp)
     Time.parse(timestamp).strftime("%d %B %Y")
   end

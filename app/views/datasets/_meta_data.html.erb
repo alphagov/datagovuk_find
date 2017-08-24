@@ -2,7 +2,7 @@
   <div class="grid-row">
     <div class="column-two-thirds">
       <h1 class="heading-large">
-        <%= @dataset.title %>
+        <%= unescape(@dataset.title) %>
       </h1>
     </div>
     <div class="grid-row">
@@ -31,7 +31,7 @@
         <h3 class="heading-small">
           Summary
         </h3>
-        <p class="summary" style="max-height: 250px; overflow: hidden"> <%= strip_tags(@dataset.summary) %> </p>
+        <p class="summary" style="max-height: 250px; overflow: hidden"> <%= unescape(@dataset.summary) %> </p>
       </div>
 
       <div class="column-one-third related-datasets">
@@ -40,7 +40,7 @@
           <ul>
             <% @related_datasets.each do |dataset| %>
               <li>
-                <%= link_to dataset.title, dataset_path(dataset.name) %>
+                <%= link_to unescape(dataset.title), dataset_path(dataset.name) %>
               </li>
             <% end %>
           </ul>
