@@ -17,7 +17,7 @@ module DatasetsHelper
   def unescape(str)
     str = strip_tags(str).html_safe
     str = str.gsub(/&(amp;)+/, '&')
-    str = HTMLEntities.new.decode(str)
+    HTMLEntities.new.decode(str)
   end
 
   def format(timestamp)
