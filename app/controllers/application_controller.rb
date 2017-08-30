@@ -13,7 +13,7 @@ def authenticate
   httpauth_pass = ENV['HTTP_PASSWORD']
 
   if !session.key?('consent') || session[:consent] == false
-    redirect_to consent_path
+    redirect_to use_of_data_path
   else
     authenticate_or_request_with_http_basic('Administration') do |username, password|
       admin_login = username == httpauth_name && password == httpauth_pass
