@@ -1,0 +1,44 @@
+<% content_for :head do %>
+  <% if Rails.application.config.analytics_tracking_id %>
+    <!-- Google Analytics -->
+    <script>
+     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+     })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+     ga('create', '<%= Rails.application.config.analytics_tracking_id %>', 'auto');
+     ga('send', 'pageview');
+    </script>
+    <!-- End Google Analytics -->
+  <% end %>
+  <%= stylesheet_link_tag 'application' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+<% end %>
+<% content_for :page_title do %>
+  Data.gov.uk - Find Data
+<% end %>
+<% content_for :homepage_url do %>/<% end %>
+<% content_for :global_header_text do %>
+  UK Government data <strong class="phase-tag">BETA</strong>
+<% end %>
+<% content_for :header_class do %>with-proposition<% end %>
+<% content_for :proposition_header do %>
+  <!-- to hold options for authenticated users -->
+  <%= render partial: 'layouts/proposition_header' %>
+<% end %>
+<% content_for :content do %>
+  <div class="search">
+    <%= render 'layouts/staging_ribbon' if Rails.env.staging? %>
+    <main role="main" tabindex="-1" id="content">
+      <%= yield %>
+    </main>
+    <div id="global-app-error" class="app-error hidden"></div>
+  </div>
+
+  <script>if (typeof window.GOVUK === 'undefined') document.body.className = document.body.className.replace('js-enabled', '');</script>
+  <!--<script>document.body.className = document.body.className.replace('js-enabled', '')</script>-->
+
+<% end %>
+<%= render template: 'layouts/govuk_template' %>

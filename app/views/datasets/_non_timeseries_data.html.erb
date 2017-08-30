@@ -20,8 +20,8 @@
             <td><%= datafile['format'].upcase %></td>
           <% end %>
 
-          <% if datafile['date_added'].present? %>
-            <td><%= datafile['date_added'] %></td>
+          <% if datafile['updated_at'].present? %>
+            <td><%= format(datafile['updated_at']) %></td>
           <% else %>
             <td class="unavailable">Not available</td>
           <% end %>

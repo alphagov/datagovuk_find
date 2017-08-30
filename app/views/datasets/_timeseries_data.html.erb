@@ -37,13 +37,13 @@
                         <% end %>
                       </td>
                       <% if datafile['format'] %>
-                        <td><%= datafile['format'].upcase %> (347kb)</td>
+                        <td><%= datafile['format'].upcase %></td>
                       <% else %>
                         <td>N/A</td>
                       <% end %>
-                      <% if datafile['last_updated'] %>
+                      <% if datafile['updated_at'] %>
                         <td>
-                          <%= datafile['last_updated'] %>
+                          <%= format(datafile['updated_at']) %>
                         </td>
                       <% else %>
                         <td class="unavailable">
