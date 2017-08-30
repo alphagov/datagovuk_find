@@ -89,13 +89,14 @@
 // Home page custom styles ______________________________
 .dgu-home-spacer__top {
   margin-top: 90px;
+  margin-bottom: 45px;
   @media (max-width: 641px) {
     margin-top: 30px;
   }
 }
 
 .dgu-home-spacer__bottom {
-  margin-bottom: 60px;
+  margin-bottom: 45px;
   margin-top: 0px;
   @media (max-width: 641px) {
     margin-bottom: 30px;
