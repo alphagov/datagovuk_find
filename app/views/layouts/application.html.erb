@@ -8,6 +8,9 @@
      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
      ga('create', '<%= Rails.application.config.analytics_tracking_id %>', 'auto');
+     <% if session[:beta_user] %>
+       ga('set', 'userId', '<%= session[:beta_user] %>');
+     <% end %>
      ga('send', 'pageview');
     </script>
     <!-- End Google Analytics -->
