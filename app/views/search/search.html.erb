@@ -24,10 +24,12 @@
       <div class="column-two-thirds">
         <%= render 'sort' %>
 
-        <% if @query.present? %>
+      <% if @query.present? %>
+        <span class="results-summary">
           <span class="bold-small"><%= @num_results %></span>
           results found for <span class="bold-small">‘<%= @query %>’</span>
-        <% end %>
+        </span>
+      <% end %>
 
         <% unless @organisation.blank? %>
         <% if @query.empty? %>Datasets <% end %>published by
