@@ -1,0 +1,55 @@
+<% if @content_type == 'CSV' %>
+    <div class="grid-row">
+    <div class="column-full">
+      <a href="/dataset/land-registry-monthly-price-paid-data" class="link-back">Back to dataset</a>
+      <h1 class="heading-large">
+        PUT DATASET NAME HERE
+          <span class="heading-secondary">Put something else here</span>
+      </h1>
+
+      <p> You're previewing 5 rows out of approximately NUMBER in this file</p>
+      
+      <a class="button" href="#">Download this file</a>
+      <section class="preview">
+          <table>
+            <tr><thead>
+                <% @preview['content']['body'].first.each do |col| %>
+                    <th><%= col %></th> 
+                <% end %>
+            </tr></thead>
+            <tbody>
+                <% @preview['content']['body'].drop(1).each do |row| %>
+                    <tr>
+                        <% row.each do |col| %>
+                            <td><%= col %></td> 
+                        <% end %>
+                    </tr>
+                <% end %>
+            </tbody>
+          </table>
+        
+      </section>
+      <details role="group">
+        <summary role="button" aria-controls="details-content-1" aria-expanded="false"><span class="summary" style="max-height: 100000px;">Is there anything wrong with this data?</span></summary>
+        <div class="panel panel-border-narrow" id="details-content-1" aria-hidden="true">
+          <h3 class="heading-small">The link to this file is broken</h3>
+          <p>Broken links often happen when a publisher moves the data on their local system. You should <a href="">contact the publisher</a> and ask them to fix the link.</p>
+          <h3 class="heading-small">The data seems incomplete or inaccurate</h3>
+          <p>If you believe it is something the publisher should fix,<a href="">contact the publishing organisation</a> to give them feedback and request that they update the data</p>
+          <h3 class="heading-small">The data is in the wrong format</h3>
+          <p>Sometimes, it is possible to convert from one format to another using existing software. Please check our <a href="">conversion guide</a> for more information.</p>
+          <h3 class="heading-small">Something else</h3>
+          <p>
+              If you believe it is something only the publisher can fix, either by changing the data, or
+              adding more data, please <a href="">contact the publisher</a>
+          </p>
+          <p>
+              If the problem is that the search result was unexpected, please <a href="">contact GDS</a>
+          </p>
+        </div>
+      </details>
+    </div>
+  </div>
+<% else %>
+    <p>No preview available for this data.</p>
+<% end %>
