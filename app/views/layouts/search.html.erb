@@ -32,6 +32,11 @@
   <div class="search">
     <%= render 'layouts/staging_ribbon' if Rails.env.staging? %>
     <main role="main" tabindex="-1" id="content">
+      <div class="phase-banner">
+        <p>
+          <span>This is a new service – your <a href="<%=t('survey_url')%>">feedback</a> will help us to improve it.</span>
+        </p>
+      </div>
       <%= yield %>
     </main>
     <div id="global-app-error" class="app-error hidden"></div>
