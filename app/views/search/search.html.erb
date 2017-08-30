@@ -23,8 +23,10 @@
       <%= render 'sort' %>
 
       <% if @query.present? %>
-        <span class="bold-small"><%= @num_results %></span>
-        results found for <span class="bold-small">‘<%= @query %>’</span>
+        <span class="results-summary">
+          <span class="bold-small"><%= @num_results %></span>
+          results found for <span class="bold-small">‘<%= @query %>’</span>
+        </span>
       <% end %>
 
       <% unless @organisation.blank? %>

@@ -9,7 +9,7 @@
     height: 40px;
     width: 100%;
     margin-right: -40px;
-    margin-bottom: 10px;
+    margin-bottom: 25px;
   }
 
   &__button {
@@ -28,9 +28,10 @@
 
 // Styled Dropdown =============================================================
 .dgu-dropdown {
+  margin-top: 5px;
   float: right;
   overflow: hidden;
-  width: 132px;
+  width: 128px;
   background: image-url("triangle-down.png") no-repeat right center;
   background-size: 8%;
   select {
@@ -39,6 +40,12 @@
     background: transparent;
     border: none;
   }
+}
+
+// Results Summary ===========================================================
+.results-summary {
+  display: inline-block;
+  margin-top: 5px;
 }
 
 // Twitter typeahead ===========================================================
@@ -89,14 +96,14 @@
 // Home page custom styles ______________________________
 .dgu-home-spacer__top {
   margin-top: 90px;
-  margin-bottom: 45px;
+  margin-bottom: 30px;
   @media (max-width: 641px) {
     margin-top: 30px;
   }
 }
 
 .dgu-home-spacer__bottom {
-  margin-bottom: 45px;
+  margin-bottom: 30px;
   margin-top: 0px;
   @media (max-width: 641px) {
     margin-bottom: 30px;
@@ -120,11 +127,11 @@
     vertical-align: top;
   }
   dt {
-    width: 35%;
+    width: 30%;
     font-weight: bold;
   }
   dd {
-    width: 64%;
+    width: 69%;
   }
 }
 
@@ -136,6 +143,7 @@
   text-decoration: underline;
   padding-top: 10px;
   cursor: pointer;
+  color: $govuk-blue;
 }
 
 .data-links {
@@ -301,6 +309,6 @@ section .year-expand {
 }
 
 // search results
-.results {
-  margin-top: 2em;
+.result {
+  margin-top: 30px;
 }
