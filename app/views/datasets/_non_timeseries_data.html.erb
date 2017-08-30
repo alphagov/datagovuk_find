@@ -17,7 +17,7 @@
           <%if datafile['format'].blank? %>
             <td class="unavailable">N/A</td>
           <% else %>
-            <td><%= datafile['format'] %></td>
+            <td><%= datafile['format'].upcase %></td>
           <% end %>
 
           <% if datafile['date_added'].present? %>

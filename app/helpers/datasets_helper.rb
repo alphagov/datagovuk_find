@@ -70,9 +70,9 @@ module DatasetsHelper
 
   def format_button(datafile)
     if datafile["format"].blank?
-      "link"
+      "Link"
     else
-      datafile["format"] == 'HTML' ? 'view' : 'download'
+      datafile["format"] == 'HTML' ? 'View' : 'Download'
     end
   end
 

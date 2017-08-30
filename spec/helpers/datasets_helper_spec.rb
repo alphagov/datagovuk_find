@@ -15,11 +15,11 @@ describe DatasetsHelper, type: :helper do
 
   it 'displays view if the datafile is html' do
     HTML_DATAFILE = DATA_FILES_WITH_START_AND_ENDDATE[0]
-    expect(helper.format_button(HTML_DATAFILE)).to eql 'view'
+    expect(helper.format_button(HTML_DATAFILE)).to eql 'View'
   end
 
   it 'displays download if the datafile is not HTML' do
     CSV_DATAFILE = DATA_FILES_WITH_START_AND_ENDDATE[1]
-    expect(helper.format_button(CSV_DATAFILE)).to eql 'download'
+    expect(helper.format_button(CSV_DATAFILE)).to eql 'Download'
   end
 end
