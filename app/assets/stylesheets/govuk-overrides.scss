@@ -52,18 +52,44 @@
 
 // ______________________________________________________
 
-// Search
+// Search Page
 
-.apply-sort {
-  float: right;
-  margin-left: 1em;
+.search {
+  width: 100%;
+  main#content {
+    margin: 0!important; // to override the many media queries on #content which aren't needed here
+    width: 100%;
+    max-width: 100%;
+    h1 {
+      margin-top: 0;
+      margin-bottom: .8em;
+    }
+    .top {
+      padding: 2.5em 1em 2.5em 1em;
+      background: $panel-colour;
+      // background: $highlight-colour;
+      .top-inner {
+        margin: auto;
+        max-width: 960px;
+      }
+    }
+    .bottom {
+      max-width: 960px;
+      margin: auto;
+      padding: 1.5em 1em 1.5em 1em;
+      .apply-sort {
+        float: right;
+        margin-left: 1em;
 
-  input {
-    background: none;
-    border: none;
-    color: #005ea5;
-    text-decoration: underline;
-    cursor: pointer;
+        input {
+          background: none;
+          border: none;
+          color: #005ea5;
+          text-decoration: underline;
+          cursor: pointer;
+        }
+      }
+    }
   }
 }
 
