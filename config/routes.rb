@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   root to: 'home#index'
   get '/use-of-data', to: 'home#consent'
   get 'confirm_consent', to: 'home#confirm_consent'
+  get 'not_authenticated', to: 'errors#not_authenticated'
 end
