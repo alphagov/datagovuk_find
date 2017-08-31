@@ -7,7 +7,7 @@ end
 
 def authenticate
 
-  # return if Rails.env.development? || Rails.env.test?
+  return if Rails.env.development? || Rails.env.test?
 
   if !session.key?('consent') || session[:consent] == false
     redirect_to use_of_data_path and return
