@@ -39,6 +39,6 @@ def create_dataset_and_visit
                 .build
 
   index([dataset])
-  get :show, params: {name: 'a-nice-dataset'}
+  get :show, params: {name: slug}
 
 end
