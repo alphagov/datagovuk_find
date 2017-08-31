@@ -5,7 +5,7 @@
    function gtag(){dataLayer.push(arguments)};
    gtag('js', new Date());
 
-   gtag('config', <%= Rails.application.config.analytics_tracking_id %>);
+   gtag('config', '<%= Rails.application.config.analytics_tracking_id %>');
 
     $(document).ready(function() {
       $('[data-ga-event]').on('click', function() {
