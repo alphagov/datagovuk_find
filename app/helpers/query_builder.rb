@@ -74,8 +74,8 @@ module QueryBuilder
     end
 
     unless location_param.blank?
-      query[:query][:bool][:filter] ||= []
-      query[:query][:bool][:filter] << {term: {location1: location_param}}
+      query[:query][:bool][:must] ||= []
+      query[:query][:bool][:must] << location_filter_query(location_param)
     end
 
     unless query_param.blank?
@@ -112,6 +112,14 @@ module QueryBuilder
             ]
           }
         }
+      }
+    }
+  end
+
+  def location_filter_query(location)
+    {
+      match: {
+        location1: location
       }
     }
   end
