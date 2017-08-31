@@ -1,0 +1,17 @@
+<% if Rails.application.config.analytics_tracking_id %>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=<%= Rails.application.config.analytics_tracking_id %>"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments)};
+   gtag('js', new Date());
+
+   gtag('config', <%= Rails.application.config.analytics_tracking_id %>);
+
+    $(document).ready(function() {
+      $('[data-ga-event]').on('click', function() {
+      var eventDetails = $(this).data('ga-event').split('-')
+      ga.apply(['send', 'event'].concat(eventDetails))
+    })
+  })
+  </script>
+<% end %>
