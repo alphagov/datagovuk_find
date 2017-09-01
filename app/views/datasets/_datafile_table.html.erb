@@ -30,13 +30,13 @@
               <%=format_button(datafile) %>
             </a>
           </td>
-          <% if preview_exists?(datafile) %>
-          <td>
-            <a href="<%= file_preview_url(datafile['id']) %>">Preview</a>
-          </td>
-          <% else %>
-          <td class="unavailable">Not available</td>
-          <% end %>
+          < if preview_exists?(datafile) == "no preview available" %>
+            <td class="unavailable">Not available</td>
+          < else %>
+            <td>
+              <a href="<%= file_preview_url(datafile['id']) %>">Preview</a>
+            </td>
+          < end %>
         </tr>
       <% end %>
   </tbody>
