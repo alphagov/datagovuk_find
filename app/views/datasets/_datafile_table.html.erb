@@ -4,7 +4,7 @@
     <th>Format</th>
     <th>Last updated</th>
     <th> </th>
-    <th> </th>
+    <th>Preview </th>
   </tr>
   <tbody>
     <% @dataset.datafiles.each do |datafile| %>
@@ -30,9 +30,13 @@
               <%=format_button(datafile) %>
             </a>
           </td>
+          <% if preview_exists?(datafile) %>
           <td>
-            <a href="<%= file_preview_url(datafile['id']) %>"></a>
+            <a href="<%= file_preview_url(datafile['id']) %>">Preview</a>
           </td>
+          <% else %>
+          <td class="unavailable">Not available</td>
+          <% end %>
         </tr>
       <% end %>
   </tbody>

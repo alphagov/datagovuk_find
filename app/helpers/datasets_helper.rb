@@ -1,4 +1,5 @@
 module DatasetsHelper
+# include Rails.application.routes.url_helpers
 
   FREQUENCIES = {
       'annual' => {years: 1},
@@ -72,6 +73,14 @@ module DatasetsHelper
     (datafile["format"].blank? || datafile["format"] == 'HTML') ? 'View' : 'Download'
   end
 
+  def preview_exists?(datafile)
+    begin
+    response = RestClient.get(preview_url(datafile['id']))
+    !response.body.empty?
+    rescue
+      false
+    end
+  end
   private
 
   def datafile_next_updated(dataset)
