@@ -1,0 +1,39 @@
+<table>
+  <tr>
+    <th class="title small">Link to the data</th>
+    <th>Format</th>
+    <th>Last updated</th>
+    <th> </th>
+    <th> </th>
+  </tr>
+  <tbody>
+    <% @dataset.datafiles.each do |datafile| %>
+      <tr>
+        <td class="title small">
+          <% if datafile['name'] %> <%= datafile['name'] %>
+          <% else %> Data Link
+          <% end %>
+        </td>
+        <%if datafile['format'].blank? %>
+          <td class="unavailable">N/A</td>
+        <% else %>
+          <td><%= datafile['format'].upcase %></td>
+        <% end %>
+
+        <% if datafile['updated_at'].present? %>
+          <td><%= format(datafile['updated_at']) %></td>
+        <% else %>
+          <td class="unavailable">Not available</td>
+        <% end %>
+          <td>
+            <a href="<%= datafile['url'] %>" data-ga-event="datafile-download">
+              <%=format_button(datafile) %>
+            </a>
+          </td>
+          <td>
+            <a href="<%= file_preview_url(datafile['id']) %>"></a>
+          </td>
+        </tr>
+      <% end %>
+  </tbody>
+</table>
