@@ -1,9 +1,67 @@
 <div class="grid-row inner">
-  <div class="column-two-thirds">
-    <h1 class="heading-xlarge">Consent</h1>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quod autem ratione actum est, id officium appellamus. Sed ad bona praeterita redeamus. Ad eos igitur converte te, quaeso. Ne in odium veniam, si amicum destitero tueri. Eam stabilem appellas. Hoc est non modo cor non habere, sed ne palatum quidem. Duo Reges: constructio interrete. Nihil opus est exemplis hoc facere longius. Si stante, hoc natura videlicet vult, salvam esse se, quod concedimus;
+  <div class="column-full">
+    <h1 class="heading-xlarge dgu-home-spacer__top">How we’ll use your data</h1>
+      <p class='lede dgu-home-spacer__bottom'>
+        The data.gov.uk team will collect some data on how you’re using the new service, beta.data.gov.uk, to help us improve it.
       </p>
-      <%= link_to "I consent", confirm_consent_path %>
+      <p>
+        We’ll use Google Analytics to collect data on:
+      </p>
+      <ul class="list list-bullet">
+        <li>the terms you enter into the search box</li>
+        <li>the pages you visit</li>
+        <li>the links you click on</li>
+      </ul>
+      <p>
+        When you visit beta.data.gov.uk, we’ll put a small file (known as a ‘cookie’) onto your computer to collect the data.
+      </p>
+
+  <details>
+
+  <summary><span class="summary">Find out more about how we use cookies</span></summary>
+
+  <div class="panel panel-border-narrow">
+    <table>
+    <caption class="heading-small">We’ll use the following cookies to collect data on how you use the service</caption>
+      <tbody>
+        <th>Name</th>
+        <th>Purpose</th>
+        <th>Expires</th>
+        <tr>
+          <td>_ga</td>
+          <td>This helps us count how many people visit beta.data.gov.uk by tracking if you’ve visited before</td>
+          <td>2 years</td>
+        </tr>
+        <tr>
+          <td>_gid</td>
+          <td>This helps us count how many people visit beta.data.gov.uk by tracking if you’ve visited before</td>
+          <td>24 hours</td>
+        </tr>
+        <tr>
+          <td>_gat</td>
+          <td>Used to manage the rate at which page view requests are made</td>
+          <td>10 minutes</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </details>
+
+<p>
+  By signing into beta.data.gov.uk, you’re agreeing to us:
+</p>
+
+<ul class="list list-bullet">
+  <li>collecting this data</li>
+  <li>sharing it with government organisations to show how people think about and use our services</li>
+  <li>If we do share data with other government organisations, we won’t include your personal details (such as your name or contact details).</li>
+</ul>
+
+<p>
+  You can contact us if you have any questions about how we’ll use your data.
+</p>
+
+
+      <%= link_to "Sign in to beta.data.gov.uk", confirm_consent_path, class:"button dgu-filters__apply-button" %>
     </div>
   </div>
