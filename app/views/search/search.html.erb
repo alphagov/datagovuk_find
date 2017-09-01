@@ -1,15 +1,11 @@
 <% content_for :page_title do %>
-  Results for "<%= @query %>" - Find Data Alpha
+  Results for "<%= @query %>" - Find Data Beta
 <% end %>
 
 <form action="/search" method="GET">
   <div class="top">
     <div class="top-inner">
-      <div class="phase-banner">
-        <p>
-          <span>This is a new service – your <a href="<%=t('survey_url')%>">feedback</a> will help us to improve it.</span>
-        </p>
-      </div>
+      <%= render partial: 'layouts/feedback_survey_banner' %>
       <h1 class="heading-large">Search results</h1>
       <div class="grid-row">
         <div class="column-two-thirds dgu-search-box">

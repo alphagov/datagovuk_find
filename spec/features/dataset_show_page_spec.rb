@@ -52,8 +52,6 @@ feature 'Dataset page', elasticsearch: true do
 
   feature 'Related datasets' do
     scenario 'displays related datasets if there is a match' do
-      id_1 = 1
-      id_2 = 2
       title_1 = '1 Data Set'
       title_2 = '2 Data Set'
       slug_1 = 'first-dataset-data'
@@ -71,9 +69,7 @@ feature 'Dataset page', elasticsearch: true do
                          .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
                          .build
 
-      index_data_with_id(first_dataset, id_1)
-      index_data_with_id(second_dataset, id_2)
-
+      index([first_dataset, second_dataset])
       refresh_index
 
       visit("/dataset/#{slug_1}")
@@ -83,9 +79,6 @@ feature 'Dataset page', elasticsearch: true do
     end
 
     scenario 'displays filtered related datasets if filters form part of search query' do
-      id_1 = 1
-      id_2 = 2
-      id_3 = 3
       title_1 = 'First Dataset Data'
       title_2 = 'Second Dataset Data'
       title_3 = 'Completely unrelated'
@@ -119,9 +112,7 @@ feature 'Dataset page', elasticsearch: true do
                         .with_publisher('Unrelated publisher')
                         .build
 
-      index_data_with_id(first_dataset, id_1)
-      index_data_with_id(second_dataset, id_2)
-      index_data_with_id(third_dataset, id_3)
+      index([first_dataset, second_dataset, third_dataset])
 
       refresh_index
 
@@ -193,9 +184,5 @@ feature 'Dataset page', elasticsearch: true do
 
       expect(page).to_not have_css('h2', text: 'Contact')
     end
-  end
-
-  def index_data_with_id(data, id)
-    ELASTIC.index index: INDEX, type: 'dataset', id: id, body: data
   end
 end
