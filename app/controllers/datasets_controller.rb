@@ -21,9 +21,10 @@ class DatasetsController < ApplicationController
 
   def preview
     @preview = JSON.parse(RestClient.get(preview_url(params[:file_id])))
-    @content_type = @preview['content']['type']
+    @content_type = @preview.fetch('content', {}).fetch('type', '')
     @content_type = @content_type.upcase
-  rescue
+  rescue => e
+    logger.warn("Error while displaying preview: #{e}")
   end
 
   private
