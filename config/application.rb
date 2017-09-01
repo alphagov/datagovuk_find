@@ -14,6 +14,7 @@ module FindDataBeta
     config.exceptions_app = self.routes
 
     config.analytics_tracking_id = ENV['GA_TRACKING_ID']
+    config.analytics_test_tracking_id = ENV['GA_TEST_TRACKING_ID']
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

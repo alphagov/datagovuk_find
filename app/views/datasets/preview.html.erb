@@ -1,0 +1,33 @@
+<% if @content_type == 'CSV' %>
+    <div class="grid-row">
+    <div class="column-full">
+      <a href="/dataset/land-registry-monthly-price-paid-data" class="link-back">Back to dataset</a>
+      <h1 class="heading-large">
+          <%= @preview['meta']['dataset_title'] %>
+          <span class="heading-secondary"><%= @preview['meta']['datafile_name'] %></span>
+      </h1>
+
+      <a class="button" href="<%= @preview['meta']['datafile_link'] %>">Download this file</a>
+      <section class="preview">
+          <table>
+            <tr><thead>
+                <% @preview['content']['body'].first.each do |col| %>
+                    <th><%= col %></th> 
+                <% end %>
+            </tr></thead>
+            <tbody>
+                <% @preview['content']['body'].drop(1).each do |row| %>
+                    <tr>
+                        <% row.each do |col| %>
+                            <td><%= col %></td> 
+                        <% end %>
+                    </tr>
+                <% end %>
+            </tbody>
+          </table>
+      </section>
+    </div>
+  </div>
+<% else %>
+    <p>No preview is available for "<%= @preview ? @preview['meta']['datafile_name'] : 'this file.' %>"</p>
+<% end %>
