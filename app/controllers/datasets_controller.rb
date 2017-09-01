@@ -4,7 +4,7 @@ class DatasetsController < ApplicationController
 
   def show
     begin
-      query = get_query(params[:name])
+      query = get_query(name: params[:name])
       @dataset = Dataset.get(query)
       raise 'Metadata missing' if @dataset.title.blank?
     rescue => e
@@ -23,6 +23,11 @@ class DatasetsController < ApplicationController
     @preview = JSON.parse(RestClient.get(preview_url(params[:file_id])))
     @content_type = @preview.fetch('content', {}).fetch('type', '')
     @content_type = @content_type.upcase
+    dataset_id = @preview['meta']['dataset_id']
+    query = get_query(id: dataset_id)
+    @dataset = Dataset.get(query)
+
+
   rescue => e
     logger.warn("Error while displaying preview: #{e}")
   end

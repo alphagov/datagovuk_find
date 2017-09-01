@@ -80,6 +80,11 @@ module DatasetsHelper
       'no preview available'
     end
   end
+
+  def name_of(dataset)
+    dataset._source['name']
+  end
+  
   private
 
   def datafile_next_updated(dataset)

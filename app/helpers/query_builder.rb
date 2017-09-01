@@ -2,14 +2,14 @@ require 'uri'
 
 module QueryBuilder
 
-  def get_query(name)
+  def get_query(name:'', id: '')
+    key_value_pair =
+      name.empty? ? { _id: id } : { name: name }
     {
       query: {
         constant_score: {
           filter: {
-            term: {
-              name: name
-            }
+            term: key_value_pair
           }
         }
       }

@@ -1,7 +1,7 @@
 <% if @content_type == 'CSV' %>
     <div class="grid-row">
     <div class="column-full">
-      <a href="/dataset/land-registry-monthly-price-paid-data" class="link-back">Back to dataset</a>
+      <a href="<%= dataset_path(name_of(@dataset)) %>" class="link-back">Back to dataset</a>
       <h1 class="heading-large">
           <%= @preview['meta']['dataset_title'] %>
           <span class="heading-secondary dgu-home-spacer__bottom"><%= @preview['meta']['datafile_name'] %></span>

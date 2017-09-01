@@ -147,6 +147,9 @@
 }
 
 .data-links {
+  th {
+    white-space: nowrap;
+  }
   th, td {
     font-size: 16px;
   }
