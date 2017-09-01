@@ -29,5 +29,5 @@
     </div>
   </div>
 <% else %>
-    <p>No preview is available for "<%= @preview['meta']['datafile_name'] %>"</p>
+    <p>No preview is available for "<%= @preview ? @preview['meta']['datafile_name'] : 'this file.' %>"</p>
 <% end %>
