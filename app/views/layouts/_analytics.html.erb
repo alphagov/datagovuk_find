@@ -1,8 +1,6 @@
 <% if Rails.application.config.analytics_tracking_id or Rails.application.config.analytics_test_tracking_id %>
   <script>
-    var trackingId = (document.location.hostname === 'beta.data.gov.uk')
-      ? '<%= Rails.application.config.analytics_tracking_id %>'
-      : '<%= Rails.application.config.analytics_test_tracking_id %>'
+    var trackingId = (document.location.hostname === 'beta.data.gov.uk') ? '<%= Rails.application.config.analytics_tracking_id %>' : '<%= Rails.application.config.analytics_test_tracking_id %>';
 
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
