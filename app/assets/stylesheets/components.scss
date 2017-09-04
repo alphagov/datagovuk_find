@@ -294,6 +294,12 @@ section .year-expand {
   }
 }
 
+.datafiles {
+  &__preview {
+    width: 5em;
+  }
+}
+
 // Search results page _______________________________
 
 // Pagination

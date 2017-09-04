@@ -1,23 +1,27 @@
-<table>
+<table class = 'datafiles'>
   <tr>
     <th class="title small">Link to the data</th>
     <th>Format</th>
     <th>Last updated</th>
-    <th> </th>
-    <th>Preview </th>
+    <th>Data preview</th>
   </tr>
   <tbody>
     <% @dataset.datafiles.each do |datafile| %>
       <tr>
         <td class="title small">
-          <% if datafile['name'] %> <%= datafile['name'] %>
-          <% else %> Data Link
-          <% end %>
+          <%= link_to (datafile['name'] ? datafile['name'] : 'Data Link'),
+              datafile['url'],
+              :data => {:'ga-event' => "datafile-download"}
+          %>
         </td>
         <%if datafile['format'].blank? %>
           <td class="unavailable">N/A</td>
         <% else %>
-          <td><%= datafile['format'].upcase %></td>
+          <td><%= datafile['format'].upcase %>
+          <% if datafile['size'] %>
+            (<%= datafile['size'] %> kB)
+          <% end %>
+          </td>
         <% end %>
 
         <% if datafile['updated_at'].present? %>
@@ -25,18 +29,13 @@
         <% else %>
           <td class="unavailable">Not available</td>
         <% end %>
-          <td>
-            <a href="<%= datafile['url'] %>" data-ga-event="datafile-download">
-              <%=format_button(datafile) %>
-            </a>
+          <td class="datafiles__preview">
+            <% if link_type(datafile) == :html %>
+              <%= link_to 'Go to site', datafile['url'] %>
+            <% else %>
+              <span class="unavailable">Not available</span>
+            <% end %>
           </td>
-          <% if preview_exists?(datafile) == "no preview available" %>
-            <td class="unavailable">Unavailable</td>
-          <% else %>
-            <td>
-              <a href="<%= file_preview_url(datafile['id']) %>">Preview</a>
-            </td>
-          <% end %>
         </tr>
       <% end %>
   </tbody>

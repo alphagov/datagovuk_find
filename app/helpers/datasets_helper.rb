@@ -68,11 +68,25 @@ module DatasetsHelper
     Hash[datasets_with_year.group_by {|dataset| dataset['start_year']}.sort.reverse]
   end
 
-  def format_button(datafile)
-    (datafile["format"].blank? || datafile["format"] == 'HTML') ? 'View' : 'Download'
+  def link_type(datafile)
+    if datafile["format"].upcase == 'HTML'
+      :html
+    elsif check_preview(datafile['url']) == 'no preview available'
+      :no_preview
+    elsif datafile["format"].blank?
+      :unknown
+    else
+      :preview
+    end
   end
 
-  def preview_exists?(url)
+  def name_of(dataset)
+    dataset._source['name']
+  end
+
+  private
+
+  def check_preview(url)
     begin
       response = RestClient.get(url)
       !response.body.empty?
@@ -80,12 +94,6 @@ module DatasetsHelper
       'no preview available'
     end
   end
-
-  def name_of(dataset)
-    dataset._source['name']
-  end
-  
-  private
 
   def datafile_next_updated(dataset)
     freq = dataset.frequency
