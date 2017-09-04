@@ -8,7 +8,9 @@
     })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
     ga('create', trackingId, 'auto');
+    ga('set', 'userId', '<%= session[:beta_user] %>');
     ga('send', 'pageview');
+
 
     $(document).ready(function() {
       $('[data-ga-event]').on('click', function() {
