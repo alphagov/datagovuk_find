@@ -1,6 +1,6 @@
 <% if @content_type == 'CSV' %>
     <div class="grid-row">
-    <div class="column-full">
+    <div class="column-two-thirds">
       <a href="<%= dataset_path(name_of(@dataset)) %>" class="link-back">Back to dataset</a>
       <h1 class="heading-large">
           <%= @preview['meta']['dataset_title'] %>
@@ -8,6 +8,8 @@
       </h1>
 
       <a class="button" href="<%= @preview['meta']['datafile_link'] %>">Download this file</a>
+    </div>
+    <div class = 'column-full'>
       <section class="table__preview">
           <table>
             <tr><thead>
