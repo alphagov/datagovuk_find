@@ -1,13 +1,15 @@
 <% if @content_type == 'CSV' %>
     <div class="grid-row">
-    <div class="column-full">
+    <div class="column-two-thirds">
       <a href="<%= dataset_path(name_of(@dataset)) %>" class="link-back">Back to dataset</a>
       <h1 class="heading-large">
           <%= @preview['meta']['dataset_title'] %>
           <span class="heading-secondary dgu-home-spacer__bottom"><%= @preview['meta']['datafile_name'] %></span>
       </h1>
-
+      <p>You're previewing 5 rows out of the total [---NUMBER OF ROWS---] in this file.</p>
       <a class="button" href="<%= @preview['meta']['datafile_link'] %>">Download this file</a>
+    </div>
+    <div class="column-full">
       <section class="table__preview">
           <table>
             <tr><thead>
