@@ -13,6 +13,7 @@ class SearchController < ApplicationController
   end
 
   def tips
+    render(:layout => "layouts/application")
   end
 
   private
