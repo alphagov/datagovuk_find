@@ -1,5 +1,7 @@
 require 'rails_helper'
 
+# The dataset objects used below are defined in support/dataset_spec_builder.rb
+
 describe DatasetsHelper, type: :helper do
   it 'groups time series data by year' do
     expect(helper.group_by_year(UNFORMATTED_DATASETS_MULTIYEAR)).to eql FORMATTED_DATASETS
@@ -13,13 +15,20 @@ describe DatasetsHelper, type: :helper do
     expect(helper.timeseries_data?(UNFORMATTED_DATASETS_SINGLEYEAR)).to be false
   end
 
-  it 'displays view if the datafile is html' do
-    HTML_DATAFILE = DATA_FILES_WITH_START_AND_ENDDATE[0]
-    expect(helper.format_button(HTML_DATAFILE)).to eql 'View'
+  it 'returns html if datafile is a webpage' do
+    expect(helper.link_type(DATA_FILES_WITH_START_AND_ENDDATE[0])).to be :html
   end
 
-  it 'displays download if the datafile is not HTML' do
-    CSV_DATAFILE = DATA_FILES_WITH_START_AND_ENDDATE[1]
-    expect(helper.format_button(CSV_DATAFILE)).to eql 'Download'
+  it 'returns :no_preview if datafile has nil or blank format' do
+    expect(helper.link_type(DATAFILES_WITHOUT_START_AND_ENDDATE[0])).to be :no_preview
   end
+
+  it 'returns no_preview if datafile has no preview' do
+    expect(helper.link_type(DATA_FILES_WITH_START_AND_ENDDATE[1])).to be :no_preview
+  end
+
+  fit 'returns preview if datafile has a preview' do
+    expect(helper.link_type(CSV_DATAFILE)).to be :preview
+  end
+
 end

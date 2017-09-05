@@ -232,3 +232,4 @@ FORMATTED_DATASETS = {
          'start_year' => ''
         }]
 }
+CSV_DATAFILE = { 'url' => 'https://find-data-beta.herokuapp.com/file/9/preview'}

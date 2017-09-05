@@ -157,6 +157,9 @@ table th, table td {
 }
 
 .data-links {
+  th {
+    white-space: nowrap;
+  }
   th, td {
     font-size: 16px;
   }
@@ -301,6 +304,12 @@ section .year-expand {
   }
 }
 
+.datafiles {
+  &__preview {
+    width: 5em;
+  }
+}
+
 // Search results page _______________________________
 
 // Pagination
@@ -321,4 +330,27 @@ section .year-expand {
 // search results
 .result {
   margin-top: 30px;
+}
+
+// preview page
+
+section.table__preview {
+  margin-top: 40px;
+  table {
+    border: 2px solid #DEE0E2;
+    background: #fff;
+    th, td {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    th, tr:nth-child(2n) {
+      background-color: #F8F8F8;
+    }
+    tr td {
+      border-bottom: none;
+    }
+  }
+  ul.pagination {
+    margin-left: 0;
+  }
 }
