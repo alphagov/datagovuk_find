@@ -332,6 +332,51 @@ section .year-expand {
   margin-top: 30px;
 }
 
+// Breadcrumb - this has been replicated here as could not get it to work via the frontend-toolkit gem
+
+.datagov_breadcrumb {
+
+  padding-top: 0.75em;
+  padding-bottom: 0.75em;
+
+  ol {
+    @extend %contain-floats;
+  }
+
+  li {
+    @include core-16;
+    float: left;
+
+    background-image: image-url("separator.png");
+
+    @include device-pixel-ratio() {
+      background-image: image-url("separator-2x.png");
+      background-size: 6px 11px;
+    }
+
+    background-position: 0% 50%;
+    background-repeat: no-repeat;
+
+    list-style: none;
+
+    margin-left: 0.6em;
+    margin-bottom: 0.4em;
+    padding-left: 0.9em;
+
+    &:first-child {
+      background-image: none;
+      margin-left: 0;
+      padding-left: 0;
+    }
+
+  }
+
+  a {
+    color: $text-colour;
+  }
+}
+
+
 // preview page
 
 section.table__preview {
