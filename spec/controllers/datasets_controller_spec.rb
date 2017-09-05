@@ -11,7 +11,7 @@ describe DatasetsController, type: :controller do
 
         create_dataset_and_visit
 
-        expect(response.body).to have_css('div.breadcrumbs')
+        expect(response.body).to have_css('div.datagov_breadcrumb')
         expect(response.body).to_not have_css('li', text: 'Ministry of Defence')
         expect(response.body).to have_css('li', text: 'Search')
       end
@@ -23,7 +23,7 @@ describe DatasetsController, type: :controller do
 
         create_dataset_and_visit
 
-        expect(response.body).to have_css('div.breadcrumbs')
+        expect(response.body).to have_css('div.datagov_breadcrumb')
         expect(response.body).to have_css('li', text: 'Ministry of Defence')
         expect(response.body).to_not have_css('li', text: 'Search')
       end
