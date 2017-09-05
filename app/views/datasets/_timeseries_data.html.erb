@@ -21,47 +21,7 @@
                 </div>
               </div>
               <div class="year-datasets showHide-content" style="display:none">
-                <table>
-                  <tr>
-                    <th class="title small">Link to the data</th>
-                    <th>Format</th>
-                    <th>Last updated</th>
-                    <th></th>
-                  </tr>
-                  <tbody>
-                  <% datafiles.each do |datafile| %>
-                    <tr>
-                      <td class="title small">
-                        <% if datafile['name'] %> <%= datafile['name'] %>
-                        <% else %> Data Link
-                        <% end %>
-                      </td>
-                      <% if datafile['format'] %>
-                        <td><%= datafile['format'].upcase %></td>
-                      <% else %>
-                        <td>N/A</td>
-                      <% end %>
-                      <% if datafile['updated_at'] %>
-                        <td>
-                          <%= format(datafile['updated_at']) %>
-                        </td>
-                      <% else %>
-                        <td class="unavailable">
-                          Not available
-                      <% end %>
-                      </td>
-                    <td>
-                      <a href="<%= datafile['url'] %>" data-ga-event="datafile-download">
-                        <%=format_button(datafile) %>
-                      </a>
-                    </td>
-                    <td>
-                      <a href="<%= file_preview_url(datafile['id']) %>"></a>
-                    </td>
-                    </tr>
-                  <% end %>
-                  </tbody>
-                </table>
+                <%= render 'datafile_table' %>
               </div>
           <% end %>
           </li>
