@@ -1,0 +1,3 @@
+PUBLISH_URL="https://username:password@publish-data-beta.herokuapp.com"
+SECRET_KEY_BASE="secret" # random string for development
+ES_HOST="127.0.0.1:9200"
