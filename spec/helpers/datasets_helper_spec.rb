@@ -19,15 +19,24 @@ describe DatasetsHelper, type: :helper do
     expect(helper.link_type(DATA_FILES_WITH_START_AND_ENDDATE[0])).to be :html
   end
 
-  it 'returns :no_preview if datafile has nil or blank format' do
+  it 'returns :no_preview if datafile has nil or blank format and no preview' do
+    stub_request(:any, 'https://good_data.co.uk').
+      to_return(status: 200)
+
     expect(helper.link_type(DATAFILES_WITHOUT_START_AND_ENDDATE[0])).to be :no_preview
   end
 
   it 'returns no_preview if datafile has no preview' do
+    stub_request(:any, 'https://good_data.co.uk').
+      to_return(status: 200)
+
     expect(helper.link_type(DATA_FILES_WITH_START_AND_ENDDATE[1])).to be :no_preview
   end
 
-  fit 'returns preview if datafile has a preview' do
+  it 'returns preview if datafile has a preview' do
+    stub_request(:any, 'https://find-data-beta.herokuapp.com/').
+      to_return(status: 200, body: [{data: 'blah'}])
+
     expect(helper.link_type(CSV_DATAFILE)).to be :preview
   end
 
