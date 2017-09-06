@@ -102,10 +102,12 @@ end
 
 DATA_TITLE = 'some-very-interesting-data'
 
+FETCH_PREVIEW_URL = 'https://someDatasetPreview.com/preview'
+
 DATA_FILES_WITH_START_AND_ENDDATE = [
     {'id' => 1,
      'name' => 'I have no end date',
-     'url' => 'https://good_data.co.uk',
+     'url' => FETCH_PREVIEW_URL,
      'format' => 'HTML',
      'start_date' => '1/1/15',
      'end_date' => nil,
@@ -113,7 +115,7 @@ DATA_FILES_WITH_START_AND_ENDDATE = [
     },
     {'id' => 2,
      'name' => 'I have an end date',
-     'url' => 'https://good_data.co.uk',
+     'url' => FETCH_PREVIEW_URL,
      'format' => 'CSV',
      'start_date' => '1/1/15',
      'end_date' => '24/03/2018',
@@ -121,7 +123,7 @@ DATA_FILES_WITH_START_AND_ENDDATE = [
     },
     {'id' => 3,
      'name' => 'I have an end date',
-     'url' => 'https://good_data.co.uk',
+     'url' => FETCH_PREVIEW_URL,
      'format' => 'HTML',
      'start_date' => '1/1/15',
      'end_date' => '01/12/2018',
@@ -132,14 +134,14 @@ DATA_FILES_WITH_START_AND_ENDDATE = [
 DATAFILES_WITHOUT_START_AND_ENDDATE = [
     {'id' => 1,
      'name' => 'I have no end date',
-     'url' => 'https://good_data.co.uk',
+     'url' => FETCH_PREVIEW_URL,
      'start_date' => nil,
      'end_date' => nil,
      'updated_at' => '2016-08-31T14:40:57.528Z'
     },
     {'id' => 2,
      'name' => 'I have an end date',
-     'url' => 'https://good_data.co.uk',
+     'url' => FETCH_PREVIEW_URL,
      'start_date' => nil,
      'end_date' => nil,
      'updated_at' => '2016-08-31T14:40:57.528Z'
@@ -148,28 +150,28 @@ DATAFILES_WITHOUT_START_AND_ENDDATE = [
 UNFORMATTED_DATASETS_MULTIYEAR = [
     {'id' => 1,
      'name' => 'Dataset 1',
-     'url' => 'https://good_data.co.uk',
+     'url' => FETCH_PREVIEW_URL,
      'start_date' => '2017-09-24',
      'end_date' => nil,
      'updated_at' => '2017-08-31T14:40:57.528Z'
     },
     {'id' => 2,
      'name' => 'Dataset 2',
-     'url' => 'https://good_data.co.uk',
+     'url' => FETCH_PREVIEW_URL,
      'start_date' => '2015-09-25',
      'end_date' => nil,
      'updated_at' => '2015-10-31T14:40:57.528Z'
     },
     {'id' => 3,
      'name' => 'Dataset 3',
-     'url' => 'https://good_data.co.uk',
+     'url' => FETCH_PREVIEW_URL,
      'start_date' => '2015-09-24',
      'end_date' => nil,
      'updated_at' => '2015-08-31T14:40:57.528Z'
     },
     {'id' => 4,
      'name' => 'Dataset 4',
-     'url' => 'https://good_data.co.uk',
+     'url' => FETCH_PREVIEW_URL,
      'start_date' => nil,
      'end_date' => nil,
      'updated_at' => '2015-10-31T14:40:57.528Z'
@@ -178,21 +180,21 @@ UNFORMATTED_DATASETS_MULTIYEAR = [
 UNFORMATTED_DATASETS_SINGLEYEAR = [
     {'id' => 1,
      'name' => 'Dataset 1',
-     'url' => 'https://good_data.co.uk',
+     'url' => FETCH_PREVIEW_URL,
      'start_date' => '2017-09-24',
      'end_date' => nil,
      'updated_at' => '2017-08-31T14:40:57.528Z'
     },
     {'id' => 2,
      'name' => 'Dataset 2',
-     'url' => 'https://good_data.co.uk',
+     'url' => FETCH_PREVIEW_URL,
      'start_date' => '2017-09-25',
      'end_date' => nil,
      'updated_at' => '2015-10-31T14:40:57.528Z'
     },
     {'id' => 3,
      'name' => 'Dataset 3',
-     'url' => 'https://good_data.co.uk',
+     'url' => FETCH_PREVIEW_URL,
      'start_date' => '2017-09-24',
      'end_date' => nil,
      'updated_at' => '2015-08-31T14:40:57.528Z'
@@ -202,7 +204,7 @@ UNFORMATTED_DATASETS_SINGLEYEAR = [
 FORMATTED_DATASETS = {
     '2017' => [{'id' => 1,
                 'name' => 'Dataset 1',
-                'url' => 'https://good_data.co.uk',
+                'url' => FETCH_PREVIEW_URL,
                 'start_date' => '2017-09-24',
                 'end_date' => nil,
                 'updated_at' => '2017-08-31T14:40:57.528Z',
@@ -210,14 +212,14 @@ FORMATTED_DATASETS = {
                }],
     '2015' => [{'id' => 2,
                 'name' => 'Dataset 2',
-                'url' => 'https://good_data.co.uk',
+                'url' => FETCH_PREVIEW_URL,
                 'start_date' => '2015-09-25',
                 'end_date' => nil,
                 'updated_at' => '2015-10-31T14:40:57.528Z',
                 'start_year' => '2015'},
                {'id' => 3,
                 'name' => 'Dataset 3',
-                'url' => 'https://good_data.co.uk',
+                'url' => FETCH_PREVIEW_URL,
                 'start_date' => '2015-09-24',
                 'end_date' => nil,
                 'updated_at' => '2015-08-31T14:40:57.528Z',
@@ -225,7 +227,7 @@ FORMATTED_DATASETS = {
                }],
         "" => [{'id' => 4,
          'name' => 'Dataset 4',
-         'url' => 'https://good_data.co.uk',
+         'url' => FETCH_PREVIEW_URL,
          'start_date' => nil,
          'end_date' => nil,
          'updated_at' => '2015-10-31T14:40:57.528Z',
@@ -240,5 +242,5 @@ CSV_DATAFILE = {
   'start_date' => '1/1/15',
   'end_date' => nil,
   'updated_at' => '2016-08-31T14:40:57.528Z',
-  'url' => 'https://find-data-beta.herokuapp.com/file/9/preview'
+  'url' => FETCH_PREVIEW_URL
 }

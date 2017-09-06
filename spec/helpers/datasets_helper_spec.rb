@@ -20,21 +20,21 @@ describe DatasetsHelper, type: :helper do
   end
 
   it 'returns :no_preview if datafile has nil or blank format and no preview' do
-    stub_request(:any, 'https://good_data.co.uk').
+    stub_request(:any, FETCH_PREVIEW_URL).
       to_return(status: 200)
 
     expect(helper.link_type(DATAFILES_WITHOUT_START_AND_ENDDATE[0])).to be :no_preview
   end
 
   it 'returns no_preview if datafile has no preview' do
-    stub_request(:any, 'https://good_data.co.uk').
+    stub_request(:any, FETCH_PREVIEW_URL).
       to_return(status: 200)
 
     expect(helper.link_type(DATA_FILES_WITH_START_AND_ENDDATE[1])).to be :no_preview
   end
 
   it 'returns preview if datafile has a preview' do
-    stub_request(:any, 'https://find-data-beta.herokuapp.com/').
+    stub_request(:any, FETCH_PREVIEW_URL).
       to_return(status: 200, body: [{data: 'blah'}])
 
     expect(helper.link_type(CSV_DATAFILE)).to be :preview
