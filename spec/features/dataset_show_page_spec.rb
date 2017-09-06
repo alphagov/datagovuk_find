@@ -1,6 +1,12 @@
 require 'rails_helper'
 
 feature 'Dataset page', elasticsearch: true do
+
+  before(:each) do
+    stub_request(:any, FETCH_PREVIEW_URL).
+      to_return(status: 200)
+  end
+
   scenario 'Displays 404 page if a dataset does not exist' do
     visit '/dataset/does-not-exist'
 
