@@ -16,6 +16,28 @@ module QueryBuilder
     }
   end
 
+  def publishers_aggregation_query
+    {
+      size: 0,
+      aggs: {
+        organisations: {
+          nested: {
+            path: "organisation"
+          },
+          aggs: {
+            org_titles: {
+              terms: {
+                field: "organisation.title.raw",
+                order: {_term: "asc"},
+                size: 10000
+              }
+            }
+          }
+        }
+      }
+    }
+  end
+
   def locations_aggregation_query
     {
       size: 0,
