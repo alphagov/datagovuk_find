@@ -1,0 +1,2 @@
+PUBLISH_URL="https://www.example-publish-app.com"
+SECRET_KEY_BASE="secret" # random string for development
