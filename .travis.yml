@@ -1,3 +1,8 @@
+env:
+  global:
+    - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
+    - RAILS_ENV=test
+    - GIT_COMMITTED_AT=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then git log -1 --pretty=format:%ct; else git log -1 --skip 1 --pretty=format:%ct; fi)
 sudo: false
 language: ruby
 cache: bundler
@@ -8,11 +13,12 @@ services:
   - elasticsearch
 before_script:
   - sleep 10
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
 script:
   - bundle exec rake db:create
   - bundle exec rake db:migrate
   - bundle exec rake spec
-env:
-  global:
-    - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
-    - RAILS_ENV=test
+after_script:
+    - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT; fi
