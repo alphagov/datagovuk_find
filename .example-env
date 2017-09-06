@@ -1,2 +1,2 @@
-PUBLISH_URL="https://username:password@publish-data-beta.herokuapp.com"
+PUBLISH_URL="https://www.example-publish-app.com"
 SECRET_KEY_BASE="secret" # random string for development
