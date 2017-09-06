@@ -112,9 +112,6 @@ GEM
     domain_name (0.5.20170404)
       unf (>= 0.0.5, < 1.0.0)
     dotenv (2.2.1)
-    dotenv-rails (2.2.1)
-      dotenv (= 2.2.1)
-      railties (>= 3.2, < 5.2)
     elasticsearch (5.0.4)
       elasticsearch-api (= 5.0.4)
       elasticsearch-transport (= 5.0.4)
@@ -395,7 +392,6 @@ DEPENDENCIES
   devise (~> 4.3)
   devise_invitable (~> 1.7.2)
   dotenv (~> 2.2)
-  dotenv-rails
   elasticsearch (~> 5.0.4)
   elasticsearch-dsl (~> 0.1.5)
   elasticsearch-model (~> 5.0.1)
@@ -432,4 +428,4 @@ DEPENDENCIES
   webmock
 
 BUNDLED WITH
-   1.15.4
+   1.15.3
