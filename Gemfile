@@ -35,8 +35,8 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.6'
   gem 'rspec', '~> 3.6'
   gem 'webmock'
-  gem 'dotenv-rails', groups: [:development, :test]
 end
+
 
 group :development do
   gem 'web-console', '>= 3.3.0'
