@@ -4,6 +4,8 @@
 In order for the app to work, it needs the following environment variables
 to be set.
 
+`mv .example-env .env`
+
 **PUBLISH_URL**
 
 This should be the URL of a working publish data.  If you don't want to run
