@@ -232,4 +232,13 @@ FORMATTED_DATASETS = {
          'start_year' => ''
         }]
 }
-CSV_DATAFILE = { 'url' => 'https://find-data-beta.herokuapp.com/file/9/preview'}
+
+CSV_DATAFILE = {
+  'id' => 1,
+  'name' => 'I have no end date',
+  'format' => 'CSV',
+  'start_date' => '1/1/15',
+  'end_date' => nil,
+  'updated_at' => '2016-08-31T14:40:57.528Z',
+  'url' => 'https://find-data-beta.herokuapp.com/file/9/preview'
+}
