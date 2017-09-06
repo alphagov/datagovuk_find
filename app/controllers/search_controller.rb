@@ -7,6 +7,8 @@ class SearchController < ApplicationController
     @organisation = params['publisher']
     @location = params['location']
     @search = Dataset.search(search_query(params))
+    @locations = format(Dataset.search(locations_aggregation_query))
+    gon.locations = @locations
 
     @num_results = @search.results.total_count
     @datasets = @search.page(page_number)
@@ -17,6 +19,18 @@ class SearchController < ApplicationController
   end
 
   private
+
+  def format(location_results)
+    location_results.response.aggregations.locations.buckets.map do |bucket|
+      "#{bucket[:key]} - #{bucket[:doc_count]} #{pluralize_count_for(bucket[:doc_count])}"
+    end
+  end
+
+  def pluralize_count_for(doc_count)
+    doc_count == 1 ?
+      'hit' :
+      'hits'
+  end
 
   def page_number
     page = params["page"]
@@ -29,3 +43,5 @@ class SearchController < ApplicationController
   end
 
 end
+
+
