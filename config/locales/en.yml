@@ -46,3 +46,4 @@ en:
       more_pages:
         display_entries: "Showing <b>%{first}-%{last}</b> of <b>%{total}</b> %{entry_name} "
   survey_url: "http://www.smartsurvey.co.uk/s/3SEXD/"
+  dgu_email: "test-beta-data@digital.cabinet-office.gov.uk"
