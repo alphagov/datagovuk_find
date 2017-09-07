@@ -8,7 +8,7 @@
   </div>
   <div class="grid-row">
     <div class="column-two-thirds">
-      <div class="metadata-box">
+      <div class="dgu-metadata__box dgu-metadata__box--in-dataset">
         <dl class="metadata">
           <dt>Published by:</dt>
           <dd><%= link_to @dataset.organisation['title'], search_path(publisher: @dataset.organisation['title']) %></dd>
@@ -20,7 +20,7 @@
               <%= expected_update(@dataset) %>
             </dd>
           <% else %>
-            <dd class='unavailable'>
+            <dd class="dgu-unavailable">
               This dataset has no data yet
             </dd>
           <% end %>
@@ -37,17 +37,20 @@
       </div>
     </div>
 
-    <div class="column-one-third related-datasets">
+    <div class="column-one-third dgu-dataset-right">
       <% unless @related_datasets.empty? %>
-        <h3 class="top heading-small">Related datasets</h3>
-        <ul>
-          <% @related_datasets.each do |dataset| %>
-            <li>
-              <%= link_to unescape(dataset.title), dataset_path(dataset.name) %>
-            </li>
-          <% end %>
-        </ul>
+        <div class="dgu-dataset-right__related">
+          <h3 class="heading-small">Related datasets</h3>
+          <ul>
+            <% @related_datasets.each do |dataset| %>
+              <li>
+                <%= link_to unescape(dataset.title), dataset_path(dataset.name) %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
       <% end %>
+
       <h3 class="heading-small">Search government data</h3>
       <form action="/search" method="GET" class="dgu-search-box">
         <label for="q" class="visuallyhidden">Search</label>

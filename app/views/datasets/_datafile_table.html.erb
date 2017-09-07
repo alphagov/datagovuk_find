@@ -1,4 +1,4 @@
-<table class = 'datafiles'>
+<table class="dgu-datafiles">
   <tr>
     <th class="title small">Link to the data</th>
     <th>Format</th>
@@ -15,7 +15,7 @@
           %>
         </td>
         <%if datafile['format'].blank? %>
-          <td class="unavailable">N/A</td>
+          <td class="dgu-unavailable">N/A</td>
         <% else %>
           <td><%= datafile['format'].upcase %>
           <% if datafile['size'] %>
@@ -27,13 +27,13 @@
         <% if datafile['updated_at'].present? %>
           <td><%= format(datafile['updated_at']) %></td>
         <% else %>
-          <td class="unavailable">Not available</td>
+          <td class="dgu-unavailable">Not available</td>
         <% end %>
           <td class="datafiles__preview">
             <% if link_type(datafile) == :html %>
               <%= link_to 'Go to site', datafile['url'] %>
             <% else %>
-              <span class="unavailable">Not available</span>
+              <span class="dgu-unavailable">Not available</span>
             <% end %>
           </td>
         </tr>

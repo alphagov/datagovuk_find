@@ -32,72 +32,81 @@
   margin-bottom: 40px;
 }
 
+.heading-xlarge {
+  margin-top: 1.65em;
+  margin-bottom: 40px;
+}
+
 #footer .footer-meta .footer-meta-inner .open-government-licence p {
   font-family: Helvetica, Arial, sans-serif;
 }
 
-// ______________________________________________________
 
-// Error pages
+details {
+  margin-bottom: 30px;
+  p:last-child {
+    padding-top: 20px;
+  }
 
-.not-found {
-  .suggestions {
-    padding-left: 1em;
-
-    ul {
-      list-style-type: disc;
-      padding-left: 0px;
-
-      li {
-        list-style-position: outside;
-      }
-    }
+  table th, table td {
+    font-size: 16px;
   }
 }
 
-// ______________________________________________________
+// Breadcrumb - this has been replicated here as could not get it to work via the frontend-toolkit gem
 
-// Search Page
+.datagov_breadcrumb {
 
-.search {
-  width: 100%;
-  main#content {
-    margin: 0!important; // to override the many media queries on #content which aren't needed here
-    width: 100%;
-    max-width: 100%;
-    h1 {
-      margin-top: 0;
-      margin-bottom: .8em;
-    }
-    .top {
-      padding: 0em 1em 2.5em 1em;
-      background: $highlight-colour;
-      .top-inner {
-        margin: auto;
-        max-width: 960px;
-        .phase-banner {
-          margin-bottom: 2.5em;
-        }
-      }
-    }
-    .bottom {
-      max-width: 960px;
-      margin: auto;
-      padding: 1.5em 1em 1.5em 1em;
-      .apply-sort {
-        float: right;
-        margin-left: 1em;
+  padding-top: 0.75em;
+  padding-bottom: 0.75em;
 
-        input {
-          background: none;
-          border: none;
-          color: #005ea5;
-          text-decoration: underline;
-          cursor: pointer;
-        }
-      }
+  ol {
+    @extend %contain-floats;
+  }
+
+  li {
+    @include core-16;
+    float: left;
+
+    background-image: image-url("separator.png");
+
+    @include device-pixel-ratio() {
+      background-image: image-url("separator-2x.png");
+      background-size: 6px 11px;
     }
+
+    background-position: 0% 50%;
+    background-repeat: no-repeat;
+
+    list-style: none;
+
+    margin-left: 0.6em;
+    margin-bottom: 0.4em;
+    padding-left: 0.9em;
+
+    &:first-child {
+      background-image: none;
+      margin-left: 0;
+      padding-left: 0;
+    }
+
+  }
+
+  a {
+    color: $text-colour;
   }
 }
 
-// ______________________________________________________
+
+
+button.button.secondary {
+  background: none;
+  color: $govuk-blue;
+  text-decoration: none;
+  box-shadow: none;
+  font-weight: bold;
+  padding: .8em 0 0 0;
+  &.expand {
+    font-size: 1.5em;
+  }
+}

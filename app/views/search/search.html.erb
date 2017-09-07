@@ -3,8 +3,8 @@
 <% end %>
 
 <form action="/search" method="GET">
-  <div class="top">
-    <div class="top-inner">
+  <div class="dgu-split-background__top">
+    <div class="dgu-split-background__top-inner">
       <%= render partial: 'layouts/feedback_survey_banner' %>
       <h1 class="heading-large">Search results</h1>
       <div class="grid-row">
@@ -16,21 +16,21 @@
     </div>
   </div>
 
-  <div class="bottom">
+  <div class="dgu-split-background__bottom">
     <div class="grid-row dgu-filters">
       <div class="column-one-third">
         <%= render 'filters' %>
       </div>
 
-      <div class="column-two-thirds">
+      <div class="column-two-thirds dgu-results">
         <%= render 'sort' %>
 
-      <% if @query.present? %>
-        <span class="results-summary">
-          <span class="bold-small"><%= @num_results %></span>
-          results found for <span class="bold-small">‘<%= @query %>’</span>
-        </span>
-      <% end %>
+        <% if @query.present? %>
+          <span class="dgu-results__summary">
+            <span class="bold-small"><%= @num_results %></span>
+            results found for <span class="bold-small">‘<%= @query %>’</span>
+          </span>
+        <% end %>
 
         <% unless @organisation.blank? %>
         <% if @query.empty? %>Datasets <% end %>published by
@@ -38,7 +38,7 @@
         <% unless @location.blank? %>filtered by
         <span class="bold-small">‘<%= @location %>’<% end %></span>
 
-        <div class="results">
+        <div>
           <% if @num_results == 0 %>
             <h2 class="heading-medium">Please try:</h2>
             <ul class="list list-bullet">
@@ -47,11 +47,11 @@
             </ul>
           <% else %>
             <% @datasets.each do |d| %>
-              <div class="result">
+              <div class="dgu-results__result">
                 <h2 class="heading-medium">
                   <a href="/dataset/<%= d.name %>"><%= d.title %></a>
                 </h2>
-                <dl class="metadata">
+                <dl class="dgu-metadata__box">
                   <dt>Published by:</dt>
                   <dd><%= link_to d.organisation['title'], search_path(publisher: d.organisation['title']) %></dd>
                   <dt>Last updated:</dt>
@@ -60,16 +60,16 @@
                   <% if d.location1.present? %>
                     <dd><%= d.location1 %></dd>
                   <% else %>
-                    <dd class="unavailable">Not applicable</dd>
+                    <dd class="dgu-unavailable">Not applicable</dd>
                   <% end %>
                 </dl>
                 <p><%= truncate(strip_tags(d.summary), length: 200, separator: ' ') %></p>
               </div>
             <% end %>
-            <div class="pagination">
+            <div class="dgu-pagination">
               <nav>
                 <%= page_entries_info @datasets, entry_name: 'dataset' %>
-                <span class="pagination__numbers"><%= paginate @datasets, window: 2, class:'paginate' %></span>
+                <span class="dgu-pagination__numbers"><%= paginate @datasets, window: 2 %></span>
               </nav>
             </div>
           <% end %>

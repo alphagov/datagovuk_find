@@ -25,28 +25,129 @@
   }
 }
 
+// split-background layout  ====================================================
 
-// Styled Dropdown =============================================================
-.dgu-dropdown {
-  margin-top: 5px;
-  float: right;
-  overflow: hidden;
-  width: 128px;
-  background: image-url("triangle-down.png") no-repeat right center;
-  background-size: 8%;
-  select {
-    @include copy-19;
-    width: 200px;
-    background: transparent;
-    border: none;
+.dgu-split-background {
+  width: 100%;
+  main#content {
+    // override the media queries on #content which aren't needed here
+    margin: 0!important;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  h1 {
+    margin-top: 0;
+    margin-bottom: .8em;
+  }
+
+  &__top {
+    padding: 0em 1em 2.5em 1em;
+    background: $highlight-colour;
+    &-inner {
+      margin: auto;
+      max-width: 960px;
+      .phase-banner {
+        margin-bottom: 2.5em;
+      }
+    }
+  }
+
+  &__bottom {
+    max-width: 960px;
+    margin: auto;
+    padding: 1.5em 1em 1.5em 1em;
   }
 }
 
-// Results Summary ===========================================================
-.results-summary {
-  display: inline-block;
-  margin-top: 5px;
+
+
+// Result list and controls ====================================================
+
+.dgu-results {
+
+  &__summary {
+    display: inline-block;
+    margin-top: 5px;
+  }
+
+  &__result {
+    margin-top: 30px;
+  }
 }
+
+.dgu-metadata__box {
+
+  &--in-dataset {
+    background: #F8F8F8;
+    padding: 25px 30px 15px 30px;
+  }
+
+  margin-top: 5px;
+  margin-bottom: 10px;
+  dt, dd {
+    display: inline-block;
+    margin-bottom: 5px;
+    vertical-align: top;
+  }
+  dt {
+    width: 30%;
+    font-weight: bold;
+  }
+  dd {
+    width: 69%;
+  }
+
+}
+
+// pagination controls =========================================================
+
+.dgu-pagination {
+  border-top: solid;
+  border-width: thin;
+  border-color: grey;
+  margin-top: 25px;
+  padding-top: 25px;
+  &__numbers {
+    padding-left: 20px;
+    float:right;
+    word-spacing: 6px;
+  }
+}
+
+// sorting controls ============================================================
+
+.dgu-sort {
+
+  &__apply {
+    float: right;
+    margin-left: 1em;
+
+    input {
+      background: none;
+      border: none;
+      color: #005ea5;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+  &__sort-type {
+    margin-top: 5px;
+    float: right;
+    overflow: hidden;
+    width: 128px;
+    background: image-url("triangle-down.png") no-repeat right center;
+    background-size: 8%;
+    select {
+      @include copy-19;
+      width: 200px;
+      background: transparent;
+      border: none;
+    }
+  }
+}
+
+
 
 // Twitter typeahead ===========================================================
 .twitter-typeahead {
@@ -90,76 +191,9 @@
 }
 
 
-//==============================================================================
-// Page-specific styles
+// Datafiles ===================================================================
 
-// Home page custom styles ______________________________
-.dgu-home-spacer__top {
-  margin-top: 80px;
-  margin-bottom: 30px;
-  @media (max-width: 641px) {
-    margin-top: 30px;
-  }
-}
-
-.dgu-home-spacer__bottom {
-  margin-bottom: 30px;
-  margin-top: 0px;
-  @media (max-width: 641px) {
-    margin-bottom: 30px;
-  }
-}
-
-// Consent form custom styles ______________________________
-
-details {
-  margin-bottom: 30px;
-  p:last-child {
-    padding-top: 20px;
-  }
-}
-
-table th, table td {
-  font-size: 16px;
-}
-
-// Dataset show page custom styles ______________________
-
-// metadata______
-.metadata-box {
-  background: #F8F8F8;
-  padding: 25px 30px 15px 30px;
-}
-
-.metadata {
-  margin-top: 5px;
-  margin-bottom: 10px;
-  dt, dd {
-    display: inline-block;
-    margin-bottom: 5px;
-    vertical-align: top;
-  }
-  dt {
-    width: 30%;
-    font-weight: bold;
-  }
-  dd {
-    width: 69%;
-  }
-}
-
-.unavailable {
-  color: #6F777B;
-}
-
-.fold {
-  text-decoration: underline;
-  padding-top: 10px;
-  cursor: pointer;
-  color: $govuk-blue;
-}
-
-.data-links {
+.dgu-datafiles {
   th {
     white-space: nowrap;
   }
@@ -169,53 +203,84 @@ table th, table td {
 }
 
 
-// related datasets______
-.related-datasets {
+// =============================================================================
+
+.dgu-dataset-right {
   padding-left: 25px;
-  h3.top {
-    margin: 0;
-    padding-top: 30px;
-    border-top: 10px solid #F8F8F8;
-  }
-  ul li {
-    margin-bottom: 10px;
+  &__related {
+    h3 {
+      margin: 0;
+      padding-top: 30px;
+      border-top: 10px solid #F8F8F8;
+    }
+    ul li {
+      margin-bottom: 10px;
+    }
   }
 }
 
-.dataset {
-  .download {
+// =============================================================================
+
+.dgu-datalinks {
+  &__download {
     margin-top: 1.5em;
   }
 }
 
 
-// additional info______
-.additional-information {
-  max-width: 625px;
-}
+// =============================================================================
 
-//time-series datalinks______
-span.showHide-open-all {
-  font-size: 16px;
-  float: right;
-  font-weight: normal;
-  display: inline-block;
-  color: $link-colour;
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-button.button.secondary {
-  background: none;
-  color: $govuk-blue;
-  text-decoration: none;
-  box-shadow: none;
-  font-weight: bold;
-  padding: .8em 0 0 0;
-  &.expand {
-    font-size: 1.5em;
+.dgu-additional-info {
+  &__notes {
+    max-width: 625px;
   }
 }
+
+
+// Search filters ============================================================
+
+.dgu-filters {
+  @media (max-width: 641px) {
+    margin-bottom: 2em;
+  }
+  padding-top: 30px;
+  h2 {
+    margin-top: 0;
+  }
+  &__filter {
+    width: 100%;
+  }
+  &__apply-button {
+    margin-top: .5em;
+  }
+  &__remove-button {
+    margin-top: .7em;
+  }
+}
+
+
+// =============================================================================
+// preview page
+
+.dgu-datafile-preview {
+  margin-top: 40px;
+  table {
+    border: 2px solid $panel-colour;
+    background: #fff;
+    th, td {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    th, tr:nth-child(2n) {
+      background-color: $highlight-colour;
+    }
+    tr td {
+      border-bottom: none;
+    }
+  }
+}
+
+// =============================================================================
 
 section .year-expand {
   .showHide-control, .expand {
@@ -244,27 +309,17 @@ section .year-expand {
   }
 }
 
-// feedback form______
-#feedback {
-  margin-top: 200px;
-  .button {
-    margin-top: 30px;
-    margin-bottom: .7em;
-  }
-  .heading-medium {
-    margin-top: 60px;
-  }
+//time-series datalinks______
+span.showHide-open-all {
+  font-size: 16px;
+  float: right;
+  font-weight: normal;
+  display: inline-block;
+  color: $link-colour;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
-.dgu-feedback-form {
-  background: #F8F8F8;
-  padding: 1em 1em 0.2em 1em;
-}
-
-.dgu-feedback-form .multiple-choice {
-  float: none;
-  padding-bottom: 2.5em;
-}
 
 // contact______
 .contact {
@@ -276,129 +331,8 @@ section .year-expand {
   }
 }
 
-// filters on search page
-.dgu-filters {
-  @media (max-width: 641px) {
-    margin-bottom: 2em;
-  }
-  padding-top: 30px;
-  h2 {
-    margin-top: 0;
-  }
-  &__filter {
-    width: 100%;
-  }
-  &__apply-button {
-    margin-top: .5em;
-  }
-  &__remove-button {
-    margin-top: .7em;
-  }
-}
 
-// Filter
-.inline-buttons {
-  &__left {
-    display: inline-block;
-  }
-  &__right {
-    display: inline-block;
-    vertical-align: -38%
-  }
-}
-
-.datafiles {
-  &__preview {
-    width: 5em;
-  }
-}
-
-// Search results page _______________________________
-
-// Pagination
-
-.pagination {
-  border-top: solid;
-  border-width: thin;
-  border-color: grey;
-  margin-top: 25px;
-  padding-top: 25px;
-    &__numbers {
-      padding-left: 20px;
-      float:right;
-      word-spacing: 6px;
-    }
-}
-
-// search results
-.result {
-  margin-top: 30px;
-}
-
-// Breadcrumb - this has been replicated here as could not get it to work via the frontend-toolkit gem
-
-.datagov_breadcrumb {
-
-  padding-top: 0.75em;
-  padding-bottom: 0.75em;
-
-  ol {
-    @extend %contain-floats;
-  }
-
-  li {
-    @include core-16;
-    float: left;
-
-    background-image: image-url("separator.png");
-
-    @include device-pixel-ratio() {
-      background-image: image-url("separator-2x.png");
-      background-size: 6px 11px;
-    }
-
-    background-position: 0% 50%;
-    background-repeat: no-repeat;
-
-    list-style: none;
-
-    margin-left: 0.6em;
-    margin-bottom: 0.4em;
-    padding-left: 0.9em;
-
-    &:first-child {
-      background-image: none;
-      margin-left: 0;
-      padding-left: 0;
-    }
-
-  }
-
-  a {
-    color: $text-colour;
-  }
-}
-
-
-// preview page
-
-section.table__preview {
-  margin-top: 40px;
-  table {
-    border: 2px solid #DEE0E2;
-    background: #fff;
-    th, td {
-      padding-left: 20px;
-      padding-right: 20px;
-    }
-    th, tr:nth-child(2n) {
-      background-color: #F8F8F8;
-    }
-    tr td {
-      border-bottom: none;
-    }
-  }
-  ul.pagination {
-    margin-left: 0;
-  }
+// ==== not a component ========================================================
+.dgu-unavailable {
+  color: $secondary-text-colour;
 }
