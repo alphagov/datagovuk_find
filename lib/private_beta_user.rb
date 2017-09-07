@@ -7,7 +7,7 @@ module PrivateBetaUser
     hash = s.hexdigest(SALT + username).to_i(16)
     words = []
 
-    (1..8).each do
+    (1..3).each do
       words << WORD_LIST[hash % WORD_LIST.length]
       hash = hash / WORD_LIST.length
     end
