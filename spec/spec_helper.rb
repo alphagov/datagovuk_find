@@ -37,6 +37,42 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 end
 
+def mappings
+  {
+    dataset: {
+      properties: {
+        name: {
+          type: "string",
+          index: "not_analyzed"
+        },
+        location1: {
+          type: 'string',
+          fields: {
+            raw: {
+              type: 'string',
+              index: 'not_analyzed'
+            }
+          }
+        },
+        organisation: {
+          type: "nested",
+          properties: {
+            title: {
+              type: "string",
+              fields: {
+                raw: {
+                  type: "string",
+                  index: "not_analyzed"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+end
+
 def delete_index
   if Rails.env == "test"
     begin
@@ -48,17 +84,6 @@ def delete_index
 end
 
 def create_index
-  mappings = {
-    dataset: {
-      properties: {
-        name: {
-          type: "string",
-          index: "not_analyzed"
-        }
-      }
-    }
-  }
-
   if Rails.env == "test"
     begin
       Rails.logger.info("Creating datasets-test index")

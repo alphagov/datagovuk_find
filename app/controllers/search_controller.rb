@@ -51,7 +51,6 @@ class SearchController < ApplicationController
       1
     end
   end
-
 end
 
 
