@@ -114,6 +114,9 @@
 
 details {
   margin-bottom: 30px;
+  p:last-child {
+    padding-top: 20px;
+  }
 }
 
 table th, table td {
