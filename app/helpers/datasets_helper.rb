@@ -70,7 +70,7 @@ module DatasetsHelper
 
   def link_type(datafile)
     if datafile["format"].blank? || datafile["format"].upcase == 'CSV'
-      check_preview(datafile['url']) ? :preview : :no_preview
+      check_preview(file_preview_url(datafile['id'])) ? :preview : :no_preview
     elsif datafile["format"].upcase == 'HTML'
       :html
     else

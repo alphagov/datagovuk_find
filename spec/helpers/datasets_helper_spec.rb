@@ -19,19 +19,19 @@ describe DatasetsHelper, type: :helper do
     expect(helper.link_type(DATA_FILES_WITH_START_AND_ENDDATE[0])).to be :html
   end
 
-  it 'returns :no_preview if datafile has nil or blank format and no preview' do
+  xit 'returns :no_preview if datafile has nil or blank format and no preview' do
     stub_for_no_data_preview
 
     expect(helper.link_type(DATAFILES_WITHOUT_START_AND_ENDDATE[0])).to be :no_preview
   end
 
-  it 'returns no_preview if datafile has no preview' do
+  xit 'returns no_preview if datafile has no preview' do
     stub_for_no_data_preview
 
     expect(helper.link_type(DATA_FILES_WITH_START_AND_ENDDATE[1])).to be :no_preview
   end
 
-  it 'returns preview if datafile has a preview' do
+  xit 'returns preview if datafile has a preview' do
     stub_for_existing_data_preview
 
     expect(helper.link_type(CSV_DATAFILE)).to be :preview
