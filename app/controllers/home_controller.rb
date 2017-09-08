@@ -1,2 +1,2 @@
-class HomeController < PublicAreaController
+class HomeController < LoggedAreaController
 end
