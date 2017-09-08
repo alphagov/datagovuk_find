@@ -17,7 +17,7 @@
   <%= render partial: 'layouts/proposition_header' %>
 <% end %>
 <% content_for :content do %>
-  <div class="search">
+  <div class="dgu-split-background">
     <%= render 'layouts/staging_ribbon' if Rails.env.staging? %>
     <main role="main" tabindex="-1" id="content">
       <%= yield %>

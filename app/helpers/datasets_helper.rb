@@ -40,7 +40,7 @@ module DatasetsHelper
 
   def expected_update_class_for(freq)
     NO_MORE.include?(freq)
-    "unavailable"
+    "dgu-unavailable"
   end
 
   def dataset_location(dataset)
@@ -48,7 +48,7 @@ module DatasetsHelper
   end
 
   def expected_location_class_for(dataset)
-    "unavailable" if locations(dataset).empty?
+    "dgu-unavailable" if locations(dataset).empty?
   end
 
   def timeseries_data?(datafiles)

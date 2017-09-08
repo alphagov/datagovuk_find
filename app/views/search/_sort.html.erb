@@ -1,14 +1,15 @@
-<div class='apply-sort js-hidden'>
-  <input type="submit" value="Apply sorting"/>
-</div>
+<div class="dgu-sort">
+  <div class="dgu-sort__apply js-hidden">
+    <input type="submit" value="Apply sorting"/>
+  </div>
 
-<div class="dgu-dropdown">
-  <label>
-    <span class="visuallyhidden">Sorting type</span>
-    <select id='sort-datasets' name="sort" onchange="this.form.submit()">
-      <option <%= 'selected' if @sort!='recent' %> value="best">Best match</option>
-      <option <%= 'selected' if @sort=='recent' %> value="recent">Most recent</option>
-    </select>
-  </label>
+  <div class="dgu-sort__sort-type">
+    <label>
+      <span class="visuallyhidden">Sorting type</span>
+      <select id="sort-datasets" name="sort" onchange="this.form.submit()">
+        <option <%= 'selected' if @sort!='recent' %> value="best">Best match</option>
+        <option <%= 'selected' if @sort=='recent' %> value="recent">Most recent</option>
+      </select>
+    </label>
+  </div>
 </div>
-
