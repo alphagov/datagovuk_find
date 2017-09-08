@@ -19,16 +19,6 @@ class DatasetsController < ApplicationController
     end
   end
 
-  def preview
-    @preview = JSON.parse(RestClient.get(preview_url(params[:file_id])))
-    @content_type = @preview.fetch('content', {}).fetch('type', '')
-    @content_type = @content_type.upcase
-    @dataset = request_dataset(@preview)
-
-  rescue => e
-    logger.warn("Error while displaying preview: #{e}")
-  end
-
   private
 
   def handle_error(e)

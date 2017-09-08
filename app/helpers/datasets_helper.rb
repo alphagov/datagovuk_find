@@ -69,12 +69,10 @@ module DatasetsHelper
   end
 
   def link_type(datafile)
-    if datafile["format"].blank? || datafile["format"].upcase == 'CSV'
-      check_preview(datafile['url']) ? :preview : :no_preview
-    elsif datafile["format"].upcase == 'HTML'
-      :html
+    if datafile["format"].blank?
+      :no_preview
     else
-      :unknown
+      datafile["format"].upcase == 'HTML' ? :html : :no_preview
     end
   end
 
@@ -83,15 +81,6 @@ module DatasetsHelper
   end
 
   private
-
-  def check_preview(url)
-    begin
-      response = RestClient.get(url)
-      !response.body.empty?
-    rescue
-      'no preview available'
-    end
-  end
 
   def datafile_next_updated(dataset)
     freq = dataset.frequency

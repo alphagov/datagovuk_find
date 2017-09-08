@@ -6,8 +6,7 @@ Rails.application.routes.draw do
 
   get 'search/', to: 'search#search'
   get 'search/tips', to: 'search#tips'
-
-  get 'file/:file_id/preview', to: 'datasets#preview', as: :file_preview
+  resources :datasets, :path => "dataset", param: :name, only: :show
 
   get 'use-of-data', to: 'consents#new'
   get 'use-of-data/confirm', to: 'consents#confirm'
