@@ -1,6 +1,4 @@
-class ErrorsController < ApplicationController
-  skip_before_action :authenticate, only: [:not_authenticated]
-
+class ErrorsController < PublicAreaController
   def not_found
     render(status: 404)
   end
