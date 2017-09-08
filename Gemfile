@@ -24,6 +24,7 @@ gem "elasticsearch-persistence", "~> 5", require: "elasticsearch/persistence/mod
 gem 'therubyracer'
 gem 'elasticsearch-dsl', "~> 0.1.5"
 gem 'htmlentities', "~> 4.3"
+gem 'gon'
 
 
 group :development, :test do
