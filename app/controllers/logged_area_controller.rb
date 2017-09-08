@@ -12,25 +12,28 @@ class LoggedAreaController < ApplicationController
     return if Rails.env.development? || Rails.env.test?
 
     authenticate_or_request_with_http_basic('Please sign in with username and password provided to you') do |username, password|
-      httpauth_name = ENV['HTTP_USERNAME']
-      httpauth_pass = ENV['HTTP_PASSWORD']
+      if admin_login?(username, password)
+        return true
+      end
 
-      admin_login = username == httpauth_name && password == httpauth_pass
-      beta_login = PrivateBetaUser.authenticate?(username, password)
-
-      if beta_login
+      if beta_login?(username, password)
         session[:beta_user] = username
+        return true
       end
 
-      if admin_login == false && beta_login == false
-        redirect_to '/not_authenticated'
-      else
-        true
-      end
+      redirect_to '/not_authenticated'
     end
   end
 
   private
+
+  def admin_login?(username, password)
+    username == ENV['HTTP_USERNAME'] && password == ENV['HTTP_PASSWORD']
+  end
+
+  def beta_login?(username, password)
+    PrivateBetaUser.authenticate?(username, password)
+  end
 
   def has_not_consented?
     !session.key?('consent') || session[:consent] == false
