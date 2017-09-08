@@ -1,0 +1,2 @@
+class PublicAreaController < ApplicationController
+end
