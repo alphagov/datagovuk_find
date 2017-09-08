@@ -24,7 +24,7 @@ class SearchController < ApplicationController
     results = Dataset.search(publishers_aggregation_query)
 
     results.response.aggregations.organisations.org_titles.buckets.map do |bucket|
-      "#{bucket[:key]} - #{bucket[:doc_count]} #{pluralize_count_for(bucket[:doc_count])}"
+      "#{bucket[:key]}"
     end
   end
 
@@ -32,14 +32,8 @@ class SearchController < ApplicationController
     results = Dataset.search(locations_aggregation_query)
 
     results.response.aggregations.locations.buckets.map do |bucket|
-      "#{bucket[:key]} - #{bucket[:doc_count]} #{pluralize_count_for(bucket[:doc_count])}"
+      "#{bucket[:key]}"
     end
-  end
-
-  def pluralize_count_for(doc_count)
-    doc_count == 1 ?
-      'hit' :
-      'hits'
   end
 
   def page_number
