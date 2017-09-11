@@ -1,4 +1,4 @@
-class DatasetsController < ApplicationController
+class DatasetsController < LoggedAreaController
   include DatasetsHelper
   include QueryBuilder
 
