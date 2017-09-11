@@ -234,13 +234,6 @@ FORMATTED_DATASETS = {
          'start_year' => ''
         }]
 }
-
-CSV_DATAFILE = {
-  'id' => 1,
-  'name' => 'I have no end date',
-  'format' => 'CSV',
-  'start_date' => '1/1/15',
-  'end_date' => nil,
-  'updated_at' => '2016-08-31T14:40:57.528Z',
-  'url' => FETCH_PREVIEW_URL
-}
+CSV_DATAFILE = DATA_FILES_WITH_START_AND_ENDDATE[1]
+HTML_DATAFILE = DATA_FILES_WITH_START_AND_ENDDATE[0]
+NO_FORMAT_DATAFILE = DATA_FILES_WITH_START_AND_ENDDATE[2]

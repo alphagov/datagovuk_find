@@ -32,6 +32,8 @@
           <td class="datafiles__preview">
             <% if link_type(datafile) == :html %>
               <%= link_to 'Go to site', datafile['url'] %>
+            <% elsif link_type(datafile) == :csv %>
+              <span class="dgu-unavailable">Coming soon</span>
             <% else %>
               <span class="dgu-unavailable">Not available</span>
             <% end %>
