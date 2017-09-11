@@ -16,13 +16,15 @@ describe DatasetsHelper, type: :helper do
   end
 
   it 'returns :html if datafile is a webpage' do
-    expect(helper.link_type(DATA_FILES_WITH_START_AND_ENDDATE[0])).to be :html
+    expect(helper.link_type(HTML_DATAFILE)).to be :html
   end
 
-  it 'returns :no_preview if datafile is not a webpage' do
-    [DATA_FILES_WITH_START_AND_ENDDATE[1], DATA_FILES_WITH_START_AND_ENDDATE[2]].each do |file|
-      expect(helper.link_type(file)).to be :no_preview
-    end
+  it 'returns :csv if datafile is csv' do
+    expect(helper.link_type(CSV_DATAFILE)).to be :csv
+  end
+
+  it 'returns :no_preview if datafile format is unknown' do
+    expect(helper.link_type(NO_FORMAT_DATAFILE)).to be :no_preview
   end
 
 end
