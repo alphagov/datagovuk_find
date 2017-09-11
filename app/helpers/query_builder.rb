@@ -45,7 +45,7 @@ module QueryBuilder
         locations: {
           terms: {
             field: 'location1.raw',
-            order: {_term: 'asc'}
+            size: 10000
           }
         }
       }
@@ -142,7 +142,7 @@ module QueryBuilder
             must: [
               {
                 match: {
-                  "organisation.title": publisher
+                  "organisation.title.raw": publisher
                 }
               }
             ]
@@ -155,7 +155,7 @@ module QueryBuilder
   def location_filter_query(location)
     {
       match: {
-        location1: location
+        "location1.raw": location
       }
     }
   end
