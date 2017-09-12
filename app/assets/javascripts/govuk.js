@@ -110,7 +110,7 @@ FoldableText.prototype.init = function () {
         .wrap('<p class="fold-outer"></p>')
 
       $el.parent('p.fold-outer')
-        .append('<div class="fold" data-folded="folded" data-height="' + originalHeight + '">View full summary</div>')
+        .append('<button class="fold button secondary" data-folded="folded" data-height="' + originalHeight + '">View full summary</div>')
 
       $el.next('.fold').on('click', this.toggle.bind(this))
     }
