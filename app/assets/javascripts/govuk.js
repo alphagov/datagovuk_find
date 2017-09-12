@@ -15,8 +15,13 @@ $(document).ready(function () {
   var showHide = new ShowHide()
   showHide.init()
 
-  Typeahead.add('#publisher', 'publisher', Find.publishers)
-  Typeahead.add('#location', 'location', Find.locations)
+  if (document.getElementById('publisher')) {
+    Typeahead.add('#publisher', 'publisher', Find.publishers)
+  }
+
+  if (document.getElementById('location')) {
+    Typeahead.add('#location', 'location', Find.locations)
+  }
 
   new FoldableText('.summary', 200)
     .init()
