@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-
 describe DatasetsController, type: :controller do
   render_views
 
@@ -9,6 +8,7 @@ describe DatasetsController, type: :controller do
       it 'will not display the publisher name if the referrer host name is the application host name' do
         request.env['HTTP_REFERER'] = 'http://test.host/search?q=fancypants'
 
+        authenticate
         create_dataset_and_visit
 
         expect(response.body).to have_css('div.datagov_breadcrumb')
@@ -21,6 +21,7 @@ describe DatasetsController, type: :controller do
       it 'will display the publisher name if the user has visited the search page from outside the application' do
         request.env['HTTP_REFERER'] = 'http://unknown.host/search?q=fancypants'
 
+        authenticate
         create_dataset_and_visit
 
         expect(response.body).to have_css('div.datagov_breadcrumb')
@@ -29,16 +30,4 @@ describe DatasetsController, type: :controller do
       end
     end
   end
-end
-
-def create_dataset_and_visit
-  slug = 'a-nice-dataset'
-  dataset = DatasetBuilder.new
-                .with_name(slug)
-                .with_title('A nice dataset')
-                .build
-
-  index([dataset])
-  get :show, params: {name: slug}
-
 end
