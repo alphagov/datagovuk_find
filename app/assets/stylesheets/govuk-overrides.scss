@@ -102,9 +102,8 @@ details {
 button.button.secondary {
   background: none;
   color: $govuk-blue;
-  text-decoration: none;
+  text-decoration: underline;
   box-shadow: none;
-  font-weight: bold;
   padding: .8em 0 0 0;
   &.expand {
     font-size: 1.5em;
