@@ -1,3 +1,5 @@
+require 'rails_helper'
+
 describe SearchController, type: :controller do
   context 'Filtering by location' do
     render_views
@@ -28,6 +30,8 @@ describe SearchController, type: :controller do
 
 
       index([first_dataset, second_dataset, third_dataset])
+
+      authenticate
 
       get :search, params: {location: 'Auckland'}
 

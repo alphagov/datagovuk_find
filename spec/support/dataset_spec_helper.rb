@@ -16,6 +16,17 @@ def index_and_visit(dataset)
   visit "/dataset/#{dataset[:name]}"
 end
 
+def create_dataset_and_visit
+  slug = 'a-nice-dataset'
+  dataset = DatasetBuilder.new
+                .with_name(slug)
+                .with_title('A nice dataset')
+                .build
+
+  index([dataset])
+  get :show, params: {name: slug}
+end
+
 def search_for(query)
   visit '/'
   within '#content' do
