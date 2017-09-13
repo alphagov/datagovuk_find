@@ -52,11 +52,7 @@ module DatasetsHelper
   end
 
   def timeseries_data?(datafiles)
-    start_dates = datafiles.map do |file|
-      Time.parse(file['start_date']).year if file['start_date'].present?
-    end
-
-    start_dates.uniq.length > 1
+    datafiles_start_dates(datafiles).uniq.size > 1
   end
 
   def group_by_year(datasets)
@@ -83,6 +79,14 @@ module DatasetsHelper
   end
 
   private
+
+  def datafiles_start_dates(datafiles)
+    datafiles_with_start_dates(datafiles).map { |file| Time.parse(file['start_date']).year }
+  end
+
+  def datafiles_with_start_dates(datafiles)
+    datafiles.select { |file| file['start_date'].present? }
+  end
 
   def datafile_next_updated(dataset)
     freq = dataset.frequency
