@@ -1,14 +1,14 @@
 <section class="supporting docs">
   <h2 class="heading-medium">
-    Supporting documents
+    <%= t('datasets.show.supporting_docs')%>
   </h2>
 
   <table>
     <thead>
     <tr>
       <th class="title">Link to the document</th>
-      <th>Format</th>
-      <th>Date added</th>
+      <th><%= t('datasets.show.format')%></th>
+      <th><%= t('datasets.show.date_added')%></th>
     </tr>
     </thead>
     <tbody>
@@ -17,8 +17,8 @@
         <td class="title">
           <a href="<%= doc['url'] %>"><%= doc['name'] %></a>
         </td>
-        <td><%= doc["format"] or "n/a" %></td>
-        <td><%= doc["start_date"] or "n/a" %></td>
+        <td><%= doc["format"] or "N/A" %></td>
+        <td><%= doc["start_date"] or "N/A" %></td>
       </tr>
     <% end %>
     </tbody>

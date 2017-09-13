@@ -1,11 +1,11 @@
 <section class="contact">
   <div>
     <h2 class="heading-medium">
-      Contact
+      <%= t('datasets.show.contact') %>
     </h2>
     <div class="column-one-half">
       <h3 class="heading-small">
-        Enquiries
+      <%= t('datasets.show.enquiries') %>
       </h3>
       <p><%= @dataset.organisation['contact_name'] %> </br>
         <a href=""><%= @dataset.organisation['contact_email'] %></a></p>
@@ -13,7 +13,7 @@
     <% if @dataset.organisation['foi_name'] or @dataset.organisation['foi_email'] %>
       <div class="column-one-half foi">
         <h3 class="heading-small">
-          Freedom of Information (FOI) requests
+          <%= t('datasets.show.foi_requests') %>
         </h3>
         <p><%= @dataset.organisation['foi_name'] %> </br> <a href=""><%= @dataset.organisation['foi_email'] %></a>
         </p>

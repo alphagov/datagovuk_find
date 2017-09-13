@@ -3,8 +3,8 @@
     <div class="column-full">
       <section class="dgu-datalinks">
         <!-- accordions for time series datasets -->
-        <h2 class="heading-medium">Data links
-          <span class="showHide-open-all">Open all</span>
+        <h2 class="heading-medium"><%= t('datasets.show.data_links')%>
+          <span class="showHide-open-all"><%= t('datasets.show.open_all')%></span>
         </h2>
         <div class="breaker"></div>
         <ul>
@@ -26,7 +26,7 @@
           <% end %>
           </li>
         </ul>
-        <input class="button dgu-datalinks__download" type="submit" value="Download all">
+        <input class="button dgu-datalinks__download" type="submit" value="<%= t('datasets.show.download_all') %>">
       </section>
     </div>
   </div>
