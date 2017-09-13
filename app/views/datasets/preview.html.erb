@@ -1,35 +1,38 @@
-<% if @content_type == 'CSV' %>
-    <div class="grid-row">
-    <div class="column-two-thirds">
-      <a href="<%= dataset_path(name_of(@dataset)) %>" class="link-back">Back to dataset</a>
+<div class="grid-row">
+  <div class="column-two-thirds">
+    <a href="<%= dataset_path(name_of(@dataset)) %>" class="link-back">Back to dataset</a>
       <h1 class="heading-large">
-          <%= @preview['meta']['dataset_title'] %>
-          <span class="heading-secondary dgu-home-spacer__bottom"><%= @preview['meta']['datafile_name'] %></span>
+        <%= @preview['meta']['dataset_title'] %>
+        <span class="heading-secondary dgu-home-spacer__bottom"><%= @preview['meta']['datafile_name'] %></span>
       </h1>
 
       <a class="button" href="<%= @preview['meta']['datafile_link'] %>">Download this file</a>
     </div>
     <div class = 'column-full'>
       <section class="dgu-datafile-preview">
+        <% if @content_type == 'CSV' %>
           <table>
-            <tr><thead>
+            <thead>
+              <tr>
                 <% @preview['content']['body'].first.each do |col| %>
-                    <th><%= col %></th>
+                  <th><%= col %></th>
                 <% end %>
-            </tr></thead>
+              </tr>
+            </thead>
             <tbody>
-                <% @preview['content']['body'].drop(1).each do |row| %>
-                    <tr>
-                        <% row.each do |col| %>
-                            <td><%= col %></td>
-                        <% end %>
-                    </tr>
-                <% end %>
+              <% @preview['content']['body'].drop(1).each do |row| %>
+                <tr>
+                  <% row.each do |col| %>
+                    <td><%= col %></td>
+                  <% end %>
+                </tr>
+              <% end %>
             </tbody>
           </table>
+        <% else %>
+          <p>No preview is available for <%= @preview ? "‘"+@preview['meta']['datafile_name']+"’" : 'this file.' %></p>
+        <% end %>
       </section>
     </div>
   </div>
-<% else %>
-    <p>No preview is available for "<%= @preview ? @preview['meta']['datafile_name'] : 'this file.' %>"</p>
-<% end %>
+</div>
