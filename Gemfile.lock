@@ -409,9 +409,9 @@ DEPENDENCIES
   audited (~> 4.5)
   byebug (~> 9)
   cancancan (~> 1.10)
-  capybara
-  capybara-selenium
-  chromedriver-helper
+  capybara (~> 2.15.1)
+  capybara-selenium (= 0.0.6)
+  chromedriver-helper (~> 1.1)
   codeclimate-test-reporter (~> 1.0.0)
   devise (~> 4.3)
   devise_invitable (~> 1.7.2)
@@ -444,7 +444,7 @@ DEPENDENCIES
   rspec (~> 3.6)
   rspec-rails (~> 3.6)
   sass-rails (~> 5.0)
-  simplecov
+  simplecov (~> 0.13)
   spring (~> 2.0)
   spring-watcher-listen (~> 2.0.0)
   therubyracer
