@@ -79,8 +79,7 @@ feature 'Search page', elasticsearch: true do
 
     visit('/search')
 
-    datasets = all('h2 a')
-    expect(datasets.length).to be(2)
+    assert_data_set_length_is(2)
 
     page.driver.execute_script %Q{ $('#location').focus().typeahead('val', 'We') }
     page.driver.execute_script %Q{ $('#location').focus().typeahead('open') }
