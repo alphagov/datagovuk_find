@@ -3,11 +3,8 @@
   <%= render "meta_data" %>
 
   <% unless @dataset.datafiles.empty? %>
-    <% if timeseries_data?(@dataset.datafiles) %>
-      <%= render "timeseries_data" %>
-    <% else %>
-      <%= render "non_timeseries_data" %>
-    <% end %>
+    <%= render partial: "timeseries_data", locals: { datafiles: @timeseries_datafiles } %>
+    <%= render partial: "non_timeseries_data", locals: { datafiles: @non_timeseries_datafiles } %>
   <% end %>
 
   <% if @dataset.notes.present? %>
