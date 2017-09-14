@@ -14,4 +14,7 @@ Rails.application.routes.draw do
   get 'not_authenticated', to: 'errors#not_authenticated'
 
   resources :datasets, path: "dataset", param: :name, only: :show
+
+  get 'preview', to: 'datasets#preview'
+
 end

@@ -1,3 +1,6 @@
+require 'faraday'
+require 'csv'
+
 class DatasetsController < LoggedAreaController
   include DatasetsHelper
   include QueryBuilder
@@ -20,6 +23,33 @@ class DatasetsController < LoggedAreaController
       @related_datasets = Dataset.related(query)
     end
   end
+
+
+  def preview
+    url = params['url']
+
+    conn = Faraday.new
+    conn.headers = {'Range' => "bytes=0-1024"}
+    response = conn.get do |req|
+      req.url url
+      req.options.timeout = 5  # open/read timeout in seconds
+    end
+
+    csv = response.body.rpartition("\n")[0]
+
+    @content_type = 'CSV'
+    @preview = {
+      'meta' => {
+        'dataset_title' => 'test dataset',
+        'datafile_link' => url,
+        'datafile_name' => 'test datafile'
+      },
+      'content' => {
+        'body' => CSV.parse(csv)
+      }
+    }
+  end
+
 
   private
 

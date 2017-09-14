@@ -33,7 +33,7 @@
             <% if datafile.html? %>
               <%= link_to 'Go to site', datafile.url %>
             <% elsif datafile.csv? %>
-              <span class="dgu-unavailable">Coming soon</span>
+              <a href="/preview?url=<%= datafile['url'] %>">Preview</a>
             <% else %>
               <span class="dgu-unavailable">Not available</span>
             <% end %>

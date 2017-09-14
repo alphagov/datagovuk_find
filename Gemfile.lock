@@ -422,6 +422,7 @@ DEPENDENCIES
   elasticsearch-model (~> 5.0.1)
   elasticsearch-persistence (~> 5)
   elasticsearch-rails (~> 5.0.1)
+  faraday
   friendly_id (~> 5.2.1)
   gon
   govuk_elements_rails
