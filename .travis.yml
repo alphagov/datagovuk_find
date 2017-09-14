@@ -11,6 +11,8 @@ rvm:
 services:
   - postgresql
   - elasticsearch
+addons:
+  chrome: stable
 before_script:
   - sleep 10
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter

@@ -52,9 +52,11 @@ end
 
 
 group :test do
-  gem "simplecov"
-  gem "codeclimate-test-reporter", "~> 1.0.0"
-  gem "capybara"
+  gem 'simplecov', '~> 0.13'
+  gem 'codeclimate-test-reporter', '~> 1.0.0'
+  gem 'capybara', '~> 2.15.1'
+  gem 'capybara-selenium', '0.0.6'
+  gem 'chromedriver-helper', '~> 1.1'
 end
 
 
