@@ -21,6 +21,18 @@ class Dataset
                 :_index, :_type, :_id, :_score, :_source,
                 :_version
 
+  def datafiles
+    @datafiles.map { |file| Datafile.new(file) }
+  end
+
+  def timeseries_datafiles
+    datafiles.select(&:timeseries?)
+  end
+
+  def non_timeseries_datafiles
+    datafiles.select(&:non_timeseries?)
+  end
+
   class << self
     def from_json(raw_json)
       d = Dataset.new(raw_json.merge(raw_json['_source']))
