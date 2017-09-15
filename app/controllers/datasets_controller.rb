@@ -6,7 +6,7 @@ class DatasetsController < LoggedAreaController
     begin
       query = get_query(name: params[:name])
       @dataset = Dataset.get(query)
-      @timeseries_datafiles = @dataset.timeseries_datafiles.group_by(&:start_year)
+      @timeseries_datafiles = @dataset.timeseries_datafiles
       @non_timeseries_datafiles = @dataset.non_timeseries_datafiles
       raise 'Metadata missing' if @dataset.title.blank?
     rescue => e
