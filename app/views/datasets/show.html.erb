@@ -13,8 +13,6 @@
             <% end %>
           </h2>
 
-          <div class="breaker"></div>
-
           <% if @timeseries_datafiles.present? %>
             <%= render partial: "timeseries_data", locals: { datafiles: @dataset.datafiles } %>
           <% else %>
