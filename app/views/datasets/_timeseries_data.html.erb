@@ -1,20 +1,20 @@
 <ul>
   <% datafiles.group_by(&:start_year).each do |year, datafiles| %>
     <li class="showHide">
-    <div class="year-expand showHide-control">
-      <h3 class="heading-small">
-        <button class="button secondary">
-          <%= year %>
-        </button>
-      </h3>
-      <div>
-        <button class="expand button secondary">+</button>
+      <div class="year-expand showHide-control">
+        <h3 class="heading-small">
+          <button class="button secondary">
+            <%= year %>
+          </button>
+        </h3>
+        <div>
+          <button class="expand button secondary">+</button>
+        </div>
       </div>
-    </div>
-    <div class="year-datasets showHide-content" style="display:none">
-      <%= render partial: 'datafile_table', locals: { datafiles: datafiles } %>
-    </div>
-  <% end %>
+      <div class="year-datasets showHide-content" style="display:none">
+        <%= render partial: 'datafile_table', locals: { datafiles: datafiles } %>
+      </div>
+    <% end %>
   </li>
 </ul>
 
