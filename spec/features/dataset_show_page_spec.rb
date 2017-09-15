@@ -191,4 +191,40 @@ feature 'Dataset page', elasticsearch: true do
       expect(page).to_not have_css('h2', text: 'Contact')
     end
   end
+
+  feature 'Displaying datasets', js: true do
+    scenario 'Show more and show less' do
+      DATAFILES = create_datafiles(20)
+      dataset = DatasetBuilder.new
+                  .with_datafiles(DATAFILES)
+                  .build
+
+      index_and_visit(dataset)
+
+      expect(page).to have_css('js-show-more-datafiles', count: 0)
+      expect(page).to have_css('.dgu-datafile', count: 5)
+      expect(page).to have_css('.show-toggle', text: 'Show more')
+
+      find('.show-toggle').click
+
+      expect(page).to have_css('.dgu-datafile', count: 20)
+      expect(page).to have_css('.show-toggle', text: 'Show less')
+    end
+
+    def create_datafiles(count)
+      datafiles = []
+
+      count.times do |i|
+        datafiles.push({
+                         'id' => i,
+                         'url' => FETCH_PREVIEW_URL,
+                         'start_date' => nil,
+                         'end_date' => nil,
+                         'updated_at' => '2017-08-31T14:40:57.528Z'
+                       })
+      end
+
+      return datafiles
+    end
+  end
 end
