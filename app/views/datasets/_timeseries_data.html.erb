@@ -2,13 +2,13 @@
   <% datafiles.group_by(&:start_year).each do |year, datafiles| %>
     <li class="showHide">
       <div class="year-expand showHide-control">
-        <h3 class="dgu-datalinks__year heading-small">
-          <button class="button secondary">
-            <%= year %>
+        <h3 class="heading-small">
+          <button class="dgu-datafiles__year button secondary">
+            <%= year.presence || "Other data files" %>
           </button>
         </h3>
         <div>
-          <button class="expand button secondary">+</button>
+          <button class="dgu-datafiles__expand js-expand button secondary">+</button>
         </div>
       </div>
       <div class="showHide-content" style="display:none">
