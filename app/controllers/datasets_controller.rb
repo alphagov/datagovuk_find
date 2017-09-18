@@ -38,20 +38,23 @@ class DatasetsController < LoggedAreaController
       faraday.adapter :net_http
     end
     conn.headers = {'Range' => 'bytes=0-1024'}
-    response = conn.get do |req|
-      req.url datafile.url
-      req.options.timeout = 10
-    end
-
-    csv = response.body.rpartition('\n')[0]
-
-    @content_type = 'CSV'
     @preview = {
       'dataset_name' => @dataset.name,
       'datafile_link' => datafile.url,
       'datafile_name' => datafile.name,
-      'body' => CSV.parse(csv)
     }
+    @content_type = 'CSV'
+
+    begin
+      response = conn.get do |req|
+        req.url datafile.url
+        req.options.timeout = 5
+      end
+      csv = response.body.rpartition('\n')[0]
+    rescue
+      csv = ""
+    end
+    @preview['body'] = CSV.parse(csv)
   end
 
 

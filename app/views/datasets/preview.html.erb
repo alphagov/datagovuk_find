@@ -10,7 +10,7 @@
   </div>
   <div class = 'column-full'>
     <section class="dgu-datafile-preview">
-      <% if @content_type == 'CSV' %>
+      <% if @content_type == 'CSV' and @preview['body'] != [] %>
         <table>
           <thead>
             <tr>
