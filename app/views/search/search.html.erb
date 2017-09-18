@@ -1,22 +1,22 @@
 <% content_for :page_title do %>
-   <%= t('search.search.results_page_title', :query => @query ) %>
+   <%= t('.results_page_title', :query => @query ) %>
 <% end %>
 
 <form action="/search" method="GET">
   <div class="dgu-split-background__top">
     <div class="dgu-split-background__top-inner">
       <%= render partial: 'layouts/feedback_survey_banner' %>
-      <h1 class="heading-large"> <%= t('search.search.search_results_heading') %></h1>
+      <h1 class="heading-large"> <%= t('.search_results_heading') %></h1>
       <div class="grid-row">
         <div class="column-two-thirds dgu-search-box">
-          <label for="q" class="visuallyhidden"> <%= t('search.search.accessibility.search_box_label') %></label>
+          <label for="q" class="visuallyhidden"> <%= t('.accessibility.search_box_label') %></label>
           <input id="q"
                  name="q"
                  type="text"
                  class="form-control dgu-search-box__input"
                  value="<%= @query %>"/><button type="submit"
                                                 class="dgu-search-box__button">
-                                                <%= t('search.search.accessibility.search_button_label') %>
+                                                <%= t('.accessibility.search_button_label') %>
                                         </button>
         </div>
       </div>
@@ -35,22 +35,22 @@
         <% if @query.present? %>
           <span class="dgu-results__summary">
             <span class="bold-small"><%= @num_results %></span>
-            <%= t('search.search.results_summary') %> <span class="bold-small">‘<%= @query %>’</span>
+            <%= t('.results_summary') %> <span class="bold-small">‘<%= @query %>’</span>
           </span>
         <% end %>
 
         <% unless @organisation.blank? %>
-        <% if @query.empty? %> <%= t('search.search.datasets') %> <% end %> <%= t('search.search.published_by') %>
+        <% if @query.empty? %> <%= t('.datasets') %> <% end %> <%= t('.published_by') %>
         <span class="bold-small">‘<%= @organisation %>’<% end %></span>
-        <% unless @location.blank? %> <%= t('search.search.filtered_by') %>
+        <% unless @location.blank? %> <%= t('.filtered_by') %>
         <span class="bold-small">‘<%= @location %>’<% end %></span>
 
         <div>
           <% if @num_results == 0 %>
-            <h2 class="heading-medium"> <%= t('search.search.zero_result_tips.try') %>:</h2>
+            <h2 class="heading-medium"> <%= t('.zero_result_tips.try') %>:</h2>
             <ul class="list list-bullet">
-              <li><%= t('search.search.zero_result_tips.different_words') %></li>
-              <li><%= t('search.search.zero_result_tips.clear_filters') %></li>
+              <li><%= t('.zero_result_tips.different_words') %></li>
+              <li><%= t('.zero_result_tips.clear_filters') %></li>
             </ul>
           <% else %>
             <% @datasets.each do |d| %>
@@ -59,15 +59,15 @@
                   <a href="/dataset/<%= d.name %>"><%= d.title %></a>
                 </h2>
                 <dl class="dgu-metadata__box">
-                  <dt> <%= t('search.search.meta_data_box.published_by') %>:</dt>
+                  <dt> <%= t('.meta_data_box.published_by') %>:</dt>
                   <dd> <%= link_to d.organisation['title'], search_path(publisher: d.organisation['title']) %></dd>
-                  <dt> <%= t('search.search.meta_data_box.last_updated') %>:</dt>
+                  <dt> <%= t('.meta_data_box.last_updated') %>:</dt>
                   <dd> <%= format(d.last_updated_at) %></dd>
-                  <dt> <%= t('search.search.meta_data_box.geo_area') %>:</dt>
+                  <dt> <%= t('.meta_data_box.geo_area') %>:</dt>
                   <% if d.location1.present? %>
                     <dd><%= d.location1 %></dd>
                   <% else %>
-                    <dd class="dgu-unavailable"> <%= t('search.search.meta_data_box.not_applicable') %></dd>
+                    <dd class="dgu-unavailable"> <%= t('.meta_data_box.not_applicable') %></dd>
                   <% end %>
                 </dl>
                 <p><%= truncate(strip_tags(d.summary), length: 200, separator: ' ') %></p>

@@ -1,17 +1,15 @@
-# content for dataset show pages goes here.
-# It can be accessed in the views as <%= t('additional_info') %>
-
 en:
   datasets:
-    show:
-      breadcrumb:
-        home: "Home"
-        search: "Search"
+    additional_info:
       additional_info: "Additional information"
+    breadcrumb:
+      home: "Home"
+      search: "Search"
+    contact:
       contact: "Contact"
       enquiries: "Enquiries"
       foi_requests: "Freedom of Information (FOI) requests"
-    # datafile table:
+    datafile_table:
       link_to_data: "Link to the data"
       format: "Format"
       last_updated: "Last updated"
@@ -21,9 +19,10 @@ en:
       coming_soon: "Coming soon"
       not_available: "Not available"
       go_to_site: "Go to site"
-    # metadata:
+    meta_data:
       published_by: "Published by"
       expected_update: "Expected update"
+      last_updated: "Last updated"
       no_data: "This dataset has no data yet"
       geographical_area: "Geographical area"
       summary: "Summary"
@@ -31,18 +30,21 @@ en:
       search_gov_data: "Search government data"
       search_help: "Search help"
       data_links: "Data links"
-    # supporting docs:
-      supporting_docs: "Supporting documents"
-      link_to_doc: "Link to the document"
-      date_added: "Date added"
-    # time series data:
-      open_all: "Open all"
-      download_all: "Download all"
       accessibility:
         search_box_label: "Search"
         search_box_button: "Find data"
+    supporting_docs:
+      supporting_docs: "Supporting documents"
+      link_to_doc: "Link to the document"
+      date_added: "Date added"
+      format: "Format"
+    timeseries_data:
+      download_all: "Download all"
     preview:
       back_link: "Back to dataset"
       download_file: "Download this file"
       this_file: "this file."
       no_preview_avail: "No preview is available for"
+    show:
+      open_all: "Open all"
+      data_links: "Data links"

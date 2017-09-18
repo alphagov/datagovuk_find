@@ -1,11 +1,11 @@
 <section class="contact">
   <div>
     <h2 class="heading-medium">
-      <%= t('datasets.show.contact') %>
+      <%= t('.contact') %>
     </h2>
     <div class="column-one-half">
       <h3 class="heading-small">
-      <%= t('datasets.show.enquiries') %>
+      <%= t('.enquiries') %>
       </h3>
       <p><%= @dataset.organisation['contact_name'] %> </br>
         <a href=""><%= @dataset.organisation['contact_email'] %></a></p>
@@ -13,7 +13,7 @@
     <% if @dataset.organisation['foi_name'] || @dataset.organisation['foi_email'] %>
       <div class="column-one-half foi">
         <h3 class="heading-small">
-          <%= t('datasets.show.foi_requests') %>
+          <%= t('.foi_requests') %>
         </h3>
         <p><%= @dataset.organisation['foi_name'] %> </br> <a href=""><%= @dataset.organisation['foi_email'] %></a>
         </p>

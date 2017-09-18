@@ -1,26 +1,26 @@
 <%= include_gon(namespace: 'Find') %>
 
-<h2 class="heading-medium"> <%= t('search.filters.filter_by') %></h2>
+<h2 class="heading-medium"> <%= t('.filter_by') %></h2>
 
 <div class="form-group">
   <label for="location" class="form-label">
-    <%= t('search.filters.filter_by_geo') %>
+    <%= t('.filter_by_geo') %>
   </label>
   <input id="location" name="location" value="<%= @location %>" class="dgu-filters__filter"/>
 </div>
 
 <div class="form-group">
-  <label for="<%= t('search.filters.accessibility.publisher_label') %>" class="form-label">
-    <%= t('search.filters.filter_by_pub') %>
+  <label for="<%= t('.accessibility.publisher_label') %>" class="form-label">
+    <%= t('.filter_by_pub') %>
   </label>
   <input id="publisher" name="publisher" value="<%= @organisation %>" class="dgu-filters__filter"/>
 </div>
 
 <div class="form-group">
   <div class="dgu-filters__apply-button">
-    <input class="button" type="submit" value="<%= t('search.filters.accessibility.submit_button') %>"/>
+    <input class="button" type="submit" value="<%= t('.accessibility.submit_button') %>"/>
   </div>
   <div class="dgu-filters__remove-button">
-    <%= link_to t('search.filters.remove_filters'), search_path(q: @query) %>
+    <%= link_to t('.remove_filters'), search_path(q: @query) %>
   </div>
 </div>

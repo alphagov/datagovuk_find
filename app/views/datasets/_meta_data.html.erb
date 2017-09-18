@@ -10,28 +10,28 @@
     <div class="column-two-thirds">
       <div class="dgu-metadata__box dgu-metadata__box--in-dataset">
         <dl class="metadata">
-          <dt><%= t('datasets.show.published_by') %>:</dt>
+          <dt><%= t('.published_by') %>:</dt>
           <dd><%= link_to @dataset.organisation['title'], search_path(publisher: @dataset.organisation['title']) %></dd>
-          <dt><%= t('datasets.show.last_updated') %>:</dt>
+          <dt><%= t('.last_updated') %>:</dt>
           <dd><%= format(@dataset.last_updated_at) %></dd>
-          <dt><%= t('datasets.show.expected_update') %>:</dt>
+          <dt><%= t('.expected_update') %>:</dt>
           <% if @dataset.datafiles.any? %>
             <dd class="<%= expected_update_class_for(@dataset.frequency) %>">
               <%= expected_update(@dataset) %>
             </dd>
           <% else %>
             <dd class="dgu-unavailable">
-              <%= t('datasets.show.no_data') %>
+              <%= t('.no_data') %>
             </dd>
           <% end %>
-          <dt><%= t('datasets.show.geographical_area') %>:</dt>
+          <dt><%= t('.geographical_area') %>:</dt>
           <dd class="<%= expected_location_class_for(@dataset) %>">
             <%= dataset_location(@dataset) %>
           </dd>
         </dl>
 
         <h3 class="heading-small">
-          <%= t('datasets.show.summary') %>
+          <%= t('.summary') %>
         </h3>
         <p class="summary" style="max-height: 250px; overflow: hidden"> <%= unescape(@dataset.summary) %> </p>
       </div>
@@ -40,7 +40,7 @@
     <div class="column-one-third dgu-dataset-right">
       <% unless @related_datasets.empty? %>
         <div class="dgu-dataset-right__related">
-          <h3 class="heading-small"><%= t('datasets.show.related_datasets') %></h3>
+          <h3 class="heading-small"><%= t('.related_datasets') %></h3>
           <ul>
             <% @related_datasets.each do |dataset| %>
               <li>
@@ -51,19 +51,19 @@
         </div>
       <% end %>
 
-      <h3 class="heading-small"><%= t('datasets.show.search_gov_data') %></h3>
+      <h3 class="heading-small"><%= t('.search_gov_data') %></h3>
       <form action="/search" method="GET" class="dgu-search-box">
-        <label for="q" class="visuallyhidden"><%= t('datasets.show.accessibility.search_box_label') %></label>
+        <label for="q" class="visuallyhidden"><%= t('.accessibility.search_box_label') %></label>
         <input id="q"
                name="q"
                type="text"
                class="form-control dgu-search-box__input"/><button type="submit"
                                                                    class="dgu-search-box__button">
-                                                            <%= t('datasets.show.accessibility.search_box_button')%>
+                                                            <%= t('.accessibility.search_box_button')%>
                                                            </button>
       </form>
 
-      <%= link_to t('datasets.show.search_help'), search_tips_path %>
+      <%= link_to t('.search_help'), search_tips_path %>
     </div>
   </div>
 </section>

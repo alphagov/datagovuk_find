@@ -3,14 +3,13 @@ en:
     search:
       results_page_title: 'Results for "%{query}" - Find Data Beta'
       search_results_heading: "Search results"
-      results_page_title: "results found for"
+      accessibility:
+        search_box_label: "Search"
+        search_button_label: "Find data"
       results_summary: "results found for"
       published_by: "published by"
       filtered_by: "filtered by"
       datasets: 'Datasets'
-      accessibility:
-        search_box_label: "Search"
-        search_button_label: "Find data"
       zero_result_tips:
         try: "Please try"
         different_words: "searching again using different words"
@@ -20,12 +19,6 @@ en:
         last_updated: "Last updated"
         geo_area: "Geographical area"
         not_applicable: "Not applicable"
-    sort:
-      match: "Best match"
-      recent: "Most recent"
-      accessibility:
-        submit_button: "Apply sorting"
-        sort_type_label: "Sorting type"
     filters:
       filter_by: "Filter by"
       filter_by_geo: "Enter geographical area"
@@ -34,3 +27,9 @@ en:
         submit_button: "Apply filters"
         publisher_label: "publisher"
       remove_filters: "Remove filters"
+    sort:
+      match: "Best match"
+      recent: "Most recent"
+      accessibility:
+        submit_button: "Apply sorting"
+        sort_type_label: "Sorting type"
