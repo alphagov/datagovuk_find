@@ -1,4 +1,6 @@
-[![Stories in Ready](https://badge.waffle.io/datagovuk/find_data_beta.png?label=ready&title=Ready)](https://waffle.io/datagovuk/find_data_beta?utm_source=badge)
+[![Code Climate](https://codeclimate.com/github/datagovuk/find_data_beta/badges/gpa.svg)](https://codeclimate.com/github/datagovuk/find_data_beta)
+[![Test Coverage](https://codeclimate.com/github/datagovuk/find_data_beta/badges/coverage.svg)](https://codeclimate.com/github/datagovuk/find_data_beta/coverage)
+
 # Find Data Beta
 
 In order for the app to work, it needs the following environment variables
