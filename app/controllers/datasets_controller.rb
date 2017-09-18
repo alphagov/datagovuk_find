@@ -31,27 +31,25 @@ class DatasetsController < LoggedAreaController
     @dataset = Dataset.get(slug)
     uuid = params[:uuid]
 
-    datafile = @dataset.datafiles.select do |f|
-      f.uuid == uuid
-    end
+    datafile = @dataset.datafiles.detect { |f| f.uuid == uuid }
 
     conn = Faraday.new do |faraday|
       faraday.use FaradayMiddleware::FollowRedirects, limit: 3
       faraday.adapter :net_http
     end
-    conn.headers = {'Range' => "bytes=0-1024"}
+    conn.headers = {'Range' => 'bytes=0-1024'}
     response = conn.get do |req|
-      req.url datafile[0].url
+      req.url datafile.url
       req.options.timeout = 10
     end
 
-    csv = response.body.rpartition("\n")[0]
+    csv = response.body.rpartition('\n')[0]
 
     @content_type = 'CSV'
     @preview = {
       'dataset_name' => @dataset.name,
-      'datafile_link' => datafile[0].url,
-      'datafile_name' => datafile[0].name,
+      'datafile_link' => datafile.url,
+      'datafile_name' => datafile.name,
       'body' => CSV.parse(csv)
     }
   end
