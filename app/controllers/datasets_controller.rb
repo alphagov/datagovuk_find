@@ -27,11 +27,7 @@ class DatasetsController < LoggedAreaController
 
 
   def preview
-    slug = get_query(name: params[:name])
-    @dataset = Dataset.get(slug)
-    uuid = params[:uuid]
-
-    datafile = @dataset.datafiles.detect { |f| f.uuid == uuid }
+    datafile = find_datafile(params[:name], params[:uuid])
 
     conn = Faraday.new do |faraday|
       faraday.use FaradayMiddleware::FollowRedirects, limit: 3
@@ -59,6 +55,12 @@ class DatasetsController < LoggedAreaController
 
 
   private
+
+  def find_datafile(name, uuid)
+    slug = get_query(name: name)
+    @dataset = Dataset.get(slug)
+    @dataset.datafiles.detect { |f| f.uuid == uuid }
+  end
 
   def handle_error(e)
     Rails.logger.debug "ERROR! => " + e.message
