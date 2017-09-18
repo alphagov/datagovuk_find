@@ -29,32 +29,42 @@ class DatasetsController < LoggedAreaController
   def preview
     datafile = find_datafile(params[:name], params[:uuid])
 
-    conn = Faraday.new do |faraday|
-      faraday.use FaradayMiddleware::FollowRedirects, limit: 3
-      faraday.adapter :net_http
-    end
-    conn.headers = {'Range' => 'bytes=0-1024'}
     @preview = {
       'dataset_name' => @dataset.name,
       'datafile_link' => datafile.url,
       'datafile_name' => datafile.name,
     }
-    @content_type = 'CSV'
+    @content_type = datafile.format
 
+
+    if @content_type == 'CSV'
+      preview = csv_preview(datafile)
+      @preview['body'] = CSV.parse(preview)
+    else
+      @preview['body'] = []
+    end
+  end
+
+
+  private
+
+  def csv_preview(datafile)
+    conn = Faraday.new do |faraday|
+      faraday.use FaradayMiddleware::FollowRedirects, limit: 3
+      faraday.adapter :net_http
+    end
+    conn.headers = {'Range' => 'bytes=0-1024'}
     begin
       response = conn.get do |req|
         req.url datafile.url
         req.options.timeout = 5
       end
-      csv = response.body.rpartition('\n')[0]
+      response.body.rpartition("\n")[0]
     rescue
-      csv = ""
+      ""
     end
-    @preview['body'] = CSV.parse(csv)
   end
 
-
-  private
 
   def find_datafile(name, uuid)
     slug = get_query(name: name)
