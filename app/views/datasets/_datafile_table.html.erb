@@ -30,17 +30,10 @@
           <td class="dgu-unavailable">Not available</td>
         <% end %>
           <td class="datafiles__preview">
-<<<<<<< HEAD
             <% if datafile.html? %>
               <%= link_to 'Go to site', datafile.url %>
             <% elsif datafile.csv? %>
-              <a href="/preview?url=<%= datafile['url'] %>">Preview</a>
-=======
-            <% if link_type(datafile) == :html %>
-              <%= link_to 'Go to site', datafile['url'] %>
-            <% elsif link_type(datafile) == :csv %>
-              <a href="<%= @dataset.name %>/preview/<%= datafile['uuid'] %>">Preview</a>
->>>>>>> Better URLs for previews
+              <a href="<%= @dataset.name %>/preview/<%= datafile.uuid %>">Preview</a>
             <% else %>
               <span class="dgu-unavailable">Not available</span>
             <% end %>

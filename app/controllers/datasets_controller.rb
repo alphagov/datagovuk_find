@@ -27,13 +27,12 @@ class DatasetsController < LoggedAreaController
 
 
   def preview
-
     slug = get_query(name: params[:name])
     @dataset = Dataset.get(slug)
     uuid = params[:uuid]
 
     datafile = @dataset.datafiles.select do |f|
-      f['uuid'] == uuid
+      f.uuid == uuid
     end
 
     conn = Faraday.new do |faraday|
@@ -42,7 +41,7 @@ class DatasetsController < LoggedAreaController
     end
     conn.headers = {'Range' => "bytes=0-1024"}
     response = conn.get do |req|
-      req.url datafile[0]['url']
+      req.url datafile[0].url
       req.options.timeout = 10
     end
 
@@ -51,8 +50,8 @@ class DatasetsController < LoggedAreaController
     @content_type = 'CSV'
     @preview = {
       'dataset_name' => @dataset.name,
-      'datafile_link' => datafile[0]['url'],
-      'datafile_name' => datafile[0]['name'],
+      'datafile_link' => datafile[0].url,
+      'datafile_name' => datafile[0].name,
       'body' => CSV.parse(csv)
     }
   end
