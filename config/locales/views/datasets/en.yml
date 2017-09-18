@@ -4,11 +4,14 @@
 en:
   datasets:
     show:
+      breadcrumb:
+        home: "Home"
+        search: "Search"
       additional_info: "Additional information"
       contact: "Contact"
       enquiries: "Enquiries"
       foi_requests: "Freedom of Information (FOI) requests"
-    # datafiles:
+    # datafile table:
       link_to_data: "Link to the data"
       format: "Format"
       last_updated: "Last updated"
@@ -18,7 +21,7 @@ en:
       coming_soon: "Coming soon"
       not_available: "Not available"
       go_to_site: "Go to site"
-    # metadata
+    # metadata:
       published_by: "Published by"
       expected_update: "Expected update"
       no_data: "This dataset has no data yet"
@@ -26,16 +29,18 @@ en:
       summary: "Summary"
       related_datasets: "Related datasets"
       search_gov_data: "Search government data"
-      search: "Search"
       search_help: "Search help"
       data_links: "Data links"
-    # supporting docs
+    # supporting docs:
       supporting_docs: "Supporting documents"
       link_to_doc: "Link to the document"
       date_added: "Date added"
     # time series data:
       open_all: "Open all"
       download_all: "Download all"
+      accessibility:
+        search_box_label: "Search"
+        search_box_button: "Find data"
     preview:
       back_link: "Back to dataset"
       download_file: "Download this file"

@@ -53,8 +53,14 @@
 
       <h3 class="heading-small"><%= t('datasets.show.search_gov_data') %></h3>
       <form action="/search" method="GET" class="dgu-search-box">
-        <label for="q" class="visuallyhidden"><%= t('datasets.show.search') %></label>
-        <input id="q" name="q" type="text" class="form-control dgu-search-box__input"/><button type="submit" class="dgu-search-box__button">Find data</button>
+        <label for="q" class="visuallyhidden"><%= t('datasets.show.accessibility.search_box_label') %></label>
+        <input id="q"
+               name="q"
+               type="text"
+               class="form-control dgu-search-box__input"/><button type="submit"
+                                                                   class="dgu-search-box__button">
+                                                            <%= t('datasets.show.accessibility.search_box_button')%>
+                                                           </button>
       </form>
 
       <%= link_to t('datasets.show.search_help'), search_tips_path %>

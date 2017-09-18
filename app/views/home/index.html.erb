@@ -2,10 +2,10 @@
   <div class="grid-row inner">
     <div class="column-two-thirds">
       <h1 class="heading-xlarge">
-        Find government data
+        <%= t('home.index.find_gov_data') %>
       </h1>
       <p class="lede">
-        Find data published by central government, local authorities and public bodies to help you build products and services
+        <%= t('home.index.lede') %>
       </p>
     </div>
   </div>
@@ -13,8 +13,15 @@
   <div class="grid-row">
     <div class="column-two-thirds">
       <form action="/search" method="GET" class="dgu-search-box">
-        <label for="q" class="visuallyhidden">Search</label>
-        <input id="q" name="q" type="text" class="form-control dgu-search-box__input"/><button type="submit" class="dgu-search-box__button">Find data</button>
+        <label for="q" class="visuallyhidden"><%= t('home.index.accessibility.search_box_label') %></label>
+        <input id="q"
+               name="q"
+               type="text"
+               class="form-control dgu-search-box__input"
+        /><button type="submit"
+                  class="dgu-search-box__button">
+                  <%= t('home.index.accessibility.search_box_button') %>
+          </button>
       </form>
     </div>
   </div>

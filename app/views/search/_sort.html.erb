@@ -1,14 +1,14 @@
 <div class="dgu-sort">
   <div class="dgu-sort__apply js-hidden">
-    <input type="submit" value="Apply sorting"/>
+    <input type="submit" value=<%= t('search.sort.accessibility.submit') %>/>
   </div>
 
   <div class="dgu-sort__sort-type">
     <label>
-      <span class="visuallyhidden">Sorting type</span>
+      <span class="visuallyhidden"> <%= t('search.sort.accessibility.sort_type_label') %></span>
       <select id="sort-datasets" name="sort" onchange="this.form.submit()">
-        <option <%= 'selected' if @sort!='recent' %> value="best">Best match</option>
-        <option <%= 'selected' if @sort=='recent' %> value="recent">Most recent</option>
+        <option <%= 'selected' if @sort!='recent' %> value="best"> <%= t('search.sort.match') %></option>
+        <option <%= 'selected' if @sort=='recent' %> value="recent"> <%= t('search.sort.recent') %></option>
       </select>
     </label>
   </div>

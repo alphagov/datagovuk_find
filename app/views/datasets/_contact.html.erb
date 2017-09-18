@@ -10,7 +10,7 @@
       <p><%= @dataset.organisation['contact_name'] %> </br>
         <a href=""><%= @dataset.organisation['contact_email'] %></a></p>
     </div>
-    <% if @dataset.organisation['foi_name'] or @dataset.organisation['foi_email'] %>
+    <% if @dataset.organisation['foi_name'] || @dataset.organisation['foi_email'] %>
       <div class="column-one-half foi">
         <h3 class="heading-small">
           <%= t('datasets.show.foi_requests') %>

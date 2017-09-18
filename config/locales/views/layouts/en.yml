@@ -1,0 +1,11 @@
+en:
+  layouts:
+    survey_banner:
+      beta_survey_message_html: "This is a new service – your %{href} will help us to improve it"
+      href: "feedback"
+      survey_url: "http://www.smartsurvey.co.uk/s/3SEXD/"
+    proposition_header:
+      menu: "Menu"
+    application:
+      page_title: "Data.gov.uk - Find Data"
+      global_header_text: "Find government data"

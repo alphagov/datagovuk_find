@@ -4,13 +4,13 @@
     <div class="datagov_breadcrumb">
       <ol role="breadcrumb">
         <li>
-          <%= link_to 'Home', root_path %>
+          <%= link_to t('datasets.show.breadcrumb.home'), root_path %>
         </li>
         <li>
           <% if @referrer.nil? %>
             <%= @dataset.organisation['title'] %>
           <% else %>
-            <%= link_to 'Search', "/search?#{@referrer}" %>
+            <%= link_to t('datasets.show.breadcrumb.search'), "/search?#{@referrer}" %>
           <% end %>
         </li>
         <li>
