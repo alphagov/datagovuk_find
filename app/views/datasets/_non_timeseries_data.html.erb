@@ -1,4 +1,1 @@
-<section class="dgu-datalinks">
-  <h2 class="heading-medium"><%= t('datasets.show.data_links') %></h2>
-    <%= render 'datafile_table' %>
-</section>
+<%= render partial: 'datafile_table', locals: { datafiles: datafiles } %>

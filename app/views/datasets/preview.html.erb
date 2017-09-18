@@ -1,35 +1,39 @@
-<% if @content_type == 'CSV' %>
+
     <div class="grid-row">
     <div class="column-two-thirds">
       <a href="<%= dataset_path(name_of(@dataset)) %>" class="link-back"><%= t('datasets.preview.back_link') %></a>
       <h1 class="heading-large">
-          <%= @preview['meta']['dataset_title'] %>
-          <span class="heading-secondary dgu-home-spacer__bottom"><%= @preview['meta']['datafile_name'] %></span>
+        <%= @preview['meta']['dataset_title'] %>
+        <span class="heading-secondary dgu-home-spacer__bottom"><%= @preview['meta']['datafile_name'] %></span>
       </h1>
 
       <a class="button" href="<%= @preview['meta']['datafile_link'] %>"><%= t('datasets.preview.download_file') %></a>
     </div>
     <div class = 'column-full'>
       <section class="dgu-datafile-preview">
+        <% if @content_type == 'CSV' %>
           <table>
-            <tr><thead>
+            <thead>
+              <tr>
                 <% @preview['content']['body'].first.each do |col| %>
-                    <th><%= col %></th>
+                  <th><%= col %></th>
                 <% end %>
-            </tr></thead>
+              </tr>
+            </thead>
             <tbody>
-                <% @preview['content']['body'].drop(1).each do |row| %>
-                    <tr>
-                        <% row.each do |col| %>
-                            <td><%= col %></td>
-                        <% end %>
-                    </tr>
-                <% end %>
+              <% @preview['content']['body'].drop(1).each do |row| %>
+                <tr>
+                  <% row.each do |col| %>
+                    <td><%= col %></td>
+                  <% end %>
+                </tr>
+              <% end %>
             </tbody>
           </table>
+        <% else %>
+          <p><%= t('datasets.preview.no_preview_avail') %> <%= @preview ? "‘"+@preview['meta']['datafile_name']+"’" : 'this file.' %></p>
+        <% end %>
       </section>
     </div>
   </div>
-<% else %>
-    <p><%= t('datasets.preview.no_preview_avail') %> "<%= @preview ? @preview['meta']['datafile_name'] : t('datasets.preview.this_file') %>"</p>
-<% end %>
+</div>

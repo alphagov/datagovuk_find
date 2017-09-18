@@ -1,33 +1,21 @@
-<section>
-  <div class="grid-row">
-    <div class="column-full">
-      <section class="dgu-datalinks">
-        <!-- accordions for time series datasets -->
-        <h2 class="heading-medium"><%= t('datasets.show.data_links')%>
-          <span class="showHide-open-all"><%= t('datasets.show.open_all')%></span>
-        </h2>
-        <div class="breaker"></div>
-        <ul>
-          <% group_by_year(@dataset.datafiles).each do |year, datafiles| %>
-            <li class="showHide">
-              <div class="year-expand showHide-control">
-                <h3 class="heading-small">
-                  <button class="button secondary">
-                    <%= year %>
-                  </button>
-                </h3>
-                <div>
-                  <button class="expand button secondary">+</button>
-                </div>
-              </div>
-              <div class="year-datasets showHide-content" style="display:none">
-                <%= render 'datafile_table' %>
-              </div>
-          <% end %>
-          </li>
-        </ul>
-        <input class="button dgu-datalinks__download" type="submit" value="<%= t('datasets.show.download_all') %>">
-      </section>
-    </div>
-  </div>
-</section>
+<ul>
+  <% datafiles.group_by(&:start_year).each do |year, datafiles| %>
+    <li class="showHide">
+      <div class="year-expand showHide-control">
+        <h3 class="dgu-datalinks__year heading-small">
+          <button class="button secondary">
+            <%= year %>
+          </button>
+        </h3>
+        <div>
+          <button class="expand button secondary">+</button>
+        </div>
+      </div>
+      <div class="showHide-content" style="display:none">
+        <%= render partial: 'datafile_table', locals: { datafiles: datafiles } %>
+      </div>
+    <% end %>
+  </li>
+</ul>
+
+<input class="button dgu-datalinks__download" type="submit" value="<%= t('datasets.show.download_all') %>">

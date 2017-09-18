@@ -6,33 +6,33 @@
     <th><%= t('datasets.show.data_preview') %></th>
   </tr>
   <tbody>
-    <% @dataset.datafiles.each do |datafile| %>
+    <% datafiles.each do |datafile| %>
       <tr>
         <td class="title small">
-          <%= link_to (datafile['name'] ? datafile['name'] : t('datasets.show.data_link') ),
-              datafile['url'],
+          <%= link_to (datafile.name ? datafile.name : t('datasets.show.data_link')),
+              datafile.url,
               :data => {:'ga-event' => "datafile-download"}
           %>
         </td>
-        <%if datafile['format'].blank? %>
-          <td class="dgu-unavailable"><%= t('datasets.show.n_a') %></td>
+        <% if datafile.format.blank? %>
+          <td class="dgu-unavailable">N/A</td>
         <% else %>
-          <td><%= datafile['format'].upcase %>
-          <% if datafile['size'] %>
-            (<%= datafile['size'] %> kB)
+          <td><%= datafile.format.upcase %>
+          <% if datafile.size %>
+            (<%= datafile.size %> kB)
           <% end %>
           </td>
         <% end %>
 
-        <% if datafile['updated_at'].present? %>
-          <td><%= format(datafile['updated_at']) %></td>
+        <% if datafile.updated_at.present? %>
+          <td><%= format(datafile.updated_at) %></td>
         <% else %>
           <td class="dgu-unavailable"><%= t('datasets.show.not_available') %></td>
         <% end %>
           <td class="datafiles__preview">
-            <% if link_type(datafile) == :html %>
-              <%= link_to t('datasets.show.go_to_site'), datafile['url'] %>
-            <% elsif link_type(datafile) == :csv %>
+            <% if datafile.html? %>
+              <%= link_to t('datasets.show.go_to_site'), datafile.url %>
+            <% elsif datafile.csv? %>
               <span class="dgu-unavailable"><%= t('datasets.show.coming_soon') %></span>
             <% else %>
               <span class="dgu-unavailable"><%= t('datasets.show.not_available') %></span>

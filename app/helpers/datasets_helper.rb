@@ -51,33 +51,6 @@ module DatasetsHelper
     "dgu-unavailable" if locations(dataset).empty?
   end
 
-  def timeseries_data?(datafiles)
-    start_dates = datafiles.map do |file|
-      Time.parse(file['start_date']).year if file['start_date'].present?
-    end
-
-    start_dates.uniq.length > 1
-  end
-
-  def group_by_year(datasets)
-    datasets_with_year = datasets.map do |dataset|
-      dataset['start_year'] =
-          dataset['start_date'] ? Time.parse(dataset['start_date']).year.to_s : ''
-      dataset
-    end
-    Hash[datasets_with_year.group_by {|dataset| dataset['start_year']}.sort.reverse]
-  end
-
-  def link_type(datafile)
-    if datafile["format"].blank?
-      :no_preview
-    elsif datafile["format"].upcase == 'CSV'
-      :csv
-    else
-      datafile["format"].upcase == 'HTML' ? :html : :no_preview
-    end
-  end
-
   def name_of(dataset)
     dataset._source['name']
   end
@@ -86,29 +59,20 @@ module DatasetsHelper
 
   def datafile_next_updated(dataset)
     freq = dataset.frequency
-    last = most_recent_date(dataset.datafiles)
+    last = Time.parse(most_recent_date(dataset.datafiles))
 
     return last.advance(FREQUENCIES[freq]).strftime("%d %B %Y") if FREQUENCIES.has_key?(freq)
     return NO_MORE[freq] if NO_MORE.has_key?(freq)
     NO_MORE['default']
   end
 
-  def no_end_date_on_datafiles?(datafiles)
-    datafiles.reject do |file|
-      file["end_date"].nil?
-    end.map {|file| file}.empty?
-  end
-
   def most_recent_date(datafiles)
-    date_field = no_end_date_on_datafiles?(datafiles) ? "updated_at" : "end_date"
-    most_recent_datafile =
-        datafiles.sort_by {|file| file[date_field].to_s}.reverse[0]
-    Time.parse(most_recent_datafile[date_field])
+    datafiles.map(&:most_recent_date).max
   end
 
   def documents(datafiles)
     datafiles.select do |file|
-      documentation?(file['documentation'])
+      documentation?(file.documentation)
     end
   end
 
@@ -118,5 +82,4 @@ module DatasetsHelper
         .join(" ")
         .strip
   end
-
 end
