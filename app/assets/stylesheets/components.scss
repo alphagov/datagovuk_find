@@ -205,11 +205,19 @@
   &__year {
     font-family: $helvetica-regular;
     text-decoration: none !important;
+
+    &:focus {
+      outline: none;
+    }
   }
 
   &__expand {
     font-size: 1.5em;
     text-decoration: none !important;
+
+    &:focus {
+      outline: none;
+    }
   }
 }
 
