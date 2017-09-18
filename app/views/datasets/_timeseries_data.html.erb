@@ -4,7 +4,7 @@
       <div class="year-expand showHide-control">
         <h3 class="dgu-datalinks__year heading-small">
           <button class="button secondary">
-            <%= year %>
+            <%= year.presence || "Other data files" %>
           </button>
         </h3>
         <div>
