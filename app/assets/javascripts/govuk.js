@@ -35,7 +35,7 @@ var ShowHide = function () {
   this.controlSelector = '.showHide-control'
   this.contentSelector = '.showHide-content'
   this.openSelector = '.showHide-open-all'
-  this.expandSelector = '.expand button'
+  this.expandSelector = '.js-expand'
   this.allOpen = false
 }
 
@@ -68,10 +68,10 @@ ShowHide.prototype = {
 
   init: function () {
     $(this.controlSelector).on('click', this.toggle.bind(this))
-    $(this.controlSelector).first().trigger('click')
     $(this.openSelector).on('click', this.toggleAll.bind(this))
     $(this.selector).data('isOpen', false)
     $(this.openSelector).data('allOpen', false)
+    $(this.controlSelector).first().trigger('click')
   }
 }
 
