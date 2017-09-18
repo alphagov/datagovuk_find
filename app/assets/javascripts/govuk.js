@@ -52,21 +52,24 @@ ShowHide.prototype = {
   toggleAll: function (event) {
     event.preventDefault()
 
-    var showHideDataLinks = $(this.selector);
-    var allOpen = $(event.target).data('allOpen')
+    var openCloseAllControl = $(event.target)
+    var dataLinks = $(this.selector);
+    var dataLinkContent = dataLinks.find(this.contentSelector)
+    var dataLinkExpand = dataLinks.find(this.expandSelector)
+    var allOpen = openCloseAllControl.data('allOpen')
 
     if (allOpen) {
-      showHideDataLinks.data('isOpen', false)
-      showHideDataLinks.find(this.contentSelector).hide()
-      showHideDataLinks.find(this.expandSelector).html('+')
-      $(event.target).data('allOpen', false)
-      $(event.target).text('Open all')
+      dataLinks.data('isOpen', false)
+      dataLinkContent.hide()
+      dataLinkExpand.html('+')
+      openCloseAllControl.data('allOpen', false)
+      openCloseAllControl.text('Open all')
     } else {
-      showHideDataLinks.data('isOpen', true)
-      showHideDataLinks.find(this.contentSelector).show()
-      showHideDataLinks.find(this.expandSelector).html('-')
-      $(event.target).data('allOpen', true)
-      $(event.target).text('Close all')
+      dataLinks.data('isOpen', true)
+      dataLinkContent.show()
+      dataLinkExpand.html('-')
+      openCloseAllControl.data('allOpen', true)
+      openCloseAllControl.text('Close all')
     }
   },
 
