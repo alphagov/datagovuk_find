@@ -191,4 +191,88 @@ feature 'Dataset page', elasticsearch: true do
       expect(page).to_not have_css('h2', text: 'Contact')
     end
   end
+
+  feature 'Datafiles' do
+    scenario 'are grouped by year when they contain timeseries datafiles' do
+      timeseries_and_non_timeseries = [
+        {
+          id: 1,
+          url: "http://www.foobar.com",
+          name: "Datafile 1",
+          start_date: "2000/01/01",
+          end_date: "2000/12/12",
+          updated_at: "2000/01/01"
+        },
+        {
+          id: 2,
+          url: "http://www.foobar.com",
+          name: "Datafile 2",
+          start_date: "2001/01/01",
+          end_date: "2001/12/12",
+          updated_at: "2001/01/01"
+        },
+        {
+          id: 3,
+          url: "http://www.foobar.com",
+          name: "Datafile 3",
+          start_date: "2001/01/01",
+          end_date: "2001/12/12",
+          updated_at: "2001/01/01"
+        },
+        {
+          id: 4,
+          url: "http://www.foobar.com",
+          name: "Datafile 3",
+          start_date: nil,
+          end_date: "2001/12/12",
+          updated_at: "2001/01/01"
+        }
+      ]
+
+      dataset = DatasetBuilder.new
+        .with_datafiles(timeseries_and_non_timeseries)
+        .build
+
+      index_and_visit(dataset)
+
+      expect(page).to have_css(".dgu-datalinks__year", count: 3)
+    end
+
+    scenario 'are not grouped when they contain non timeseries datafiles' do
+      non_timeseries_data_files = [
+        {
+          id: 1,
+          url: "http://www.foobar.com",
+          name: "Datafile 1",
+          start_date: nil,
+          end_date: "2000/12/12",
+          updated_at: "2000/01/01"
+        },
+        {
+          id: 2,
+          url: "http://www.foobar.com",
+          name: "Datafile 2",
+          start_date: nil,
+          end_date: "2001/12/12",
+          updated_at: "2001/01/01"
+        },
+        {
+          id: 3,
+          url: "http://www.foobar.com",
+          name: "Datafile 3",
+          start_date: nil,
+          end_date: "2001/12/12",
+          updated_at: "2001/01/01"
+        }
+      ]
+
+      dataset = DatasetBuilder.new
+        .with_datafiles(non_timeseries_data_files)
+        .build
+
+      index_and_visit(dataset)
+
+      expect(page).to have_css(".dgu-datalinks__year", count: 0)
+    end
+  end
 end
