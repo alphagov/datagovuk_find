@@ -1,12 +1,13 @@
-<div class="grid-row">
-  <div class="column-two-thirds">
-    <a href="<%= dataset_path(name_of(@dataset)) %>" class="link-back">Back to dataset</a>
+
+    <div class="grid-row">
+    <div class="column-two-thirds">
+      <a href="<%= dataset_path(name_of(@dataset)) %>" class="link-back"><%= t('.back_link') %></a>
       <h1 class="heading-large">
         <%= @preview['meta']['dataset_title'] %>
         <span class="heading-secondary dgu-home-spacer__bottom"><%= @preview['meta']['datafile_name'] %></span>
       </h1>
 
-      <a class="button" href="<%= @preview['meta']['datafile_link'] %>">Download this file</a>
+      <a class="button" href="<%= @preview['meta']['datafile_link'] %>"><%= t('.download_file') %></a>
     </div>
     <div class = 'column-full'>
       <section class="dgu-datafile-preview">
@@ -30,7 +31,7 @@
             </tbody>
           </table>
         <% else %>
-          <p>No preview is available for <%= @preview ? "‘"+@preview['meta']['datafile_name']+"’" : 'this file.' %></p>
+          <p><%= t('.no_preview_avail') %> <%= @preview ? "‘"+@preview['meta']['datafile_name']+"’" : t('.this_file') %></p>
         <% end %>
       </section>
     </div>

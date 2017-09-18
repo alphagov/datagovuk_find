@@ -10,28 +10,28 @@
     <div class="column-two-thirds">
       <div class="dgu-metadata__box dgu-metadata__box--in-dataset">
         <dl class="metadata">
-          <dt>Published by:</dt>
+          <dt><%= t('.published_by') %>:</dt>
           <dd><%= link_to @dataset.organisation['title'], search_path(publisher: @dataset.organisation['title']) %></dd>
-          <dt>Last updated:</dt>
+          <dt><%= t('.last_updated') %>:</dt>
           <dd><%= format(@dataset.last_updated_at) %></dd>
-          <dt>Expected update:</dt>
+          <dt><%= t('.expected_update') %>:</dt>
           <% if @dataset.datafiles.any? %>
             <dd class="<%= expected_update_class_for(@dataset.frequency) %>">
               <%= expected_update(@dataset) %>
             </dd>
           <% else %>
             <dd class="dgu-unavailable">
-              This dataset has no data yet
+              <%= t('.no_data') %>
             </dd>
           <% end %>
-          <dt>Geographical area:</dt>
+          <dt><%= t('.geographical_area') %>:</dt>
           <dd class="<%= expected_location_class_for(@dataset) %>">
             <%= dataset_location(@dataset) %>
           </dd>
         </dl>
 
         <h3 class="heading-small">
-          Summary
+          <%= t('.summary') %>
         </h3>
         <p class="summary" style="max-height: 250px; overflow: hidden"> <%= unescape(@dataset.summary) %> </p>
       </div>
@@ -40,7 +40,7 @@
     <div class="column-one-third dgu-dataset-right">
       <% unless @related_datasets.empty? %>
         <div class="dgu-dataset-right__related">
-          <h3 class="heading-small">Related datasets</h3>
+          <h3 class="heading-small"><%= t('.related_datasets') %></h3>
           <ul>
             <% @related_datasets.each do |dataset| %>
               <li>
@@ -51,13 +51,19 @@
         </div>
       <% end %>
 
-      <h3 class="heading-small">Search government data</h3>
+      <h3 class="heading-small"><%= t('.search_gov_data') %></h3>
       <form action="/search" method="GET" class="dgu-search-box">
-        <label for="q" class="visuallyhidden">Search</label>
-        <input id="q" name="q" type="text" class="form-control dgu-search-box__input"/><button type="submit" class="dgu-search-box__button">Find data</button>
+        <label for="q" class="visuallyhidden"><%= t('.accessibility.search_box_label') %></label>
+        <input id="q"
+               name="q"
+               type="text"
+               class="form-control dgu-search-box__input"/><button type="submit"
+                                                                   class="dgu-search-box__button">
+                                                            <%= t('.accessibility.search_box_button')%>
+                                                           </button>
       </form>
 
-      <%= link_to 'Search help', search_tips_path %>
+      <%= link_to t('.search_help'), search_tips_path %>
     </div>
   </div>
 </section>

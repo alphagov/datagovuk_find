@@ -1,15 +1,15 @@
 <table class="dgu-datafiles">
   <tr>
-    <th class="title small">Link to the data</th>
-    <th>Format</th>
-    <th>Last updated</th>
-    <th>Data preview</th>
+    <th class="title small"><%= t('.link_to_data') %></th>
+    <th><%= t('.format') %></th>
+    <th><%= t('.last_updated') %></th>
+    <th><%= t('.data_preview') %></th>
   </tr>
   <tbody>
     <% datafiles.each do |datafile| %>
       <tr>
         <td class="title small">
-          <%= link_to (datafile.name ? datafile.name : 'Data Link'),
+          <%= link_to (datafile.name ? datafile.name : t('.data_link')),
               datafile.url,
               :data => {:'ga-event' => "datafile-download"}
           %>
@@ -27,15 +27,15 @@
         <% if datafile.updated_at.present? %>
           <td><%= format(datafile.updated_at) %></td>
         <% else %>
-          <td class="dgu-unavailable">Not available</td>
+          <td class="dgu-unavailable"><%= t('.not_available') %></td>
         <% end %>
           <td class="datafiles__preview">
             <% if datafile.html? %>
-              <%= link_to 'Go to site', datafile.url %>
+              <%= link_to t('.go_to_site'), datafile.url %>
             <% elsif datafile.csv? %>
-              <span class="dgu-unavailable">Coming soon</span>
+              <span class="dgu-unavailable"><%= t('.coming_soon') %></span>
             <% else %>
-              <span class="dgu-unavailable">Not available</span>
+              <span class="dgu-unavailable"><%= t('.not_available') %></span>
             <% end %>
           </td>
         </tr>
