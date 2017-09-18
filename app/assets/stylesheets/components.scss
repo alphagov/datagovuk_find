@@ -131,6 +131,7 @@
       cursor: pointer;
     }
   }
+
   &__sort-type {
     margin-top: 5px;
     float: right;
@@ -199,6 +200,10 @@
   }
   th, td {
     font-size: 16px;
+  }
+
+  &__year {
+    font-family: $helvetica-regular;
   }
 }
 
