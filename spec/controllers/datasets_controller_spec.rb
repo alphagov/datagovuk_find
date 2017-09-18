@@ -34,7 +34,7 @@ describe DatasetsController, type: :controller do
     context 'Generating the preview of a CSV file' do
       it 'will show the previewed CSV' do
         stub_request(:any, FETCH_PREVIEW_URL).
-          to_return(body: 'a,Paris,c,d\ne,f,Berlin,h\ni,j,k,l')
+          to_return(body: "a,Paris,c,d\ne,f,Berlin,h\ni,j,k,l")
 
         create_dataset_and_visit
         get :preview, params: {name: 'a-nice-dataset', uuid: SAMPLE_UUID}
