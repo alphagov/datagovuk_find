@@ -1,4 +1,5 @@
 require 'faraday'
+require 'faraday_middleware'
 require 'csv'
 
 class DatasetsController < LoggedAreaController
@@ -26,27 +27,33 @@ class DatasetsController < LoggedAreaController
 
 
   def preview
-    url = params['url']
 
-    conn = Faraday.new
+    slug = get_query(name: params[:name])
+    @dataset = Dataset.get(slug)
+    uuid = params[:uuid]
+
+    datafile = @dataset.datafiles.select do |f|
+      f['uuid'] == uuid
+    end
+
+    conn = Faraday.new do |faraday|
+      faraday.use FaradayMiddleware::FollowRedirects, limit: 3
+      faraday.adapter :net_http
+    end
     conn.headers = {'Range' => "bytes=0-1024"}
     response = conn.get do |req|
-      req.url url
-      req.options.timeout = 5  # open/read timeout in seconds
+      req.url datafile[0]['url']
+      req.options.timeout = 10
     end
 
     csv = response.body.rpartition("\n")[0]
 
     @content_type = 'CSV'
     @preview = {
-      'meta' => {
-        'dataset_title' => 'test dataset',
-        'datafile_link' => url,
-        'datafile_name' => 'test datafile'
-      },
-      'content' => {
-        'body' => CSV.parse(csv)
-      }
+      'dataset_name' => @dataset.name,
+      'datafile_link' => datafile[0]['url'],
+      'datafile_name' => datafile[0]['name'],
+      'body' => CSV.parse(csv)
     }
   end
 
