@@ -37,7 +37,8 @@ describe DatasetsController, type: :controller do
           to_return(body: "a,Paris,c,d\ne,f,Berlin,h\ni,j,k,l")
 
         create_dataset_and_visit
-        get :preview, params: {name: 'a-nice-dataset', uuid: SAMPLE_UUID}
+
+        get :preview, params: { name: 'a-nice-dataset', uuid: SAMPLE_UUID }
         expect(response.body).to have_content('Berlin')
       end
 
@@ -46,7 +47,8 @@ describe DatasetsController, type: :controller do
           to_timeout
 
         create_dataset_and_visit
-        get :preview, params: {name: 'a-nice-dataset', uuid: SAMPLE_UUID}
+
+        get :preview, params: { name: 'a-nice-dataset', uuid: SAMPLE_UUID }
         expect(response.body).to have_content('No preview is available')
       end
 
@@ -55,13 +57,12 @@ describe DatasetsController, type: :controller do
           to_return(status: [500, "Internal Server Error"])
 
         create_dataset_and_visit
-        get :preview, params: {name: 'a-nice-dataset', uuid: SAMPLE_UUID}
+
+        get :preview, params: { name: 'a-nice-dataset', uuid: SAMPLE_UUID }
         expect(response.body).to have_content('No preview is available')
       end
     end
   end
-
-
 end
 
 def create_dataset_and_visit
@@ -75,5 +76,4 @@ def create_dataset_and_visit
 
   index([dataset])
   get :show, params: {name: slug}
-
 end

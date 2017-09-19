@@ -40,4 +40,8 @@ class Datafile
   def csv?
     format&.upcase == 'CSV'
   end
+
+  def preview
+    Preview.new(url: url, format: format).render
+  end
 end

@@ -1,26 +1,26 @@
 <div class="grid-row">
   <div class="column-two-thirds">
-    <%= link_to t('.back_link'), dataset_path(@preview['dataset_name']), class: 'link-back' %>
+    <%= link_to t('.back_link'), dataset_path(@dataset.name), class: 'link-back' %>
     <h1 class="heading-large">
       <%= @dataset.title %>
-      <span class="heading-secondary dgu-home-spacer__bottom"><%= @preview['datafile_name'] %></span>
+      <span class="heading-secondary dgu-home-spacer__bottom"><%= @datafile.name %></span>
     </h1>
 
-    <a class="button" href="<%= @preview['datafile_link'] %>"><%= t('.download_file') %></a>
+    <a class="button" href="<%= @datafile.url %>"><%= t('.download_file') %></a>
   </div>
   <div class = 'column-full'>
     <section class="dgu-datafile-preview">
-      <% if @content_type == 'CSV' and @preview['body'] != [] %>
+      <% if @datafile.csv? && @datafile.preview.present? %>
         <table>
           <thead>
             <tr>
-              <% @preview['body'].first.each do |col| %>
+              <% @datafile.preview.first.each do |col| %>
                 <th><%= col %></th>
               <% end %>
             </tr>
           </thead>
           <tbody>
-            <% @preview['body'].drop(1).each do |row| %>
+            <% @datafile.preview.drop(1).each do |row| %>
               <tr>
                 <% row.each do |col| %>
                   <td><%= col %></td>
@@ -30,7 +30,7 @@
           </tbody>
         </table>
       <% else %>
-        <p><%= t('.no_preview_avail') %>  <%= @preview ? "‘"+@preview['datafile_name']+"’" : 'this file.' %></p>
+        <p><%= "#{t('.no_preview_avail')} \"#{@datafile.name}\" this file." %></p>
       <% end %>
     </section>
   </div>
