@@ -12,6 +12,12 @@ class DatasetsController < LoggedAreaController
     handle_error(e)
   end
 
+  def preview
+    @dataset = Dataset.get_by(name: params[:name])
+    @datafile = @dataset.datafiles.find { |f| f.uuid == params[:uuid] }
+    @preview = @datafile.preview
+  end
+
   private
 
   def related_datasets
@@ -20,8 +26,7 @@ class DatasetsController < LoggedAreaController
   end
 
   def dataset
-    query = get_query(name: params[:name])
-    dataset = Dataset.get(query)
+    dataset = Dataset.get_by(name: params[:name])
     raise 'Metadata missing' if dataset.title.blank?
     dataset
   end

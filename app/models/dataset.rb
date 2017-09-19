@@ -12,6 +12,7 @@ end
 class Dataset
   include ActiveModel::Model
   include Elasticsearch::Model
+
   attr_accessor :name, :title, :summary, :description,
                 :location1, :location2, :location3,
                 :licence, :licence_other, :frequency,
@@ -40,8 +41,18 @@ class Dataset
       d
     end
 
-    def get(query)
-      result = ELASTIC.search body: query
+    def get_by(name:)
+      query = {
+        query: {
+          constant_score: {
+            filter: {
+              term: { name: name }
+            }
+          }
+        }
+      }
+
+      result = ELASTIC.search(body: query)
       Dataset.from_json(result['hits']['hits'][0])
     end
 

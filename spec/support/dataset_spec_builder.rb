@@ -104,6 +104,8 @@ DATA_TITLE = 'some-very-interesting-data'
 
 FETCH_PREVIEW_URL = 'https://someDatasetPreview.com/preview'
 
+SAMPLE_UUID = '5e359634-f15b-4639-97e6-a4e28ba15276'
+
 DATA_FILES_WITH_START_AND_ENDDATE = [
     {'id' => 1,
      'name' => 'I have no end date',
@@ -119,7 +121,8 @@ DATA_FILES_WITH_START_AND_ENDDATE = [
      'format' => 'CSV',
      'start_date' => '1/1/15',
      'end_date' => '24/03/2018',
-     'updated_at' => '2016-08-31T14:40:57.528Z'
+     'updated_at' => '2016-08-31T14:40:57.528Z',
+     'uuid' => SAMPLE_UUID
     },
     {'id' => 3,
      'name' => 'I have an end date',

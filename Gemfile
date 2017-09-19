@@ -25,6 +25,8 @@ gem 'therubyracer'
 gem 'elasticsearch-dsl', "~> 0.1.5"
 gem 'htmlentities', "~> 4.3"
 gem 'gon'
+gem 'faraday'
+gem 'faraday_middleware'
 
 
 group :development, :test do
