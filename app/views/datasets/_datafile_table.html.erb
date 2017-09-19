@@ -1,9 +1,9 @@
 <table class="dgu-datafiles">
   <tr>
-    <th class="title small">Link to the data</th>
-    <th>Format</th>
-    <th>Last updated</th>
-    <th>Data preview</th>
+    <th class="title small"><%= t('.link_to_data') %></th>
+    <th><%= t('.format') %></th>
+    <th><%= t('.last_updated') %></th>
+    <th><%= t('.data_preview') %></th>
   </tr>
   <tbody>
   <% datafiles.each do |datafile| %>
@@ -36,11 +36,19 @@
         <% elsif datafile.csv? %>
           <span class="dgu-unavailable">Coming soon</span>
         <% else %>
-          <span class="dgu-unavailable">Not available</span>
+          <td class="dgu-unavailable"><%= t('.not_available') %></td>
         <% end %>
-      </td>
-    </tr>
-  <% end %>
+          <td class="datafiles__preview">
+            <% if datafile.html? %>
+              <%= link_to t('.go_to_site'), datafile.url %>
+            <% elsif datafile.csv? %>
+              <span class="dgu-unavailable"><%= t('.coming_soon') %></span>
+            <% else %>
+              <span class="dgu-unavailable"><%= t('.not_available') %></span>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
   </tbody>
 </table>
 

@@ -3,8 +3,24 @@
   <%= render "meta_data" %>
 
   <% unless @dataset.datafiles.empty? %>
-    <%= render partial: "timeseries_data", locals: { datafiles: @timeseries_datafiles } %>
-    <%= render partial: "non_timeseries_data", locals: { datafiles: @non_timeseries_datafiles } %>
+    <div class="grid-row">
+      <div class="column-full">
+        <section class="dgu-datalinks">
+          <h2 class="heading-medium"><%= t('.data_links')%>
+            <% if @timeseries_datafiles.present? %>
+              <!-- accordions for time series datasets -->
+              <span class="showHide-open-all"><%= t('.open_all')%></span>
+            <% end %>
+          </h2>
+
+          <% if @timeseries_datafiles.present? %>
+            <%= render partial: "timeseries_data", locals: { datafiles: @dataset.datafiles } %>
+          <% else %>
+            <%= render partial: "non_timeseries_data", locals: { datafiles: @dataset.datafiles } %>
+          <% end %>
+        </section>
+      </div>
+    </div>
   <% end %>
 
   <% if @dataset.notes.present? %>
@@ -18,5 +34,4 @@
   <% if @dataset.organisation['contact_email'].present? %>
     <%= render "contact" %>
   <% end %>
-
 </main>

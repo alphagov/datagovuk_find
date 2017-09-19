@@ -1,0 +1,8 @@
+en:
+  home:
+    index:
+      find_gov_data: "Find government data"
+      lede: "Find data published by central government, local authorities and public bodies to help you build products and services"
+      accessibility:
+        search_box_label: "Search"
+        search_box_button: "Find data"
