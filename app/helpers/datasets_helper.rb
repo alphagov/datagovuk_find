@@ -82,4 +82,8 @@ module DatasetsHelper
         .join(" ")
         .strip
   end
+
+  def show_more?(datafiles, datafile)
+    "js-show-more-datafiles" unless datafiles.take(5).include? datafile
+  end
 end

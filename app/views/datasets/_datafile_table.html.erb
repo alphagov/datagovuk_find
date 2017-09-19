@@ -7,11 +7,11 @@
   </tr>
   <tbody>
     <% datafiles.each do |datafile| %>
-      <tr>
+      <tr class="<%= show_more?(datafiles, datafile) %> dgu-datafile">
         <td class="title small">
-          <%= link_to (datafile.name ? datafile.name : t('.data_link')),
-              datafile.url,
-              :data => {:'ga-event' => "datafile-download"}
+          <%= link_to (datafile.name ? datafile.name : 'Data Link'),
+            datafile.url,
+            :data => {:'ga-event' => "datafile-download"}
           %>
         </td>
         <% if datafile.format.blank? %>
@@ -23,12 +23,21 @@
           <% end %>
           </td>
         <% end %>
-
         <% if datafile.updated_at.present? %>
-          <td><%= format(datafile.updated_at) %></td>
+          <td>
+            <%= format(datafile.updated_at) %>
+          </td>
         <% else %>
-          <td class="dgu-unavailable"><%= t('.not_available') %></td>
+          <td class="dgu-unavailable">Not available</td>
         <% end %>
+        <td class="datafiles__preview">
+          <% if datafile.html? %>
+            <%= link_to 'Go to site', datafile.url %>
+          <% elsif datafile.csv? %>
+            <span class="dgu-unavailable">Coming soon</span>
+          <% else %>
+            <td class="dgu-unavailable"><%= t('.not_available') %></td>
+          <% end %>
           <td class="datafiles__preview">
             <% if datafile.html? %>
               <%= link_to t('.go_to_site'), datafile.url %>
@@ -38,7 +47,11 @@
               <span class="dgu-unavailable"><%= t('.not_available') %></span>
             <% end %>
           </td>
-        </tr>
-      <% end %>
+      </tr>
+    <% end %>
   </tbody>
 </table>
+
+<% if datafiles.length > 5 %>
+  <button class="button secondary show-toggle">Show more</button>
+<% end %>
