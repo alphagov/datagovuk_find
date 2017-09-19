@@ -12,7 +12,6 @@ end
 class Dataset
   include ActiveModel::Model
   include Elasticsearch::Model
-  include QueryBuilder
 
   attr_accessor :name, :title, :summary, :description,
                 :location1, :location2, :location3,
