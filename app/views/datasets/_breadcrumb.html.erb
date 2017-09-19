@@ -7,7 +7,7 @@
           <%= link_to t('.home'), root_path %>
         </li>
         <li>
-          <% if @referrer.nil? %>
+          <% if @referer_query.nil? %>
             <%= @dataset.organisation['title'] %>
           <% else %>
             <%= link_to t('.search'), "/search?#{@referrer}" %>
