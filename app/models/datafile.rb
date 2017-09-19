@@ -16,7 +16,7 @@ class Datafile
   end
 
   def start_year
-    return "Non-timeseries" if start_date.blank?
+    return if start_date.blank?
     Time.parse(start_date).year
   end
 

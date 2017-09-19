@@ -235,7 +235,7 @@ feature 'Dataset page', elasticsearch: true do
 
       index_and_visit(dataset)
 
-      expect(page).to have_css(".dgu-datalinks__year", count: 3)
+      expect(page).to have_css(".dgu-datafiles__year", count: 3)
     end
 
     scenario 'are not grouped when they contain non timeseries datafiles' do

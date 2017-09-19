@@ -1,5 +1,9 @@
 <div class="phase-banner">
   <p>
-    <span>This is a new service – your <a href="<%=t('survey_url')%>">feedback</a> will help us to improve it</span>
+    <span><%= t(".beta_survey_message_html",
+                :href => link_to(t('.href'),
+                                 t('.survey_url'))
+                )%>
+    </span>
   </p>
 </div>

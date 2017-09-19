@@ -35,7 +35,7 @@ var ShowHide = function () {
   this.controlSelector = '.showHide-control'
   this.contentSelector = '.showHide-content'
   this.openSelector = '.showHide-open-all'
-  this.expandSelector = '.expand button'
+  this.expandSelector = '.js-expand'
   this.allOpen = false
 }
 
@@ -43,35 +43,42 @@ ShowHide.prototype = {
   toggle: function (event) {
     var parentShowHide = $(event.target).parents(this.selector)
     var isOpen = parentShowHide.data('isOpen')
+
     parentShowHide.data('isOpen', !isOpen)
     parentShowHide.find(this.contentSelector).toggle()
     parentShowHide.find(this.expandSelector).html(isOpen ? '+' : '-')
   },
+
   toggleAll: function (event) {
-    var showHideDataLinks = $(event.target).parents('.data-links')
     event.preventDefault()
-    var allOpen = $(event.target).data('allOpen')
+
+    var openCloseAllControl = $(event.target)
+    var dataLinks = $(this.selector);
+    var dataLinkContent = dataLinks.find(this.contentSelector)
+    var dataLinkExpand = dataLinks.find(this.expandSelector)
+    var allOpen = openCloseAllControl.data('allOpen')
+
     if (allOpen) {
-      showHideDataLinks.find(this.selector).data('isOpen', false)
-      showHideDataLinks.find(this.contentSelector).hide()
-      showHideDataLinks.find(this.expandSelector).html('+')
-      $(event.target).data('allOpen', false)
-      $(event.target).text('Open all')
+      dataLinks.data('isOpen', false)
+      dataLinkContent.hide()
+      dataLinkExpand.html('+')
+      openCloseAllControl.data('allOpen', false)
+      openCloseAllControl.text('Open all')
     } else {
-      showHideDataLinks.find(this.selector).data('isOpen', true)
-      showHideDataLinks.find(this.contentSelector).show()
-      showHideDataLinks.find(this.expandSelector).html('-')
-      $(event.target).data('allOpen', true)
-      $(event.target).text('Close all')
+      dataLinks.data('isOpen', true)
+      dataLinkContent.show()
+      dataLinkExpand.html('-')
+      openCloseAllControl.data('allOpen', true)
+      openCloseAllControl.text('Close all')
     }
   },
 
   init: function () {
     $(this.controlSelector).on('click', this.toggle.bind(this))
-    $(this.controlSelector).first().trigger('click')
     $(this.openSelector).on('click', this.toggleAll.bind(this))
     $(this.selector).data('isOpen', false)
     $(this.openSelector).data('allOpen', false)
+    $(this.controlSelector).first().trigger('click')
   }
 }
 

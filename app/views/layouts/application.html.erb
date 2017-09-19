@@ -5,11 +5,11 @@
   <%= csrf_meta_tags %>
 <% end %>
 <% content_for :page_title do %>
-  Data.gov.uk - Find Data
+  <%= t('.page_title') %>
 <% end %>
 <% content_for :homepage_url do %>/<% end %>
 <% content_for :global_header_text do %>
-  Find government data <strong class="phase-tag">BETA</strong>
+  <%= t('.global_header_text') %> <strong class="phase-tag">BETA</strong>
 <% end %>
 <% content_for :header_class do %>with-proposition<% end %>
 <% content_for :proposition_header do %>
