@@ -32,21 +32,13 @@
         <% end %>
         <td class="datafiles__preview">
           <% if datafile.html? %>
-            <%= link_to 'Go to site', datafile.url %>
+            <%= link_to t('.go_to_site'), datafile.url %>
           <% elsif datafile.csv? %>
-            <span class="dgu-unavailable">Coming soon</span>
+            <span class="dgu-unavailable"><%= t('.coming_soon') %></span>
           <% else %>
-            <td class="dgu-unavailable"><%= t('.not_available') %></td>
+            <span class="dgu-unavailable"><%= t('.not_available') %></span>
           <% end %>
-          <td class="datafiles__preview">
-            <% if datafile.html? %>
-              <%= link_to t('.go_to_site'), datafile.url %>
-            <% elsif datafile.csv? %>
-              <span class="dgu-unavailable"><%= t('.coming_soon') %></span>
-            <% else %>
-              <span class="dgu-unavailable"><%= t('.not_available') %></span>
-            <% end %>
-          </td>
+        </td>
       </tr>
     <% end %>
   </tbody>
