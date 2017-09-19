@@ -10,7 +10,7 @@ class LoggedAreaController < ApplicationController
   end
 
   def authenticate
-    return if Rails.env.test?
+    return if Rails.env.test? 
 
     authenticate_or_request_with_http_basic('Please sign in with username and password provided to you') do |username, password|
       if admin_login?(username, password)
