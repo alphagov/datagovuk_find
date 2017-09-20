@@ -56,7 +56,7 @@
             <% @datasets.each do |d| %>
               <div class="dgu-results__result">
                 <h2 class="heading-medium">
-                  <a href="/dataset/<%= d.name %>"><%= d.title %></a>
+                  <%= link_to d.title, dataset_path(d.id) %>
                 </h2>
                 <dl class="dgu-metadata__box">
                   <dt> <%= t('.meta_data_box.published_by') %>:</dt>

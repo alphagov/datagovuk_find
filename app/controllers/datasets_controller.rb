@@ -26,7 +26,7 @@ class DatasetsController < LoggedAreaController
   end
 
   def dataset
-    dataset = Dataset.get_by(name: params[:name])
+    dataset = Dataset.get_by(id: params[:id])
     raise 'Metadata missing' if dataset.title.blank?
     dataset
   end
