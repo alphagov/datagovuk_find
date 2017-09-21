@@ -1,4 +1,4 @@
-<% if Rails.application.config.analytics_tracking_id or Rails.application.config.analytics_test_tracking_id %>
+<% if (Rails.application.config.analytics_tracking_id or Rails.application.config.analytics_test_tracking_id) and not request.url.include?('/use-of-data') %>
   <script>
     var trackingId = (document.location.hostname === 'beta.data.gov.uk') ? '<%= Rails.application.config.analytics_tracking_id %>' : '<%= Rails.application.config.analytics_test_tracking_id %>';
 
