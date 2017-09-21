@@ -108,6 +108,18 @@ module Search
       query
     end
 
+    def self.by_name(name)
+      {
+        query: {
+          constant_score: {
+            filter: {
+              term: { name: name }
+            }
+          }
+        }
+      }
+    end
+
     private
 
     def self.multi_match(query)

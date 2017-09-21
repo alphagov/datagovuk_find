@@ -31,16 +31,7 @@ class Dataset
     end
 
     def get_by(name:)
-      query = {
-        query: {
-          constant_score: {
-            filter: {
-              term: { name: name }
-            }
-          }
-        }
-      }
-
+      query = Search::Query.by_name(name)
       result = ELASTIC.search(body: query)
       Dataset.from_json(result['hits']['hits'][0])
     end
