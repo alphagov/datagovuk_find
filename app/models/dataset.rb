@@ -1,14 +1,3 @@
-class DatasetSearchResponse
-  include ActiveModel::Model
-  attr_accessor :datasets, :raw
-  # This class can be improved by porting over more metadata from the raw response
-
-  def num_results
-    self.raw["hits"]["total"]
-  end
-end
-
-
 class Dataset
   include ActiveModel::Model
   include Elasticsearch::Model
