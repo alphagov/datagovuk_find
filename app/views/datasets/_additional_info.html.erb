@@ -2,7 +2,7 @@
 
   <section class="dgu-additional-info">
     <h2 class="heading-medium">
-      Additional information
+      <%= t('.additional_info') %>
     </h2>
 
     <% if @dataset.notes.present? %>
@@ -16,51 +16,51 @@
       <% i = @dataset.inspire_dataset %>
 
       <details>
-        <summary><span class="summary">View additional metadata</span></summary>
+        <summary><span class="summary"><%= t('.view_additional_metadata')%></span></summary>
         <div class="panel panel-border-narrow">
 
           <dl class="dgu-deflist">
             <% if i['metadata_date'] %>
-              <dt>Added to data.gov.uk</dt>
+              <dt><%= t('.inspire_added') %></dt>
               <dd><%= i['metadata_date'] %></dd>
             <% end %>
             <% if i['guid'] %>
-              <dt>Harvest GUID</dt>
+              <dt><%= t('.inspire_guid') %></dt>
               <dd><%= i['guid'] %></dd>
             <% end %>
             <% if i['bbox_east_long'] and i['bbox_west_long'] and i['bbox_north_lat'] and i['bbox_south_lat'] %>
-              <dt>Extent</dt>
+              <dt><%= t('.inspire_extent') %></dt>
               <dd>
-                Latitude: <%= i['bbox_north_lat'] %>° to <%= i['bbox_south_lat'] %>°</dd>
+                <%= t('.inspire_latitude') %>: <%= i['bbox_north_lat'] %>° <%= t('.inspire_to') %> <%= i['bbox_south_lat'] %>°</dd>
               <dd>
-                Longitude: <%= i['bbox_west_long'] %>° to <%= i['bbox_east_long'] %>°
+                <%= t('.inspire_longitude') %>: <%= i['bbox_west_long'] %>° <%= t('.inspire_to') %> <%= i['bbox_east_long'] %>°
               </dd>
             <% end %>
             <% if i['spatial_reference_system'] %>
-              <dt>Spatial reference system</dt>
+              <dt><%= t('.inspire_spatial_ref_system') %></dt>
               <dd><%= i['spatial_reference_system'] %></dd>
             <% end %>
             <% if i['dataset_reference_date'] %>
               <% ref = JSON.parse(i['dataset_reference_date']) %>
-              <dt>Dataset reference date</dt>
+              <dt><%= t('.inspire_dataset_ref_date') %></dt>
               <% ref.each do |date| %>
                 <dd><%= date['value'] %> (<%= date['type'] %>)</dd>
               <% end %>
             <% end %>
             <% if i['frequency_of_update'] %>
-              <dt>Frequency of update</dt>
+              <dt><%= t('.inspire_frequency') %></dt>
               <dd><%= i['frequency_of_update'] %></dd>
             <% end %>
             <% if i['responsible_party'] %>
-              <dt>Responsible party</dt>
+              <dt><%= t('.inspire_responsible_party') %></dt>
               <dd><%= i['responsible_party'] %></dd>
             <% end %>
             <% if i['resource_type'] %>
-              <dt>ISO 19139 Resource type</dt>
+              <dt><%= t('.inspire_iso_resource') %></dt>
               <dd><%= i['resource_type'] %></dd>
             <% end %>
             <% if i['metadata_language'] %>
-              <dt>Metadata language</dt>
+              <dt><%= t('.inspire_metadata_lang') %></dt>
               <dd><%= i['metadata_language'] %></dd>
             <% end %>
           </dl>
