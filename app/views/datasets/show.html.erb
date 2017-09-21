@@ -12,20 +12,18 @@
               <span class="showHide-open-all"><%= t('.open_all')%></span>
             <% end %>
           </h2>
-
-          <% if @timeseries_datafiles.present? %>
-            <%= render partial: "timeseries_data", locals: { datafiles: @dataset.datafiles } %>
-          <% else %>
-            <%= render partial: "non_timeseries_data", locals: { datafiles: @dataset.datafiles } %>
+          <% unless @timeseries_datafiles.empty? %>
+            <%= render partial: "timeseries_data", locals: { datafiles: @timeseries_datafiles } %>
+          <% end %>
+          <% unless @non_timeseries_datafiles.empty? %>
+            <%= render partial: "non_timeseries_data", locals: { datafiles: @non_timeseries_datafiles } %>
           <% end %>
         </section>
       </div>
     </div>
   <% end %>
 
-  <% if @dataset.notes.present? %>
-    <%= render "additional_info" %>
-  <% end %>
+  <%= render "additional_info" %>
 
   <% unless no_documents?(@dataset.datafiles) %>
     <%= render "supporting_docs" %>

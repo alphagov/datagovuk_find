@@ -2,6 +2,19 @@ en:
   datasets:
     additional_info:
       additional_info: "Additional information"
+      view_additional_metadata: "View additional metadata"
+      inspire_added: "Added to data.gov.uk"
+      inspire_guid: "Harvest GUID"
+      inspire_extent: "Extent"
+      inspire_lat: "Latitude"
+      inspire_lon: "Longitude"
+      inspire_to: "to"
+      inspire_spatial_ref_system: "Spatial reference system"
+      inspire_dataset_ref_date: "Dataset reference date"
+      inspire_frequency: "Frequency of update"
+      inspire_responsible_party: "Responsible party"
+      inspire_iso_resource: "ISO 19139 resource type"
+      inspire_metadata_lang: "Metadata language"
     breadcrumb:
       home: "Home"
       search: "Search"
