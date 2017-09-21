@@ -32,14 +32,14 @@ class Dataset
 
     def get_by(name:)
       query = Search::Query.by_name(name)
-      result = ELASTIC.search(body: query)
-      Dataset.from_json(result['hits']['hits'][0])
+      response = Search::Request.submit(query)
+      Dataset.from_json(response['hits']['hits'][0])
     end
 
     def related(id)
       query = Search::Query.related(id)
-      result = ELASTIC.search body: query
-      result['hits']['hits'].map{|hit| Dataset.from_json(hit)}
+      response = Search::Request.submit(query)
+      response['hits']['hits'].map{ |hit| Dataset.from_json(hit) }
     end
   end
   index_name ENV['ES_INDEX'] || "datasets-#{Rails.env}"

@@ -21,7 +21,7 @@ class Datasets
     end
 
     def search(query)
-      ELASTIC.search body: query
+      Search::Request.submit(query)
     end
   end
 end
