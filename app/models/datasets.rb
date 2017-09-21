@@ -2,12 +2,14 @@ class Datasets
   include Elasticsearch::Model
 
   class << self
-    def locations(query)
+    def locations
+      query = Search::Query.locations_aggregation
       buckets = search(query)['aggregations']['locations']['buckets']
       map_keys(buckets)
     end
 
-    def publishers(query)
+    def publishers
+      query = Search::Query.publishers_aggregation
       buckets = search(query)['aggregations']['organisations']['org_titles']['buckets']
       map_keys(buckets)
     end

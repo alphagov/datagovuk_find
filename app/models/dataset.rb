@@ -56,9 +56,9 @@ class Dataset
       Dataset.from_json(result['hits']['hits'][0])
     end
 
-    def related(query)
+    def related(id)
+      query = Search::Query.related(id)
       result = ELASTIC.search body: query
-
       result['hits']['hits'].map{|hit| Dataset.from_json(hit)}
     end
   end

@@ -1,6 +1,4 @@
 class SearchController < LoggedAreaController
-  include QueryBuilder
-
   before_action :search_for_dataset, only: [:search]
   before_action :make_available_to_js, only: [:search]
 
@@ -19,13 +17,14 @@ class SearchController < LoggedAreaController
   private
 
   def search_for_dataset
-    @search = Dataset.search(search_query(params))
+    search_query = Search::Query.search(params)
+    @search = Dataset.search(search_query)
     @num_results = @search.results.total_count
   end
 
   def make_available_to_js
-    gon.publishers = Datasets.publishers(publishers_aggregation_query)
-    gon.locations = Datasets.locations(locations_aggregation_query)
+    gon.publishers = Datasets.publishers
+    gon.locations = Datasets.locations
   end
 
   def page_number
