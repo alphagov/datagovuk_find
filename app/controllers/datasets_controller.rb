@@ -2,7 +2,7 @@ class DatasetsController < LoggedAreaController
   include DatasetsHelper
 
   def show
-    @dataset = dataset
+    @dataset = Dataset.get_by(name: params[:name])
     @timeseries_datafiles = @dataset.timeseries_datafiles
     @non_timeseries_datafiles = @dataset.non_timeseries_datafiles
     @referer_query = referer_query
@@ -18,12 +18,6 @@ class DatasetsController < LoggedAreaController
   end
 
   private
-
-  def dataset
-    dataset = Dataset.get_by(name: params[:name])
-    raise 'Metadata missing' if dataset.title.blank?
-    dataset
-  end
 
   def handle_error(e)
     Rails.logger.debug 'ERROR! => ' + e.message

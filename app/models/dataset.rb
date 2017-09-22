@@ -15,21 +15,31 @@ class Dataset
 
   def self.get_by(name:)
     query = Search::Query.by_name(name)
-    response = Search::Request.submit(query)
-    result = Search::Response.parse(response).first
-    attrs = result.source.merge(_id: result.id)
+    result = Dataset.search(query).results.first
+    attrs = result._source.to_hash.merge(_id: result._id)
+    raise 'Metadata missing' if attrs["title"].blank?
     Dataset.new(attrs)
   end
 
   def self.related(id)
     query = Search::Query.related(id)
-    response = Search::Request.submit(query)
-    results = Search::Response.parse(response)
 
-    results.map do |result|
-      attrs = result.source.merge(_id: result.id)
+    Dataset.search(query).results.map do |result|
+      attrs = result._source.to_hash.merge(_id: result._id)
       Dataset.new(attrs)
     end
+  end
+
+  def self.locations
+    query = Search::Query.locations_aggregation
+    buckets = Dataset.search(query).aggregations['locations']['buckets']
+    map_keys(buckets)
+  end
+
+  def self.publishers
+    query = Search::Query.publishers_aggregation
+    buckets = Dataset.search(query).aggregations['organisations']['org_titles']['buckets']
+    map_keys(buckets)
   end
 
   def datafiles
@@ -42,5 +52,11 @@ class Dataset
 
   def non_timeseries_datafiles
     datafiles.select(&:non_timeseries?)
+  end
+
+  private
+
+  def self.map_keys(buckets)
+    buckets.map { |bucket| bucket['key'] }
   end
 end

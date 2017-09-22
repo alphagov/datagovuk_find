@@ -23,8 +23,8 @@ class SearchController < LoggedAreaController
   end
 
   def make_available_to_js
-    gon.publishers = Datasets.publishers
-    gon.locations = Datasets.locations
+    gon.publishers = Dataset.publishers
+    gon.locations = Dataset.locations
   end
 
   def page_number
