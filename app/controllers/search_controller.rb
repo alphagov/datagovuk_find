@@ -17,8 +17,8 @@ class SearchController < LoggedAreaController
   private
 
   def search_for_dataset
-    search_query = Search::Query.search(params)
-    @search = Dataset.search(search_query)
+    query = Search::Query.search(params)
+    @search = Dataset.search(query)
     @num_results = @search.results.total_count
   end
 
