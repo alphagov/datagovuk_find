@@ -120,8 +120,6 @@ module Search
       }
     end
 
-    private
-
     def self.multi_match(query)
       {
         multi_match: {
@@ -157,5 +155,7 @@ module Search
         }
       }
     end
+
+    private_class_method :multi_match, :publisher_filter, :location_filter
   end
 end

@@ -54,9 +54,9 @@ class Dataset
     datafiles.select(&:non_timeseries?)
   end
 
-  private
-
   def self.map_keys(buckets)
     buckets.map { |bucket| bucket['key'] }
   end
+
+  private_class_method :map_keys
 end
