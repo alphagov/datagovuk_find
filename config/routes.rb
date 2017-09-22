@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get 'search/tips', to: 'search#tips'
   resources :datasets, :path => "dataset", param: :name, only: :show
 
-  get 'use-of-data', to: 'consents#new'
+  get 'use-of-data', to: 'consents#new', as: 'new_consent'
   get 'use-of-data/confirm', to: 'consents#confirm'
 
   get 'not_authenticated', to: 'errors#not_authenticated'
