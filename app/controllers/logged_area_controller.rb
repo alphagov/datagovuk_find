@@ -6,7 +6,7 @@ class LoggedAreaController < ApplicationController
 
   def check_consent
     return if Rails.env.test?
-    redirect_to use_of_data_confirm_path if has_not_consented?
+    redirect_to new_consent_path if has_not_consented?
   end
 
   def authenticate
