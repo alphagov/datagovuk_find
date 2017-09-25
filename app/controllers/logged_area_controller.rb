@@ -6,11 +6,11 @@ class LoggedAreaController < ApplicationController
 
   def check_consent
     return if Rails.env.test?
-    redirect_to use_of_data_path if has_not_consented?
+    redirect_to use_of_data_confirm_path if has_not_consented?
   end
 
   def authenticate
-    return if Rails.env.test? 
+    return if Rails.env.test?
 
     authenticate_or_request_with_http_basic('Please sign in with username and password provided to you') do |username, password|
       if admin_login?(username, password)
