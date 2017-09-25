@@ -1,13 +1,12 @@
 class DatasetsController < LoggedAreaController
   include DatasetsHelper
-  include QueryBuilder
 
   def show
-    @dataset = dataset
+    @dataset = Dataset.get_by(name: params[:name])
     @timeseries_datafiles = @dataset.timeseries_datafiles
     @non_timeseries_datafiles = @dataset.non_timeseries_datafiles
     @referer_query = referer_query
-    @related_datasets = related_datasets
+    @related_datasets = Dataset.related(@dataset._id)
   rescue => e
     handle_error(e)
   end
@@ -19,17 +18,6 @@ class DatasetsController < LoggedAreaController
   end
 
   private
-
-  def related_datasets
-    query = related_to_query(@dataset._id)
-    Dataset.related(query)
-  end
-
-  def dataset
-    dataset = Dataset.get_by(name: params[:name])
-    raise 'Metadata missing' if dataset.title.blank?
-    dataset
-  end
 
   def handle_error(e)
     Rails.logger.debug 'ERROR! => ' + e.message
@@ -45,6 +33,6 @@ class DatasetsController < LoggedAreaController
   end
 
   def current_host_matches_referer_host
-    URI(request.host).to_s == URI(request.referer).host.to_s 
+    URI(request.host).to_s == URI(request.referer).host.to_s
   end
 end

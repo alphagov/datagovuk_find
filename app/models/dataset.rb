@@ -1,14 +1,3 @@
-class DatasetSearchResponse
-  include ActiveModel::Model
-  attr_accessor :datasets, :raw
-  # This class can be improved by porting over more metadata from the raw response
-
-  def num_results
-    self.raw["hits"]["total"]
-  end
-end
-
-
 class Dataset
   include ActiveModel::Model
   include Elasticsearch::Model
@@ -22,6 +11,37 @@ class Dataset
                 :_index, :_type, :_id, :_score, :_source,
                 :_version
 
+  index_name ENV['ES_INDEX'] || "datasets-#{Rails.env}"
+
+  def self.get_by(name:)
+    query = Search::Query.by_name(name)
+    result = Dataset.search(query).results.first
+    attrs = result._source.to_hash.merge(_id: result._id)
+    raise 'Metadata missing' if attrs["title"].blank?
+    Dataset.new(attrs)
+  end
+
+  def self.related(id)
+    query = Search::Query.related(id)
+
+    Dataset.search(query).results.map do |result|
+      attrs = result._source.to_hash.merge(_id: result._id)
+      Dataset.new(attrs)
+    end
+  end
+
+  def self.locations
+    query = Search::Query.locations_aggregation
+    buckets = Dataset.search(query).aggregations['locations']['buckets']
+    map_keys(buckets)
+  end
+
+  def self.publishers
+    query = Search::Query.publishers_aggregation
+    buckets = Dataset.search(query).aggregations['organisations']['org_titles']['buckets']
+    map_keys(buckets)
+  end
+
   def datafiles
     @datafiles.map { |file| Datafile.new(file) }
   end
@@ -34,33 +54,9 @@ class Dataset
     datafiles.select(&:non_timeseries?)
   end
 
-  class << self
-    def from_json(raw_json)
-      d = Dataset.new(raw_json.merge(raw_json['_source']))
-      d.json = raw_json
-      d
-    end
-
-    def get_by(name:)
-      query = {
-        query: {
-          constant_score: {
-            filter: {
-              term: { name: name }
-            }
-          }
-        }
-      }
-
-      result = ELASTIC.search(body: query)
-      Dataset.from_json(result['hits']['hits'][0])
-    end
-
-    def related(query)
-      result = ELASTIC.search body: query
-
-      result['hits']['hits'].map{|hit| Dataset.from_json(hit)}
-    end
+  def self.map_keys(buckets)
+    buckets.map { |bucket| bucket['key'] }
   end
-  index_name ENV['ES_INDEX'] || "datasets-#{Rails.env}"
+
+  private_class_method :map_keys
 end
