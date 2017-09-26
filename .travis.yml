@@ -37,4 +37,3 @@ deploy:
   space: data-gov-uk
   on:
     repo: datagovuk/find_data_beta
-    branch: staging-autodeploy
