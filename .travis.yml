@@ -1,26 +1,41 @@
 env:
   global:
-    - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
-    - RAILS_ENV=test
-    - GIT_COMMITTED_AT=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then git log -1 --pretty=format:%ct; else git log -1 --skip 1 --pretty=format:%ct; fi)
+  - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
+  - RAILS_ENV=test
+  - GIT_COMMITTED_AT=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then git log -1 --pretty=format:%ct;
+    else git log -1 --skip 1 --pretty=format:%ct; fi)
 sudo: false
 language: ruby
 cache: bundler
 rvm:
-  - 2.4
+- 2.4
 services:
-  - postgresql
-  - elasticsearch
+- postgresql
+- elasticsearch
 addons:
   chrome: stable
 before_script:
-  - sleep 10
-  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-  - chmod +x ./cc-test-reporter
-  - ./cc-test-reporter before-build
+- sleep 10
+- curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
+  > ./cc-test-reporter
+- chmod +x ./cc-test-reporter
+- "./cc-test-reporter before-build"
 script:
-  - bundle exec rake db:create
-  - bundle exec rake db:migrate
-  - bundle exec rake spec
+- bundle exec rake db:create
+- bundle exec rake db:migrate
+- bundle exec rake spec
 after_script:
-    - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT; fi
+- if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then ./cc-test-reporter after-build --exit-code
+  $TRAVIS_TEST_RESULT; fi
+deploy:
+  edge: true
+  provider: cloudfoundry
+  api: https://api.cloud.service.gov.uk
+  username: dgu-staging-deployer@digital.cabinet-office.gov.uk
+  password:
+    secure: D6H9Y2or1VU7stpumw7wrjRASVqEAHckNaWSgcOKvWIYY0cJUQWCFva4apBxeLGAqjgh0uhUFBV5m6zn2DDQ0pDP+gdgD2bMKb3tw9uJppUbrg9CoVja9uTcUOZJftcLe2fj8TJWTio/2giCeA4XOX/ztwdoMBazoxq9ujy8+KVVfpDSSpZNo6IHPWKZ0xJo1bZto8U9vkFTYdl2mDmVbJyy5dumumxCtsaJSRgN35Rb8ZpXqPNWK9uvwTxJo8LZoIPQ2o1LdXoBXJXGayNH5fE5SjY+UzGPJITrKK9dGRVjyuJXw+Ak5ljlIjRWmju2bjGNq512Fi0bTbi2sewknpk2PcZDDHqmM6OTQCRVrW/sfk71fxYVN7oCQh+AveBUJYQ4TSQxrlrVwYbHeO3vOsM1YcJhubQI+A/VcEIwFS9qS9gbF+S1n3NelUSWVy1GuVjq6SSJwQaEnFTE6pBJZ+yNA2gUbpEva+lw8n/XW29gU1fGU6gtL6yi/aRyvaF0EAU2eE/11TN2IoxnJ3WbwDkYDMzkcBUSm8Y7YwlT5TmS002KidfSrVIQA2MQmA/PnKjynSMJERklpbiipYKTDUpZtYjdRaLZtxG9drpHHhnqxP3J9G5fit+0BCca/f0+5//Q/cpkUEAs8QbUp8FlFF6yJTwCighJf8AcnUtEE0w=
+  organization: gds-data-discovery
+  space: data-gov-uk
+  on:
+    repo: datagovuk/find_data_beta
+    branch: master
