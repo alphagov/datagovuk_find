@@ -28,6 +28,7 @@ after_script:
 - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then ./cc-test-reporter after-build --exit-code
   $TRAVIS_TEST_RESULT; fi
 deploy:
+  edge: true
   provider: cloudfoundry
   api: https://api.cloud.service.gov.uk
   username: dgu-staging-deployer@digital.cabinet-office.gov.uk
@@ -37,3 +38,4 @@ deploy:
   space: data-gov-uk
   on:
     repo: datagovuk/find_data_beta
+    branch: master
