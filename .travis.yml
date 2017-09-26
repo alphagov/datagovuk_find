@@ -30,10 +30,11 @@ after_script:
 deploy:
   provider: cloudfoundry
   api: https://api.cloud.service.gov.uk
-  username: $DEPLOY_USER
-  password: $DEPLOY_PASSWORD
+  username: dgu-staging-deployer@digital.cabinet-office.gov.uk
+  password:
+    secure: l4ArqEbMQdPJMjnuCI31mH2UObl/H35BwbN/nHXSK05JmiYuvsAYVPz3gxpjUc3bo3ZDmss3FtF29YMLOmU7Zutyf25l0hS7U49ChKPZ13Jy2hCXJx/7way+0iyYYy0Q5feNS4DwCPpoheHm20tgGXrnh+1XWXTc4YcMXqLxBN6eiB2vvOTRfCYzADaDkXlveXlLxJUVliYzCKI68vPaDx6hbTOVQDm5N4VTDfqUcA5ntBfi/n5F02rWAFc4lpaWdjSOwSG5JlVr9sgiaMGLmWmPqtgqTHYKYCFdO/wfj3BGke3OeNhBoFUCnEprA53xSu/+WGC1/ptVR6XbyyihZ7O47XnG4Foe4ksTpHW3vp2EmuwzmcuItFa99CoRWK+oF862y26Oy92iVYx0lGPaGU+s48uCg1djf6xcf/5XE+j1x00uFf2vECAMwstREIPorMWLsyFEhPN1dvG7oh8QXd/PfSZcgbs8+l5VN0/IoJz/qn9nWUifXT1zKc5B9A9W1tfvABM5/rEsB5ufHdofBE60lTY+pd01nIOaGEtBXpJZ1rnuJqOEdCDvGQu0gi1z6JYOvJwA7ryuFEBvTirGFHuA8EAiY4XW5ukLhLwKYgZ5WxLWM8V2Vbu2AfbfKD/cGEDmD9r3zFDKiJu2izynAZTfQCsENtk0a3NL1InYHvA=
   organization: gds-data-discovery
   space: data-gov-uk
   on:
-    branch: staging-autodeploy
     repo: datagovuk/find_data_beta
+    branch: staging-autodeploy
