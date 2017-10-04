@@ -11,8 +11,12 @@ class Preview
 
   def estimated_lines
     total_file_size = fetch_headers['content-length'].to_i
-    average_line_size = 1024/line_count
-    total_file_size / average_line_size
+    if line_count > 0
+      average_line_size = 1024/line_count
+      total_file_size / average_line_size
+    else
+      0
+    end
   end
 
   def line_count
