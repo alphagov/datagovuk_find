@@ -32,10 +32,7 @@ class Preview
   end
 
   def fetch_raw
-    connection = Faraday.new do |faraday|
-      faraday.use FaradayMiddleware::FollowRedirects, limit: 3
-      faraday.adapter :net_http
-    end
+    connection = build_connection
 
     connection.headers = { 'Range' => 'bytes=0-1024' }
 
@@ -45,15 +42,24 @@ class Preview
         request.options.timeout = 5
       end
       # some datafiles have a format type of CSV but are HTML links. Joy.
-      if response.body[1..100].include? "DOCTYPE"
-        ""
-      else
-        raw_body = response.body.gsub("\r", "\n")
+      unless html?(response)
+        raw_body = response.body.tr("\r", "\n")
         raw_body.rpartition("\n")[0]
       end
     rescue
       ""
     end
+  end
+
+  def build_connection
+    Faraday.new do |faraday|
+      faraday.use FaradayMiddleware::FollowRedirects, limit: 3
+      faraday.adapter :net_http
+    end
+  end
+
+  def html?(response)
+    response.body[1..100].include? "DOCTYPE"
   end
 
   def csv?
