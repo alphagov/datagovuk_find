@@ -42,6 +42,6 @@ class Datafile
   end
 
   def preview
-    Preview.new(url: url, format: format).render
+    @preview ||= Preview.new(url: url, format: format)
   end
 end

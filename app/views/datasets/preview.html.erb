@@ -5,22 +5,22 @@
       <%= @dataset.title %>
       <span class="heading-secondary dgu-home-spacer__bottom"><%= @datafile.name %></span>
     </h1>
-
+    <p>You're previewing <%= @datafile.preview.line_count %> rows out of the total <%= @datafile.preview.estimated_lines %> in this file.</p>
     <a class="button" href="<%= @datafile.url %>"><%= t('.download_file') %></a>
   </div>
   <div class = 'column-full'>
     <section class="dgu-datafile-preview">
-      <% if @datafile.csv? && @datafile.preview.present? %>
+      <% if @datafile.csv? && @datafile.preview.exists? %>
         <table>
           <thead>
             <tr>
-              <% @datafile.preview.first.each do |col| %>
+              <% @datafile.preview.headers.each do |col| %>
                 <th><%= col %></th>
               <% end %>
             </tr>
           </thead>
           <tbody>
-            <% @datafile.preview.drop(1).each do |row| %>
+            <% @datafile.preview.rows.each do |row| %>
               <tr>
                 <% row.each do |col| %>
                   <td><%= col %></td>
