@@ -5,7 +5,9 @@
       <%= @dataset.title %>
       <span class="heading-secondary dgu-home-spacer__bottom"><%= @datafile.name %></span>
     </h1>
-    <p>You're previewing <%= @datafile.preview.line_count %> rows out of the total <%= @datafile.preview.estimated_lines %> in this file.</p>
+    <% if @datafile.csv? && @datafile.preview.exists? %>
+      <p>You're previewing the first <%= @datafile.preview.line_count %> rows of this file.</p>
+    <% end %>
     <a class="button" href="<%= @datafile.url %>"><%= t('.download_file') %></a>
   </div>
   <div class = 'column-full'>

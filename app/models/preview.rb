@@ -9,18 +9,8 @@ class Preview
     @body = render
   end
 
-  def estimated_lines
-    total_file_size = fetch_headers['content-length'].to_i
-    if line_count > 0
-      average_line_size = 1024/line_count
-      total_file_size / average_line_size
-    else
-      0
-    end
-  end
-
   def line_count
-    @body.length
+    rows.length
   end
 
   def headers
@@ -28,7 +18,7 @@ class Preview
   end
 
   def rows
-    body.drop(1)
+    body.drop(1).take(4)
   end
 
   def exists?
