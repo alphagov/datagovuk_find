@@ -44,31 +44,15 @@ class Preview
         request.url(url)
         request.options.timeout = 5
       end
-
-      raw_body = response.body.gsub("\r", "\n")
-      raw_body.rpartition("\n")[0]
-
+      # some datafiles have a format type of CSV but are HTML links. Joy.
+      if response.body[1..100].include? "DOCTYPE"
+        ""
+      else
+        raw_body = response.body.gsub("\r", "\n")
+        raw_body.rpartition("\n")[0]
+      end
     rescue
       ""
-    end
-  end
-
-  def fetch_headers
-    connection = Faraday.new do |faraday|
-      faraday.use FaradayMiddleware::FollowRedirects, limit: 3
-      faraday.adapter :net_http
-    end
-
-    begin
-      response = connection.head do |request|
-        request.url(url)
-        request.options.timeout = 5
-      end
-
-      response.headers
-
-    rescue
-      {}
     end
   end
 
