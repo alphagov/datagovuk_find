@@ -36,4 +36,5 @@ deploy:
   organization: gds-data-discovery
   space: data-gov-uk
   on:
+    branch: master
     repo: datagovuk/find_data_beta
