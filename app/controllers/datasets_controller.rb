@@ -14,7 +14,6 @@ class DatasetsController < LoggedAreaController
   def preview
     @dataset = Dataset.get_by(name: params[:name])
     @datafile = @dataset.datafiles.find { |f| f.uuid == params[:uuid] }
-    @preview = @datafile.preview
   end
 
   private
