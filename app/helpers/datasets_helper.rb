@@ -1,7 +1,7 @@
 module DatasetsHelper
 
   FREQUENCIES = {
-      'annual' => {years: 1},
+      'annually' => {years: 1},
       'quarterly' => {months: 4},
       'monthly' => {months: 1},
       'daily' => {days: 1}
