@@ -1,5 +1,5 @@
 ---
 applications:
-- name: find-data-beta-staging
+- name: find-data-beta
   memory: 512M
   buildpack: ruby_buildpack
