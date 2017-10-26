@@ -68,7 +68,14 @@ def es_config_from_host
   }
 end
 
-config = es_config_from_host
+if ELASTIC_CONFIG.has_key?('host')
+  config = es_config_from_host
+elsif ELASTIC_CONFIG.has_key?('vcap_services')
+  config = es_config_from_vcap
+else
+  Rails.logger.fatal "No elasticsearch environment variables found"
+  config = nil
+end
 
 ELASTIC = Elasticsearch::Client.new(config)
 Elasticsearch::Model.client = ELASTIC
