@@ -20,7 +20,10 @@ module FindDataBeta
     config.filter_parameters << :password_confirmation
 
     Raven.configure do |config|
-      config.dsn = 'https://b9b9fe3fe0e84d95a2a2b513b7f859a7:e038e55809d64b2ba482e23031d0e21f@sentry.io/236517'
+      if ENV['SENTRY_DSN']
+        config.dsn = ENV['SENTRY_DSN']
+      end
+
       config.sanitize_fields = Rails.application.config.filter_parameters.map(&:to_s)
     end
   end
