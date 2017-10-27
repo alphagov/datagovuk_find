@@ -11,12 +11,6 @@ rescue => e
   exit
 end
 
-def log(server, filepath)
-  Rails.logger.info "Configuring Elasticsearch on PAAS.\n
-  Elasticsearch host: #{server}\n
-  Elasticsearch cert file path: #{filepath}"
-end
-
 def create_es_cert_file(cert)
   begin
     es_cert_file = File.new('elasticsearch_cert.pem', 'w')
@@ -42,7 +36,6 @@ def es_config_from_vcap
     exit
   end
   es_cert_file = create_es_cert_file(es_cert)
-  log(es_server, es_cert_file.path)
 
   {
     host: es_server,
@@ -68,14 +61,17 @@ def es_config_from_host
   }
 end
 
-if ELASTIC_CONFIG.has_key?('host')
+if ELASTIC_CONFIG['host']
   config = es_config_from_host
-elsif ELASTIC_CONFIG.has_key?('vcap_services')
+elsif ELASTIC_CONFIG['vcap_services']
   config = es_config_from_vcap
 else
   Rails.logger.fatal "No elasticsearch environment variables found"
   config = nil
 end
+
+Rails.logger.info "Elasticsearch config:"
+Rails.logger.info config
 
 ELASTIC = Elasticsearch::Client.new(config)
 Elasticsearch::Model.client = ELASTIC
