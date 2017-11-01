@@ -22,3 +22,24 @@ Run the app on port XXXX (defaults to 3000):
 If you want to run ElasticSearch on your development machine:
 * `brew install elasticsearch`
 * `elasticsearch`
+
+
+# Vagrant
+
+To run the app in a local VM with vagrant, install Vagrant and Virtualbox, then:
+
+Create the VM and install packages:
+```
+$ vagrant up
+```
+
+Install Rails (edit the file first if you want to use a different elasticsearch server):
+```
+$ vagrant ssh -c /vagrant/tools/vagrant-dev-setup.sh
+```
+
+
+Run the app:
+```
+$ vagrant ssh -c "cd /vagrant && bundle install && rails s"
+```
