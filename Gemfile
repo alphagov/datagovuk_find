@@ -27,6 +27,7 @@ gem 'htmlentities', "~> 4.3"
 gem 'gon'
 gem 'faraday'
 gem 'faraday_middleware'
+gem 'sentry-raven'
 
 
 group :development, :test do

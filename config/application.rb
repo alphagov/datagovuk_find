@@ -16,8 +16,15 @@ module FindDataBeta
     config.analytics_tracking_id = ENV['GA_TRACKING_ID']
     config.analytics_test_tracking_id = ENV['GA_TEST_TRACKING_ID']
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**','**','*.{rb,yml}')]
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration should go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded.
+    config.filter_parameters << :password
+    config.filter_parameters << :password_confirmation
+
+    Raven.configure do |config|
+      if ENV['SENTRY_DSN']
+        config.dsn = ENV['SENTRY_DSN']
+      end
+
+      config.sanitize_fields = Rails.application.config.filter_parameters.map(&:to_s)
+    end
   end
 end
