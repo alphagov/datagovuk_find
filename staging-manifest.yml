@@ -3,3 +3,6 @@ applications:
 - name: find-data-beta-staging
   memory: 512M
   buildpack: ruby_buildpack
+  env:
+    RAILS_ENV: staging
+    RACK_ENV: staging
