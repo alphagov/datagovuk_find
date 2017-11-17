@@ -14,5 +14,5 @@ Rails.application.routes.draw do
 
   get 'not_authenticated', to: 'errors#not_authenticated'
 
-  get 'dataset/:name/preview/:uuid', to: 'datasets#preview', as: 'preview'
+  get 'dataset/:dataset_uuid/:name/datafile/:datafile_uuid/preview', to: 'previews#show', as: 'datafile_preview'
 end

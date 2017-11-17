@@ -11,11 +11,6 @@ class DatasetsController < LoggedAreaController
     handle_error(e)
   end
 
-  def preview
-    @dataset = Dataset.get_by(uuid: params[:uuid])
-    @datafile = @dataset.datafiles.find { |f| f.uuid == params[:uuid] }
-  end
-
   private
 
   def handle_error(e)
