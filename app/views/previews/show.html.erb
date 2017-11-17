@@ -1,6 +1,6 @@
 <div class="grid-row">
   <div class="column-two-thirds">
-    <%= link_to t('.back_link'), dataset_path(@dataset.name), class: 'link-back' %>
+    <%= link_to t('.back_link'), dataset_path(@dataset.uuid, @dataset.name), class: 'link-back' %>
     <h1 class="heading-large">
       <%= @dataset.title %>
       <span class="heading-secondary dgu-home-spacer__bottom"><%= @datafile.name %></span>
