@@ -1,12 +1,6 @@
 require 'rails_helper'
 
 feature 'Dataset page', elasticsearch: true do
-
-  before(:each) do
-    # stub_request(:any, FETCH_PREVIEW_URL).
-    #   to_return(status: 200)
-  end
-
   scenario 'Displays 404 page if a dataset does not exist' do
     visit '/dataset/invalid-uuid/invalid-slug'
 
@@ -16,8 +10,7 @@ feature 'Dataset page', elasticsearch: true do
 
   feature 'Meta data' do
     scenario 'Display a location if there is one' do
-      dataset = DatasetBuilder.new
-                  .build
+      dataset = DatasetBuilder.new.build
 
       index_and_visit(dataset)
 
