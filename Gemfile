@@ -28,6 +28,8 @@ gem 'gon'
 gem 'faraday'
 gem 'faraday_middleware'
 gem 'sentry-raven'
+gem 'lograge', '~> 0.7'
+gem 'logstash-event', '~> 1.2'
 
 
 group :development, :test do
