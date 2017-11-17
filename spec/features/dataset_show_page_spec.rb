@@ -1,14 +1,8 @@
 require 'rails_helper'
 
 feature 'Dataset page', elasticsearch: true do
-
-  before(:each) do
-    stub_request(:any, FETCH_PREVIEW_URL).
-      to_return(status: 200)
-  end
-
   scenario 'Displays 404 page if a dataset does not exist' do
-    visit '/dataset/does-not-exist'
+    visit '/dataset/invalid-uuid/invalid-slug'
 
     expect(page.status_code).to eq(404)
     expect(page).to have_content('Page not found')
@@ -16,8 +10,7 @@ feature 'Dataset page', elasticsearch: true do
 
   feature 'Meta data' do
     scenario 'Display a location if there is one' do
-      dataset = DatasetBuilder.new
-                  .build
+      dataset = DatasetBuilder.new.build
 
       index_and_visit(dataset)
 
@@ -78,7 +71,7 @@ feature 'Dataset page', elasticsearch: true do
       index([first_dataset, second_dataset])
       refresh_index
 
-      visit("/dataset/#{slug_1}")
+      visit dataset_path(first_dataset[:uuid], first_dataset[:name])
 
       expect(page).to have_content('Related datasets')
       expect(page).to have_content(title_2)
@@ -122,7 +115,7 @@ feature 'Dataset page', elasticsearch: true do
 
       refresh_index
 
-      visit("/dataset/#{slug_1}")
+      visit dataset_path(first_dataset[:uuid], first_dataset[:name])
 
       expect(page).to have_content('Related datasets')
       expect(page).to have_content(title_2)
@@ -217,7 +210,7 @@ feature 'Dataset page', elasticsearch: true do
       count.times do |i|
         datafiles.push({
                          'id' => i,
-                         'url' => FETCH_PREVIEW_URL,
+                         'url' => "http://datafile-url",
                          'start_date' => nil,
                          'end_date' => nil,
                          'updated_at' => '2017-08-31T14:40:57.528Z'

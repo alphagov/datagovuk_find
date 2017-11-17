@@ -2,18 +2,13 @@ class DatasetsController < LoggedAreaController
   include DatasetsHelper
 
   def show
-    @dataset = Dataset.get_by(name: params[:name])
+    @dataset = Dataset.get_by(uuid: params[:uuid])
     @timeseries_datafiles = @dataset.timeseries_datafiles
     @non_timeseries_datafiles = @dataset.non_timeseries_datafiles
     @referer_query = referer_query
     @related_datasets = Dataset.related(@dataset._id)
   rescue => e
     handle_error(e)
-  end
-
-  def preview
-    @dataset = Dataset.get_by(name: params[:name])
-    @datafile = @dataset.datafiles.find { |f| f.uuid == params[:uuid] }
   end
 
   private

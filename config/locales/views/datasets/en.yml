@@ -1,4 +1,10 @@
 en:
+  previews:
+    show:
+      back_link: "Back to dataset"
+      download_file: "Download this file"
+      this_file: "this file."
+      no_preview_avail: "No preview is available for"
   datasets:
     additional_info:
       additional_info: "Additional information"
@@ -54,11 +60,6 @@ en:
       format: "Format"
     timeseries_data:
       download_all: "Download all"
-    preview:
-      back_link: "Back to dataset"
-      download_file: "Download this file"
-      this_file: "this file."
-      no_preview_avail: "No preview is available for"
     show:
       open_all: "Open all"
       data_links: "Data links"

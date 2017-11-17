@@ -3,7 +3,7 @@ require 'webmock/rspec'
 
 SimpleCov.start
 
-WebMock.allow_net_connect!
+WebMock.disable_net_connect!(allow_localhost: true)
 
 RSpec.configure do |config|
   config.filter_run focus: true
@@ -42,6 +42,10 @@ def mappings
     dataset: {
       properties: {
         name: {
+          type: "string",
+          index: "not_analyzed"
+        },
+        uuid: {
           type: "string",
           index: "not_analyzed"
         },

@@ -108,12 +108,12 @@ module Search
       query
     end
 
-    def self.by_name(name)
+    def self.by_uuid(uuid)
       {
         query: {
           constant_score: {
             filter: {
-              term: { name: name }
+              term: { uuid: uuid }
             }
           }
         }

@@ -6,12 +6,13 @@ Rails.application.routes.draw do
 
   get 'search/', to: 'search#search'
   get 'search/tips', to: 'search#tips'
-  resources :datasets, :path => "dataset", param: :name, only: :show
+
+  get 'dataset/:uuid/:name', to: 'datasets#show', as: 'dataset'
 
   get 'use-of-data', to: 'consents#new', as: 'new_consent'
   get 'use-of-data/confirm', to: 'consents#confirm'
 
   get 'not_authenticated', to: 'errors#not_authenticated'
 
-  get 'dataset/:name/preview/:uuid', to: 'datasets#preview', as: 'preview'
+  get 'dataset/:dataset_uuid/:name/datafile/:datafile_uuid/preview', to: 'previews#show', as: 'datafile_preview'
 end
