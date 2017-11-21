@@ -6,12 +6,13 @@
       </h1>
     </div>
   </div>
+
   <div class="grid-row">
     <div class="column-two-thirds">
       <div class="dgu-metadata__box dgu-metadata__box--in-dataset">
         <dl class="metadata">
           <dt><%= t('.published_by') %>:</dt>
-          <dd><%= link_to @dataset.organisation['title'], search_path(publisher: @dataset.organisation['title']) %></dd>
+          <dd><%= link_to @dataset.organisation.title, search_path(publisher: @dataset.organisation.title) %></dd>
           <dt><%= t('.last_updated') %>:</dt>
           <dd><%= format(@dataset.last_updated_at) %></dd>
           <dt><%= t('.expected_update') %>:</dt>

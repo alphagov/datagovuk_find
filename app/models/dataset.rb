@@ -4,12 +4,16 @@ class Dataset
 
   attr_accessor :name, :title, :summary, :description,
                 :location1, :location2, :location3,
+                :foi_name, :foi_email, :foi_phone, :foi_web,
+                :contact_name, :contact_email, :contact_phone,
                 :licence, :licence_other, :frequency,
                 :published_date, :last_updated_at, :created_at,
-                :harvested, :uuid, :organisation, :datafiles,
+                :harvested, :uuid, :datafiles,
                 :inspire_dataset, :json, :notes,
                 :_index, :_type, :_id, :_score, :_source,
                 :_version
+
+  attr_reader :organisation
 
   index_name ENV['ES_INDEX'] || "datasets-#{Rails.env}"
 
@@ -56,6 +60,10 @@ class Dataset
 
   def self.map_keys(buckets)
     buckets.map { |bucket| bucket['key'] }
+  end
+
+  def organisation=(organisation)
+    @organisation = Organisation.new(organisation)
   end
 
   private_class_method :map_keys
