@@ -151,7 +151,7 @@ module Search
     def self.location_filter(location)
       {
         match: {
-          "location1.raw": location
+          "location1": location
         }
       }
     end
