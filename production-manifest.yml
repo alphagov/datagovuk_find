@@ -1,7 +1,7 @@
 ---
 applications:
 - name: find-data-beta
-  memory: 512M
+  memory: 256M
   buildpack: ruby_buildpack
   env:
     RAILS_ENV: production
