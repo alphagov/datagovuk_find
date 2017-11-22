@@ -6,3 +6,7 @@ applications:
   env:
     RAILS_ENV: staging
     RACK_ENV: staging
+  services:
+  - beta-staging-elasticsearch
+  - find-staging-secrets
+  - logit-ssl-drain
