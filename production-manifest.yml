@@ -2,7 +2,7 @@
 applications:
 - name: find-data-beta
   memory: 256M
-  buildpack: ruby_buildpack
+  buildpack: https://github.com/cloudfoundry/ruby-buildpack.git#v1.6.47
   routes:
   - route: find-data-beta.cloudapps.digital
   - route: beta.data.gov.uk
