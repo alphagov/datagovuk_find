@@ -7,5 +7,5 @@ en:
     proposition_header:
       menu: "Menu"
     application:
-      page_title: "Find government data"
-      global_header_text: "Find government data"
+      page_title: "Data.gov.uk - Find Data"
+      global_header_text: "Find UK Government data"
