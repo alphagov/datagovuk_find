@@ -51,3 +51,5 @@ bower.json
 
 .DS_Store
 *.iml
+.vagrant
+
