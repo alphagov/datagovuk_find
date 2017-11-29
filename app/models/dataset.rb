@@ -8,6 +8,8 @@ class Dataset
                 :published_date, :last_updated_at, :created_at,
                 :harvested, :uuid, :organisation, :datafiles,
                 :inspire_dataset, :json, :notes,
+                :contact_name, :contact_email, :contact_phone,
+                :foi_name, :foi_email, :foi_phone, :foi_web,
                 :_index, :_type, :_id, :_score, :_source,
                 :_version
 
