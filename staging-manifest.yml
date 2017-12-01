@@ -1,8 +1,12 @@
 ---
 applications:
 - name: find-data-beta-staging
-  memory: 512M
-  buildpack: ruby_buildpack
+  memory: 256M
+  buildpack: https://github.com/cloudfoundry/ruby-buildpack.git#v1.6.47
   env:
     RAILS_ENV: staging
     RACK_ENV: staging
+  services:
+  - find-staging-secrets
+  - beta-staging-elasticsearch
+  - logit-ssl-drain
