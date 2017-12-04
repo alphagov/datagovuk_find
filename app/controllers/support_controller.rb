@@ -1,4 +1,5 @@
 class SupportController < LoggedAreaController
+  skip_before_action :verify_authenticity_token
 
   def submit
     @support_queue = params['support']

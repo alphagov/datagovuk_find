@@ -1,29 +1,26 @@
-require 'zendesk_api'
-
 class ZendeskTicket
-  attr_reader :ticket_details, :client
+  attr_reader :ticket_details
 
   def initialize(ticket_details)
     @ticket_details = ticket_details
-    @client = ZendeskAPI::Client.new do |config|
-      config.username = ENV["ZENDESK_USERNAME"]
-      config.token = ENV["ZENDESK_API_KEY"]
-      config.password = ENV["ZENDESK_PASSWORD"]
-      config.url = ENV["ZENDESK_ENDPOINT"]
-    end
   end
 
   def send_ticket
-    ZendeskAPI::Ticket.create!(client, build_ticket)
+    begin
+      GDS_ZENDESK_CLIENT.ticket.create!(build_ticket)
+    rescue => error
+      Raven.capture_exception(error, extra: { ticket: ticket_details })
+      Rails.logger.error "Failed to create support ticket with error: #{error.message}"
+     end
   end
 
   private
 
   def build_ticket
-    { "requester": {"name": ticket_details[:name], "email": ticket_details[:email]},
-      "subject": support_queue + " Find Data Beta support request",
-      "comment": {"body": ticket_details[:content]}
-    }
+      { "requester": {"name": ticket_details[:name], "email": ticket_details[:email]},
+        "subject": support_queue + " Find Data Beta support request",
+        "comment": {"body": ticket_details[:content]}
+      }
   end
 
   def support_queue

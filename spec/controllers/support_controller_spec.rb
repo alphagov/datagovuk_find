@@ -1,16 +1,16 @@
 require 'rails_helper'
 
 describe SupportController, type: :controller do
-  it 'sends a create ticket request to zendesk' do
-    stub_request(:post, 'https://test.com/tickets').to_return(status: 200)
 
-    params = { name: 'test-user', email: 'test-user@mail.com', content: 'help!', support: 'feedback' }
-    ticket = ZendeskTicket.new(params).send(:build_ticket)
+  describe "#ticket" do
 
+    context "when the user input is valid" do
+      valid_params = { name: 'test-user', email: 'test-user@mail.com', content: 'help!', support: 'feedback' }
+      subject { post :ticket, params: valid_params }
 
-    post :ticket, params: params
-    expect(WebMock)
-      .to have_requested(:post, 'https://test.com/tickets')
-      .with(body: {"ticket": ticket})
+      it 'redirects to confirmation page' do
+        expect(subject).to redirect_to support_confirmation_path
+      end
+    end
   end
 end

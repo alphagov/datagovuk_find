@@ -30,7 +30,7 @@ gem 'faraday_middleware'
 gem 'sentry-raven'
 gem 'lograge', '~> 0.7'
 gem 'logstash-event', '~> 1.2'
-gem 'zendesk_api', '~> 1.16.0'
+gem 'gds_zendesk'
 
 group :development, :test do
   gem 'byebug', '~> 9'
