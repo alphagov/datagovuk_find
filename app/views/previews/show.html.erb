@@ -1,3 +1,6 @@
+<% content_for :page_title do %>
+  <%= @datafile.name %> -
+<% end %>
 <div class="grid-row">
   <div class="column-two-thirds">
     <%= link_to t('.back_link'), dataset_path(@dataset.uuid, @dataset.name), class: 'link-back' %>
