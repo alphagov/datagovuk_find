@@ -36,4 +36,12 @@ describe DatasetsController, type: :controller do
       end
     end
   end
+
+  describe 'visiting the dataset page' do
+    it "redirects to the latest slugged URL" do
+      index([dataset])
+      get :show, params: { uuid: dataset[:uuid], name: "outdated-slug" }
+      expect(response).to redirect_to(dataset_url(dataset[:uuid], dataset[:name]))
+    end
+  end
 end
