@@ -4,7 +4,9 @@ test:
 development:
   development_mode: true
 
+staging:
+  development_mode: true
+
 production:
   development_mode: false
-  username: <%= ENV['ZENDESK_USERNAME'] %>
-  password: <%= ENV['ZENDESK_PASSWORD'] %>
+  vcap_services: '<%= ENV["VCAP_SERVICES"] %>'
