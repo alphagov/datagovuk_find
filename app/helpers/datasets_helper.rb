@@ -33,9 +33,7 @@ module DatasetsHelper
   end
 
   def expected_update(dataset)
-    dataset.frequency.nil? ?
-        NO_MORE['default'] :
-        datafile_next_updated(dataset)
+    dataset.frequency.nil? ? NO_MORE['default'] : datafile_next_updated(dataset)
   end
 
   def expected_update_class_for(freq)
@@ -58,7 +56,7 @@ module DatasetsHelper
 
   def datafile_next_updated(dataset)
     freq = dataset.frequency
-    last = Time.parse(most_recent_date(dataset.datafiles))
+    last = Time.parse(most_recent_date(dataset.links))
 
     return last.advance(FREQUENCIES[freq]).strftime("%d %B %Y") if FREQUENCIES.has_key?(freq)
     return NO_MORE[freq] if NO_MORE.has_key?(freq)
@@ -66,7 +64,10 @@ module DatasetsHelper
   end
 
   def most_recent_date(datafiles)
-    datafiles.map(&:most_recent_date).max
+    datafiles.map do |datafile|
+      datafile.updated_at if datafile.end_date.blank?
+      (datafile.end_date > datafile.updated_at) ? datafile.end_date : datafile.updated_at
+    end.max
   end
 
   def documents(datafiles)

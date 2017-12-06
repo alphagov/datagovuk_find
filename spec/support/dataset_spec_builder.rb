@@ -1,22 +1,22 @@
 class DatasetBuilder
   def initialize
     @dataset =  {
-        name: 'default-dataset-name',
-        title: 'Default dataset title',
-        summary: 'Ethnicity data',
-        description: 'Ethnicity data',
-        licence: 'no-licence',
-        licence_other: '',
-        location1: 'London',
-        location2: 'Southwark',
-        location3: '',
-        frequency: 'monthly',
-        published_date: '2013-08-31T00:56:15.435Z',
-        harvested: false,
-        created_at: '2013-08-31T00:56:15.435Z',
-        last_updated_at: '2017-07-24T14:47:25.975Z',
-        uuid: SecureRandom.uuid,
-        organisation: {
+      name: 'default-dataset-name',
+      title: 'Default dataset title',
+      summary: 'Ethnicity data',
+      description: 'Ethnicity data',
+      licence: 'no-licence',
+      licence_other: '',
+      location1: 'London',
+      location2: 'Southwark',
+      location3: '',
+      frequency: 'monthly',
+      published_date: '2013-08-31T00:56:15.435Z',
+      harvested: false,
+      created_at: '2013-08-31T00:56:15.435Z',
+      last_updated_at: '2017-07-24T14:47:25.975Z',
+      uuid: SecureRandom.uuid,
+      organisation: {
             id: 582,
             name: 'ministry-of-defence',
             title: 'Ministry of Defence',
@@ -39,8 +39,9 @@ class DatasetBuilder
             org_type: 'central-government',
             ancestry: ''
         },
-        datafiles: [],
-        notes: ''
+      docs: [],
+      links: [],
+      additional_infos: []
     }
   end
 
@@ -59,8 +60,18 @@ class DatasetBuilder
     self
   end
 
-  def with_datafiles(datafiles)
-    @dataset[:datafiles] = datafiles
+  def with_timeseries_datafiles(datafiles)
+    @dataset[:links] = datafiles
+    self
+  end
+
+  def with_non_timeseries_datafiles(datafiles)
+    @dataset[:docs] = datafiles
+    self
+  end
+
+  def with_additional_infos(datafiles)
+    @dataset[:additional_infos] = datafiles
     self
   end
 
@@ -106,7 +117,7 @@ DATA_FILES_WITH_START_AND_ENDDATE = [
      'url' => 'http://example.com',
      'format' => 'HTML',
      'start_date' => '1/1/15',
-     'end_date' => nil,
+     'end_date' => '24/03/2018',
      'updated_at' => '2016-08-31T14:40:57.528Z'
     },
     {'id' => 2,

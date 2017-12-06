@@ -3,8 +3,6 @@ class DatasetsController < LoggedAreaController
 
   def show
     @dataset = Dataset.get_by(uuid: params[:uuid])
-    @timeseries_datafiles = @dataset.timeseries_datafiles
-    @non_timeseries_datafiles = @dataset.non_timeseries_datafiles
     @referer_query = referer_query
     @related_datasets = Dataset.related(@dataset._id)
   rescue => e
