@@ -8,8 +8,20 @@
         </li>
       </ol>
     </div>
+    <% if @ticket.errors.any? %>
+      <div class="error-summary" role="alert" aria-labelledby="error-summary-heading" tabindex="-1">
+        <h2 class="heading-medium error-summary-heading" id="error-summary-heading">
+          There was a problem
+        </h1>
+        <ul class="error-summary-list">
+          <% @ticket.errors.messages.each do |attr, error| %>
+            <li><a href="#error_<%= attr.to_s %>"> <%= error[0] %></a></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
 
-    <h1 class='heading-large'>
+    <h1 class='heading-medium'>
       <% if @support_queue == 'feedback'%>
         Report a problem or give feedback
       <% else %>
@@ -17,23 +29,21 @@
       <% end %>
     </h1>
 
-    <form action='ticket' method='post'>
-      <div class="form-group">
-        <label class="form-label" for="content">Your message</label>
-        <textarea class="form-control form-control-3-4" name="content" id="content" rows="5"></textarea>
-      </div>
-      <div class="form-group">
-        <label class="form-label" for="name">Name</label>
-        <input class="form-control form-control-3-4" id="name" type="text" name="name">
-      </div>
-      <div class="form-group">
-        <label class="form-label" for="email">Email address</label>
-        <input class="form-control form-control-3-4" id="email" type="text" name="email">
-      </div>
-        <input type="hidden" name="support" value="<%=@support_queue%>" >
-        <input class="button" type="submit" value="Submit" >
-      </div>
-    </form>
-
+      <%= form_for @ticket, url: { action: "ticket", controller: "support" } do |f| %>
+        <div class="form-group">
+          <label class="form-label" for="content" id="error_content">Your message</label>
+          <%= f.text_area(:content, class: "form-control form-control-2-3", rows: 8 ) %>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="name" id="error_name">Name</label>
+          <%= f.text_area(:name, class: "form-control form-control-2-3", rows: 1 ) %>
+        </div>
+        <div class="form-group" >
+          <label class="form-label" for="email" id="error_email">Email address</label>
+          <%= f.text_area(:email, class: "form-control form-control-2-3", rows: 1 ) %>
+        </div>
+          <%= f.hidden_field(:support, :value => @support_queue) %>
+          <%= f.submit "Submit", class: "button" %>
+      <% end %>
   </div>
 </div>
