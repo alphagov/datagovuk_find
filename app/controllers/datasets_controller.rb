@@ -7,6 +7,11 @@ class DatasetsController < LoggedAreaController
     @non_timeseries_datafiles = @dataset.non_timeseries_datafiles
     @referer_query = referer_query
     @related_datasets = Dataset.related(@dataset._id)
+
+    if request_to_outdated_url?
+      return redirect_to newest_dataset_path, status: :moved_permanently
+    end
+
   rescue => e
     handle_error(e)
   end
@@ -28,5 +33,13 @@ class DatasetsController < LoggedAreaController
 
   def current_host_matches_referer_host
     URI(request.host).to_s == URI(request.referer).host.to_s
+  end
+
+  def request_to_outdated_url?
+    request.path != newest_dataset_path
+  end
+
+  def newest_dataset_path
+    dataset_path(@dataset.uuid, @dataset.name)
   end
 end
