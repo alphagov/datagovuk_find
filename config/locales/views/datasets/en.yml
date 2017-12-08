@@ -6,7 +6,7 @@ en:
       this_file: "this file."
       no_preview_avail: "No preview is available for"
   datasets:
-    additional_info:
+    additional_infos:
       additional_info: "Additional information"
       view_additional_metadata: "View additional metadata"
       inspire_added: "Added to data.gov.uk"

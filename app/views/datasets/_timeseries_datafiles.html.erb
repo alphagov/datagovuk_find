@@ -1,10 +1,10 @@
 <ul>
-  <% datafiles.group_by(&:start_year).each do |year, datafiles| %>
+  <% datafiles.group_by(&:start_date).each do |start_date, datafiles| %>
     <li class="showHide">
       <div class="year-expand showHide-control">
         <h3 class="heading-small">
           <button class="dgu-datafiles__year button secondary">
-            <%= year.presence || "Other data files" %>
+            <%= Time.parse(start_date).year || "Other data files" %>
           </button>
         </h3>
         <div>
@@ -12,10 +12,9 @@
         </div>
       </div>
       <div class="showHide-content" style="display:none">
-        <%= render partial: 'datafile_table', locals: { datafiles: datafiles } %>
+        <%= render partial: 'datafile_table', locals: {datafiles: datafiles} %>
       </div>
-    <% end %>
-  </li>
+    </li>
+  <% end %>
 </ul>
-
-<input class="button dgu-datalinks__download" type="submit" value="<%= t('.download_all') %>">
+<button class="button dgu-datalinks__download" type="submit"><%= t('.download_all') %></button>
