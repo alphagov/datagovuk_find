@@ -36,16 +36,6 @@ feature 'Dataset page', elasticsearch: true do
 
       expect(page).to_not have_css('h2', text: 'Data links')
     end
-
-    # scenario 'display if some information is missing' do
-    #   dataset = DatasetBuilder.new
-    #               .with_non_timeseries_datafiles(DATAFILES_WITHOUT_START_AND_ENDDATE)
-    #               .build
-    #
-    #   index_and_visit(dataset)
-    #
-    #   expect(page).to have_css('h2', text: 'Data links')
-    # end
   end
 
   feature 'Related datasets' do
