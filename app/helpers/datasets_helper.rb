@@ -56,7 +56,7 @@ module DatasetsHelper
 
   def datafile_next_updated(dataset)
     freq = dataset.frequency
-    last = Time.parse(most_recent_date(dataset.links))
+    last = Time.parse(most_recent_date(dataset.timeseries_datafiles))
 
     return last.advance(FREQUENCIES[freq]).strftime("%d %B %Y") if FREQUENCIES.has_key?(freq)
     return NO_MORE[freq] if NO_MORE.has_key?(freq)
