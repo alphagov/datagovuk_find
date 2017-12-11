@@ -20,10 +20,10 @@ class ZendeskTicket
 
   def send_ticket
     begin
-      GDS_ZENDESK_CLIENT.ticket.create!(build_ticket)
+      GDS_ZENDESK_CLIENT.tickets.create!(build_ticket)
     rescue => error
       Raven.capture_exception(error, extra: { ticket: build_ticket })
-      Rails.logger.error "Failed to create support ticket with error: #{error.message}"
+      Rails.logger.error "Failed to create support ticket with error: #{ error.message }"
      end
   end
 

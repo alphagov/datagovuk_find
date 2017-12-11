@@ -8,7 +8,6 @@ require 'rspec/rails'
 require 'capybara/rspec'
 require 'capybara/rails'
 require 'selenium/webdriver'
-require 'gds_zendesk/test_helpers'
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -75,5 +74,4 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
   config.include Capybara::DSL
-  config.include GDSZendesk::TestHelpers
 end
