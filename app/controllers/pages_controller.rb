@@ -10,4 +10,7 @@ class PagesController < ApplicationController
 
   def support
   end
+
+  def accessibility
+  end
 end
