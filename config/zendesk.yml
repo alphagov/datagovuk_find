@@ -7,4 +7,14 @@ test:
 production:
   vcap_services: '<%= ENV["VCAP_SERVICES"] %>'
 
-#In both staging and development environments zendesk ticket sending is not enabled
+# In both staging and development environments zendesk ticket sending is not enabled.
+# To enable, uncomment the following and amend config/initializers/zendesk.rb accordingly
+
+# development:
+#   username: <%= ENV["ZENDESK_USERNAME"] %>
+#   password: <%= ENV["ZENDESK_PASSWORD"] %>
+#   api key: <%= ENV["ZENDESK_API_KEY"] %>
+#   end_point: <%= ENV["ZENDESK_END_POINT"] %>
+
+# staging:
+#   vcap_services: '<%= ENV["VCAP_SERVICES"] %>'

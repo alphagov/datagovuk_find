@@ -33,27 +33,31 @@ def zendesk_config_from_vcap
   config
 end
 
+def build_zendesk_client(username, password, api_key, end_point)
+  ZendeskAPI::Client.new do |config|
+    config.username = username
+    config.token = api_key
+    config.password = password
+    config.url = end_point
+  end
+end
+
 if Rails.env.production?
   username = zendesk_config_from_vcap['username']
   password = zendesk_config_from_vcap['password']
   api_key = zendesk_config_from_vcap['api_key']
   end_point = zendesk_config_from_vcap['end_point']
+  GDS_ZENDESK_CLIENT = build_zendesk_client(username, password, api_key, end_point)
 end
+
 if Rails.env.test?
   username = ZENDESK_CONFIG['username']
   password = ZENDESK_CONFIG['password']
   api_key = ZENDESK_CONFIG['api_key']
   end_point = ZENDESK_CONFIG['end_point']
+  GDS_ZENDESK_CLIENT = build_zendesk_client(username, password, api_key, end_point)
 end
 
-GDS_ZENDESK_CLIENT =
-  if Rails.env.production? || Rails.env.test?
-    ZendeskAPI::Client.new do |config|
-        config.username = username
-        config.token = api_key
-        config.password = password
-        config.url = end_point
-      end
-  else
-    ZendeskDummyClient.new
-  end
+if Rails.env.development? || Rails.env.staging?
+  GDS_ZENDESK_CLIENT = ZendeskDummyClient.new
+end

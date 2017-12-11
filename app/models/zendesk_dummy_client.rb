@@ -4,7 +4,6 @@ class ZendeskDummyClient
   def initialize
     @tickets = ZendeskDummyTicket.new
   end
-
 end
 
 class ZendeskDummyTicket
@@ -15,5 +14,4 @@ class ZendeskDummyTicket
                   body: 'ticket created' }
     }
   end
-
 end

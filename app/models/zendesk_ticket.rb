@@ -3,19 +3,18 @@ class ZendeskTicket
   include ActiveModel::Conversion
   extend ActiveModel::Naming
 
-  EMAIL_FORMAT = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
-
   attr_accessor :name, :email, :content, :support
 
-  validates_format_of :email, { with: EMAIL_FORMAT, message: 'Please enter a valid email address'}
+  validates_format_of :email, { with: /@/, message: 'Please enter a valid email address'}
 
   validates :name, presence: { message: 'Please enter a name'}
   validates :content, presence: { message: 'Please enter a message'}
 
-  def initialize(attributes = {})
-    attributes.each do |name, value|
-      send("#{name}=", value)
-    end
+  def initialize(ticket_details = {})
+    @email = ticket_details[:email]
+    @name = ticket_details[:name]
+    @content = ticket_details[:content]
+    @support = ticket_details[:support]
   end
 
   def send_ticket
