@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
   root to: 'home#index'
 
+  scope module: 'pages' do
+    get 'accessibility'
+    get 'cookies'
+    get 'privacy'
+    get 'support'
+    get 'terms'
+  end
+
   match "404", to: "errors#not_found", via: :all
   match "500", to: "errors#internal_server_error", via: :all
 

@@ -4,18 +4,28 @@
   <%= render partial: 'layouts/analytics' %>
   <%= csrf_meta_tags %>
 <% end %>
+
 <% content_for :page_title do %>
   <%= t('.page_title') %>
 <% end %>
-<% content_for :homepage_url do %>/<% end %>
+
+<% content_for :homepage_url do %>
+  <%= root_path %>
+<% end %>
+
 <% content_for :global_header_text do %>
   <%= t('.global_header_text') %> <strong class="phase-tag">BETA</strong>
 <% end %>
-<% content_for :header_class do %>with-proposition<% end %>
+
+<% content_for :header_class do %>
+  with-proposition
+<% end %>
+
 <% content_for :proposition_header do %>
   <!-- to hold options for authenticated users -->
   <%= render partial: 'layouts/proposition_header' %>
 <% end %>
+
 <% content_for :content do %>
   <%= render 'layouts/staging_ribbon' if Rails.env.staging? %>
   <main role="main" tabindex="-1" id="content">
@@ -30,4 +40,15 @@
   <!--<script>document.body.className = document.body.className.replace('js-enabled', '')</script>-->
 
 <% end %>
+
+<% content_for :footer_support_links do %>
+  <ul>
+    <li><%= link_to 'Accessibility', accessibility_path %></li>
+    <li><%= link_to 'Cookies', cookies_path %></li>
+    <li><%= link_to 'Privacy', privacy_path %></li>
+    <li><%= link_to 'Terms and conditions', terms_path %></li>
+    <li><%= link_to 'Support', support_path %></li>
+  </ul>
+<% end %>
+
 <%= render template: 'layouts/govuk_template' %>
