@@ -6,8 +6,7 @@ class Dataset
                 :location1, :location2, :location3,
                 :licence, :licence_other, :frequency,
                 :published_date, :last_updated_at, :created_at,
-                :harvested, :uuid, :organisation,
-                :datafiles, :docs, :links, :additional_infos,
+                :harvested, :uuid, :organisation, :datafiles,
                 :inspire_dataset, :json, :notes,
                 :contact_name, :contact_email, :contact_phone,
                 :foi_name, :foi_email, :foi_phone, :foi_web,
@@ -50,15 +49,11 @@ class Dataset
   end
 
   def timeseries_datafiles
-    @links.map { |file| Datafile.new(file) }
+    datafiles.select(&:timeseries?)
   end
 
   def non_timeseries_datafiles
-    @docs.map { |file| Datafile.new(file) }
-  end
-
-  def additional_infos
-    @additional_infos.map { |file| Datafile.new(file) }
+    datafiles.select(&:non_timeseries?)
   end
 
   def self.map_keys(buckets)

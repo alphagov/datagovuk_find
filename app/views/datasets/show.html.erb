@@ -5,29 +5,31 @@
   <%= render "breadcrumb" %>
   <%= render "meta_data" %>
 
-  <% if @dataset.timeseries_datafiles.any? || @dataset.non_timeseries_datafiles.any? %>
+  <% unless @dataset.datafiles.empty? %>
     <div class="grid-row">
       <div class="column-full">
         <section class="dgu-datalinks">
-          <h2 class="heading-medium"><%= t('.data_links') %>
-            <% if @dataset.timeseries_datafiles.any? %>
+          <h2 class="heading-medium"><%= t('.data_links')%>
+            <% if @timeseries_datafiles.present? %>
               <!-- accordions for time series datasets -->
-              <span class="showHide-open-all"><%= t('.open_all') %></span>
+              <span class="showHide-open-all"><%= t('.open_all')%></span>
             <% end %>
           </h2>
-          <% unless @dataset.timeseries_datafiles.empty? %>
-            <%= render partial: "timeseries_datafiles", locals: {datafiles: @dataset.timeseries_datafiles} %>
+          <% unless @timeseries_datafiles.empty? %>
+            <%= render partial: "timeseries_data", locals: { datafiles: @timeseries_datafiles } %>
           <% end %>
-          <% unless @dataset.non_timeseries_datafiles.empty? %>
-            <%= render partial: "non_timeseries_datafiles", locals: {datafiles: @dataset.non_timeseries_datafiles} %>
+          <% unless @non_timeseries_datafiles.empty? %>
+            <%= render partial: "non_timeseries_data", locals: { datafiles: @non_timeseries_datafiles } %>
           <% end %>
         </section>
       </div>
     </div>
   <% end %>
 
-  <% unless @dataset.additional_infos.empty? %>
-    <%= render partial: "additional_infos", locals: {datafiles: @dataset.additional_infos} %>
+  <%= render "additional_info" %>
+
+  <% unless no_documents?(@dataset.datafiles) %>
+    <%= render "supporting_docs" %>
   <% end %>
 
   <% if @dataset.organisation['contact_email'].present? %>
