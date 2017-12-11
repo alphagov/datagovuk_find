@@ -54,6 +54,14 @@ module DatasetsHelper
     dataset._source['name']
   end
 
+  def input_box_class_for(ticket, field)
+    if ticket.errors[field].any?
+      "form-control form-control-2-3 form-control-error"
+    else
+      "form-control form-control-2-3"
+    end
+  end
+
   private
 
   def datafile_next_updated(dataset)

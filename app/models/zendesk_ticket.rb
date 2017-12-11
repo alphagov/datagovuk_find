@@ -5,10 +5,10 @@ class ZendeskTicket
 
   attr_accessor :name, :email, :content, :support
 
-  validates_format_of :email, { with: /@/, message: 'Please enter a valid email address'}
+  validates_format_of :email, { with: /@/, message: 'Enter a valid email address'}
 
-  validates :name, presence: { message: 'Please enter a name'}
-  validates :content, presence: { message: 'Please enter a message'}
+  validates :name, presence: { message: 'Enter a name'}
+  validates :content, presence: { message: 'Enter a message'}
 
   def initialize(ticket_details = {})
     @email = ticket_details[:email]
