@@ -40,7 +40,7 @@ class ZendeskTicket
   end
 
   def support_queue
-    support == 'feedback' ? "[DGU]" : "[Data request]"
+    support == 'data' ? "[Data request]" : "[DGU]"
   end
 
 end

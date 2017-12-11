@@ -22,14 +22,14 @@
     <% end %>
 
     <h1 class='heading-medium'>
-      <% if @support_queue == 'feedback'%>
-        Report a problem or give feedback
-      <% else %>
+      <% if @support_queue == 'data'%>
         Data request
+      <% else %>
+        Report a problem or give feedback
       <% end %>
     </h1>
 
-      <%= form_for @ticket, url: { action: "ticket", controller: "support" } do |f| %>
+      <%= form_for @ticket, url: { action: "create", controller: "tickets" } do |f| %>
         <div class="form-group <% if @ticket.errors[:content].any? %> form-group-error <% end %>">
           <label for="example-content" id="error-content">
             <span class="form-label">Your message</span>
