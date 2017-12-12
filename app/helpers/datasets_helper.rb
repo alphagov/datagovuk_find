@@ -85,4 +85,16 @@ module DatasetsHelper
   def show_more?(datafiles, datafile)
     "js-show-more-datafiles" unless datafiles.take(5).include? datafile
   end
+
+  def contact_details_exist?(dataset)
+    contact_email_exists?(dataset) || foi_email_exists?(dataset)
+  end
+
+  def contact_email_exists?(dataset)
+    dataset.contact_email.present? || dataset.organisation.contact_email.present?
+  end
+
+  def foi_email_exists?(dataset)
+    dataset.foi_email.present? || dataset.organisation.foi_email.present?
+  end
 end
