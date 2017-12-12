@@ -49,6 +49,11 @@ class DatasetBuilder
     self
   end
 
+  def with_legacy_name(slug)
+    @dataset[:legacy_name] = slug
+    self
+  end
+
   def with_name(slug)
     @dataset[:name] = slug
     self

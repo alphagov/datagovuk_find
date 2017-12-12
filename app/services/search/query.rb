@@ -121,6 +121,18 @@ module Search
       query
     end
 
+    def self.by_legacy_name(legacy_name)
+      {
+        query: {
+          constant_score: {
+            filter: {
+              term: { legacy_name: legacy_name }
+            }
+          }
+        }
+      }
+    end
+
     def self.by_uuid(uuid)
       {
         query: {

@@ -19,8 +19,16 @@ class Dataset
 
   index_name ENV['ES_INDEX'] || "datasets-#{Rails.env}"
 
-  def self.get_by(uuid:)
+  def self.get_by_uuid(uuid:)
     query = Search::Query.by_uuid(uuid)
+    result = Dataset.search(query).results.first
+    attrs = result._source.to_hash.merge(_id: result._id)
+    raise 'Metadata missing' if attrs["title"].blank?
+    Dataset.new(attrs)
+  end
+
+  def self.get_by_legacy_name(legacy_name:)
+    query = Search::Query.by_legacy_name(legacy_name)
     result = Dataset.search(query).results.first
     attrs = result._source.to_hash.merge(_id: result._id)
     raise 'Metadata missing' if attrs["title"].blank?
