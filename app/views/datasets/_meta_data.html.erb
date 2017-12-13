@@ -11,6 +11,12 @@
     <div class="column-two-thirds">
       <div class="dgu-metadata__box dgu-metadata__box--in-dataset">
         <dl class="metadata">
+          <% if @dataset.datafiles.none? %>
+            <dt><%= t('.availability') %>:</dt>
+            <dd>
+              <span class="dgu-highlight">Not released</span>
+            </dd>
+          <% end %>
           <dt><%= t('.published_by') %>:</dt>
           <dd><%= link_to @dataset.organisation.title, search_path(publisher: @dataset.organisation.title) %></dd>
           <dt><%= t('.last_updated') %>:</dt>

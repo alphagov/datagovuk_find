@@ -16,6 +16,7 @@ en:
         different_words: "searching again using different words"
         clear_filters: "clearing your filters"
       meta_data_box:
+        availability: "Availability"
         published_by: "Published by"
         last_updated: "Last updated"
         geo_area: "Geographical area"

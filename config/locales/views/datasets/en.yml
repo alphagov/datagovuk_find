@@ -40,6 +40,7 @@ en:
       go_to_site: "Go to site"
       preview: "Preview"
     meta_data:
+      availability: "Availability"
       published_by: "Published by"
       expected_update: "Expected update"
       last_updated: "Last updated"
