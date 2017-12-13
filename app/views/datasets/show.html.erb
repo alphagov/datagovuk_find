@@ -27,7 +27,11 @@
         <% if @dataset.datafiles.empty? %>
           <div class="panel panel-border-narrow">
             <p>This data hasn't been released to the public by the publisher yet.<br />
-            <%= contact_instruction(@dataset) %></p>
+            <% if contact_details_exist?(@dataset) %>
+              Contact the publisher for a data request.
+            <% else %>
+              Contact the team on <%= link_to 'data.gov.uk/support', support_path %> if you have any questions.
+            <% end %>
           </div>
         <% end %>
       </section>

@@ -316,7 +316,7 @@ feature 'Dataset page', elasticsearch: true do
     scenario 'publisher contact details do not exist' do
       dataset = DatasetBuilder.new.build
       index_and_visit(dataset)
-      expect(page).to have_content("Contact the data.gov.uk team if you have any questions.")
+      expect(page).to have_content("Contact the team on data.gov.uk/support if you have any questions.")
     end
   end
 end

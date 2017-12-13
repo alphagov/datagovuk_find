@@ -97,12 +97,4 @@ module DatasetsHelper
   def foi_email_exists?(dataset)
     dataset.foi_email.present? || dataset.organisation.foi_email.present?
   end
-
-  def contact_instruction(dataset)
-    if contact_details_exist?(dataset)
-      "Contact the publisher for a data request."
-    else
-      "Contact the data.gov.uk team if you have any questions."
-    end
-  end
 end
