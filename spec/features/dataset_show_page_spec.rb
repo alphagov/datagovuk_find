@@ -29,13 +29,13 @@ feature 'Dataset page', elasticsearch: true do
       expect(page).to have_css('h2', text: 'Data links')
     end
 
-    scenario 'do not display if datafiles are not present' do
+    scenario 'datafiles are not present' do
       dataset = DatasetBuilder.new
                   .build
 
       index_and_visit(dataset)
 
-      expect(page).to_not have_css('h2', text: 'Data links')
+      expect(page).to have_content("This data hasn't been released to the public by the publisher yet")
     end
 
     scenario 'display if some information is missing' do
@@ -302,6 +302,21 @@ feature 'Dataset page', elasticsearch: true do
       index_and_visit(dataset)
 
       expect(page).to have_css(".dgu-datalinks__year", count: 0)
+    end
+  end
+
+  feature 'contact instructions' do
+    scenario 'publisher contact details exist' do
+      dataset = DatasetBuilder.new.build
+      dataset[:contact_email] = "foo@bar.com"
+      index_and_visit(dataset)
+      expect(page).to have_content("Contact the publisher for a data request.")
+    end
+
+    scenario 'publisher contact details do not exist' do
+      dataset = DatasetBuilder.new.build
+      index_and_visit(dataset)
+      expect(page).to have_content("Contact the data.gov.uk team if you have any questions.")
     end
   end
 end
