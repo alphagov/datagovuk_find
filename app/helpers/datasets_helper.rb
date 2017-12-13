@@ -39,7 +39,7 @@ module DatasetsHelper
   end
 
   def expected_update_class_for(freq)
-    "dgu-unavailable" if NO_MORE.include?(freq)
+    "dgu-secondary-text" if NO_MORE.include?(freq)
   end
 
   def dataset_location(dataset)
@@ -47,7 +47,7 @@ module DatasetsHelper
   end
 
   def expected_location_class_for(dataset)
-    "dgu-unavailable" if locations(dataset).empty?
+    "dgu-secondary-text" if locations(dataset).empty?
   end
 
   def name_of(dataset)

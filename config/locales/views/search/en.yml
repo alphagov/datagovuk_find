@@ -7,6 +7,7 @@ en:
         search_box_label: "Search"
         search_button_label: "Find data"
       results_summary: "results found for"
+      availability: "availability"
       published_by: "published by"
       filtered_by: "filtered by"
       datasets: 'Datasets'
