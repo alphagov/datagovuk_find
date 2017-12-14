@@ -6,33 +6,43 @@
   <%= render "breadcrumb" %>
   <%= render "meta_data" %>
 
-  <% unless @dataset.datafiles.empty? %>
-    <div class="grid-row">
-      <div class="column-full">
-        <section class="dgu-datalinks">
-          <h2 class="heading-medium"><%= t('.data_links')%>
-            <% if @timeseries_datafiles.present? %>
-              <!-- accordions for time series datasets -->
-              <span class="showHide-open-all"><%= t('.open_all')%></span>
+  <div class="grid-row">
+    <div class="column-full">
+      <section class="dgu-datalinks">
+        <h2 class="heading-medium"><%= t('.data_links')%>
+        <% unless @timeseries_datafiles.empty? %>
+          <!-- accordions for time series datasets -->
+          <span class="showHide-open-all"><%= t('.open_all')%></span>
+        <% end %>
+        </h2>
+
+        <% unless @timeseries_datafiles.empty? %>
+          <%= render partial: "timeseries_data", locals: { datafiles: @timeseries_datafiles } %>
+        <% end %>
+
+        <% unless @non_timeseries_datafiles.empty? %>
+          <%= render partial: "non_timeseries_data", locals: { datafiles: @non_timeseries_datafiles } %>
+        <% end %>
+
+        <% if @dataset.datafiles.empty? %>
+          <div class="panel panel-border-narrow">
+            <p>This data hasn't been released to the public by the publisher yet.<br />
+            <% if contact_details_exist?(@dataset) %>
+              Contact the publisher for a data request.
+            <% else %>
+              Contact the team on <%= link_to 'data.gov.uk/support', support_path %> if you have any questions.
             <% end %>
-          </h2>
-          <% unless @timeseries_datafiles.empty? %>
-            <%= render partial: "timeseries_data", locals: { datafiles: @timeseries_datafiles } %>
-          <% end %>
-          <% unless @non_timeseries_datafiles.empty? %>
-            <%= render partial: "non_timeseries_data", locals: { datafiles: @non_timeseries_datafiles } %>
-          <% end %>
-        </section>
-      </div>
+          </div>
+        <% end %>
+      </section>
     </div>
-  <% end %>
+  </div>
 
   <%= render "additional_info" %>
 
   <% unless no_documents?(@dataset.datafiles) %>
     <%= render "supporting_docs" %>
   <% end %>
-
 
   <% if contact_details_exist?(@dataset) %>
     <section class="contact">
