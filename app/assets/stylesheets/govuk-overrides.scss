@@ -18,8 +18,19 @@
   }
 }
 
+#global-header {
+  .header-proposition {
+    #proposition-links {
+      a {
+        font-family: Helvetica;
+      }
+    }
+  }
+}
+
 #proposition-links {
   float: right;
+  font-family: Helvetica;
 }
 
 #global-header-bar {
@@ -35,11 +46,6 @@
 .heading-xlarge {
   margin-top: 1.65em;
   margin-bottom: 40px;
-}
-
-.form-label {
-  padding-bottom: 0.4em;
-  padding-top: 1em;
 }
 
 #footer .footer-meta .footer-meta-inner .open-government-licence p {
