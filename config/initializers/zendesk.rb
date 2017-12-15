@@ -1,21 +1,25 @@
 require 'yaml'
 require 'zendesk_api'
 
-ZENDESK_CONFIG_PATH = Rails.root.join('config', 'zendesk.yml')
-ZENDESK_TEMPLATE = ERB.new File.new(ZENDESK_CONFIG_PATH).read
+def load_config_file
+  zendesk_config_path = Rails.root.join('config', 'zendesk.yml')
+  zendesk_template = ERB.new File.new(zendesk_config_path).read
 
-begin
-  ZENDESK_CONFIG = YAML.load(ZENDESK_TEMPLATE.result(binding))[ENV['RAILS_ENV']]
-rescue => e
-  Rails.logger.fatal 'Failed to parse zendesk yaml configuration. Exiting'
-  Rails.logger.fatal e
-  exit
+  begin
+    zendesk_config = YAML.load(zendesk_template.result(binding))[ENV['RAILS_ENV']]
+  rescue => e
+    Rails.logger.fatal 'Failed to parse zendesk yaml configuration. Exiting'
+    Rails.logger.fatal e
+    exit
+  end
+  zendesk_config
 end
 
 def zendesk_config_from_vcap
+  load_config_file
   config = {}
   begin
-    vcap = JSON.parse(ZENDESK_CONFIG['vcap_services'])
+    vcap = JSON.parse(zendesk_config['vcap_services'])
     vcap['user-provided'].each do |elem|
       if (elem.has_key? 'credentials') && (elem['credentials'].has_key? 'ZENDESK_USERNAME')
         config["username"] = elem['credentials']['ZENDESK_USERNAME']
@@ -26,7 +30,7 @@ def zendesk_config_from_vcap
     end
   rescue => e
     Rails.logger.fatal 'Failed to extract zendesk creds from VCAP_SERVICES. Exiting'
-    Rails.logger.fatal ZENDESK_CONFIG['vcap_services']
+    Rails.logger.fatal zendesk_config['vcap_services']
     Rails.logger.fatal e
     exit
   end
@@ -51,10 +55,11 @@ if Rails.env.production?
 end
 
 if Rails.env.test?
-  username = ZENDESK_CONFIG['username']
-  password = ZENDESK_CONFIG['password']
-  api_key = ZENDESK_CONFIG['api_key']
-  end_point = ZENDESK_CONFIG['end_point']
+  zendesk_config = load_config_file
+  username = zendesk_config['username']
+  password = zendesk_config['password']
+  api_key = zendesk_config['api_key']
+  end_point = zendesk_config['end_point']
   GDS_ZENDESK_CLIENT = build_zendesk_client(username, password, api_key, end_point)
 end
 
