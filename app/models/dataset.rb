@@ -2,7 +2,7 @@ class Dataset
   include ActiveModel::Model
   include Elasticsearch::Model
 
-  attr_accessor :name, :title, :summary, :description,
+  attr_accessor :name, :legacy_name, :title, :summary, :description,
                 :location1, :location2, :location3,
                 :foi_name, :foi_email, :foi_phone, :foi_web,
                 :contact_name, :contact_email, :contact_phone,
