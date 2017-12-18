@@ -11,13 +11,14 @@
         <td class="title small">
           <%= link_to (datafile.name ? datafile.name : 'Data Link'),
             datafile.url,
-            :data => {:'ga-event' => "datafile-download"}
+            :data => {:'ga-event' => "datafile-download"},
+            :itemprop => "contentUrl"
           %>
         </td>
         <% if datafile.format.blank? %>
           <td class="dgu-secondary-text">N/A</td>
         <% else %>
-          <td><span itemprop="encodingFormat"><%= datafile.format.upcase %></span>
+          <td><span itemprop="fileFormat"><%= datafile.format.upcase %></span>
           <% if datafile.size %>
             (<%= datafile.size.number_to_human_size %> )
           <% end %>
@@ -32,9 +33,9 @@
         <% end %>
         <td class="datafiles__preview">
           <% if datafile.html? %>
-            <%= link_to t('.go_to_site'), datafile.url, :itemprop => 'contentUrl' %>
+            <%= link_to t('.go_to_site'), datafile.url %>
           <% elsif datafile.csv? %>
-            <%= link_to t('.preview'), datafile_preview_path(@dataset.uuid, @dataset.name, datafile.uuid), :itemprop => 'contentUrl' %>
+            <%= link_to t('.preview'), datafile_preview_path(@dataset.uuid, @dataset.name, datafile.uuid) %>
           <% else %>
             <span class="dgu-secondary-text"><%= t('.not_available') %></span>
           <% end %>

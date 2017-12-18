@@ -41,13 +41,13 @@
           </dd>
           <dt><%= t('.licence') %>:</dt>
           <% if @dataset.licence == 'uk-ogl' %>
-            <dd itemscope itemtype="http://schema.org/licence">
-              <a itemprop="url" href="http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">
+            <dd itemprop="license">
+              <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">
                 <%= t('.uk_ogl') %>
               </a>
             </dd>
           <% elsif @dataset.licence_other %>
-            <dd itemscope itemtype="http://schema.org/licence">
+            <dd itemprop="license">
               <%= @dataset.licence_other %>
             </dd>
           <% else %>
