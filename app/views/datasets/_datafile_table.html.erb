@@ -5,9 +5,9 @@
     <th><%= t('.last_updated') %></th>
     <th><%= t('.data_preview') %></th>
   </tr>
-  <tbody>
+  <tbody itemprop="distribution">
     <% datafiles.each do |datafile| %>
-      <tr class="<%= show_more?(datafiles, datafile) %> dgu-datafile">
+      <tr class="<%= show_more?(datafiles, datafile) %> dgu-datafile" itemscope itemtype="http://schema.org/DataDownload">
         <td class="title small">
           <%= link_to (datafile.name ? datafile.name : 'Data Link'),
             datafile.url,
@@ -17,7 +17,7 @@
         <% if datafile.format.blank? %>
           <td class="dgu-secondary-text">N/A</td>
         <% else %>
-          <td><%= datafile.format.upcase %>
+          <td><span itemprop="encodingFormat"><%= datafile.format.upcase %></span>
           <% if datafile.size %>
             (<%= datafile.size.number_to_human_size %> )
           <% end %>
@@ -32,9 +32,9 @@
         <% end %>
         <td class="datafiles__preview">
           <% if datafile.html? %>
-            <%= link_to t('.go_to_site'), datafile.url %>
+            <%= link_to t('.go_to_site'), datafile.url, :itemprop => 'contentUrl' %>
           <% elsif datafile.csv? %>
-            <%= link_to t('.preview'), datafile_preview_path(@dataset.uuid, @dataset.name, datafile.uuid) %>
+            <%= link_to t('.preview'), datafile_preview_path(@dataset.uuid, @dataset.name, datafile.uuid), :itemprop => 'contentUrl' %>
           <% else %>
             <span class="dgu-secondary-text"><%= t('.not_available') %></span>
           <% end %>

@@ -1,8 +1,9 @@
 <% content_for :page_title do %>
   <%= @dataset.title %> -
 <% end %>
-
-<main id="content" role="main">
+<main id="content" role="main" itemscope itemtype="http://schema.org/Dataset">
+  <link itemprop="url" href="<%= "#{request.protocol}#{request.host_with_port}#{request.fullpath}" %>"/>
+  <meta itemprop="includedInDataCatalog" itemtype="http://schema.org/DataCatalog" content="#{request.host}"/>
   <%= render "breadcrumb" %>
   <%= render "meta_data" %>
 
