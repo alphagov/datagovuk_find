@@ -38,6 +38,26 @@ module Search
       }
     end
 
+    def self.datafile_formats_aggregation
+      {
+        "size": 0,
+        "aggs": {
+          "datafiles": {
+            "nested": {
+              "path": "datafiles"
+            },
+            "aggs": {
+              "datafile_formats": {
+                "terms": {
+                "field": "datafiles.format"
+                }
+              }
+            }
+          }
+        }
+      }
+    end
+
     def self.related(id)
       {
         size: 4,
