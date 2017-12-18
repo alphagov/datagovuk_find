@@ -51,6 +51,8 @@ en:
       search_gov_data: "Search government data"
       search_help: "Search help"
       data_links: "Data links"
+      no_licence: "None"
+      uk_ogl: "Open Government Licence"
       accessibility:
         search_box_label: "Search"
         search_box_button: "Find data"

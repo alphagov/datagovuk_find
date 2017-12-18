@@ -1,9 +1,10 @@
 <% content_for :page_title do %>
   <%= @dataset.title %> -
 <% end %>
-
-<main id="content" role="main">
-  <%= render "breadcrumb" %>
+<%= render "breadcrumb" %>
+<div itemscope itemtype="http://schema.org/Dataset">
+  <link itemprop="url" href="<%= "#{request.protocol}#{request.host_with_port}#{request.fullpath}" %>"/>
+  <meta itemprop="includedInDataCatalog" itemtype="http://schema.org/DataCatalog" content="<%= request.host %>"/>
   <%= render "meta_data" %>
 
   <div class="grid-row">
@@ -79,4 +80,4 @@
       </div>
     </section>
   <% end %>
-</main>
+</div>

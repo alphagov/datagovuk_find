@@ -1,7 +1,7 @@
 <section class="meta-data">
   <div class="grid-row">
     <div class="column-two-thirds">
-      <h1 class="heading-large">
+      <h1 class="heading-large" itemprop="name">
         <%= unescape(@dataset.title) %>
       </h1>
     </div>
@@ -18,7 +18,11 @@
             </dd>
           <% end %>
           <dt><%= t('.published_by') %>:</dt>
-          <dd><%= link_to @dataset.organisation.title, search_path(publisher: @dataset.organisation.title) %></dd>
+          <dd itemprop="creator" itemscope itemtype="http://schema.org/Organization">
+            <%= link_to search_path(publisher: @dataset.organisation.title), :itemprop => 'url' do %>
+              <span itemprop="name"><%= @dataset.organisation.title =%></span>
+            <% end %>
+          </dd>
           <dt><%= t('.last_updated') %>:</dt>
           <dd><%= format(@dataset.last_updated_at) %></dd>
           <dt><%= t('.expected_update') %>:</dt>
@@ -32,15 +36,33 @@
             </dd>
           <% end %>
           <dt><%= t('.geographical_area') %>:</dt>
-          <dd class="<%= expected_location_class_for(@dataset) %>">
-            <%= dataset_location(@dataset) %>
+          <dd class="<%= expected_location_class_for(@dataset) %>" itemprop="spatialCoverage" itemscope itemtype="http://schema.org/Place">
+            <span itemprop="name"><%= dataset_location(@dataset) %></span>
           </dd>
+          <dt><%= t('.licence') %>:</dt>
+          <% if @dataset.licence == 'uk-ogl' %>
+            <dd itemprop="license">
+              <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">
+                <%= t('.uk_ogl') %>
+              </a>
+            </dd>
+          <% elsif @dataset.licence_other %>
+            <dd itemprop="license">
+              <%= @dataset.licence_other %>
+            </dd>
+          <% else %>
+            <dd class="dgu-unavailable">
+              <%= t('.no_licence') %>
+            </dd>
+          <% end %>
         </dl>
 
         <h3 class="heading-small">
           <%= t('.summary') %>
         </h3>
-        <p class="summary" style="max-height: 250px; overflow: hidden"> <%= unescape(@dataset.summary) %> </p>
+        <p class="summary" style="max-height: 250px; overflow: hidden" itemprop="description">
+          <%= unescape(@dataset.summary) %>
+        </p>
       </div>
     </div>
 
