@@ -22,6 +22,13 @@
 </div>
 
 <div class="form-group">
+  <div class="multiple-choice">
+    <%= check_box_tag :licence, 'uk-ogl', @licence == 'uk-ogl' %>
+    <%= label_tag :licence, t('.filter_by_ogl') %>
+  </div>
+</div>
+
+<div class="form-group">
   <div class="dgu-filters__apply-button">
     <input class="button" type="submit" value="<%= t('.accessibility.submit_button') %>"/>
   </div>
