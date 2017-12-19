@@ -48,6 +48,12 @@ class Dataset
     map_keys(buckets)
   end
 
+  def self.datafile_formats
+    query = Search::Query.datafile_formats_aggregation
+    buckets = Dataset.search(query).aggregations['datafiles']['datafile_formats']['buckets']
+    map_keys(buckets)
+  end
+
   def datafiles
     @datafiles.map { |file| Datafile.new(file) }
   end

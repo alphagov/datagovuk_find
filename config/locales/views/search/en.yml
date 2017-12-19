@@ -23,8 +23,9 @@ en:
         not_applicable: "Not applicable"
     filters:
       filter_by: "Filter by"
-      filter_by_geo: "Enter geographical area"
-      filter_by_pub: "Enter publisher"
+      filter_by_geo: "Geographical area"
+      filter_by_pub: "Publisher"
+      filter_by_format: "Format"
       accessibility:
         submit_button: "Apply filters"
         publisher_label: "publisher"

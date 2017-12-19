@@ -17,6 +17,11 @@
 </div>
 
 <div class="form-group">
+  <%= label_tag :format, t('.filter_by_format'), class: 'form-label' %>
+  <%= select_tag(:format, options_for_select(datafile_formats, selected_format), class: 'form-control dgu-filters__filter') %>
+</div>
+
+<div class="form-group">
   <div class="dgu-filters__apply-button">
     <input class="button" type="submit" value="<%= t('.accessibility.submit_button') %>"/>
   </div>
