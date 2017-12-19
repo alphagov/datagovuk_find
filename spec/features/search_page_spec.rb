@@ -135,6 +135,34 @@ feature 'Search page', elasticsearch: true do
     expect(elements[0]).to have_content 'Data About Tonka Trucks'
   end
 
+  scenario 'filter by datafile format' do
+    first_dataset = DatasetBuilder.new
+      .with_title('First Dataset Title')
+      .with_datafiles([{'format' => 'foo'}])
+      .build
+
+    second_dataset = DatasetBuilder.new
+      .with_title('Second Dataset Title')
+      .with_datafiles([{'format' => 'bar'}])
+      .build
+
+    index([first_dataset, second_dataset])
+
+    visit('/search')
+
+    assert_data_set_length_is(2)
+
+    select('foo', from: 'format')
+
+    within('.dgu-filters__apply-button') do
+      find('.button').click
+    end
+
+    results = all('h2 a')
+    expect(results.length).to be(1)
+    expect(results[0]).to have_content 'First Dataset Title'
+  end
+
   def assert_data_set_length_is(count)
     datasets = all('h2 a')
     expect(datasets.length).to be(count)

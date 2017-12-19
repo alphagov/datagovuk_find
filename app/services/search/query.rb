@@ -96,6 +96,7 @@ module Search
     def self.search(params)
       publisher_param = params['publisher']
       location_param = params['location']
+      format_param = params['format']
       query_param = params['q']
       sort_param = params['sort']
 
@@ -118,6 +119,11 @@ module Search
       unless location_param.blank?
         query[:query][:bool][:must] ||= []
         query[:query][:bool][:must] << location_filter(location_param)
+      end
+
+      unless format_param.blank?
+        query[:query][:bool][:must] ||= []
+        query[:query][:bool][:must] << format_filter(format_param)
       end
 
       unless query_param.blank?
@@ -168,6 +174,25 @@ module Search
       }
     end
 
+    def self.format_filter(format)
+      {
+        nested: {
+          path: "datafiles",
+          query: {
+            bool: {
+              must: [
+                {
+                  match: {
+                    "datafiles.format": format
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    end
+
     def self.location_filter(location)
       {
         match: {
@@ -176,6 +201,6 @@ module Search
       }
     end
 
-    private_class_method :multi_match, :publisher_filter, :location_filter
+    private_class_method :multi_match, :publisher_filter, :location_filter, :format_filter
   end
 end
