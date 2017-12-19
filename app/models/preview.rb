@@ -41,9 +41,9 @@ class Preview
         request.url(url)
         request.options.timeout = 5
       end
-      # some datafiles have a format type of CSV but are HTML links. Joy.
+      # some datafiles have a format type of CSV but are HTML links.
       unless html?(response)
-        raw_body = response.body.tr("\r", "\n")
+        raw_body = response.body.tr("\r", "\n").force_encoding('iso-8859-1').encode('utf-8')
         raw_body.rpartition("\n")[0]
       end
     rescue
