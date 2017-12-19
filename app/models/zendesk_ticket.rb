@@ -5,7 +5,7 @@ class ZendeskTicket
 
   attr_accessor :name, :email, :content, :support
 
-  validates_format_of :email, { with: /@/, message: 'Enter a valid email address'}
+  validates_format_of :email, { with: /\A[^@]+@[^@]+\z/, message: 'Enter a valid email address'}
 
   validates :name, presence: { message: 'Enter a name'}
   validates :content, presence: { message: 'Enter a message'}

@@ -30,9 +30,9 @@ def zendesk_config_from_vcap
     end
   rescue => e
     Rails.logger.fatal 'Failed to extract zendesk creds from VCAP_SERVICES. Exiting'
-    Rails.logger.fatal zendesk_config['vcap_services']
+    Rails.logger.debug zendesk_config['vcap_services']
     Rails.logger.fatal e
-    exit
+    raise e
   end
   config
 end

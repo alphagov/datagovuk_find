@@ -1,6 +1,6 @@
 test:
   username: 'test-user@mail.com'
-  password: 'password123'
+  password: 'your-fake-zendesk-password-here'
   api_key: '123abc'
   end_point: 'https://test_zendesk_url.com/api/v2'
 
