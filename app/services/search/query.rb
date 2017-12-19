@@ -49,7 +49,7 @@ module Search
             "aggs": {
               "datafile_formats": {
                 "terms": {
-                "field": "datafiles.format"
+                  "field": "datafiles.format"
                 }
               }
             }
