@@ -22,5 +22,8 @@ Rails.application.routes.draw do
 
   get 'not_authenticated', to: 'errors#not_authenticated'
 
+  resources :tickets, only: [:new, :create]
+  get 'tickets/confirmation', to: 'tickets#confirmation'
+
   get 'dataset/:dataset_uuid/:name/datafile/:datafile_uuid/preview', to: 'previews#show', as: 'datafile_preview'
 end

@@ -25,6 +25,18 @@
   }
 }
 
+// Support =====================================================================
+.dgu-support {
+  &__form-label {
+    margin-top: 15px;
+  }
+  &__button {
+    margin-top: 5px;
+  }
+}
+
+
+
 // split-background layout  ====================================================
 
 .dgu-split-background {

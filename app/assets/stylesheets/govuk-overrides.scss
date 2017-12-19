@@ -18,8 +18,19 @@
   }
 }
 
+#global-header {
+  .header-proposition {
+    #proposition-links {
+      a {
+        font-family: Helvetica;
+      }
+    }
+  }
+}
+
 #proposition-links {
   float: right;
+  font-family: Helvetica;
 }
 
 #global-header-bar {

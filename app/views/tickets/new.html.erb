@@ -1,0 +1,73 @@
+<div class="grid-row inner">
+  <div class="column-full">
+
+    <div class="datagov_breadcrumb">
+      <ol role="breadcrumb">
+        <li>
+          <%= link_to 'Back', support_path %>
+        </li>
+      </ol>
+    </div>
+    <% if @ticket.errors.any? %>
+      <div class="error-summary" role="alert" aria-labelledby="error-summary-heading" tabindex="-1">
+        <h2 class="heading-medium error-summary-heading" id="error-summary-heading">
+          There was a problem
+        </h1>
+        <ul class="error-summary-list">
+          <% @ticket.errors.messages.each do |attr, error| %>
+            <li><a href="#error-<%= attr.to_s %>"> <%= error[0] %></a></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <h1 class='heading-medium'>
+      <% if @support_queue == 'data'%>
+        Send a data request
+      <% else %>
+        Report a problem or give feedback
+      <% end %>
+    </h1>
+
+      <%= form_for @ticket, url: { action: "create", controller: "tickets" } do |f| %>
+        <div class="form-group <% if @ticket.errors[:content].any? %> form-group-error <% end %>">
+          <label for="example-content" id="error-content">
+            <span class="form-label dgu-support__form-label">Your message</span>
+            <% if @ticket.errors[:content].any? %>
+              <span class="error-message">Enter a message</span>
+            <% end %>
+          </label>
+          <%= f.text_area(:content,
+                          class: input_box_class_for(@ticket, :content),
+                          id: "example-content",
+                          rows: 8 ) %>
+        </div>
+        <div class="form-group <% if @ticket.errors[:name].any? %> form-group-error <% end %>">
+          <label for="example-name" id="error-name">
+            <span class="form-label dgu-support__form-label">Name</span>
+            <% if @ticket.errors[:name].any? %>
+              <span class="error-message">Enter a name</span>
+            <% end %>
+          </label>
+          <%= f.text_area(:name,
+                          class: input_box_class_for(@ticket, :name),
+                          id: "example-name",
+                          rows: 1 ) %>
+        </div>
+        <div class="form-group <% if @ticket.errors[:email].any? %> form-group-error <% end %>" >
+          <label for="example-email" id="error-email">
+            <span class="form-label dgu-support__form-label">Email address</span>
+            <% if @ticket.errors[:email].any? %>
+              <span class="error-message">Enter a valid email address</span>
+            <% end %>
+          </label>
+          <%= f.text_area(:email,
+                          class: input_box_class_for(@ticket, :email),
+                          id: "example-email",
+                          rows: 1 ) %>
+        </div>
+          <%= f.hidden_field(:support, :value => @support_queue) %>
+          <%= f.submit "Submit", class: "button dgu-support__button" %>
+      <% end %>
+  </div>
+</div>
