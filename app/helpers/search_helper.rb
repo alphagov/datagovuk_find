@@ -8,7 +8,7 @@ module SearchHelper
     Time.parse(timestamp).strftime("%d %B %Y")
   end
 
-  def datafile_formats
+  def datafile_formats_for_select
     Dataset.datafile_formats
   end
 
