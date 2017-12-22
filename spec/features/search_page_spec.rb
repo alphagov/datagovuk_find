@@ -152,7 +152,7 @@ feature 'Search page', elasticsearch: true do
 
     assert_data_set_length_is(2)
 
-    select('foo', from: 'format')
+    select('foo', from: 'filters[format]')
 
     within('.dgu-filters__apply-button') do
       find('.button').click
@@ -161,6 +161,7 @@ feature 'Search page', elasticsearch: true do
     results = all('h2 a')
     expect(results.length).to be(1)
     expect(results[0]).to have_content 'First Dataset Title'
+    expect(page).to have_content 'Datasets filtered by foo'
   end
 
   def assert_data_set_length_is(count)
