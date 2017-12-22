@@ -94,42 +94,27 @@ module Search
     end
 
     def self.search(params)
-      publisher_param = params['publisher']
-      location_param = params['location']
-      format_param = params['format']
-      query_param = params['q']
-      sort_param = params['sort']
-
       query = {
         query: {
-          bool: {}
+          bool: {
+            must: []
+          }
         }
       }
 
-      case sort_param
-        when "recent"
-          query[:sort] = {"last_updated_at": {"order": "desc"}}
-      end
+      query_param = params['q']
+      sort_param =  params['sort']
 
-      unless publisher_param.blank?
-        query[:query][:bool][:must] ||= []
-        query[:query][:bool][:must] << publisher_filter(publisher_param)
-      end
+      publisher_param = params.dig(:filters, :publisher)
+      location_param =  params.dig(:filters, :location)
+      format_param =    params.dig(:filters, :format)
 
-      unless location_param.blank?
-        query[:query][:bool][:must] ||= []
-        query[:query][:bool][:must] << location_filter(location_param)
-      end
+      query[:query][:bool][:must] << multi_match(query_param)          if query_param.present?
+      query[:query][:bool][:must] << publisher_filter(publisher_param) if publisher_param.present?
+      query[:query][:bool][:must] << location_filter(location_param)   if location_param.present?
+      query[:query][:bool][:must] << format_filter(format_param)       if format_param.present?
 
-      unless format_param.blank?
-        query[:query][:bool][:must] ||= []
-        query[:query][:bool][:must] << format_filter(format_param)
-      end
-
-      unless query_param.blank?
-        query[:query][:bool][:must] ||= []
-        query[:query][:bool][:must] << multi_match(query_param)
-      end
+      query[:sort] = { "last_updated_at": { "order": "desc" } } if sort_param == "recent"
 
       query
     end

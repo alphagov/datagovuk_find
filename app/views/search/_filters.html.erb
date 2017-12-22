@@ -6,19 +6,19 @@
   <label for="location" class="form-label">
     <%= t('.filter_by_geo') %>
   </label>
-  <input id="location" name="location" value="<%= @location %>" class="dgu-filters__filter"/>
+  <input id="location" name="filters[location]" value="<%= @location %>" class="dgu-filters__filter"/>
 </div>
 
 <div class="form-group">
   <label for="<%= t('.accessibility.publisher_label') %>" class="form-label">
     <%= t('.filter_by_pub') %>
   </label>
-  <input id="publisher" name="publisher" value="<%= @organisation %>" class="dgu-filters__filter"/>
+  <input id="publisher" name="filters[publisher]" value="<%= @organisation %>" class="dgu-filters__filter"/>
 </div>
 
 <div class="form-group">
   <%= label_tag :format, t('.filter_by_format'), class: 'form-label' %>
-  <%= select_tag(:format, options_for_select(datafile_formats_for_select, selected_format), class: 'form-control dgu-filters__filter') %>
+  <%= select_tag('filters[format]', options_for_select(datafile_formats_for_select, selected_format), class: 'form-control dgu-filters__filter') %>
 </div>
 
 <div class="form-group">

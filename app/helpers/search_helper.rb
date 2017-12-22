@@ -13,6 +13,17 @@ module SearchHelper
   end
 
   def selected_format
-    params[:format]
+    params.dig(:filters, :format)
+  end
+
+  def selected_filters
+    return [] if no_filters_selected?
+    params[:filters].except(:publisher).values.reject(&:blank?)
+  end
+
+  private
+
+  def no_filters_selected?
+    params[:filters].nil? || params[:filters].values.reject(&:blank?).empty?
   end
 end

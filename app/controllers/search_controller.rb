@@ -5,8 +5,9 @@ class SearchController < LoggedAreaController
   def search
     @query = params['q'] || ''
     @sort = params['sort']
-    @organisation = params['publisher']
-    @location = params['location']
+    @organisation = params.dig(:filters, :publisher)
+    @location = params.dig(:filters, :location)
+    @format = params.dig(:filters, :format)
     @datasets = @search.page(page_number)
   end
 
