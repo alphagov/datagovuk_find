@@ -71,6 +71,12 @@ def mappings
               }
             }
           }
+        },
+        datafiles: {
+          type: "nested",
+          properties: {
+            format: { type: "keyword" }
+          }
         }
       }
     }

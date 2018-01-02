@@ -39,11 +39,17 @@
           </span>
         <% end %>
 
-        <% unless @organisation.blank? %>
-        <% if @query.empty? %> <%= t('.datasets') %> <% end %> <%= t('.published_by') %>
-        <span class="bold-small">‘<%= @organisation %>’<% end %></span>
-        <% unless @location.blank? %> <%= t('.filtered_by') %>
-        <span class="bold-small">‘<%= @location %>’<% end %></span>
+        <% if @query.empty? && selected_filters.any? %>
+          <%= t('.datasets') %>
+        <% end %>
+
+        <% if @organisation.present? %>
+          <%= t('.published_by') %> <span class="bold-small">‘<%= @organisation %>’</span>
+        <% end %>
+
+        <% if selected_filters.any? %>
+          <%= t('.filtered_by') %> <%= selected_filters.to_sentence %>
+        <% end %>
 
         <div>
           <% if @num_results == 0 %>
@@ -65,9 +71,9 @@
                       <span class="dgu-highlight">Not released</span>
                     </dd>
                   <% end %>
-                  <dt> <%= t('.meta_data_box.published_by') %>:</dt>
-                  <dd> <%= link_to d.organisation['title'], search_path(publisher: d.organisation['title']) %></dd>
-                  <dt> <%= t('.meta_data_box.last_updated') %>:</dt>
+                  <dt><%= t('.meta_data_box.published_by') %>:</dt>
+                  <dd><%= link_to d.organisation['title'], search_path(publisher: d.organisation['title']) %></dd>
+                  <dt><%= t('.meta_data_box.last_updated') %>:</dt>
                   <% if d.last_updated_at.present? %>
                     <dd> <%= format(d.last_updated_at) %></dd>
                   <% else %>

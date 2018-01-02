@@ -29,7 +29,7 @@ describe SearchController, type: :controller do
 
       index([first_dataset, second_dataset, third_dataset])
 
-      get :search, params: {location: 'Auckland'}
+      get :search, params: { filters: { location: 'Auckland' } }
 
       expect(response.body).to have_css('dd', text: 'Auckland')
       expect(response.body).to_not have_css('dd', text: 'Wellington')

@@ -38,6 +38,26 @@ module Search
       }
     end
 
+    def self.datafile_formats_aggregation
+      {
+        "size": 0,
+        "aggs": {
+          "datafiles": {
+            "nested": {
+              "path": "datafiles"
+            },
+            "aggs": {
+              "datafile_formats": {
+                "terms": {
+                  "field": "datafiles.format"
+                }
+              }
+            }
+          }
+        }
+      }
+    end
+
     def self.related(id)
       {
         size: 4,
@@ -74,36 +94,27 @@ module Search
     end
 
     def self.search(params)
-      publisher_param = params['publisher']
-      location_param = params['location']
-      query_param = params['q']
-      sort_param = params['sort']
-
       query = {
         query: {
-          bool: {}
+          bool: {
+            must: []
+          }
         }
       }
 
-      case sort_param
-        when "recent"
-          query[:sort] = {"last_updated_at": {"order": "desc"}}
-      end
+      query_param = params['q']
+      sort_param =  params['sort']
 
-      unless publisher_param.blank?
-        query[:query][:bool][:must] ||= []
-        query[:query][:bool][:must] << publisher_filter(publisher_param)
-      end
+      publisher_param = params.dig(:filters, :publisher)
+      location_param =  params.dig(:filters, :location)
+      format_param =    params.dig(:filters, :format)
 
-      unless location_param.blank?
-        query[:query][:bool][:must] ||= []
-        query[:query][:bool][:must] << location_filter(location_param)
-      end
+      query[:query][:bool][:must] << multi_match(query_param)          if query_param.present?
+      query[:query][:bool][:must] << publisher_filter(publisher_param) if publisher_param.present?
+      query[:query][:bool][:must] << location_filter(location_param)   if location_param.present?
+      query[:query][:bool][:must] << format_filter(format_param)       if format_param.present?
 
-      unless query_param.blank?
-        query[:query][:bool][:must] ||= []
-        query[:query][:bool][:must] << multi_match(query_param)
-      end
+      query[:sort] = { "last_updated_at": { "order": "desc" } } if sort_param == "recent"
 
       query
     end
@@ -148,6 +159,25 @@ module Search
       }
     end
 
+    def self.format_filter(format)
+      {
+        nested: {
+          path: "datafiles",
+          query: {
+            bool: {
+              must: [
+                {
+                  match: {
+                    "datafiles.format": format
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    end
+
     def self.location_filter(location)
       {
         match: {
@@ -156,6 +186,6 @@ module Search
       }
     end
 
-    private_class_method :multi_match, :publisher_filter, :location_filter
+    private_class_method :multi_match, :publisher_filter, :location_filter, :format_filter
   end
 end
