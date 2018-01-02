@@ -17,14 +17,14 @@
 </div>
 
 <div class="form-group">
-  <%= label_tag :format, t('.filter_by_format'), class: 'form-label' %>
+  <%= label_tag 'filters[format]', t('.filter_by_format'), class: 'form-label' %>
   <%= select_tag('filters[format]', options_for_select(datafile_formats_for_select, selected_format), id: 'js_format-filter', class: 'form-control dgu-filters__filter') %>
 </div>
 
 <div class="form-group">
   <div class="multiple-choice">
     <%= check_box_tag 'filters[licence]', 'uk-ogl', @licence == 'uk-ogl' %>
-    <%= label_tag :licence, t('.filter_by_ogl') %>
+    <%= label_tag 'filters[licence]', t('.filter_by_ogl') %>
   </div>
 </div>
 
