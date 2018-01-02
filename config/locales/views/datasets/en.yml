@@ -44,7 +44,6 @@ en:
       published_by: "Published by"
       expected_update: "Expected update"
       last_updated: "Last updated"
-      no_data: "This dataset has no data yet"
       geographical_area: "Geographical area"
       summary: "Summary"
       related_datasets: "Related datasets"
