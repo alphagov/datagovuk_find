@@ -18,7 +18,7 @@
 
 <div class="form-group">
   <%= label_tag :format, t('.filter_by_format'), class: 'form-label' %>
-  <%= select_tag('filters[format]', options_for_select(datafile_formats_for_select, selected_format), class: 'form-control dgu-filters__filter') %>
+  <%= select_tag('filters[format]', options_for_select(datafile_formats_for_select, selected_format), id: 'js_format-filter', class: 'form-control dgu-filters__filter') %>
 </div>
 
 <div class="form-group">
