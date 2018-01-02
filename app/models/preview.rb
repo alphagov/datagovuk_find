@@ -28,7 +28,11 @@ class Preview
   private
 
   def render
-    csv? ? CSV.parse(fetch_raw).reject{ |l| l.empty? } : []
+    begin
+      csv? ? CSV.parse(fetch_raw).reject{ |l| l.empty? } : []
+    rescue
+      []
+    end
   end
 
   def fetch_raw
@@ -41,11 +45,8 @@ class Preview
         request.url(url)
         request.options.timeout = 5
       end
-      # some datafiles have a format type of CSV but are HTML links.
-      unless html?(response)
-        raw_body = response.body.tr("\r", "\n").force_encoding('iso-8859-1').encode('utf-8')
-        raw_body.rpartition("\n")[0]
-      end
+      raw_body = response.body.tr("\r", "\n").force_encoding('iso-8859-1').encode('utf-8')
+      raw_body.rpartition("\n")[0]
     rescue
       ""
     end
@@ -56,10 +57,6 @@ class Preview
       faraday.use FaradayMiddleware::FollowRedirects, limit: 3
       faraday.adapter :net_http
     end
-  end
-
-  def html?(response)
-    response.body[1..100].include? "DOCTYPE"
   end
 
   def csv?
