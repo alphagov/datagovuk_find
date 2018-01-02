@@ -42,5 +42,26 @@ describe PreviewsController, type: :controller do
 
       expect(response.body).to have_content('No preview is available')
     end
+
+    it 'will recover if the datafile is not CSV' do
+      stub_request(:get, datafile.url).
+        to_return(body: "<!DOCTYPE html><html lang=\"en\"><h")
+
+      index([dataset])
+      get :show, params: { dataset_uuid: dataset[:uuid], name: dataset[:name], datafile_uuid: datafile.uuid }
+
+      expect(response.body).to have_content('No preview is available')
+    end
+
+    it 'will recover if the datafile is malformed CSV' do
+      stub_request(:get, datafile.url).
+        to_return(body: "a,b,\",c,d\n000000\n")
+
+      index([dataset])
+      get :show, params: { dataset_uuid: dataset[:uuid], name: dataset[:name], datafile_uuid: datafile.uuid }
+
+      expect(response.body).to have_content('No preview is available')
+    end
+
   end
 end
