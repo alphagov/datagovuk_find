@@ -23,7 +23,7 @@
 
 <div class="form-group">
   <div class="multiple-choice">
-    <%= check_box_tag :licence, 'uk-ogl', @licence == 'uk-ogl' %>
+    <%= check_box_tag 'filters[licence]', 'uk-ogl', @licence == 'uk-ogl' %>
     <%= label_tag :licence, t('.filter_by_ogl') %>
   </div>
 </div>
