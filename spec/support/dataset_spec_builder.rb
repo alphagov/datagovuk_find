@@ -95,6 +95,11 @@ class DatasetBuilder
     self
   end
 
+  def with_licence(licence)
+    @dataset[:licence] = licence
+    self
+  end
+
   def build
     @dataset
   end

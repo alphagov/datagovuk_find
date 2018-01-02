@@ -71,9 +71,9 @@ feature 'Search page', elasticsearch: true do
                       .build
 
     second_dataset = DatasetBuilder.new
-                       .with_title('Welding Dataset')
-                       .with_location('Welding')
-                       .build
+                      .with_title('Welding Dataset')
+                      .with_location('Welding')
+                      .build
 
     index([first_dataset, second_dataset])
 
@@ -107,9 +107,9 @@ feature 'Search page', elasticsearch: true do
                       .build
 
     second_dataset = DatasetBuilder.new
-                       .with_title('Data About Toby')
-                       .with_publisher('Toby Corp')
-                       .build
+                      .with_title('Data About Toby')
+                      .with_publisher('Toby Corp')
+                      .build
 
     index([first_dataset, second_dataset])
 
@@ -135,16 +135,44 @@ feature 'Search page', elasticsearch: true do
     expect(elements[0]).to have_content 'Data About Tonka Trucks'
   end
 
-  scenario 'filter by datafile format' do
+  scenario 'filter by OGL licence' do
     first_dataset = DatasetBuilder.new
-      .with_title('First Dataset Title')
-      .with_datafiles([{'format' => 'foo'}])
-      .build
+                      .with_title('First Dataset Title')
+                      .with_licence('uk-ogl')
+                      .build
 
     second_dataset = DatasetBuilder.new
-      .with_title('Second Dataset Title')
-      .with_datafiles([{'format' => 'bar'}])
-      .build
+                      .with_title('Second Dataset Title')
+                      .with_licence('foo')
+                      .build
+
+    index([first_dataset, second_dataset])
+
+    visit('/search')
+
+    assert_data_set_length_is(2)
+
+    check('Open Government Licence (OGL) only')
+
+    within('.dgu-filters__apply-button') do
+      find('.button').click
+    end
+
+    results = all('h2 a')
+    expect(results.length).to be(1)
+    expect(results[0]).to have_content 'First Dataset Title'
+  end
+
+  scenario 'filter by datafile format' do
+    first_dataset = DatasetBuilder.new
+                      .with_title('First Dataset Title')
+                      .with_datafiles([{'format' => 'foo'}])
+                      .build
+
+    second_dataset = DatasetBuilder.new
+                      .with_title('Second Dataset Title')
+                      .with_datafiles([{'format' => 'bar'}])
+                      .build
 
     index([first_dataset, second_dataset])
 
