@@ -38,6 +38,10 @@ module DatasetsHelper
         datafile_next_updated(dataset)
   end
 
+  def last_updated_datafile(dataset)
+    (dataset.datafiles.sort_by &:updated_at).last
+  end
+
   def expected_update_class_for(freq)
     "dgu-secondary-text" if NO_MORE.include?(freq)
   end
