@@ -60,8 +60,6 @@ en:
       link_to_doc: "Link to the document"
       date_added: "Date added"
       format: "Format"
-    timeseries_data:
-      download_all: "Download all"
     show:
       open_all: "Open all"
       data_links: "Data links"
