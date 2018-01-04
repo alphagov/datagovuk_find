@@ -1,16 +1,17 @@
 module DatasetsHelper
-
+#TODO fix financial year calculation. 
   FREQUENCIES = {
       'annually' => {years: 1},
       'quarterly' => {months: 4},
       'monthly' => {months: 1},
-      'daily' => {days: 1}
+      'daily' => {days: 1},
+      'financial-year' => {years: 1}
   }
 
   NO_MORE = {
-      'discontinued' => 'Dataset no longer updated',
       'never' => 'No future updates',
-      'one off' => 'No future updates',
+      'discontinued' => 'Dataset no longer updated',
+      'irregular' => 'Not available',
       'default' => 'Not available'
   }
 
