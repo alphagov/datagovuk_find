@@ -45,6 +45,10 @@ def mappings
           type: "string",
           index: "not_analyzed"
         },
+        legacy_name: {
+          type: 'string',
+          index: 'not_analyzed'
+        },
         uuid: {
           type: "string",
           index: "not_analyzed"

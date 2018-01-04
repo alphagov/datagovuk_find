@@ -37,7 +37,7 @@ describe DatasetsController, type: :controller do
     end
   end
 
-  describe 'visiting the dataset page' do
+  describe 'visiting the dataset page with an outdated slug' do
     it "redirects to the latest slugged URL" do
       index([dataset])
       get :show, params: { uuid: dataset[:uuid], name: "outdated-slug" }
