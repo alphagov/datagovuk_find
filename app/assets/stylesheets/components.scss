@@ -104,9 +104,11 @@
   dt {
     width: 30%;
     font-weight: bold;
+    white-space: nowrap;
+    margin-right: 5px;
   }
   dd {
-    width: 69%;
+    width: 60%;
   }
 
 }
