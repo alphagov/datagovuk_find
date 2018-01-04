@@ -41,3 +41,5 @@ deploy:
     script: scripts/deploy.sh find-data-beta production
     on:
       branch: production
+notifications:
+  irc: "chat.freenode.net#datagovuk"
