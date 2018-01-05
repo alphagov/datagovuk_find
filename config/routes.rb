@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   root to: 'home#index'
 
+  scope module: 'legacy' do
+    get 'dataset/:legacy_name', to: 'datasets#redirect'
+    get 'data/search',          to: 'search#redirect'
+  end
+
   scope module: 'pages' do
     get 'accessibility'
     get 'cookies'
@@ -14,9 +19,7 @@ Rails.application.routes.draw do
 
   get 'search/', to: 'search#search'
   get 'search/tips', to: 'search#tips'
-  get 'data/search', to: 'legacy_search#redirect'
 
-  get 'dataset/:legacy_name', to: 'legacy_datasets#redirect'
   get 'dataset/:uuid/:name', to: 'datasets#show', as: 'dataset'
 
   get 'use-of-data', to: 'consents#new', as: 'new_consent'

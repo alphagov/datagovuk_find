@@ -1,4 +1,4 @@
-class LegacySearchController < ApplicationController
+class Legacy::SearchController < ApplicationController
   def redirect
     filters = {
       format: params["res_format"],
