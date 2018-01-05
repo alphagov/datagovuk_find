@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   get 'search/', to: 'search#search'
   get 'search/tips', to: 'search#tips'
+  get 'data/search', to: 'legacy_search#redirect'
 
   get 'dataset/:legacy_name', to: 'legacy_datasets#redirect'
   get 'dataset/:uuid/:name', to: 'datasets#show', as: 'dataset'

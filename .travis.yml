@@ -9,6 +9,10 @@ language: ruby
 cache: bundler
 rvm:
 - 2.4
+branches:
+  only:
+  - master
+  - /deploy-production*/
 services:
 - postgresql
 - elasticsearch
@@ -33,13 +37,16 @@ after_success:
   - sudo apt-get update
   - sudo apt-get install cf-cli
 deploy:
+  # To staging
   - provider: script
     script: scripts/deploy.sh find-data-beta-staging staging
     on:
-      branch: master
+      repo: alphagov/datagovuk_find
+  # To production
   - provider: script
     script: scripts/deploy.sh find-data-beta production
     on:
-      branch: production
+      repo: alphagov/datagovuk_find
+      tags: true
 notifications:
   irc: "chat.freenode.net#datagovuk"
