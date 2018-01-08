@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   scope module: 'legacy' do
     get 'dataset/:legacy_name', to: 'datasets#redirect'
     get 'data/search',          to: 'search#redirect'
+    get 'contact',              to: redirect('support')
   end
 
   scope module: 'pages' do
