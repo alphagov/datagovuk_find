@@ -12,7 +12,7 @@ rvm:
 branches:
   only:
   - master
-  - /find-beta-v*/
+  - /^v\d+\.\d+\.\d+$/
 services:
 - postgresql
 - elasticsearch
