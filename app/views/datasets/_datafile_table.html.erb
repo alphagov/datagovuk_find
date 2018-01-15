@@ -5,9 +5,9 @@
     <th><%= t('.last_updated') %></th>
     <th><%= t('.data_preview') %></th>
   </tr>
-  <tbody itemprop="distribution">
+  <tbody>
     <% datafiles.each do |datafile| %>
-      <tr class="<%= show_more?(datafiles, datafile) %> dgu-datafile" itemscope itemtype="http://schema.org/DataDownload">
+      <tr class="<%= show_more?(datafiles, datafile) %> dgu-datafile" itemscope itemtype="http://schema.org/DataDownload" itemprop="distribution">
         <td class="title small">
           <%= link_to (datafile.name ? datafile.name : 'Data Link'),
             datafile.url,
