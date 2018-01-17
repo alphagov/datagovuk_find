@@ -16,7 +16,6 @@ gem 'kaminari', '~> 1.0.1'
 gem 'rest-client', '~> 2.0.2'
 gem 'mime-types', '~> 3.1'
 gem 'friendly_id', '~> 5.2.1'
-gem 'cancancan', '~> 1.10'
 gem "elasticsearch", "~> 5.0.4"
 gem "elasticsearch-model", "~> 5.0.1"
 gem "elasticsearch-rails", "~> 5.0.1"
