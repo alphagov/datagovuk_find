@@ -3,6 +3,8 @@
 $(document).ready(function() {
   accessibleAutocomplete.enhanceSelectElement({
     selectElement: document.querySelector('#js_format-filter'),
-    showAllValues: true
+    showAllValues: true,
+    confirmOnBlur: false,
+    autoselect: false
   })
 });
