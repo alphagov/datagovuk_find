@@ -21,7 +21,6 @@ gem "elasticsearch", "~> 5.0.4"
 gem "elasticsearch-model", "~> 5.0.1"
 gem "elasticsearch-rails", "~> 5.0.1"
 gem "elasticsearch-persistence", "~> 5", require: "elasticsearch/persistence/model"
-gem 'therubyracer'
 gem 'elasticsearch-dsl', "~> 0.1.5"
 gem 'htmlentities', "~> 4.3"
 gem 'gon'
