@@ -8,14 +8,14 @@ class Dataset
                 :contact_name, :contact_email, :contact_phone,
                 :licence, :licence_other, :frequency,
                 :published_date, :last_updated_at, :created_at,
-                :harvested, :uuid, :datafiles,
+                :harvested, :uuid,
                 :inspire_dataset, :json, :notes,
                 :contact_name, :contact_email, :contact_phone,
                 :foi_name, :foi_email, :foi_phone, :foi_web,
                 :_index, :_type, :_id, :_score, :_source,
                 :_version
 
-  attr_reader :organisation
+  attr_reader :organisation,:docs, :datafiles
 
   index_name ENV['ES_INDEX'] || "datasets-#{Rails.env}"
 
@@ -62,8 +62,16 @@ class Dataset
     map_keys(buckets)
   end
 
-  def datafiles
-    @datafiles.map { |file| Datafile.new(file) }
+  def docs=(docs)
+    @docs = docs.map { |file| Doc.new(file) }
+  end
+
+  def datafiles=(datafiles)
+    @datafiles = datafiles.map { |file| Datafile.new(file)}
+  end
+
+  def links
+    @docs + @datafiles
   end
 
   def timeseries_datafiles
