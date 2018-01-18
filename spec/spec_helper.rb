@@ -37,7 +37,48 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 end
 
-def mappings
+def delete_index
+  if Rails.env == "test"
+    begin
+      ELASTIC.indices.delete index: "datasets-test"
+    rescue
+      Rails.logger.debug("No test search index to delete")
+    end
+  end
+end
+
+def create_index
+  if Rails.env == "test"
+    begin
+      Rails.logger.info("Creating datasets-test index")
+
+      ELASTIC.indices.create(
+        index: "datasets-test",
+        body: {
+            settings: index_settings,
+            mappings: index_mappings
+        }
+      )
+    rescue
+      Rails.logger.debug("Could not create datasets-test index")
+    end
+  end
+end
+
+def index_settings
+  {
+    analysis: {
+      normalizer: {
+        lowercase_normalizer: {
+          type: "custom",
+          filter: "lowercase"
+        }
+      }
+    }
+  }
+end
+
+def index_mappings
   {
     dataset: {
       properties: {
@@ -79,37 +120,13 @@ def mappings
         datafiles: {
           type: "nested",
           properties: {
-            format: { type: "keyword" }
+            format: {
+              type: "keyword",
+              normalizer: "lowercase_normalizer"
+            }
           }
         }
       }
     }
   }
-end
-
-def delete_index
-  if Rails.env == "test"
-    begin
-      ELASTIC.indices.delete index: "datasets-test"
-    rescue
-      Rails.logger.debug("No test search index to delete")
-    end
-  end
-end
-
-def create_index
-  if Rails.env == "test"
-    begin
-      Rails.logger.info("Creating datasets-test index")
-
-      ELASTIC.indices.create(
-        index: "datasets-test",
-        body: {
-            mappings: mappings
-        }
-      )
-    rescue
-      Rails.logger.debug("Could not create datasets-test index")
-    end
-  end
 end
