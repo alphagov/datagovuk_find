@@ -21,7 +21,7 @@ describe SearchHelper do
 
       index([first_dataset, second_dataset])
 
-      expect(datafile_formats_for_select).to eql ['baz', 'bar', 'foo']
+      expect(datafile_formats_for_select).to eql ['', 'baz', 'bar', 'foo']
     end
   end
 end
