@@ -1,15 +1,15 @@
 module SearchHelper
 
   def display_sort(sort)
-    sort == 'best' ? "Best Match" : "Most Recent"
+    sort == 'best' ? 'Best Match' : 'Most Recent'
   end
 
   def format(timestamp)
-    Time.parse(timestamp).strftime("%d %B %Y")
+    Time.parse(timestamp).strftime('%d %B %Y')
   end
 
   def datafile_formats_for_select
-    Dataset.datafile_formats
+    Dataset.datafile_formats.unshift('').uniq
   end
 
   def selected_format
