@@ -6,8 +6,6 @@ gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'jbuilder', '~> 2.5'
-gem 'devise', '~> 4.3'
-gem 'devise_invitable', '~> 1.7.2'
 gem 'activeadmin', '~> 1'
 gem 'govuk_elements_rails'
 gem 'govuk_template'
@@ -44,7 +42,6 @@ group :development, :test do
   gem 'dotenv-rails', '~> 2.2'
 end
 
-
 group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
@@ -55,7 +52,6 @@ group :development do
   gem 'launchy'
 end
 
-
 group :test do
   gem 'simplecov', '~> 0.13'
   gem 'codeclimate-test-reporter', '~> 1.0.0'
@@ -63,6 +59,5 @@ group :test do
   gem 'capybara-selenium', '0.0.6'
   gem 'chromedriver-helper', '~> 1.1'
 end
-
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
