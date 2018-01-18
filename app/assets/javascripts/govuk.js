@@ -23,6 +23,15 @@ $(document).ready(function () {
     Typeahead.add('#location', 'location', Find.locations)
   }
 
+  if (document.getElementById('format')) {
+    accessibleAutocomplete.enhanceSelectElement({
+      selectElement: document.querySelector('#format'),
+      showAllValues: true,
+      confirmOnBlur: false,
+      autoselect: false
+    })
+  }
+
   new FoldableText('.summary', 200)
     .init()
 

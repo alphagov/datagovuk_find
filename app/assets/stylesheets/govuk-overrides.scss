@@ -117,3 +117,12 @@ button.button.secondary {
   box-shadow: none;
   padding: .8em 0 0 0;
 }
+
+
+.autocomplete__dropdown-arrow-down {
+  z-index: 1;
+}
+
+.autocomplete__input {
+  z-index: 2;
+}
