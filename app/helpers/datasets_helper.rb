@@ -1,12 +1,5 @@
 module DatasetsHelper
 
-  FREQUENCIES = {
-      'annually' => {years: 1},
-      'quarterly' => {months: 4},
-      'monthly' => {months: 1},
-      'daily' => {days: 1}
-  }
-
   NO_MORE = {
       'discontinued' => 'Dataset no longer updated',
       'never' => 'No future updates',
@@ -32,18 +25,8 @@ module DatasetsHelper
     key != nil && key != ""
   end
 
-  def expected_update(dataset)
-    dataset.frequency.nil? ?
-        NO_MORE['default'] :
-        datafile_next_updated(dataset)
-  end
-
   def last_updated_datafile(dataset)
     (dataset.datafiles.sort_by &:updated_at).last
-  end
-
-  def expected_update_class_for(freq)
-    "dgu-secondary-text" if NO_MORE.include?(freq)
   end
 
   def dataset_location(dataset)
@@ -67,19 +50,6 @@ module DatasetsHelper
   end
 
   private
-
-  def datafile_next_updated(dataset)
-    freq = dataset.frequency
-    last = Time.parse(most_recent_date(dataset.datafiles))
-
-    return last.advance(FREQUENCIES[freq]).strftime("%d %B %Y") if FREQUENCIES.has_key?(freq)
-    return NO_MORE[freq] if NO_MORE.has_key?(freq)
-    NO_MORE['default']
-  end
-
-  def most_recent_date(datafiles)
-    datafiles.map(&:most_recent_date).max
-  end
 
   def documents(datafiles)
     datafiles.select do |file|
