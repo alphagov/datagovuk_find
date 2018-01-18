@@ -17,10 +17,6 @@ module DatasetsHelper
     Time.parse(timestamp).strftime("%d %B %Y")
   end
 
-  def documentation?(key)
-    key != nil && key != ""
-  end
-
   def last_updated_datafile(dataset)
     (dataset.datafiles.sort_by &:updated_at).last
   end
