@@ -2,7 +2,7 @@
 
 $(document).ready(function() {
   accessibleAutocomplete.enhanceSelectElement({
-    selectElement: document.querySelector('#js_format-filter'),
+    selectElement: document.querySelector('#format'),
     showAllValues: true,
     confirmOnBlur: false,
     autoselect: false
