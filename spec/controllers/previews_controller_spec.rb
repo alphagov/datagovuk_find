@@ -19,7 +19,6 @@ describe PreviewsController, type: :controller do
 
       index([dataset])
       get :show, params: { dataset_uuid: dataset[:uuid], name: dataset[:name], datafile_uuid: datafile.uuid }
-
       expect(response.body).to have_content('Berlin')
     end
 

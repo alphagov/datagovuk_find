@@ -40,6 +40,7 @@ class DatasetBuilder
             ancestry: ''
         },
         datafiles: [],
+        docs: [],
         notes: ''
     }
   end
@@ -117,6 +118,7 @@ DATA_FILES_WITH_START_AND_ENDDATE = [
      'format' => 'HTML',
      'start_date' => '1/1/15',
      'end_date' => nil,
+     'created_at' => '2016-07-31T14:40:57.528Z',
      'updated_at' => '2016-08-31T14:40:57.528Z'
     },
     {'id' => 2,
@@ -125,6 +127,7 @@ DATA_FILES_WITH_START_AND_ENDDATE = [
      'format' => 'CSV',
      'start_date' => '1/1/15',
      'end_date' => '24/03/2018',
+     'created_at' => '2016-07-31T14:40:57.528Z',
      'updated_at' => '2016-08-31T14:40:57.528Z',
      'uuid' => '5e359634-f15b-4639-97e6-a4e28ba15276'
     },
@@ -134,6 +137,7 @@ DATA_FILES_WITH_START_AND_ENDDATE = [
      'format' => '',
      'start_date' => '1/1/15',
      'end_date' => '01/12/2018',
+     'created_at' => '2016-07-31T14:40:57.528Z',
      'updated_at' => '2016-08-31T14:40:57.528Z'
     }
 ]
