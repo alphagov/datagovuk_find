@@ -71,7 +71,7 @@ class Dataset
   end
 
   def links
-    @docs + @datafiles
+    docs + datafiles
   end
 
   def timeseries_datafiles
