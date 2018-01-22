@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe SearchHelper do
   describe '#datafile_formats_for_select' do
-    it 'returns a list of upcased unique datafile formats ordered by datafile count (elasticsearch default)' do
+    it 'returns a list of upcased unique datafile formats ordered alphabetically' do
       # More info: https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-bucket-nested-aggregation.html
 
       first_dataset = DatasetBuilder.new
@@ -21,7 +21,7 @@ describe SearchHelper do
 
       index([first_dataset, second_dataset])
 
-      expect(datafile_formats_for_select).to eql ['', 'BAZ', 'BAR', 'FOO']
+      expect(datafile_formats_for_select).to eql ['', 'BAR', 'BAZ', 'FOO']
     end
 
     it 'returns a list of datafile formats normalized for case' do
@@ -41,7 +41,7 @@ describe SearchHelper do
 
       index([first_dataset, second_dataset])
 
-      expect(datafile_formats_for_select).to eql ['', 'FOO', 'BAR', 'BAZ']
+      expect(datafile_formats_for_select).to eql ['', 'BAR', 'BAZ', 'FOO']
     end
   end
 end
