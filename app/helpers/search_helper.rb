@@ -9,7 +9,7 @@ module SearchHelper
   end
 
   def datafile_formats_for_select
-    Dataset.datafile_formats.unshift('').uniq
+    Dataset.datafile_formats.map(&:upcase).unshift('')
   end
 
   def selected_format
