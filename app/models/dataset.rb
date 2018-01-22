@@ -15,7 +15,7 @@ class Dataset
                 :_index, :_type, :_id, :_score, :_source,
                 :_version
 
-  attr_reader :organisation,:docs, :datafiles
+  attr_reader :organisation
 
   index_name ENV['ES_INDEX'] || "datasets-#{Rails.env}"
 
@@ -62,8 +62,16 @@ class Dataset
     map_keys(buckets)
   end
 
+  def docs
+    Array(@docs)
+  end
+
   def docs=(docs)
     @docs = docs.map { |file| Doc.new(file) }
+  end
+
+  def datafiles
+    Array(@datafiles)
   end
 
   def datafiles=(datafiles)
