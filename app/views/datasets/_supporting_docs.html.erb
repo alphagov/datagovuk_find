@@ -12,13 +12,13 @@
     </tr>
     </thead>
     <tbody>
-    <% documents.each do |doc| %>
+    <% @dataset.docs.each do |doc| %>
       <tr>
         <td class="title">
-          <a href="<%= doc['url'] %>"><%= doc['name'] %></a>
+          <a href="<%= doc.url%>"><%= doc.name %></a>
         </td>
-        <td><%= doc["format"] or "N/A" %></td>
-        <td><%= doc["start_date"] or "N/A" %></td>
+        <td><%= doc.format or "N/A" %></td>
+        <td><%= format(doc.created_at) or "N/A" %></td>
       </tr>
     <% end %>
     </tbody>

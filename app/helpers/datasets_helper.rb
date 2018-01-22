@@ -17,14 +17,6 @@ module DatasetsHelper
     Time.parse(timestamp).strftime("%d %B %Y")
   end
 
-  def no_documents?(datafiles)
-    documents(datafiles).count == 0
-  end
-
-  def documentation?(key)
-    key != nil && key != ""
-  end
-
   def last_updated_datafile(dataset)
     (dataset.datafiles.sort_by &:updated_at).last
   end
@@ -50,12 +42,6 @@ module DatasetsHelper
   end
 
   private
-
-  def documents(datafiles)
-    datafiles.select do |file|
-      documentation?(file.documentation)
-    end
-  end
 
   def locations(dataset)
     ['location1', 'location2', 'location3']

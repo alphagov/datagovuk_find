@@ -1,6 +1,6 @@
 class Datafile
   attr_reader :name, :url, :start_date, :end_date,
-              :updated_at, :format, :size, :documentation,
+              :created_at, :updated_at, :format, :size,
               :uuid
 
   def initialize(attrs)
@@ -8,10 +8,10 @@ class Datafile
     @url = attrs["url"]
     @start_date = attrs["start_date"]
     @end_date = attrs["end_date"]
+    @created_at = attrs["created_at"]
     @updated_at = attrs["updated_at"]
     @format =  attrs["format"]
     @size =  attrs["size"]
-    @documentation = attrs["documentation"]
     @uuid = attrs["uuid"]
   end
 

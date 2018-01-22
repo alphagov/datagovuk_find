@@ -251,9 +251,9 @@ feature 'Dataset page', elasticsearch: true do
         {
           id: 4,
           url: "http://www.foobar.com",
-          name: "Datafile 3",
+          name: "Datafile 4",
           start_date: nil,
-          end_date: "2001/12/12",
+          end_date: nil,
           updated_at: "2001/01/01"
         }
       ]
@@ -263,7 +263,6 @@ feature 'Dataset page', elasticsearch: true do
         .build
 
       index_and_visit(dataset)
-
       expect(page).to have_css(".dgu-datafiles__year", count: 2)
     end
 
@@ -274,7 +273,7 @@ feature 'Dataset page', elasticsearch: true do
           url: "http://www.foobar.com",
           name: "Datafile 1",
           start_date: nil,
-          end_date: "2000/12/12",
+          end_date: nil,
           updated_at: "2000/01/01"
         },
         {
@@ -282,7 +281,7 @@ feature 'Dataset page', elasticsearch: true do
           url: "http://www.foobar.com",
           name: "Datafile 2",
           start_date: nil,
-          end_date: "2001/12/12",
+          end_date: nil,
           updated_at: "2001/01/01"
         },
         {
@@ -290,7 +289,7 @@ feature 'Dataset page', elasticsearch: true do
           url: "http://www.foobar.com",
           name: "Datafile 3",
           start_date: nil,
-          end_date: "2001/12/12",
+          end_date: nil,
           updated_at: "2001/01/01"
         }
       ]

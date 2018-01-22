@@ -81,6 +81,12 @@ def mappings
           properties: {
             format: { type: "keyword" }
           }
+        },
+        docs: {
+          type: "nested",
+          properties: {
+            format: { type: "keyword" }
+          }
         }
       }
     }
