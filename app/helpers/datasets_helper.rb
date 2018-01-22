@@ -41,6 +41,10 @@ module DatasetsHelper
     end
   end
 
+  def group_and_order(datafiles)
+    datafiles.group_by(&:start_year).sort.reverse
+  end
+
   private
 
   def locations(dataset)
