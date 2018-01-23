@@ -264,6 +264,14 @@ feature 'Dataset page', elasticsearch: true do
 
       index_and_visit(dataset)
       expect(page).to have_css(".dgu-datafiles__year", count: 2)
+
+      correct_order = [
+        "#{Time.parse(timeseries_and_non_timeseries[1][:start_date]).year}",
+        "#{Time.parse(timeseries_and_non_timeseries[0][:start_date]).year}"
+        ]
+      actual_order = all('button.dgu-datafiles__year').map(&:text)
+
+      expect(actual_order).to eq correct_order
     end
 
     scenario 'are not grouped when they contain non timeseries datafiles' do
