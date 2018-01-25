@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
 
   scope module: 'pages' do
+    get 'about'
     get 'accessibility'
     get 'cookies'
     get 'privacy'
