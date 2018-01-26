@@ -60,7 +60,7 @@
 
             <p>
               <%= @dataset.contact_name.presence || @dataset.organisation.contact_name %></br>
-              <%= mail_to(@dataset.contact_email || @dataset.organisation.contact_email) %>
+              <%= mail_to(@dataset.contact_email.presence || @dataset.organisation.contact_email) %>
             </p>
           </div>
         <% end %>
@@ -73,7 +73,7 @@
 
             <p>
               <%= @dataset.foi_name.presence || @dataset.organisation.foi_name %></br>
-              <%= mail_to(@dataset.foi_email || @dataset.organisation.foi_email) %>
+              <%= mail_to(@dataset.foi_email.presence || @dataset.organisation.foi_email) %>
             </p>
           </div>
         <% end %>
