@@ -2,7 +2,7 @@
   <tr>
     <th class="title small"><%= t('.link_to_data') %></th>
     <th><%= t('.format') %></th>
-    <th><%= t('.last_updated') %></th>
+    <th><%= t('.file_added') %></th>
     <th><%= t('.data_preview') %></th>
   </tr>
   <tbody>
@@ -24,9 +24,9 @@
           <% end %>
           </td>
         <% end %>
-        <% if datafile.updated_at.present? %>
+        <% if datafile.created_at.present? %>
           <td>
-            <%= format(datafile.updated_at) %>
+            <%= format(datafile.created_at) %>
           </td>
         <% else %>
           <td class="dgu-secondary-text">Not available</td>

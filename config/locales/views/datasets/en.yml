@@ -31,7 +31,7 @@ en:
     datafile_table:
       link_to_data: "Link to the data"
       format: "Format"
-      last_updated: "Last updated"
+      file_added: "File added"
       data_preview: "Data preview"
       data_link: "Data Link"
       n_a: "N/A"
