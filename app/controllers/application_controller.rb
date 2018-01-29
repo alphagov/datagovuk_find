@@ -11,4 +11,8 @@ class ApplicationController < ActionController::Base
                         environment: Rails.env,
                         app: ENV['VCAP_APPLICATION'])
   end
+
+  def beta_message_unseen?
+    !session.key?('beta_message') || session[:beta_message] == false
+  end
 end

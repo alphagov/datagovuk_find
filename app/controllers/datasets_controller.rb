@@ -1,5 +1,6 @@
 class DatasetsController < LoggedAreaController
   include DatasetsHelper
+  before_action :toggle_beta_message
 
   def show
     @dataset = Dataset.get_by_short_id(short_id: params[:short_id])
@@ -14,6 +15,11 @@ class DatasetsController < LoggedAreaController
 
   rescue => e
     handle_error(e)
+  end
+
+  def accept_and_redirect
+    session[:beta_message] = true
+    redirect_to dataset_path(params[:uuid], params[:name])
   end
 
   private
@@ -41,5 +47,10 @@ class DatasetsController < LoggedAreaController
 
   def newest_dataset_path
     dataset_path(@dataset.short_id, @dataset.name)
+  end
+
+  def toggle_beta_message
+    flash[:beta_message] =
+      beta_message_unseen? ? 'show' : 'hide'
   end
 end

@@ -1,5 +1,6 @@
 class SearchController < LoggedAreaController
   before_action :search_for_dataset, only: [:search]
+  before_action :toggle_beta_message
 
   def search
     @query = params['q'] || ''
@@ -12,7 +13,17 @@ class SearchController < LoggedAreaController
     @datasets = @search.page(page_number)
   end
 
+  def accept_and_redirect
+    session[:beta_message] = true
+    redirect_to search_path(q: params[:q])
+  end
+
   private
+
+  def toggle_beta_message
+    flash[:beta_message] =
+      beta_message_unseen? ? 'show' : 'hide'
+  end
 
   def search_for_dataset
     query = Search::Query.search(params)
