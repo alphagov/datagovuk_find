@@ -21,8 +21,8 @@ feature 'Dataset page', elasticsearch: true do
   feature 'Datalinks' do
     scenario 'displays if required fields present' do
       dataset = DatasetBuilder.new
-                  .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
-                  .build
+        .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
+        .build
 
       index_and_visit(dataset)
 
@@ -31,7 +31,7 @@ feature 'Dataset page', elasticsearch: true do
 
     scenario 'datafiles are not present' do
       dataset = DatasetBuilder.new
-                  .build
+        .build
 
       index_and_visit(dataset)
 
@@ -40,8 +40,8 @@ feature 'Dataset page', elasticsearch: true do
 
     scenario 'display if some information is missing' do
       dataset = DatasetBuilder.new
-                  .with_datafiles(DATAFILES_WITHOUT_START_AND_ENDDATE)
-                  .build
+        .with_datafiles(DATAFILES_WITHOUT_START_AND_ENDDATE)
+        .build
 
       index_and_visit(dataset)
 
@@ -49,33 +49,42 @@ feature 'Dataset page', elasticsearch: true do
     end
   end
 
-  feature 'Related datasets' do
-    scenario 'displays related datasets if there is a match' do
-      title_1 = '1 Data Set'
-      title_2 = '2 Data Set'
-      slug_1 = 'first-dataset-data'
-      slug_2 = 'second-dataset-data'
+  feature 'Side bar content' do
+    context 'Related content and publisher datasets' do
+      before do
+        title_1 = '1 Data Set'
+        @title_2 = '2 Data Set'
+        slug_1 = 'first-dataset-data'
+        slug_2 = 'second-dataset-data'
 
-      first_dataset = DatasetBuilder.new
-                        .with_title(title_1)
-                        .with_name(slug_1)
-                        .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
-                        .build
+        @first_dataset = DatasetBuilder.new
+          .with_title(title_1)
+          .with_name(slug_1)
+          .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
+          .build
 
-      second_dataset = DatasetBuilder.new
-                         .with_title(title_2)
-                         .with_name(slug_2)
-                         .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
-                         .build
+        second_dataset = DatasetBuilder.new
+          .with_title(@title_2)
+          .with_name(slug_2)
+          .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
+          .build
 
-      index([first_dataset, second_dataset])
-      refresh_index
+        index([@first_dataset, second_dataset])
+        refresh_index
 
-      visit dataset_path(first_dataset[:uuid], first_dataset[:name])
+        visit dataset_path(@first_dataset[:uuid], @first_dataset[:name])
+      end
 
-      expect(page).to have_content('Related datasets')
-      expect(page).to have_content(title_2)
-    end
+      scenario 'displays related datasets if there is a match' do
+        expect(page).to have_content('Related datasets')
+        expect(page).to have_content(@title_2)
+      end
+
+      scenario 'displays link to publisher\'s datasets' do
+        expect(page).to have_content('More from this publisher')
+        expect(page).to have_css('a', text: "All datasets from #{@first_dataset[:organisation][:title]}")
+      end
+    end 
 
     scenario 'displays filtered related datasets if filters form part of search query' do
       title_1 = 'First Dataset Data'
@@ -88,28 +97,28 @@ feature 'Dataset page', elasticsearch: true do
       auckland = 'Auckland'
 
       first_dataset = DatasetBuilder.new
-                        .with_title(title_1)
-                        .with_name(slug_1)
-                        .with_location(london)
-                        .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
-                        .build
+        .with_title(title_1)
+        .with_name(slug_1)
+        .with_location(london)
+        .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
+        .build
 
       second_dataset = DatasetBuilder.new
-                         .with_title(title_2)
-                         .with_name(slug_2)
-                         .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
-                         .with_location(london)
-                         .build
+        .with_title(title_2)
+        .with_name(slug_2)
+        .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
+        .with_location(london)
+        .build
 
       third_dataset = DatasetBuilder.new
-                        .with_title(title_3)
-                        .with_name(slug_3)
-                        .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
-                        .with_summary('Nothing')
-                        .with_description('Nothing')
-                        .with_location(auckland)
-                        .with_publisher('Unrelated publisher')
-                        .build
+        .with_title(title_3)
+        .with_name(slug_3)
+        .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
+        .with_summary('Nothing')
+        .with_description('Nothing')
+        .with_location(auckland)
+        .with_publisher('Unrelated publisher')
+        .build
 
       index([first_dataset, second_dataset, third_dataset])
 
@@ -126,8 +135,8 @@ feature 'Dataset page', elasticsearch: true do
       allow(Dataset).to receive(:related).and_return([])
 
       dataset = DatasetBuilder.new
-                  .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
-                  .build
+        .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
+        .build
 
       index_and_visit(dataset)
 
@@ -139,9 +148,9 @@ feature 'Dataset page', elasticsearch: true do
     scenario 'Is displayed if available' do
       notes = 'Some very interesting notes'
       dataset = DatasetBuilder.new
-                  .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
-                  .with_notes(notes)
-                  .build
+        .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
+        .with_notes(notes)
+        .build
 
       index_and_visit(dataset)
 
@@ -151,8 +160,8 @@ feature 'Dataset page', elasticsearch: true do
 
     scenario 'Is not displayed if not available' do
       dataset = DatasetBuilder.new
-                  .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
-                  .build
+        .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
+        .build
 
       index_and_visit(dataset)
 
@@ -164,9 +173,9 @@ feature 'Dataset page', elasticsearch: true do
     scenario 'Is displayed if available' do
       contact_email = 'contact@somewhere.com'
       dataset = DatasetBuilder.new
-                  .with_contact_email(contact_email)
-                  .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
-                  .build
+        .with_contact_email(contact_email)
+        .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
+        .build
 
       index_and_visit(dataset)
 
@@ -176,8 +185,8 @@ feature 'Dataset page', elasticsearch: true do
 
     scenario 'Is not displayed if not available' do
       dataset = DatasetBuilder.new
-                  .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
-                  .build
+        .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
+        .build
 
       index_and_visit(dataset)
 
@@ -189,8 +198,8 @@ feature 'Dataset page', elasticsearch: true do
     scenario 'Show more and show less' do
       DATAFILES = create_datafiles(20)
       dataset = DatasetBuilder.new
-                  .with_datafiles(DATAFILES)
-                  .build
+        .with_datafiles(DATAFILES)
+        .build
 
       index_and_visit(dataset)
 
@@ -209,12 +218,12 @@ feature 'Dataset page', elasticsearch: true do
 
       count.times do |i|
         datafiles.push({
-                         'id' => i,
-                         'url' => "http://datafile-url",
-                         'start_date' => nil,
-                         'end_date' => nil,
-                         'updated_at' => '2017-08-31T14:40:57.528Z'
-                       })
+          'id' => i,
+          'url' => "http://datafile-url",
+          'start_date' => nil,
+          'end_date' => nil,
+          'updated_at' => '2017-08-31T14:40:57.528Z'
+        })
       end
 
       return datafiles
@@ -268,7 +277,7 @@ feature 'Dataset page', elasticsearch: true do
       correct_order = [
         "#{Time.parse(timeseries_and_non_timeseries[1][:start_date]).year}",
         "#{Time.parse(timeseries_and_non_timeseries[0][:start_date]).year}"
-        ]
+      ]
       actual_order = all('button.dgu-datafiles__year').map(&:text)
 
       expect(actual_order).to eq correct_order
