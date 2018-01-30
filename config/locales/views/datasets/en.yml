@@ -41,6 +41,7 @@ en:
       preview: "Preview"
     meta_data:
       availability: "Availability"
+      publisher_datasets: "More from this publisher"
       published_by: "Published by"
       last_updated: "Last updated"
       geographical_area: "Geographical area"
