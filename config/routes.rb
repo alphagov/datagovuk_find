@@ -20,8 +20,7 @@ Rails.application.routes.draw do
   match "500", to: "errors#internal_server_error", via: :all
 
   get 'search/', to: 'search#search'
-  get 'search/tips', to: 'search#tips'
-
+  
   get 'dataset/:uuid/:name', to: 'datasets#show', as: 'dataset'
 
   get 'use-of-data', to: 'consents#new', as: 'new_consent'
