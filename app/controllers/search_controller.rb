@@ -12,10 +12,6 @@ class SearchController < LoggedAreaController
     @datasets = @search.page(page_number)
   end
 
-  def tips
-    render(layout: 'layouts/application')
-  end
-
   private
 
   def search_for_dataset
