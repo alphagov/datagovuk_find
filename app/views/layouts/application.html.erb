@@ -32,8 +32,9 @@
     <%= render partial: 'datasets/breadcrumb' if request.original_url.match('/dataset/') %>
     <%= render partial: 'layouts/feedback_survey_banner' %>
     <%= render partial: 'layouts/beta_message' if flash[:beta_message] == 'show'%>
-    <%= yield %>
-
+    <div class="dgu-beta-message__<%=flash[:beta_message] %>">
+      <%= yield %>
+    </div>
 
   <div id="global-app-error" class="app-error hidden"></div>
 
