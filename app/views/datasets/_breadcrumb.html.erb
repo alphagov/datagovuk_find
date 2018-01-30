@@ -1,22 +1,24 @@
-<div class="grid-row">
-  <!-- Only display breadcrumb if the referrer host matches the application host  -->
-  <div class="column-full">
-    <div class="datagov_breadcrumb">
-      <ol role="breadcrumb">
-        <li>
-          <%= link_to t('.home'), root_path %>
-        </li>
-        <li>
-          <% if @referer_query.nil? %>
-            <%= @dataset.organisation.title %>
-          <% else %>
-            <%= link_to t('.search'), "/search?#{@referrer}" %>
-          <% end %>
-        </li>
-        <li>
-          <%= @dataset.title %>
-        </li>
-      </ol>
+<% if @dataset %>
+  <div class="grid-row">
+    <!-- Only display breadcrumb if the referrer host matches the application host  -->
+    <div class="column-full">
+      <div class="datagov_breadcrumb">
+        <ol role="breadcrumb">
+          <li>
+            <%= link_to t('.home'), root_path %>
+          </li>
+          <li>
+            <% if @referer_query.nil? %>
+              <%= @dataset.organisation.title %>
+            <% else %>
+              <%= link_to t('.search'), "/search?#{@referrer}" %>
+            <% end %>
+          </li>
+          <li>
+            <%= @dataset.title %>
+          </li>
+        </ol>
+      </div>
     </div>
   </div>
-</div>
+<% end %>

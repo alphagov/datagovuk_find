@@ -36,6 +36,6 @@ Rails.application.routes.draw do
   get 'dataset/:short_id/:name', to: 'datasets#show', as: 'dataset'
   get 'dataset/:dataset_short_id/:name/datafile/:datafile_short_id/preview', to: 'previews#show', as: 'datafile_preview'
 
-  get 'seen_beta_message', to: 'home#accept_and_redirect'
-  get 'search_beta_message', to: 'search#accept_and_redirect'
+  get 'acknowledge_and_redirect', to: 'messages#acknowledge_and_redirect'
+
 end
