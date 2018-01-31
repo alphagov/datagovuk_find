@@ -20,7 +20,7 @@
           <dt><%= t('.published_by') %>:</dt>
           <dd itemprop="creator" itemscope itemtype="http://schema.org/Organization">
             <%= link_to search_path(filters: { publisher: @dataset.organisation.title }), :itemprop => 'url' do %>
-              <span itemprop="name"><%= @dataset.organisation.title =%></span>
+              <span itemprop="name"><%= @dataset.organisation.title %></span>
             <% end %>
           </dd>
 
@@ -63,8 +63,15 @@
     </div>
 
     <div class="column-one-third dgu-dataset-right">
+      <div class="dgu-dataset-right__sidebar__publisher_datasets">
+        <h3 class="heading-small"><%= t('.publisher_datasets') %></h3>
+        <%= link_to search_path(filters: { publisher: @dataset.organisation.title }), :itemprop => 'url' do %>
+          <span itemprop="name"><%= "All datasets from #{@dataset.organisation.title}" %></span>
+        <% end %>
+      </div>
+
       <% unless @related_datasets.empty? %>
-        <div class="dgu-dataset-right__related">
+        <div class="dgu-dataset-right__sidebar">
           <h3 class="heading-small"><%= t('.related_datasets') %></h3>
           <ul>
             <% @related_datasets.each do |dataset| %>

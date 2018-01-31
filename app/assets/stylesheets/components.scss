@@ -240,14 +240,18 @@
 
 .dgu-dataset-right {
   padding-left: 25px;
-  &__related {
-    h3 {
-      margin: 0;
-      padding-top: 30px;
-      border-top: 10px solid #F8F8F8;
-    }
+  &__sidebar {
     ul li {
       margin-bottom: 10px;
+    }
+
+    &__publisher_datasets {
+      h3 {
+        margin: 0;
+        padding-top: 30px;
+        border-top: 10px solid #F8F8F8;
+      }
+
     }
   }
 }
