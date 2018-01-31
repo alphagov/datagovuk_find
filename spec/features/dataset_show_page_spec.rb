@@ -317,7 +317,7 @@ feature 'Dataset page', elasticsearch: true do
       dataset = DatasetBuilder.new.build
       dataset[:contact_email] = "foo@bar.com"
       index_and_visit(dataset)
-      expect(page).to have_content("Contact the publisher for a data request.")
+      expect(page).to have_content("Contact the publisher for more information.")
     end
 
     scenario 'publisher contact details do not exist' do
