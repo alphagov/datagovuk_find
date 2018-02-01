@@ -72,7 +72,7 @@ feature 'Dataset page', elasticsearch: true do
         index([@first_dataset, second_dataset])
         refresh_index
 
-        visit dataset_path(@first_dataset[:uuid], @first_dataset[:name])
+        visit dataset_path(@first_dataset[:short_id], @first_dataset[:name])
       end
 
       scenario 'displays related datasets if there is a match' do
