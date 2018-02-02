@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     get 'dataset/:legacy_dataset_name/resource/:datafile_uuid', to: 'datafiles#redirect'
     get 'data/search',          to: 'search#redirect'
     get 'contact',              to: redirect('support')
+    get 'cookies-policy',       to: redirect('cookies')
   end
 
   scope module: 'pages' do
