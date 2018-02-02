@@ -13,7 +13,7 @@ end
 
 def index_and_visit(dataset)
   index([dataset])
-  visit dataset_path(dataset[:uuid], dataset[:name])
+  visit dataset_path(dataset[:short_id], dataset[:name])
 end
 
 def search_for(query)

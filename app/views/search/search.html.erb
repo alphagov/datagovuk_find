@@ -62,7 +62,7 @@
             <% @datasets.each do |d| %>
               <div class="dgu-results__result">
                 <h2 class="heading-medium">
-                  <%= link_to d.title, dataset_path(d.uuid, d.name) %>
+                  <%= link_to d.title, dataset_path(d.short_id, d.name) %>
                 </h2>
                 <dl class="dgu-metadata__box">
                   <% if d.datafiles.none? %>

@@ -20,8 +20,8 @@ Rails.application.routes.draw do
   match "500", to: "errors#internal_server_error", via: :all
 
   get 'search/', to: 'search#search'
-  
-  get 'dataset/:uuid/:name', to: 'datasets#show', as: 'dataset'
+
+  get 'search/tips', to: 'search#tips'
 
   get 'use-of-data', to: 'consents#new', as: 'new_consent'
   get 'use-of-data/confirm', to: 'consents#confirm'
@@ -31,5 +31,6 @@ Rails.application.routes.draw do
   resources :tickets, only: [:new, :create]
   get 'tickets/confirmation', to: 'tickets#confirmation'
 
-  get 'dataset/:dataset_uuid/:name/datafile/:datafile_uuid/preview', to: 'previews#show', as: 'datafile_preview'
+  get 'dataset/:short_id/:name', to: 'datasets#show', as: 'dataset'
+  get 'dataset/:dataset_short_id/:name/datafile/:datafile_short_id/preview', to: 'previews#show', as: 'datafile_preview'
 end

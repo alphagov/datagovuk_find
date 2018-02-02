@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'Dataset page', elasticsearch: true do
   scenario 'Displays 404 page if a dataset does not exist' do
-    visit '/dataset/invalid-uuid/invalid-slug'
+    visit '/dataset/invalid-short_id/invalid-slug'
 
     expect(page.status_code).to eq(404)
     expect(page).to have_content('Page not found')
@@ -72,7 +72,7 @@ feature 'Dataset page', elasticsearch: true do
         index([@first_dataset, second_dataset])
         refresh_index
 
-        visit dataset_path(@first_dataset[:uuid], @first_dataset[:name])
+        visit dataset_path(@first_dataset[:short_id], @first_dataset[:name])
       end
 
       scenario 'displays related datasets if there is a match' do
@@ -124,7 +124,7 @@ feature 'Dataset page', elasticsearch: true do
 
       refresh_index
 
-      visit dataset_path(first_dataset[:uuid], first_dataset[:name])
+      visit dataset_path(first_dataset[:short_id], first_dataset[:name])
 
       expect(page).to have_content('Related datasets')
       expect(page).to have_content(title_2)

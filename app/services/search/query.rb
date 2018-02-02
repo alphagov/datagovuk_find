@@ -133,12 +133,12 @@ module Search
       }
     end
 
-    def self.by_uuid(uuid)
+    def self.by_short_id(short_id)
       {
         query: {
           constant_score: {
             filter: {
-              term: { uuid: uuid }
+              term: { short_id: short_id }
             }
           }
         }
