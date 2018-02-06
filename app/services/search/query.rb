@@ -38,6 +38,28 @@ module Search
       }
     end
 
+    def self.dataset_topics_aggregation
+      {
+        size: 0,
+        aggs: {
+          topics: {
+            nested: {
+              path: 'topic'
+            },
+            aggs: {
+              topic_titles: {
+                terms: {
+                  field: 'topic.title.raw',
+                  order: { _term: 'asc' },
+                  size: TERMS_SIZE
+                }
+              }
+            }
+          }
+        }
+      }
+    end
+
     def self.datafile_formats_aggregation
       {
         "size": 0,
@@ -108,11 +130,13 @@ module Search
       publisher_param = params.dig(:filters, :publisher)
       location_param =  params.dig(:filters, :location)
       format_param =    params.dig(:filters, :format)
+      topic_param =    params.dig(:filters, :topic)
       licence_param =   params.dig(:filters, :licence)
 
       query[:query][:bool][:must] << multi_match(query_param)          if query_param.present?
       query[:query][:bool][:must] << publisher_filter(publisher_param) if publisher_param.present?
       query[:query][:bool][:must] << location_filter(location_param)   if location_param.present?
+      query[:query][:bool][:must] << topic_filter(topic_param)         if topic_param.present?
       query[:query][:bool][:must] << format_filter(format_param)       if format_param.present?
       query[:query][:bool][:must] << licence_filter(licence_param)     if licence_param.present?
 
@@ -173,6 +197,25 @@ module Search
       }
     end
 
+    def self.topic_filter(topic)
+      {
+        nested: {
+          path: "topic",
+          query: {
+            bool: {
+              must: [
+                {
+                  match: {
+                    "topic.title.raw": topic
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    end
+
     def self.format_filter(format)
       {
         nested: {
@@ -208,6 +251,6 @@ module Search
       }
     end
 
-    private_class_method :multi_match, :publisher_filter, :location_filter, :format_filter, :licence_filter
+    private_class_method :multi_match, :publisher_filter, :topic_filter, :location_filter, :format_filter, :licence_filter
   end
 end

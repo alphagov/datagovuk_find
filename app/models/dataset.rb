@@ -8,7 +8,7 @@ class Dataset
                 :contact_name, :contact_email, :contact_phone,
                 :licence, :licence_other, :frequency,
                 :published_date, :last_updated_at, :created_at,
-                :harvested, :uuid, :short_id,
+                :harvested, :uuid, :short_id, :topic,
                 :inspire_dataset, :json, :notes,
                 :_index, :_type, :_id, :_score, :_source,
                 :_version
@@ -51,6 +51,12 @@ class Dataset
   def self.publishers
     query = Search::Query.publishers_aggregation
     buckets = Dataset.search(query).aggregations['organisations']['org_titles']['buckets']
+    map_keys(buckets)
+  end
+
+  def self.topics
+    query = Search::Query.dataset_topics_aggregation
+    buckets = Dataset.search(query).aggregations['topics']['topic_titles']['buckets']
     map_keys(buckets)
   end
 

@@ -32,6 +32,15 @@ $(document).ready(function () {
     })
   }
 
+  if(document.getElementById('topic')) {
+    accessibleAutocomplete.enhanceSelectElement({
+      selectElement: document.querySelector('#topic'),
+      showAllValues: true,
+      confirmOnBlur: false,
+      autoselect: false
+    })
+  }
+
   new FoldableText('.summary', 200)
     .init()
 

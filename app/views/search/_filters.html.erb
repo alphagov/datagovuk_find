@@ -17,6 +17,11 @@
 </div>
 
 <div class="form-group">
+  <%= label_tag 'filters[topic]', t('.filter_by_topic'), class: 'form-label' %>
+  <%= select_tag('filters[topic]', options_for_select(dataset_topics_for_select, selected_topic), id: 'topic', class: 'form-control dgu-filters__filter') %>
+</div>
+
+<div class="form-group">
   <%= label_tag 'filters[format]', t('.filter_by_format'), class: 'form-label' %>
   <%= select_tag('filters[format]', options_for_select(datafile_formats_for_select, selected_format), id: 'format', class: 'form-control dgu-filters__filter') %>
 </div>
