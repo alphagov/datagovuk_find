@@ -9,12 +9,18 @@ feature 'Dataset page', elasticsearch: true do
   end
 
   feature 'Meta data' do
-    scenario 'Display a location if there is one' do
+    before(:each) do
       dataset = DatasetBuilder.new.build
 
       index_and_visit(dataset)
+    end
 
+    scenario 'Display a location if there is one' do
       expect(page).to have_content('Geographical area: London Southwark')
+    end
+
+    scenario 'Display the topic' do
+      expect(page).to have_content('Topic: Government')
     end
   end
 
