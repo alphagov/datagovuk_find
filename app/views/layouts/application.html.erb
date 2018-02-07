@@ -28,10 +28,10 @@
 
 <% content_for :content do %>
   <%= render 'layouts/staging_ribbon' if Rails.env.staging? %>
-  <main role="main" tabindex="-1" id="content">
-    <%= render partial: 'layouts/feedback_survey_banner' %>
+  <!--<main role="main" tabindex="-1" id="content">-->
+    <!--<%= render partial: 'layouts/feedback_survey_banner' %>-->
     <%= yield %>
-  </main>
+  <!--</main>-->
 
 
   <div id="global-app-error" class="app-error hidden"></div>
