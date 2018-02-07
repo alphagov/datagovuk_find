@@ -6,7 +6,7 @@ feature 'Beta message' do
     dataset = DatasetBuilder.new.build
     index([dataset])
     paths = [
-      dataset_path(dataset[:uuid], dataset[:name]),
+      dataset_path(dataset[:short_id], dataset[:name]),
       root_path,
       search_path(q: 'query')
     ]
