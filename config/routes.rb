@@ -20,7 +20,6 @@ Rails.application.routes.draw do
   match "500", to: "errors#internal_server_error", via: :all
 
   get 'search/', to: 'search#search'
-  get 'search?q=&filters[topic]=:topic', to: 'search#search', as: 'topics'
 
   get 'search/tips', to: 'search#tips'
 
