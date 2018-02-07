@@ -17,7 +17,7 @@
   <div class="dgu-split-background">
     <%= render 'layouts/staging_ribbon' if Rails.env.staging? %>
     <main role="main" tabindex="-1" id="content">
-      <div class="dgu-beta-message__<%=flash[:beta_message] %>">
+      <div class="dgu-beta-message--<%= flash[:beta_message] %>">
         <%= yield %>
       </div>
     </main>

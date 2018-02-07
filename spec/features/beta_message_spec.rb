@@ -13,7 +13,7 @@ feature 'Beta message' do
 
     paths.each do |path|
       visit path
-      expect(page).to have_css('.dgu-beta-message')
+      expect(page).to have_css('.dgu-beta-message--show')
     end
 
   end
@@ -28,7 +28,7 @@ feature 'Beta message' do
     expect(page).to have_content('zebra')
     click_link "Don't show this message again"
     expect(page).to have_content('zebra')
-    expect(page).to_not have_css('.dgu-beta-message')
+    expect(page).to_not have_css('.dgu-beta-message--show')
   end
 
   scenario "Dismissing message on dataset page works" do
