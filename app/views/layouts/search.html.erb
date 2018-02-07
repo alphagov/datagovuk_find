@@ -26,4 +26,16 @@
   <!--<script>document.body.className = document.body.className.replace('js-enabled', '')</script>-->
 
 <% end %>
+
+<% content_for :footer_support_links do %>
+  <ul>
+    <li><%= link_to 'About', about_path %></li>
+    <li><%= link_to 'Accessibility', accessibility_path %></li>
+    <li><%= link_to 'Cookies', cookies_path %></li>
+    <li><%= link_to 'Privacy', privacy_path %></li>
+    <li><%= link_to 'Terms and conditions', terms_path %></li>
+    <li><%= link_to 'Support', support_path %></li>
+  </ul>
+<% end %>
+
 <%= render template: 'layouts/govuk_template' %>
