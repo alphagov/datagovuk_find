@@ -15,13 +15,9 @@
         <div class="column-two-thirds dgu-search-box">
           <form action="/search" method="GET">
             <label for="q" class="visuallyhidden"><%= t('.accessibility.search_box_label') %></label>
-            <!-- Make sure there is no space between the input and button else the button will become detached --> 
-            <input id="q"
-                   name="q"
-                   type="text"
-                   class="form-control dgu-search-box__input"
-            /><button type="submit"
-                    class="dgu-search-box__button">
+            <input id="q" name="q" type="text" class="form-control dgu-search-box__input" />
+            <!-- Make sure there is no space between the input and button else the button will become detached -->
+            <button type="submit" class="dgu-search-box__button">
               <%= t('.accessibility.search_button_label') %>
             </button>
           </form>

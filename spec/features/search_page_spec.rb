@@ -17,8 +17,8 @@ feature 'Search page', elasticsearch: true do
     query = 'interesting dataset'
 
     dataset = DatasetBuilder.new
-      .with_title(dataset_title)
-      .build
+                .with_title(dataset_title)
+                .build
 
     index([dataset])
     search_for(query)
@@ -29,34 +29,43 @@ feature 'Search page', elasticsearch: true do
 
   scenario 'Search results are correctly sorted' do
     old_dataset = DatasetBuilder.new
-      .with_title('Old Interesting Dataset')
-      .with_name('old-dataset')
-      .last_updated_at('2014-07-24T14:47:25.975Z')
-      .build
+                    .with_title('Old Interesting Dataset')
+                    .with_name('old-dataset')
+                    .last_updated_at('2014-07-24T14:47:25.975Z')
+                    .build
 
     new_dataset = DatasetBuilder.new
-      .with_title('Recent Interesting Dataset')
-      .with_name('new-dataset')
-      .last_updated_at('2017-07-24T14:47:25.975Z')
-      .build
+                    .with_title('Recent Interesting Dataset')
+                    .with_name('new-dataset')
+                    .last_updated_at('2017-07-24T14:47:25.975Z')
+                    .build
 
     index([old_dataset, new_dataset])
 
     search_for('Old Interesting Dataset')
+
     expect(page).to have_css('option[selected]', text: 'Best match')
+
     elements = all('h2 a')
+
     expect(elements[0]).to have_content 'Old'
     expect(elements[1]).to have_content 'Recent'
 
     filtered_search_for('Interesting Dataset', 'Most recent')
+
     expect(page).to have_css('option[selected]', text: 'Most recent')
+
     elements = all('h2 a')
+
     expect(elements[0]).to have_content 'Recent'
     expect(elements[1]).to have_content 'Old'
 
     filtered_search_for('Old Interesting Dataset', 'Best match')
+
     expect(page).to have_css('option[selected]', text: 'Best match')
+
     elements = all('h2 a')
+    
     expect(elements[0]).to have_content 'Old'
     expect(elements[1]).to have_content 'Recent'
 
@@ -66,14 +75,14 @@ feature 'Search page', elasticsearch: true do
   scenario 'Match location query against available locations', :js => true do
 
     first_dataset = DatasetBuilder.new
-      .with_title('Wellington Dataset')
-      .with_location('Wellington')
-      .build
+                      .with_title('Wellington Dataset')
+                      .with_location('Wellington')
+                      .build
 
     second_dataset = DatasetBuilder.new
-      .with_title('Welding Dataset')
-      .with_location('Welding')
-      .build
+                      .with_title('Welding Dataset')
+                      .with_location('Welding')
+                      .build
 
     index([first_dataset, second_dataset])
 
@@ -95,6 +104,7 @@ feature 'Search page', elasticsearch: true do
     end
 
     datasets = all('h2 a')
+
     expect(datasets.length).to be(1)
     expect(datasets[0]).to have_content 'Wellington Dataset'
   end
@@ -102,14 +112,14 @@ feature 'Search page', elasticsearch: true do
   scenario 'Match publisher query against available publishers', :js => true do
 
     first_dataset = DatasetBuilder.new
-      .with_title('Data About Tonka Trucks')
-      .with_publisher('Tonka Trucks')
-      .build
+                      .with_title('Data About Tonka Trucks')
+                      .with_publisher('Tonka Trucks')
+                      .build
 
     second_dataset = DatasetBuilder.new
-      .with_title('Data About Toby')
-      .with_publisher('Toby Corp')
-      .build
+                      .with_title('Data About Toby')
+                      .with_publisher('Toby Corp')
+                      .build
 
     index([first_dataset, second_dataset])
 
@@ -137,14 +147,14 @@ feature 'Search page', elasticsearch: true do
 
   scenario 'filter by OGL licence' do
     first_dataset = DatasetBuilder.new
-      .with_title('First Dataset Title')
-      .with_licence('uk-ogl')
-      .build
+                      .with_title('First Dataset Title')
+                      .with_licence('uk-ogl')
+                      .build
 
     second_dataset = DatasetBuilder.new
-      .with_title('Second Dataset Title')
-      .with_licence('foo')
-      .build
+                      .with_title('Second Dataset Title')
+                      .with_licence('foo')
+                      .build
 
     index([first_dataset, second_dataset])
 
@@ -165,14 +175,14 @@ feature 'Search page', elasticsearch: true do
 
   scenario 'filter by topic' do
     first_dataset = DatasetBuilder.new
-      .with_title('First Dataset Title')
-      .with_topic({id: 1, name: "government", title: "Government"})
-      .build
+                      .with_title('First Dataset Title')
+                      .with_topic({id: 1, name: "government", title: "Government"})
+                      .build
 
     second_dataset = DatasetBuilder.new
-      .with_title('Second Dataset Title')
-      .with_topic({id: 2, name: "business-and-economy", title: "Business and economy"})
-      .build
+                      .with_title('Second Dataset Title')
+                      .with_topic({id: 2, name: "business-and-economy", title: "Business and economy"})
+                      .build
 
     index([first_dataset, second_dataset])
 
@@ -193,14 +203,14 @@ feature 'Search page', elasticsearch: true do
 
   scenario 'filter by datafile format' do
     first_dataset = DatasetBuilder.new
-      .with_title('First Dataset Title')
-      .with_datafiles([{'format' => 'foo'}])
-      .build
+                      .with_title('First Dataset Title')
+                      .with_datafiles([{'format' => 'foo'}])
+                      .build
 
     second_dataset = DatasetBuilder.new
-      .with_title('Second Dataset Title')
-      .with_datafiles([{'format' => 'bar'}])
-      .build
+                      .with_title('Second Dataset Title')
+                      .with_datafiles([{'format' => 'bar'}])
+                      .build
 
     index([first_dataset, second_dataset])
 
