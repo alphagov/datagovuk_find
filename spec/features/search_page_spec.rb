@@ -43,20 +43,29 @@ feature 'Search page', elasticsearch: true do
     index([old_dataset, new_dataset])
 
     search_for('Old Interesting Dataset')
+
     expect(page).to have_css('option[selected]', text: 'Best match')
+
     elements = all('h2 a')
+
     expect(elements[0]).to have_content 'Old'
     expect(elements[1]).to have_content 'Recent'
 
     filtered_search_for('Interesting Dataset', 'Most recent')
+
     expect(page).to have_css('option[selected]', text: 'Most recent')
+
     elements = all('h2 a')
+
     expect(elements[0]).to have_content 'Recent'
     expect(elements[1]).to have_content 'Old'
 
     filtered_search_for('Old Interesting Dataset', 'Best match')
+
     expect(page).to have_css('option[selected]', text: 'Best match')
+
     elements = all('h2 a')
+    
     expect(elements[0]).to have_content 'Old'
     expect(elements[1]).to have_content 'Recent'
 
@@ -95,6 +104,7 @@ feature 'Search page', elasticsearch: true do
     end
 
     datasets = all('h2 a')
+
     expect(datasets.length).to be(1)
     expect(datasets[0]).to have_content 'Wellington Dataset'
   end
@@ -153,6 +163,34 @@ feature 'Search page', elasticsearch: true do
     assert_data_set_length_is(2)
 
     check('Open Government Licence (OGL) only')
+
+    within('.dgu-filters__apply-button') do
+      find('.button').click
+    end
+
+    results = all('h2 a')
+    expect(results.length).to be(1)
+    expect(results[0]).to have_content 'First Dataset Title'
+  end
+
+  scenario 'filter by topic' do
+    first_dataset = DatasetBuilder.new
+                      .with_title('First Dataset Title')
+                      .with_topic({id: 1, name: "government", title: "Government"})
+                      .build
+
+    second_dataset = DatasetBuilder.new
+                      .with_title('Second Dataset Title')
+                      .with_topic({id: 2, name: "business-and-economy", title: "Business and economy"})
+                      .build
+
+    index([first_dataset, second_dataset])
+
+    visit('/search')
+
+    assert_data_set_length_is(2)
+
+    select('Government', from: 'filters[topic]')
 
     within('.dgu-filters__apply-button') do
       find('.button').click

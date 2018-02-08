@@ -8,6 +8,7 @@ class SearchController < LoggedAreaController
     @organisation = params.dig(:filters, :publisher)
     @location = params.dig(:filters, :location)
     @format = params.dig(:filters, :format)
+    @topic = params.dig(:filters, :topic)
     @licence = params.dig(:filters, :licence)
     @datasets = @search.page(page_number)
   end

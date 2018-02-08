@@ -35,6 +35,10 @@
           <dd class="<%= expected_location_class_for(@dataset) %>" itemprop="spatialCoverage" itemscope itemtype="http://schema.org/Place">
             <span itemprop="name"><%= dataset_location(@dataset) %></span>
           </dd>
+
+          <dt><%= t('.topic') %>:</dt>
+          <dd><%= @dataset.topic['title'] %>
+
           <dt><%= t('.licence') %>:</dt>
           <% if @dataset.licence == 'uk-ogl' %>
             <dd itemprop="license">

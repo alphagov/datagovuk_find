@@ -39,6 +39,11 @@ class DatasetBuilder
             org_type: 'central-government',
             ancestry: ''
         },
+        topic: {
+          id: 1,
+          name: "government",
+          title: "Government"
+        },
         datafiles: [],
         docs: [],
         notes: ''
@@ -62,6 +67,11 @@ class DatasetBuilder
 
   def with_contact_email(contact_email)
     @dataset[:organisation][:contact_email] = contact_email
+    self
+  end
+
+  def with_topic(topic)
+    @dataset[:topic] = topic
     self
   end
 

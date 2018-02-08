@@ -1,8 +1,33 @@
 en:
   home:
-    index:
+    search:
       find_gov_data: "Find open data"
       lede: "Find data published by central government, local authorities and public bodies to help you build products and services"
       accessibility:
         search_box_label: "Search"
         search_box_button: "Find data"
+    topics:
+      business_and_economy_label: "Business and economy"
+      business_and_economy_description: "Small businesses, industry, exports and trade"
+      crime_and_justice_label: "Crime and justice"
+      crime_and_justice_description: "Courts, police, prison, offenders, borders and immigration"
+      defence_label: "Defence"
+      defence_description: "Armed forces, health and safety, search and rescue"
+      education_label: "Education"
+      education_decription: "Students, training, qualifications and the National Curriculum"
+      environment_label: "Environment"
+      environment_description: "Weather, flooding, rivers, air quality, geology and agriculture"
+      government_label: "Government"
+      government_description: "Staff numbers and pay, local councillors and department business plans"
+      government_spending_label: "Government spending"
+      government_spending_description: "Includes all payments by government departments over £25,000"
+      health: "Health"
+      health_description: "Includes smoking, drugs, alcohol, medicine preformance and hospitals"
+      mapping_label: "Mapping"
+      mapping_description: "Addresses, boundaries, land ownership, aerial photographs, seabed and land terrain"
+      society_label: "Society"
+      society_description: "Employment, benefits, household finances, poverty and population"
+      towns_and_cities_label: "Towns and cities"
+      towns_and_cities_description: "Includes housing, urban planning, leisure, waste and energy, consumption"
+      transport_label: "Transport"
+      transport_description: "Airports, roads, freight, electric vehicles, parking, buses and footpaths"

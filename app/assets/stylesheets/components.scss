@@ -1,6 +1,26 @@
 // =============================================================================
 // Front-end components go here
 
+// Home ==================================================================
+.dgu-home-search {
+  padding-top: 2.5em;
+}
+
+.dgu-topics {
+
+  margin-top: 2em;
+
+  h3 {
+    font-weight: bold;
+  }
+
+  @media (min-width: 641px) {
+    li {
+      min-height: 6em;
+    }
+  }
+}
+
 
 // Search box ==================================================================
 .dgu-search-box {

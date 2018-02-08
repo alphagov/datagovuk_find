@@ -55,8 +55,8 @@ def create_index
       ELASTIC.indices.create(
         index: "datasets-test",
         body: {
-            settings: index_settings,
-            mappings: index_mappings
+          settings: index_settings,
+          mappings: index_mappings
         }
       )
     rescue
@@ -104,6 +104,20 @@ def index_mappings
             raw: {
               type: 'string',
               index: 'not_analyzed'
+            }
+          }
+        },
+        topic: {
+          type: 'nested',
+          properties: {
+            title: {
+              type: 'string',
+              fields: {
+                raw: {
+                  type: 'string',
+                  index: 'not_analyzed'
+                }
+              }
             }
           }
         },

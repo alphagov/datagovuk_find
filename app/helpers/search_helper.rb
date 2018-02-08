@@ -12,6 +12,14 @@ module SearchHelper
     Dataset.datafile_formats.sort.map(&:upcase).unshift('')
   end
 
+  def dataset_topics_for_select
+    Dataset.topics.sort.unshift('')
+  end
+
+  def selected_topic
+    params.dig(:filters, :topic)
+  end
+
   def selected_format
     params.dig(:filters, :format)
   end

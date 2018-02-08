@@ -1,0 +1,71 @@
+<div class="dgu-split-background__bottom">
+  <div class="grid-row dgu-topics">
+    <div class="column-one-third">
+      <div>
+        <ol>
+          <li>
+            <h3><%= link_to t('.business_and_economy_label'), search_path(filters: { topic: 'Business and economy' })  %></h3>
+            <p><%= t('.business_and_economy_description') %></p>
+          </li>
+          <li>
+            <h3><%= link_to t('.crime_and_justice_label'), search_path(filters: { topic: 'Crime and justice' }) %></h3>
+            <p><%= t('.crime_and_justice_description') %></p>
+          </li>
+          <li>
+            <h3><%= link_to t('.defence_label'), search_path(filters: { topic: 'Defence' }) %></h3>
+            <p><%= t('.defence_description') %></p>
+          </li>
+          <li>
+            <h3><%= link_to t('.education_label'), search_path(filters: { topic: 'Education' }) %></h3>
+            <p><%= t('.education_description') %></p>
+          </li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="column-one-third">
+      <div>
+        <ol>
+          <li>
+            <h3><%= link_to t('.environment_label'), search_path(filters: { topic: 'Environment' }) %></h3>
+            <p><%= t('.environment_description') %></p>
+          </li>
+          <li>
+            <h3><%= link_to t('.government_label'), search_path(filters: { topic: 'Government' }) %></h3>
+            <p><%= t('.government_description') %></p>
+          </li>
+          <li>
+            <h3><%= link_to t('.government_spending_label'), search_path(filters: { topic: 'Government spending' }) %></h3>
+            <p><%= t('.government_spending_description') %></p>
+          </li>
+          <li>
+            <h3><%= link_to t('.health_label'), search_path(filters: { topic: 'Health' }) %></h3>
+            <p><%= t('.health_description') %></p>
+          </li>
+        </ol>
+      </div>
+    </div>
+    <div class="column-one-third">
+      <div>
+        <ol>
+          <li>
+            <h3><%= link_to t('.mapping_label'), search_path(filters: { topic: 'Mapping' }) %></h3>
+            <p><%= t('.mapping_description') %></p>
+          </li>
+          <li>
+            <h3><%= link_to t('.society_label'), search_path(filters: { topic: 'Society' }) %></h3>
+            <p><%= t('.society_description') %></p>
+          </li>
+          <li>
+            <h3><%= link_to t('.towns_and_cities_label'), search_path(filters: { topic: 'Towns an cities' }) %></h3>
+            <p><%= t('.towns_and_cities_description') %></p>
+          </li>
+          <li>
+            <h3><%= link_to t('.transport_label'), search_path(filters: { topic: 'Transport' }) %></h3>
+            <p><%= t('.transport_description') %></p>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,83 +1,87 @@
 <% content_for :page_title do %>
   <%= @dataset.title %> -
 <% end %>
-<%= render "breadcrumb" %>
-<div itemscope itemtype="http://schema.org/Dataset">
-  <link itemprop="url" href="<%= "#{request.protocol}#{request.host_with_port}#{request.fullpath}" %>"/>
-  <meta itemprop="includedInDataCatalog" itemtype="http://schema.org/DataCatalog" content="<%= request.host %>"/>
-  <%= render "meta_data" %>
 
-  <div class="grid-row">
-    <div class="column-full">
-      <section class="dgu-datalinks">
-        <h2 class="heading-medium"><%= t('.data_links')%>
-        <% unless @timeseries_datafiles.empty? %>
-          <!-- accordions for time series datasets -->
-          <span class="showHide-open-all"><%= t('.open_all')%></span>
-        <% end %>
-        </h2>
+<main role="main" tabindex="-1" id="content">
+  <%= render partial: 'layouts/feedback_survey_banner' %>
+  <%= render "breadcrumb" %>
+  <div itemscope itemtype="http://schema.org/Dataset">
+    <link itemprop="url" href="<%= "#{request.protocol}#{request.host_with_port}#{request.fullpath}" %>"/>
+    <meta itemprop="includedInDataCatalog" itemtype="http://schema.org/DataCatalog" content="<%= request.host %>"/>
+    <%= render "meta_data" %>
 
-        <% unless @timeseries_datafiles.empty? %>
-          <%= render partial: "timeseries_data", locals: { datafiles: @timeseries_datafiles } %>
-        <% end %>
+    <div class="grid-row">
+      <div class="column-full">
+        <section class="dgu-datalinks">
+          <h2 class="heading-medium"><%= t('.data_links')%>
+          <% unless @timeseries_datafiles.empty? %>
+            <!-- accordions for time series datasets -->
+            <span class="showHide-open-all"><%= t('.open_all')%></span>
+          <% end %>
+          </h2>
 
-        <% unless @non_timeseries_datafiles.empty? %>
-          <%= render partial: "non_timeseries_data", locals: { datafiles: @non_timeseries_datafiles } %>
-        <% end %>
+          <% unless @timeseries_datafiles.empty? %>
+            <%= render partial: "timeseries_data", locals: { datafiles: @timeseries_datafiles } %>
+          <% end %>
 
-        <% if @dataset.datafiles.empty? %>
-          <div class="panel panel-border-narrow">
-            <p>This data hasn't been released to the public by the publisher yet.<br />
-            <% if contact_details_exist?(@dataset) %>
-              Contact the publisher for more information.
-            <% else %>
-              Contact the team on <%= link_to 'data.gov.uk/support', support_path %> if you have any questions.
-            <% end %>
-          </div>
-        <% end %>
-      </section>
-    </div>
-  </div>
+          <% unless @non_timeseries_datafiles.empty? %>
+            <%= render partial: "non_timeseries_data", locals: { datafiles: @non_timeseries_datafiles } %>
+          <% end %>
 
-  <%= render "additional_info" %>
-
-  <% unless @dataset.docs.empty? %>
-    <%= render "supporting_docs" %>
-  <% end %>
-
-  <% if contact_details_exist?(@dataset) %>
-    <section class="contact">
-      <div>
-        <h2 class="heading-medium">
-          <%= t('datasets.contact.contact') %>
-        </h2>
-
-        <% if contact_email_exists?(@dataset) %>
-          <div class="column-one-half">
-            <h3 class="heading-small">
-              <%= t('datasets.contact.enquiries') %>
-            </h3>
-
-            <p>
-              <%= @dataset.contact_name.presence || @dataset.organisation.contact_name %></br>
-              <%= mail_to(@dataset.contact_email.presence || @dataset.organisation.contact_email) %>
-            </p>
-          </div>
-        <% end %>
-
-        <% if foi_email_exists?(@dataset) %>
-          <div class="column-one-half foi">
-            <h3 class="heading-small">
-              <%= t('datasets.contact.foi_requests') %>
-            </h3>
-
-            <p>
-              <%= @dataset.foi_name.presence || @dataset.organisation.foi_name %></br>
-              <%= mail_to(@dataset.foi_email.presence || @dataset.organisation.foi_email) %>
-            </p>
-          </div>
-        <% end %>
+          <% if @dataset.datafiles.empty? %>
+            <div class="panel panel-border-narrow">
+              <p>This data hasn't been released to the public by the publisher yet.<br />
+              <% if contact_details_exist?(@dataset) %>
+                Contact the publisher for more information.
+              <% else %>
+                Contact the team on <%= link_to 'data.gov.uk/support', support_path %> if you have any questions.
+              <% end %>
+            </div>
+          <% end %>
+        </section>
       </div>
-    </section>
-  <% end %>
-</div>
+    </div>
+
+    <%= render "additional_info" %>
+
+    <% unless @dataset.docs.empty? %>
+      <%= render "supporting_docs" %>
+    <% end %>
+
+    <% if contact_details_exist?(@dataset) %>
+      <section class="contact">
+        <div>
+          <h2 class="heading-medium">
+            <%= t('datasets.contact.contact') %>
+          </h2>
+
+          <% if contact_email_exists?(@dataset) %>
+            <div class="column-one-half">
+              <h3 class="heading-small">
+                <%= t('datasets.contact.enquiries') %>
+              </h3>
+
+              <p>
+                <%= @dataset.contact_name.presence || @dataset.organisation.contact_name %></br>
+                <%= mail_to(@dataset.contact_email.presence || @dataset.organisation.contact_email) %>
+              </p>
+            </div>
+          <% end %>
+
+          <% if foi_email_exists?(@dataset) %>
+            <div class="column-one-half foi">
+              <h3 class="heading-small">
+                <%= t('datasets.contact.foi_requests') %>
+              </h3>
+
+              <p>
+                <%= @dataset.foi_name.presence || @dataset.organisation.foi_name %></br>
+                <%= mail_to(@dataset.foi_email.presence || @dataset.organisation.foi_email) %>
+              </p>
+            </div>
+          <% end %>
+        </div>
+      </section>
+    <% end %>
+  </div>
+</main>
