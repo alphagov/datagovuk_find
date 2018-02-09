@@ -21,7 +21,7 @@ en:
       government_description: "Staff numbers and pay, local councillors and department business plans"
       government_spending_label: "Government spending"
       government_spending_description: "Includes all payments by government departments over £25,000"
-      health: "Health"
+      health_label: "Health"
       health_description: "Includes smoking, drugs, alcohol, medicine preformance and hospitals"
       mapping_label: "Mapping"
       mapping_description: "Addresses, boundaries, land ownership, aerial photographs, seabed and land terrain"
