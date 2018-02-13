@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   scope module: 'legacy' do
     get 'dataset/:legacy_name', to: 'datasets#redirect'
+    get 'dataset/:legacy_dataset_name/resource/:datafile_uuid', to: 'datafiles#redirect'
     get 'data/search',          to: 'search#redirect'
     get 'contact',              to: redirect('support')
   end
