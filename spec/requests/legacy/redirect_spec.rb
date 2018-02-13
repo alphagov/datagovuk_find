@@ -81,4 +81,13 @@ describe 'legacy', :type => :request do
       expect(response).to have_http_status(:moved_permanently)
     end
   end
+
+  describe 'cookies page' do
+    it 'redirects to the cookies page' do
+      get '/cookies-policy'
+
+      expect(response).to redirect_to(cookies_url)
+      expect(response).to have_http_status(:moved_permanently)
+    end
+  end
 end
