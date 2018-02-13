@@ -34,7 +34,7 @@ describe 'legacy', :type => :request do
       get "/dataset/#{legacy_name}"
 
       expect(response).to redirect_to(dataset_url(dataset[:short_id], dataset[:name]))
-      expect(response.status).to eql 301
+      expect(response).to have_http_status(:moved_permanently)
     end
   end
 
@@ -43,7 +43,7 @@ describe 'legacy', :type => :request do
       get '/contact'
 
       expect(response).to redirect_to(support_url)
-      expect(response.status).to eql 301
+      expect(response).to have_http_status(:moved_permanently)
     end
   end
 end
