@@ -129,7 +129,8 @@ DATA_FILES_WITH_START_AND_ENDDATE = [
      'start_date' => '1/1/15',
      'end_date' => nil,
      'created_at' => '2016-07-31T14:40:57.528Z',
-     'updated_at' => '2016-08-31T14:40:57.528Z'
+     'updated_at' => '2016-08-31T14:40:57.528Z',
+     'uuid' => SecureRandom.uuid
     },
     {'id' => 2,
      'name' => 'I have an end date',
@@ -139,7 +140,8 @@ DATA_FILES_WITH_START_AND_ENDDATE = [
      'end_date' => '24/03/2018',
      'created_at' => '2016-07-31T14:40:57.528Z',
      'updated_at' => '2016-08-31T14:40:57.528Z',
-     'short_id' => SecureRandom.urlsafe_base64(6, true)
+     'short_id' => SecureRandom.urlsafe_base64(6, true),
+     'uuid' => SecureRandom.uuid
     },
     {'id' => 3,
      'name' => 'I have an end date',
@@ -148,7 +150,8 @@ DATA_FILES_WITH_START_AND_ENDDATE = [
      'start_date' => '1/1/15',
      'end_date' => '01/12/2018',
      'created_at' => '2016-07-31T14:40:57.528Z',
-     'updated_at' => '2016-08-31T14:40:57.528Z'
+     'updated_at' => '2016-08-31T14:40:57.528Z',
+     'uuid' => SecureRandom.uuid
     }
 ]
 
@@ -158,14 +161,16 @@ DATAFILES_WITHOUT_START_AND_ENDDATE = [
      'url' => 'http://example.com',
      'start_date' => nil,
      'end_date' => nil,
-     'updated_at' => '2016-08-31T14:40:57.528Z'
+     'updated_at' => '2016-08-31T14:40:57.528Z',
+     'uuid' => SecureRandom.uuid
     },
     {'id' => 2,
      'name' => 'I have an end date',
      'url' => 'http://example.com',
      'start_date' => nil,
      'end_date' => nil,
-     'updated_at' => '2016-08-31T14:40:57.528Z'
+     'updated_at' => '2016-08-31T14:40:57.528Z',
+     'uuid' => SecureRandom.uuid
     }]
 
 UNFORMATTED_DATASETS_MULTIYEAR = [

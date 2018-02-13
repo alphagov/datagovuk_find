@@ -38,6 +38,41 @@ describe 'legacy', :type => :request do
     end
   end
 
+  describe 'datafile resources' do
+    let(:legacy_dataset_name) { 'a-legacy-name' }
+    let(:datafile) { CSV_DATAFILE.with_indifferent_access }
+    let(:dataset) do
+      DatasetBuilder
+        .new
+        .with_legacy_name(legacy_dataset_name)
+        .with_datafiles([datafile])
+        .build
+    end
+
+    context 'when the datafile can not be found' do
+      it 'returns a not found error page' do
+        get "/dataset/#{legacy_dataset_name}/resource/#{datafile[:uuid]}"
+
+        expect(response).to have_http_status(:not_found)
+      end
+    end
+
+    context 'when the datafile exists' do
+      before { index([dataset]) }
+
+      it 'redirects to the datefile preview page' do
+        get "/dataset/#{legacy_dataset_name}/resource/#{datafile[:uuid]}"
+
+        location = datafile_preview_path(
+          dataset[:short_id], dataset[:name], datafile[:short_id]
+        )
+
+        expect(response).to redirect_to(location)
+        expect(response).to have_http_status(:moved_permanently)
+      end
+    end
+  end
+
   describe 'contact page' do
     it 'redirects to the support page' do
       get '/contact'
