@@ -3,13 +3,6 @@
 <h2 class="heading-medium"> <%= t('.filter_by') %></h2>
 
 <div class="form-group">
-  <label for="location" class="form-label">
-    <%= t('.filter_by_geo') %>
-  </label>
-  <input id="location" name="filters[location]" value="<%= @location %>" class="dgu-filters__filter"/>
-</div>
-
-<div class="form-group">
   <%= label_tag 'filters[publisher]', t('.filter_by_publisher'), class: 'form-label' %>
   <%= select_tag('filters[publisher]', options_for_select(dataset_publishers_for_select, selected_publisher), id: 'publisher', class: 'form-control dgu-filters__filter') %>
 </div>

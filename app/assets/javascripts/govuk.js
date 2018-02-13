@@ -24,10 +24,6 @@ $(document).ready(function () {
     })
   }
 
-  if (document.getElementById('location')) {
-    Typeahead.add('#location', 'location', Find.locations)
-  }
-
   if (document.getElementById('format')) {
     accessibleAutocomplete.enhanceSelectElement({
       selectElement: document.querySelector('#format'),

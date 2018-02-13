@@ -65,48 +65,10 @@ feature 'Search page', elasticsearch: true do
     expect(page).to have_css('option[selected]', text: 'Best match')
 
     elements = all('h2 a')
-
     expect(elements[0]).to have_content 'Old'
     expect(elements[1]).to have_content 'Recent'
 
 
-  end
-
-  scenario 'Match location query against available locations', :js => true do
-
-    first_dataset = DatasetBuilder.new
-                      .with_title('Wellington Dataset')
-                      .with_location('Wellington')
-                      .build
-
-    second_dataset = DatasetBuilder.new
-                      .with_title('Welding Dataset')
-                      .with_location('Welding')
-                      .build
-
-    index([first_dataset, second_dataset])
-
-    visit('/search')
-
-    assert_data_set_length_is(2)
-
-    page.driver.execute_script %Q{ $('#location').focus().typeahead('val', 'We') }
-    page.driver.execute_script %Q{ $('#location').focus().typeahead('open') }
-
-    expect(page).to have_selector('.tt-selectable', count: 2)
-    expect(page).to have_css('.tt-selectable', text: 'Wellington')
-    expect(page).to have_css('.tt-selectable', text: 'Welding')
-
-    page.driver.execute_script %Q{ $('#location').focus().typeahead('val', 'Wellington') }
-
-    within('.dgu-filters__apply-button') do
-      find('.button').click
-    end
-
-    datasets = all('h2 a')
-
-    expect(datasets.length).to be(1)
-    expect(datasets[0]).to have_content 'Wellington Dataset'
   end
 
   scenario 'Match publisher query against available publishers' do
