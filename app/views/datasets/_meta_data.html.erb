@@ -36,8 +36,10 @@
             <span itemprop="name"><%= dataset_location(@dataset) %></span>
           </dd>
 
-          <dt><%= t('.topic') %>:</dt>
-          <dd><%= @dataset.topic['title'] %>
+          <% if @dataset.topic %>
+            <dt><%= t('.topic') %>:</dt>
+            <dd><%= @dataset.topic['title'] %>
+          <% end %>
 
           <dt><%= t('.licence') %>:</dt>
           <% if @dataset.licence == 'uk-ogl' %>
