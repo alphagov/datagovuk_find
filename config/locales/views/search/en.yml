@@ -27,6 +27,7 @@ en:
       filter_by_pub: "Publisher"
       filter_by_format: "Format"
       filter_by_topic: "Topic"
+      filter_by_publisher: "Publisher"
       filter_by_ogl: "Open Government Licence (OGL) only"
       accessibility:
         submit_button: "Apply filters"

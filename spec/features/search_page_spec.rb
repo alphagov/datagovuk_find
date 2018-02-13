@@ -65,7 +65,7 @@ feature 'Search page', elasticsearch: true do
     expect(page).to have_css('option[selected]', text: 'Best match')
 
     elements = all('h2 a')
-    
+
     expect(elements[0]).to have_content 'Old'
     expect(elements[1]).to have_content 'Recent'
 
@@ -109,7 +109,7 @@ feature 'Search page', elasticsearch: true do
     expect(datasets[0]).to have_content 'Wellington Dataset'
   end
 
-  scenario 'Match publisher query against available publishers', :js => true do
+  scenario 'Match publisher query against available publishers' do
 
     first_dataset = DatasetBuilder.new
                       .with_title('Data About Tonka Trucks')
@@ -127,14 +127,7 @@ feature 'Search page', elasticsearch: true do
 
     assert_data_set_length_is(2)
 
-    page.driver.execute_script "$('#publisher').focus().typeahead('val', 'to')"
-    page.driver.execute_script %Q{ $('#publisher').focus().typeahead('open') }
-
-    expect(page).to have_selector('.tt-selectable', count: 2)
-    expect(page).to have_css('.tt-selectable', text: 'Tonka Trucks')
-    expect(page).to have_css('.tt-selectable', text: 'Toby Corp')
-
-    page.driver.execute_script %Q{ $('#publisher').focus().typeahead('val', 'Tonka Trucks') }
+    select('Toby Corp', from: 'filters[publisher]')
 
     within('.dgu-filters__apply-button') do
       find('.button').click
@@ -142,7 +135,7 @@ feature 'Search page', elasticsearch: true do
 
     elements = all('h2 a')
     expect(elements.length).to be(1)
-    expect(elements[0]).to have_content 'Data About Tonka Trucks'
+    expect(elements[0]).to have_content 'Data About Toby'
   end
 
   scenario 'filter by OGL licence' do

@@ -16,7 +16,12 @@ $(document).ready(function () {
   showHide.init()
 
   if (document.getElementById('publisher')) {
-    Typeahead.add('#publisher', 'publisher', Find.publishers)
+    accessibleAutocomplete.enhanceSelectElement({
+      selectElement: document.querySelector('#publisher'),
+      showAllValues: true,
+      confirmOnBlur: false,
+      autoselect: false
+    })
   }
 
   if (document.getElementById('location')) {

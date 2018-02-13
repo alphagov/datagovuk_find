@@ -16,6 +16,14 @@ module SearchHelper
     Dataset.topics.sort.unshift('')
   end
 
+  def dataset_publishers_for_select
+    Dataset.publishers.sort.unshift('')
+  end
+
+  def selected_publisher
+    params.dig(:filters, :publisher)
+  end
+
   def selected_topic
     params.dig(:filters, :topic)
   end
