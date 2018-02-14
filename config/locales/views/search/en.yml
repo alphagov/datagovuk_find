@@ -24,7 +24,6 @@ en:
     filters:
       filter_by: "Filter by"
       filter_by_geo: "Geographical area"
-      filter_by_pub: "Publisher"
       filter_by_format: "Format"
       filter_by_topic: "Topic"
       filter_by_publisher: "Publisher"

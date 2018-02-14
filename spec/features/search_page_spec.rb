@@ -71,7 +71,7 @@ feature 'Search page', elasticsearch: true do
 
   end
 
-  scenario 'Match publisher query against available publishers' do
+  scenario 'Match publisher query against available publishers', js: true do
 
     first_dataset = DatasetBuilder.new
                       .with_title('Data About Tonka Trucks')
@@ -89,15 +89,19 @@ feature 'Search page', elasticsearch: true do
 
     assert_data_set_length_is(2)
 
-    select('Toby Corp', from: 'filters[publisher]')
+    find('#publisher')
+    execute_script %Q{ $('#publisher').val('Toby') }
 
-    within('.dgu-filters__apply-button') do
-      find('.button').click
-    end
+    find('#publisher__option--0')
+    execute_script %Q{ $('#publisher__option--0').click() }
+
+    find('div.dgu-filters__apply-button input.button')
+    execute_script %Q{ $('div.dgu-filters__apply-button input.button').click() }
 
     elements = all('h2 a')
-    expect(elements.length).to be(1)
+    expect(elements.length).to eq(1)
     expect(elements[0]).to have_content 'Data About Toby'
+    expect(page).not_to have_content('Data About Tonka Trucks')
   end
 
   scenario 'filter by OGL licence' do
