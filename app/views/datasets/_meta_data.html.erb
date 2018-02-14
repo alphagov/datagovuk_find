@@ -36,9 +36,11 @@
             <span itemprop="name"><%= dataset_location(@dataset) %></span>
           </dd>
 
+          <dt><%= t('.topic') %>:</dt>
           <% if @dataset.topic %>
-            <dt><%= t('.topic') %>:</dt>
-            <dd><%= @dataset.topic['title'] %>
+            <dd><%= @dataset.topic['title'] %></dd>
+          <% else %>
+            <dd><%= t('.topic_not_added') %></dd>
           <% end %>
 
           <dt><%= t('.licence') %>:</dt>

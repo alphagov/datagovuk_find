@@ -45,6 +45,8 @@ en:
       published_by: "Published by"
       last_updated: "Last updated"
       geographical_area: "Geographical area"
+      topic: "Topic"
+      topic_not_added: "Not added"
       summary: "Summary"
       related_datasets: "Related datasets"
       search_gov_data: "Search government data"
