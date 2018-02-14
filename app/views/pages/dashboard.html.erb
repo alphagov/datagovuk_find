@@ -1,0 +1,62 @@
+<% content_for :page_title do %>
+  What's available in Find
+<% end %>
+
+<h1 class="heading-large">
+  What's available in Find right now
+</h1>
+
+<div class="grid-row">
+  <div class="column-one-third">
+    <div class="data">
+      <span class="data-item bold-xlarge"><%= number_with_delimiter(@datasets_count) %></span>
+      <span class="data-item bold-xsmall">datasets</span>
+    </div>
+  </div>
+
+  <div class="column-one-third">
+    <div class="data">
+      <span class="data-item bold-xlarge"><%= number_with_delimiter(@published_datasets_count) %></span>
+      <span class="data-item bold-xsmall">datasets with datafiles</span>
+    </div>
+  </div>
+
+  <div class="column-one-third">
+    <div class="data">
+      <span class="data-item bold-xlarge"><%= number_with_delimiter(@unpublished_datasets_count) %></span>
+      <span class="data-item bold-xsmall">datasets with no datafiles</span>
+    </div>
+  </div>
+</div>
+
+<div class="grid-row">
+  <div class="column-one-third">
+    <div class="data">
+      <span class="data-item bold-xlarge"><%= number_with_delimiter(@datafiles_count) %></span>
+      <span class="data-item bold-xsmall">datafiles</span>
+    </div>
+  </div>
+
+  <div class="column-one-third">
+    <div class="data">
+      <span class="data-item bold-xlarge"><%= number_with_delimiter(@publishers_count) %></span>
+      <span class="data-item bold-xsmall">Publishers</span>
+    </div>
+  </div>
+</div>
+
+<div class="grid-row">
+  <div class="column-one-half">
+    <table>
+      <caption class="heading-small">Datafile count by format</caption>
+      <tbody>
+        <% @datafiles_count_by_format.each do |datafile_count| %>
+          <tr>
+            <th><%= datafile_count['key'].upcase.presence || "Not specified" %></th>
+            <td><%= datafile_count['doc_count'] %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
