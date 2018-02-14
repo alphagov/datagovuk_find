@@ -20,8 +20,8 @@ class PagesController < ApplicationController
     @datasets_count = Dataset.__elasticsearch__.client.count["count"]
     @publishers_count = Dataset.publishers.count
     @datafiles_count = Dataset.datafiles['doc_count']
-    @published_datasets_count = Dataset.datafiles['datasets_with_datafiles']['doc_count']
-    @unpublished_datasets_count = @datasets_count - @published_datasets_count
+    @datasets_published_with_datafiles_count = Dataset.datafiles['datasets_with_datafiles']['doc_count']
+    @datasets_published_with_no_datafiles_count = @datasets_count - @datasets_published_with_datafiles_count
     @datafiles_count_by_format = Dataset.datafiles['formats']['buckets']
   end
 
