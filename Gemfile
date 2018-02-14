@@ -12,7 +12,7 @@ gem 'govuk_template'
 gem 'audited', '~> 4.5'
 gem 'kaminari', '~> 1.0.1'
 gem 'rest-client', '~> 2.0.2'
-gem 'mime-types', '~> 3.1'
+gem 'mime-types', '~> 3.1'  
 gem 'friendly_id', '~> 5.2.1'
 gem "elasticsearch", "~> 5.0.4"
 gem "elasticsearch-model", "~> 5.0.1"
@@ -20,7 +20,6 @@ gem "elasticsearch-rails", "~> 5.0.1"
 gem "elasticsearch-persistence", "~> 5", require: "elasticsearch/persistence/model"
 gem 'elasticsearch-dsl', "~> 0.1.5"
 gem 'htmlentities', "~> 4.3"
-gem 'gon'
 gem 'faraday'
 gem 'faraday_middleware'
 gem 'sentry-raven'

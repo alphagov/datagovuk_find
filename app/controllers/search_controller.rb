@@ -1,6 +1,5 @@
 class SearchController < LoggedAreaController
   before_action :search_for_dataset, only: [:search]
-  before_action :make_available_to_js, only: [:search]
 
   def search
     @query = params['q'] || ''
@@ -19,11 +18,6 @@ class SearchController < LoggedAreaController
     query = Search::Query.search(params)
     @search = Dataset.search(query)
     @num_results = @search.results.total_count
-  end
-
-  def make_available_to_js
-    gon.publishers = Dataset.publishers
-    gon.locations = Dataset.locations
   end
 
   def page_number
