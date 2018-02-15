@@ -1,16 +1,8 @@
 <div class="grid-row">
-  <div class="column-full dgu-beta-message">
-    <p>This is an improved version of data.gov.uk to make finding data faster and easier.
-      <%= link_to 'Find out more', about_path %> about why we are making this change. </p>
+  <div class="column-full dgu-beta__banner">
+    <div class="column-one-half dgu-beta__message">
+      <p>We’ve been improving data.gov.uk to help you find and use open government data. <%= link_to "Discover what’s changed", about_path %> and <%= link_to "get in touch", support_path %> to give us your feedback. </p>
       <%= link_to "Don't show this message again", acknowledge_and_redirect_path(q: params[:q], short_id: params[:short_id], name: params[:name]) %>
+    </div>
   </div>
 </div>
-<!--
-+<div class="grid-row beta-message">
-+    <div class="column-full">
-+      <div class="panel-beta">
-+        <p>This is an improved version of data.gov.uk to make finding data faster and easier. <a href="">Find out more</a> about why we are make this change.</p>
-+        <p><a href="">Don't show this message again</a></p>
-+      </div>
-+    </div>
-+</div> -->

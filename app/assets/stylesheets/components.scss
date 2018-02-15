@@ -54,68 +54,72 @@
     margin-top: 5px;
   }
 }
-// dgu meta message ============================================================
-.dgu-beta-message {
-  background: #0C5FA3;
-  margin-top: 40px;
-  margin-left: 15px;
-  margin-right: 15px;
-  color: white;
-  padding: 20px 20px 25px 20px;
-  a:link {
+// dgu beta message ============================================================
+.dgu-beta {
+  &__banner {
+    background: #0C5FA3;
+  }
+  &__message {
+    margin-right: 15px;
     color: white;
-  }
-  a:visited {
-    color: white;
-  }
-  a:hover {
-    font-weight: bold;
-  }
+    padding: 20px 20px 25px 20px;
+    a:link {
+      color: white;
+    }
+    a:visited {
+      color: white;
+    }
+    a:hover {
+      font-weight: bold;
+    }
+    max-width: 990px;
+    margin-left: 360px;
 
   // when beta message is displayed, spacing of adjacent elements must be adjusted____________
-  &--show {
-    // 1. Static pages and home page
-    .grid-row.inner {
-      .column-two-thirds {
-        h1.heading-xlarge {
-          margin-top: 40px;
-        }
-        h1.heading-large {
-          margin-top: 40px;
-        }
-      }
-    }
-    // 2. Dataset show page
-    div {
-      .meta-data {
-        .grid-row {
+      &--show {
+        // 1. Static pages and home page
+        .grid-row.inner {
           .column-two-thirds {
+            h1.heading-xlarge {
+              margin-top: 40px;
+            }
             h1.heading-large {
               margin-top: 40px;
             }
           }
         }
-      }
-    }
-  // 3. Search results page
-    form {
-      .dgu-split-background__top {
-        .dgu-split-background__top-inner {
-          h1.heading-large {
-            margin-top: 40px;
-          }
-          .grid-row {
-            .dgu-beta_message {
-              margin-top: 40px;
+        // 2. Dataset show page
+        div {
+          .meta-data {
+            .grid-row {
+              .column-two-thirds {
+                h1.heading-large {
+                  margin-top: 40px;
+                }
+              }
             }
           }
-          .phase-banner {
-            margin-bottom: 0px;
+        }
+        // 3. Search results page
+      form {
+        .dgu-split-background__top {
+          .dgu-split-background__top-inner {
+            h1.heading-large {
+              margin-top: 40px;
+            }
+            .grid-row {
+              .dgu-beta_message {
+                margin-top: 40px;
+              }
+            .phase-banner {
+              margin-bottom: 0px;
+            }
           }
         }
       }
     }
   }
+}
 }
 
 // split-background layout  ====================================================
