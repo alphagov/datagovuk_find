@@ -38,7 +38,8 @@ $(document).ready(function () {
       selectElement: document.querySelector('#topic'),
       showAllValues: true,
       confirmOnBlur: false,
-      autoselect: false
+      autoselect: false,
+      minLength: 2
     })
   }
 
