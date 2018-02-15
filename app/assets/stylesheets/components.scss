@@ -83,9 +83,6 @@
             h1.heading-xlarge {
               margin-top: 40px;
             }
-            h1.heading-large {
-              margin-top: 40px;
-            }
           }
         }
         // 2. Dataset show page
@@ -105,15 +102,12 @@
         .dgu-split-background__top {
           .dgu-split-background__top-inner {
             h1.heading-large {
-              margin-top: 40px;
+              padding-top: 40px;
             }
             .grid-row {
               .dgu-beta_message {
                 margin-top: 40px;
               }
-            .phase-banner {
-              margin-bottom: 0px;
-            }
           }
         }
       }
@@ -145,7 +139,7 @@
       margin: auto;
       max-width: 960px;
       .phase-banner {
-        margin-bottom: 2.5em;
+        margin-bottom: 1.5em;
       }
     }
   }
