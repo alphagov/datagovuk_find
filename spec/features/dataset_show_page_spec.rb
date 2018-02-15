@@ -19,8 +19,17 @@ feature 'Dataset page', elasticsearch: true do
       expect(page).to have_content('Geographical area: London Southwark')
     end
 
-    scenario 'Display the topic' do
+    scenario 'Display the topic if there is one' do
       expect(page).to have_content('Topic: Government')
+    end
+
+    scenario 'Do not display the topic if information missing' do
+      dataset = DatasetBuilder.new.build
+      dataset['topic'] = nil
+      
+      index_and_visit(dataset)
+
+      expect(page).to have_content('Topic: Not added')
     end
   end
 
