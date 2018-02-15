@@ -13,5 +13,4 @@
 //= require jquery
 //= require govuk_toolkit
 //= require accessible-autocomplete.min.js
-//= require typeahead.bundle.min.js
 //= require_tree .

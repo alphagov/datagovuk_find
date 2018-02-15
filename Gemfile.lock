@@ -146,11 +146,6 @@ GEM
       activerecord (>= 4.0.0)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
-    gon (6.1.0)
-      actionpack (>= 3.0)
-      json
-      multi_json
-      request_store (>= 1.0)
     govuk_elements_rails (3.1.0)
       govuk_frontend_toolkit (>= 6.0.2)
       rails (>= 4.1.0)
@@ -420,7 +415,6 @@ DEPENDENCIES
   faraday
   faraday_middleware
   friendly_id (~> 5.2.1)
-  gon
   govuk_elements_rails
   govuk_template
   guard

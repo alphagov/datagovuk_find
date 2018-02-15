@@ -65,51 +65,13 @@ feature 'Search page', elasticsearch: true do
     expect(page).to have_css('option[selected]', text: 'Best match')
 
     elements = all('h2 a')
-    
     expect(elements[0]).to have_content 'Old'
     expect(elements[1]).to have_content 'Recent'
 
 
   end
 
-  scenario 'Match location query against available locations', :js => true do
-
-    first_dataset = DatasetBuilder.new
-                      .with_title('Wellington Dataset')
-                      .with_location('Wellington')
-                      .build
-
-    second_dataset = DatasetBuilder.new
-                      .with_title('Welding Dataset')
-                      .with_location('Welding')
-                      .build
-
-    index([first_dataset, second_dataset])
-
-    visit('/search')
-
-    assert_data_set_length_is(2)
-
-    page.driver.execute_script %Q{ $('#location').focus().typeahead('val', 'We') }
-    page.driver.execute_script %Q{ $('#location').focus().typeahead('open') }
-
-    expect(page).to have_selector('.tt-selectable', count: 2)
-    expect(page).to have_css('.tt-selectable', text: 'Wellington')
-    expect(page).to have_css('.tt-selectable', text: 'Welding')
-
-    page.driver.execute_script %Q{ $('#location').focus().typeahead('val', 'Wellington') }
-
-    within('.dgu-filters__apply-button') do
-      find('.button').click
-    end
-
-    datasets = all('h2 a')
-
-    expect(datasets.length).to be(1)
-    expect(datasets[0]).to have_content 'Wellington Dataset'
-  end
-
-  scenario 'Match publisher query against available publishers', :js => true do
+  scenario 'Match publisher query against available publishers', js: true do
 
     first_dataset = DatasetBuilder.new
                       .with_title('Data About Tonka Trucks')
@@ -127,22 +89,15 @@ feature 'Search page', elasticsearch: true do
 
     assert_data_set_length_is(2)
 
-    page.driver.execute_script "$('#publisher').focus().typeahead('val', 'to')"
-    page.driver.execute_script %Q{ $('#publisher').focus().typeahead('open') }
+    execute_script "window.location = '#publisher'"
 
-    expect(page).to have_selector('.tt-selectable', count: 2)
-    expect(page).to have_css('.tt-selectable', text: 'Tonka Trucks')
-    expect(page).to have_css('.tt-selectable', text: 'Toby Corp')
+    find_field('publisher').send_keys('Tob', :down, :enter)
+    click_button 'Apply filters'
 
-    page.driver.execute_script %Q{ $('#publisher').focus().typeahead('val', 'Tonka Trucks') }
-
-    within('.dgu-filters__apply-button') do
-      find('.button').click
-    end
-
-    elements = all('h2 a')
-    expect(elements.length).to be(1)
-    expect(elements[0]).to have_content 'Data About Tonka Trucks'
+    search_results_headings = all('h2 a').map(&:text)
+    expect(search_results_headings.length).to be(1)
+    expect(search_results_headings).to contain_exactly 'Data About Toby'
+    expect(page).not_to have_content('Data About Tonka Trucks')
   end
 
   scenario 'filter by OGL licence' do
@@ -173,7 +128,7 @@ feature 'Search page', elasticsearch: true do
     expect(results[0]).to have_content 'First Dataset Title'
   end
 
-  scenario 'filter by topic' do
+  scenario 'filter by topic', js: true do
     first_dataset = DatasetBuilder.new
                       .with_title('First Dataset Title')
                       .with_topic({id: 1, name: "government", title: "Government"})
@@ -190,18 +145,17 @@ feature 'Search page', elasticsearch: true do
 
     assert_data_set_length_is(2)
 
-    select('Government', from: 'filters[topic]')
+    execute_script "window.location = '#topic'"
 
-    within('.dgu-filters__apply-button') do
-      find('.button').click
-    end
+    find_field('topic').send_keys('Gov', :down, :enter)
+    click_button 'Apply filters'
 
-    results = all('h2 a')
-    expect(results.length).to be(1)
-    expect(results[0]).to have_content 'First Dataset Title'
+    search_results_headings = all('h2 a').map(&:text)
+    expect(search_results_headings.length).to be(1)
+    expect(search_results_headings).to contain_exactly 'First Dataset Title'
   end
 
-  scenario 'filter by datafile format' do
+  scenario 'filter by datafile format', js: true do
     first_dataset = DatasetBuilder.new
                       .with_title('First Dataset Title')
                       .with_datafiles([{'format' => 'foo'}])
@@ -218,15 +172,13 @@ feature 'Search page', elasticsearch: true do
 
     assert_data_set_length_is(2)
 
-    select('FOO', from: 'filters[format]')
+    execute_script "window.location = '#format'"
+    find_field('format').send_keys('FO', :down, :enter)
+    click_button 'Apply filters'
 
-    within('.dgu-filters__apply-button') do
-      find('.button').click
-    end
-
-    results = all('h2 a')
-    expect(results.length).to be(1)
-    expect(results[0]).to have_content 'First Dataset Title'
+    search_results_headings = all('h2 a').map(&:text)
+    expect(search_results_headings.length).to be(1)
+    expect(search_results_headings).to contain_exactly 'First Dataset Title'
     expect(page).to have_content 'Datasets filtered by FOO'
   end
 

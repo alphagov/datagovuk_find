@@ -16,11 +16,12 @@ $(document).ready(function () {
   showHide.init()
 
   if (document.getElementById('publisher')) {
-    Typeahead.add('#publisher', 'publisher', Find.publishers)
-  }
-
-  if (document.getElementById('location')) {
-    Typeahead.add('#location', 'location', Find.locations)
+    accessibleAutocomplete.enhanceSelectElement({
+      selectElement: document.querySelector('#publisher'),
+      showAllValues: true,
+      confirmOnBlur: false,
+      autoselect: false
+    })
   }
 
   if (document.getElementById('format')) {
@@ -37,7 +38,8 @@ $(document).ready(function () {
       selectElement: document.querySelector('#topic'),
       showAllValues: true,
       confirmOnBlur: false,
-      autoselect: false
+      autoselect: false,
+      minLength: 2
     })
   }
 
