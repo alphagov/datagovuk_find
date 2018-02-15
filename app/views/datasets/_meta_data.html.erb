@@ -31,11 +31,6 @@
             <dd><%= format(last_updated_datafile(@dataset).updated_at) %></dd>
           <% end %>
 
-          <dt><%= t('.geographical_area') %>:</dt>
-          <dd class="<%= expected_location_class_for(@dataset) %>" itemprop="spatialCoverage" itemscope itemtype="http://schema.org/Place">
-            <span itemprop="name"><%= dataset_location(@dataset) %></span>
-          </dd>
-
           <dt><%= t('.topic') %>:</dt>
           <% if @dataset.topic %>
             <dd><%= @dataset.topic['title'] %></dd>
