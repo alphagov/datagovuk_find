@@ -11,12 +11,7 @@ feature 'Dataset page', elasticsearch: true do
   feature 'Meta data' do
     before(:each) do
       dataset = DatasetBuilder.new.build
-
       index_and_visit(dataset)
-    end
-
-    scenario 'Display a location if there is one' do
-      expect(page).to have_content('Geographical area: London Southwark')
     end
 
     scenario 'Display the topic if there is one' do
@@ -26,7 +21,7 @@ feature 'Dataset page', elasticsearch: true do
     scenario 'Do not display the topic if information missing' do
       dataset = DatasetBuilder.new.build
       dataset['topic'] = nil
-      
+
       index_and_visit(dataset)
 
       expect(page).to have_content('Topic: Not added')
@@ -99,7 +94,7 @@ feature 'Dataset page', elasticsearch: true do
         expect(page).to have_content('More from this publisher')
         expect(page).to have_css('a', text: "All datasets from #{@first_dataset[:organisation][:title]}")
       end
-    end 
+    end
 
     scenario 'displays filtered related datasets if filters form part of search query' do
       title_1 = 'First Dataset Data'

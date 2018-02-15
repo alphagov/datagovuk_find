@@ -79,12 +79,6 @@
                   <% else %>
                     <dd class="dgu-secondary-text"> <%= t('.meta_data_box.not_applicable') %></dd>
                   <% end %>
-                  <dt><%= t('.meta_data_box.geo_area') %>:</dt>
-                  <% if d.location1.present? %>
-                    <dd><%= d.location1 %></dd>
-                  <% else %>
-                    <dd class="dgu-secondary-text"> <%= t('.meta_data_box.not_applicable') %></dd>
-                  <% end %>
                 </dl>
                 <p><%= truncate(strip_tags(d.summary), length: 200, separator: ' ') %></p>
               </div>
