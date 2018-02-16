@@ -7,6 +7,10 @@ Rails.application.routes.draw do
     get 'data/search',          to: 'search#redirect'
     get 'contact',              to: redirect('support')
     get 'cookies-policy',       to: redirect('cookies')
+    get 'accessibility-statement',       to: redirect('accessibility')
+    get 'technical-details',    to: redirect('about')
+    get 'terms-and-conditions', to: redirect('terms')
+    get 'faq',                  to: redirect('about')
   end
 
   scope module: 'pages' do

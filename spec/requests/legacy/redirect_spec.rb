@@ -90,4 +90,40 @@ describe 'legacy', :type => :request do
       expect(response).to have_http_status(:moved_permanently)
     end
   end
+
+  describe 'accessibility page' do
+    it 'redirects to the accessibility page' do
+      get '/accessibility-statement'
+
+      expect(response).to redirect_to(accessibility_url)
+      expect(response).to have_http_status(:moved_permanently)
+    end
+  end
+
+  describe 'technical details page' do
+    it 'redirects to the about page' do
+      get '/technical-details'
+
+      expect(response).to redirect_to(about_url)
+      expect(response).to have_http_status(:moved_permanently)
+    end
+  end
+
+  describe 'terms and conditions page' do
+    it 'redirects to the terms page' do
+      get '/terms-and-conditions'
+
+      expect(response).to redirect_to(terms_url)
+      expect(response).to have_http_status(:moved_permanently)
+    end
+  end
+
+   describe 'faqs page' do
+    it 'redirects to the about page' do
+      get '/faq'
+
+      expect(response).to redirect_to(about_url)
+      expect(response).to have_http_status(:moved_permanently)
+    end
+  end
 end
