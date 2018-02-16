@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     get 'privacy'
     get 'support'
     get 'terms'
+    get 'dashboard'
   end
 
   match "404", to: "errors#not_found", via: :all

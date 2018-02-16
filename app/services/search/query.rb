@@ -8,14 +8,37 @@ module Search
         aggs: {
           organisations: {
             nested: {
-              path: "organisation"
+              path: 'organisation'
             },
             aggs: {
               org_titles: {
                 terms: {
-                  field: "organisation.title.raw",
-                  order: {_term: "asc"},
+                  field: 'organisation.title.raw',
+                  order: {_term: 'asc'},
                   size: TERMS_SIZE
+                }
+              }
+            }
+          }
+        }
+      }
+    end
+
+    def self.datafiles_aggregation
+      {
+        size: 0,
+        aggs: {
+          datafiles: {
+            nested: {
+              path: 'datafiles'
+            },
+            aggs: {
+              datasets_with_datafiles: {
+                reverse_nested: {}
+              },
+              formats: {
+                terms: {
+                  field: 'datafiles.format'
                 }
               }
             }
@@ -62,16 +85,16 @@ module Search
 
     def self.datafile_formats_aggregation
       {
-        "size": 0,
-        "aggs": {
-          "datafiles": {
-            "nested": {
-              "path": "datafiles"
+        size: 0,
+        aggs: {
+          datafiles: {
+            nested: {
+              path: 'datafiles'
             },
-            "aggs": {
-              "datafile_formats": {
-                "terms": {
-                  "field": "datafiles.format"
+            aggs: {
+              datafile_formats: {
+                terms: {
+                  field: 'datafiles.format'
                 }
               }
             }

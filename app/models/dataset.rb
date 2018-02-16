@@ -66,6 +66,11 @@ class Dataset
     map_keys(buckets)
   end
 
+  def self.datafiles
+    query = Search::Query.datafiles_aggregation
+    Dataset.search(query).aggregations['datafiles']
+  end
+
   def docs
     Array(@docs)
   end
