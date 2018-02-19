@@ -1,6 +1,6 @@
 INDEX = "datasets-test"
 
-def index(datasets)
+def index(*datasets)
   datasets.each do |dataset, i|
     ELASTIC.index index: INDEX, type: 'dataset', id: i, body: dataset
   end
@@ -12,7 +12,7 @@ def refresh_index
 end
 
 def index_and_visit(dataset)
-  index([dataset])
+  index(dataset)
   visit dataset_path(dataset[:short_id], dataset[:name])
 end
 

@@ -19,7 +19,7 @@ describe SearchHelper do
       ])
       .build
 
-      index([first_dataset, second_dataset])
+      index(first_dataset, second_dataset)
 
       expect(datafile_formats_for_select).to eql ['', 'BAR', 'BAZ', 'FOO']
     end
@@ -39,7 +39,7 @@ describe SearchHelper do
       ])
       .build
 
-      index([first_dataset, second_dataset])
+      index(first_dataset, second_dataset)
 
       expect(datafile_formats_for_select).to eql ['', 'BAR', 'BAZ', 'FOO']
     end

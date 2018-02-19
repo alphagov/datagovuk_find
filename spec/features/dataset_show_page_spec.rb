@@ -79,7 +79,7 @@ feature 'Dataset page', elasticsearch: true do
           .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
           .build
 
-        index([@first_dataset, second_dataset])
+        index(@first_dataset, second_dataset)
         refresh_index
 
         visit dataset_path(@first_dataset[:short_id], @first_dataset[:name])
@@ -130,7 +130,7 @@ feature 'Dataset page', elasticsearch: true do
         .with_publisher('Unrelated publisher')
         .build
 
-      index([first_dataset, second_dataset, third_dataset])
+      index(first_dataset, second_dataset, third_dataset)
 
       refresh_index
 
