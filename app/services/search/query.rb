@@ -2,6 +2,8 @@ module Search
   class Query
     TERMS_SIZE = 10_000
 
+    def initialize(_clauses) ; end
+
     def self.publishers_aggregation
       {
         size: 0,
