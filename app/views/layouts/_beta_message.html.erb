@@ -1,8 +1,11 @@
-<div class="grid-row">
-  <div class="column-full dgu-beta__banner">
-    <div class="column-one-half dgu-beta__message">
-      <p>We’ve been improving data.gov.uk to help you find and use open government data. <%= link_to "Discover what’s changed", about_path %> and <%= link_to "get in touch", support_path %> to give us your feedback. </p>
+<div class="dgu-beta__banner">
+  <div class="dgu-beta__message">
+    <p>
+      We’ve been improving data.gov.uk to help you find and use open government data.
+      <%= link_to "Discover what’s changed", about_path %> and <%= link_to "get in touch", support_path %> to give us your feedback.
+    </p>
+    <p>
       <%= link_to "Don't show this message again", acknowledge_and_redirect_path(q: params[:q], short_id: params[:short_id], name: params[:name]) %>
-    </div>
+    </p>
   </div>
 </div>

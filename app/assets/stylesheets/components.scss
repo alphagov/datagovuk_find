@@ -54,15 +54,18 @@
     margin-top: 5px;
   }
 }
+
 // dgu beta message ============================================================
 .dgu-beta {
   &__banner {
     background: #0C5FA3;
+    max-width: 100%
   }
   &__message {
-    margin-right: 15px;
+    margin: auto;
+    max-width: 960px;
     color: white;
-    padding: 20px 20px 25px 20px;
+    padding: 18px 0px 10px 0px;
     a:link {
       color: white;
     }
@@ -72,48 +75,20 @@
     a:hover {
       font-weight: bold;
     }
-    max-width: 990px;
-    margin-left: 360px;
 
   // when beta message is displayed, spacing of adjacent elements must be adjusted____________
-      &--show {
-        // 1. Static pages and home page
-        .grid-row.inner {
-          .column-two-thirds {
-            h1.heading-xlarge {
-              margin-top: 40px;
-            }
-          }
-        }
-        // 2. Dataset show page
-        div {
-          .meta-data {
-            .grid-row {
-              .column-two-thirds {
-                h1.heading-large {
-                  margin-top: 40px;
-                }
-              }
-            }
-          }
-        }
-        // 3. Search results page
+    &--show {
       form {
         .dgu-split-background__top {
-          .dgu-split-background__top-inner {
+          &-inner {
             h1.heading-large {
               padding-top: 40px;
             }
-            .grid-row {
-              .dgu-beta_message {
-                margin-top: 40px;
-              }
           }
         }
       }
     }
   }
-}
 }
 
 // split-background layout  ====================================================
@@ -139,7 +114,7 @@
       margin: auto;
       max-width: 960px;
       .phase-banner {
-        margin-bottom: 1.5em;
+        margin-bottom: 2.5em;
       }
     }
   }
