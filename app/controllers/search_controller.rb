@@ -1,6 +1,5 @@
 class SearchController < LoggedAreaController
   before_action :search_for_dataset, only: [:search]
-  before_action :toggle_beta_message
 
   def search
     @query = params['q'] || ''
