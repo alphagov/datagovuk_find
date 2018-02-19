@@ -42,4 +42,5 @@ class DatasetsController < LoggedAreaController
   def newest_dataset_path
     dataset_path(@dataset.short_id, @dataset.name)
   end
+
 end

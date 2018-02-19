@@ -2,49 +2,53 @@
   Support -
 <% end %>
 
-<div class="grid-row inner">
-  <div class="column-two-thirds">
-    <h1 class='heading-large'>Support</h1>
+<main role="main" tabindex="-1" id="content">
+  <%= render partial: 'layouts/feedback_survey_banner' if flash[:beta_message] == 'hide'%>
 
-      <p>
-        The Government Digital Service (GDS) maintains the service behind data.gov.uk and helps
-        publishers to manage and update their data. GDS provides operational support
-        from 9am to 5pm, Monday to Friday.
-      </p>
+  <div class="grid-row inner">
+    <div class="column-two-thirds">
+      <h1 class='heading-large'>Support</h1>
 
-      <p>
-        If you want to ask for a dataset, choose the data request option.
-      </p>
+        <p>
+          The Government Digital Service (GDS) maintains the service behind data.gov.uk and helps
+          publishers to manage and update their data. GDS provides operational support
+          from 9am to 5pm, Monday to Friday.
+        </p>
 
-      <p>
-        For questions about a dataset, you can contact the publisher directly if they’ve provided contact details on the dataset page.
-      </p>
-      <p>
-        To get answers about <%= link_to "GOV.UK", "https://www.gov.uk/" %> you can check the GOV.UK help pages or <%= link_to "contact", "https://www.gov.uk/contact/govuk" %> the team.
-      </p>
-      
-      <form action="tickets/new" method="get">
-        <div class="form-group">
-          <fieldset>
+        <p>
+          If you want to ask for a dataset, choose the data request option.
+        </p>
 
-            <legend>
-              <h1 class="heading-medium">How can we help you?</h1>
-            </legend>
+        <p>
+          For questions about a dataset, you can contact the publisher directly if they’ve provided contact details on the dataset page.
+        </p>
+        <p>
+          To get answers about <%= link_to "GOV.UK", "https://www.gov.uk/" %> you can check the GOV.UK help pages or <%= link_to "contact", "https://www.gov.uk/contact/govuk" %> the team.
+        </p>
 
-            <div class="multiple-choice">
-              <input id="support-1" type="radio" name="support" value="feedback">
-              <label for="support-1">I want to report a problem or give feedback</label>
-            </div>
+        <form action="tickets/new" method="get">
+          <div class="form-group">
+            <fieldset>
 
-            <div class="multiple-choice">
-              <input id="support-2" type="radio" name="support" value="data">
-              <label for="support-2">I have a data request</label>
-            </div>
+              <legend>
+                <h1 class="heading-medium">How can we help you?</h1>
+              </legend>
 
-          </fieldset>
-        </div>
-        <input class="button" type="submit" value="Continue">
-      </form>
+              <div class="multiple-choice">
+                <input id="support-1" type="radio" name="support" value="feedback">
+                <label for="support-1">I want to report a problem or give feedback</label>
+              </div>
 
+              <div class="multiple-choice">
+                <input id="support-2" type="radio" name="support" value="data">
+                <label for="support-2">I have a data request</label>
+              </div>
+
+            </fieldset>
+          </div>
+          <input class="button" type="submit" value="Continue">
+        </form>
+
+      </div>
     </div>
-  </div>
+  </main>

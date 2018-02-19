@@ -1,5 +1,7 @@
 <main role="main" tabindex="-1" id="content">
   <div class="grid-row inner">
+    <%= render partial: 'layouts/feedback_survey_banner' if flash[:beta_message] == 'hide'%>
+
     <div class="column-two-thirds">
       <h1 class="heading-xlarge">How we’ll use your data</h1>
       <p>

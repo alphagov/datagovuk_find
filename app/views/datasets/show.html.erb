@@ -3,7 +3,7 @@
 <% end %>
 
 <main role="main" tabindex="-1" id="content">
-  <%= render partial: 'layouts/feedback_survey_banner' %>
+  <%= render partial: 'layouts/feedback_survey_banner' if flash[:beta_message] == 'hide'%>
   <%= render "breadcrumb" %>
   <div itemscope itemtype="http://schema.org/Dataset">
     <link itemprop="url" href="<%= "#{request.protocol}#{request.host_with_port}#{request.fullpath}" %>"/>

@@ -55,7 +55,41 @@
   }
 }
 
+// dgu beta message ============================================================
+.dgu-beta {
+  &__banner {
+    background: #0C5FA3;
+    max-width: 100%
+  }
+  &__message {
+    margin: auto;
+    max-width: 960px;
+    color: white;
+    padding: 18px 0px 10px 0px;
+    a:link {
+      color: white;
+    }
+    a:visited {
+      color: white;
+    }
+    a:hover {
+      color: $light-blue-25;
+    }
 
+  // when beta message is displayed, spacing of adjacent elements must be adjusted____________
+    &--show {
+      form {
+        .dgu-split-background__top {
+          &-inner {
+            h1.heading-large {
+              padding-top: 40px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
 
 // split-background layout  ====================================================
 
@@ -91,8 +125,6 @@
     padding: 1.5em 1em 1.5em 1em;
   }
 }
-
-
 
 // Result list and controls ====================================================
 

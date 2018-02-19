@@ -45,6 +45,10 @@ module DatasetsHelper
     datafiles.group_by(&:start_year).sort.reverse
   end
 
+  def shorten_title(title)
+    title.truncate(70, separator: ' ', omission: ' ...')
+  end
+
   private
 
   def locations(dataset)
