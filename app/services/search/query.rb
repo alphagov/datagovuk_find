@@ -1,8 +1,25 @@
 module Search
   class Query
+    MULTI_MATCH_FIELDS = %w(title summary description organisation^2 location*^2)
     TERMS_SIZE = 10_000
 
-    def initialize(_clauses) ; end
+    attr_accessor :clauses
+
+    def initialize(*clauses)
+      self.clauses = clauses.flatten
+    end
+
+    def to_elasticsearch
+      query = { query: { bool: {} } }
+
+      if clauses.any?
+        query[:query][:bool][:must] = clauses.map do |clause|
+          clause_to_query(clause)
+        end
+      end
+
+      query
+    end
 
     def self.publishers_aggregation
       {
@@ -141,15 +158,7 @@ module Search
     end
 
     def self.search(params)
-      query = {
-        query: {
-          bool: {
-            must: []
-          }
-        }
-      }
-
-      query_param = params['q']
+      query_param = params.fetch('q', '').squish
       sort_param =  params['sort']
 
       publisher_param = params.dig(:filters, :publisher)
@@ -158,7 +167,15 @@ module Search
       topic_param =    params.dig(:filters, :topic)
       licence_param =   params.dig(:filters, :licence)
 
-      query[:query][:bool][:must] << multi_match(query_param)          if query_param.present?
+      query = begin
+        QueryTransformer.new.apply(QueryParser.new.parse(query_param))
+      rescue Parslet::ParseFailed
+        Query.new(TermsClause.new(query_param))
+      end
+
+      query = query.to_elasticsearch
+
+      query[:query][:bool][:must] ||= []
       query[:query][:bool][:must] << publisher_filter(publisher_param) if publisher_param.present?
       query[:query][:bool][:must] << location_filter(location_param)   if location_param.present?
       query[:query][:bool][:must] << topic_filter(topic_param)         if topic_param.present?
@@ -190,15 +207,6 @@ module Search
               term: { short_id: short_id }
             }
           }
-        }
-      }
-    end
-
-    def self.multi_match(query)
-      {
-        multi_match: {
-          query: query,
-          fields: %w(title summary description organisation^2 location*^2)
         }
       }
     end
@@ -276,6 +284,38 @@ module Search
       }
     end
 
-    private_class_method :multi_match, :publisher_filter, :topic_filter, :location_filter, :format_filter, :licence_filter
+    private_class_method :publisher_filter, :topic_filter, :location_filter, :format_filter, :licence_filter
+
+    private
+
+    def clause_to_query(clause)
+      case clause
+      when TermsClause
+        multi_match(clause.terms)
+      when PhraseClause
+        multi_match_phrase(clause.phrase)
+      else
+        raise Error, "Unknown clause type: #{clause}"
+      end
+    end
+
+    def multi_match(terms)
+      {
+        multi_match: {
+          query: terms,
+          fields: MULTI_MATCH_FIELDS,
+        }
+      }
+    end
+
+    def multi_match_phrase(phrase)
+      {
+        multi_match: {
+          query: phrase,
+          type: 'phrase',
+          fields: MULTI_MATCH_FIELDS,
+        }
+      }
+    end
   end
 end
