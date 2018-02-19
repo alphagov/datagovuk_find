@@ -28,7 +28,9 @@
 
 <% content_for :content do %>
   <%= render 'layouts/staging_ribbon' if Rails.env.staging? %>
-  <%= yield %>
+  <main role="main" tabindex="-1" id="<%= 'content' unless current_page? root_path %>">
+    <%= yield %>
+  </main>
   <div id="global-app-error" class="app-error hidden"></div>
 
   <script>if (typeof window.GOVUK === 'undefined') document.body.className = document.body.className.replace('js-enabled', '');</script>
