@@ -17,7 +17,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    @datasets_count = Dataset.__elasticsearch__.client.count["count"]
+    @datasets_count = get_datasets_count
     @publishers_count = Dataset.publishers.count
     @datafiles_count = Dataset.datafiles['doc_count']
     @datasets_published_with_datafiles_count = Dataset.datafiles['datasets_with_datafiles']['doc_count']
@@ -26,6 +26,11 @@ class PagesController < ApplicationController
   end
 
   private
+
+  def get_datasets_count
+    query = Search::Query.search(q: '')
+    Dataset.search(query).total_count
+  end
 
   def check_consent
     return if Rails.env.test?
