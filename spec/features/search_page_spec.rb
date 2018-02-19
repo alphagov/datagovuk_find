@@ -20,7 +20,7 @@ feature 'Search page', elasticsearch: true do
                 .with_title(dataset_title)
                 .build
 
-    index([dataset])
+    index(dataset)
     search_for(query)
 
     expect(page).to have_css('h1', text: 'Search results')
@@ -40,7 +40,7 @@ feature 'Search page', elasticsearch: true do
                     .last_updated_at('2017-07-24T14:47:25.975Z')
                     .build
 
-    index([old_dataset, new_dataset])
+    index(old_dataset, new_dataset)
 
     search_for('Old Interesting Dataset')
 
@@ -83,7 +83,7 @@ feature 'Search page', elasticsearch: true do
                       .with_publisher('Toby Corp')
                       .build
 
-    index([first_dataset, second_dataset])
+    index(first_dataset, second_dataset)
 
     visit('/search')
 
@@ -111,7 +111,7 @@ feature 'Search page', elasticsearch: true do
                       .with_licence('foo')
                       .build
 
-    index([first_dataset, second_dataset])
+    index(first_dataset, second_dataset)
 
     visit('/search')
 
@@ -139,7 +139,7 @@ feature 'Search page', elasticsearch: true do
                       .with_topic({id: 2, name: "business-and-economy", title: "Business and economy"})
                       .build
 
-    index([first_dataset, second_dataset])
+    index(first_dataset, second_dataset)
 
     visit('/search')
 
@@ -166,7 +166,7 @@ feature 'Search page', elasticsearch: true do
                       .with_datafiles([{'format' => 'bar'}])
                       .build
 
-    index([first_dataset, second_dataset])
+    index(first_dataset, second_dataset)
 
     visit('/search')
 
