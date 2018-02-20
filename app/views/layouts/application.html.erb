@@ -13,6 +13,13 @@
   <%= root_path %>
 <% end %>
 
+<% content_for :cookie_message do %>
+  <p>
+    data.gov.uk uses cookies to make the site simpler.
+    <%= link_to 'Find out more about cookies', cookies_path %>
+  </p>
+<% end %>
+
 <% content_for :global_header_text do %>
   <%= t('.global_header_text') %> <strong class="phase-tag">BETA</strong>
 <% end %>
