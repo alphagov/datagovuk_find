@@ -1,6 +1,4 @@
 class PagesController < ApplicationController
-  before_action :check_consent, only: [:support]
-
   def terms
   end
 
@@ -30,14 +28,5 @@ class PagesController < ApplicationController
   def get_datasets_count
     query = Search::Query.search(q: '')
     Dataset.search(query).total_count
-  end
-
-  def check_consent
-    return if Rails.env.test?
-    redirect_to new_consent_path if has_not_consented?
-  end
-
-  def has_not_consented?
-    !session.key?('consent') || session[:consent] == false
   end
 end

@@ -30,11 +30,6 @@ Rails.application.routes.draw do
 
   get 'search/tips', to: 'search#tips'
 
-  get 'use-of-data', to: 'consents#new', as: 'new_consent'
-  get 'use-of-data/confirm', to: 'consents#confirm'
-
-  get 'not_authenticated', to: 'errors#not_authenticated'
-
   resources :tickets, only: [:new, :create]
   get 'tickets/confirmation', to: 'tickets#confirmation'
 
