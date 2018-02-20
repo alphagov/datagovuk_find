@@ -1,2 +1,2 @@
-class HomeController < LoggedAreaController
+class HomeController < ApplicationController
 end

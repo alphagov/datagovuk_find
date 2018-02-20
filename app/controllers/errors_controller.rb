@@ -1,4 +1,4 @@
-class ErrorsController < PublicAreaController
+class ErrorsController < ApplicationController
   def not_found
     render(status: 404)
   end

@@ -1,4 +1,4 @@
-class TicketsController < LoggedAreaController
+class TicketsController < ApplicationController
 
   def new
     @support_queue = params['support']

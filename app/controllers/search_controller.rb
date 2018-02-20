@@ -1,4 +1,4 @@
-class SearchController < LoggedAreaController
+class SearchController < ApplicationController
   before_action :search_for_dataset, only: [:search]
 
   def search
