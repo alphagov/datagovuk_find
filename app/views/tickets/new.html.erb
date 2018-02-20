@@ -1,33 +1,38 @@
-<div class="grid-row inner">
-  <div class="column-full">
+<% content_for :page_title do %>
+  Send a data request -
+<% end %>
 
-    <div class="datagov_breadcrumb">
-      <ol role="breadcrumb">
-        <li>
-          <%= link_to 'Back', support_path %>
-        </li>
-      </ol>
-    </div>
-    <% if @ticket.errors.any? %>
-      <div class="error-summary" role="alert" aria-labelledby="error-summary-heading" tabindex="-1">
-        <h2 class="heading-medium error-summary-heading" id="error-summary-heading">
-          There was a problem
-        </h1>
-        <ul class="error-summary-list">
-          <% @ticket.errors.messages.each do |attr, error| %>
-            <li><a href="#error-<%= attr.to_s %>"> <%= error[0] %></a></li>
-          <% end %>
-        </ul>
+<main role="main" tabindex="-1" id="content">
+  <div class="grid-row inner">
+    <div class="column-full">
+
+      <div class="datagov_breadcrumb">
+        <ol role="breadcrumb">
+          <li>
+            <%= link_to 'Back', support_path %>
+          </li>
+        </ol>
       </div>
-    <% end %>
-
-    <h1 class='heading-medium'>
-      <% if @support_queue == 'data'%>
-        Send a data request
-      <% else %>
-        Report a problem or give feedback
+      <% if @ticket.errors.any? %>
+        <div class="error-summary" role="alert" aria-labelledby="error-summary-heading" tabindex="-1">
+          <h2 class="heading-medium error-summary-heading" id="error-summary-heading">
+            There was a problem
+          </h2>
+          <ul class="error-summary-list">
+            <% @ticket.errors.messages.each do |attr, error| %>
+              <li><a href="#error-<%= attr.to_s %>"> <%= error[0] %></a></li>
+            <% end %>
+          </ul>
+        </div>
       <% end %>
-    </h1>
+
+      <h1 class='heading-medium'>
+        <% if @support_queue == 'data'%>
+          Send a data request
+        <% else %>
+          Report a problem or give feedback
+        <% end %>
+      </h1>
 
       <%= form_for @ticket, url: { action: "create", controller: "tickets" } do |f| %>
         <div class="form-group <% if @ticket.errors[:content].any? %> form-group-error <% end %>">
@@ -66,8 +71,9 @@
                           id: "example-email",
                           rows: 1 ) %>
         </div>
-          <%= f.hidden_field(:support, :value => @support_queue) %>
+        <%= f.hidden_field(:support, :value => @support_queue) %>
           <%= f.submit "Submit", class: "button dgu-support__button" %>
       <% end %>
+    </div>
   </div>
-</div>
+</main>
