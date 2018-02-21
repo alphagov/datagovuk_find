@@ -34,7 +34,7 @@
 
         <% if @query.present? %>
           <span class="dgu-results__summary">
-            <span class="bold-small"><%= @num_results %></span>
+            <span class="bold-small"><%= number_with_delimiter(@num_results) %></span>
             <%= t('.results_summary') %> <span class="bold-small">‘<%= @query %>’</span>
           </span>
         <% end %>
