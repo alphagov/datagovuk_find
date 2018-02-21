@@ -196,7 +196,6 @@ module Search
       {
         multi_match: {
           query: query,
-          analyzer: 'english',
           fields: %w(title summary description organisation^2 location*^2)
         }
       }
