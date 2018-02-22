@@ -57,10 +57,11 @@ rm manifest.yml || true
 
 cf login -a $CF_API -u $CF_USER -p $CF_PASS -s $CF_SPACE
 cf add-plugin-repo CF-Community https://plugins.cloudfoundry.org
-cf install-plugin blue-green-deploy -r CF-Community -f
+cf install-plugin autopilot -r CF-Community -f
 
-# For some reason the blue-green deploy breaks if there's no manifest.yml present
+# autopilot requires a manifest.yml to be present
 ln -s $CF_ENV-manifest.yml manifest.yml
 
-cf bgd $CF_APP -f $CF_ENV-manifest.yml
+cf zero-downtime-push $CF_APP -f manifest.yml
+
 rm manifest.yml
