@@ -6,59 +6,61 @@
   What's available in Find right now
 </h1>
 
-<div class="grid-row">
-  <div class="column-one-third">
-    <div class="data">
-      <span class="data-item bold-xlarge"><%= number_with_delimiter(@datasets_count) %></span>
-      <span class="data-item bold-xsmall"><%= 'dataset'.pluralize(@datasets_count) %> in total</span>
+<main role="main" id="content">
+  <div class="grid-row">
+    <div class="column-one-third">
+      <div class="data">
+        <span class="data-item bold-xlarge"><%= number_with_delimiter(@datasets_count) %></span>
+        <span class="data-item bold-xsmall"><%= 'dataset'.pluralize(@datasets_count) %> in total</span>
+      </div>
+    </div>
+
+    <div class="column-one-third">
+      <div class="data">
+        <span class="data-item bold-xlarge"><%= number_with_delimiter(@datasets_published_with_datafiles_count) %></span>
+        <span class="data-item bold-xsmall"><%= 'dataset'.pluralize(@datasets_published_with_datafiles_count) %> published with datafiles</span>
+      </div>
+    </div>
+
+    <div class="column-one-third">
+      <div class="data">
+        <span class="data-item bold-xlarge"><%= number_with_delimiter(@datasets_published_with_no_datafiles_count) %></span>
+        <span class="data-item bold-xsmall"><%= 'dataset'.pluralize(@datasets_published_with_no_datafiles_count) %> published with no datafiles</span>
+      </div>
     </div>
   </div>
 
-  <div class="column-one-third">
-    <div class="data">
-      <span class="data-item bold-xlarge"><%= number_with_delimiter(@datasets_published_with_datafiles_count) %></span>
-      <span class="data-item bold-xsmall"><%= 'dataset'.pluralize(@datasets_published_with_datafiles_count) %> published with datafiles</span>
+  <div class="grid-row">
+    <div class="column-one-third">
+      <div class="data">
+        <span class="data-item bold-xlarge"><%= number_with_delimiter(@datafiles_count) %></span>
+        <span class="data-item bold-xsmall"><%= 'datafile'.pluralize(@datafiles_count) %> in total</span>
+      </div>
+    </div>
+
+    <div class="column-one-third">
+      <div class="data">
+        <span class="data-item bold-xlarge"><%= number_with_delimiter(@publishers_count) %></span>
+        <span class="data-item bold-xsmall"><%= 'publisher'.pluralize(@publishers_count) %></span>
+      </div>
     </div>
   </div>
 
-  <div class="column-one-third">
-    <div class="data">
-      <span class="data-item bold-xlarge"><%= number_with_delimiter(@datasets_published_with_no_datafiles_count) %></span>
-      <span class="data-item bold-xsmall"><%= 'dataset'.pluralize(@datasets_published_with_no_datafiles_count) %> published with no datafiles</span>
+  <hr />
+
+  <div class="grid-row">
+    <div class="column-one-half">
+      <table>
+        <caption class="heading-small">Datafile count by format</caption>
+        <tbody>
+          <% @datafiles_count_by_format.each do |datafile_count| %>
+            <tr>
+              <th><%= datafile_count['key'].upcase.presence || "Not specified" %></th>
+              <td><%= datafile_count['doc_count'] %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
     </div>
   </div>
-</div>
-
-<div class="grid-row">
-  <div class="column-one-third">
-    <div class="data">
-      <span class="data-item bold-xlarge"><%= number_with_delimiter(@datafiles_count) %></span>
-      <span class="data-item bold-xsmall"><%= 'datafile'.pluralize(@datafiles_count) %> in total</span>
-    </div>
-  </div>
-
-  <div class="column-one-third">
-    <div class="data">
-      <span class="data-item bold-xlarge"><%= number_with_delimiter(@publishers_count) %></span>
-      <span class="data-item bold-xsmall"><%= 'publisher'.pluralize(@publishers_count) %></span>
-    </div>
-  </div>
-</div>
-
-<hr />
-
-<div class="grid-row">
-  <div class="column-one-half">
-    <table>
-      <caption class="heading-small">Datafile count by format</caption>
-      <tbody>
-        <% @datafiles_count_by_format.each do |datafile_count| %>
-          <tr>
-            <th><%= datafile_count['key'].upcase.presence || "Not specified" %></th>
-            <td><%= datafile_count['doc_count'] %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
-</div>
+</main>
