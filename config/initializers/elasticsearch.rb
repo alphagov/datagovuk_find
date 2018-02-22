@@ -26,8 +26,11 @@ def es_config_from_vcap
     Rails.logger.fatal e
     exit
   end
+
   es_cert_file = create_es_cert_file(es_cert)
-  log(es_servers, es_cert_file.path)
+
+  Rails.logger.info("Elasticsearch servers: #{es_servers}")
+  Rails.logger.info("Elasticsearch certificate file path: #{es_cert_file.path}")
 
   {
     host: es_servers,
