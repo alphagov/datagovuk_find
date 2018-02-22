@@ -117,6 +117,27 @@ class DatasetBuilder
     self
   end
 
+  def with_ministerial_department(ministerial_department)
+    @dataset[:organisation][:name] = ministerial_department
+    @dataset[:organisation][:title] = ministerial_department
+    @dataset[:organisation][:category] = 'ministerial-department'
+    self
+  end
+
+  def with_non_ministerial_department(non_ministerial_department)
+    @dataset[:organisation][:name] = non_ministerial_department
+    @dataset[:organisation][:title] = non_ministerial_department
+    @dataset[:organisation][:category] = 'non-ministerial-department'
+    self
+  end
+
+  def with_local_council(local_council)
+    @dataset[:organisation][:name] = local_council
+    @dataset[:organisation][:title] = local_council
+    @dataset[:organisation][:category] = 'local-council'
+    self
+  end
+
   def with_licence(licence)
     @dataset[:licence] = licence
     self
