@@ -1,42 +1,44 @@
 <% content_for :page_title do %>
   <%= @datafile.name %> -
 <% end %>
-<div class="grid-row">
-  <div class="column-two-thirds">
-    <%= link_to t('.back_link'), dataset_path(@dataset.short_id, @dataset.name), class: 'link-back' %>
-    <h1 class="heading-large">
-      <%= @dataset.title %>
-      <span class="heading-secondary dgu-home-spacer__bottom"><%= @datafile.name %></span>
-    </h1>
-    <% if @datafile.csv? && @datafile.preview.exists? %>
-      <p>You're previewing the first <%= @datafile.preview.line_count %> rows of this file.</p>
-    <% end %>
-    <a class="button" href="<%= @datafile.url %>"><%= t('.download_file') %></a>
-  </div>
-  <div class = 'column-full'>
-    <section class="dgu-datafile-preview">
+<main role="main" id="content">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <%= link_to t('.back_link'), dataset_path(@dataset.short_id, @dataset.name), class: 'link-back' %>
+      <h1 class="heading-large">
+        <%= @dataset.title %>
+        <span class="heading-secondary dgu-home-spacer__bottom"><%= @datafile.name %></span>
+      </h1>
       <% if @datafile.csv? && @datafile.preview.exists? %>
-        <table>
-          <thead>
-            <tr>
-              <% @datafile.preview.headers.each do |col| %>
-                <th><%= col %></th>
-              <% end %>
-            </tr>
-          </thead>
-          <tbody>
-            <% @datafile.preview.rows.each do |row| %>
+        <p>You're previewing the first <%= @datafile.preview.line_count %> rows of this file.</p>
+      <% end %>
+      <a class="button" href="<%= @datafile.url %>"><%= t('.download_file') %></a>
+    </div>
+    <div class = 'column-full'>
+      <section class="dgu-datafile-preview">
+        <% if @datafile.csv? && @datafile.preview.exists? %>
+          <table>
+            <thead>
               <tr>
-                <% row.each do |col| %>
-                  <td><%= col %></td>
+                <% @datafile.preview.headers.each do |col| %>
+                  <th><%= col %></th>
                 <% end %>
               </tr>
-            <% end %>
-          </tbody>
-        </table>
-      <% else %>
-        <p><%= "#{t('.no_preview_avail')} \"#{@datafile.name}\"" %></p>
-      <% end %>
-    </section>
+            </thead>
+            <tbody>
+              <% @datafile.preview.rows.each do |row| %>
+                <tr>
+                  <% row.each do |col| %>
+                    <td><%= col %></td>
+                  <% end %>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        <% else %>
+          <p><%= "#{t('.no_preview_avail')} \"#{@datafile.name}\"" %></p>
+        <% end %>
+      </section>
+    </div>
   </div>
-</div>
+</main>
