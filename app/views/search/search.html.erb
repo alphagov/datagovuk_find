@@ -57,17 +57,17 @@
                 <dl class="dgu-metadata__box">
                   <% if dataset.datafiles.none? %>
                     <dt><%= t('.meta_data_box.availability') %>:</dt>
-                    <dd>
+                    <dd class="availability">
                       <span class="dgu-highlight">Not released</span>
                     </dd>
                   <% end %>
                   <dt><%= t('.meta_data_box.published_by') %>:</dt>
-                  <dd><%= dataset.organisation['title'] %></dd>
+                  <dd class="published_by"><%= dataset.organisation['title'] %></dd>
                   <dt><%= t('.meta_data_box.last_updated') %>:</dt>
                   <% if dataset.last_updated_at.present? %>
-                    <dd><%= format_timestamp(dataset.last_updated_at) %></dd>
+                    <dd class="last_updated"><%= format_timestamp(dataset.last_updated_at) %></dd>
                   <% else %>
-                    <dd class="dgu-secondary-text"> <%= t('.meta_data_box.not_applicable') %></dd>
+                    <dd class="last_updated dgu-secondary-text"> <%= t('.meta_data_box.not_applicable') %></dd>
                   <% end %>
                 </dl>
                 <p><%= truncate(strip_tags(dataset.summary), length: 200, separator: ' ') %></p>

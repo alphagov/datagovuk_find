@@ -182,6 +182,18 @@ module Search
       query[:query][:bool][:must] << format_filter(format_param)       if format_param.present?
       query[:query][:bool][:must] << licence_filter(licence_param)     if licence_param.present?
 
+      # If we have a must clause then a dataset will match the bool query even
+      # if none of the should queries match. If the must clause is empty at
+      # least one of the should queries must match a dataset for it to match
+      # the bool query. Therefore we can only include the should clause if we
+      # have a must clause also set otherwise we'll only get datasets we boost.
+      if query[:query][:bool][:must].any?
+        query[:query][:bool][:should] ||= []
+        query[:query][:bool][:should] << organisation_category_filter('ministerial-department', boost: 2)
+        query[:query][:bool][:should] << organisation_category_filter('non-ministerial-department', boost: 2)
+        query[:query][:bool][:should] << organisation_category_filter('local-council', boost: 1)
+      end
+
       query[:sort] = { "last_updated_at": { "order": "desc" } } if sort_param == "recent"
 
       query
@@ -280,6 +292,22 @@ module Search
       {
         match: {
           "licence": licence
+        }
+      }
+    end
+
+    def self.organisation_category_filter(organisation_category, boost: 2)
+      {
+        nested: {
+          path: 'organisation',
+          query: {
+            term: {
+              'organisation.category.keyword' => {
+                value: organisation_category,
+                boost: boost
+              }
+            }
+          }
         }
       }
     end

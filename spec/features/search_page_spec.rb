@@ -202,6 +202,43 @@ feature 'Search page', elasticsearch: true do
     )
   end
 
+  scenario 'Prominence of datasets based on organisation category' do
+    ministerial_dataset = DatasetBuilder
+                            .new
+                            .with_ministerial_department(
+                              'Department for Environment Food & Rural Affairs'
+                            )
+                            .build
+
+    non_ministerial_dataset = DatasetBuilder
+                                .new
+                                .with_non_ministerial_department(
+                                  'Forestry Commission'
+                                )
+                                .build
+
+    local_council_dataset = DatasetBuilder
+                              .new
+                              .with_local_council(
+                                'Plymouth City Council'
+                              )
+                              .build
+
+    index(ministerial_dataset, non_ministerial_dataset, local_council_dataset)
+
+    search_for('data')
+
+    publishers = all('dd.published_by').map(&:text)
+
+    expect(publishers[0]).to eq('Department for Environment Food & Rural Affairs')
+                               .or eq('Forestry Commission')
+
+    expect(publishers[1]).to eq('Department for Environment Food & Rural Affairs')
+                               .or eq('Forestry Commission')
+
+    expect(publishers[2]).to eq('Plymouth City Council')
+  end
+
   def assert_data_set_length_is(count)
     datasets = all('h2 a')
     expect(datasets.length).to be(count)
