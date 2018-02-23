@@ -16,6 +16,9 @@ class PagesController < ApplicationController
   def accessibility
   end
 
+  def site-changes 
+  end
+
   def dashboard
     @datasets_count = get_datasets_count
     @publishers_count = Dataset.publishers.count

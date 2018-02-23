@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     get 'support'
     get 'terms'
     get 'dashboard'
+    get 'site-changes'
   end
 
   match "404", to: "errors#not_found", via: :all
