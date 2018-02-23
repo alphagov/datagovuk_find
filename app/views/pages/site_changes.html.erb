@@ -1,0 +1,14 @@
+<% content_for :page_title do %>
+  Site changes -
+<% end %>
+
+<main role="main" id="content">
+  <%= render partial: 'layouts/feedback_survey_banner' if flash[:beta_message] == 'hide'%>
+
+  <h1 class="heading-xlarge">
+    Changes to this site
+  </h1>
+
+  <p>Content here</p>
+
+</main>
