@@ -16,7 +16,7 @@ class PagesController < ApplicationController
   def accessibility
   end
 
-  def site-changes 
+  def site_changes 
   end
 
   def dashboard
