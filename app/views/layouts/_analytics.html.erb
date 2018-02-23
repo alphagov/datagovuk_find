@@ -1,4 +1,4 @@
-<% if (Rails.application.config.analytics_tracking_id.present? || Rails.application.config.analytics_test_tracking_id.present?) && !request.url.include?(new_consent_path) %>
+<% if (Rails.application.config.analytics_tracking_id.present? || Rails.application.config.analytics_test_tracking_id.present?) %>
   <script>
     var trackingId = (document.location.hostname === 'beta.data.gov.uk') ? '<%= Rails.application.config.analytics_tracking_id %>' : '<%= Rails.application.config.analytics_test_tracking_id %>';
 
