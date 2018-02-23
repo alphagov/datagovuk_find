@@ -10,7 +10,6 @@
 <% end %>
 <% content_for :header_class do %>with-proposition<% end %>
 <% content_for :proposition_header do %>
-  <!-- to hold options for authenticated users -->
   <%= render partial: 'layouts/proposition_header' %>
 <% end %>
 <% content_for :content do %>
@@ -26,7 +25,6 @@
   </div>
 
   <script>if (typeof window.GOVUK === 'undefined') document.body.className = document.body.className.replace('js-enabled', '');</script>
-  <!--<script>document.body.className = document.body.className.replace('js-enabled', '')</script>-->
 
 <% end %>
 

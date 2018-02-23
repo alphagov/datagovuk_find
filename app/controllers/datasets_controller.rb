@@ -1,4 +1,4 @@
-class DatasetsController < LoggedAreaController
+class DatasetsController < ApplicationController
   include DatasetsHelper
 
   def show
