@@ -374,4 +374,29 @@ feature 'Dataset page', elasticsearch: true do
       expect(page).to have_content("Contact the team on data.gov.uk/support if you have any questions.")
     end
   end
+
+  feature 'publisher edit link' do
+    scenario 'edit released dataset link' do
+      dataset = DatasetBuilder
+                  .new
+                  .with_legacy_name('abc123')
+                  .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
+                  .build
+
+      index_and_visit(dataset)
+
+      expect(page).to have_link('Sign in', href: 'https://data.gov.uk/dataset/edit/abc123')
+    end
+
+    scenario 'edit not released dataset link' do
+      dataset = DatasetBuilder
+                  .new
+                  .with_legacy_name('abc123')
+                  .build
+
+      index_and_visit(dataset)
+
+      expect(page).to have_link('Sign in', href: 'https://data.gov.uk/unpublished/edit-item/abc123')
+    end
+  end
 end

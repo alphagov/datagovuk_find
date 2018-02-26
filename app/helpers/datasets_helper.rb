@@ -1,3 +1,5 @@
+require 'uri'
+
 module DatasetsHelper
 
   NO_MORE = {
@@ -6,6 +8,17 @@ module DatasetsHelper
       'one off' => 'No future updates',
       'default' => 'Not available'
   }
+
+  def edit_dataset_url(dataset)
+    url = URI::HTTPS.build(host: 'data.gov.uk')
+    url += if dataset.datafiles.none?
+             '/unpublished/edit-item/'
+           else
+             '/dataset/edit/'
+           end
+    url += dataset.legacy_name
+    url.to_s
+  end
 
   def unescape(str)
     str = strip_tags(str).html_safe

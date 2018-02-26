@@ -49,14 +49,16 @@
     <% end %>
 
     <% if contact_details_exist?(@dataset) %>
-      <section class="contact">
-        <div>
-          <h2 class="heading-medium">
-            <%= t('datasets.contact.contact') %>
-          </h2>
+      <section>
+        <div class="grid-row">
+          <div class="column-full">
+            <h2 class="heading-medium">
+              <%= t('datasets.contact.contact') %>
+            </h2>
+          </div>
 
           <% if contact_email_exists?(@dataset) %>
-            <div class="column-one-half">
+            <div class="column-half">
               <h3 class="heading-small">
                 <%= t('datasets.contact.enquiries') %>
               </h3>
@@ -69,7 +71,7 @@
           <% end %>
 
           <% if foi_email_exists?(@dataset) %>
-            <div class="column-one-half foi">
+            <div class="column-half">
               <h3 class="heading-small">
                 <%= t('datasets.contact.foi_requests') %>
               </h3>
@@ -83,5 +85,17 @@
         </div>
       </section>
     <% end %>
+
+    <section>
+      <div class="grid-row">
+        <div class="column-full">
+          <h2 class="heading-medium"><%= t('datasets.publishers.title') %></h2>
+          <div role="note" aria-label="Publisher information" class="panel panel-border-narrow text">
+            <p><%= t('datasets.publishers.information') %></p>
+          </div>
+          <p><%= link_to t('datasets.publishers.button'), edit_dataset_url(@dataset), role: 'button', class: 'button', rel: %w(nofollow) %></p>
+        </div>
+      </div>
+    </section>
   </div>
 </main>
