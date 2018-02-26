@@ -2,6 +2,7 @@ class DatasetBuilder
   def initialize
     @dataset =  {
         name: 'default-dataset-name',
+        legacy_name: 'default-dataset-name',
         title: 'Default dataset title',
         summary: 'Ethnicity data',
         description: 'Ethnicity data',
