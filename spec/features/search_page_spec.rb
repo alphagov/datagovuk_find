@@ -182,8 +182,33 @@ feature 'Search page', elasticsearch: true do
     expect(page).to have_content 'Datasets filtered by FOO'
   end
 
+  scenario 'Searching for a phrase' do
+    index(DatasetBuilder.new.with_title('A very interesting dataset').build,
+          DatasetBuilder.new.with_title('A fairly interesting dataset').build)
+
+    search_for('"Very interesting"')
+
+    assert_search_results_headings('A very interesting dataset')
+  end
+
+  scenario 'Searching for a malformed phrase' do
+    index(DatasetBuilder.new.with_title('A very interesting dataset').build,
+          DatasetBuilder.new.with_title('A fairly interesting dataset').build)
+
+    search_for('"Very interesting')
+
+    assert_search_results_headings(
+      'A very interesting dataset',
+      'A fairly interesting dataset'
+    )
+  end
+
   def assert_data_set_length_is(count)
     datasets = all('h2 a')
     expect(datasets.length).to be(count)
+  end
+
+  def assert_search_results_headings(*headings)
+    expect(all('h2 a').map(&:text)).to contain_exactly(*headings)
   end
 end
