@@ -152,6 +152,7 @@
   dt, dd {
     display: inline-block;
     margin-bottom: 5px;
+    vertical-align: text-top;
   }
   dt {
     width: 30%;
@@ -334,11 +335,13 @@
     float: left;
     width: 35%;
     font-weight: bold;
+    vertical-align: text-top;
   }
   dd {
     display: inline-block;
     float: right;
     width: 65%;
+    vertical-align: text-top;
   }
 }
 
