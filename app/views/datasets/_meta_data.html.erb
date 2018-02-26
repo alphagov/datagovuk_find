@@ -24,9 +24,9 @@
 
           <dt><%= t('.last_updated') %>:</dt>
           <% if @dataset.datafiles.none? %>
-            <dd><%= format(@dataset.last_updated_at) %></dd>
+            <dd><%= format_timestamp(@dataset.last_updated_at) %></dd>
           <% else %>
-            <dd><%= format(most_recent_datafile(@dataset).created_at) %></dd>
+            <dd><%= format_timestamp(most_recent_datafile(@dataset).created_at) %></dd>
           <% end %>
 
           <dt><%= t('.topic') %>:</dt>

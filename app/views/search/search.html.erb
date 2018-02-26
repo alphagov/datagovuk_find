@@ -65,7 +65,7 @@
                   <dd><%= d.organisation['title'] %></dd>
                   <dt><%= t('.meta_data_box.last_updated') %>:</dt>
                   <% if d.last_updated_at.present? %>
-                    <dd><%= format(d.last_updated_at) %></dd>
+                    <dd><%= format_timestamp(d.last_updated_at) %></dd>
                   <% else %>
                     <dd class="dgu-secondary-text"> <%= t('.meta_data_box.not_applicable') %></dd>
                   <% end %>

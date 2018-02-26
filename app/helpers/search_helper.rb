@@ -4,10 +4,6 @@ module SearchHelper
     sort == 'best' ? 'Best Match' : 'Most Recent'
   end
 
-  def format(timestamp)
-    Time.parse(timestamp).strftime('%d %B %Y')
-  end
-
   def datafile_formats_for_select
     Dataset.datafile_formats.sort.map(&:upcase).unshift('')
   end

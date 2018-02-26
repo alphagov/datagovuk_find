@@ -13,10 +13,6 @@ module DatasetsHelper
     HTMLEntities.new.decode(str)
   end
 
-  def format(timestamp)
-    Time.parse(timestamp).strftime("%d %B %Y")
-  end
-
   def most_recent_datafile(dataset)
     (dataset.datafiles.sort_by &:created_at).last
   end
