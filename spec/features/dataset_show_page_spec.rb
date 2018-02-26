@@ -26,6 +26,27 @@ feature 'Dataset page', elasticsearch: true do
 
       expect(page).to have_content('Topic: Not added')
     end
+
+    context 'When a dataset has no datafiles' do
+      it 'Last Updated field displays last_updated_at' do
+        dataset = DatasetBuilder.new.build
+        index_and_visit(dataset)
+        expect(page).to have_content("Last updated: #{dataset['last_updated_at']}")
+      end
+    end
+
+    context 'When a dataset has datafiles' do
+      it 'Last Updated field is the most recent datafiles creation date' do
+        dataset = DatasetBuilder.new
+          .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
+          .build
+        index_and_visit(dataset)
+        datafiles = dataset[:datafiles]
+        last = datafiles.sort_by{ |datafile| datafile[:created_at]}.last
+        date = Time.parse(last["created_at"]).strftime("%d %B %Y")
+        expect(page).to have_content("Last updated: #{date}")
+      end
+    end
   end
 
   feature 'Datalinks' do
@@ -232,6 +253,7 @@ feature 'Dataset page', elasticsearch: true do
           'url' => "http://datafile-url",
           'start_date' => nil,
           'end_date' => nil,
+          'created_at' => '2017-07-31T14:40:57.528Z',
           'updated_at' => '2017-08-31T14:40:57.528Z'
         })
       end
@@ -249,6 +271,7 @@ feature 'Dataset page', elasticsearch: true do
           name: "Datafile 1",
           start_date: "2000/01/01",
           end_date: "2000/12/12",
+          created_at: "1999/12/12",
           updated_at: "2000/01/01"
         },
         {
@@ -257,6 +280,7 @@ feature 'Dataset page', elasticsearch: true do
           name: "Datafile 2",
           start_date: "2001/01/01",
           end_date: "2001/12/12",
+          created_at: "2000/12/12",
           updated_at: "2001/01/01"
         },
         {
@@ -265,6 +289,7 @@ feature 'Dataset page', elasticsearch: true do
           name: "Datafile 3",
           start_date: "2001/01/01",
           end_date: "2001/12/12",
+          created_at: "2000/12/12",
           updated_at: "2001/01/01"
         },
         {
@@ -273,6 +298,7 @@ feature 'Dataset page', elasticsearch: true do
           name: "Datafile 4",
           start_date: nil,
           end_date: nil,
+          created_at: "2000/12/12",
           updated_at: "2001/01/01"
         }
       ]
@@ -301,6 +327,7 @@ feature 'Dataset page', elasticsearch: true do
           name: "Datafile 1",
           start_date: nil,
           end_date: nil,
+          created_at: "1999/12/12",
           updated_at: "2000/01/01"
         },
         {
@@ -309,6 +336,7 @@ feature 'Dataset page', elasticsearch: true do
           name: "Datafile 2",
           start_date: nil,
           end_date: nil,
+          created_at: "2000/12/12",
           updated_at: "2001/01/01"
         },
         {
@@ -317,6 +345,7 @@ feature 'Dataset page', elasticsearch: true do
           name: "Datafile 3",
           start_date: nil,
           end_date: nil,
+          created_at: "2000/12/12",
           updated_at: "2001/01/01"
         }
       ]
