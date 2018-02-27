@@ -6,6 +6,8 @@ en:
       survey_url: "http://www.smartsurvey.co.uk/s/3SEXD/"
     proposition_header:
       menu: "Menu"
+      publishers: "Publish your data"
+      support: "Support"
     application:
       page_title: "data.gov.uk"
       global_header_text: "Find open data"

@@ -17,11 +17,12 @@ Rails.application.routes.draw do
     get 'about'
     get 'accessibility'
     get 'cookies'
+    get 'dashboard'
     get 'privacy'
+    get 'publishers'
+    get 'site-changes', to: :site_changes
     get 'support'
     get 'terms'
-    get 'dashboard'
-    get 'site-changes', to: :site_changes
   end
 
   match "404", to: "errors#not_found", via: :all
