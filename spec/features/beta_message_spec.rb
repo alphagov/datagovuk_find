@@ -14,7 +14,7 @@ feature "Combined dgu and beta banner" do
     paths.each do |path|
       visit path
       expect(page).to have_css(".dgu-beta__message")
-      expect(page).to have_content("We’ve been improving data.gov.uk")
+      expect(page).to have_content("We've been improving data.gov.uk")
     end
   end
 

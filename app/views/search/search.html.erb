@@ -35,7 +35,7 @@
         <% if @query.present? %>
           <span class="dgu-results__summary">
             <span class="bold-small"><%= number_with_delimiter(@num_results) %></span>
-            <%= t('.results_summary') %> <span class="bold-small">‘<%= @query %>’</span>
+            <%= t('.results_summary') %> <span class="bold-small">'<%= @query %>'</span>
           </span>
         <% end %>
 
@@ -44,7 +44,7 @@
         <% end %>
 
         <% if @organisation.present? %>
-          <%= t('.published_by') %> <span class="bold-small">‘<%= @organisation %>’</span>
+          <%= t('.published_by') %> <span class="bold-small">'<%= @organisation %>'</span>
         <% end %>
 
         <% if selected_filters.any? %>
