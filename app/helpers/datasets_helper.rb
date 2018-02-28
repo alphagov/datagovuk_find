@@ -17,8 +17,8 @@ module DatasetsHelper
     Time.parse(timestamp).strftime("%d %B %Y")
   end
 
-  def last_updated_datafile(dataset)
-    (dataset.datafiles.sort_by &:updated_at).last
+  def most_recent_datafile(dataset)
+    (dataset.datafiles.sort_by &:created_at).last
   end
 
   def dataset_location(dataset)

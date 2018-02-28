@@ -128,7 +128,7 @@ DATA_FILES_WITH_START_AND_ENDDATE = [
      'format' => 'HTML',
      'start_date' => '1/1/15',
      'end_date' => nil,
-     'created_at' => '2016-07-31T14:40:57.528Z',
+     'created_at' => '2016-05-03T00:00:00.000+01:00',
      'updated_at' => '2016-08-31T14:40:57.528Z',
      'uuid' => SecureRandom.uuid
     },
@@ -138,7 +138,7 @@ DATA_FILES_WITH_START_AND_ENDDATE = [
      'format' => 'CSV',
      'start_date' => '1/1/15',
      'end_date' => '24/03/2018',
-     'created_at' => '2016-07-31T14:40:57.528Z',
+     'created_at' => '2016-06-03T00:00:00.000+01:00',
      'updated_at' => '2016-08-31T14:40:57.528Z',
      'short_id' => SecureRandom.urlsafe_base64(6, true),
      'uuid' => SecureRandom.uuid
@@ -149,7 +149,7 @@ DATA_FILES_WITH_START_AND_ENDDATE = [
      'format' => '',
      'start_date' => '1/1/15',
      'end_date' => '01/12/2018',
-     'created_at' => '2016-07-31T14:40:57.528Z',
+     'created_at' => '2016-07-03T00:00:00.000+01:00',
      'updated_at' => '2016-08-31T14:40:57.528Z',
      'uuid' => SecureRandom.uuid
     }
@@ -161,6 +161,7 @@ DATAFILES_WITHOUT_START_AND_ENDDATE = [
      'url' => 'http://example.com',
      'start_date' => nil,
      'end_date' => nil,
+     'created_at' => '2016-07-31T00:00:00.000+01:00',
      'updated_at' => '2016-08-31T14:40:57.528Z',
      'uuid' => SecureRandom.uuid
     },
@@ -169,6 +170,7 @@ DATAFILES_WITHOUT_START_AND_ENDDATE = [
      'url' => 'http://example.com',
      'start_date' => nil,
      'end_date' => nil,
+     'created_at' => '2016-07-31T00:00:00.000+01:00',
      'updated_at' => '2016-08-31T14:40:57.528Z',
      'uuid' => SecureRandom.uuid
     }]
@@ -179,6 +181,7 @@ UNFORMATTED_DATASETS_MULTIYEAR = [
      'url' => 'http://example.com',
      'start_date' => '2017-09-24',
      'end_date' => nil,
+     'created_at' => '2016-07-31T00:00:00.000+01:00',
      'updated_at' => '2017-08-31T14:40:57.528Z'
     },
     {'id' => 2,
@@ -186,6 +189,7 @@ UNFORMATTED_DATASETS_MULTIYEAR = [
      'url' => 'http://example.com',
      'start_date' => '2015-09-25',
      'end_date' => nil,
+     'created_at' => '2015-07-31T00:00:00.000+01:00',
      'updated_at' => '2015-10-31T14:40:57.528Z'
     },
     {'id' => 3,
@@ -193,6 +197,7 @@ UNFORMATTED_DATASETS_MULTIYEAR = [
      'url' => 'http://example.com',
      'start_date' => '2015-09-24',
      'end_date' => nil,
+     'created_at' => '2015-07-31T00:00:00.000+01:00',
      'updated_at' => '2015-08-31T14:40:57.528Z'
     },
     {'id' => 4,
@@ -200,6 +205,7 @@ UNFORMATTED_DATASETS_MULTIYEAR = [
      'url' => 'http://example.com',
      'start_date' => nil,
      'end_date' => nil,
+     'created_at' => '2015-07-31T00:00:00.000+01:00',
      'updated_at' => '2015-10-31T14:40:57.528Z'
     }]
 
@@ -209,6 +215,7 @@ UNFORMATTED_DATASETS_SINGLEYEAR = [
      'url' => 'http://example.com',
      'start_date' => '2017-09-24',
      'end_date' => nil,
+     'created_at' => '2016-07-31T00:00:00.000+01:00',
      'updated_at' => '2017-08-31T14:40:57.528Z'
     },
     {'id' => 2,
@@ -216,6 +223,7 @@ UNFORMATTED_DATASETS_SINGLEYEAR = [
      'url' => 'http://example.com',
      'start_date' => '2017-09-25',
      'end_date' => nil,
+     'created_at' => '2015-07-31T00:00:00.000+01:00',
      'updated_at' => '2015-10-31T14:40:57.528Z'
     },
     {'id' => 3,
@@ -223,6 +231,7 @@ UNFORMATTED_DATASETS_SINGLEYEAR = [
      'url' => 'http://example.com',
      'start_date' => '2017-09-24',
      'end_date' => nil,
+     'created_at' => '2015-07-31T00:00:00.000+01:00',
      'updated_at' => '2015-08-31T14:40:57.528Z'
     }]
 
@@ -233,6 +242,7 @@ FORMATTED_DATASETS = {
                 'url' => 'http://example.com',
                 'start_date' => '2017-09-24',
                 'end_date' => nil,
+                'created_at' => '2016-07-31T00:00:00.000+01:00',
                 'updated_at' => '2017-08-31T14:40:57.528Z',
                 'start_year' => '2017'
                }],
@@ -241,6 +251,7 @@ FORMATTED_DATASETS = {
                 'url' => 'http://example.com',
                 'start_date' => '2015-09-25',
                 'end_date' => nil,
+                'created_at' => '2015-07-31T00:00:00.000+01:00',
                 'updated_at' => '2015-10-31T14:40:57.528Z',
                 'start_year' => '2015'},
                {'id' => 3,
@@ -248,6 +259,7 @@ FORMATTED_DATASETS = {
                 'url' => 'http://example.com',
                 'start_date' => '2015-09-24',
                 'end_date' => nil,
+                'created_at' => '2015-07-31T00:00:00.000+01:00',
                 'updated_at' => '2015-08-31T14:40:57.528Z',
                 'start_year' => '2015'
                }],
@@ -256,6 +268,7 @@ FORMATTED_DATASETS = {
          'url' => 'http://example.com',
          'start_date' => nil,
          'end_date' => nil,
+         'created_at' => '2015-07-31T00:00:00.000+01:00',
          'updated_at' => '2015-10-31T14:40:57.528Z',
          'start_year' => ''
         }]
