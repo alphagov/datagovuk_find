@@ -5,6 +5,8 @@
 <main role="main" id="content">
   <%= render partial: 'layouts/feedback_survey_banner' if flash[:beta_message] == 'hide'%>
 
+  <div class="text">
+
   <h1 class="heading-large">
     Accessibility
   </h1>
@@ -49,4 +51,6 @@
     <li><%= link_to 'change your colours', 'https://mcmw.abilitynet.org.uk/changing-your-colours/', target: :blank %></li>
     <li><%= link_to 'magnify the screen', 'https://mcmw.abilitynet.org.uk/magnifying-the-screen/', target: :blank %></li>
   </ul>
+
+  </div>
 </main>

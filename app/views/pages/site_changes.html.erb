@@ -5,6 +5,8 @@
 <main role="main" id="content">
   <%= render partial: 'layouts/feedback_survey_banner' if flash[:beta_message] == 'hide'%>
 
+  <div class="text">
+
   <h1 class="heading-large">
     Update about changes to data.gov.uk
   </h1>
@@ -25,4 +27,6 @@
     The new improved data.gov.uk is ready
   </h2>
   <p>Take a look at the newly-designed data.gov.uk, <%= link_to 'Find open data', root_path %>. We'd love to know your thoughts. There's a feedback link at the top of every page.</p>
+
+  </div>
 </main>

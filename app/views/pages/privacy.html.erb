@@ -5,6 +5,8 @@
 <main role="main" id="content">
   <%= render partial: 'layouts/feedback_survey_banner' if flash[:beta_message] == 'hide'%>
 
+  <div class="text">
+
   <h1 class="heading-large">
     Privacy
   </h1>
@@ -57,4 +59,6 @@
   <p>We may pass on your personal information if we have a legal obligation to do so, or if we have to enforce or apply our <%= link_to "terms of use", terms_path %> and other agreements. This includes exchanging information with other government departments for legal reasons.</p>
 
   <p>We won't share your information with any other organisations for marketing, market research or commercial purposes, and we don't pass on your details to other websites.</p>
+
+  </div>
 </main>

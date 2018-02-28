@@ -5,6 +5,8 @@
 <main role="main" id="content">
   <%= render partial: 'layouts/feedback_survey_banner' if flash[:beta_message] == 'hide'%>
 
+  <div class="text">
+
   <h1 class="heading-large">
     Cookies
   </h1>
@@ -65,4 +67,6 @@
   </div>
 
   <p>Find out more about <%= link_to 'how to manage cookies', 'https://ico.org.uk/for-the-public/online/cookies', target: '_blank' %>.</p>
+
+  </div>
 </main>
