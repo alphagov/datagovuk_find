@@ -3,55 +3,58 @@
 <% end %>
 
 <main role="main" id="content">
-  <%= render partial: 'layouts/feedback_survey_banner' if flash[:beta_message] == 'hide'%>
+  <%= render partial: 'layouts/feedback_survey_banner' if flash[:beta_message] == 'hide' %>
 
   <div class="text">
 
-  <h1 class="heading-large">
-    Cookies
-  </h1>
+    <h1 class="heading-large">
+      Cookies
+    </h1>
 
-  <p>The data.gov.uk team will collect data on how you browse the site to help us improve it.</p>
+    <p>The data.gov.uk team will collect data on how you browse the site to help us improve it.</p>
 
-  <p>We’ll use Google Analytics to collect data on:</p>
+    <p>We’ll use Google Analytics to collect data on:</p>
 
-  <ul class="list list-bullet">
-    <li>the terms you enter into the search box</li>
-    <li>the pages you visit</li>
-    <li>the links you click on</li>
-  </ul>
+    <ul class="list list-bullet">
+      <li>the terms you enter into the search box</li>
+      <li>the pages you visit</li>
+      <li>the links you click on</li>
+    </ul>
 
-  <p>When you visit data.gov.uk, we’ll put a small file (known as a ‘cookie’) onto your computer to collect the data.</p>
+    <p>When you visit data.gov.uk, we’ll put a small file (known as a ‘cookie’) onto your computer to collect the
+      data.</p>
 
-  <h2 class="heading-medium">How cookies are used on data.gov.uk</h2>
+    <h2 class="heading-medium">How cookies are used on data.gov.uk</h2>
 
-  <p>We use cookies to:</p>
+    <p>We use cookies to:</p>
 
-  <ul class="list list-bullet">
-    <li>measure how you use the service so it can be updated and improved based on your needs</li>
-    <li>remember the notifications you’ve seen so that we don’t show them to you again</li>
-    <li>remember that you’ve already seen this page</li>
-  </ul>
+    <ul class="list list-bullet">
+      <li>measure how you use the service so it can be updated and improved based on your needs</li>
+      <li>remember the notifications you’ve seen so that we don’t show them to you again</li>
+      <li>remember that you’ve already seen this page</li>
+    </ul>
 
-  <p>We won’t use cookies for any other reasons.</p>
+    <p>We won’t use cookies for any other reasons.</p>
 
-  <p>You’ll see a message on the site before we store a cookie on your computer.</p>
+    <p>You’ll see a message on the site before we store a cookie on your computer.</p>
 
-  <p>These are the Google Analytics cookies we’ll use:</p>
+    <p>These are the Google Analytics cookies we’ll use:</p>
 
-  <div class="table-wrapper">
-    <table>
-      <thead>
-        <th>Name</th>
-        <th>Purpose</th>
-        <th>Expires</th>
-      </thead>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+        <tr>
+          <th>Name</th>
+          <th>Purpose</th>
+          <th>Expires</th>
+        </tr>
+        </thead>
 
-      <tbody>
+        <tbody>
         <tr>
           <td>_ga, _gid</td>
           <td>
-            These help us count how many people visit beta.data.gov.uk<br />
+            These help us count how many people visit beta.data.gov.uk<br/>
             by tracking if you’ve visited before
           </td>
           <td>_ga 2 years, _gid 24 hours</td>
@@ -62,11 +65,12 @@
           <td>Used to manage the rate at which page view requests are made</td>
           <td>10 minutes</td>
         </tr>
-      </tbody>
-    </table>
-  </div>
+        </tbody>
+      </table>
+    </div>
 
-  <p>Find out more about <%= link_to 'how to manage cookies', 'https://ico.org.uk/for-the-public/online/cookies', target: '_blank' %>.</p>
+    <p>Find out more
+      about <%= link_to 'how to manage cookies', 'https://ico.org.uk/for-the-public/online/cookies', target: '_blank' %>.</p>
 
   </div>
 </main>

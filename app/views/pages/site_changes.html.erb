@@ -3,30 +3,49 @@
 <% end %>
 
 <main role="main" id="content">
-  <%= render partial: 'layouts/feedback_survey_banner' if flash[:beta_message] == 'hide'%>
+  <%= render partial: 'layouts/feedback_survey_banner' if flash[:beta_message] == 'hide' %>
 
   <div class="text">
 
-  <h1 class="heading-large">
-    Update about changes to data.gov.uk
-  </h1>
-  <p>We've been improving data.gov.uk to help people find and download datasets.</p>
-  <p>The site has a clearer, simpler design, highlighting the information that our research shows people need to see. We've also improved how search works to show more relevant results.</p>
-  <p>As a part of the new design, we've also removed some sections of the site. </p>
-  <h2 class="heading-medium">
-    Commenting and forums
-  </h2>
-  <p>The forums, which had been read-only since January 2017, have now been closed. Commenting on datasets has also been switched off. Both were rarely used, and were being heavily spammed.</p>
-  <p>When used, we found that it was to ask questions about datasets, but unfortunately publishers weren't always seeing or responding to these questions. So we've made it easier to connect you to publishers. If the publisher has provided their contact details, we'll display them on the dataset page so you can ask questions directly.</p>
-  <h2 class="heading-medium">
-    Apps
-  </h2>
-  <p>The App gallery, intended to showcase ways that open data from this site is being used, has become less popular and isn't used regularly. As we're not responsible for maintaining the Apps, we can't answer questions we receive about them.</p>
-  <p>In the future we'll be looking at better ways to work with App creators to help data users find the answers and information they are looking for.</p>
-  <h2 class="heading-medium">
-    The new improved data.gov.uk is ready
-  </h2>
-  <p>Take a look at the newly-designed data.gov.uk, <%= link_to 'Find open data', root_path %>. We'd love to know your thoughts. There's a feedback link at the top of every page.</p>
+    <h1 class="heading-large">
+      Update about changes to data.gov.uk
+    </h1>
+
+    <p>We've been improving data.gov.uk to help people find and download datasets.</p>
+
+    <p>The site has a clearer, simpler design, highlighting the information that our research shows people need to see.
+      We've also improved how search works to show more relevant results.</p>
+
+    <p>As a part of the new design, we've also removed some sections of the site. </p>
+
+    <h2 class="heading-medium">
+      Commenting and forums
+    </h2>
+
+    <p>The forums, which had been read-only since January 2017, have now been closed. Commenting on datasets has also
+      been switched off. Both were rarely used, and were being heavily spammed.</p>
+
+    <p>When used, we found that it was to ask questions about datasets, but unfortunately publishers weren't always
+      seeing or responding to these questions. So we've made it easier to connect you to publishers. If the publisher
+      has provided their contact details, we'll display them on the dataset page so you can ask questions directly.</p>
+
+    <h2 class="heading-medium">
+      Apps
+    </h2>
+
+    <p>The App gallery, intended to showcase ways that open data from this site is being used, has become less popular
+      and isn't used regularly. As we're not responsible for maintaining the Apps, we can't answer questions we receive
+      about them.</p>
+
+    <p>In the future we'll be looking at better ways to work with App creators to help data users find the answers and
+      information they are looking for.</p>
+
+    <h2 class="heading-medium">
+      The new improved data.gov.uk is ready
+    </h2>
+
+    <p>Take a look at the newly-designed data.gov.uk, <%= link_to 'Find open data', root_path %>. We'd love to know your
+      thoughts. There's a feedback link at the top of every page.</p>
 
   </div>
 </main>
