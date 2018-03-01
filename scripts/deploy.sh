@@ -58,4 +58,4 @@ fi
 cf login -a $CF_API -u $CF_USER -p $CF_PASS -s $CF_SPACE
 cf add-plugin-repo CF-Community https://plugins.cloudfoundry.org
 cf install-plugin autopilot -r CF-Community -f
-cf zero-downtime-push $CF_APP -f $CF_ENV-manifest.yml
+cf zero-downtime-push $CF_APP -f $CF_ENV-manifest.yml --show-app-log=true
