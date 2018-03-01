@@ -29,9 +29,6 @@ def es_config_from_vcap
 
   es_cert_file = create_es_cert_file(es_cert)
 
-  Rails.logger.info("Elasticsearch servers: #{es_servers}")
-  Rails.logger.info("Elasticsearch certificate file path: #{es_cert_file.path}")
-
   {
     host: es_servers,
     transport_options: {
@@ -64,9 +61,6 @@ else
   Rails.logger.fatal "No elasticsearch environment variables found"
   config = nil
 end
-
-Rails.logger.info "Elasticsearch config:"
-Rails.logger.info config
 
 ELASTIC = Elasticsearch::Client.new(config)
 Elasticsearch::Model.client = ELASTIC
