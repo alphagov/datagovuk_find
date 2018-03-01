@@ -3,50 +3,55 @@
 <% end %>
 
 <main role="main" id="content">
-  <%= render partial: 'layouts/feedback_survey_banner' if flash[:beta_message] == 'hide'%>
+  <%= render partial: 'layouts/feedback_survey_banner' if flash[:beta_message] == 'hide' %>
 
-  <h1 class="heading-large">
-    Accessibility
-  </h1>
+  <div class="text">
 
-  <p>The website doesn’t have a separate accessibility statement. This is because we’re constantly working to make data.gov.uk as accessible and usable as possible for every user.</p>
+    <h1 class="heading-large">
+      Accessibility
+    </h1>
 
-  <p>You can read a blog about <%= link_to 'accessibility at GDS', 'https://accessibility.blog.gov.uk/' %>.</p>
+    <p>The website doesn’t have a separate accessibility statement. This is because we’re constantly working to make
+      data.gov.uk as accessible and usable as possible for every user.</p>
 
-  <h2 class="heading-medium">
-    Compatibility with tools
-  </h2>
+    <p>You can read a blog about <%= link_to 'accessibility at GDS', 'https://accessibility.blog.gov.uk/' %>.</p>
 
-  <p>Data.gov.uk is designed to be compatible with recent versions of the following screen readers:</p>
+    <h2 class="heading-medium">
+      Compatibility with tools
+    </h2>
 
-  <ul class="list list-bullet">
-    <li>JAWS</li>
-    <li>NVDA</li>
-    <li>VoiceOver</li>
-  </ul>
+    <p>Data.gov.uk is designed to be compatible with recent versions of the following screen readers:</p>
 
-  <p>The site is also designed to be compatible with:</p>
+    <ul class="list list-bullet">
+      <li>JAWS</li>
+      <li>NVDA</li>
+      <li>VoiceOver</li>
+    </ul>
 
-  <ul class="list list-bullet">
-    <li>basic operating system screen magnifiers, such as ZoomText magnifier</li>
-    <li>speech recognition software, such as Dragon Naturally Speaking</li>
-    <li>operating system speech packages</li>
-  </ul>
+    <p>The site is also designed to be compatible with:</p>
+
+    <ul class="list list-bullet">
+      <li>basic operating system screen magnifiers, such as ZoomText magnifier</li>
+      <li>speech recognition software, such as Dragon Naturally Speaking</li>
+      <li>operating system speech packages</li>
+    </ul>
 
 
-  <h2 class="heading-medium">
-    Get help
-  </h2>
+    <h2 class="heading-medium">
+      Get help
+    </h2>
 
-  <p>AbilityNet provides guidance about how to:</p>
+    <p>AbilityNet provides guidance about how to:</p>
 
-  <ul class="list list-bullet">
-    <li><%= link_to 'make your mouse easier to use', 'https://mcmw.abilitynet.org.uk/making-your-mouse-easier-to-use/', target: :blank %></li>
-    <li><%= link_to 'use your keyboard instead of a mouse', 'https://mcmw.abilitynet.org.uk/category/keyboard-shortcuts/', target: :blank %></li>
-    <li><%= link_to 'talk to your device', 'https://mcmw.abilitynet.org.uk/talking-to-your-device/', target: :blank %></li>
-    <li><%= link_to 'make your device talk to you', 'https://mcmw.abilitynet.org.uk/category/making-your-mobile-or-tablet-talk/', target: :blank %></li>
-    <li><%= link_to 'make text larger', 'https://mcmw.abilitynet.org.uk/making-text-larger/', target: :blank %></li>
-    <li><%= link_to 'change your colours', 'https://mcmw.abilitynet.org.uk/changing-your-colours/', target: :blank %></li>
-    <li><%= link_to 'magnify the screen', 'https://mcmw.abilitynet.org.uk/magnifying-the-screen/', target: :blank %></li>
-  </ul>
+    <ul class="list list-bullet">
+      <li><%= link_to 'make your mouse easier to use', 'https://mcmw.abilitynet.org.uk/making-your-mouse-easier-to-use/', target: :blank %></li>
+      <li><%= link_to 'use your keyboard instead of a mouse', 'https://mcmw.abilitynet.org.uk/category/keyboard-shortcuts/', target: :blank %></li>
+      <li><%= link_to 'talk to your device', 'https://mcmw.abilitynet.org.uk/talking-to-your-device/', target: :blank %></li>
+      <li><%= link_to 'make your device talk to you', 'https://mcmw.abilitynet.org.uk/category/making-your-mobile-or-tablet-talk/', target: :blank %></li>
+      <li><%= link_to 'make text larger', 'https://mcmw.abilitynet.org.uk/making-text-larger/', target: :blank %></li>
+      <li><%= link_to 'change your colours', 'https://mcmw.abilitynet.org.uk/changing-your-colours/', target: :blank %></li>
+      <li><%= link_to 'magnify the screen', 'https://mcmw.abilitynet.org.uk/magnifying-the-screen/', target: :blank %></li>
+    </ul>
+
+  </div>
 </main>
