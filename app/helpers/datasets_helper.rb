@@ -71,15 +71,23 @@ module DatasetsHelper
     "js-show-more-datafiles" unless datafiles.take(5).include? datafile
   end
 
-  def contact_details_exist?(dataset)
-    contact_email_exists?(dataset) || foi_email_exists?(dataset)
+  def contact_information_exists?(dataset)
+    contact_email_exists?(dataset) || foi_email_exists?(dataset) || foi_web_address_exists?(dataset)
   end
 
   def contact_email_exists?(dataset)
     dataset.contact_email.present? || dataset.organisation.contact_email.present?
   end
 
+  def foi_details_exist?(dataset)
+    foi_email_exists?(dataset) || foi_web_address_exists?(dataset)
+  end
+
   def foi_email_exists?(dataset)
     dataset.foi_email.present? || dataset.organisation.foi_email.present?
+  end
+
+  def foi_web_address_exists?(dataset)
+    dataset.foi_web.present? || dataset.organisation.foi_web.present?
   end
 end

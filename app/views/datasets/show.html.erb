@@ -31,7 +31,7 @@
           <% if @dataset.datafiles.empty? %>
             <div class="panel panel-border-narrow">
               <p>This data hasn't been released to the public by the publisher yet.<br />
-              <% if contact_details_exist?(@dataset) %>
+              <% if contact_email_exists?(@dataset) || foi_email_exists?(@dataset)%>
                 Contact the publisher for more information.
               <% else %>
                 Contact the team on <%= link_to 'data.gov.uk/support', support_path %> if you have any questions.
@@ -48,6 +48,7 @@
       <%= render "supporting_docs" %>
     <% end %>
 
+<<<<<<< HEAD
     <% if contact_details_exist?(@dataset) %>
       <section>
         <div class="grid-row">
@@ -97,5 +98,11 @@
         </div>
       </div>
     </section>
+=======
+    <% if contact_information_exists?(@dataset) %>
+      <%= render "contact" %>
+    <% end %>
+
+>>>>>>> display foi_web information if it's available
   </div>
 </main>
