@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 # Usage: deploy.sh <app_name> <manifest_prefix>
 #
 #   Command-line arguments:
@@ -53,15 +55,7 @@ then
   CF_ENV='staging'
 fi
 
-rm manifest.yml || true
-
 cf login -a $CF_API -u $CF_USER -p $CF_PASS -s $CF_SPACE
 cf add-plugin-repo CF-Community https://plugins.cloudfoundry.org
 cf install-plugin autopilot -r CF-Community -f
-
-# autopilot requires a manifest.yml to be present
-ln -s $CF_ENV-manifest.yml manifest.yml
-
-cf zero-downtime-push $CF_APP -f manifest.yml
-
-rm manifest.yml
+cf zero-downtime-push $CF_APP -f $CF_ENV-manifest.yml
