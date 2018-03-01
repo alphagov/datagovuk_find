@@ -1,0 +1,5 @@
+json.datasets @datasets_count
+json.datasets_published_with_datafiles @datasets_published_with_datafiles_count
+json.datasets_published_with_no_datafiles @datasets_published_with_no_datafiles_count
+json.datafiles @datafiles_count
+json.publishers @publishers_count
