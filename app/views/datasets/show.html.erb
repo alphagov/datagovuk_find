@@ -30,11 +30,13 @@
 
           <% if @dataset.datafiles.empty? %>
             <div class="panel panel-border-narrow">
-              <p>This data hasn't been released to the public by the publisher yet.<br />
+              <p><%= t('.not_released')%><br />
               <% if contact_email_exists?(@dataset) || foi_email_exists?(@dataset)%>
-                Contact the publisher for more information.
+                <%= t('.contact_the_publisher')%>
               <% else %>
-                Contact the team on <%= link_to 'data.gov.uk/support', support_path %> if you have any questions.
+                <%= t('.contact_the_team')%>
+                <%= link_to 'data.gov.uk/support', support_path %>
+                <%= t('.if_you_have_questions') %>
               <% end %>
             </div>
           <% end %>
