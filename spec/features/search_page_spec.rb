@@ -9,7 +9,7 @@ feature 'Search page', elasticsearch: true do
     search_for(query)
 
     expect(page).to have_css('h1', text: 'Search results')
-    expect(page).to have_content("0 results found for ‘#{query}’")
+    expect(page).to have_content("0 results found")
   end
 
   scenario 'Displays search results' do
@@ -179,7 +179,6 @@ feature 'Search page', elasticsearch: true do
     search_results_headings = all('h2 a').map(&:text)
     expect(search_results_headings.length).to be(1)
     expect(search_results_headings).to contain_exactly 'First Dataset Title'
-    expect(page).to have_content 'Datasets filtered by FOO'
   end
 
   scenario 'Searching for a phrase' do

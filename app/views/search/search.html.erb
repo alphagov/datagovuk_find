@@ -35,20 +35,8 @@
         <% if @query.present? %>
           <span class="dgu-results__summary">
             <span class="bold-small"><%= number_with_delimiter(@num_results) %></span>
-            <%= t('.results_summary') %> <span class="bold-small">‘<%= @query %>’</span>
+            <%= t('.result').pluralize(@num_results) %> <%= t('.found') %>
           </span>
-        <% end %>
-
-        <% if @query.empty? && selected_filters.any? %>
-          <%= t('.datasets') %>
-        <% end %>
-
-        <% if @organisation.present? %>
-          <%= t('.published_by') %> <span class="bold-small">‘<%= @organisation %>’</span>
-        <% end %>
-
-        <% if selected_filters.any? %>
-          <%= t('.filtered_by') %> <%= selected_filters.to_sentence %>
         <% end %>
 
         <div>
