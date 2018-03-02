@@ -40,12 +40,14 @@
         <% end %>
 
         <div>
-          <% if @num_results == 0 %>
-            <h2 class="heading-medium"> <%= t('.zero_result_tips.try') %>:</h2>
-            <ul class="list list-bullet">
-              <li><%= t('.zero_result_tips.different_words') %></li>
-              <li><%= t('.zero_result_tips.clear_filters') %></li>
-            </ul>
+          <% if @num_results.zero? %>
+            <div class="dgu-results__zero">
+              <h2 class="heading-medium"> <%= t('.zero_result_tips.try') %>:</h2>
+              <ul class="list list-bullet">
+                <li><%= t('.zero_result_tips.different_words') %></li>
+                <li><%= t('.zero_result_tips.clear_filters') %></li>
+              </ul>
+            </div>
           <% else %>
             <% @datasets.each do |d| %>
               <div class="dgu-results__result">
