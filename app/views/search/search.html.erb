@@ -30,7 +30,7 @@
       </div>
 
       <div class="column-two-thirds dgu-results">
-        <%= render 'sort' %>
+        <%= render 'sort' if @num_results > 1 %>
 
         <% if @query.present? %>
           <span class="dgu-results__summary">
