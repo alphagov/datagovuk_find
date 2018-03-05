@@ -8,7 +8,7 @@ en:
         search_box_button: "Find data"
     topics:
       business_and_economy_label: "Business and economy"
-      business_and_economy_description: "Small businesses, industry, exports and trade"
+      business_and_economy_description: "Small businesses, industry, imports, exports and trade"
       crime_and_justice_label: "Crime and justice"
       crime_and_justice_description: "Courts, police, prison, offenders, borders and immigration"
       defence_label: "Defence"
@@ -22,7 +22,7 @@ en:
       government_spending_label: "Government spending"
       government_spending_description: "Includes all payments by government departments over £25,000"
       health_label: "Health"
-      health_description: "Includes smoking, drugs, alcohol, medicine preformance and hospitals"
+      health_description: "Includes smoking, drugs, alcohol, medicine performance and hospitals"
       mapping_label: "Mapping"
       mapping_description: "Addresses, boundaries, land ownership, aerial photographs, seabed and land terrain"
       society_label: "Society"
