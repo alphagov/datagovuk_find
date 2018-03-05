@@ -29,25 +29,19 @@
           <% end %>
 
           <% if @dataset.datafiles.empty? %>
-            <div class="panel panel-border-narrow">
-              <p><%= t('.not_released')%><br />
-              <% if contact_email_exists?(@dataset) || foi_email_exists?(@dataset)%>
-                <%= t('.contact_the_publisher')%>
-              <% else %>
-                <%= t('.contact_the_team')%>
-                <%= link_to 'data.gov.uk/support', support_path %>
-                <%= t('.if_you_have_questions') %>
-              <% end %>
-            </div>
+            <%= render partial: "no_datafiles", locals: { dataset: @dataset } %>
           <% end %>
+
         </section>
       </div>
     </div>
 
-    <%= render "additional_info" %>
+    <% if @dataset.notes.present? || @dataset.inspire_dataset.present? %>
+      <%= render partial: "additional_info", locals: { dataset: @dataset } %>
+    <% end %>
 
     <% unless @dataset.docs.empty? %>
-      <%= render "supporting_docs" %>
+      <%= render partial: "supporting_docs", locals: { dataset: @dataset } %>
     <% end %>
 
 <<<<<<< HEAD
@@ -102,7 +96,7 @@
     </section>
 =======
     <% if contact_information_exists?(@dataset) %>
-      <%= render "contact" %>
+      <%= render partial: "contact", locals: { dataset: @dataset } %>
     <% end %>
 
 >>>>>>> display foi_web information if it's available

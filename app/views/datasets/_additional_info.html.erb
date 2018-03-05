@@ -1,19 +1,16 @@
-<% if @dataset.notes.present? || @dataset.inspire_dataset.present? %>
 
   <section class="dgu-additional-info">
     <h2 class="heading-medium">
       <%= t('.additional_info') %>
     </h2>
-
-    <% if @dataset.notes.present? %>
+    <% if dataset.notes.present? %>
       <p class="dgu-additional-info__notes">
-        <%= @dataset.notes %>
+        <%= dataset.notes %>
       </p>
     <% end %>
 
-
-    <% if @dataset.inspire_dataset.present? %>
-      <% i = @dataset.inspire_dataset %>
+    <% if dataset.inspire_dataset.present? %>
+      <% i = dataset.inspire_dataset %>
 
       <details>
         <summary><span class="summary"><%= t('.view_additional_metadata')%></span></summary>
@@ -85,5 +82,3 @@
       </details>
     <% end %>
   </section>
-
-<% end %>

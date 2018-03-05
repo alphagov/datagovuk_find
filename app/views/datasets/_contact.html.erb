@@ -1,34 +1,32 @@
 <section class="contact">
-  <div>
-    <h2 class="heading-medium">
-      <%= t('datasets.contact.contact') %>
-    </h2>
+  <h2 class="heading-medium">
+    <%= t('datasets.contact.contact') %>
+  </h2>
 
-    <% if contact_email_exists?(@dataset) %>
-      <div class="column-one-half">
-        <h3 class="heading-small">
-          <%= t('datasets.contact.enquiries') %>
-        </h3>
+  <% if contact_email_exists?(dataset) %>
+    <div class="column-one-half">
+      <h3 class="heading-small">
+        <%= t('datasets.contact.enquiries') %>
+      </h3>
 
-        <p>
-          <%= contact_name_for(@dataset) %></br>
-          <%= mail_to(contact_email_for(@dataset)) %>
-        </p>
-      </div>
-    <% end %>
+      <p>
+        <%= contact_name_for(dataset) %></br>
+        <%= mail_to(contact_email_for(dataset)) %>
+      </p>
+    </div>
+  <% end %>
 
-    <% if foi_details_exist?(@dataset) %>
-      <div class="column-one-half foi">
-        <h3 class="heading-small">
-          <%= t('datasets.contact.foi_requests') %>
-        </h3>
+  <% if foi_details_exist?(dataset) %>
+    <div class="column-one-half foi">
+      <h3 class="heading-small">
+        <%= t('datasets.contact.foi_requests') %>
+      </h3>
 
-        <p>
-          <%= foi_name_for(@dataset) %></br>
-          <%= mail_to(foi_email_for(@dataset)) %></br>
-          <%= link_to(foi_web_address_for(@dataset),foi_web_address_for(@dataset)) %>
-        </p>
-      </div>
-    <% end %>
-  </div>
+      <p>
+        <%= foi_name_for(dataset) %></br>
+        <%= mail_to(foi_email_for(dataset)) %></br>
+        <%= link_to(foi_web_address_for(dataset),foi_web_address_for(dataset)) %>
+      </p>
+    </div>
+  <% end %>
 </section>
