@@ -11,8 +11,8 @@
         </h3>
 
         <p>
-          <%= @dataset.contact_name.presence || @dataset.organisation.contact_name %></br>
-          <%= mail_to(@dataset.contact_email.presence || @dataset.organisation.contact_email) %>
+          <%= contact_name_for(@dataset) %></br>
+          <%= mail_to(contact_email_for(@dataset)) %>
         </p>
       </div>
     <% end %>
@@ -24,11 +24,10 @@
         </h3>
 
         <p>
-          <%= @dataset.foi_name.presence || @dataset.organisation.foi_name %></br>
-          <%= mail_to(@dataset.foi_email.presence || @dataset.organisation.foi_email) %></br>
-          <a href= "<%= (@dataset.foi_web.presence || @dataset.organisation.foi_web) %>">
-            <%= (@dataset.foi_web.presence || @dataset.organisation.foi_web) %>
-          </a>
+          <%= foi_name_for(@dataset) %></br>
+          <%= mail_to(foi_email_for(@dataset)) %></br>
+          <%= link_to(foi_web_address_for(@dataset),foi_web_address_for(@dataset)) %>
+        </p>
       </div>
     <% end %>
   </div>
