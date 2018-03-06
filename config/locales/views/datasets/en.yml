@@ -69,6 +69,6 @@ en:
       contact_the_team: "Contact the team on"
       if_you_have_questions: "if you have any questions."
     publishers:
-        title: "Edit this dataset"
-        information: "You must have an account for this publisher on data.gov.uk to make any changes to a dataset."
-        button: "Sign in"
+      title: "Edit this dataset"
+      information: "You must have an account for this publisher on data.gov.uk to make any changes to a dataset."
+      button: "Sign in"
