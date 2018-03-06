@@ -10,15 +10,25 @@
     font-weight: normal;
     background: none;
     border-bottom: none;
-    width: 110%;
+    width: 160%;
     font-family: Helvetica, Arial, sans-serif;
     img {
       display: none;
     }
+    .vertical-separator {
+      display: inline-block;
+      margin-left: 4px;
+      color: black;
+      border-left: thin solid $grey-2;
+    }
+    .dgu-phase-tag--responsive {
+      @media (max-width: 641px) {
+        display: block;
+        width: 10%;
+      }
+    }
   }
-}
 
-#global-header {
   .header-proposition {
     #proposition-links {
       a {
@@ -26,6 +36,7 @@
       }
     }
   }
+
 }
 
 #proposition-links {

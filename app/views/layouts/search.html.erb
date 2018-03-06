@@ -6,7 +6,10 @@
 <% end %>
 <% content_for :homepage_url do %>/<% end %>
 <% content_for :global_header_text do %>
-  <%= t('layouts.application.global_header_text') %> <strong class="phase-tag">BETA</strong>
+  <%= t('layouts.application.data_gov_uk')%>
+  <div class="vertical-separator">|</div>
+  <%= t('layouts.application.find_open_data') %>
+  <strong class="phase-tag dgu-phase-tag--responsive">BETA</strong>
 <% end %>
 <% content_for :header_class do %>with-proposition<% end %>
 <% content_for :proposition_header do %>
