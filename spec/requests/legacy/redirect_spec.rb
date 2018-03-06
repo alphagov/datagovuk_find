@@ -183,7 +183,7 @@ describe 'legacy', :type => :request do
 
   describe 'issues pages' do
     it 'redirect to site changes page' do
-      get '/dataset/issues/bar'
+      get '/dataset/foo/issues/bar'
 
       expect(response).to redirect_to(site_changes_url)
       expect(response).to have_http_status(:moved_permanently)
