@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     get 'node/*_node',                     to: redirect('site-changes')
     get 'reply/*_reply',                   to: redirect('site-changes')
     get 'comments/*_comment',              to: redirect('site-changes')
+    get 'forum',                           to: redirect('site-changes')
     get 'forum/*_forum',                   to: redirect('site-changes')
     get 'dataset/*_slug/issues/*_issue',   to: redirect('site-changes')
   end
