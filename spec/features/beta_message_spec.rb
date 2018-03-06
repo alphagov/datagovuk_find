@@ -7,7 +7,7 @@ feature "Combined data.gov.uk and beta banner" do
     index(dataset)
 
     paths = [
-      dataset_path(dataset[:short_id], dataset[:name]),
+      dataset_path(dataset[:uuid], dataset[:name]),
       root_path,
       search_path(q: "query")
     ]
@@ -71,7 +71,7 @@ feature "Beta banner" do
     end
 
     paths = [
-      dataset_path(dataset[:short_id], dataset[:name]),
+      dataset_path(dataset[:uuid], dataset[:name]),
       root_path,
       search_path(q: "query"),
       about_path,

@@ -2,7 +2,7 @@ class DatasetsController < ApplicationController
   include DatasetsHelper
 
   def show
-    @dataset = Dataset.get_by_short_id(short_id: params[:short_id])
+    @dataset = Dataset.get_by_uuid(uuid: params[:uuid])
     @timeseries_datafiles = @dataset.timeseries_datafiles
     @non_timeseries_datafiles = @dataset.non_timeseries_datafiles
     @referer_query = referer_query
@@ -40,7 +40,6 @@ class DatasetsController < ApplicationController
   end
 
   def newest_dataset_path
-    dataset_path(@dataset.short_id, @dataset.name)
+    dataset_path(@dataset.uuid, @dataset.name)
   end
-
 end

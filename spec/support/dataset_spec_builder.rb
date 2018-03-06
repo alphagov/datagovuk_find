@@ -16,7 +16,7 @@ class DatasetBuilder
         harvested: false,
         created_at: '2013-08-31T00:56:15.435Z',
         last_updated_at: '2017-07-24T14:47:25.975Z',
-        short_id: SecureRandom.urlsafe_base64(6, true),
+        uuid: SecureRandom.uuid,
         organisation: {
             id: 582,
             name: 'ministry-of-defence',
@@ -141,7 +141,6 @@ DATA_FILES_WITH_START_AND_ENDDATE = [
      'end_date' => '24/03/2018',
      'created_at' => '2016-06-03T00:00:00.000+01:00',
      'updated_at' => '2016-08-31T14:40:57.528Z',
-     'short_id' => SecureRandom.urlsafe_base64(6, true),
      'uuid' => SecureRandom.uuid
     },
     {'id' => 3,

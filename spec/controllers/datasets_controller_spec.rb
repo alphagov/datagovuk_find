@@ -15,7 +15,7 @@ describe DatasetsController, type: :controller do
         request.env['HTTP_REFERER'] = 'http://test.host/search?q=fancypants'
 
         index([dataset])
-        get :show, params: { short_id: dataset[:short_id], name: dataset[:name] }
+        get :show, params: { uuid: dataset[:uuid], name: dataset[:name] }
 
         expect(response.body).to have_css('div.datagov_breadcrumb')
         expect(response.body).to_not have_css('li', text: 'Ministry of Defence')
@@ -28,7 +28,7 @@ describe DatasetsController, type: :controller do
         request.env['HTTP_REFERER'] = 'http://unknown.host/search?q=fancypants'
 
         index([dataset])
-        get :show, params: { short_id: dataset[:short_id], name: dataset[:name] }
+        get :show, params: { uuid: dataset[:uuid], name: dataset[:name] }
 
         expect(response.body).to have_css('div.datagov_breadcrumb')
         expect(response.body).to have_css('li', text: 'Ministry of Defence')
@@ -40,8 +40,8 @@ describe DatasetsController, type: :controller do
   describe 'visiting the dataset page with an outdated slug' do
     it "redirects to the latest slugged URL" do
       index([dataset])
-      get :show, params: { short_id: dataset[:short_id], name: "outdated-slug" }
-      expect(response).to redirect_to(dataset_url(dataset[:short_id], dataset[:name]))
+      get :show, params: { uuid: dataset[:uuid], name: "outdated-slug" }
+      expect(response).to redirect_to(dataset_url(dataset[:uuid], dataset[:name]))
     end
   end
 end

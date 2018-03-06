@@ -6,7 +6,7 @@ RSpec.describe DatasetsHelper do
 
     before { index attributes }
 
-    let(:dataset) { Dataset.get_by_short_id(short_id: attributes[:short_id]) }
+    let(:dataset) { Dataset.get_by_uuid(uuid: attributes[:uuid]) }
     let(:legacy_name) { 'abc123' }
 
     context 'when released' do
