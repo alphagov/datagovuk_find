@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'home#index'
+  root to: 'pages#home'
 
   scope module: 'legacy' do
     get 'dataset/:legacy_name',                                 to: 'datasets#redirect'
