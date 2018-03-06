@@ -76,7 +76,7 @@ module DatasetsHelper
   end
 
   def contact_email_exists?(dataset)
-    dataset.contact_email.present? || dataset.organisation.contact_email.present?
+    contact_email_for(dataset).present?
   end
 
   def contact_name_for(dataset)
@@ -84,7 +84,7 @@ module DatasetsHelper
   end
 
   def contact_email_for(dataset)
-    dataset.contact_email.presence || dataset.organisation.contact_email
+    dataset.contact_email.presence || dataset.organisation.contact_email.presence
   end
 
   def foi_details_exist?(dataset)
@@ -92,11 +92,11 @@ module DatasetsHelper
   end
 
   def foi_email_exists?(dataset)
-    dataset.foi_email.present? || dataset.organisation.foi_email.present?
+    foi_email_for(dataset).present?
   end
 
   def foi_web_address_exists?(dataset)
-    dataset.foi_web.present? || dataset.organisation.foi_web.present?
+    foi_web_address_for(dataset).present?
   end
 
   def foi_name_for(dataset)
@@ -104,10 +104,10 @@ module DatasetsHelper
   end
 
   def foi_email_for(dataset)
-    dataset.foi_email.presence || dataset.organisation.foi_email
+    dataset.foi_email.presence || dataset.organisation.foi_email.presence
   end
 
   def foi_web_address_for(dataset)
-    dataset.foi_web.presence || dataset.organisation.foi_web
+    dataset.foi_web.presence || dataset.organisation.foi_web.presence
   end
 end

@@ -10,8 +10,8 @@
       </h3>
 
       <p>
-        <%= contact_name_for(dataset) %></br>
-        <%= mail_to(contact_email_for(dataset)) %>
+        <span><%= contact_name_for(dataset) %></span>
+        <span><%= mail_to(contact_email_for(dataset)) %></span>
       </p>
     </div>
   <% end %>
@@ -23,9 +23,9 @@
       </h3>
 
       <p>
-        <%= foi_name_for(dataset) %></br>
-        <%= mail_to(foi_email_for(dataset)) %></br>
-        <%= link_to(foi_web_address_for(dataset),foi_web_address_for(dataset)) %>
+        <span><%= foi_name_for(dataset) %></span>
+        <span><%= mail_to(foi_email_for(dataset)) %></span>
+        <span><%= link_to(foi_web_address_for(dataset),foi_web_address_for(dataset)) %></span>
       </p>
     </div>
   <% end %>
