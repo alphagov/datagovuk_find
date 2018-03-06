@@ -172,7 +172,16 @@ describe 'legacy', :type => :request do
     end
   end
 
-  describe 'forum pages' do
+  describe 'forum home page' do
+    it 'redirect to site changes page' do
+      get '/forum'
+
+      expect(response).to redirect_to(site_changes_url)
+      expect(response).to have_http_status(:moved_permanently)
+    end
+  end
+
+  describe 'individual forum pages' do
     it 'redirect to site changes page' do
       get '/forum/foobar'
 
