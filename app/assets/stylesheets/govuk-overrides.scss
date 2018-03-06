@@ -15,28 +15,34 @@
     img {
       display: none;
     }
+
     .vertical-separator {
       display: inline-block;
       margin-left: 4px;
       color: black;
       border-left: thin solid $grey-2;
-    }
-    .dgu-phase-tag--responsive {
-      @media (max-width: 641px) {
+      @media (max-width: 646px) {
         display: block;
-        width: 10%;
+        line-height: 0;
+        font-size: 0;
+      }
+    }
+
+    .dgu-phase-tag--responsive {
+      @media (max-width: 769px) {
+        display: block;
+        width: 12%;
+      }
+    }
+
+    .header-proposition {
+      #proposition-links {
+        a {
+          font-family: Helvetica;
+        }
       }
     }
   }
-
-  .header-proposition {
-    #proposition-links {
-      a {
-        font-family: Helvetica;
-      }
-    }
-  }
-
 }
 
 #proposition-links {
