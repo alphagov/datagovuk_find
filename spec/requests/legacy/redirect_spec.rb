@@ -118,11 +118,74 @@ describe 'legacy', :type => :request do
     end
   end
 
-   describe 'faqs page' do
+  describe 'faqs page' do
     it 'redirects to the about page' do
       get '/faq'
 
       expect(response).to redirect_to(about_url)
+      expect(response).to have_http_status(:moved_permanently)
+    end
+  end
+
+  describe 'apps page' do
+    it 'redirects to site changes page' do
+      get '/apps'
+
+      expect(response).to redirect_to(site_changes_url)
+      expect(response).to have_http_status(:moved_permanently)
+    end
+  end
+
+  describe 'individual app pages' do
+    it 'redirect to site changes page' do
+      get '/apps/foobar'
+
+      expect(response).to redirect_to(site_changes_url)
+      expect(response).to have_http_status(:moved_permanently)
+    end
+  end
+
+  describe 'node pages' do
+    it 'redirect to site changes page' do
+      get '/node/foobar'
+
+      expect(response).to redirect_to(site_changes_url)
+      expect(response).to have_http_status(:moved_permanently)
+    end
+  end
+
+  describe 'reply pages' do
+    it 'redirect to site changes page' do
+      get '/reply/foobar'
+
+      expect(response).to redirect_to(site_changes_url)
+      expect(response).to have_http_status(:moved_permanently)
+    end
+  end
+
+  describe 'comments pages' do
+    it 'redirect to site changes page' do
+      get '/comments/foobar'
+
+      expect(response).to redirect_to(site_changes_url)
+      expect(response).to have_http_status(:moved_permanently)
+    end
+  end
+
+  describe 'forum pages' do
+    it 'redirect to site changes page' do
+      get '/forum/foobar'
+
+      expect(response).to redirect_to(site_changes_url)
+      expect(response).to have_http_status(:moved_permanently)
+    end
+  end
+
+  describe 'issues pages' do
+    it 'redirect to site changes page' do
+      get '/dataset/issues/bar'
+
+      expect(response).to redirect_to(site_changes_url)
       expect(response).to have_http_status(:moved_permanently)
     end
   end

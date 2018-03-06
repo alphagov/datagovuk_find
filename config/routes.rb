@@ -2,15 +2,23 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   scope module: 'legacy' do
-    get 'dataset/:legacy_name', to: 'datasets#redirect'
+    get 'dataset/:legacy_name',                                 to: 'datasets#redirect'
     get 'dataset/:legacy_dataset_name/resource/:datafile_uuid', to: 'datafiles#redirect'
-    get 'data/search',          to: 'search#redirect'
-    get 'contact',              to: redirect('support')
-    get 'cookies-policy',       to: redirect('cookies')
-    get 'accessibility-statement',       to: redirect('accessibility')
-    get 'technical-details',    to: redirect('about')
-    get 'terms-and-conditions', to: redirect('terms')
-    get 'faq',                  to: redirect('about')
+
+    get 'data/search',              to: 'search#redirect'
+    get 'contact',                  to: redirect('support')
+    get 'cookies-policy',           to: redirect('cookies')
+    get 'accessibility-statement',  to: redirect('accessibility')
+    get 'technical-details',        to: redirect('about')
+    get 'terms-and-conditions',     to: redirect('terms')
+    get 'faq',                      to: redirect('about')
+    get 'apps',                     to: redirect('site-changes')
+    get 'apps/*_app',               to: redirect('site-changes')
+    get 'node/*_node',              to: redirect('site-changes')
+    get 'reply/*_reply',            to: redirect('site-changes')
+    get 'comments/*_comment',       to: redirect('site-changes')
+    get 'forum/*_forum',            to: redirect('site-changes')
+    get 'dataset/issues/*_issue',   to: redirect('site-changes')
   end
 
   scope module: 'pages' do
@@ -38,5 +46,4 @@ Rails.application.routes.draw do
   get 'dataset/:dataset_short_id/:name/datafile/:datafile_short_id/preview', to: 'previews#show', as: 'datafile_preview'
 
   get 'acknowledge', to: 'messages#acknowledge'
-
 end
