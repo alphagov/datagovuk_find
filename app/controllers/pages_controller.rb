@@ -14,7 +14,10 @@ class PagesController < ApplicationController
   def accessibility
   end
 
-  def site_changes 
+  def site_changes
+  end
+
+  def publishers
   end
 
   def dashboard

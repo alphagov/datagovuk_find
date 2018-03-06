@@ -1,0 +1,41 @@
+<% content_for :page_title do %>
+  Publishers -
+<% end %>
+
+<main role="main" id="content">
+  <%= render 'layouts/feedback_survey_banner' if flash[:beta_message] == 'hide' %>
+
+  <div class="text">
+    <h1 class="heading-large">
+      Publish your data
+    </h1>
+
+    <p>
+      We’re changing the publishing tool and plan to launch a new improved
+      service by June 2018. Until then, publishers can sign in using their
+      current username (or email address). New and changed datasets will appear
+      as normal on the newly-designed data.gov.uk, now called the Find open data
+      service.
+    </p>
+
+    <p>
+      <%= link_to 'Sign in', '/user?destination=page/publisher-tools', role: 'button', class: 'button', rel: %w(nofollow) %>
+    </p>
+
+    <div role="note" aria-label="Publisher information" class="panel panel-border-narrow text">
+      <p>
+        To make any changes to existing datasets, publishers must sign in at the
+        bottom of the page in the Edit this dataset section.
+      </p>
+    </div>
+
+    <h2 class="heading-medium">
+      Become a publisher
+    </h2>
+
+    <p>
+      To get started, take a look at the <%= link_to 'information about publishing datasets', 'https://guidance.data.gov.uk/publishing_on_data_gov_uk_overview.html', target: '_blank' %>.
+      You can also <%= link_to 'ask us for help', support_path %>.
+    </p>
+  </div>
+</main>

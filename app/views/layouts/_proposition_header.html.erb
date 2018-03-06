@@ -1,9 +1,10 @@
 <div class="header-proposition">
   <div class="content">
-    <a href="#proposition-links" class="js-header-toggle menu"> <%= t('.menu') %> </a>
+    <a href="#proposition-links" class="js-header-toggle menu"><%= t('.menu') %></a>
     <nav id="proposition-menu">
       <ul id="proposition-links">
-        <%= link_to 'Support', support_path %>
+        <li><%= link_to t('.publishers'), publishers_path %></li>
+        <li><%= link_to t('.support'), support_path %></li>
       </ul>
     </nav>
   </div>
