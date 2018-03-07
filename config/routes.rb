@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
 
+  get 'dataset/:uuid', to: 'datasets#show', uuid: /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/
+
   scope module: 'legacy' do
     get 'dataset/:legacy_name',                                 to: 'datasets#redirect'
     get 'dataset/:legacy_dataset_name/resource/:datafile_uuid', to: 'datafiles#redirect'
@@ -46,8 +48,8 @@ Rails.application.routes.draw do
   resources :tickets, only: [:new, :create]
   get 'tickets/confirmation', to: 'tickets#confirmation'
 
-  get 'dataset/:short_id/:name', to: 'datasets#show', as: 'dataset'
-  get 'dataset/:dataset_short_id/:name/datafile/:datafile_short_id/preview', to: 'previews#show', as: 'datafile_preview'
+  get 'dataset/:uuid/:name', to: 'datasets#show', as: 'dataset'
+  get 'dataset/:dataset_uuid/:name/datafile/:datafile_uuid/preview', to: 'previews#show', as: 'datafile_preview'
 
   get 'acknowledge', to: 'messages#acknowledge'
 end

@@ -18,7 +18,7 @@ describe PreviewsController, type: :controller do
         to_return(body: "a,Paris,c,d\ne,f,Berlin,h\ni,j,k,l")
 
       index([dataset])
-      get :show, params: { dataset_short_id: dataset[:short_id], name: dataset[:name], datafile_short_id: datafile.short_id }
+      get :show, params: { dataset_uuid: dataset[:uuid], name: dataset[:name], datafile_uuid: datafile.uuid }
       expect(response.body).to have_content('Berlin')
     end
 
@@ -27,7 +27,7 @@ describe PreviewsController, type: :controller do
         to_timeout
 
       index([dataset])
-      get :show, params: { dataset_short_id: dataset[:short_id], name: dataset[:name], datafile_short_id: datafile.short_id }
+      get :show, params: { dataset_uuid: dataset[:uuid], name: dataset[:name], datafile_uuid: datafile.uuid }
 
       expect(response.body).to have_content('No preview is available')
     end
@@ -37,7 +37,7 @@ describe PreviewsController, type: :controller do
         to_return(status: [500, "Internal Server Error"])
 
       index([dataset])
-      get :show, params: { dataset_short_id: dataset[:short_id], name: dataset[:name], datafile_short_id: datafile.short_id }
+      get :show, params: { dataset_uuid: dataset[:uuid], name: dataset[:name], datafile_uuid: datafile.uuid }
 
       expect(response.body).to have_content('No preview is available')
     end
@@ -47,7 +47,7 @@ describe PreviewsController, type: :controller do
         to_return(body: "<!DOCTYPE html><html lang=\"en\"><h")
 
       index([dataset])
-      get :show, params: { dataset_short_id: dataset[:short_id], name: dataset[:name], datafile_short_id: datafile.short_id }
+      get :show, params: { dataset_uuid: dataset[:uuid], name: dataset[:name], datafile_uuid: datafile.uuid }
 
       expect(response.body).to have_content('No preview is available')
     end
@@ -57,7 +57,7 @@ describe PreviewsController, type: :controller do
         to_return(body: "a,b,\",c,d\n000000\n")
 
       index([dataset])
-      get :show, params: { dataset_short_id: dataset[:short_id], name: dataset[:name], datafile_short_id: datafile.short_id }
+      get :show, params: { dataset_uuid: dataset[:uuid], name: dataset[:name], datafile_uuid: datafile.uuid }
 
       expect(response.body).to have_content('No preview is available')
     end

@@ -94,10 +94,6 @@ def index_mappings
           type: "keyword",
           index: true,
         },
-        short_id: {
-          type: "keyword",
-          index: true,
-        },
         location1: {
           type: 'text',
           fields: {
