@@ -10,4 +10,5 @@ en:
       support: "Support"
     application:
       page_title: "data.gov.uk"
-      global_header_text: "Find open data"
+      find_open_data: "Find open data"
+      data_gov_uk: "data.gov.uk"
