@@ -51,6 +51,11 @@ class DatasetBuilder
     }
   end
 
+  def with_uuid(uuid)
+    @dataset[:uuid] = uuid
+    self
+  end
+
   def with_title(title)
     @dataset[:title] = title
     self
