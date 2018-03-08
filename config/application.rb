@@ -27,6 +27,7 @@ module FindDataBeta
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
     config.assets.initialize_on_precompile = false
+    config.action_dispatch.rescue_responses.merge! 'Dataset::DatasetNotFound' => :not_found
     config.exceptions_app = self.routes
 
     config.analytics_tracking_id = ENV['GA_TRACKING_ID']

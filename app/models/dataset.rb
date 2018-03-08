@@ -2,6 +2,8 @@ class Dataset
   include ActiveModel::Model
   include Elasticsearch::Model
 
+  DatasetNotFound = Class.new(StandardError)
+
   attr_accessor :name, :legacy_name, :title, :summary, :description,
                 :location1, :location2, :location3,
                 :foi_name, :foi_email, :foi_phone, :foi_web,
@@ -17,29 +19,26 @@ class Dataset
 
   index_name ENV['ES_INDEX'] || "datasets-#{Rails.env}"
 
+  def self.get_by_query(query:)
+    Dataset
+      .search(query)
+      .map { |result| result._source.to_hash.merge(_id: result._id) }
+      .reject { |attributes| attributes['title'].blank? }
+      .map(&Dataset.method(:new))
+  end
+
   def self.get_by_uuid(uuid:)
-    query = Search::Query.by_uuid(uuid)
-    result = Dataset.search(query).results.first
-    attrs = result._source.to_hash.merge(_id: result._id)
-    raise 'Metadata missing' if attrs["title"].blank?
-    Dataset.new(attrs)
+    get_by_query(query: Search::Query.by_uuid(uuid))
+      .first || raise(DatasetNotFound)
   end
 
   def self.get_by_legacy_name(legacy_name:)
-    query = Search::Query.by_legacy_name(legacy_name)
-    result = Dataset.search(query).results.first
-    attrs = result._source.to_hash.merge(_id: result._id)
-    raise 'Metadata missing' if attrs["title"].blank?
-    Dataset.new(attrs)
+    get_by_query(query: Search::Query.by_legacy_name(legacy_name))
+      .first || raise(DatasetNotFound)
   end
 
   def self.related(id)
-    query = Search::Query.related(id)
-
-    Dataset.search(query).results.map do |result|
-      attrs = result._source.to_hash.merge(_id: result._id)
-      Dataset.new(attrs)
-    end
+    get_by_query(query: Search::Query.related(id))
   end
 
   def self.locations
