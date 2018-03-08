@@ -11,6 +11,7 @@
   <%= t('layouts.application.find_open_data') %>
   <strong class="phase-tag dgu-phase-tag--responsive">BETA</strong>
 <% end %>
+<% content_for :logo_link_title do %><%= t('layouts.application.go_to_home') %><% end %>
 <% content_for :header_class do %>with-proposition<% end %>
 <% content_for :proposition_header do %>
   <%= render partial: 'layouts/proposition_header' %>
