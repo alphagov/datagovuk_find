@@ -11,18 +11,9 @@ class DatasetsController < ApplicationController
     if request_to_outdated_url?
       return redirect_to newest_dataset_path, status: :moved_permanently
     end
-
-  rescue => e
-    handle_error(e)
   end
 
   private
-
-  def handle_error(e)
-    Rails.logger.debug 'ERROR! => ' + e.message
-    e.backtrace.each { |line| logger.error line }
-    render template: 'errors/not_found', status: 404
-  end
 
   def referer_query
     return if request.referer.nil?

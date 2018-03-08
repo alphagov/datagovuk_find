@@ -6,15 +6,5 @@ class Legacy::DatafilesController < ApplicationController
     redirect_path = datafile_preview_path(dataset.uuid, dataset.name, datafile.uuid)
 
     redirect_to redirect_path, status: :moved_permanently
-  rescue => e
-    handle_error(e)
-  end
-
-  private
-
-  def handle_error(e)
-    Rails.logger.debug 'ERROR! => ' + e.message
-    e.backtrace.each { |line| logger.error line }
-    render template: 'errors/not_found', status: 404
   end
 end
