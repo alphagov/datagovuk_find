@@ -80,7 +80,7 @@ module DatasetsHelper
   end
 
   def contact_name_for(dataset)
-    dataset.contact_name.presence || dataset.organisation.contact_name
+    dataset.contact_name.presence || dataset.organisation.contact_name.presence
   end
 
   def contact_email_for(dataset)
@@ -100,7 +100,7 @@ module DatasetsHelper
   end
 
   def foi_name_for(dataset)
-    dataset.foi_name.presence || dataset.organisation.foi_name
+    dataset.foi_name.presence || dataset.organisation.foi_name.presence
   end
 
   def foi_email_for(dataset)
