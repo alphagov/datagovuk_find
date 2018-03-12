@@ -29,61 +29,23 @@
           <% end %>
 
           <% if @dataset.datafiles.empty? %>
-            <div class="panel panel-border-narrow">
-              <p>This data hasn't been released to the public by the publisher yet.<br />
-              <% if contact_details_exist?(@dataset) %>
-                Contact the publisher for more information.
-              <% else %>
-                Contact the team on <%= link_to 'data.gov.uk/support', support_path %> if you have any questions.
-              <% end %>
-            </div>
+            <%= render partial: "no_datafiles", locals: { dataset: @dataset } %>
           <% end %>
+
         </section>
       </div>
     </div>
 
-    <%= render "additional_info" %>
-
-    <% unless @dataset.docs.empty? %>
-      <%= render "supporting_docs" %>
+    <% if @dataset.notes.present? || @dataset.inspire_dataset.present? %>
+      <%= render partial: "additional_info", locals: { dataset: @dataset } %>
     <% end %>
 
-    <% if contact_details_exist?(@dataset) %>
-      <section>
-        <div class="grid-row">
-          <div class="column-full">
-            <h2 class="heading-medium">
-              <%= t('datasets.contact.contact') %>
-            </h2>
-          </div>
+    <% unless @dataset.docs.empty? %>
+      <%= render partial: "supporting_docs", locals: { dataset: @dataset } %>
+    <% end %>
 
-          <% if contact_email_exists?(@dataset) %>
-            <div class="column-half">
-              <h3 class="heading-small">
-                <%= t('datasets.contact.enquiries') %>
-              </h3>
-
-              <p>
-                <%= @dataset.contact_name.presence || @dataset.organisation.contact_name %></br>
-                <%= mail_to(@dataset.contact_email.presence || @dataset.organisation.contact_email) %>
-              </p>
-            </div>
-          <% end %>
-
-          <% if foi_email_exists?(@dataset) %>
-            <div class="column-half">
-              <h3 class="heading-small">
-                <%= t('datasets.contact.foi_requests') %>
-              </h3>
-
-              <p>
-                <%= @dataset.foi_name.presence || @dataset.organisation.foi_name %></br>
-                <%= mail_to(@dataset.foi_email.presence || @dataset.organisation.foi_email) %>
-              </p>
-            </div>
-          <% end %>
-        </div>
-      </section>
+    <% if contact_information_exists?(@dataset) %>
+      <%= render partial: "contact", locals: { dataset: @dataset } %>
     <% end %>
 
     <section>
@@ -97,5 +59,6 @@
         </div>
       </div>
     </section>
+
   </div>
 </main>

@@ -385,3 +385,20 @@ span.showHide-open-all {
   text-decoration: underline;
   cursor: pointer;
 }
+
+
+// contact______
+.contact {
+  .column-one-half {
+    padding-left: 0;
+    span {
+      display: block;
+    }
+    h3 {
+      padding-bottom: 8px;
+    }
+    &.foi {
+      padding-right: 0;
+    }
+  }
+}

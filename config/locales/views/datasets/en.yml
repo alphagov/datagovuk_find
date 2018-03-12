@@ -64,6 +64,10 @@ en:
     show:
       open_all: "Open all"
       data_links: "Data links"
+      not_released: "This data hasn't been released to the public by the publisher yet."
+      contact_the_publisher: "Contact the publisher for more information."
+      contact_the_team: "Contact the team on"
+      if_you_have_questions: "if you have any questions."
     publishers:
       title: "Edit this dataset"
       information: "You must have an account for this publisher on data.gov.uk to make any changes to a dataset."

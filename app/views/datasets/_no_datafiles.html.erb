@@ -1,0 +1,10 @@
+<div class="panel panel-border-narrow">
+  <p><%= t('datasets.show.not_released') %><br />
+  <% if contact_information_exists?(dataset) %>
+    <%= t('datasets.show.contact_the_publisher') %>
+  <% else %>
+    <%= t('datasets.show.contact_the_team') %>
+    <%= link_to 'data.gov.uk/support', support_path %>
+    <%= t('datasets.show.if_you_have_questions') %>
+  <% end %>
+</div>
