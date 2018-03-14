@@ -224,19 +224,37 @@ feature 'Search page', elasticsearch: true do
                               )
                               .build
 
-    index(ministerial_dataset, non_ministerial_dataset, local_council_dataset)
+    non_departmental_public_body_dataset = DatasetBuilder
+                                             .new
+                                             .with_non_departmental_public_body(
+                                               'English Heritage'
+                                             )
+                                             .build
+
+    index(
+      ministerial_dataset,
+      non_ministerial_dataset,
+      local_council_dataset,
+      non_departmental_public_body_dataset
+    )
 
     search_for('data')
 
     publishers = all('dd.published_by').map(&:text)
 
     expect(publishers[0]).to eq('Department for Environment Food & Rural Affairs')
-                               .or eq('Forestry Commission')
+                               .or eq('English Heritage')
+                                     .or eq('Forestry Commission')
 
     expect(publishers[1]).to eq('Department for Environment Food & Rural Affairs')
-                               .or eq('Forestry Commission')
+                               .or eq('English Heritage')
+                                     .or eq('Forestry Commission')
 
-    expect(publishers[2]).to eq('Plymouth City Council')
+    expect(publishers[2]).to eq('Department for Environment Food & Rural Affairs')
+                               .or eq('English Heritage')
+                                     .or eq('Forestry Commission')
+
+    expect(publishers[3]).to eq('Plymouth City Council')
   end
 
   def assert_data_set_length_is(count)

@@ -138,6 +138,13 @@ class DatasetBuilder
     self
   end
 
+  def with_non_departmental_public_body(non_departmental_public_body)
+    @dataset[:organisation][:name] = non_departmental_public_body
+    @dataset[:organisation][:title] = non_departmental_public_body
+    @dataset[:organisation][:category] = 'executive-ndpb'
+    self
+  end
+
   def with_licence(licence)
     @dataset[:licence] = licence
     self
