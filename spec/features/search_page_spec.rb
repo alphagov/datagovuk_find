@@ -202,6 +202,30 @@ feature 'Search page', elasticsearch: true do
     )
   end
 
+  scenario 'Searching with a plural query' do
+    index(DatasetBuilder.new.with_title('Maps').build)
+
+    search_for('Map')
+
+    assert_search_results_headings('Maps')
+  end
+
+  scenario 'Search with a possessive query' do
+    index(DatasetBuilder.new.with_title('Government').build)
+
+    search_for("Government's")
+
+    assert_search_results_headings('Government')
+  end
+
+  scenario 'Search with lowercase query' do
+    index(DatasetBuilder.new.with_title('DEFRA').build)
+
+    search_for("defra")
+
+    assert_search_results_headings('DEFRA')
+  end
+
   scenario 'Prominence of datasets based on organisation category' do
     ministerial_dataset = DatasetBuilder
                             .new
