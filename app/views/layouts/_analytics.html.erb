@@ -11,7 +11,15 @@
     ga('send', 'pageview');
 
     $(document).ready(function() {
+
+      if ( document.location.pathname.includes('/dataset/')) {
+        var publisherOrganisation = '<%= @dataset.organisation.title %>'
+        ga('set', 'dimension4', publisherOrganisation)
+      }
+
       $('[data-ga-event]').on('click', function() {
+        var datafileFormat = $(this).data('ga-format')
+        ga('set', 'dimension5', datafileFormat)
         var eventDetails = $(this).data('ga-event').split('-')
         ga.apply(this, ['send', 'event'].concat(eventDetails))
       })
