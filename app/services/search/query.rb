@@ -191,6 +191,7 @@ module Search
         query[:query][:bool][:should] ||= []
         query[:query][:bool][:should] << organisation_category_filter('ministerial-department', boost: 2)
         query[:query][:bool][:should] << organisation_category_filter('non-ministerial-department', boost: 2)
+        query[:query][:bool][:should] << organisation_category_filter('executive-ndpb', boost: 2)
         query[:query][:bool][:should] << organisation_category_filter('local-council', boost: 1)
       end
 
