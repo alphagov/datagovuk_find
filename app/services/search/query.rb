@@ -1,6 +1,7 @@
 module Search
   class Query
     MULTI_MATCH_FIELDS = %w(title summary description location*^2)
+    MULTI_MATCH_FIELDS_ENGLISH = %w(title.english^2 summary.english description.english)
     TERMS_SIZE = 10_000
 
     attr_accessor :clauses
@@ -320,8 +321,9 @@ module Search
           path: 'organisation',
           query: {
             match: {
-              "organisation.title" => {
+              "organisation.title.english" => {
                 query: organisation_title,
+                analyzer: 'english',
                 boost: boost,
               },
             },
@@ -349,7 +351,8 @@ module Search
       {
         multi_match: {
           query: terms,
-          fields: MULTI_MATCH_FIELDS,
+          fields: MULTI_MATCH_FIELDS_ENGLISH,
+          analyzer: 'english',
         }
       }
     end

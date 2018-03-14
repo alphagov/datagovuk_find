@@ -86,6 +86,45 @@ def index_mappings
           type: "keyword",
           index: true,
         },
+        title: {
+          type: 'text',
+          fields: {
+            keyword: {
+              type: 'keyword',
+              index: true,
+            },
+            english: {
+              type: 'text',
+              analyzer: 'english',
+            },
+          },
+        },
+        summary: {
+          type: 'text',
+          fields: {
+            keyword: {
+              type: 'keyword',
+              index: true,
+            },
+            english: {
+              type: 'text',
+              analyzer: 'english',
+            },
+          },
+        },
+        description: {
+          type: 'text',
+          fields: {
+            keyword: {
+              type: 'keyword',
+              index: true,
+            },
+            english: {
+              type: 'text',
+              analyzer: 'english',
+            },
+          },
+        },
         legacy_name: {
           type: "keyword",
           index: true,
@@ -126,9 +165,26 @@ def index_mappings
                 raw: {
                   type: "keyword",
                   index: true,
+                },
+                english: {
+                  type: 'text',
+                  analyzer: 'english',
                 }
               }
-            }
+            },
+            description: {
+              type: 'text',
+              fields: {
+                raw: {
+                  type: 'keyword',
+                  index: true,
+                },
+                english: {
+                  type: 'text',
+                  analyzer: 'english',
+                },
+              },
+            },
           }
         },
         datafiles: {
