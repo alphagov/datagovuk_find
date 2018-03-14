@@ -1,6 +1,6 @@
 module Search
   class Query
-    MULTI_MATCH_FIELDS = %w(title summary description organisation^2 location*^2)
+    MULTI_MATCH_FIELDS = %w(title summary description location*^2)
     TERMS_SIZE = 10_000
 
     attr_accessor :clauses
@@ -189,6 +189,7 @@ module Search
       # have a must clause also set otherwise we'll only get datasets we boost.
       if query[:query][:bool][:must].any?
         query[:query][:bool][:should] ||= []
+        query[:query][:bool][:should] << organisation_title_filter(query_param, boost: 1)
         query[:query][:bool][:should] << organisation_category_filter('ministerial-department', boost: 2)
         query[:query][:bool][:should] << organisation_category_filter('non-ministerial-department', boost: 2)
         query[:query][:bool][:should] << organisation_category_filter('executive-ndpb', boost: 2)
@@ -310,6 +311,22 @@ module Search
             }
           }
         }
+      }
+    end
+
+    def self.organisation_title_filter(organisation_title, boost: 2)
+      {
+        nested: {
+          path: 'organisation',
+          query: {
+            match: {
+              "organisation.title" => {
+                query: organisation_title,
+                boost: boost,
+              },
+            },
+          },
+        },
       }
     end
 
