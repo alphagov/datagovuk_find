@@ -64,7 +64,7 @@ en:
     show:
       open_all: "Open all"
       data_links: "Data links"
-      not_released: "This data hasn't been released to the public by the publisher yet."
+      not_released: "This data hasn't been released by the publisher."
       contact_the_publisher: "Contact the publisher for more information."
       contact_the_team: "Contact the team on"
       if_you_have_questions: "if you have any questions."

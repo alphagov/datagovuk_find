@@ -66,7 +66,7 @@ feature 'Dataset page', elasticsearch: true do
 
       index_and_visit(dataset)
 
-      expect(page).to have_content("This data hasn't been released to the public by the publisher yet")
+      expect(page).to have_content("This data hasn't been released by the publisher.")
     end
 
     scenario 'display if some information is missing' do
