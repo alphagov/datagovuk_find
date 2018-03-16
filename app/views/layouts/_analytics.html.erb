@@ -10,8 +10,8 @@
    ga('create', trackingId, 'auto');
 
    $(document).ready(function() {
-     if (document.location.pathname.includes('/dataset/')) {
-       var orgTitle = '<%= @dataset.organisation.title %>'
+     if (document.location.pathname.indexOf('/dataset/') === 0) {
+       var orgTitle = '<% if @dataset %><%= @dataset.organisation.name %><% end %>'
        ga('send', 'pageview', { dimension4: orgTitle } )
        $('[data-ga-datafile]').on('click', function() {
          var datafileFormat = $(this).data('ga-format')
