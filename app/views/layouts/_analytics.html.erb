@@ -10,27 +10,25 @@
    ga('create', trackingId, 'auto');
 
    $(document).ready(function() {
-
-     $('[data-ga-datafile]').on('click', function() {
-       var datafileFormat = $(this).data('ga-format')
-       var datafileURL = $(this).data('ga-datafile')
-       var eventParams = {
-         hitType: 'event',
-         eventCategory: 'datafile',
-         eventAction: 'download',
-         eventLabel: datafileURL,
-         dimension5: datafileFormat
-       };
-
-       if ( document.location.pathname.includes('/dataset/')) {
-         eventParams.dimension4 = '<%= @dataset.organisation.title %>'
-       }
-
-       ga('send', eventParams)
-     });
-
-     ga('send', 'pageview')
-   })
+     if (document.location.pathname.includes('/dataset/')) {
+       var orgTitle = '<%= @dataset.organisation.title %>'
+       ga('send', 'pageview', { dimension4: orgTitle } )
+       $('[data-ga-datafile]').on('click', function() {
+         var datafileFormat = $(this).data('ga-format')
+         var datafileURL = $(this).data('ga-datafile')
+         var eventParams = {
+           hitType: 'event',
+           eventCategory: 'datafile',
+           eventAction: 'download',
+           eventLabel: datafileURL,
+           dimension4: orgTitle,
+           dimension5: datafileFormat
+         };
+         ga('send', eventParams)
+       });
+     } else {
+       ga('send', 'pageview')
+     }
    })
   </script>
 <% end %>
