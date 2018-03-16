@@ -20,14 +20,18 @@ module DatasetsHelper
     url.to_s
   end
 
+  def displayed_date(dataset)
+    if dataset.datafiles.none?
+      dataset.last_updated_at
+    else
+      most_recent_datafile(dataset).created_at
+    end
+  end
+
   def unescape(str)
     str = strip_tags(str).html_safe
     str = str.gsub(/&(amp;)+/, '&')
     HTMLEntities.new.decode(str)
-  end
-
-  def most_recent_datafile(dataset)
-    (dataset.datafiles.sort_by &:created_at).last
   end
 
   def dataset_location(dataset)
@@ -36,10 +40,6 @@ module DatasetsHelper
 
   def expected_location_class_for(dataset)
     "dgu-secondary-text" if locations(dataset).empty?
-  end
-
-  def name_of(dataset)
-    dataset._source['name']
   end
 
   def input_box_class_for(ticket, field)
@@ -109,5 +109,11 @@ module DatasetsHelper
 
   def foi_web_address_for(dataset)
     dataset.foi_web.presence || dataset.organisation.foi_web.presence
+  end
+
+  private
+
+  def most_recent_datafile(dataset)
+    dataset.datafiles.sort_by(&:created_at).last
   end
 end

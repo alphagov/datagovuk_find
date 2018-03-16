@@ -1,7 +1,14 @@
+<% content_for :head do %>
+  <%= tag.meta name: 'dc:title',   content: unescape(@dataset.title) %>
+  <%= tag.meta name: 'dc:creator', content: @dataset.organisation.title %>
+  <%= tag.meta name: 'dc:date',    content: Date.parse(displayed_date(@dataset)).to_formatted_s %>
+  <%= tag.meta name: 'dc:rights',  content: t('.uk_ogl') %>
+<% end %>
+
 <section class="meta-data">
   <div class="grid-row">
     <div class="column-two-thirds">
-      <h1 class="heading-large" itemprop="name">
+      <h1 class="heading-large" itemprop="name" property="dc:title">
         <%= unescape(@dataset.title) %>
       </h1>
     </div>
@@ -18,16 +25,15 @@
             </dd>
           <% end %>
           <dt><%= t('.published_by') %>:</dt>
-          <dd itemprop="creator" itemscope itemtype="http://schema.org/Organization">
+
+          <dd itemprop="creator" property="dc:creator" itemscope itemtype="http://schema.org/Organization">
             <%= @dataset.organisation.title %>
           </dd>
 
           <dt><%= t('.last_updated') %>:</dt>
-          <% if @dataset.datafiles.none? %>
-            <dd><%= format_timestamp(@dataset.last_updated_at) %></dd>
-          <% else %>
-            <dd><%= format_timestamp(most_recent_datafile(@dataset).created_at) %></dd>
-          <% end %>
+          <dd property="dc:date" content="<%= format_timestamp(displayed_date(@dataset)) %>">
+            <%= format_timestamp(displayed_date(@dataset)) %>
+          </dd>
 
           <dt><%= t('.topic') %>:</dt>
           <% if @dataset.topic %>
@@ -38,8 +44,8 @@
 
           <dt><%= t('.licence') %>:</dt>
           <% if @dataset.licence == 'uk-ogl' %>
-            <dd itemprop="license">
-              <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">
+            <dd itemprop="license" property="dc:rights">
+              <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="dc:rights">
                 <%= t('.uk_ogl') %>
               </a>
             </dd>
@@ -57,7 +63,7 @@
         <h3 class="heading-small">
           <%= t('.summary') %>
         </h3>
-        <p class="summary" style="max-height: 250px; overflow: hidden" itemprop="description">
+        <p class="summary" style="max-height: 250px; overflow: hidden" itemprop="description" property="dc:description">
           <%= unescape(@dataset.summary) %>
         </p>
       </div>
