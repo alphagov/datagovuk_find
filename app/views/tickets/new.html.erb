@@ -66,6 +66,7 @@
               <span class="error-message">Enter a valid email address</span>
             <% end %>
           </label>
+          <span class="form-hint">We'll only use this to reply to your message.</span>
           <%= f.text_area(:email,
                           class: input_box_class_for(@ticket, :email),
                           id: "example-email",
