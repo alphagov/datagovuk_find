@@ -3,7 +3,7 @@
     <!-- Only display breadcrumb if the referrer host matches the application host  -->
     <div class="column-full">
       <div class="datagov_breadcrumb">
-        <ol role="breadcrumb">
+        <nav aria-label="Breadcrumb">
           <li>
             <%= link_to t('.home'), root_path %>
           </li>
@@ -14,10 +14,10 @@
               <%= link_to t('.search'), "/search?#{@referrer}" %>
             <% end %>
           </li>
-          <li>
+          <li aria-current="page">
             <%= shorten_title(@dataset.title) %>
           </li>
-        </ol>
+        </nav>
       </div>
     </div>
   </div>
