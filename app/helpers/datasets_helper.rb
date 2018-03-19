@@ -108,6 +108,6 @@ module DatasetsHelper
   end
 
   def foi_web_address_for(dataset)
-    dataset.foi_web.presence || dataset.organisation.foi_web.presence
+    (dataset.foi_web.presence || dataset.organisation.foi_web.presence).to_s
   end
 end
