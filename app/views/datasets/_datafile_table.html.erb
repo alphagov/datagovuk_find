@@ -13,7 +13,7 @@
             datafile.url,
             :data => {
               :'ga-datafile' => datafile.url,
-              :'ga-format' => datafile.format.upcase.presence || 'N/A',
+              :'ga-format' => (datafile.format.presence || 'n/a').upcase
             },
             :itemprop => "contentUrl"
           %>
