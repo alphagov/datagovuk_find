@@ -1,20 +1,34 @@
 <% if (Rails.application.config.analytics_tracking_id.present? || Rails.application.config.analytics_test_tracking_id.present?) %>
   <script>
-    var trackingId = (document.location.hostname === 'beta.data.gov.uk') ? '<%= Rails.application.config.analytics_tracking_id %>' : '<%= Rails.application.config.analytics_test_tracking_id %>';
+   var trackingId = (document.location.hostname === 'beta.data.gov.uk') ? '<%= Rails.application.config.analytics_tracking_id %>' : '<%= Rails.application.config.analytics_test_tracking_id %>';
 
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-    ga('create', trackingId, 'auto');
-    ga('send', 'pageview');
+   ga('create', trackingId, 'auto');
 
-    $(document).ready(function() {
-      $('[data-ga-event]').on('click', function() {
-        var eventDetails = $(this).data('ga-event').split('-')
-        ga.apply(this, ['send', 'event'].concat(eventDetails))
-      })
-    })
+   $(document).ready(function() {
+     if (document.location.pathname.indexOf('/dataset/') === 0) {
+       var orgName = '<% if @dataset %> <%= @dataset.organisation.name %> <% end %>'
+       ga('send', 'pageview', { dimension4: orgName } )
+       $('[data-ga-datafile]').on('click', function() {
+         var datafileFormat = $(this).data('ga-format')
+         var datafileURL = $(this).data('ga-datafile')
+         var eventParams = {
+           hitType: 'event',
+           eventCategory: 'datafile',
+           eventAction: 'download',
+           eventLabel: datafileURL,
+           dimension4: orgName,
+           dimension5: datafileFormat
+         };
+         ga('send', eventParams)
+       });
+     } else {
+       ga('send', 'pageview')
+     }
+   })
   </script>
 <% end %>

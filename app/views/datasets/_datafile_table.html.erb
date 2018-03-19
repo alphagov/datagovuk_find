@@ -11,7 +11,10 @@
         <td class="title small">
           <%= link_to (datafile.name ? datafile.name : 'Data Link'),
             datafile.url,
-            :data => {:'ga-event' => "datafile-download"},
+            :data => {
+              :'ga-datafile' => datafile.url,
+              :'ga-format' => (datafile.format.presence || 'n/a').upcase
+            },
             :itemprop => "contentUrl"
           %>
         </td>
