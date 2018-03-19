@@ -16,6 +16,8 @@ services:
 - elasticsearch
 addons:
   chrome: stable
+before_install:
+- gem update --system
 before_script:
 - sleep 10
 - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
