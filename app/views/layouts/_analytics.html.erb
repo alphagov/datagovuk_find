@@ -13,13 +13,13 @@
      if (document.location.pathname.indexOf('/dataset/') === 0) {
        sendDatasetPageAnalytics()
      } else {
-       ga('send', 'pageview')
+       ga('send', 'pageview', { dimension11: 'find-open-data'})
      }
    });
 
    function sendDatasetPageAnalytics(){
      var orgName = '<% if @dataset %> <%= @dataset.organisation.name %> <% end %>'
-     ga('send', 'pageview', { dimension4: orgName } )
+     ga('send', 'pageview', { dimension4: orgName, dimension11: 'find-open-data' } )
      sendDatafileDownloadAnalytics(orgName)
      sendContactDetailAnalytics(orgName)
    };
