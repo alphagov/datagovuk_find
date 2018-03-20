@@ -11,24 +11,33 @@
 
    $(document).ready(function() {
      if (document.location.pathname.indexOf('/dataset/') === 0) {
-       var orgName = '<% if @dataset %> <%= @dataset.organisation.name %> <% end %>'
-       ga('send', 'pageview', { dimension4: orgName } )
-       $('[data-ga-datafile]').on('click', function() {
-         var datafileFormat = $(this).data('ga-format')
-         var datafileURL = $(this).data('ga-datafile')
-         var eventParams = {
-           hitType: 'event',
-           eventCategory: 'datafile',
-           eventAction: 'download',
-           eventLabel: datafileURL,
-           dimension4: orgName,
-           dimension5: datafileFormat
-         };
-         ga('send', eventParams)
-       });
+       sendDatasetPageAnalytics()
      } else {
        ga('send', 'pageview')
      }
-   })
+   });
+
+   function sendDatasetPageAnalytics(){
+     var orgName = '<% if @dataset %> <%= @dataset.organisation.name %> <% end %>'
+     ga('send', 'pageview', { dimension4: orgName } )
+     sendDatafileDownloadAnalytics(orgName)
+   };
+
+   function sendDatafileDownloadAnalytics(orgName){
+     $('[data-ga-datafile]').on('click', function() {
+       var datafileFormat = $(this).data('ga-format')
+       var datafileURL = $(this).data('ga-datafile')
+       var eventParams = {
+         hitType: 'event',
+         eventCategory: 'datafile',
+         eventAction: 'download',
+         eventLabel: datafileURL,
+         dimension4: orgName,
+         dimension5: datafileFormat
+       };
+       ga('send', eventParams)
+     })
+   }
+
   </script>
 <% end %>
