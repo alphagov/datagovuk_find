@@ -21,6 +21,7 @@
      var orgName = '<% if @dataset %> <%= @dataset.organisation.name %> <% end %>'
      ga('send', 'pageview', { dimension4: orgName } )
      sendDatafileDownloadAnalytics(orgName)
+     sendContactDetailAnalytics(orgName)
    };
 
    function sendDatafileDownloadAnalytics(orgName){
@@ -34,6 +35,18 @@
          eventLabel: datafileURL,
          dimension4: orgName,
          dimension5: datafileFormat
+       };
+       ga('send', eventParams)
+     })
+   }
+
+   function sendContactDetailAnalytics(orgName){
+     $('.ga-contact').on('click', function(orgName){
+       var eventParams = {
+         hitType: 'event',
+         eventCategory: 'contact-details',
+         eventAction: 'mail_to',
+         eventLabel: orgName
        };
        ga('send', eventParams)
      })
