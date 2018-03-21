@@ -8,50 +8,11 @@
    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga')
 
    ga('create', trackingId, 'auto')
+   var dimensions = {}
 
    $(document).ready(function() {
-     if (document.location.pathname.indexOf('/dataset/') === 0) {
-      var orgName = '<% if @dataset %> <%= @dataset.organisation.name %> <% end %>'
-      sendDatasetPageAnalytics(orgName)
-     } else {
-       ga('send', 'pageview', { dimension11: 'find-open-data'})
-     }
+     dimensions['dimension11'] = 'find-open-data'
+     ga('send', 'pageview', dimensions)
    })
-
-   function sendDatasetPageAnalytics(orgName){
-     ga('send', 'pageview', { dimension4: orgName, dimension11: 'find-open-data' } )
-     sendDatafileDownloadAnalytics(orgName)
-     sendContactDetailAnalytics(orgName)
-   }
-
-   function sendDatafileDownloadAnalytics(orgName){
-     $('[data-ga-datafile]').on('click', function() {
-       var datafileFormat = $(this).data('ga-format')
-       var datafileURL = $(this).data('ga-datafile')
-       var eventParams = {
-         hitType: 'event',
-         eventCategory: 'datafile',
-         eventAction: 'download',
-         eventLabel: datafileURL,
-         dimension4: orgName,
-         dimension5: datafileFormat
-       }
-       ga('send', eventParams)
-     })
-   }
-
-   function sendContactDetailAnalytics(orgName){
-     $('.ga-contact').on('click', function(){
-       var eventParams = {
-         hitType: 'event',
-         eventCategory: 'contact-details',
-         eventAction: 'click',
-         eventLabel: orgName
-       }
-       ga('send', eventParams)
-     })
-
-   }
-
   </script>
 <% end %>
