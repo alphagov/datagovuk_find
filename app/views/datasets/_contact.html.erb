@@ -11,7 +11,7 @@
 
       <p>
         <span><%= contact_name_for(dataset) %></span>
-        <span><%= mail_to(contact_email_for(dataset)) %></span>
+        <span><%= mail_to(contact_email_for(dataset), nil, {class: 'ga-contact'}) %></span>
       </p>
     </div>
   <% end %>
@@ -24,8 +24,13 @@
 
       <p>
         <span><%= foi_name_for(dataset) %></span>
-        <span><%= mail_to(foi_email_for(dataset)) %></span>
-        <span><%= link_to(foi_web_address_for(dataset), foi_web_address_for(dataset)) %></span>
+        <span><%= mail_to(foi_email_for(dataset), nil, {class: 'ga-contact'}) %></span>
+        <span>
+          <%= link_to(foi_web_address_for(dataset),
+              foi_web_address_for(dataset),
+              {class: 'ga-contact'})
+          %>
+        </span>
       </p>
     </div>
   <% end %>

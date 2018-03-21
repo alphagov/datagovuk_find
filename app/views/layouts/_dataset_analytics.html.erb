@@ -1,0 +1,41 @@
+<% if (Rails.application.config.analytics_tracking_id.present? || Rails.application.config.analytics_test_tracking_id.present?) %>
+  <script>
+     $(document).ready(function() {
+       var orgName = '<%= @dataset.organisation.name %>'
+       dimensions['dimension4'] = orgName
+       sendDatafileDownloadAnalytics(orgName)
+       sendContactDetailAnalytics(orgName)
+      })
+
+     function sendDatafileDownloadAnalytics(orgName){
+       $('[data-ga-datafile]').on('click', function() {
+         var datafileFormat = $(this).data('ga-format')
+         var datafileURL = $(this).data('ga-datafile')
+         var eventParams = {
+           hitType: 'event',
+           eventCategory: 'datafile',
+           eventAction: 'download',
+           eventLabel: datafileURL,
+           dimension4: orgName,
+           dimension5: datafileFormat,
+           dimension11: 'find-open-data'
+         }
+         ga('send', eventParams)
+       })
+     }
+
+     function sendContactDetailAnalytics(orgName){
+       $('.ga-contact').on('click', function(){
+         var eventParams = {
+           hitType: 'event',
+           eventCategory: 'contact-details',
+           eventAction: 'click',
+           eventLabel: orgName,
+           dimension4: orgName,
+           dimension11: 'find-open-data'
+         }
+         ga('send', eventParams)
+       })
+     }
+    </script>
+  <% end %>
