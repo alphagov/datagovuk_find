@@ -17,7 +17,7 @@
       <% if @ticket.errors.any? %>
         <div class="error-summary" role="alert" aria-labelledby="error-summary-heading">
           <h2 class="heading-medium error-summary-heading" id="error-summary-heading">
-            There was a problem
+            <%= t('.problem')%>
           </h2>
           <ul class="error-summary-list">
             <% @ticket.errors.messages.each do |attr, error| %>
@@ -29,18 +29,18 @@
 
       <h1 class='heading-medium'>
         <% if @support_queue == 'data'%>
-          Send a data request
+          <%= t('.send_data_request') %>
         <% else %>
-          Report a problem or give feedback
+          <%= t('.report_a_problem') %>
         <% end %>
       </h1>
 
       <%= form_for @ticket, url: { action: "create", controller: "tickets" } do |f| %>
         <div class="form-group <% if @ticket.errors[:content].any? %> form-group-error <% end %>">
           <label for="example-content" id="error-content">
-            <span class="form-label dgu-support__form-label">Your message</span>
+            <span class="form-label dgu-support__form-label"><%= t('.your_message') %></span>
             <% if @ticket.errors[:content].any? %>
-              <span class="error-message">Enter a message</span>
+              <span class="error-message"><%= t('.enter_a_message') %></span>
             <% end %>
           </label>
           <%= f.text_area(:content,
@@ -50,9 +50,9 @@
         </div>
         <div class="form-group <% if @ticket.errors[:name].any? %> form-group-error <% end %>">
           <label for="example-name" id="error-name">
-            <span class="form-label dgu-support__form-label">Name</span>
+            <span class="form-label dgu-support__form-label"><%= t('.name') %></span>
             <% if @ticket.errors[:name].any? %>
-              <span class="error-message">Enter a name</span>
+              <span class="error-message"><%= t('.enter_a_name') %></span>
             <% end %>
           </label>
           <%= f.text_field(:name,
@@ -61,17 +61,18 @@
         </div>
         <div class="form-group <% if @ticket.errors[:email].any? %> form-group-error <% end %>" >
           <label for="example-email" id="error-email">
-            <span class="form-label dgu-support__form-label">Email address</span>
+            <span class="form-label dgu-support__form-label"><%= t('.email_address') %></span>
             <% if @ticket.errors[:email].any? %>
-              <span class="error-message">Enter a valid email address</span>
+              <span class="error-message"><%= t('.enter_an_email') %></span>
             <% end %>
           </label>
+          <span class="form-hint"><%= t('.use_this_to_reply') %></span>
           <%= f.text_field(:email,
                           class: input_box_class_for(@ticket, :email),
                           id: "example-email") %>
         </div>
         <%= f.hidden_field(:support, :value => @support_queue) %>
-          <%= f.submit "Submit", class: "button dgu-support__button" %>
+          <%= f.submit t('.submit'), class: "button dgu-support__button" %>
       <% end %>
     </div>
   </div>

@@ -1,0 +1,18 @@
+en:
+  tickets:
+    new:
+      problem: "There was a problem"
+      send_data_request: "Send a data request"
+      report_a_problem: "Report a problem or give feedback"
+      your_message: "Your message"
+      enter_a_message: "Enter a message"
+      name: "Name"
+      enter_a_name: "Enter a name"
+      email_address: "Email address"
+      enter_an_email: "Enter a valid email address"
+      use_this_to_reply: "We’ll only use this to reply to your message."
+      submit: "Submit"
+    confirmation:
+      thanks_for_contacting: "Thanks for contacting data.gov.uk"
+      built_by_gds: "Data.gov.uk is built and supported by a team here to help you at the Government Digital Service."
+      operational_support: "GDS provides operational support from 9am to 5pm, Monday to Friday."
