@@ -11,7 +11,7 @@ def zendesk_config_from_vcap
       zendesk_config["end_point"] = elem['credentials']['ZENDESK_END_POINT']
     end
   rescue => e
-    Rails.logger.info "Failed to extract zendesk creds from VCAP_SERVICES. RAILS_ENV = #{ENV['RAILS_ENV']}"
+    Rails.logger.info "Failed to extract zendesk creds from VCAP_SERVICES"
     Rails.logger.info "ERROR --> '#{e}'"
   end
   zendesk_config
