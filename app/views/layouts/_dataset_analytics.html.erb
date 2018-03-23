@@ -5,6 +5,7 @@
        dimensions['dimension4'] = orgName
        sendDatafileDownloadAnalytics(orgName)
        sendContactDetailAnalytics(orgName)
+       sendDatafilePreviewAnalytics(orgName)
       })
 
      function sendDatafileDownloadAnalytics(orgName){
@@ -32,6 +33,23 @@
            eventAction: 'click',
            eventLabel: orgName,
            dimension4: orgName,
+           dimension11: 'find-open-data'
+         }
+         ga('send', eventParams)
+       })
+     }
+
+     function sendDatafilePreviewAnalytics(orgName){
+       $('.ga-preview').on('click', function(){
+         var datafileURL = $(this).data('ga-datafile')
+         var datafileFormat = $('[data-ga-datafile]').data('ga-datafile')
+         var eventParams = {
+           hitType: 'event',
+           eventCategory: 'datafile-preview',
+           eventAction: 'click',
+           eventLabel: datafileURL,
+           dimension4: orgName,
+           dimension5: datafileFormat,
            dimension11: 'find-open-data'
          }
          ga('send', eventParams)

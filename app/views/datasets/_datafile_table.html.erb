@@ -38,7 +38,10 @@
           <% if datafile.html? %>
             <%= link_to t('.go_to_site'), datafile.url %>
           <% elsif datafile.csv? %>
-            <%= link_to t('.preview'), datafile_preview_path(@dataset.uuid, @dataset.name, datafile.uuid) %>
+            <%= link_to t('.preview'),
+                datafile_preview_path(@dataset.uuid, @dataset.name, datafile.uuid),
+                class: 'ga-preview'
+            %>
           <% else %>
             <span class="dgu-secondary-text"><%= t('.not_available') %></span>
           <% end %>
