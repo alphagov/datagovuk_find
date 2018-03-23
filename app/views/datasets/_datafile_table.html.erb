@@ -12,8 +12,9 @@
           <%= link_to (datafile.name ? datafile.name : 'Data Link'),
             datafile.url,
             :data => {
-              :'ga-datafile' => datafile.url,
-              :'ga-format' => (datafile.format.presence || 'n/a').upcase
+              :'ga-event' => 'download',
+              :'ga-format' => (datafile.format.presence || 'n/a').upcase,
+              :'ga-publisher' => @dataset.organisation.name
             },
             :itemprop => "contentUrl"
           %>

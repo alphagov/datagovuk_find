@@ -13,6 +13,50 @@
    $(document).ready(function() {
      dimensions['dimension11'] = 'find-open-data'
      ga('send', 'pageview', dimensions)
+     $('[data-ga-event]').on('click', sendAnalyticsEvent)
    })
+
+   // Analytics event firing
+   function sendAnalyticsEvent() {
+     var eventType = $(this).data('ga-event')
+     var orgName = $(this).data('ga-publisher')
+     var eventParams = {}
+     switch (eventType) {
+       case 'download':
+         eventParams = {
+           hitType: 'event',
+           eventCategory: 'datafile',
+           eventAction: 'download',
+           eventLabel: $(this).attr('href'),
+           dimension4: orgName,
+           dimension5: $(this).data('ga-format'),
+           dimension11: 'find-open-data'
+         }
+         break
+       case 'contact':
+         eventParams = {
+           hitType: 'event',
+           eventCategory: 'contact-details',
+           eventAction: 'click',
+           eventLabel: orgName,
+           dimension4: orgName,
+           dimension11: 'find-open-data'
+         }
+         break
+       case 'preview':
+         eventParams = {
+           hitType: 'event',
+           eventCategory: 'datafile-preview',
+           eventAction: 'click',
+           eventLabel: $(this).attr('href'),
+           dimension4: orgName,
+           dimension5: $(this).data('ga-format'),
+           dimension11: 'find-open-data'
+         }
+         break
+     }
+     ga('send', eventParams)
+   }
+
   </script>
 <% end %>

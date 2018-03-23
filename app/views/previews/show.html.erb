@@ -12,7 +12,15 @@
       <% if @datafile.csv? && @datafile.preview.exists? %>
         <p>You're previewing the first <%= @datafile.preview.line_count %> rows of this file.</p>
       <% end %>
-      <a class="button" href="<%= @datafile.url %>"><%= t('.download_file') %></a>
+      <%= link_to t('.download_file'),
+      @datafile.url,
+        class: 'button',
+        :data => {
+          :'ga-event' => 'preview',
+          :'ga-format' => (@datafile.format.presence || 'n/a').upcase,
+          :'ga-publisher' => @dataset.organisation.name
+        }
+      %>
     </div>
     <div class = 'column-full'>
       <section class="dgu-datafile-preview">
