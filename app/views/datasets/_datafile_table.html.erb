@@ -12,8 +12,9 @@
           <%= link_to (datafile.name ? datafile.name : 'Data Link'),
             datafile.url,
             :data => {
-              :'ga-datafile' => datafile.url,
-              :'ga-format' => (datafile.format.presence || 'n/a').upcase
+              :'ga-event' => 'download',
+              :'ga-format' => (datafile.format.presence || 'n/a').upcase,
+              :'ga-publisher' => @dataset.organisation.name
             },
             :itemprop => "contentUrl"
           %>
@@ -38,7 +39,10 @@
           <% if datafile.html? %>
             <%= link_to t('.go_to_site'), datafile.url %>
           <% elsif datafile.csv? %>
-            <%= link_to t('.preview'), datafile_preview_path(@dataset.uuid, @dataset.name, datafile.uuid) %>
+            <%= link_to t('.preview'),
+                datafile_preview_path(@dataset.uuid, @dataset.name, datafile.uuid),
+                class: 'ga-preview'
+            %>
           <% else %>
             <span class="dgu-secondary-text"><%= t('.not_available') %></span>
           <% end %>
