@@ -31,3 +31,5 @@ en:
       towns_and_cities_description: "Includes housing, urban planning, leisure, waste and energy, consumption"
       transport_label: "Transport"
       transport_description: "Airports, roads, freight, electric vehicles, parking, buses and footpaths"
+    home:
+      find_open_data: "Find open data"
