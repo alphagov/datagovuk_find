@@ -4,19 +4,21 @@
     <div class="column-full">
       <div class="datagov_breadcrumb">
         <nav aria-label="Breadcrumb">
-          <li>
-            <%= link_to t('.home'), root_path %>
-          </li>
-          <li>
-            <% if @referer_query.nil? %>
-              <%= @dataset.organisation.title %>
-            <% else %>
-              <%= link_to t('.search'), "/search?#{@referrer}" %>
-            <% end %>
-          </li>
-          <li aria-current="page">
-            <%= shorten_title(@dataset.title) %>
-          </li>
+          <ol>
+            <li>
+              <%= link_to t('.home'), root_path %>
+            </li>
+            <li>
+              <% if @referer_query.nil? %>
+                <%= @dataset.organisation.title %>
+              <% else %>
+                <%= link_to t('.search'), "/search?#{@referrer}" %>
+              <% end %>
+            </li>
+            <li aria-current="page">
+              <%= shorten_title(@dataset.title) %>
+            </li>
+          </ol>
         </nav>
       </div>
     </div>
