@@ -2,13 +2,13 @@
   About -
 <% end %>
 
-<main role="main" id="content">
+<main role="main">
   <%= render partial: 'layouts/feedback_survey_banner' if flash[:beta_message] == 'hide' %>
 
   <div class="text">
 
-    
-   <h1 class="heading-large">
+
+   <h1 tabindex="-1" id="content" class="heading-large">
      About Find open data
    </h1>
 

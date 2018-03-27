@@ -2,7 +2,7 @@
   <%= @dataset.title %> -
 <% end %>
 
-<main role="main" id="content">
+<main role="main">
   <%= render partial: 'layouts/feedback_survey_banner' if flash[:beta_message] == 'hide'%>
   <%= render "breadcrumb" %>
   <div itemscope itemtype="http://schema.org/Dataset">

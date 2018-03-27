@@ -1,11 +1,11 @@
 <% content_for :page_title do %>
   <%= @datafile.name %> -
 <% end %>
-<main role="main" id="content">
+<main role="main">
   <div class="grid-row">
     <div class="column-two-thirds">
       <%= link_to t('.back_link'), dataset_path(@dataset.uuid, @dataset.name), class: 'link-back' %>
-      <h1 class="heading-large">
+      <h1 tabindex="-1" id="content" class="heading-large">
         <%= @dataset.title %>
         <span class="heading-secondary dgu-home-spacer__bottom"><%= @datafile.name %></span>
       </h1>

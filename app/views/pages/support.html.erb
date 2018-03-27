@@ -2,12 +2,12 @@
   Support -
 <% end %>
 
-<main role="main" id="content">
+<main role="main">
   <%= render partial: 'layouts/feedback_survey_banner' if flash[:beta_message] == 'hide' %>
 
   <div class="grid-row inner">
     <div class="column-two-thirds">
-      <h1 class='heading-large'>Support</h1>
+      <h1 tabindex="-1" id="content" class='heading-large'>Support</h1>
 
       <p>
         The Government Digital Service (GDS) maintains the service behind data.gov.uk and helps
@@ -33,7 +33,7 @@
           <fieldset>
 
             <legend>
-              <h1 class="heading-medium">How can we help you?</h1>
+              <h2 class="heading-medium">How can we help you?</h2>
             </legend>
 
             <div class="multiple-choice">
