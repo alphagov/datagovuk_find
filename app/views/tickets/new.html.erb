@@ -2,7 +2,7 @@
   Send a data request -
 <% end %>
 
-<main role="main" id="content">
+<main role="main">
   <div class="grid-row inner">
     <div class="column-full">
 
@@ -27,7 +27,7 @@
         </div>
       <% end %>
 
-      <h1 class='heading-medium'>
+      <h1 tabindex="-1" id="content" class='heading-medium'>
         <% if @support_queue == 'data'%>
           <%= t('.send_data_request') %>
         <% else %>
