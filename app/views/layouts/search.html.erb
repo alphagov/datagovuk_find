@@ -21,7 +21,7 @@
     <%= render 'layouts/staging_ribbon' if Rails.env.staging? %>
     <%= render 'layouts/beta_message' if flash[:beta_message] == 'show' %>
       <div class="dgu-beta__message--<%=flash[:beta_message] %>">
-        <main role="main">
+        <main role="main" id="content">
           <%= yield %>
         </main>
       </div>

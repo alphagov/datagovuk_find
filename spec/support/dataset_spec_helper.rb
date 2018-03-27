@@ -18,7 +18,7 @@ end
 
 def search_for(query)
   visit '/'
-  within 'main' do
+  within '#content' do
     fill_in 'q', with: query
     find('.dgu-search-box__button').click
   end
@@ -26,7 +26,7 @@ end
 
 def filtered_search_for(query, sort_method)
   visit '/search'
-  within 'main' do
+  within '#content' do
     fill_in 'q', with: query
     select sort_method, from: 'Sorting type'
     find('.dgu-search-box__button').click
