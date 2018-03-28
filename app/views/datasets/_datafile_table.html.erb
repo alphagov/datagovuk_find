@@ -41,7 +41,11 @@
           <% elsif datafile.csv? %>
             <%= link_to t('.preview'),
                 datafile_preview_path(@dataset.uuid, @dataset.name, datafile.uuid),
-                class: 'ga-preview'
+                :data => {
+                  :'ga-event' => 'preview',
+                  :'ga-format' => (datafile.format.presence || 'n/a').upcase,
+                  :'ga-publisher' => @dataset.organisation.name
+                  }
             %>
           <% else %>
             <span class="dgu-secondary-text"><%= t('.not_available') %></span>
