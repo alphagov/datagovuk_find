@@ -405,8 +405,5 @@ span.showHide-open-all {
 
 
 .dgu-top-non-content {
-  background: $highlight-colour;
-  &__inner {
-    @extend %site-width-container;
-  }
+  @extend %site-width-container;
 }
