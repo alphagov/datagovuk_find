@@ -40,8 +40,11 @@
 <% content_for :content do %>
   <%= render 'layouts/staging_ribbon' if Rails.env.staging? %>
   <%= render partial: 'layouts/beta_message' if flash[:beta_message] == 'show'%>
+
   <div class="dgu-top-non-content">
-    <%= render partial: 'layouts/feedback_survey_banner' if flash[:beta_message] == 'hide' %>
+    <div class="dgu-top-non-content__inner">
+      <%= render partial: 'layouts/feedback_survey_banner' if flash[:beta_message] == 'hide' %>
+    </div>
   </div>
   <%= yield %>
 
