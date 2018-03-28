@@ -281,6 +281,27 @@ feature 'Search page', elasticsearch: true do
     expect(publishers[3]).to eq('Plymouth City Council')
   end
 
+  scenario 'search results title', js:true do
+    index(DatasetBuilder.new.with_topic({id: 1, name: "government", title: "Government"}).build)
+
+    search_for("apple")
+    expect(page).to have_title('Results for "apple"')
+
+    search_for("")
+    expect(page).to have_title('Search Results')
+
+    execute_script "window.location = '#topic'"
+    find_field('topic').send_keys('Gov', :down, :enter)
+    click_button 'Apply filters'
+
+    expect(page).to have_title('Results for "Government"')
+    within '#content' do
+      fill_in 'q', with: 'bear'
+      find('.dgu-search-box__button').click
+    end
+    expect(page).to have_title('Results for "bear"')
+  end
+
   def assert_data_set_length_is(count)
     datasets = all('h2 a')
     expect(datasets.length).to be(count)
