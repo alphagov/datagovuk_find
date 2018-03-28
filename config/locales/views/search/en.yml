@@ -2,6 +2,7 @@ en:
   search:
     search:
       results_page_title: 'Results for "%{query}" - data.gov.uk'
+      search_results: 'Search Results'
       search_results_heading: "Search results"
       accessibility:
         search_box_label: "Search"

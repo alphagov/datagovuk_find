@@ -1,5 +1,9 @@
 <% content_for :page_title do %>
-   <%= t('.results_page_title', :query => @query ) %>
+  <% if search_term.present? %>
+   <%= t('.results_page_title', :query => search_term ) %>
+  <% else %>
+    <%= t('.search_results') %>
+  <% end %>
 <% end %>
 
 <form action="/search" method="GET">
