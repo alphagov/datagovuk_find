@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   scope module: 'legacy' do
     get 'dataset/:legacy_name',
         to: 'datasets#available_soon',
-        constraints: lambda { |req| req.referrer.present? && URI.parse(req.referrer).path == '/dataset/new' }
+        constraints: lambda { |req| req.referrer.present? && URI.parse(req.referrer).path == '/dataset/new/' }
 
     get 'dataset/:legacy_name',                                 to: 'datasets#redirect'
     get 'dataset/:legacy_dataset_name/resource/:datafile_uuid', to: 'datafiles#redirect'
