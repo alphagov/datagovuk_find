@@ -4,11 +4,8 @@ Rails.application.routes.draw do
   get 'dataset/:uuid', to: 'datasets#show', uuid: /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/
 
   scope module: 'legacy' do
-    get 'dataset/:legacy_name',
-        to: 'datasets#available_soon',
-        constraints: lambda { |req| req.referrer.present? && URI.parse(req.referrer).path == '/dataset/new' }
-
     get 'dataset/:legacy_name',                                 to: 'datasets#redirect'
+    post 'dataset/:legacy_name',                                to: 'datasets#available_soon'
     get 'dataset/:legacy_dataset_name/resource/:datafile_uuid', to: 'datafiles#redirect'
 
     get 'data/search',                     to: 'search#redirect'
