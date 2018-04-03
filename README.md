@@ -8,9 +8,17 @@
 Get the code:
 `git clone git@github.com:datagovuk/find_data_beta.git`
 
+Ensure you have the correct version of Ruby installed. You can find the expected version with:
+`cat .ruby-version`
+
 Set up the app's dependencies:
 `cd find_data_beta`
 `.bin/setup`
+
+Copy the example environment file and modify the settings to reflect your configuration.
+`cp .example-env .env`
+
+> For development you will need a local install of [Publish Data](https://github.com/alphagov/datagovuk_publish/) to populate the databases
 
 ## Run the app
 
