@@ -58,7 +58,54 @@ module DatasetsHelper
     title.truncate(70, separator: ' ', omission: ' ...')
   end
 
+  def to_json_ld(dataset)
+    dataset_metadata = {
+      "@context": "http://schema.org",
+      "@type": "Dataset",
+      name: dataset.title,
+      url: "#{request.protocol}#{request.host_with_port}#{request.fullpath}",
+      includedInDataCatalog: {
+        "@type": "DataCatalog",
+        url: request.host
+      },
+      creator: {
+        "@type": "Organization",
+        name: dataset.organisation.title
+      },
+      description: dataset.summary,
+      license: dataset.licence == 'uk-ogl' ? '' : dataset.licence_other,
+      dateModified: displayed_date(dataset)
+    }
+    if dataset.licence == 'uk-ogl'
+      dataset_metadata[:license] = "http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+    elsif dataset.licence_other
+      dataset_metadata[:license] = dataset.licence_other
+    end
+    if dataset.topic
+      dataset_metadata[:keywords] = dataset.topic['title']
+    end
+    files = metadata_files(dataset)
+    if files.length > 0
+      dataset_metadata[:distribution] = files
+    end
+    dataset_metadata.to_json
+  end
+
   private
+
+  def metadata_files(dataset)
+    files = []
+    dataset.datafiles.each do |file|
+      files.push(
+        {
+          "@type": 'DataDownload',
+          contentUrl: file.url,
+          fileFormat: file.format
+        }
+      )
+    end
+    files
+  end
 
   def locations(dataset)
     ['location1', 'location2', 'location3']

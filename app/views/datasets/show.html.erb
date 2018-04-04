@@ -2,6 +2,10 @@
   <%= @dataset.title %> -
 <% end %>
 
+<script type="application/ld+json">
+ <%= raw to_json_ld(@dataset) %>
+</script>
+
 <div class="dgu-top-non-content">
   <div class="dgu-top-non-content__inner">
     <%= render partial: 'layouts/feedback_survey_banner' if flash[:beta_message] == 'hide' %>
@@ -10,9 +14,7 @@
 </div>
 
 <main role="main" id="content">
-  <div itemscope itemtype="http://schema.org/Dataset">
-    <link itemprop="url" href="<%= "#{request.protocol}#{request.host_with_port}#{request.fullpath}" %>"/>
-    <meta itemprop="includedInDataCatalog" itemtype="http://schema.org/DataCatalog" content="<%= request.host %>"/>
+  <div>
     <%= render "meta_data" %>
 
     <div class="grid-row">
