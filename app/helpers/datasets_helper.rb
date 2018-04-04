@@ -60,21 +60,21 @@ module DatasetsHelper
 
   def to_json_ld(dataset)
     dataset_metadata = {
-      :@context => "http://schema.org",
-      :@type => "Dataset",
-      :name => dataset.title,
-      :url => "#{request.protocol}#{request.host_with_port}#{request.fullpath}",
-      :includedInDataCatalog => {
-        :@type => "DataCatalog",
-        :url => request.host
+      "@context": "http://schema.org",
+      "@type": "Dataset",
+      name: dataset.title,
+      url: "#{request.protocol}#{request.host_with_port}#{request.fullpath}",
+      includedInDataCatalog: {
+        "@type": "DataCatalog",
+        url: request.host
       },
-      :creator => {
-        :@type => "Organization",
-        :name => dataset.organisation.title
+      creator: {
+        "@type": "Organization",
+        name: dataset.organisation.title
       },
-      :description => dataset.summary,
-      :license => dataset.licence == 'uk-ogl' ? '' : dataset.licence_other,
-      :dateModified => displayed_date(dataset)
+      description: dataset.summary,
+      license: dataset.licence == 'uk-ogl' ? '' : dataset.licence_other,
+      dateModified: displayed_date(dataset)
     }
     if dataset.licence == 'uk-ogl'
       dataset_metadata[:license] = "http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
@@ -98,9 +98,9 @@ module DatasetsHelper
     dataset.datafiles.each do |file|
       files.push(
         {
-          :@type => 'DataDownload',
-          :contentUrl => file.url,
-          :fileFormat => file.format
+          "@type": 'DataDownload',
+          contentUrl: file.url,
+          fileFormat: file.format
         }
       )
     end
