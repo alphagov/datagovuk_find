@@ -93,6 +93,10 @@ module DatasetsHelper
 
   private
 
+  def format_of(datafile)
+    (datafile.format.presence || 'n/a').upcase
+  end
+
   def metadata_files(dataset)
     files = []
     dataset.datafiles.each do |file|
