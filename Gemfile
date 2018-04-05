@@ -21,8 +21,8 @@ gem "elasticsearch-model", "~> 5.0.1"
 gem "elasticsearch-rails", "~> 5.0.1"
 gem "elasticsearch-persistence", "~> 5", require: "elasticsearch/persistence/model"
 gem 'elasticsearch-dsl', "~> 0.1.5"
-gem 'htmlentities', "~> 4.3"
-gem 'secure_headers', "~> 5.0"
+gem 'htmlentities', '~> 4.3'
+gem 'secure_headers', '~> 5.0'
 gem 'faraday'
 gem 'faraday_middleware'
 gem 'sentry-raven'
