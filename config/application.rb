@@ -32,7 +32,6 @@ module FindDataBeta
     config.exceptions_app = self.routes
 
     config.analytics_tracking_id = ENV['GA_TRACKING_ID']
-    config.analytics_test_tracking_id = ENV['GA_TEST_TRACKING_ID']
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**','**','*.{rb,yml}')]
     config.filter_parameters << :password
     config.filter_parameters << :password_confirmation
