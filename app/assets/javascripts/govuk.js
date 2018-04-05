@@ -160,6 +160,7 @@ LimitDatasets.prototype.toggle = function (event) {
   if (folded === 'folded') {
     $target.text('Show less')
     this.moreFiles.show()
+    $(this.moreFiles[0]).attr('tabindex', -1).focus();
     $target.data('folded', 'unfolded')
   } else {
     $target.text('Show more')
