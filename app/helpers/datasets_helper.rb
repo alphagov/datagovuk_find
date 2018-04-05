@@ -104,7 +104,8 @@ module DatasetsHelper
         {
           "@type": 'DataDownload',
           contentUrl: file.url,
-          fileFormat: file.format
+          fileFormat: file.format,
+          name: file.name
         }
       )
     end
