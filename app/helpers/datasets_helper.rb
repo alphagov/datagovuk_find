@@ -66,7 +66,7 @@ module DatasetsHelper
       url: "#{request.protocol}#{request.host_with_port}#{request.fullpath}",
       includedInDataCatalog: {
         "@type": "DataCatalog",
-        url: request.host
+        url: "#{request.protocol}#{request.host_with_port}"
       },
       creator: {
         "@type": "Organization",
