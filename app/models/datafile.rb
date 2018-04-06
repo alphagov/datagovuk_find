@@ -42,6 +42,14 @@ class Datafile
     format&.upcase == 'CSV'
   end
 
+  def wms?
+    format&.upcase == 'WMS'
+  end
+
+  def wfs?
+    format&.upcase == 'WFS'
+  end
+
   def preview
     @preview ||= Preview.new(url: url, format: format)
   end
