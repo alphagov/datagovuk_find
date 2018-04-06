@@ -39,6 +39,7 @@ en:
       not_available: "Not available"
       go_to_site: "Go to site"
       preview: "Preview"
+      map_preview: "Preview on map"
     meta_data:
       availability: "Availability"
       publisher_datasets: "More from this publisher"

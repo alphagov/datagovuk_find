@@ -86,6 +86,11 @@ class DatasetBuilder
     self
   end
 
+  def with_inspire_metadata(inspire)
+    @dataset[:inspire_dataset] = inspire
+    self
+  end
+
   def with_location(location)
     @dataset[:location1] = location
     self
@@ -306,6 +311,27 @@ FORMATTED_DATASETS = {
          'start_year' => ''
         }]
 }
+GEO_DATAFILES = [
+  {'id' => 1,
+   'name' => 'I am a WMS resources',
+   'url' => 'http://example.com',
+   'format' => 'WMS',
+   'start_date' => nil,
+   'end_date' => nil,
+   'created_at' => '2016-07-31T00:00:00.000+01:00',
+   'updated_at' => '2016-08-31T14:40:57.528Z',
+   'uuid' => SecureRandom.uuid
+  },
+  {'id' => 2,
+   'name' => 'I am a WFS resources',
+   'format' => 'WFS',
+   'url' => 'http://example.com',
+   'start_date' => nil,
+   'end_date' => nil,
+   'created_at' => '2016-07-31T00:00:00.000+01:00',
+   'updated_at' => '2016-08-31T14:40:57.528Z',
+   'uuid' => SecureRandom.uuid
+  }]
 CSV_DATAFILE = DATA_FILES_WITH_START_AND_ENDDATE[1]
 HTML_DATAFILE = DATA_FILES_WITH_START_AND_ENDDATE[0]
 NO_FORMAT_DATAFILE = DATA_FILES_WITH_START_AND_ENDDATE[2]

@@ -8,6 +8,34 @@ feature 'Dataset page', elasticsearch: true do
     expect(page).to have_content('Page not found')
   end
 
+  feature 'Map preview links' do
+    scenario 'WMS Resources have a link to map preview if we have inspire metadata' do
+      dataset = DatasetBuilder
+        .new
+        .with_datafiles(GEO_DATAFILES.map { |f| Datafile.new(f) })
+        .with_inspire_metadata({
+          'bbox_north_lat' => '1.0',
+          'bbox_east_long' => '1.0',
+          'bbox_south_lat' => '2.0',
+          'bbox_west_long' => '2.0',
+        })
+        .build
+      index_and_visit(dataset)
+
+      expect(page).to have_content('Preview on map')
+    end
+
+    scenario 'WMS Resources have no link to map preview if we have no inspire metadata' do
+      dataset = DatasetBuilder
+        .new
+        .with_datafiles(GEO_DATAFILES.map { |f| Datafile.new(f) })
+        .build
+      index_and_visit(dataset)
+
+      expect(page).not_to have_content('Preview on map')
+    end
+  end
+
   feature 'Meta data' do
     before(:each) do
       dataset = DatasetBuilder.new.build

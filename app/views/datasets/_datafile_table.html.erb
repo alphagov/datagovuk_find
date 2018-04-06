@@ -48,6 +48,8 @@
                   :'ga-publisher' => @dataset.organisation.name
                   }
             %>
+          <% elsif datafile.wms? && @dataset.inspire_dataset.present? %>
+            <%= link_to t('.map_preview'), map_preview_url(@dataset, datafile) %>
           <% else %>
             <span class="dgu-secondary-text"><%= t('.not_available') %></span>
           <% end %>
