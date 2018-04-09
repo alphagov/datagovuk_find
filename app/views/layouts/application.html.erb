@@ -1,7 +1,7 @@
 <% content_for :head do %>
   <%= stylesheet_link_tag 'application' %>
   <%= javascript_include_tag 'application' %>
-  <%= render partial: 'layouts/analytics' %>
+  <%= render 'layouts/analytics' %>
   <%= csrf_meta_tags %>
 <% end %>
 
@@ -34,12 +34,12 @@
 <% end %>
 
 <% content_for :proposition_header do %>
-  <%= render partial: 'layouts/proposition_header' %>
+  <%= render 'layouts/proposition_header' %>
 <% end %>
 
 <% content_for :content do %>
   <%= render 'layouts/staging_ribbon' if Rails.env.staging? %>
-  <%= render partial: 'layouts/beta_message' if flash[:beta_message] == 'show'%>
+  <%= render 'layouts/beta_message' if flash[:beta_message] == 'show'%>
 
   <%= yield %>
 
