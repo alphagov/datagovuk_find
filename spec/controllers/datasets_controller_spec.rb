@@ -17,7 +17,7 @@ describe DatasetsController, type: :controller do
         index([dataset])
         get :show, params: { uuid: dataset[:uuid], name: dataset[:name] }
 
-        expect(response.body).to have_css('div.datagov_breadcrumb')
+        expect(response.body).to have_css('div.breadcrumbs')
         expect(response.body).to_not have_css('li', text: 'Ministry of Defence')
         expect(response.body).to have_css('li', text: 'Search')
       end
@@ -30,7 +30,7 @@ describe DatasetsController, type: :controller do
         index([dataset])
         get :show, params: { uuid: dataset[:uuid], name: dataset[:name] }
 
-        expect(response.body).to have_css('div.datagov_breadcrumb')
+        expect(response.body).to have_css('div.breadcrumbs')
         expect(response.body).to have_css('li', text: 'Ministry of Defence')
         expect(response.body).to_not have_css('li', text: 'Search')
       end
