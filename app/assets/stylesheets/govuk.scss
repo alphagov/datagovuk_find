@@ -29,23 +29,14 @@ $alpine-fresh: #128400;
 // From GDS's alphagov/govuk_elements
 @import 'elements/helpers';
 @import 'elements/reset';
-
-// Base (unclassed HTML elements)
-// These are predefined by govuk_template
-// If you're not using govuk_template, uncomment the line below.
-// HTML elements, set by the GOV.UK template
-// @import 'elements/base'
-
 @import 'elements/layout';
 @import 'elements/elements-typography';
 @import 'elements/buttons';
-// @import 'elements/icons';
 @import 'elements/lists';
 @import 'elements/tables';
 @import 'elements/details';
 @import 'elements/panels';
 @import 'elements/forms';
-//@import 'elements/forms/form-block-labels';
 @import 'elements/forms/form-date';
 @import 'elements/forms/form-validation';
 @import 'elements/forms/form-multiple-choice';
