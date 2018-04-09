@@ -11,7 +11,6 @@
     background: none;
     border-bottom: none;
     width: 160%;
-    font-family: Helvetica, Arial, sans-serif;
     img {
       display: none;
     }
@@ -34,20 +33,11 @@
         width: 12%;
       }
     }
-
-    .header-proposition {
-      #proposition-links {
-        a {
-          font-family: Helvetica;
-        }
-      }
-    }
   }
 }
 
-#proposition-links {
-  float: right;
-  font-family: Helvetica;
+a, p {
+  font-family: Helvetica, Arial, sans-serif !important;
 }
 
 #global-header-bar {
@@ -64,11 +54,6 @@
   margin-top: 1.65em;
   margin-bottom: 40px;
 }
-
-#footer .footer-meta .footer-meta-inner .open-government-licence p {
-  font-family: Helvetica, Arial, sans-serif;
-}
-
 
 details {
   margin-bottom: 30px;
