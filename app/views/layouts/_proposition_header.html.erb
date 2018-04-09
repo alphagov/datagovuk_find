@@ -1,7 +1,9 @@
 <div class="header-proposition">
   <div class="content">
-    <a href="#proposition-links" class="js-header-toggle menu"><%= t('.menu') %></a>
     <nav id="proposition-menu">
+      <a href="/" id="proposition-name">
+        <%= t('.find_open_data') %>
+      </a>
       <ul id="proposition-links">
         <li><%= link_to t('.publishers'), publishers_path %></li>
         <li><%= link_to t('.support'), support_path %></li>
