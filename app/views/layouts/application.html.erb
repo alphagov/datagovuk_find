@@ -41,12 +41,18 @@
   <%= render 'layouts/staging_ribbon' if Rails.env.staging? %>
   <%= render 'layouts/beta_message' if flash[:beta_message] == 'show'%>
 
+  <div class="dgu-top-non-content">
+    <div class="dgu-top-non-content__inner">
+      <%= render partial: 'layouts/feedback_survey_banner' if flash[:beta_message] == 'hide'%>
+      <%= yield :breadcrumb %>
+    </div>
+  </div>
+
   <%= yield %>
 
   <div id="global-app-error" class="app-error hidden"></div>
 
   <script>if (typeof window.GOVUK === 'undefined') document.body.className = document.body.className.replace('js-enabled', '');</script>
-  <!--<script>document.body.className = document.body.className.replace('js-enabled', '')</script>-->
 <% end %>
 
 <% content_for :footer_support_links do %>

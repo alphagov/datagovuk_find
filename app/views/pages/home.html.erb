@@ -2,14 +2,7 @@
   <%= t('.find_open_data') %> -
 <% end %>
 
-<div class="dgu-split-background">
-  <div class="dgu-split-background__top">
-    <div class="dgu-top-non-content">
-      <%= render partial: 'layouts/feedback_survey_banner' if flash[:beta_message] == 'hide' %>
-    </div>
-  </div>
-  <main role="main" id="content">
-    <%= render 'search' %>
-    <%= render 'topics' %>
-  </main>
-</div>
+<main role="main" id="content">
+  <%= render 'search' %>
+  <%= render 'topics' %>
+</main>
