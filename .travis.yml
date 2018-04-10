@@ -6,7 +6,9 @@ env:
     else git log -1 --skip 1 --pretty=format:%ct; fi)
 sudo: false
 language: ruby
-cache: bundler
+cache:
+  bundler: true
+  yarn: true
 branches:
   only:
     - master
@@ -18,7 +20,9 @@ addons:
   chrome: stable
 before_install:
   - gem update --system
-  - yarn install
+install:
+  - bundle install --path vendor/bundle
+  - yarn
 before_script:
   - sleep 10
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
