@@ -9,12 +9,12 @@ This repository contains the beta-stage frontend component of data.gov.uk
 
 You will need to install the following for development.
 
-  * [https://github.com/rbenv/rbenv](rbenv) or similar to manage ruby versions
-  * [https://rubygems.org/gems/bundler](bundler) to manage gems
-  * [https://www.elastic.co/](elasticsearch) database
-  * [https://www.postgresql.org/](postgresql) database
-  * [https://www.npmjs.com/](npm) to manage node packages
-  * [https://github.com/alphagov/datagovuk_publish/](data.gov.uk Publish) to populate elasticsearch
+  * [rbenv](https://github.com/rbenv/rbenv) or similar to manage ruby versions
+  * [bundler](https://rubygems.org/gems/bundler) to manage gems
+  * [elasticsearch](https://www.elastic.co/) database
+  * [postgresql](https://www.postgresql.org/)database
+  * [npm](https://www.npmjs.com/) to manage node packages
+  * [data.gov.uk Publihs](https://github.com/alphagov/datagovuk_publish/) to populate elasticsearch
 
 Most of these can be installed with Homebrew on a Mac.
 
