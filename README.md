@@ -1,32 +1,39 @@
 [![Code Climate](https://codeclimate.com/github/datagovuk/find_data_beta/badges/gpa.svg)](https://codeclimate.com/github/datagovuk/find_data_beta)
 [![Test Coverage](https://codeclimate.com/github/datagovuk/find_data_beta/badges/coverage.svg)](https://codeclimate.com/github/datagovuk/find_data_beta/coverage)
 
-# Find Data Beta
+# data.gov.uk Find
 
-## Set up the app
+This repository contains the beta-stage frontend component of data.gov.uk
 
-Get the code:
-`git clone git@github.com:datagovuk/find_data_beta.git`
+## Prerequisites
 
-Ensure you have the correct version of Ruby installed. You can find the expected version with:
-`cat .ruby-version`
+You will need to install the following for development.
 
-Set up the app's dependencies:
-`cd find_data_beta`
-`.bin/setup`
+  * [https://github.com/rbenv/rbenv](rbenv) or similar to manage ruby versions
+  * [https://rubygems.org/gems/bundler](bundler) to manage gems
+  * [https://www.elastic.co/](elasticsearch) database
+  * [https://www.postgresql.org/](postgresql) database
+  * [https://www.npmjs.com/](npm) to manage node packages
+  * [https://github.com/alphagov/datagovuk_publish/](data.gov.uk Publish) to populate elasticsearch
 
-Copy the example environment file and modify the settings to reflect your configuration.
-`cp .example-env .env`
+Most of these can be installed with Homebrew on a Mac.
 
-> For development you will need a local install of [Publish Data](https://github.com/alphagov/datagovuk_publish/) to populate the databases
+## Getting Started
 
-## Run the app
+First create a `.env` file with the following contents.
 
-Run the app on port XXXX (defaults to 3000):
-`rails server -p XXXX`
+```
+PUBLISH_URL= # URL to preview for WMS previews
+SECRET_KEY_BASE="anything"
+ES_HOST= # override if not on 127.0.0.1:9200
+```
 
-## ElasticSearch
+Now run the following commands to complete your setup.
 
-If you want to run ElasticSearch on your development machine:
-* `brew install elasticsearch`
-* `elasticsearch`
+```
+bundle install
+rake db:setup
+npm install
+```
+
+Then run `rails s` to and navigate to `http://localhost:3000`.
