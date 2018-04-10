@@ -18,7 +18,6 @@ addons:
   chrome: stable
 before_install:
   - gem update --system
-install:
   - npm install
 before_script:
   - sleep 10
