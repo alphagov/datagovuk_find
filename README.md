@@ -14,7 +14,7 @@ You will need to install the following for development.
   * [elasticsearch](https://www.elastic.co/) database
   * [postgresql](https://www.postgresql.org/)database
   * [npm](https://www.npmjs.com/) to manage node packages
-  * [data.gov.uk Publihs](https://github.com/alphagov/datagovuk_publish/) to populate elasticsearch
+  * [data.gov.uk Publish](https://github.com/alphagov/datagovuk_publish/) to populate elasticsearch
 
 Most of these can be installed with Homebrew on a Mac.
 
