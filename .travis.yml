@@ -9,29 +9,32 @@ language: ruby
 cache: bundler
 branches:
   only:
-  - master
-  - /^v\d+\.\d+\.\d+$/
+    - master
+    - /^v\d+\.\d+\.\d+$/
 services:
-- postgresql
-- elasticsearch
+  - postgresql
+  - elasticsearch
 addons:
   chrome: stable
 before_install:
-- gem update --system
+  - gem update --system
+install:
+  - npm install
 before_script:
-- sleep 10
-- curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
-  > ./cc-test-reporter
-- chmod +x ./cc-test-reporter
-- "./cc-test-reporter before-build"
+  - sleep 10
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
+    > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - "./cc-test-reporter before-build"
 script:
-- bundle exec brakeman
-- bundle exec rake db:create
-- bundle exec rake db:migrate
-- bundle exec rake spec
+<<<<<<< HEAD
+  - bundle exec brakeman
+  - bundle exec rake db:create
+  - bundle exec rake db:migrate
+  - bundle exec rake spec
 after_script:
-- if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then ./cc-test-reporter after-build --exit-code
-  $TRAVIS_TEST_RESULT; fi
+  - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then ./cc-test-reporter after-build --exit-code
+    $TRAVIS_TEST_RESULT; fi
 after_success:
   - wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | sudo apt-key add -
   - echo "deb http://packages.cloudfoundry.org/debian stable main" | sudo tee /etc/apt/sources.list.d/cloudfoundry-cli.list
