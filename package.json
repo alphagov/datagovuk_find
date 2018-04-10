@@ -1,9 +1,7 @@
 {
   "name": "datagovuk_find",
   "license": "UNLICENSED",
-  "repository": "https://github.com/alphagov/datagovuk_find",
   "dependencies": {
     "accessible-autocomplete": "^1.6.1"
-  },
-  "version": "1.0.0"
+  }
 }
