@@ -66,6 +66,7 @@ GEM
     bindex (0.5.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    brakeman (4.2.1)
     builder (3.2.3)
     byebug (9.1.0)
     capybara (2.15.1)
@@ -412,6 +413,7 @@ PLATFORMS
 DEPENDENCIES
   activeadmin (~> 1)
   audited (~> 4.5)
+  brakeman (~> 4.2)
   byebug (~> 9)
   capybara (~> 2.15.1)
   capybara-selenium (= 0.0.6)

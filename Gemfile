@@ -42,6 +42,7 @@ group :development, :test do
   gem 'rspec', '~> 3.6'
   gem 'webmock'
   gem 'dotenv-rails', '~> 2.2'
+  gem 'brakeman', '~> 4.2'
 end
 
 group :development do
