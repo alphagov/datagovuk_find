@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby IO.read('.ruby-version').strip
 
-gem 'rails', '~> 5.1.5'
+gem 'rails', '~> 5.1.6'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
