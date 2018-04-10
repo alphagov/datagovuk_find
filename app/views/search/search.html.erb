@@ -6,88 +6,90 @@
   <% end %>
 <% end %>
 
-<main role="main" id="content">
-  <form action="/search" method="GET">
-    <div class="dgu-split-background__top">
-      <div class="dgu-split-background__top-inner">
-        <%= render partial: 'layouts/feedback_survey_banner' if flash[:beta_message] == 'hide'%>
-        <h1 class="heading-large"> <%= t('.search_results_heading') %></h1>
-        <div class="grid-row">
-          <div class="column-two-thirds dgu-search-box">
-            <label for="q" class="visuallyhidden"> <%= t('.accessibility.search_box_label') %></label>
-            <input id="q"
-                   name="q"
-                   type="text"
-                   class="form-control dgu-search-box__input"
-                   value="<%= @query %>"/><button type="submit"
-                                                  class="dgu-search-box__button">
-                                                  <%= t('.accessibility.search_button_label') %>
-                                          </button>
+<form action="/search" method="GET">
+  <div class="dgu-split-background">
+    <main role="main" id="content">
+      <div class="dgu-split-background__top">
+        <div class="dgu-split-background__top-inner">
+          <%= render partial: 'layouts/feedback_survey_banner' if flash[:beta_message] == 'hide'%>
+          <h1 class="heading-large"> <%= t('.search_results_heading') %></h1>
+          <div class="grid-row">
+            <div class="column-two-thirds dgu-search-box">
+              <label for="q" class="visuallyhidden"> <%= t('.accessibility.search_box_label') %></label>
+              <input id="q"
+                     name="q"
+                     type="text"
+                     class="form-control dgu-search-box__input"
+                     value="<%= @query %>"/><button type="submit"
+                                                    class="dgu-search-box__button">
+                                                    <%= t('.accessibility.search_button_label') %>
+                                            </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="dgu-split-background__bottom">
-      <div class="grid-row dgu-filters">
-        <div class="column-one-third">
-          <%= render 'filters' %>
-        </div>
+      <div class="dgu-split-background__bottom">
+        <div class="grid-row dgu-filters">
+          <div class="column-one-third">
+            <%= render 'filters' %>
+          </div>
 
-        <div class="column-two-thirds dgu-results">
-          <%= render 'sort' if @num_results > 1 %>
+          <div class="column-two-thirds dgu-results">
+            <%= render 'sort' if @num_results > 1 %>
 
-          <% if @query.present? %>
-            <span class="dgu-results__summary">
-              <span class="bold-small"><%= number_with_delimiter(@num_results) %></span>
-              <%= t('.result').pluralize(@num_results) %> <%= t('.found') %>
-            </span>
-          <% end %>
+            <% if @query.present? %>
+              <span class="dgu-results__summary">
+                <span class="bold-small"><%= number_with_delimiter(@num_results) %></span>
+                <%= t('.result').pluralize(@num_results) %> <%= t('.found') %>
+              </span>
+            <% end %>
 
-          <div>
-            <% if @num_results.zero? %>
-              <div class="dgu-results__zero">
-                <h2 class="heading-medium"> <%= t('.zero_result_tips.try') %>:</h2>
-                <ul class="list list-bullet">
-                  <li><%= t('.zero_result_tips.different_words') %></li>
-                  <li><%= t('.zero_result_tips.clear_filters') %></li>
-                </ul>
-              </div>
-            <% else %>
-              <% @datasets.each do |dataset| %>
-                <div class="dgu-results__result">
-                  <h2 class="heading-medium">
-                    <%= link_to dataset.title, dataset_path(dataset.uuid, dataset.name) %>
-                  </h2>
-                  <dl class="dgu-metadata__box">
-                    <% if dataset.datafiles.none? %>
-                      <dt><%= t('.meta_data_box.availability') %>:</dt>
-                      <dd class="availability">
-                        <span class="dgu-highlight">Not released</span>
-                      </dd>
-                    <% end %>
-                    <dt><%= t('.meta_data_box.published_by') %>:</dt>
-                    <dd class="published_by"><%= dataset.organisation['title'] %></dd>
-                    <dt><%= t('.meta_data_box.last_updated') %>:</dt>
-                    <% if dataset.last_updated_at.present? %>
-                      <dd class="last_updated"><%= format_timestamp(dataset.last_updated_at) %></dd>
-                    <% else %>
-                      <dd class="last_updated dgu-secondary-text"> <%= t('.meta_data_box.not_applicable') %></dd>
-                    <% end %>
-                  </dl>
-                  <p><%= truncate(strip_tags(dataset.summary), length: 200, separator: ' ') %></p>
+            <div>
+              <% if @num_results.zero? %>
+                <div class="dgu-results__zero">
+                  <h2 class="heading-medium"> <%= t('.zero_result_tips.try') %>:</h2>
+                  <ul class="list list-bullet">
+                    <li><%= t('.zero_result_tips.different_words') %></li>
+                    <li><%= t('.zero_result_tips.clear_filters') %></li>
+                  </ul>
+                </div>
+              <% else %>
+                <% @datasets.each do |dataset| %>
+                  <div class="dgu-results__result">
+                    <h2 class="heading-medium">
+                      <%= link_to dataset.title, dataset_path(dataset.uuid, dataset.name) %>
+                    </h2>
+                    <dl class="dgu-metadata__box">
+                      <% if dataset.datafiles.none? %>
+                        <dt><%= t('.meta_data_box.availability') %>:</dt>
+                        <dd class="availability">
+                          <span class="dgu-highlight">Not released</span>
+                        </dd>
+                      <% end %>
+                      <dt><%= t('.meta_data_box.published_by') %>:</dt>
+                      <dd class="published_by"><%= dataset.organisation['title'] %></dd>
+                      <dt><%= t('.meta_data_box.last_updated') %>:</dt>
+                      <% if dataset.last_updated_at.present? %>
+                        <dd class="last_updated"><%= format_timestamp(dataset.last_updated_at) %></dd>
+                      <% else %>
+                        <dd class="last_updated dgu-secondary-text"> <%= t('.meta_data_box.not_applicable') %></dd>
+                      <% end %>
+                    </dl>
+                    <p><%= truncate(strip_tags(dataset.summary), length: 200, separator: ' ') %></p>
+                  </div>
+                <% end %>
+                <div class="dgu-pagination">
+                  <nav>
+                    <%= page_entries_info @datasets, entry_name: 'dataset' %>
+                    <span class="dgu-pagination__numbers"><%= paginate @datasets, window: 2 %></span>
+                  </nav>
                 </div>
               <% end %>
-              <div class="dgu-pagination">
-                <nav>
-                  <%= page_entries_info @datasets, entry_name: 'dataset' %>
-                  <span class="dgu-pagination__numbers"><%= paginate @datasets, window: 2 %></span>
-                </nav>
-              </div>
-            <% end %>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </form>
-</main>
+    </main>
+  </div>
+</form>
