@@ -12,5 +12,5 @@
 //
 //= require jquery
 //= require govuk_toolkit
-//= require accessible-autocomplete.min.js
+//= require accessible-autocomplete/dist/accessible-autocomplete.min
 //= require_tree .
