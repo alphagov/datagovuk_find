@@ -20,13 +20,8 @@
   </p>
 <% end %>
 
-<%= render partial: 'layouts/beta_message' if flash[:beta_message] == 'show'%>
-
-<% content_for :global_header_text do %>
-  <%= t('.data_gov_uk')%>
-<% end %>
-
-<% content_for :logo_link_title do %><%= t('.go_to_home') %><% end %>
+<% content_for :global_header_text do %><%=t('.data_gov_uk')%><% end %>
+<% content_for :logo_link_title do %><%=t('.go_to_home') %><% end %>
 
 <% content_for :header_class do %>
   with-proposition
@@ -37,6 +32,7 @@
 <% end %>
 
 <% content_for :content do %>
+  <%= render partial: 'layouts/beta_message' if flash[:beta_message] == 'show'%>
   <%= render 'layouts/staging_ribbon' if Rails.env.staging? %>
 
   <div class="dgu-top-non-content">
