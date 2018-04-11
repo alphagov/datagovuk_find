@@ -2,7 +2,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception, prepend: true
   before_action :set_raven_context
   before_action :toggle_beta_message
-  before_action :log_request
 
   private
 
@@ -20,9 +19,5 @@ class ApplicationController < ActionController::Base
 
   def beta_message_unseen?
     !session.key?('beta_message') || session[:beta_message] == false
-  end
-
-  def log_request
-    Rails.logger.debug("######## REFERRER: #{request.referrer} #########")
   end
 end
