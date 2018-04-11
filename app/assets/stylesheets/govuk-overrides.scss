@@ -1,5 +1,9 @@
 // govuk-* overrides
 
+body {
+  font-family: $helvetica-regular;
+}
+
 // Homepage header overides__________________
 
 #global-header {
@@ -11,7 +15,7 @@
     background: none;
     border-bottom: none;
     width: 160%;
-    font-family: Helvetica, Arial, sans-serif;
+
     img {
       display: none;
     }
@@ -34,20 +38,17 @@
         width: 12%;
       }
     }
+  }
 
-    .header-proposition {
-      #proposition-links {
-        a {
-          font-family: Helvetica;
-        }
+  .header-proposition {
+    #proposition-links {
+      float: right;
+
+      a {
+        font-family: $helvetica-regular;
       }
     }
   }
-}
-
-#proposition-links {
-  float: right;
-  font-family: Helvetica;
 }
 
 #global-header-bar {
@@ -65,10 +66,17 @@
   margin-bottom: 40px;
 }
 
-#footer .footer-meta .footer-meta-inner .open-government-licence p {
-  font-family: Helvetica, Arial, sans-serif;
-}
+#footer {
+  * {
+    font-family: $helvetica-regular;
+  }
 
+    .footer-meta .footer-meta-inner {
+      .open-government-licence p {
+        font-family: $helvetica-regular;
+    }
+  }
+}
 
 details {
   margin-bottom: 30px;
