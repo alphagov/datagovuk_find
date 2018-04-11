@@ -1,6 +1,20 @@
 // =============================================================================
 // Front-end components go here
 
+.dgu-secondary-text {
+  color: $secondary-text-colour;
+}
+
+.dgu-highlight {
+  background: $grey-3;
+  padding: em(2) em(5) em(2) em(5);
+}
+
+.table-wrapper {
+  margin: 20px 0;
+  padding-bottom: 20px;
+}
+
 // Home ==================================================================
 .dgu-home-search {
   padding-top: 2.5em;
