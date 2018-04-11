@@ -10,8 +10,12 @@ a, p {
   padding-bottom: 2px;
 }
 
-#logo {
-  background: none !important;
+#global-header #logo {
+  background: none;
+}
+
+#logo img {
+  display: none;
 }
 
 #global-header-bar {
