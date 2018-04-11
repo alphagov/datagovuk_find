@@ -8,8 +8,9 @@
 
 <div class="dgu-top-non-content">
   <div class="dgu-top-non-content__inner">
-    <%= render partial: 'layouts/feedback_survey_banner' if flash[:beta_message] == 'hide' %>
-    <%= render "breadcrumb" %>
+    <%= content_for :breadcrumb do %>
+      <%= render 'breadcrumb' %>
+    <% end%>
   </div>
 </div>
 
