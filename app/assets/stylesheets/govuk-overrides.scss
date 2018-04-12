@@ -42,7 +42,9 @@ body {
 
   .header-proposition {
     #proposition-links {
-      float: right;
+      @media (min-width: 769px) {
+        float: right;
+      }
 
       a {
         font-family: $helvetica-regular;
