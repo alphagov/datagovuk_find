@@ -4,7 +4,7 @@ en:
       back_link: "Back to dataset"
       download_file: "Download this file"
       this_file: "this file."
-      no_preview_avail: "No preview is available for"
+      no_preview_avail: "Currently there is no preview available for"
   datasets:
     additional_info:
       additional_info: "Additional information"

@@ -13,6 +13,11 @@ describe PreviewsController, type: :controller do
   let(:datafile) { Datafile.new(CSV_DATAFILE) }
 
   describe 'Generating the preview of a CSV file' do
+
+    before(:each) do
+      NOT_AVAILABLE = "Currently there is no preview available for \"#{datafile.name}\""
+    end
+
     it 'will show the previewed CSV' do
       stub_request(:get, datafile.url).
         to_return(body: "a,Paris,c,d\ne,f,Berlin,h\ni,j,k,l")
@@ -29,7 +34,7 @@ describe PreviewsController, type: :controller do
       index([dataset])
       get :show, params: { dataset_uuid: dataset[:uuid], name: dataset[:name], datafile_uuid: datafile.uuid }
 
-      expect(response.body).to have_content('No preview is available')
+      expect(response.body).to have_content(NOT_AVAILABLE)
     end
 
     it 'will recover if the datafile server returns an error' do
@@ -39,7 +44,7 @@ describe PreviewsController, type: :controller do
       index([dataset])
       get :show, params: { dataset_uuid: dataset[:uuid], name: dataset[:name], datafile_uuid: datafile.uuid }
 
-      expect(response.body).to have_content('No preview is available')
+      expect(response.body).to have_content(NOT_AVAILABLE)
     end
 
     it 'will recover if the datafile is not CSV' do
@@ -49,7 +54,7 @@ describe PreviewsController, type: :controller do
       index([dataset])
       get :show, params: { dataset_uuid: dataset[:uuid], name: dataset[:name], datafile_uuid: datafile.uuid }
 
-      expect(response.body).to have_content('No preview is available')
+      expect(response.body).to have_content(NOT_AVAILABLE)
     end
 
     it 'will recover if the datafile is malformed CSV' do
@@ -59,7 +64,7 @@ describe PreviewsController, type: :controller do
       index([dataset])
       get :show, params: { dataset_uuid: dataset[:uuid], name: dataset[:name], datafile_uuid: datafile.uuid }
 
-      expect(response.body).to have_content('No preview is available')
+      expect(response.body).to have_content(NOT_AVAILABLE)
     end
 
   end

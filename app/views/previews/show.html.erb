@@ -10,22 +10,21 @@
         <%= @dataset.title %>
         <span class="heading-secondary dgu-home-spacer__bottom"><%= @datafile.name %></span>
       </h1>
+
       <% if @datafile.csv? && @datafile.preview.exists? %>
         <p>You're previewing the first <%= @datafile.preview.line_count %> rows of this file.</p>
-      <% end %>
-      <%= link_to t('.download_file'),
-      @datafile.url,
-        class: 'button',
-        :data => {
-          :'ga-event' => 'preview',
-          :'ga-format' => (@datafile.format.presence || 'n/a').upcase,
-          :'ga-publisher' => @dataset.organisation.name
-        }
+        <%= link_to t('.download_file'),
+        @datafile.url,
+          class: 'button',
+          :data => {
+            :'ga-event' => 'preview',
+            :'ga-format' => (@datafile.format.presence || 'n/a').upcase,
+            :'ga-publisher' => @dataset.organisation.name
+          }
       %>
     </div>
     <div class = 'column-full'>
       <section class="dgu-datafile-preview">
-        <% if @datafile.csv? && @datafile.preview.exists? %>
           <table>
             <thead>
               <tr>
