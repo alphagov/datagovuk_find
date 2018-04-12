@@ -31,13 +31,6 @@ body {
         font-size: 0;
       }
     }
-
-    .dgu-phase-tag--responsive {
-      @media (max-width: 769px) {
-        display: block;
-        width: 12%;
-      }
-    }
   }
 
   .header-proposition {
@@ -57,6 +50,9 @@ body {
   display: none;
 }
 
+.phase-banner .phase-tag {
+  padding-bottom: 2px;
+}
 
 .heading-large {
   margin-top: 1.5em;
