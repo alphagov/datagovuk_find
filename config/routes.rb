@@ -47,8 +47,6 @@ Rails.application.routes.draw do
 
   get 'search/', to: 'search#search'
 
-  get 'search/tips', to: 'search#tips'
-
   resources :tickets, only: [:new, :create]
   get 'tickets/confirmation', to: 'tickets#confirmation'
 
