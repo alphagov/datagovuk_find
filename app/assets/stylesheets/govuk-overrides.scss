@@ -2,7 +2,7 @@
   padding: 5px 0;
 
   .header-global {
-    @media (min-width: 769px) {
+    @media (min-width: $desktop-breakpoint) {
       width: 50% !important;
     }
   }
@@ -30,14 +30,14 @@
   }
 
   .header-proposition {
-    @media (min-width: 769px) {
+    @media (min-width: $desktop-breakpoint) {
       width: 50% !important;
     }
 
     #proposition-links {
       margin: 0;
 
-      @media (min-width: 769px) {
+      @media (min-width: $desktop-breakpoint) {
         float: right;
       }
     }
