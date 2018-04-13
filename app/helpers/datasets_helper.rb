@@ -28,6 +28,11 @@ module DatasetsHelper
     end
   end
 
+  def to_markdown(content)
+    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: false)
+    markdown.render(content).html_safe
+  end
+
   def unescape(str)
     str = strip_tags(str).html_safe
     str = str.gsub(/&(amp;)+/, '&')

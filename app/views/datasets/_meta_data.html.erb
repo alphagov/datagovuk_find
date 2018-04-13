@@ -64,7 +64,7 @@
           <%= t('.summary') %>
         </h3>
         <p class="summary" style="max-height: 250px; overflow: hidden" property="dc:description">
-          <%= unescape(@dataset.summary) %>
+          <%= to_markdown(@dataset.summary) %>
         </p>
       </div>
     </div>
