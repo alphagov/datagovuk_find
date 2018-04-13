@@ -34,7 +34,7 @@ class ZendeskTicket
 
   def build_ticket
       { "requester": { "name": name, "email": email },
-        "subject": support_queue + " Find Data Beta support request",
+        "subject": support_queue + " Find open data - support request",
         "comment": {"body": content}
       }
   end
