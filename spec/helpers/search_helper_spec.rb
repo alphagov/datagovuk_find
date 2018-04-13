@@ -2,46 +2,39 @@ require 'rails_helper'
 
 describe SearchHelper do
   describe '#datafile_formats_for_select' do
-    it 'returns a list of upcased unique datafile formats ordered alphabetically' do
-      # More info: https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-bucket-nested-aggregation.html
+    it 'returns a sorted list of unique formats' do
+      dataset_1 = DatasetBuilder.new
+        .with_datafiles([{'format' => 'foo'}])
+        .build
 
-      first_dataset = DatasetBuilder.new
-      .with_title('First Dataset Title')
-      .with_datafiles([{'format' => 'foo'}])
-      .build
+      dataset_2 = DatasetBuilder.new
+        .with_datafiles([{'format' => 'baz'}, {'format' => 'baz'}])
+        .build
 
-      second_dataset = DatasetBuilder.new
-      .with_title('Second Dataset Title')
-      .with_datafiles([
-                      {'format' => 'bar'},
-                      {'format' => 'baz'},
-                      {'format' => 'baz'}
-      ])
-      .build
-
-      index(first_dataset, second_dataset)
-
-      expect(datafile_formats_for_select).to eql ['', 'BAR', 'BAZ', 'FOO']
+      index(dataset_1, dataset_2)
+      expect(datafile_formats_for_select).to eql ['', 'BAZ', 'FOO']
     end
+  end
 
-    it 'returns a list of datafile formats normalized for case' do
-      first_dataset = DatasetBuilder.new
-      .with_title('First Dataset Title')
-      .with_datafiles([{'format' => 'FOO'}])
-      .build
+  describe '#datafile_topics_for_select' do
+    it 'returns a sorted list of unique topics' do
+      dataset_1 = DatasetBuilder.new.with_topic({'title' =>'foo'}).build
+      dataset_2 = DatasetBuilder.new.with_topic({'title' =>'baz'}).build
+      dataset_3 = DatasetBuilder.new.with_topic({'title' =>'baz'}).build
 
-      second_dataset = DatasetBuilder.new
-      .with_title('Second Dataset Title')
-      .with_datafiles([
-                      {'format' => 'foo'},
-                      {'format' => 'BAR'},
-                      {'format' => 'BAZ'}
-      ])
-      .build
+      index(dataset_1, dataset_2, dataset_3)
+      expect(dataset_topics_for_select).to eql ['', 'baz', 'foo']
+    end
+  end
 
-      index(first_dataset, second_dataset)
+  describe '#datafile_publishers_for_select' do
+    it 'returns a sorted list of unique publishers' do
+      dataset_1 = DatasetBuilder.new.with_publisher('foo').build
+      dataset_2 = DatasetBuilder.new.with_publisher('baz').build
+      dataset_3 = DatasetBuilder.new.with_publisher('baz').build
 
-      expect(datafile_formats_for_select).to eql ['', 'BAR', 'BAZ', 'FOO']
+      index(dataset_1, dataset_2, dataset_3)
+      expect(dataset_publishers_for_select).to eql ['', 'baz', 'foo']
     end
   end
 end

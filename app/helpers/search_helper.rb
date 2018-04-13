@@ -5,15 +5,15 @@ module SearchHelper
   end
 
   def datafile_formats_for_select
-    Dataset.datafile_formats.sort.map(&:upcase).unshift('')
+    Dataset.datafile_formats.sort.map(&:upcase).unshift('').uniq
   end
 
   def dataset_topics_for_select
-    Dataset.topics.sort.unshift('')
+    Dataset.topics.sort.unshift('').uniq
   end
 
   def dataset_publishers_for_select
-    Dataset.publishers.sort.unshift('')
+    Dataset.publishers.sort.unshift('').uniq
   end
 
   def selected_publisher
