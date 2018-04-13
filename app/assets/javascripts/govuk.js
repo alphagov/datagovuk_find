@@ -19,8 +19,7 @@ $(document).ready(function () {
     accessibleAutocomplete.enhanceSelectElement({
       selectElement: document.querySelector('#publisher'),
       showAllValues: true,
-      confirmOnBlur: false,
-      autoselect: false
+      preserveNullOptions: true
     })
   }
 
@@ -28,8 +27,7 @@ $(document).ready(function () {
     accessibleAutocomplete.enhanceSelectElement({
       selectElement: document.querySelector('#format'),
       showAllValues: true,
-      confirmOnBlur: false,
-      autoselect: false
+      preserveNullOptions: true
     })
   }
 
@@ -37,17 +35,12 @@ $(document).ready(function () {
     accessibleAutocomplete.enhanceSelectElement({
       selectElement: document.querySelector('#topic'),
       showAllValues: true,
-      confirmOnBlur: false,
-      autoselect: false,
-      minLength: 2
+      preserveNullOptions: true
     })
   }
 
-  new FoldableText('.summary', 200)
-    .init()
-
-  new LimitDatasets('.show-toggle')
-    .init()
+  new FoldableText('.summary', 200).init()
+  new LimitDatasets('.show-toggle').init()
 })
 
 var ShowHide = function () {

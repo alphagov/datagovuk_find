@@ -94,6 +94,10 @@ button.button.secondary {
   z-index: 2;
 }
 
+.autocomplete__option {
+  min-height: 1.31579em;
+}
+
 .breadcrumbs li {
   background-image: image-url("separator.png");
 }
