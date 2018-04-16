@@ -43,7 +43,7 @@ $(document).ready(function () {
     })
   }
 
-  new FoldableText('.summary', 200)
+  new FoldableText('.js-summary', 200)
     .init()
 
   new LimitDatasets('.show-toggle')
@@ -125,23 +125,26 @@ FoldableText.prototype.toggle = function (event) {
 }
 
 FoldableText.prototype.init = function () {
-  $.each(this.els, function(idx, el) {
-    var $el = $(el)
-    $el.css('max-height', '100000px')
-    var originalHeight = $el.height()
-    if (originalHeight > this.minSize) {
-      $el
-        .height(this.minSize)
-        .css('overflow', 'hidden')
-        .css('margin-bottom', 0)
-        .wrap('<p class="fold-outer"></p>')
+  var $summary = this.els
 
-      $el.parent('p.fold-outer')
-        .append('<button class="fold button secondary" data-folded="folded" data-height="' + originalHeight + '">View full summary</div>')
-
-      $el.next('.fold').on('click', this.toggle.bind(this))
-    }
+  $summary.find('pre').each(function(){
+    $(this).css('white-space', 'pre-line')
   })
+
+  var minSize = this.minSize
+  var originalHeight =  $summary.height()
+
+  $summary.css('max-height', originalHeight)
+  if (originalHeight > minSize) {
+    $summary
+      .height(this.minSize)
+      .css('overflow', 'hidden')
+      .css('margin-bottom', 0)
+      .wrap('<p class="fold-outer"></p>')
+    $summary.parent('p.fold-outer')
+      .append('<button class="fold button secondary" data-folded="folded" data-height="' + originalHeight + '">View full summary</div>')
+  }
+$('.fold').on('click', this.toggle.bind(this))
 }
 
 // Limit number of results for non-time series data

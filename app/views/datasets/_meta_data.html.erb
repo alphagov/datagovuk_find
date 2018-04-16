@@ -63,9 +63,9 @@
         <h3 class="heading-small">
           <%= t('.summary') %>
         </h3>
-        <p class="summary" style="max-height: 250px; overflow: hidden" property="dc:description">
+        <div class="js-summary" style="line-height: 1.5em; overflow: hidden" property="dc:description">
           <%= to_markdown(@dataset.summary) %>
-        </p>
+        </div>
       </div>
     </div>
 
