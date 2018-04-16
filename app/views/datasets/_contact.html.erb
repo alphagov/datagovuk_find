@@ -11,7 +11,13 @@
 
       <p>
         <span><%= contact_name_for(dataset) %></span>
-        <span><%= mail_to(contact_email_for(dataset), nil, {'data-ga-event': 'contact', 'data-ga-publisher': @dataset.organisation.name}) %></span>
+        <span>
+          <% if contact_email_is_email?(dataset) %>
+            <%= mail_to(contact_email_for(dataset), nil, {'data-ga-event': 'contact', 'data-ga-publisher': @dataset.organisation.name}) %>
+          <% else %>
+            <%= link_to(contact_email_for(dataset), nil, {'data-ga-event': 'contact', 'data-ga-publisher': @dataset.organisation.name}) %>
+          <% end %>
+        </span>
       </p>
     </div>
   <% end %>

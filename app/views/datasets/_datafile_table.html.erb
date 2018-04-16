@@ -12,7 +12,7 @@
           <%= link_to datafile.url,
               :data => {
                 'ga-event' => "download",
-                'ga-format' => (datafile.format.presence || 'n/a').upcase,
+                'ga-format' => "CSV",
                 'ga-publisher' => @dataset.organisation.name
               },
               'aria-label': "Download datafile #{datafile.name} format: #{format_of(datafile)} dataset: #{@dataset.title}" do %>
@@ -59,6 +59,6 @@
   </tbody>
 </table>
 
-<% if datafiles.length > 5 %>
+<% if datafiles.length > 5 && !browser.ie?(version: 8) %>
   <button class="button secondary show-toggle" aria-label="Show more data links">Show more</button>
 <% end %>

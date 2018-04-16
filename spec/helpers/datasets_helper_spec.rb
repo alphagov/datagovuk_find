@@ -32,4 +32,16 @@ RSpec.describe DatasetsHelper do
       it { is_expected.to eq('https://data.gov.uk/unpublished/edit-item/abc123') }
     end
   end
+
+  describe '#contact_email_is_email?' do
+    it 'returns true when the email is valid' do
+      dataset = Dataset.new(DatasetBuilder.new.with_contact_email('foo@bar.com').build)
+      expect(helper.contact_email_is_email?(dataset)).to be_truthy
+    end
+
+    it 'returns false when the email is invalid' do
+      dataset = Dataset.new(DatasetBuilder.new.with_contact_email('http://foo.com').build)
+      expect(helper.contact_email_is_email?(dataset)).to be_falsey
+    end
+  end
 end

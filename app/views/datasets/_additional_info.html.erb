@@ -21,6 +21,11 @@
               <dt><%= t('.inspire_added') %></dt>
               <dd><%= i['metadata_date'] %></dd>
             <% end %>
+            <% if i['access_constraints'] %>
+              <% ref = JSON.parse(i['access_constraints']) %>
+              <dt><%= t('.inspire_access_constraints') %></dt>
+              <dd><%= ref.first || t('.inspire_access_constraints_unspecified') %></dd>
+            <% end %>
             <% if i['guid'] %>
               <dt><%= t('.inspire_guid') %></dt>
               <dd><%= i['guid'] %></dd>
@@ -59,6 +64,12 @@
             <% if i['metadata_language'] %>
               <dt><%= t('.inspire_metadata_lang') %></dt>
               <dd><%= i['metadata_language'] %></dd>
+            <% end %>
+            <% if i['harvest_object_id'] %>
+              <dt><%= t('.inspire_gemini_record') %></dt>
+              <dd>
+                <%= link_to t('.xml'), "/api/2/rest/harvestobject/#{ i['harvest_object_id'] }/xml" %>
+              </dd>
             <% end %>
           </dl>
         </div>

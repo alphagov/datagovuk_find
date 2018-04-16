@@ -19,8 +19,7 @@ $(document).ready(function () {
     accessibleAutocomplete.enhanceSelectElement({
       selectElement: document.querySelector('#publisher'),
       showAllValues: true,
-      confirmOnBlur: false,
-      autoselect: false
+      preserveNullOptions: true
     })
   }
 
@@ -28,8 +27,7 @@ $(document).ready(function () {
     accessibleAutocomplete.enhanceSelectElement({
       selectElement: document.querySelector('#format'),
       showAllValues: true,
-      confirmOnBlur: false,
-      autoselect: false
+      preserveNullOptions: true
     })
   }
 
@@ -37,9 +35,7 @@ $(document).ready(function () {
     accessibleAutocomplete.enhanceSelectElement({
       selectElement: document.querySelector('#topic'),
       showAllValues: true,
-      confirmOnBlur: false,
-      autoselect: false,
-      minLength: 2
+      preserveNullOptions: true
     })
   }
 
@@ -126,14 +122,11 @@ FoldableText.prototype.toggle = function (event) {
 
 FoldableText.prototype.init = function () {
   var $summary = this.els
-
   $summary.find('pre').each(function(){
     $(this).css('white-space', 'pre-line')
   })
-
   var minSize = this.minSize
   var originalHeight =  $summary.height()
-
   $summary.css('max-height', originalHeight)
   if (originalHeight > minSize) {
     $summary
