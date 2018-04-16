@@ -21,6 +21,11 @@
               <dt><%= t('.inspire_added') %></dt>
               <dd><%= i['metadata_date'] %></dd>
             <% end %>
+            <% if i['access_constraints'] %>
+              <% ref = JSON.parse(i['access_constraints']) %>
+              <dt><%= t('.inspire_access_constraints') %></dt>
+              <dd><%= ref.first || t('.inspire_access_constraints_unspecified') %></dd>
+            <% end %>
             <% if i['guid'] %>
               <dt><%= t('.inspire_guid') %></dt>
               <dd><%= i['guid'] %></dd>

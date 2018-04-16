@@ -21,6 +21,8 @@ en:
       inspire_responsible_party: "Responsible party"
       inspire_iso_resource: "ISO 19139 resource type"
       inspire_metadata_lang: "Metadata language"
+      inspire_access_constraints: "Access contraints"
+      inspire_access_constraints_unspecified: "Not specified"
       inspire_gemini_record: "Source Metadata"
       xml: "XML"
     breadcrumb:
