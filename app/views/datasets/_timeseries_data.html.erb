@@ -1,19 +1,34 @@
-<ul>
-  <% group_and_order(datafiles).each do |year, datafiles| %>
-    <li class="showHide">
-      <div class="year-expand showHide-control">
-        <h3 class="heading-small">
-          <button class="dgu-datafiles__year button secondary">
-            <%= year.presence || "Other data files" %>
-          </button>
-        </h3>
+<% if browser.ie?(version: 8) %>
+  <ul>
+    <% group_and_order(datafiles).each do |year, datafiles| %>
+      <li>
         <div>
-          <button class="dgu-datafiles__expand js-expand button secondary">+</button>
+          <h3 class="heading-small">
+            <%= year.presence || "Other data files" %>
+          </h3>
         </div>
-      </div>
-      <div class="showHide-content" style="display:none">
         <%= render partial: 'datafile_table', locals: { datafiles: datafiles } %>
-      </div>
-    <% end %>
-  </li>
-</ul>
+      <% end %>
+      </li>
+  </ul>
+<% else %>
+  <ul>
+    <% group_and_order(datafiles).each do |year, datafiles| %>
+      <li class="showHide">
+        <div class="year-expand showHide-control">
+          <h3 class="heading-small">
+            <button class="dgu-datafiles__year button secondary">
+              <%= year.presence || "Other data files" %>
+            </button>
+          </h3>
+          <div>
+            <button class="dgu-datafiles__expand js-expand button secondary">+</button>
+          </div>
+        </div>
+        <div class="showHide-content" style="display:none">
+          <%= render partial: 'datafile_table', locals: { datafiles: datafiles } %>
+        </div>
+      <% end %>
+      </li>
+  </ul>
+<% end %>
