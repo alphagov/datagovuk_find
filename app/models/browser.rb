@@ -2,7 +2,7 @@ class Browser
   attr_reader :user_agent
 
   def initialize(user_agent)
-    @user_agent = user_agent
+    @user_agent = user_agent.to_s
   end
 
   def ie?(version:)
