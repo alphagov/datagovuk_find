@@ -4,7 +4,7 @@ describe SearchHelper do
   describe '#datafile_formats_for_select' do
     it 'returns a sorted list of unique formats' do
       dataset_1 = DatasetBuilder.new
-        .with_datafiles([{'format' => 'foo'}])
+        .with_datafiles([{'format' => 'foo'},{'format' => ''}])
         .build
 
       dataset_2 = DatasetBuilder.new
@@ -12,7 +12,7 @@ describe SearchHelper do
         .build
 
       index(dataset_1, dataset_2)
-      expect(datafile_formats_for_select).to eql ['', 'BAZ', 'FOO']
+      expect(datafile_formats_for_select).to eql ['BAZ', 'FOO']
     end
   end
 
@@ -21,9 +21,10 @@ describe SearchHelper do
       dataset_1 = DatasetBuilder.new.with_topic({'title' =>'foo'}).build
       dataset_2 = DatasetBuilder.new.with_topic({'title' =>'baz'}).build
       dataset_3 = DatasetBuilder.new.with_topic({'title' =>'baz'}).build
+      dataset_3 = DatasetBuilder.new.with_topic({'title' =>''}).build
 
       index(dataset_1, dataset_2, dataset_3)
-      expect(dataset_topics_for_select).to eql ['', 'baz', 'foo']
+      expect(dataset_topics_for_select).to eql ['baz', 'foo']
     end
   end
 
@@ -32,9 +33,10 @@ describe SearchHelper do
       dataset_1 = DatasetBuilder.new.with_publisher('foo').build
       dataset_2 = DatasetBuilder.new.with_publisher('baz').build
       dataset_3 = DatasetBuilder.new.with_publisher('baz').build
+      dataset_3 = DatasetBuilder.new.with_publisher('').build
 
       index(dataset_1, dataset_2, dataset_3)
-      expect(dataset_publishers_for_select).to eql ['', 'baz', 'foo']
+      expect(dataset_publishers_for_select).to eql ['baz', 'foo']
     end
   end
 end

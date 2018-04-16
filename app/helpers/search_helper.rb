@@ -5,15 +5,15 @@ module SearchHelper
   end
 
   def datafile_formats_for_select
-    Dataset.datafile_formats.sort.map(&:upcase).unshift('').uniq
+    Dataset.datafile_formats.sort.map(&:upcase).uniq.reject(&:empty?)
   end
 
   def dataset_topics_for_select
-    Dataset.topics.sort.unshift('').uniq
+    Dataset.topics.sort.uniq.reject(&:empty?)
   end
 
   def dataset_publishers_for_select
-    Dataset.publishers.sort.unshift('').uniq
+    Dataset.publishers.sort.uniq.reject(&:empty?)
   end
 
   def selected_publisher
