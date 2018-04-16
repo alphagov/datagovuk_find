@@ -16,6 +16,7 @@ class DatasetBuilder
         harvested: false,
         created_at: '2013-08-31T00:56:15.435Z',
         last_updated_at: '2017-07-24T14:47:25.975Z',
+        contact_email: '',
         uuid: SecureRandom.uuid,
         organisation: {
             id: 582,
@@ -72,7 +73,7 @@ class DatasetBuilder
   end
 
   def with_contact_email(contact_email)
-    @dataset[:organisation][:contact_email] = contact_email
+    @dataset[:contact_email] = contact_email
     self
   end
 

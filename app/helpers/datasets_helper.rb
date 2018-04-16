@@ -1,4 +1,5 @@
 require 'uri'
+require 'mail'
 
 module DatasetsHelper
 
@@ -91,8 +92,6 @@ module DatasetsHelper
     dataset_metadata.to_json
   end
 
-  private
-
   def format_of(datafile)
     (datafile.format.presence || 'n/a').upcase
   end
@@ -132,11 +131,15 @@ module DatasetsHelper
   end
 
   def contact_name_for(dataset)
-    dataset.contact_name.presence || dataset.organisation.contact_name.presence
+    dataset.contact_name.presence || dataset.organisation.contact_name
+  end
+
+  def contact_email_is_email?(dataset)
+    contact_email_for(dataset) =~ /@/
   end
 
   def contact_email_for(dataset)
-    dataset.contact_email.presence || dataset.organisation.contact_email.presence
+    dataset.contact_email.presence || dataset.organisation.contact_email
   end
 
   def foi_details_exist?(dataset)
@@ -152,15 +155,15 @@ module DatasetsHelper
   end
 
   def foi_name_for(dataset)
-    dataset.foi_name.presence || dataset.organisation.foi_name.presence
+    dataset.foi_name.presence || dataset.organisation.foi_name
   end
 
   def foi_email_for(dataset)
-    dataset.foi_email.presence || dataset.organisation.foi_email.presence
+    dataset.foi_email.presence || dataset.organisation.foi_email
   end
 
   def foi_web_address_for(dataset)
-    (dataset.foi_web.presence || dataset.organisation.foi_web.presence).to_s
+    (dataset.foi_web.presence || dataset.organisation.foi_web).to_s
   end
 
   private
