@@ -60,6 +60,12 @@
               <dt><%= t('.inspire_metadata_lang') %></dt>
               <dd><%= i['metadata_language'] %></dd>
             <% end %>
+            <% if i['harvest_object_id'] %>
+              <dt><%= t('.inspire_gemini_record') %></dt>
+              <dd>
+                <%= link_to t('.xml'), "/api/2/rest/harvestobject/#{ i['harvest_object_id'] }/xml" %>
+              </dd>
+            <% end %>
           </dl>
         </div>
       </details>
