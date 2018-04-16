@@ -53,6 +53,17 @@
            dimension11: 'find-open-data'
          }
          break
+       case 'preview-download':
+         eventParams = {
+           hitType: 'event',
+           eventCategory: 'datafile-preview',
+           eventAction: 'download',
+           eventLabel: $(this).attr('href'),
+           dimension4: orgName,
+           dimension5: $(this).data('ga-format'),
+           dimension11: 'find-open-data'
+         }
+         break
      }
      ga('send', eventParams)
    }

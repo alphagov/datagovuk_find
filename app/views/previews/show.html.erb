@@ -17,8 +17,8 @@
         @datafile.url,
           class: 'button',
           :data => {
-            :'ga-event' => 'preview',
-            :'ga-format' => (@datafile.format.presence || 'n/a').upcase,
+            :'ga-event' => 'preview-download',
+            :'ga-format' => 'CSV',
             :'ga-publisher' => @dataset.organisation.name
           }
       %>
