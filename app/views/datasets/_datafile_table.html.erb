@@ -6,7 +6,7 @@
     <th><%= t('.data_preview') %></th>
   </tr>
   <tbody>
-    <% datafiles.each do |datafile| %>
+    <% sort_by_created_at(datafiles).each do |datafile| %>
       <tr class="<%= show_more?(datafiles, datafile) %> dgu-datafile">
         <td class="title small">
           <%= link_to datafile.url,
