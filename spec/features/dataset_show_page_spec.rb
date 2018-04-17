@@ -404,6 +404,18 @@ feature 'Dataset page', elasticsearch: true do
   end
 
   feature 'publisher edit link' do
+    scenario 'cannot edit harvested dataset' do
+      dataset = DatasetBuilder
+                  .new
+                  .with_legacy_name('abc123')
+                  .with_harvested(true)
+                  .build
+
+      index_and_visit(dataset)
+
+      expect(page).to_not have_link('Sign in', href: 'https://data.gov.uk/dataset/edit/abc123')
+    end
+
     scenario 'edit released dataset link' do
       dataset = DatasetBuilder
                   .new

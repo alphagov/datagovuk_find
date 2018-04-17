@@ -92,6 +92,11 @@ class DatasetBuilder
     self
   end
 
+  def with_harvested(val)
+    @dataset[:harvested] = val
+    self
+  end
+
   def with_location(location)
     @dataset[:location1] = location
     self
