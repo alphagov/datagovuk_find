@@ -122,8 +122,8 @@ module DatasetsHelper
         .strip
   end
 
-  def show_more?(datafiles, datafile)
-    "js-show-more-datafiles" unless datafiles.take(5).include? datafile
+  def show_more?(index)
+    "js-show-more-datafiles" unless (0...5).include? index
   end
 
   def contact_information_exists?(dataset)
