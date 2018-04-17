@@ -10,7 +10,7 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
+//= require rails-ujs
 //= require govuk_toolkit
 //= require accessible-autocomplete/dist/accessible-autocomplete.min
 //= require_tree .
