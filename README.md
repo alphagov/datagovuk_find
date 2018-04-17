@@ -13,7 +13,7 @@ You will need to install the following for development.
   * [bundler](https://rubygems.org/gems/bundler) to manage gems
   * [elasticsearch](https://www.elastic.co/) database
   * [postgresql](https://www.postgresql.org/)database
-  * [npm](https://www.npmjs.com/) to manage node packages
+  * [yarn](https://yarnpkg.com/en/) to manage node packages
   * [data.gov.uk Publish](https://github.com/alphagov/datagovuk_publish/) to populate elasticsearch
 
 Most of these can be installed with Homebrew on a Mac.
@@ -33,7 +33,7 @@ Now run the following commands to complete your setup.
 ```
 bundle install
 rake db:setup
-npm install
+yarn install
 ```
 
 Then run `rails s` to and navigate to `http://localhost:3000`.
