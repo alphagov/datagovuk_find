@@ -30,6 +30,7 @@ gem 'zendesk_api'
 gem 'parslet'
 gem 'gds_metrics', '~> 0.0.2'
 gem 'redcarpet', '~> 3.4'
+gem 'jquery-rails'
 
 group :development, :test do
   gem 'byebug', '~> 9'
