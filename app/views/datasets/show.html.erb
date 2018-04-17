@@ -1,18 +1,14 @@
 <% content_for :page_title do %>
-  <%= @dataset.title %> -
+  <%= @dataset.title %>
 <% end %>
 
 <script type="application/ld+json">
  <%= raw to_json_ld(@dataset) %>
 </script>
 
-<div class="dgu-top-non-content">
-  <div class="dgu-top-non-content__inner">
-    <%= content_for :breadcrumb do %>
-      <%= render 'breadcrumb' %>
-    <% end%>
-  </div>
-</div>
+<%= content_for :breadcrumb do %>
+  <%= render 'breadcrumb' %>
+<% end%>
 
 <main role="main" id="content">
   <div>

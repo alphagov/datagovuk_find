@@ -1,21 +1,14 @@
 <% content_for :page_title do %>
-  Send a data request -
+  Send a data request
 <% end %>
+
+<%= content_for :breadcrumb do %>
+  <%= render 'shared/breadcrumb' %>
+<% end%>
 
 <main role="main" id="content">
   <div class="grid-row inner">
     <div class="column-full">
-
-      <div class="breadcrumbs">
-        <nav aria-label="Breadcrumb">
-          <ol>
-            <li>
-              <%= link_to 'Back', support_path %>
-            </li>
-          </ol>
-        </nav>
-      </div>
-
       <% if @ticket.errors.any? %>
         <div class="error-summary" role="alert" aria-labelledby="error-summary-heading">
           <h2 class="heading-medium error-summary-heading" id="error-summary-heading">

@@ -1,9 +1,12 @@
 <% content_for :page_title do %>
-  Publishers -
+  Publishers
 <% end %>
 
-<main role="main" id="content">
+<%= content_for :breadcrumb do %>
+  <%= render 'shared/breadcrumb' %>
+<% end%>
 
+<main role="main" id="content">
   <div class="text">
     <h1 class="heading-large">
       Publish your data
