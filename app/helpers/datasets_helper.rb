@@ -1,8 +1,6 @@
 require 'uri'
-require 'mail'
 
 module DatasetsHelper
-
   NO_MORE = {
       'discontinued' => 'Dataset no longer updated',
       'never' => 'No future updates',
@@ -51,10 +49,6 @@ module DatasetsHelper
     end
   end
 
-  def group_and_order(datafiles)
-    datafiles.group_by(&:start_year).sort.reverse
-  end
-
   def shorten_title(title)
     title.truncate(70, separator: ' ', omission: ' ...')
   end
@@ -92,10 +86,6 @@ module DatasetsHelper
     dataset_metadata.to_json
   end
 
-  def format_of(datafile)
-    (datafile.format.presence || 'n/a').upcase
-  end
-
   def metadata_files(dataset)
     files = []
     dataset.datafiles.each do |file|
@@ -109,17 +99,6 @@ module DatasetsHelper
       )
     end
     files
-  end
-
-  def locations(dataset)
-    ['location1', 'location2', 'location3']
-        .map {|loc| dataset.send(loc) }
-        .join(" ")
-        .strip
-  end
-
-  def show_more?(datafiles, datafile)
-    "js-show-more-datafiles" unless datafiles.take(5).include? datafile
   end
 
   def contact_information_exists?(dataset)
@@ -167,6 +146,13 @@ module DatasetsHelper
   end
 
   private
+
+  def locations(dataset)
+    ['location1', 'location2', 'location3']
+        .map {|loc| dataset.send(loc) }
+        .join(" ")
+        .strip
+  end
 
   def most_recent_datafile(dataset)
     dataset.datafiles.sort_by(&:created_at).last

@@ -2,34 +2,29 @@ require 'rails_helper'
 
 RSpec.describe DatasetsHelper do
   describe '#edit_dataset_url' do
-    subject { helper.edit_dataset_url(dataset) }
-
-    before { index attributes }
-
-    let(:dataset) { Dataset.get_by_uuid(uuid: attributes[:uuid]) }
-    let(:legacy_name) { 'abc123' }
-
-    context 'when released' do
-      let(:attributes) do
-        DatasetBuilder
-          .new
-          .with_legacy_name(legacy_name)
-          .with_datafiles([Datafile.new(CSV_DATAFILE)])
-          .build
-      end
-
-      it { is_expected.to eq('https://data.gov.uk/dataset/edit/abc123') }
+    let(:attributes) do
+      DatasetBuilder.new.with_datafiles(['datafile'])
+        .with_legacy_name('foo')
     end
 
-    context 'when not released' do
-      let(:attributes) do
-        DatasetBuilder
-          .new
-          .with_legacy_name(legacy_name)
-          .build
-      end
+    it 'uses the normal view if there are datafiles' do
+      url = helper.edit_dataset_url(Dataset.new(attributes.build))
+      expect(url).to eq 'https://data.gov.uk/dataset/edit/foo'
+    end
 
-      it { is_expected.to eq('https://data.gov.uk/unpublished/edit-item/abc123') }
+    it 'uses the unpublished view if there are datafiles' do
+      unpublished_attributes = attributes.with_datafiles([])
+      url = helper.edit_dataset_url(Dataset.new(unpublished_attributes.build))
+      expect(url).to eq 'https://data.gov.uk/unpublished/edit-item/foo'
+    end
+  end
+
+  describe '#sort_by_created_at' do
+    it 'orders datafiles lexicographically by created_at' do
+      datafile_1 = Datafile.new(created_at: 1.hours.ago.iso8601)
+      datafile_2 = Datafile.new(created_at: 2.hours.ago.iso8601)
+      results = helper.sort_by_created_at([datafile_2, datafile_1])
+      expect(results).to eq [datafile_1, datafile_2]
     end
   end
 
