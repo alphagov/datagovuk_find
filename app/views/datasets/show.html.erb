@@ -54,17 +54,19 @@
       <%= render partial: "contact", locals: { dataset: @dataset } %>
     <% end %>
 
-    <section>
-      <div class="grid-row">
-        <div class="column-full">
-          <h2 class="heading-medium"><%= t('datasets.publishers.title') %></h2>
-          <div role="note" aria-label="Publisher information" class="panel panel-border-narrow text">
-            <p><%= t('datasets.publishers.information') %></p>
+    <% if @dataset.editable? %>
+      <section>
+        <div class="grid-row">
+          <div class="column-full">
+            <h2 class="heading-medium"><%= t('datasets.publishers.title') %></h2>
+            <div role="note" aria-label="Publisher information" class="panel panel-border-narrow text">
+              <p><%= t('datasets.publishers.information') %></p>
+            </div>
+            <p><%= link_to t('datasets.publishers.button'), edit_dataset_url(@dataset), role: 'button', class: 'button', rel: %w(nofollow) %></p>
           </div>
-          <p><%= link_to t('datasets.publishers.button'), edit_dataset_url(@dataset), role: 'button', class: 'button', rel: %w(nofollow) %></p>
         </div>
-      </div>
-    </section>
+      </section>
+    <% end %>
 
   </div>
 </main>

@@ -106,5 +106,9 @@ class Dataset
     @organisation = Organisation.new(organisation)
   end
 
+  def editable?
+    harvested == false
+  end
+
   private_class_method :map_keys
 end
