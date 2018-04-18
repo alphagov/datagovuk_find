@@ -54,6 +54,21 @@
       <%= render partial: "contact", locals: { dataset: @dataset } %>
     <% end %>
 
+    <% if @dataset.licence_custom.present? %>
+      <section class="dgu-additional-licence-info">
+        <div class="grid-row">
+          <div class="column-full">
+            <h2 class="heading-medium" id="additional-licence-info">
+              <%= t('.additional_licence_information') %>
+            </h2>
+            <p class="dgu-additional-licence-info__notes">
+              <%= to_markdown(@dataset.licence_custom) %>
+            </p>
+          </div>
+        </div>
+      </section>
+    <% end %>
+
     <% if @dataset.editable? %>
       <section>
         <div class="grid-row">

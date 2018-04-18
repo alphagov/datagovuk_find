@@ -56,6 +56,7 @@ en:
       related_datasets: "Related datasets"
       search_gov_data: "Search"
       data_links: "Data links"
+      view_additional_licence_information: "View additional licence information"
       no_licence: "None"
       uk_ogl: "Open Government Licence"
       accessibility:
@@ -67,6 +68,7 @@ en:
       date_added: "Date added"
       format: "Format"
     show:
+      additional_licence_information: "Additional licence information"
       open_all: "Open all"
       data_links: "Data links"
       not_released: "This data hasn’t been released by the publisher."

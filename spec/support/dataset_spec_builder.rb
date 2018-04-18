@@ -161,6 +161,31 @@ class DatasetBuilder
     self
   end
 
+  def with_licence_other(licence_other)
+    @dataset[:licence_other] = licence_other
+    self
+  end
+
+  def with_licence_custom(licence_custom)
+    @dataset[:licence_custom] = licence_custom
+    self
+  end
+
+  def with_licence_code(licence_code)
+    @dataset[:licence_code] = licence_code
+    self
+  end
+
+  def with_licence_title(licence_title)
+    @dataset[:licence_title] = licence_title
+    self
+  end
+
+  def with_licence_url(licence_url)
+    @dataset[:licence_url] = licence_url
+    self
+  end
+
   def build
     @dataset
   end
