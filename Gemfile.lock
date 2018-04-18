@@ -119,8 +119,6 @@ GEM
       faraday (>= 0.7.4, < 1.0)
     ffi (1.9.18)
     formatador (0.2.5)
-    friendly_id (5.2.1)
-      activerecord (>= 4.0.0)
     gds_metrics (0.0.2)
       prometheus-client-mmap (= 0.9.1)
     globalid (0.4.1)
@@ -385,7 +383,6 @@ DEPENDENCIES
   elasticsearch-rails (~> 5.0.1)
   faraday
   faraday_middleware
-  friendly_id (~> 5.2.1)
   gds_metrics (~> 0.0.2)
   govuk_elements_rails
   govuk_template
