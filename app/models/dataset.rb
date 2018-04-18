@@ -8,6 +8,7 @@ class Dataset
                 :location1, :location2, :location3,
                 :foi_name, :foi_email, :foi_phone, :foi_web,
                 :contact_name, :contact_email, :contact_phone,
+                :licence_code, :licence_title, :licence_url, :licence_custom,
                 :licence, :licence_other, :frequency,
                 :published_date, :last_updated_at, :created_at,
                 :harvested, :uuid, :short_id, :topic,
@@ -84,6 +85,77 @@ class Dataset
 
   def datafiles=(datafiles)
     @datafiles = datafiles.map { |file| Datafile.new(file)}
+  end
+
+  def licence?
+    licence_code.present?
+  end
+
+  def licence_code
+    @licence_code || case licence
+                     when 'other'
+                       licence_other
+                     when 'no-licence'
+                       if licence_custom.present?
+                         'other'
+                       end
+                     else
+                       licence
+                     end
+  end
+
+  def licence_title
+    @licence_title || case licence_code
+                      when 'cc-by'
+                        'Creative Commons Attribution'
+                      when 'cc-by-sa'
+                        'Creative Commons Attribution Share-Alike'
+                      when 'cc-nc'
+                        'Creative Commons Non-Commercial (Any)'
+                      when 'cc-zero'
+                        'Creative Commons CCZero'
+                      when 'notspecified'
+                        'License Not Specified'
+                      when 'odc-by'
+                        'Open Data Commons Attribution License'
+                      when 'odc-odbl'
+                        'Open Data Commons Open Database License (ODbL)'
+                      when 'odc-pddl'
+                        'Open Data Commons Public Domain Dedication and License (PDDL)'
+                      when 'other'
+                        'Other'
+                      when 'other-closed'
+                        'Other (Not Open)'
+                      when 'other-nc'
+                        'Other (Non-Commercial)'
+                      when 'other-open'
+                        'Other (Open)'
+                      when 'other-pd'
+                        'Other (Public Domain)'
+                      when 'uk-ogl'
+                        'Open Government Licence'
+                      end
+  end
+
+  def licence_url
+    @licence_url || case licence_code
+                    when 'cc-by'
+                      'http://www.opendefinition.org/licenses/cc-by'
+                    when 'cc-by-sa'
+                      'http://www.opendefinition.org/licenses/cc-by-sa'
+                    when 'cc-nc'
+                      'http://creativecommons.org/licenses/by-nc/2.0/'
+                    when 'cc-zero'
+                      'http://www.opendefinition.org/licenses/cc-zero'
+                    when 'odc-by'
+                      'http://www.opendefinition.org/licenses/odc-by'
+                    when 'odc-odbl'
+                      'http://www.opendefinition.org/licenses/odc-odbl'
+                    when 'odc-pddl'
+                      'http://www.opendefinition.org/licenses/odc-pddl'
+                    when 'uk-ogl'
+                      'http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/'
+                    end
   end
 
   def links

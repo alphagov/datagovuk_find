@@ -2,7 +2,10 @@
   <%= tag.meta name: 'dc:title',   content: unescape(@dataset.title) %>
   <%= tag.meta name: 'dc:creator', content: @dataset.organisation.title %>
   <%= tag.meta name: 'dc:date',    content: Date.parse(displayed_date(@dataset)).to_formatted_s %>
-  <%= tag.meta name: 'dc:rights',  content: t('.uk_ogl') %>
+
+  <% if @dataset.licence_title.present? %>
+    <%= tag.meta name: 'dc:rights', content: @dataset.licence_title %>
+  <% end %>
 <% end %>
 
 <section class="meta-data">
@@ -43,15 +46,18 @@
           <% end %>
 
           <dt><%= t('.licence') %>:</dt>
-          <% if @dataset.licence == 'uk-ogl' %>
+          <% if @dataset.licence? %>
             <dd property="dc:rights">
-              <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="dc:rights">
-                <%= t('.uk_ogl') %>
-              </a>
-            </dd>
-          <% elsif @dataset.licence_other %>
-            <dd>
-              <%= @dataset.licence_other %>
+              <%= link_to_if @dataset.licence_url.present?,
+                             @dataset.licence_title,
+                             @dataset.licence_url,
+                             rel: 'dc:rights' %>
+
+              <% if @dataset.licence_custom.present? %>
+                <br />
+                <%= link_to t('.view_additional_licence_information'),
+                            '#additional-licence-info' %>
+              <% end %>
             </dd>
           <% else %>
             <dd class="dgu-unavailable">

@@ -8,6 +8,150 @@ feature 'Dataset page', elasticsearch: true do
     expect(page).to have_content('Page not found')
   end
 
+  feature 'Licence information' do
+    scenario 'Link to Open Government Licence information' do
+      dataset = DatasetBuilder
+                  .new
+                  .with_licence('uk-ogl')
+                  .build
+
+      index_and_visit(dataset)
+
+      expect(page)
+        .to have_css('meta[name="dc:rights"][content="Open Government Licence"]',
+                     visible: false)
+
+      within('section.meta-data') do
+        expect(page)
+          .to have_link('Open Government Licence',
+                        href: 'http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/')
+      end
+    end
+
+    scenario 'Link to Open Government Licence with additional information' do
+      dataset = DatasetBuilder
+                  .new
+                  .with_licence('uk-ogl')
+                  .with_licence_custom('Special case')
+                  .build
+
+      index_and_visit(dataset)
+
+      expect(page)
+        .to have_css('meta[name="dc:rights"][content="Open Government Licence"]',
+                     visible: false)
+
+      within('section.meta-data') do
+        expect(page)
+          .to have_link('Open Government Licence',
+                        href: 'http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/')
+
+        expect(page)
+          .to have_link('View additional licence information',
+                        href: '#additional-licence-info')
+      end
+
+      within('section.dgu-additional-licence-info') do
+        expect(page).to have_content('Special case')
+      end
+    end
+
+    scenario 'Link to Creative Commons CCZero information' do
+      dataset = DatasetBuilder
+                  .new
+                  .with_licence('other')
+                  .with_licence_other('cc-zero')
+                  .build
+
+      index_and_visit(dataset)
+
+      expect(page)
+        .to have_css('meta[name="dc:rights"][content="Creative Commons CCZero"]',
+                     visible: false)
+
+      within('section.meta-data') do
+        expect(page)
+          .to have_link('Creative Commons CCZero',
+                        href: 'http://www.opendefinition.org/licenses/cc-zero')
+      end
+    end
+
+    scenario 'Additional licence information' do
+      dataset = DatasetBuilder
+                  .new
+                  .with_licence('no-licence')
+                  .with_licence_custom('Special licence')
+                  .build
+
+      index_and_visit(dataset)
+
+      expect(page)
+        .to have_css('meta[name="dc:rights"][content="Other"]',
+                     visible: false)
+
+      within('section.meta-data') do
+        expect(page)
+          .to have_link('View additional licence information',
+                        href: '#additional-licence-info')
+      end
+
+      within('section.dgu-additional-licence-info') do
+        expect(page).to have_content('Special licence')
+      end
+    end
+
+    scenario 'Explicit licence information' do
+      dataset = DatasetBuilder
+                  .new
+                  .with_licence_code('example-1.1')
+                  .with_licence_title('Example Open License 1.1')
+                  .with_licence_url('https://opensource.org/licenses/Example-1.1')
+                  .build
+
+      index_and_visit(dataset)
+
+      expect(page)
+        .to have_css('meta[name="dc:rights"][content="Example Open License 1.1"]',
+                     visible: false)
+
+      within('section.meta-data') do
+        expect(page)
+          .to have_link('Example Open License 1.1',
+                        href: 'https://opensource.org/licenses/Example-1.1')
+      end
+    end
+
+    scenario 'Explicit licence information with additional license information' do
+      dataset = DatasetBuilder
+                  .new
+                  .with_licence_code('feature-spec-2.1')
+                  .with_licence_title('Feature Spec Open License 2.1')
+                  .with_licence_url('https://opensource.org/licenses/Feature-Spec-2.1')
+                  .with_licence_custom('For feature specs only.')
+                  .build
+
+      index_and_visit(dataset)
+
+      expect(page)
+        .to have_css('meta[name="dc:rights"][content="Feature Spec Open License 2.1"]',
+                     visible: false)
+
+      within('section.meta-data') do
+        expect(page)
+          .to have_link('Feature Spec Open License 2.1',
+                        href: 'https://opensource.org/licenses/Feature-Spec-2.1')
+
+        expect(page)
+          .to have_link('View additional licence information',
+                        href: '#additional-licence-info')
+      end
+
+      within('section.dgu-additional-licence-info') do
+        expect(page).to have_content('For feature specs only.')
+      end
+    end
+  end
+
   feature 'Map preview links' do
     scenario 'WMS Resources have a link to map preview if we have inspire metadata' do
       dataset = DatasetBuilder
