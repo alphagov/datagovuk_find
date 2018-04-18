@@ -2,7 +2,7 @@
   <%= tag.meta name: 'dc:title',   content: unescape(@dataset.title) %>
   <%= tag.meta name: 'dc:creator', content: @dataset.organisation.title %>
   <%= tag.meta name: 'dc:date',    content: Date.parse(displayed_date(@dataset)).to_formatted_s %>
-  <%= tag.meta name: 'dc:rights',  content: t('.uk_ogl') %>
+  <%= tag.meta name: 'dc:license',  content: @dataset.licence %>
 <% end %>
 
 <section class="meta-data">
@@ -44,9 +44,8 @@
 
           <dt><%= t('.licence') %>:</dt>
           <% if @dataset.licence == 'uk-ogl' %>
-            <dd property="dc:rights">
-              <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="dc:rights">
-                <%= t('.uk_ogl') %>
+            <dd property="dc:license">
+                <%= @dataset.licence %>
               </a>
             </dd>
           <% elsif @dataset.licence_other %>
