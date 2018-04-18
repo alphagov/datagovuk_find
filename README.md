@@ -23,7 +23,7 @@ Most of these can be installed with Homebrew on a Mac.
 First create a `.env` file with the following contents.
 
 ```
-PUBLISH_URL= # URL to preview for WMS previews
+PUBLISH_URL= # URL to preview for CSV previews
 SECRET_KEY_BASE="anything"
 ES_HOST= # override if not on 127.0.0.1:9200
 ```
