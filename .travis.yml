@@ -20,6 +20,7 @@ addons:
   chrome: stable
 before_install:
   - gem update --system
+  - gem install bundler --no-ri --no-rdoc
 install:
   - bundle install --path vendor/bundle
   - yarn
