@@ -13,7 +13,11 @@
       <% i = dataset.inspire_dataset %>
 
       <details>
-        <summary><span class="summary"><%= t('.view_additional_metadata')%></span></summary>
+        <% unless browser.ie? || browser.edge? %>
+          <summary><span class="summary"><%= t('.view_additional_metadata') %></span></summary>
+        <% end %>
+
+
         <div class="panel panel-border-narrow">
 
           <dl class="dgu-deflist">
