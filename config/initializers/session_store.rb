@@ -1,1 +1,1 @@
-Rails.application.config.session_store :cookie_store, expire_after: 14.days
+Rails.application.config.session_store :cookie_store, expire_after: 14.days, secure: true, httponly: true
