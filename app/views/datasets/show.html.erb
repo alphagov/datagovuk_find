@@ -20,7 +20,7 @@
           <h2 class="heading-medium"><%= t('.data_links')%>
           <% unless @timeseries_datafiles.empty? %>
             <!-- accordions for time series datasets -->
-            <% if !browser.ie?(version: 8) %>
+            <% if !browser.ie?(8) %>
               <span class="showHide-open-all"><%= t('.open_all') %></span>
             <% end %>
           <% end %>
