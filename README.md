@@ -1,32 +1,23 @@
 [![Code Climate](https://codeclimate.com/github/datagovuk/find_data_beta/badges/gpa.svg)](https://codeclimate.com/github/datagovuk/find_data_beta)
 [![Test Coverage](https://codeclimate.com/github/datagovuk/find_data_beta/badges/coverage.svg)](https://codeclimate.com/github/datagovuk/find_data_beta/coverage)
 
-# Find Data Beta
+# data.gov.uk Find
 
-## Set up the app
+This repository contains the beta-stage frontend component of data.gov.uk
 
-Get the code:
-`git clone git@github.com:datagovuk/find_data_beta.git`
+## Prerequisites
 
-Ensure you have the correct version of Ruby installed. You can find the expected version with:
-`cat .ruby-version`
+You will need to install the following for development.
 
-Set up the app's dependencies:
-`cd find_data_beta`
-`.bin/setup`
+  * [rbenv](https://github.com/rbenv/rbenv) or similar to manage ruby versions
+  * [bundler](https://rubygems.org/gems/bundler) to manage gems
+  * [elasticsearch](https://www.elastic.co/) search engine
+  * [postgresql](https://www.postgresql.org/) database
+  * [yarn](https://yarnpkg.com/en/) to manage node packages
+  * [data.gov.uk Publish](https://github.com/alphagov/datagovuk_publish/) to populate elasticsearch
 
-Copy the example environment file and modify the settings to reflect your configuration.
-`cp .example-env .env`
+Most of these can be installed with Homebrew on a Mac.
 
-> For development you will need a local install of [Publish Data](https://github.com/alphagov/datagovuk_publish/) to populate the databases
+## Getting Started
 
-## Run the app
-
-Run the app on port XXXX (defaults to 3000):
-`rails server -p XXXX`
-
-## ElasticSearch
-
-If you want to run ElasticSearch on your development machine:
-* `brew install elasticsearch`
-* `elasticsearch`
+First run `bin/setup` to bundle, etc. Then run `rails s`.
