@@ -20,20 +20,4 @@ Most of these can be installed with Homebrew on a Mac.
 
 ## Getting Started
 
-First create a `.env` file with the following contents.
-
-```
-PUBLISH_URL= # URL to preview for CSV previews
-SECRET_KEY_BASE="anything"
-ES_HOST= # override if not on 127.0.0.1:9200
-```
-
-Now run the following commands to complete your setup.
-
-```
-bundle install
-rake db:setup
-yarn install
-```
-
-Then run `rails s` to and navigate to `http://localhost:3000`.
+First run `bin/setup` to bundle, etc. Then run `rails s`.
