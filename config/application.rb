@@ -37,5 +37,14 @@ module FindDataBeta
     config.filter_parameters << :password_confirmation
 
     config.elasticsearch = config_for(:elasticsearch)
+
+    config.action_dispatch.default_headers = {
+      'X-Frame-Options' => 'DENY',
+      'X-Content-Type-Options' => 'nosniff',
+      'X-XSS-Protection' => '1; mode=block',
+      'X-Download-Options' => 'noopen',
+      'X-Permitted-Cross-Domain-Policies' => 'none',
+      'Referrer-Policy' => %w(origin-when-cross-origin strict-origin-when-cross-origin)
+    }
   end
 end

@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby IO.read('.ruby-version').strip
 
-gem 'rails', '~> 5.1.6'
+gem 'rails', '~> 5.2'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
@@ -19,7 +19,6 @@ gem "elasticsearch-rails", "~> 5.0.1"
 gem "elasticsearch-persistence", "~> 5", require: "elasticsearch/persistence/model"
 gem 'elasticsearch-dsl', "~> 0.1.5"
 gem 'htmlentities', '~> 4.3'
-gem 'secure_headers', '~> 5.0'
 gem 'faraday'
 gem 'faraday_middleware'
 gem 'sentry-raven'

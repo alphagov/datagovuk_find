@@ -3,6 +3,7 @@
   <%= javascript_include_tag 'application' %>
   <%= render 'layouts/analytics' %>
   <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 <% end %>
 
 <% content_for :page_title do %>
@@ -51,7 +52,9 @@
 
   <div id="global-app-error" class="app-error hidden"></div>
 
-  <script>if (typeof window.GOVUK === 'undefined') document.body.className = document.body.className.replace('js-enabled', '');</script>
+  <%= javascript_tag nonce: true do %>
+    if (typeof window.GOVUK === 'undefined') document.body.className = document.body.className.replace('js-enabled', '');
+  <% end %>
 <% end %>
 
 <% content_for :footer_support_links do %>
