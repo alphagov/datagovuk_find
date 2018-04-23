@@ -36,7 +36,6 @@ group :development, :test do
   gem 'pry', '~> 0.10'
   gem 'pry-byebug', '~> 3.4'
   gem 'pry-stack_explorer', '~> 0.4.9'
-  gem 'dotenv', '~> 2.2'
   gem 'rspec-rails', '~> 3.6'
   gem 'rspec', '~> 3.6'
   gem 'webmock'
@@ -45,14 +44,9 @@ group :development, :test do
 end
 
 group :development do
-  gem 'web-console', '>= 3.3.0'
-  gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring', '~> 2.0'
   gem 'spring-commands-rspec'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'guard'
-  gem 'guard-rspec'
-  gem 'launchy'
 end
 
 group :test do
