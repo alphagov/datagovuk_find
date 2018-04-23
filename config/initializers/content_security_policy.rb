@@ -9,8 +9,8 @@ Rails.application.config.content_security_policy do |policy|
   policy.font_src     :self, :https, :data
   policy.img_src      :self, :https, 'www.google-analytics.com'
   policy.object_src   :self
-  policy.script_src   :self, :https, 'unsafe-inline', 'www.google-analytics.com'
-  policy.style_src    :self, :https, 'unsafe-inline'
+  policy.script_src   :self, :https, 'www.google-analytics.com', "'sha256-+6WnXIl4mbFTCARd8N3COQmT3bJJmo32N8q8ZSQAIcU='", "'sha256-G29/qSW/JHHANtFhlrZVDZW1HOkCDRc78ggbqwwIJ2g='"
+  policy.style_src    :self, :https, :unsafe_inline
   policy.connect_src  :self, 'www.google-analytics.com'
   policy.manifest_src :self
   policy.media_src    :self
@@ -20,7 +20,7 @@ Rails.application.config.content_security_policy do |policy|
 end
 
 # If you are using UJS then enable automatic nonce generation
-# Rails.application.config.content_security_policy_nonce_generator = -> request { SecureRandom.base64(16) }
+Rails.application.config.content_security_policy_nonce_generator = -> request { SecureRandom.base64(16) }
 
 # Report CSP violations to a specified URI
 # For further information see the following documentation:
