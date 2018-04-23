@@ -2,43 +2,43 @@ source 'https://rubygems.org'
 
 ruby IO.read('.ruby-version').strip
 
-gem 'rails', '~> 5.2'
-gem 'pg', '~> 0.18'
-gem 'puma', '~> 3.7'
-gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '>= 1.3.0'
-gem 'jbuilder', '~> 2.5'
-gem 'govuk_elements_rails'
-gem 'govuk_template'
-gem 'kaminari', '~> 1.0.1'
-gem 'rest-client', '~> 2.0.2'
-gem 'mime-types', '~> 3.1'
-gem "elasticsearch", "~> 5.0.4"
-gem "elasticsearch-model", "~> 5.0.1"
-gem "elasticsearch-rails", "~> 5.0.1"
-gem 'htmlentities', '~> 4.3'
+gem 'browser', '~> 2.5.3'
+gem 'elasticsearch', '~> 5.0.4'
+gem 'elasticsearch-model', '~> 5.0.1'
+gem 'elasticsearch-rails', '~> 5.0.1'
 gem 'faraday'
 gem 'faraday_middleware'
-gem 'sentry-raven'
+gem 'gds_metrics', '~> 0.0.2'
+gem 'govuk_elements_rails'
+gem 'govuk_template'
+gem 'htmlentities', '~> 4.3'
+gem 'jbuilder', '~> 2.5'
+gem 'jquery-rails'
+gem 'kaminari', '~> 1.0.1'
 gem 'lograge', '~> 0.10'
 gem 'logstash-event', '~> 1.2'
-gem 'zendesk_api'
+gem 'mime-types', '~> 3.1'
 gem 'parslet'
-gem 'gds_metrics', '~> 0.0.2'
+gem 'pg', '~> 0.18'
+gem 'puma', '~> 3.7'
+gem 'rails', '~> 5.2'
 gem 'redcarpet', '~> 3.4'
-gem 'jquery-rails'
-gem 'browser', '~> 2.5.3'
+gem 'rest-client', '~> 2.0.2'
+gem 'sass-rails', '~> 5.0'
+gem 'sentry-raven'
+gem 'uglifier', '>= 1.3.0'
+gem 'zendesk_api'
 
 group :development, :test do
+  gem 'brakeman', '~> 4.2'
   gem 'byebug', '~> 9'
+  gem 'dotenv-rails', '~> 2.2'
   gem 'pry', '~> 0.10'
   gem 'pry-byebug', '~> 3.4'
   gem 'pry-stack_explorer', '~> 0.4.9'
-  gem 'rspec-rails', '~> 3.6'
   gem 'rspec', '~> 3.6'
+  gem 'rspec-rails', '~> 3.6'
   gem 'webmock'
-  gem 'dotenv-rails', '~> 2.2'
-  gem 'brakeman', '~> 4.2'
 end
 
 group :development do
@@ -48,9 +48,9 @@ group :development do
 end
 
 group :test do
-  gem 'simplecov', '~> 0.13'
-  gem 'codeclimate-test-reporter', '~> 1.0.0'
   gem 'capybara', '~> 2.15.1'
   gem 'capybara-selenium', '0.0.6'
   gem 'chromedriver-helper', '~> 1.1'
+  gem 'codeclimate-test-reporter', '~> 1.0.0'
+  gem 'simplecov', '~> 0.13'
 end
