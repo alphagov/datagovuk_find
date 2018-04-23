@@ -34,13 +34,15 @@
   <%= render 'layouts/proposition_header' %>
 <% end %>
 
-<% content_for :content do %>
-  <%= render 'layouts/staging_ribbon' if Rails.env.staging? %>
+<% content_for :after_header do %>
   <%= render 'layouts/beta_message' if flash[:beta_message] == 'show'%>
+  <%= render 'layouts/staging_ribbon' if Rails.env.staging? %>
+<% end %>
 
+<% content_for :content do %>
   <div class="dgu-top-non-content">
     <div class="dgu-top-non-content__inner">
-      <%= render partial: 'layouts/feedback_survey_banner' if flash[:beta_message] == 'hide'%>
+      <%= render 'layouts/feedback_survey_banner' if flash[:beta_message] == 'hide'%>
       <%= yield :breadcrumb %>
     </div>
   </div>
