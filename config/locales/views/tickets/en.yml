@@ -3,7 +3,7 @@ en:
     new:
       problem: "There was a problem"
       send_data_request: "Send a data request"
-      report_a_problem: "Report a problem or give feedback"
+      report_a_problem: "Report a problem"
       your_message: "Your message"
       enter_a_message: "Enter a message"
       name: "Name"
