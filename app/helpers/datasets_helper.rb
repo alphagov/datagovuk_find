@@ -6,7 +6,7 @@ module DatasetsHelper
       'never' => 'No future updates',
       'one off' => 'No future updates',
       'default' => 'Not available'
-  }
+  }.freeze
 
   def edit_dataset_url(dataset)
     url = URI::HTTPS.build(host: 'data.gov.uk')
@@ -85,7 +85,7 @@ module DatasetsHelper
       dataset_metadata[:keywords] = dataset.topic['title']
     end
     files = metadata_files(dataset)
-    if files.length > 0
+    unless files.empty?
       dataset_metadata[:distribution] = files
     end
     dataset_metadata.to_json
@@ -95,12 +95,10 @@ module DatasetsHelper
     files = []
     dataset.datafiles.each do |file|
       files.push(
-        {
-          "@type": 'DataDownload',
-          contentUrl: file.url,
-          fileFormat: file.format,
-          name: file.name
-        }
+        "@type": 'DataDownload',
+        contentUrl: file.url,
+        fileFormat: file.format,
+        name: file.name
       )
     end
     files
@@ -150,11 +148,11 @@ module DatasetsHelper
     (dataset.foi_web.presence || dataset.organisation.foi_web).to_s
   end
 
-  private
+private
 
   def locations(dataset)
-    ['location1', 'location2', 'location3']
-        .map {|loc| dataset.send(loc) }
+    %w[location1 location2 location3]
+        .map { |loc| dataset.send(loc) }
         .join(" ")
         .strip
   end

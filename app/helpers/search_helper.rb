@@ -1,5 +1,4 @@
 module SearchHelper
-
   def display_sort(sort)
     sort == 'best' ? 'Best Match' : 'Most Recent'
   end
@@ -37,7 +36,7 @@ module SearchHelper
     params[:q].presence || selected_topic.presence
   end
 
-  private
+private
 
   def no_filters_selected?
     params[:filters].nil? || params[:filters].values.reject(&:blank?).empty?

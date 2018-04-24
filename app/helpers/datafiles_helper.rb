@@ -12,6 +12,6 @@ module DatafilesHelper
   end
 
   def show_more?(index)
-    "js-show-more-datafiles" unless (0...5).include? index
+    "js-show-more-datafiles" unless (0...5).cover? index
   end
 end
