@@ -31,7 +31,7 @@ Rails.application.routes.draw do
 
   get 'search/', to: 'search#search'
 
-  resources :tickets, only: [:new, :create]
+  resources :tickets, only: %i[new create]
   get 'tickets/confirmation', to: 'tickets#confirmation'
 
   get 'dataset/:uuid/:name', to: 'datasets#show', as: 'dataset'
