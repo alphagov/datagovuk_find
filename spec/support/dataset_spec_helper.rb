@@ -1,4 +1,4 @@
-INDEX = "datasets-test"
+INDEX = "datasets-test".freeze
 
 def index(*datasets)
   datasets.each do |dataset, i|

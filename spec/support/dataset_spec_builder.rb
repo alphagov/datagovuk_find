@@ -1,6 +1,6 @@
 class DatasetBuilder
   def initialize
-    @dataset =  {
+    @dataset = {
         name: 'default-dataset-name',
         legacy_name: 'default-dataset-name',
         title: 'Default dataset title',
@@ -192,7 +192,7 @@ class DatasetBuilder
 end
 
 DATA_FILES_WITH_START_AND_ENDDATE = [
-    {'id' => 1,
+    { 'id' => 1,
      'name' => 'I have no end date',
      'url' => 'http://example.com',
      'format' => 'HTML',
@@ -200,9 +200,8 @@ DATA_FILES_WITH_START_AND_ENDDATE = [
      'end_date' => nil,
      'created_at' => '2016-05-03T00:00:00.000+01:00',
      'updated_at' => '2016-08-31T14:40:57.528Z',
-     'uuid' => SecureRandom.uuid
-    },
-    {'id' => 2,
+     'uuid' => SecureRandom.uuid },
+    { 'id' => 2,
      'name' => 'I have an end date',
      'url' => 'http://example.com',
      'format' => 'CSV',
@@ -210,9 +209,8 @@ DATA_FILES_WITH_START_AND_ENDDATE = [
      'end_date' => '24/03/2018',
      'created_at' => '2016-06-03T00:00:00.000+01:00',
      'updated_at' => '2016-08-31T14:40:57.528Z',
-     'uuid' => SecureRandom.uuid
-    },
-    {'id' => 3,
+     'uuid' => SecureRandom.uuid },
+    { 'id' => 3,
      'name' => 'I have an end date',
      'url' => 'http://example.com',
      'format' => '',
@@ -220,130 +218,120 @@ DATA_FILES_WITH_START_AND_ENDDATE = [
      'end_date' => '01/12/2018',
      'created_at' => '2016-07-03T00:00:00.000+01:00',
      'updated_at' => '2016-08-31T14:40:57.528Z',
-     'uuid' => SecureRandom.uuid
-    }
-]
+     'uuid' => SecureRandom.uuid }
+].freeze
 
 DATAFILES_WITHOUT_START_AND_ENDDATE = [
-    {'id' => 1,
+    { 'id' => 1,
      'name' => 'I have no end date',
      'url' => 'http://example.com',
      'start_date' => nil,
      'end_date' => nil,
      'created_at' => '2016-07-31T00:00:00.000+01:00',
      'updated_at' => '2016-08-31T14:40:57.528Z',
-     'uuid' => SecureRandom.uuid
-    },
-    {'id' => 2,
+     'uuid' => SecureRandom.uuid },
+    { 'id' => 2,
      'name' => 'I have an end date',
      'url' => 'http://example.com',
      'start_date' => nil,
      'end_date' => nil,
      'created_at' => '2016-07-31T00:00:00.000+01:00',
      'updated_at' => '2016-08-31T14:40:57.528Z',
-     'uuid' => SecureRandom.uuid
-    }]
+     'uuid' => SecureRandom.uuid }
+].freeze
 
 UNFORMATTED_DATASETS_MULTIYEAR = [
-    {'id' => 1,
+    { 'id' => 1,
      'name' => 'Dataset 1',
      'url' => 'http://example.com',
      'start_date' => '2017-09-24',
      'end_date' => nil,
      'created_at' => '2016-07-31T00:00:00.000+01:00',
-     'updated_at' => '2017-08-31T14:40:57.528Z'
-    },
-    {'id' => 2,
+     'updated_at' => '2017-08-31T14:40:57.528Z' },
+    { 'id' => 2,
      'name' => 'Dataset 2',
      'url' => 'http://example.com',
      'start_date' => '2015-09-25',
      'end_date' => nil,
      'created_at' => '2015-07-31T00:00:00.000+01:00',
-     'updated_at' => '2015-10-31T14:40:57.528Z'
-    },
-    {'id' => 3,
+     'updated_at' => '2015-10-31T14:40:57.528Z' },
+    { 'id' => 3,
      'name' => 'Dataset 3',
      'url' => 'http://example.com',
      'start_date' => '2015-09-24',
      'end_date' => nil,
      'created_at' => '2015-07-31T00:00:00.000+01:00',
-     'updated_at' => '2015-08-31T14:40:57.528Z'
-    },
-    {'id' => 4,
+     'updated_at' => '2015-08-31T14:40:57.528Z' },
+    { 'id' => 4,
      'name' => 'Dataset 4',
      'url' => 'http://example.com',
      'start_date' => nil,
      'end_date' => nil,
      'created_at' => '2015-07-31T00:00:00.000+01:00',
-     'updated_at' => '2015-10-31T14:40:57.528Z'
-    }]
+     'updated_at' => '2015-10-31T14:40:57.528Z' }
+].freeze
 
 UNFORMATTED_DATASETS_SINGLEYEAR = [
-    {'id' => 1,
+    { 'id' => 1,
      'name' => 'Dataset 1',
      'url' => 'http://example.com',
      'start_date' => '2017-09-24',
      'end_date' => nil,
      'created_at' => '2016-07-31T00:00:00.000+01:00',
-     'updated_at' => '2017-08-31T14:40:57.528Z'
-    },
-    {'id' => 2,
+     'updated_at' => '2017-08-31T14:40:57.528Z' },
+    { 'id' => 2,
      'name' => 'Dataset 2',
      'url' => 'http://example.com',
      'start_date' => '2017-09-25',
      'end_date' => nil,
      'created_at' => '2015-07-31T00:00:00.000+01:00',
-     'updated_at' => '2015-10-31T14:40:57.528Z'
-    },
-    {'id' => 3,
+     'updated_at' => '2015-10-31T14:40:57.528Z' },
+    { 'id' => 3,
      'name' => 'Dataset 3',
      'url' => 'http://example.com',
      'start_date' => '2017-09-24',
      'end_date' => nil,
      'created_at' => '2015-07-31T00:00:00.000+01:00',
-     'updated_at' => '2015-08-31T14:40:57.528Z'
-    }]
+     'updated_at' => '2015-08-31T14:40:57.528Z' }
+].freeze
 
 
 FORMATTED_DATASETS = {
-    '2017' => [{'id' => 1,
+    '2017' => [{ 'id' => 1,
                 'name' => 'Dataset 1',
                 'url' => 'http://example.com',
                 'start_date' => '2017-09-24',
                 'end_date' => nil,
                 'created_at' => '2016-07-31T00:00:00.000+01:00',
                 'updated_at' => '2017-08-31T14:40:57.528Z',
-                'start_year' => '2017'
-               }],
-    '2015' => [{'id' => 2,
+                'start_year' => '2017' }],
+    '2015' => [{ 'id' => 2,
                 'name' => 'Dataset 2',
                 'url' => 'http://example.com',
                 'start_date' => '2015-09-25',
                 'end_date' => nil,
                 'created_at' => '2015-07-31T00:00:00.000+01:00',
                 'updated_at' => '2015-10-31T14:40:57.528Z',
-                'start_year' => '2015'},
-               {'id' => 3,
+                'start_year' => '2015' },
+               { 'id' => 3,
                 'name' => 'Dataset 3',
                 'url' => 'http://example.com',
                 'start_date' => '2015-09-24',
                 'end_date' => nil,
                 'created_at' => '2015-07-31T00:00:00.000+01:00',
                 'updated_at' => '2015-08-31T14:40:57.528Z',
-                'start_year' => '2015'
-               }],
-        "" => [{'id' => 4,
+                'start_year' => '2015' }],
+        "" => [{ 'id' => 4,
          'name' => 'Dataset 4',
          'url' => 'http://example.com',
          'start_date' => nil,
          'end_date' => nil,
          'created_at' => '2015-07-31T00:00:00.000+01:00',
          'updated_at' => '2015-10-31T14:40:57.528Z',
-         'start_year' => ''
-        }]
-}
+         'start_year' => '' }]
+}.freeze
 GEO_DATAFILES = [
-  {'id' => 1,
+  { 'id' => 1,
    'name' => 'I am a WMS resources',
    'url' => 'http://example.com',
    'format' => 'WMS',
@@ -351,9 +339,8 @@ GEO_DATAFILES = [
    'end_date' => nil,
    'created_at' => '2016-07-31T00:00:00.000+01:00',
    'updated_at' => '2016-08-31T14:40:57.528Z',
-   'uuid' => SecureRandom.uuid
-  },
-  {'id' => 2,
+   'uuid' => SecureRandom.uuid },
+  { 'id' => 2,
    'name' => 'I am a WFS resources',
    'format' => 'WFS',
    'url' => 'http://example.com',
@@ -361,8 +348,8 @@ GEO_DATAFILES = [
    'end_date' => nil,
    'created_at' => '2016-07-31T00:00:00.000+01:00',
    'updated_at' => '2016-08-31T14:40:57.528Z',
-   'uuid' => SecureRandom.uuid
-  }]
+   'uuid' => SecureRandom.uuid }
+].freeze
 
 CSV_DATAFILE = DATA_FILES_WITH_START_AND_ENDDATE[1]
 HTML_DATAFILE = DATA_FILES_WITH_START_AND_ENDDATE[0]
