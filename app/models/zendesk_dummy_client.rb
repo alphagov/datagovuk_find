@@ -7,8 +7,7 @@ class ZendeskDummyClient
 end
 
 class ZendeskDummyTicket
-
-  def create!(args)
+  def create!(_args)
     {
       response: { status: 200,
                   body: 'ticket created' }
