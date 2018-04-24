@@ -1,6 +1,4 @@
-<% content_for :page_title do %>
-  <%= @dataset.title %>
-<% end %>
+<% content_for :page_title do %><%= @dataset.title %><% end %>
 
 <script type="application/ld+json">
  <%= raw to_json_ld(@dataset) %>
