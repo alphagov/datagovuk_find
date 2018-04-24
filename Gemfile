@@ -16,8 +16,6 @@ gem 'mime-types', '~> 3.1'
 gem "elasticsearch", "~> 5.0.4"
 gem "elasticsearch-model", "~> 5.0.1"
 gem "elasticsearch-rails", "~> 5.0.1"
-gem "elasticsearch-persistence", "~> 5", require: "elasticsearch/persistence/model"
-gem 'elasticsearch-dsl', "~> 0.1.5"
 gem 'htmlentities', '~> 4.3'
 gem 'faraday'
 gem 'faraday_middleware'
@@ -56,5 +54,3 @@ group :test do
   gem 'capybara-selenium', '0.0.6'
   gem 'chromedriver-helper', '~> 1.1'
 end
-
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
