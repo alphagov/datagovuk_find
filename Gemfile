@@ -42,6 +42,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'govuk-lint', '~> 3.8.0'
   gem 'spring', '~> 2.0'
   gem 'spring-commands-rspec'
   gem 'spring-watcher-listen', '~> 2.0.0'
