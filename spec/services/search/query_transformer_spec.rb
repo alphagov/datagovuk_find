@@ -19,11 +19,11 @@ RSpec.describe Search::QueryTransformer do
       it 'transforms the query into a collection of term clauses' do
         is_expected
           .to have_attributes(
-                clauses: a_collection_containing_exactly(
-                  an_instance_of(Search::TermsClause)
-                    .and(have_attributes(terms: 'quick brown fox'))
-                )
-              )
+            clauses: a_collection_containing_exactly(
+              an_instance_of(Search::TermsClause)
+                .and(have_attributes(terms: 'quick brown fox'))
+            )
+          )
       end
     end
 
@@ -33,11 +33,11 @@ RSpec.describe Search::QueryTransformer do
       it 'transforms the query into a phrase clauses' do
         is_expected
           .to have_attributes(
-                clauses: a_collection_containing_exactly(
-                  an_instance_of(Search::PhraseClause)
-                    .and(have_attributes(phrase: 'quick brown fox'))
-                )
-              )
+            clauses: a_collection_containing_exactly(
+              an_instance_of(Search::PhraseClause)
+                .and(have_attributes(phrase: 'quick brown fox'))
+            )
+          )
       end
     end
 
@@ -47,13 +47,13 @@ RSpec.describe Search::QueryTransformer do
       it 'transforms the query into term and phrase clauses' do
         is_expected
           .to have_attributes(
-                clauses: a_collection_containing_exactly(
-                  an_instance_of(Search::TermsClause)
-                    .and(have_attributes(terms: 'quick')),
-                  an_instance_of(Search::PhraseClause)
-                    .and(have_attributes(phrase: 'brown fox'))
-                )
-              )
+            clauses: a_collection_containing_exactly(
+              an_instance_of(Search::TermsClause)
+                .and(have_attributes(terms: 'quick')),
+              an_instance_of(Search::PhraseClause)
+                .and(have_attributes(phrase: 'brown fox'))
+            )
+          )
       end
     end
   end
