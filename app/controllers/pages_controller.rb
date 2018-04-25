@@ -1,25 +1,4 @@
 class PagesController < ApplicationController
-  def terms
-  end
-
-  def privacy
-  end
-
-  def cookies
-  end
-
-  def support
-  end
-
-  def accessibility
-  end
-
-  def site_changes
-  end
-
-  def publishers
-  end
-
   def dashboard
     @datasets_count = get_datasets_count
     @publishers_count = Dataset.publishers.count
@@ -29,7 +8,7 @@ class PagesController < ApplicationController
     @datafiles_count_by_format = Dataset.datafiles['formats']['buckets']
   end
 
-  private
+private
 
   def get_datasets_count
     query = Search::Query.search(q: '')

@@ -27,12 +27,12 @@ module FindDataBeta
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
     config.assets.initialize_on_precompile = false
-    config.action_dispatch.rescue_responses.merge! 'Datafile::DatafileNotFound' => :not_found
-    config.action_dispatch.rescue_responses.merge! 'Dataset::DatasetNotFound' => :not_found
+    config.action_dispatch.rescue_responses['Datafile::DatafileNotFound'] = :not_found
+    config.action_dispatch.rescue_responses['Dataset::DatasetNotFound'] = :not_found
     config.exceptions_app = self.routes
 
     config.analytics_tracking_id = ENV['GA_TRACKING_ID']
-    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**','**','*.{rb,yml}')]
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '**', '*.{rb,yml}')]
     config.filter_parameters << :password
     config.filter_parameters << :password_confirmation
 

@@ -21,10 +21,10 @@ RSpec.describe DatasetsHelper do
 
   describe '#sort_by_created_at' do
     it 'orders datafiles lexicographically by created_at' do
-      datafile_1 = Datafile.new(created_at: 1.hours.ago.iso8601)
-      datafile_2 = Datafile.new(created_at: 2.hours.ago.iso8601)
-      results = helper.sort_by_created_at([datafile_2, datafile_1])
-      expect(results).to eq [datafile_1, datafile_2]
+      datafile1 = Datafile.new(created_at: 1.hours.ago.iso8601)
+      datafile2 = Datafile.new(created_at: 2.hours.ago.iso8601)
+      results = helper.sort_by_created_at([datafile2, datafile1])
+      expect(results).to eq [datafile1, datafile2]
     end
   end
 

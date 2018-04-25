@@ -1,4 +1,5 @@
 # coding: utf-8
+
 require 'rails_helper'
 
 
@@ -67,12 +68,9 @@ feature 'Search page', elasticsearch: true do
     elements = all('h2 a')
     expect(elements[0]).to have_content 'Old'
     expect(elements[1]).to have_content 'Recent'
-
-
   end
 
   scenario 'Match publisher query against available publishers', js: true do
-
     first_dataset = DatasetBuilder.new
                       .with_title('Data About Tonka Trucks')
                       .with_publisher('Tonka Trucks')
@@ -131,12 +129,12 @@ feature 'Search page', elasticsearch: true do
   scenario 'filter by topic', js: true do
     first_dataset = DatasetBuilder.new
                       .with_title('First Dataset Title')
-                      .with_topic({id: 1, name: "government", title: "Government"})
+                      .with_topic(id: 1, name: "government", title: "Government")
                       .build
 
     second_dataset = DatasetBuilder.new
                       .with_title('Second Dataset Title')
-                      .with_topic({id: 2, name: "business-and-economy", title: "Business and economy"})
+                      .with_topic(id: 2, name: "business-and-economy", title: "Business and economy")
                       .build
 
     index(first_dataset, second_dataset)
@@ -158,12 +156,12 @@ feature 'Search page', elasticsearch: true do
   scenario 'filter by datafile format', js: true do
     first_dataset = DatasetBuilder.new
                       .with_title('First Dataset Title')
-                      .with_datafiles([{'format' => 'foo'}])
+                      .with_datafiles([{ 'format' => 'foo' }])
                       .build
 
     second_dataset = DatasetBuilder.new
                       .with_title('Second Dataset Title')
-                      .with_datafiles([{'format' => 'bar'}])
+                      .with_datafiles([{ 'format' => 'bar' }])
                       .build
 
     index(first_dataset, second_dataset)
@@ -281,8 +279,8 @@ feature 'Search page', elasticsearch: true do
     expect(publishers[3]).to eq('Plymouth City Council')
   end
 
-  scenario 'search results title', js:true do
-    index(DatasetBuilder.new.with_topic({id: 1, name: "government", title: "Government"}).build)
+  scenario 'search results title', js: true do
+    index(DatasetBuilder.new.with_topic(id: 1, name: "government", title: "Government").build)
 
     search_for("apple")
     expect(page).to have_title('Results for "apple"')

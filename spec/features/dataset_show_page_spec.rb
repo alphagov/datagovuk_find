@@ -157,12 +157,12 @@ feature 'Dataset page', elasticsearch: true do
       dataset = DatasetBuilder
         .new
         .with_datafiles(GEO_DATAFILES.map { |f| Datafile.new(f) })
-        .with_inspire_metadata({
+        .with_inspire_metadata(
           'bbox_north_lat' => '1.0',
           'bbox_east_long' => '1.0',
           'bbox_south_lat' => '2.0',
           'bbox_west_long' => '2.0',
-        })
+        )
         .build
       index_and_visit(dataset)
 
@@ -214,7 +214,7 @@ feature 'Dataset page', elasticsearch: true do
           .build
         index_and_visit(dataset)
         datafiles = dataset[:datafiles]
-        last = datafiles.sort_by{ |datafile| datafile[:created_at]}.last
+        last = datafiles.sort_by { |datafile| datafile[:created_at] }.last
         date = Time.parse(last["created_at"]).strftime("%d %B %Y")
         expect(page).to have_content("Last updated: #{date}")
       end
@@ -255,20 +255,20 @@ feature 'Dataset page', elasticsearch: true do
   feature 'Side bar content' do
     context 'Related content and publisher datasets' do
       before do
-        title_1 = '1 Data Set'
-        @title_2 = '2 Data Set'
-        slug_1 = 'first-dataset-data'
-        slug_2 = 'second-dataset-data'
+        title1 = '1 Data Set'
+        @title2 = '2 Data Set'
+        slug1 = 'first-dataset-data'
+        slug2 = 'second-dataset-data'
 
         @first_dataset = DatasetBuilder.new
-          .with_title(title_1)
-          .with_name(slug_1)
+          .with_title(title1)
+          .with_name(slug1)
           .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
           .build
 
         second_dataset = DatasetBuilder.new
-          .with_title(@title_2)
-          .with_name(slug_2)
+          .with_title(@title2)
+          .with_name(slug2)
           .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
           .build
 
@@ -280,7 +280,7 @@ feature 'Dataset page', elasticsearch: true do
 
       scenario 'displays related datasets if there is a match' do
         expect(page).to have_content('Related datasets')
-        expect(page).to have_content(@title_2)
+        expect(page).to have_content(@title2)
       end
 
       scenario 'displays link to publisher\'s datasets' do
@@ -290,32 +290,32 @@ feature 'Dataset page', elasticsearch: true do
     end
 
     scenario 'displays filtered related datasets if filters form part of search query' do
-      title_1 = 'First Dataset Data'
-      title_2 = 'Second Dataset Data'
-      title_3 = 'Completely unrelated'
-      slug_1 = 'first-dataset-data'
-      slug_2 = 'second-dataset-data'
-      slug_3 = 'completely-unrelated'
+      title1 = 'First Dataset Data'
+      title2 = 'Second Dataset Data'
+      title3 = 'Completely unrelated'
+      slug1 = 'first-dataset-data'
+      slug2 = 'second-dataset-data'
+      slug3 = 'completely-unrelated'
       london = 'London'
       auckland = 'Auckland'
 
       first_dataset = DatasetBuilder.new
-        .with_title(title_1)
-        .with_name(slug_1)
+        .with_title(title1)
+        .with_name(slug1)
         .with_location(london)
         .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
         .build
 
       second_dataset = DatasetBuilder.new
-        .with_title(title_2)
-        .with_name(slug_2)
+        .with_title(title2)
+        .with_name(slug2)
         .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
         .with_location(london)
         .build
 
       third_dataset = DatasetBuilder.new
-        .with_title(title_3)
-        .with_name(slug_3)
+        .with_title(title3)
+        .with_name(slug3)
         .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
         .with_summary('Nothing')
         .with_description('Nothing')
@@ -330,8 +330,8 @@ feature 'Dataset page', elasticsearch: true do
       visit dataset_path(first_dataset[:uuid], first_dataset[:name])
 
       expect(page).to have_content('Related datasets')
-      expect(page).to have_content(title_2)
-      expect(page).to_not have_content(title_3)
+      expect(page).to have_content(title2)
+      expect(page).to_not have_content(title3)
     end
 
     scenario 'does not display if related datasets is empty' do
@@ -420,17 +420,17 @@ feature 'Dataset page', elasticsearch: true do
       datafiles = []
 
       count.times do |i|
-        datafiles.push({
+        datafiles.push(
           'id' => i,
           'url' => "http://datafile-url",
           'start_date' => nil,
           'end_date' => nil,
           'created_at' => '2017-07-31T14:40:57.528Z',
           'updated_at' => '2017-08-31T14:40:57.528Z'
-        })
+        )
       end
 
-      return datafiles
+      datafiles
     end
   end
 
@@ -483,8 +483,8 @@ feature 'Dataset page', elasticsearch: true do
       expect(page).to have_css(".dgu-datafiles__year", count: 2)
 
       correct_order = [
-        "#{Time.parse(timeseries_and_non_timeseries[1][:start_date]).year}",
-        "#{Time.parse(timeseries_and_non_timeseries[0][:start_date]).year}"
+        Time.parse(timeseries_and_non_timeseries[1][:start_date]).year.to_s,
+        Time.parse(timeseries_and_non_timeseries[0][:start_date]).year.to_s
       ]
       actual_order = all('button.dgu-datafiles__year').map(&:text)
 

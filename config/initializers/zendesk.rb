@@ -10,7 +10,7 @@ def zendesk_config_from_vcap
       zendesk_config["api_key"] = elem['credentials']['ZENDESK_API_KEY']
       zendesk_config["end_point"] = elem['credentials']['ZENDESK_END_POINT']
     end
-  rescue => e
+  rescue StandardError => e
     Rails.logger.info "Failed to extract zendesk creds from VCAP_SERVICES"
     Rails.logger.info "ERROR --> '#{e}'"
   end
@@ -34,7 +34,7 @@ if Rails.env.production?
     api_key = config['api_key']
     end_point = config['end_point']
     GDS_ZENDESK_CLIENT = build_zendesk_client(username, password, api_key, end_point)
-  rescue => e
+  rescue StandardError => e
     Rails.logger.info "Failed to initialise zendesk client. Using dummy client"
     Rails.logger.info "ERROR --> '#{e}'"
     GDS_ZENDESK_CLIENT = ZendeskDummyClient.new

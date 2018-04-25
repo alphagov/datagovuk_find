@@ -5,7 +5,7 @@ def create_es_cert_file(cert)
     es_cert_file = File.new('elasticsearch_cert.pem', 'w')
     es_cert_file.write(cert)
     es_cert_file.close
-  rescue => e
+  rescue StandardError => e
     Rails.logger.fatal 'Failed to write elasticsearch certificate. Exiting'
     Rails.logger.fatal e
     exit
@@ -20,7 +20,7 @@ def es_config_from_vcap
       uri.chomp('/')
     end
     es_cert = Base64.decode64(vcap['elasticsearch'][0]['credentials']['ca_certificate_base64'])
-  rescue => e
+  rescue StandardError => e
     Rails.logger.fatal 'Failed to extract ES creds from VCAP_SERVICES. Exiting'
     Rails.logger.fatal Rails.configuration.elasticsearch['vcap_services']
     Rails.logger.fatal e

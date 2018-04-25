@@ -1,0 +1,11 @@
+AllCops:
+  TargetRubyVersion: 2.5
+  Exclude:
+    - bin/**/*
+    - config.ru
+    - db/schema.rb
+
+Metrics/BlockLength:
+  Exclude:
+    - 'config/routes.rb'
+    - 'spec/**/*.rb'

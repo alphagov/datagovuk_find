@@ -1,7 +1,7 @@
 module Search
   class Query
-    MULTI_MATCH_FIELDS = %w(title summary description location*^2)
-    MULTI_MATCH_FIELDS_ENGLISH = %w(title.english^2 summary.english description.english)
+    MULTI_MATCH_FIELDS = %w(title summary description location*^2).freeze
+    MULTI_MATCH_FIELDS_ENGLISH = %w(title.english^2 summary.english description.english).freeze
     TERMS_SIZE = 10_000
 
     attr_accessor :clauses
@@ -34,7 +34,7 @@ module Search
               org_titles: {
                 terms: {
                   field: 'organisation.title.raw',
-                  order: {_term: 'asc'},
+                  order: { _term: 'asc' },
                   size: TERMS_SIZE
                 }
               }
@@ -165,8 +165,8 @@ module Search
       publisher_param = params.dig(:filters, :publisher)
       location_param =  params.dig(:filters, :location)
       format_param =    params.dig(:filters, :format)
-      topic_param =    params.dig(:filters, :topic)
-      licence_param =   params.dig(:filters, :licence)
+      topic_param = params.dig(:filters, :topic)
+      licence_param = params.dig(:filters, :licence)
 
       query = begin
         QueryTransformer.new.apply(QueryParser.new.parse(query_param))
@@ -334,7 +334,7 @@ module Search
 
     private_class_method :publisher_filter, :topic_filter, :location_filter, :format_filter, :licence_filter
 
-    private
+  private
 
     def clause_to_query(clause)
       case clause

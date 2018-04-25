@@ -13,7 +13,7 @@ class DatasetsController < ApplicationController
     end
   end
 
-  private
+private
 
   def referer_query
     return if request.referer.nil?

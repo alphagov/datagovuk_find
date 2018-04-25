@@ -12,7 +12,7 @@ class SearchController < ApplicationController
     @datasets = @search.page(page_number)
   end
 
-  private
+private
 
   def search_for_dataset
     query = Search::Query.search(params)

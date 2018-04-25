@@ -25,12 +25,12 @@ class Preview
     body.present?
   end
 
-  private
+private
 
   def render
     begin
-      csv? ? CSV.parse(fetch_raw).reject{ |l| l.empty? } : []
-    rescue
+      csv? ? CSV.parse(fetch_raw).reject(&:empty?) : []
+    rescue StandardError
       []
     end
   end
@@ -47,7 +47,7 @@ class Preview
       end
       raw_body = response.body.tr("\r", "\n").force_encoding('iso-8859-1').encode('utf-8')
       raw_body.rpartition("\n")[0]
-    rescue
+    rescue StandardError
       ""
     end
   end

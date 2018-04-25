@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'legacy', :type => :request do
+describe 'legacy', type: :request do
   describe 'search query' do
     it 'is redirected to search results page with original query and filters' do
       legacy_params = {

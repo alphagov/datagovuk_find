@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :set_raven_context
   before_action :toggle_beta_message
 
-  private
+private
 
   def set_raven_context
     Raven.extra_context(params: params.to_unsafe_h,

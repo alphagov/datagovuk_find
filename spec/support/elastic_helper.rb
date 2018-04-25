@@ -1,6 +1,6 @@
 def delete_index
   ELASTIC.indices.delete index: "datasets-test"
-rescue
+rescue StandardError
   Rails.logger.debug("No test search index to delete")
 end
 
@@ -14,7 +14,7 @@ def create_index
       mappings: index_mappings
     }
   )
-rescue
+rescue StandardError
   Rails.logger.debug("Could not create datasets-test index")
 end
 

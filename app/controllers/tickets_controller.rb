@@ -1,5 +1,4 @@
 class TicketsController < ApplicationController
-
   def new
     @support_queue = params['support']
     @ticket = ZendeskTicket.new
@@ -14,5 +13,4 @@ class TicketsController < ApplicationController
       render :new
     end
   end
-
 end

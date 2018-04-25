@@ -8,14 +8,14 @@ class Dataset
                 :location1, :location2, :location3,
                 :foi_name, :foi_email, :foi_phone, :foi_web,
                 :contact_name, :contact_email, :contact_phone,
-                :licence_code, :licence_title, :licence_url, :licence_custom,
-                :licence, :licence_other, :frequency,
+                :licence_custom, :licence, :licence_other, :frequency,
                 :published_date, :last_updated_at, :created_at,
                 :harvested, :uuid, :short_id, :topic,
                 :inspire_dataset, :json, :notes,
                 :_index, :_type, :_id, :_score, :_source,
                 :_version
 
+  attr_writer :licence_code, :licence_title, :licence_url
   attr_reader :organisation
 
   index_name ENV['ES_INDEX'] || "datasets-#{Rails.env}"
@@ -84,7 +84,7 @@ class Dataset
   end
 
   def datafiles=(datafiles)
-    @datafiles = datafiles.map { |file| Datafile.new(file)}
+    @datafiles = datafiles.map { |file| Datafile.new(file) }
   end
 
   def licence?
