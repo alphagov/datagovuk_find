@@ -208,14 +208,14 @@ feature 'Dataset page', elasticsearch: true do
     end
 
     context 'When a dataset has datafiles' do
-      it 'Last Updated field is the most recent datafiles creation date' do
+      it 'Last Updated field is the most recent datafiles updated_at date' do
         dataset = DatasetBuilder.new
           .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
           .build
         index_and_visit(dataset)
         datafiles = dataset[:datafiles]
-        last = datafiles.sort_by { |datafile| datafile[:created_at] }.last
-        date = Time.parse(last["created_at"]).strftime("%d %B %Y")
+        last = datafiles.sort_by { |datafile| datafile[:updated_at] }.last
+        date = Time.parse(last["updated_at"]).strftime("%d %B %Y")
         expect(page).to have_content("Last updated: #{date}")
       end
     end
