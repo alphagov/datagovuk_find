@@ -23,7 +23,7 @@ module DatasetsHelper
     if dataset.datafiles.none?
       dataset.last_updated_at
     else
-      most_recent_datafile(dataset).created_at
+      most_recent_datafile(dataset).updated_at
     end
   end
 
