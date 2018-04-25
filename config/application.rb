@@ -38,6 +38,8 @@ module FindDataBeta
 
     config.elasticsearch = config_for(:elasticsearch)
 
+    config.ssl_options = { hsts: { expires: 1.week } }
+
     config.action_dispatch.default_headers = {
       'X-Frame-Options' => 'DENY',
       'X-Content-Type-Options' => 'nosniff',
