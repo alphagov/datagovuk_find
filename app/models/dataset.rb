@@ -42,32 +42,14 @@ class Dataset
     get_by_query(query: Search::Query.related(id))
   end
 
-  def self.locations
-    query = Search::Query.locations_aggregation
-    buckets = Dataset.search(query).aggregations['locations']['buckets']
-    map_keys(buckets)
-  end
-
   def self.publishers
-    query = Search::Query.publishers_aggregation
+    query = { aggs: Search::Query.publishers_aggregation }
     buckets = Dataset.search(query).aggregations['organisations']['org_titles']['buckets']
-    map_keys(buckets)
-  end
-
-  def self.topics
-    query = Search::Query.dataset_topics_aggregation
-    buckets = Dataset.search(query).aggregations['topics']['topic_titles']['buckets']
-    map_keys(buckets)
-  end
-
-  def self.datafile_formats
-    query = Search::Query.datafile_formats_aggregation
-    buckets = Dataset.search(query).aggregations['datafiles']['datafile_formats']['buckets']
-    map_keys(buckets)
+    buckets.map { |bucket| bucket['key'] }.sort.uniq.reject(&:empty?)
   end
 
   def self.datafiles
-    query = Search::Query.datafiles_aggregation
+    query = { aggs: Search::Query.datafiles_aggregation }
     Dataset.search(query).aggregations['datafiles']
   end
 
@@ -174,10 +156,6 @@ class Dataset
     datafiles.select(&:non_timeseries?)
   end
 
-  def self.map_keys(buckets)
-    buckets.map { |bucket| bucket['key'] }
-  end
-
   def organisation=(organisation)
     @organisation = Organisation.new(organisation)
   end
@@ -185,6 +163,4 @@ class Dataset
   def editable?
     harvested == false
   end
-
-  private_class_method :map_keys
 end

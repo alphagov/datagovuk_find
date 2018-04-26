@@ -22,21 +22,26 @@ module Search
       query
     end
 
+    def self.aggregations
+      [
+        publishers_aggregation,
+        datafile_formats_aggregation,
+        dataset_topics_aggregation
+      ]
+    end
+
     def self.publishers_aggregation
       {
-        size: 0,
-        aggs: {
-          organisations: {
-            nested: {
-              path: 'organisation'
-            },
-            aggs: {
-              org_titles: {
-                terms: {
-                  field: 'organisation.title.raw',
-                  order: { _term: 'asc' },
-                  size: TERMS_SIZE
-                }
+        organisations: {
+          nested: {
+            path: 'organisation'
+          },
+          aggs: {
+            org_titles: {
+              terms: {
+                field: 'organisation.title.raw',
+                order: { _term: 'asc' },
+                size: TERMS_SIZE
               }
             }
           }
@@ -46,35 +51,18 @@ module Search
 
     def self.datafiles_aggregation
       {
-        size: 0,
-        aggs: {
-          datafiles: {
-            nested: {
-              path: 'datafiles'
+        datafiles: {
+          nested: {
+            path: 'datafiles'
+          },
+          aggs: {
+            datasets_with_datafiles: {
+              reverse_nested: {}
             },
-            aggs: {
-              datasets_with_datafiles: {
-                reverse_nested: {}
-              },
-              formats: {
-                terms: {
-                  field: 'datafiles.format'
-                }
+            formats: {
+              terms: {
+                field: 'datafiles.format'
               }
-            }
-          }
-        }
-      }
-    end
-
-    def self.locations_aggregation
-      {
-        size: 0,
-        aggs: {
-          locations: {
-            terms: {
-              field: 'location1.raw',
-              size: TERMS_SIZE
             }
           }
         }
@@ -83,19 +71,16 @@ module Search
 
     def self.dataset_topics_aggregation
       {
-        size: 0,
-        aggs: {
-          topics: {
-            nested: {
-              path: 'topic'
-            },
-            aggs: {
-              topic_titles: {
-                terms: {
-                  field: 'topic.title.raw',
-                  order: { _term: 'asc' },
-                  size: TERMS_SIZE
-                }
+        topics: {
+          nested: {
+            path: 'topic'
+          },
+          aggs: {
+            topic_titles: {
+              terms: {
+                field: 'topic.title.raw',
+                order: { _term: 'asc' },
+                size: TERMS_SIZE
               }
             }
           }
@@ -105,17 +90,14 @@ module Search
 
     def self.datafile_formats_aggregation
       {
-        size: 0,
-        aggs: {
-          datafiles: {
-            nested: {
-              path: 'datafiles'
-            },
-            aggs: {
-              datafile_formats: {
-                terms: {
-                  field: 'datafiles.format'
-                }
+        datafiles: {
+          nested: {
+            path: 'datafiles'
+          },
+          aggs: {
+            datafile_formats: {
+              terms: {
+                field: 'datafiles.format'
               }
             }
           }
@@ -198,6 +180,8 @@ module Search
       end
 
       query[:sort] = { "last_updated_at": { "order": "desc" } } if sort_param == "recent"
+
+      query[:aggs] = aggregations.inject(&:merge)
 
       query
     end

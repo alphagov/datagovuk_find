@@ -4,15 +4,18 @@ module SearchHelper
   end
 
   def datafile_formats_for_select
-    Dataset.datafile_formats.sort.map(&:upcase).uniq.reject(&:empty?)
+    buckets = search.aggregations['datafiles']['datafile_formats']['buckets']
+    map_keys(buckets).map(&:upcase)
   end
 
   def dataset_topics_for_select
-    Dataset.topics.sort.uniq.reject(&:empty?)
+    buckets = search.aggregations['topics']['topic_titles']['buckets']
+    map_keys(buckets)
   end
 
   def dataset_publishers_for_select
-    Dataset.publishers.sort.uniq.reject(&:empty?)
+    buckets = search.aggregations['organisations']['org_titles']['buckets']
+    map_keys(buckets)
   end
 
   def selected_publisher
@@ -40,5 +43,14 @@ private
 
   def no_filters_selected?
     params[:filters].nil? || params[:filters].values.reject(&:blank?).empty?
+  end
+
+  def map_keys(buckets)
+    buckets.map { |bucket| bucket['key'] }.sort.uniq.reject(&:empty?)
+  end
+
+  def search
+    query = Search::Query.search(params)
+    Dataset.search(query)
   end
 end

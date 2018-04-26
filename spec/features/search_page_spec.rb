@@ -308,4 +308,30 @@ feature 'Search page', elasticsearch: true do
   def assert_search_results_headings(*headings)
     expect(all('h2 a').map(&:text)).to contain_exactly(*headings)
   end
+
+  scenario 'search filters are scoped to search query results' do
+    foo_dataset = DatasetBuilder
+                    .new
+                    .with_title('Foo')
+                    .with_publisher('Org 1')
+                    .with_topic({ name: 'fun', title: 'Fun' })
+                    .with_datafiles([{ format: 'CSV' }])
+                    .build
+
+    bar_dataset = DatasetBuilder
+                    .new
+                    .with_title('Bar')
+                    .with_publisher('Org 2')
+                    .with_topic({ name: 'trivia', title: 'Trivia' })
+                    .with_datafiles([{ format: 'PDF' }])
+                    .build
+
+    index(foo_dataset, bar_dataset)
+
+    search_for('foo')
+
+    expect(page).to have_select('Publisher', options: ['', 'Org 1'])
+    expect(page).to have_select('Topic', options: ['', 'Fun'])
+    expect(page).to have_select('Format', options: ['', 'CSV'])
+  end
 end
