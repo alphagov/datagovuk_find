@@ -189,15 +189,19 @@
   &__sort-type {
     margin-top: 5px;
     float: right;
-    overflow: hidden;
     width: 128px;
-    background: image-url("triangle-down.png") no-repeat right center;
+    background: image-url("triangle-down.png") no-repeat right 8px;
     background-size: 8%;
     select {
       @include copy-19;
-      width: 200px;
+      width: 128px;
       background: transparent;
       border: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+    }
+    select::-ms-expand {
+      display: none;
     }
   }
 }
