@@ -21,7 +21,7 @@
     <div class="column-two-thirds">
       <div class="dgu-metadata__box dgu-metadata__box--in-dataset">
         <dl class="metadata">
-          <% if @dataset.datafiles.none? %>
+          <% if !@dataset.released? %>
             <dt><%= t('.availability') %>:</dt>
             <dd>
               <span class="dgu-highlight">Not released</span>

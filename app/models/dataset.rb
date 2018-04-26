@@ -71,6 +71,10 @@ class Dataset
     Dataset.search(query).aggregations['datafiles']
   end
 
+  def released?
+    (docs.count + datafiles.count) > 0
+  end
+
   def docs
     Array(@docs)
   end
