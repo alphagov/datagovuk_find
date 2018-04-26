@@ -146,6 +146,12 @@
     width: 60%;
   }
 
+  @include media(mobile) {
+    dt,dd {
+      width: 100%;
+    }
+  }
+
 }
 
 // pagination controls =========================================================
@@ -222,6 +228,16 @@
 
     &:focus {
       outline: none;
+    }
+  }
+
+  @include media(mobile) {
+    th {
+      white-space: normal;
+      vertical-align: top;
+    }
+    td {
+      vertical-align: top;
     }
   }
 }
