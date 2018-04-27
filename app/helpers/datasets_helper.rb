@@ -10,10 +10,10 @@ module DatasetsHelper
 
   def edit_dataset_url(dataset)
     url = URI::HTTPS.build(host: 'data.gov.uk')
-    url += if !dataset.released?
-             '/unpublished/edit-item/'
-           else
+    url += if dataset.released?
              '/dataset/edit/'
+           else
+             '/unpublished/edit-item/'
            end
     url += dataset.legacy_name
     url.to_s

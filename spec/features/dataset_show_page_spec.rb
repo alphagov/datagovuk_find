@@ -532,6 +532,42 @@ feature 'Dataset page', elasticsearch: true do
     end
   end
 
+  feature 'not released label' do
+    scenario 'Not released label is not shown where there are files' do
+      dataset = DatasetBuilder
+                  .new
+                  .with_legacy_name('abc123')
+                  .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
+                  .build
+
+      index_and_visit(dataset)
+
+      expect(page).to have_no_content('Not released')
+    end
+
+    scenario 'Not released is not shown where there are docs' do
+      dataset = DatasetBuilder
+                  .new
+                  .with_legacy_name('abc123')
+                  .with_docs([HTML_DATAFILE])
+                  .build
+
+      index_and_visit(dataset)
+
+      expect(page).to have_no_content('Not released')
+    end
+
+    scenario 'Not released is shown when there are no docs and no files' do
+      dataset = DatasetBuilder
+                  .new
+                  .with_legacy_name('abc123')
+                  .build
+
+      index_and_visit(dataset)
+      expect(page).to have_content('Not released')
+    end
+  end
+
   feature 'contact instructions' do
     scenario 'publisher contact details exist' do
       dataset = DatasetBuilder.new.build
@@ -560,11 +596,23 @@ feature 'Dataset page', elasticsearch: true do
       expect(page).to_not have_link('Sign in', href: 'https://data.gov.uk/dataset/edit/abc123')
     end
 
-    scenario 'edit released dataset link' do
+    scenario 'edit released dataset link with datafile' do
       dataset = DatasetBuilder
                   .new
                   .with_legacy_name('abc123')
                   .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
+                  .build
+
+      index_and_visit(dataset)
+
+      expect(page).to have_link('Sign in', href: 'https://data.gov.uk/dataset/edit/abc123')
+    end
+
+    scenario 'edit released dataset link with doc' do
+      dataset = DatasetBuilder
+                  .new
+                  .with_legacy_name('abc123')
+                  .with_docs([HTML_DATAFILE])
                   .build
 
       index_and_visit(dataset)
@@ -579,7 +627,6 @@ feature 'Dataset page', elasticsearch: true do
                   .build
 
       index_and_visit(dataset)
-
       expect(page).to have_link('Sign in', href: 'https://data.gov.uk/unpublished/edit-item/abc123')
     end
   end

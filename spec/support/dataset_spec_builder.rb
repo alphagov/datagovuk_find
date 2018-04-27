@@ -87,6 +87,11 @@ class DatasetBuilder
     self
   end
 
+  def with_docs(docs)
+    @dataset[:docs] = docs
+    self
+  end
+
   def with_inspire_metadata(inspire)
     @dataset[:inspire_dataset] = inspire
     self

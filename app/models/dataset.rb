@@ -72,7 +72,7 @@ class Dataset
   end
 
   def released?
-    (docs.count + datafiles.count) > 0
+    (docs.count + datafiles.count).positive?
   end
 
   def docs
