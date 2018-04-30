@@ -70,6 +70,15 @@
 }
 
 // dgu beta message ============================================================
+#dgu-beta__banner {
+    background: #0C5FA3;
+    max-width: 100%
+}
+
+.dgu-beta__banner--hidden{
+  display:none;
+}
+
 .dgu-beta {
   &__banner {
     background: #0C5FA3;
@@ -103,6 +112,9 @@
       }
     }
   }
+}
+.phase-banner--hidden{
+  display:none;
 }
 
 // split-background layout  ====================================================

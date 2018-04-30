@@ -1,4 +1,4 @@
-<div class="dgu-beta__banner">
+<div id="dgu-beta__banner" class="dgu-beta__banner--hidden">
   <div class="dgu-beta__message">
     <p>
       We’ve been improving data.gov.uk to help you find and use open government data.<br />
@@ -6,8 +6,10 @@
     </p>
 
     <p>
-      <%= link_to "Don't show this message again", acknowledge_path %>
+      <a class="survey-close-button" href="#user-survey-cancel" id="dgu-survey-cancel" role="button">
+        Don't show this message again
+      </a>
     </p>
-    
+
   </div>
 </div>

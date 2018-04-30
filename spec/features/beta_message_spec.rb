@@ -1,7 +1,7 @@
 require "rails_helper"
 
 feature "Combined data.gov.uk and beta banner" do
-  scenario "Is displayed on all pages for a first time visitor" do
+  scenario "Is displayed on all pages for a first time visitor", js: true do
     dataset = DatasetBuilder.new.build
 
     index(dataset)
@@ -18,10 +18,11 @@ feature "Combined data.gov.uk and beta banner" do
       within '.dgu-beta__message' do
         expect(page).to have_content('We’ve been improving data.gov.uk')
       end
+      expect(page).to have_selector('#dgu-beta__banner', visible: true)
     end
   end
 
-  scenario "Dismissing banner on search page works and retains query" do
+  scenario "Dismissing banner on search page works and retains query", js: true do
     dataset = DatasetBuilder.new
                 .with_title("Zebra data")
                 .build
@@ -31,35 +32,20 @@ feature "Combined data.gov.uk and beta banner" do
     visit search_path(q: 'zebra')
 
     expect(page).to have_field('Search', with: 'zebra')
+    expect(page).to_not have_selector('.dgu-beta__banner--hidden')
 
     within '.dgu-beta__message' do
       click_link "Don't show this message again"
     end
 
     expect(page).to have_field('Search', with: 'zebra')
-    expect(page).to_not have_selector('.dgu-beta__message')
-  end
-
-  scenario "Dismissing banner on dataset page works" do
-    dataset = DatasetBuilder.new
-                .with_title("Zebra data")
-                .build
-
-    index_and_visit(dataset)
-
-    expect(page).to have_selector('h1', text: 'Zebra')
-
-    within '.dgu-beta__message' do
-      click_link "Don't show this message again"
-    end
-
-    expect(page).to have_selector('h1', text: 'Zebra')
-    expect(page).to_not have_selector('.dgu-beta__message')
+    expect(page).to have_selector('.dgu-beta__banner--hidden', visible: false)
+    expect(page).to have_selector('#dgu-beta__banner', visible: false)
   end
 end
 
 feature "Beta banner" do
-  it "is displayed on all pages after the combined banner is dismissed" do
+  it "is displayed on all pages after the combined banner is dismissed", js: true do
     dataset = DatasetBuilder.new.build
 
     index(dataset)
@@ -81,11 +67,12 @@ feature "Beta banner" do
     paths.each do |path|
       visit path
 
-      within '.phase-banner' do
+      expect(page).to have_selector('#dgu-phase-banner', visible: true)
+      within '#dgu-phase-banner' do
         expect(page).to have_content('This is a new service – your feedback will help us to improve it')
       end
 
-      expect(page).to_not have_selector('.dgu-beta__message')
+      expect(page).to_not have_selector('.phase-banner--hidden')
     end
   end
 end
