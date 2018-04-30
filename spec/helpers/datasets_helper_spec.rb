@@ -12,10 +12,10 @@ RSpec.describe DatasetsHelper do
       expect(url).to eq 'https://data.gov.uk/dataset/edit/foo'
     end
 
-    it 'uses the unpublished view if there are datafiles' do
+    it 'uses the dataset editor even when there are no datafiles' do
       unpublished_attributes = attributes.with_datafiles([])
       url = helper.edit_dataset_url(Dataset.new(unpublished_attributes.build))
-      expect(url).to eq 'https://data.gov.uk/unpublished/edit-item/foo'
+      expect(url).to eq 'https://data.gov.uk/dataset/edit/foo'
     end
   end
 

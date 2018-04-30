@@ -9,14 +9,7 @@ module DatasetsHelper
   }.freeze
 
   def edit_dataset_url(dataset)
-    url = URI::HTTPS.build(host: 'data.gov.uk')
-    url += if dataset.released?
-             '/dataset/edit/'
-           else
-             '/unpublished/edit-item/'
-           end
-    url += dataset.legacy_name
-    url.to_s
+    URI::HTTPS.build(host: 'data.gov.uk', path: "/dataset/edit/#{dataset.legacy_name}").to_s
   end
 
   def displayed_date(dataset)

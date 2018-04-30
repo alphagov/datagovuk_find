@@ -627,7 +627,7 @@ feature 'Dataset page', elasticsearch: true do
                   .build
 
       index_and_visit(dataset)
-      expect(page).to have_link('Sign in', href: 'https://data.gov.uk/unpublished/edit-item/abc123')
+      expect(page).to have_link('Sign in', href: 'https://data.gov.uk/dataset/edit/abc123')
     end
   end
 end
