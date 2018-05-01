@@ -318,6 +318,8 @@
 // preview page
 
 .dgu-datafile-preview {
+  border: 5px solid #dee0e2;
+  margin: 30px 0 30px;
   margin-top: 40px;
   table {
     border: 2px solid $panel-colour;
@@ -333,6 +335,11 @@
       border-bottom: none;
     }
   }
+}
+.dgu-datafile-preview__inner {
+  border: 1px solid $panel-colour;
+  padding: 4px;
+  overflow: auto;
 }
 
 // =============================================================================

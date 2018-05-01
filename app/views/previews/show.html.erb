@@ -23,6 +23,7 @@
     </div>
     <div class = 'column-full'>
       <section class="dgu-datafile-preview">
+        <div class="dgu-datafile-preview__inner">
           <table>
             <thead>
               <tr>
@@ -41,6 +42,7 @@
               <% end %>
             </tbody>
           </table>
+        </div>
         <% else %>
           <p><%= "#{t('.no_preview_avail')} \"#{@datafile.name}\"" %></p>
         <% end %>
