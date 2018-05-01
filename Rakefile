@@ -5,4 +5,4 @@ require_relative 'config/application'
 
 Rails.application.load_tasks
 
-task default: %i(spec lint)
+task default: %i(spec lint brakeman)
