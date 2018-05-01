@@ -4,8 +4,10 @@ AllCops:
     - bin/**/*
     - config.ru
     - db/schema.rb
+    - vendor/**/*
 
 Metrics/BlockLength:
   Exclude:
     - 'config/routes.rb'
+    - 'lib/tasks/**/*.rake'
     - 'spec/**/*.rb'

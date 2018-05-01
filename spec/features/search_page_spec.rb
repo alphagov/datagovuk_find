@@ -314,7 +314,7 @@ feature 'Search page', elasticsearch: true do
                     .new
                     .with_title('Foo')
                     .with_publisher('Org 1')
-                    .with_topic({ name: 'fun', title: 'Fun' })
+                    .with_topic(name: 'fun', title: 'Fun')
                     .with_datafiles([{ format: 'CSV' }])
                     .build
 
@@ -322,7 +322,7 @@ feature 'Search page', elasticsearch: true do
                     .new
                     .with_title('Bar')
                     .with_publisher('Org 2')
-                    .with_topic({ name: 'trivia', title: 'Trivia' })
+                    .with_topic(name: 'trivia', title: 'Trivia')
                     .with_datafiles([{ format: 'PDF' }])
                     .build
 
