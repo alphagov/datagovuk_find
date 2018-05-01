@@ -34,7 +34,7 @@ script:
   - bundle exec brakeman
   - bundle exec rake db:create
   - bundle exec rake db:migrate
-  - bundle exec rake spec
+  - bundle exec rake
 after_script:
   - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then ./cc-test-reporter after-build --exit-code
     $TRAVIS_TEST_RESULT; fi
