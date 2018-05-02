@@ -101,7 +101,7 @@ GEM
     faraday_middleware (0.12.2)
       faraday (>= 0.7.4, < 1.0)
     ffi (1.9.23)
-    gds_metrics (0.0.2)
+    gds_metrics (0.1.0)
       prometheus-client-mmap (= 0.9.1)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
@@ -352,7 +352,7 @@ DEPENDENCIES
   elasticsearch-rails (~> 5.0.1)
   faraday
   faraday_middleware
-  gds_metrics (~> 0.0.2)
+  gds_metrics (~> 0.1)
   govuk-lint (~> 3.8.0)
   govuk_elements_rails
   govuk_template
