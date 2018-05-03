@@ -47,11 +47,11 @@ feature 'Dataset page', elasticsearch: true do
                         href: 'http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/')
 
         expect(page)
-          .to have_link('View additional licence information',
-                        href: '#additional-licence-info')
+          .to have_link('View licence information',
+                        href: '#licence-info')
       end
 
-      within('section.dgu-additional-licence-info') do
+      within('section.dgu-licence-info') do
         expect(page).to have_content('Special case')
       end
     end
@@ -76,7 +76,7 @@ feature 'Dataset page', elasticsearch: true do
       end
     end
 
-    scenario 'Additional licence information' do
+    scenario 'Licence information' do
       dataset = DatasetBuilder
                   .new
                   .with_licence('no-licence')
@@ -91,11 +91,11 @@ feature 'Dataset page', elasticsearch: true do
 
       within('section.meta-data') do
         expect(page)
-          .to have_link('View additional licence information',
-                        href: '#additional-licence-info')
+          .to have_link('View licence information',
+                        href: '#licence-info')
       end
 
-      within('section.dgu-additional-licence-info') do
+      within('section.dgu-licence-info') do
         expect(page).to have_content('Special licence')
       end
     end
@@ -142,11 +142,11 @@ feature 'Dataset page', elasticsearch: true do
                         href: 'https://opensource.org/licenses/Feature-Spec-2.1')
 
         expect(page)
-          .to have_link('View additional licence information',
-                        href: '#additional-licence-info')
+          .to have_link('View licence information',
+                        href: '#licence-info')
       end
 
-      within('section.dgu-additional-licence-info') do
+      within('section.dgu-licence-info') do
         expect(page).to have_content('For feature specs only.')
       end
     end
