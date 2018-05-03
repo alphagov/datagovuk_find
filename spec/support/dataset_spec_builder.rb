@@ -129,6 +129,11 @@ class DatasetBuilder
     self
   end
 
+  def public_updated_at(date_string)
+    @dataset[:public_updated_at] = date_string
+    self
+  end
+
   def with_publisher(publisher)
     @dataset[:organisation][:name] = publisher
     @dataset[:organisation][:title] = publisher
