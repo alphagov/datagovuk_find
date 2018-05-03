@@ -2,12 +2,17 @@
   "name": "find-data",
   "scripts": {},
   "env": {
-    "VCAP_SERVICES": {
+    "RAILS_ENV": {
+      "required": true
+    },
+    "RACK_ENV": {
+      "required": true
+    },
+    "ES_HOST": {
       "required": true
     }
   },
   "formation": {},
-  "addons": [],
   "buildpacks": [
     {
       "url": "heroku/nodejs"

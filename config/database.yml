@@ -12,17 +12,3 @@ test:
   <<: *default
   database: find_data_beta_test
   url: <%= ENV['DATABASE_URL'] %>
-
-staging:
-  <<: *default
-  database: find_data_beta_production
-  username: find_data_beta
-  password: <%= ENV['PUBLISH_DATA_BETA_DATABASE_PASSWORD'] %>
-  url: <%= ENV['DATABASE_URL'] %>
-
-production:
-  <<: *default
-  database: find_data_beta_production
-  username: find_data_beta
-  password: <%= ENV['PUBLISH_DATA_BETA_DATABASE_PASSWORD'] %>
-  url: <%= ENV['DATABASE_URL'] %>

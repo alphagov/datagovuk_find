@@ -9,6 +9,10 @@ development:
   <<: *default
   host: <%= ENV["ES_HOST"] || "http://localhost:9200" %>
 
+integration:
+  <<: *default
+  host: <%= ENV["ES_HOST"] %>
+
 staging:
   <<: *default
   host: <%= ENV["ES_HOST"] %>
