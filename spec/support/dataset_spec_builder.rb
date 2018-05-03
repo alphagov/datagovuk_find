@@ -39,7 +39,8 @@ class DatasetBuilder
             uuid: '5db6e904-ea2f-42a7-93bd-a61da059246f',
             active: true,
             org_type: 'central-government',
-            ancestry: ''
+            ancestry: '',
+            govuk_content_id: SecureRandom.uuid
         },
         topic: {
           id: 1,
