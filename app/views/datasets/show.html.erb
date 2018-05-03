@@ -53,13 +53,13 @@
     <% end %>
 
     <% if @dataset.licence_custom.present? %>
-      <section class="dgu-additional-licence-info">
+      <section class="dgu-licence-info">
         <div class="grid-row">
           <div class="column-full">
-            <h2 class="heading-medium" id="additional-licence-info">
-              <%= t('.additional_licence_information') %>
+            <h2 class="heading-medium" id="licence-info">
+              <%= t('.licence_information') %>
             </h2>
-            <p class="dgu-additional-licence-info__notes">
+            <p class="dgu-licence-info__notes">
               <%= to_markdown(@dataset.licence_custom) %>
             </p>
           </div>

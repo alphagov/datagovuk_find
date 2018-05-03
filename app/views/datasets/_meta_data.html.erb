@@ -55,14 +55,19 @@
 
               <% if @dataset.licence_custom.present? %>
                 <br />
-                <%= link_to t('.view_additional_licence_information'),
-                            '#additional-licence-info' %>
+                <%= link_to t('.view_licence_information'),
+                            '#licence-info' %>
               <% end %>
             </dd>
           <% else %>
-            <dd class="dgu-unavailable">
-              <%= t('.no_licence') %>
-            </dd>
+            <% if @dataset.licence_custom.present? %>
+              <%= link_to t('.view_licence_information'),
+                          '#licence-info' %>
+            <% else %>
+              <dd class="dgu-unavailable">
+                <%= t('.no_licence') %>
+              </dd>
+            <% end %>
           <% end %>
         </dl>
 
