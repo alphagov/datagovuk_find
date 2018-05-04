@@ -12,16 +12,6 @@ module DatasetsHelper
     URI::HTTPS.build(host: 'data.gov.uk', path: "/dataset/edit/#{dataset.legacy_name}").to_s
   end
 
-  def displayed_date(dataset)
-    if dataset.public_updated_at.present?
-      dataset.public_updated_at
-    elsif dataset.datafiles.none?
-      dataset.last_updated_at
-    else
-      most_recent_datafile(dataset).updated_at
-    end
-  end
-
   def to_markdown(content)
     markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: false)
     markdown.render(content).html_safe
@@ -69,7 +59,7 @@ module DatasetsHelper
       },
       description: dataset.summary,
       license: dataset.licence == 'uk-ogl' ? '' : dataset.licence_other,
-      dateModified: displayed_date(dataset)
+      dateModified: dataset.public_updated_at
     }
     if dataset.licence == 'uk-ogl'
       dataset_metadata[:license] = "http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
