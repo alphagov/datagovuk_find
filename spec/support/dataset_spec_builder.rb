@@ -49,7 +49,8 @@ class DatasetBuilder
         },
         datafiles: [],
         docs: [],
-        notes: ''
+        notes: '',
+        public_updated_at: Time.now,
     }
   end
 

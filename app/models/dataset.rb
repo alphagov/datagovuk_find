@@ -13,7 +13,7 @@ class Dataset
                 :harvested, :uuid, :short_id, :topic,
                 :inspire_dataset, :json, :notes,
                 :_index, :_type, :_id, :_score, :_source,
-                :_version
+                :_version, :public_updated_at
 
   attr_writer :licence_code, :licence_title, :licence_url
   attr_reader :organisation
