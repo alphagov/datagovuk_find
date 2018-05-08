@@ -1,7 +1,7 @@
 <% content_for :head do %>
   <%= tag.meta name: 'dc:title',   content: unescape(@dataset.title) %>
   <%= tag.meta name: 'dc:creator', content: @dataset.organisation.title %>
-  <%= tag.meta name: 'dc:date',    content: Date.parse(displayed_date(@dataset)).to_formatted_s %>
+  <%= tag.meta name: 'dc:date',    content: Date.parse(@dataset.public_updated_at).to_formatted_s %>
 
   <% if @dataset.licence_title.present? %>
     <%= tag.meta name: 'dc:rights', content: @dataset.licence_title %>
@@ -34,8 +34,8 @@
           </dd>
 
           <dt><%= t('.last_updated') %>:</dt>
-          <dd property="dc:date" content="<%= format_timestamp(displayed_date(@dataset)) %>">
-            <%= format_timestamp(displayed_date(@dataset)) %>
+          <dd property="dc:date" content="<%= format_timestamp(@dataset.public_updated_at) %>">
+            <%= format_timestamp(@dataset.public_updated_at) %>
           </dd>
 
           <dt><%= t('.topic') %>:</dt>

@@ -32,13 +32,12 @@ feature 'Search page', elasticsearch: true do
     old_dataset = DatasetBuilder.new
                     .with_title('Old Interesting Dataset')
                     .with_name('old-dataset')
-                    .last_updated_at('2014-07-24T14:47:25.975Z')
+                    .public_updated_at(Time.now - 1)
                     .build
 
     new_dataset = DatasetBuilder.new
                     .with_title('Recent Interesting Dataset')
                     .with_name('new-dataset')
-                    .last_updated_at('2017-07-24T14:47:25.975Z')
                     .build
 
     index(old_dataset, new_dataset)

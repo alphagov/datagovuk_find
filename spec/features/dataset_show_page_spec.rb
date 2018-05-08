@@ -199,36 +199,10 @@ feature 'Dataset page', elasticsearch: true do
       expect(page).to have_content('Topic: Not added')
     end
 
-    context 'When public_updated_at is present on a dataset' do
-      scenario 'Last Updated field displays public_updated_at' do
-        dataset = DatasetBuilder.new.build
-        index_and_visit(dataset)
-        expect(page).to have_content("Last updated: #{dataset['last_updated_at']}")
-      end
-    end
-
-    context 'When public_updated_at is not present on a dataset with no datafiles' do
-      scenario 'Last Updated field displays dataset last_updated_at' do
-        dataset = DatasetBuilder.new.build
-        dataset.delete(:public_updated_at)
-        index_and_visit(dataset)
-        expect(page).to have_content("Last updated: #{dataset['last_updated_at']}")
-      end
-    end
-
-    context 'When public_updated_at is not present on a dataset with datafiles' do
-      scenario 'Last Updated field displays most recent datafile updated_at' do
-        last_datafile = DATA_FILES_WITH_START_AND_ENDDATE.last
-        datafile_updated_at = Time.parse(last_datafile['updated_at']).strftime('%d %B %Y')
-
-        dataset = DatasetBuilder.new
-          .with_datafiles([last_datafile])
-          .build
-        dataset.delete(:public_updated_at)
-
-        index_and_visit(dataset)
-        expect(page).to have_content("Last updated: #{datafile_updated_at}")
-      end
+    scenario 'Last Updated field displays public_updated_at' do
+      dataset = DatasetBuilder.new.build
+      index_and_visit(dataset)
+      expect(page).to have_content("Last updated: #{dataset['public_updated_at']}")
     end
   end
 

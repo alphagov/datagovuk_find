@@ -179,7 +179,7 @@ module Search
         query[:query][:bool][:should] << organisation_category_filter('local-council', boost: 1)
       end
 
-      query[:sort] = { "last_updated_at": { "order": "desc" } } if sort_param == "recent"
+      query[:sort] = { "public_updated_at": { "order": "desc" } } if sort_param == "recent"
 
       query[:aggs] = aggregations.inject(&:merge)
 
