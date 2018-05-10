@@ -1,3 +1,10 @@
+<%
+  if contact_email_is_email?(dataset)
+    mail = mail_to(contact_email_for(dataset), nil, {'data-ga-event': 'contact', 'data-ga-publisher': @dataset.organisation.name})
+  else
+    mail = link_to(contact_email_for(dataset), contact_email_for(dataset), {'data-ga-event': 'contact', 'data-ga-publisher': @dataset.organisation.name})
+  end
+%>
 <section class="contact">
   <h2 class="heading-medium">
     <%= t('datasets.contact.contact') %>
@@ -8,16 +15,9 @@
       <h3 class="heading-small">
         <%= t('datasets.contact.enquiries') %>
       </h3>
-
       <p>
-        <span><%= contact_name_for(dataset) %></span>
-        <span>
-          <% if contact_email_is_email?(dataset) %>
-            <%= mail_to(contact_email_for(dataset), nil, {'data-ga-event': 'contact', 'data-ga-publisher': @dataset.organisation.name}) %>
-          <% else %>
-            <%= link_to(contact_email_for(dataset), contact_email_for(dataset), {'data-ga-event': 'contact', 'data-ga-publisher': @dataset.organisation.name}) %>
-          <% end %>
-        </span>
+        <%= content_tag(:span, contact_name_for(dataset)) if contact_name_for(dataset).present? %>
+        <%= content_tag(:span, mail) if mail.present? %>
       </p>
     </div>
   <% end %>
@@ -29,14 +29,14 @@
       </h3>
 
       <p>
-        <span><%= foi_name_for(dataset) %></span>
-        <span><%= mail_to(foi_email_for(dataset), nil, {class: 'ga-contact'}) %></span>
-        <span>
-          <%= link_to(foi_web_address_for(dataset),
-              foi_web_address_for(dataset),
-              {class: 'ga-contact'})
-          %>
-        </span>
+        <%= content_tag(:span, foi_name_for(dataset)) if foi_name_for(dataset).present? %>
+        <%= content_tag(:span, mail_to(foi_email_for(dataset), nil, {class: 'ga-contact'})) if foi_email_for(dataset).present? %>
+        <% if foi_web_address_for(dataset).present? %>
+          <%= content_tag(:span) do %>
+            <%= link_to(foi_web_address_for(dataset), foi_web_address_for(dataset), { class: 'ga-contact'} ) %>
+          <% end %>
+        <% end %>
+
       </p>
     </div>
   <% end %>
