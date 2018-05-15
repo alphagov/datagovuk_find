@@ -271,11 +271,12 @@
     &__publisher_datasets {
       h3 {
         margin: 0;
-        padding-top: 30px;
-        border-top: 10px solid $highlight-colour;
       }
 
     }
+  }
+  @include media(mobile) {
+    padding-left: 15px;
   }
 }
 
