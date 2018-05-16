@@ -2,7 +2,7 @@ INDEX = "datasets-test".freeze
 
 def index(*datasets)
   datasets.each do |dataset, i|
-    ELASTIC.index index: INDEX, type: 'dataset', id: i, body: dataset
+    ELASTIC.index index: INDEX, type: 'dataset', id: i, body: dataset.to_json
   end
   refresh_index
 end
@@ -13,7 +13,7 @@ end
 
 def index_and_visit(dataset)
   index(dataset)
-  visit dataset_path(dataset[:uuid], dataset[:name])
+  visit dataset_path(dataset.uuid, dataset.name)
 end
 
 def search_for(query)

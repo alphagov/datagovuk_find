@@ -15,20 +15,10 @@ RSpec.describe 'Error handling', type: :request do
   end
 
   it "handles a Datafile that can't be found by UUID" do
-    dataset_name = 'my-dataset'
-    dataset_uuid = SecureRandom.uuid
-    datafile_uuid = SecureRandom.uuid
-
-    dataset = DatasetBuilder
-                .new
-                .with_name(dataset_name)
-                .with_uuid(dataset_uuid)
-                .build
-
+    dataset = build :dataset
     index(dataset)
 
-    get "/dataset/#{dataset_uuid}/#{dataset_name}/datafile/#{datafile_uuid}/preview"
-
+    get "/dataset/#{dataset.uuid}/#{dataset.name}/datafile/#{SecureRandom.uuid}/preview"
     expect(response).to have_http_status(:not_found)
   end
 end

@@ -10,11 +10,7 @@ RSpec.feature 'Dataset page', type: :feature, elasticsearch: true do
 
   feature 'Licence information' do
     scenario 'Link to Open Government Licence information' do
-      dataset = DatasetBuilder
-                  .new
-                  .with_licence('uk-ogl')
-                  .build
-
+      dataset = build :dataset, :with_ogl_licence
       index_and_visit(dataset)
 
       expect(page)
@@ -29,11 +25,8 @@ RSpec.feature 'Dataset page', type: :feature, elasticsearch: true do
     end
 
     scenario 'Link to Open Government Licence with additional information' do
-      dataset = DatasetBuilder
-                  .new
-                  .with_licence('uk-ogl')
-                  .with_licence_custom('Special case')
-                  .build
+      dataset = build :dataset, :with_ogl_licence,
+                                licence_custom: 'Special case'
 
       index_and_visit(dataset)
 
@@ -57,12 +50,7 @@ RSpec.feature 'Dataset page', type: :feature, elasticsearch: true do
     end
 
     scenario 'Link to Creative Commons CCZero information' do
-      dataset = DatasetBuilder
-                  .new
-                  .with_licence('other')
-                  .with_licence_other('cc-zero')
-                  .build
-
+      dataset = build :dataset, :with_cczero_licence
       index_and_visit(dataset)
 
       expect(page)
@@ -77,12 +65,7 @@ RSpec.feature 'Dataset page', type: :feature, elasticsearch: true do
     end
 
     scenario 'Licence information' do
-      dataset = DatasetBuilder
-                  .new
-                  .with_licence('no-licence')
-                  .with_licence_custom('Special licence')
-                  .build
-
+      dataset = build :dataset, :with_no_licence
       index_and_visit(dataset)
 
       expect(page)
@@ -101,13 +84,7 @@ RSpec.feature 'Dataset page', type: :feature, elasticsearch: true do
     end
 
     scenario 'Explicit licence information' do
-      dataset = DatasetBuilder
-                  .new
-                  .with_licence_code('example-1.1')
-                  .with_licence_title('Example Open License 1.1')
-                  .with_licence_url('https://opensource.org/licenses/Example-1.1')
-                  .build
-
+      dataset = build :dataset, :with_custom_licence
       index_and_visit(dataset)
 
       expect(page)
@@ -122,24 +99,19 @@ RSpec.feature 'Dataset page', type: :feature, elasticsearch: true do
     end
 
     scenario 'Explicit licence information with additional license information' do
-      dataset = DatasetBuilder
-                  .new
-                  .with_licence_code('feature-spec-2.1')
-                  .with_licence_title('Feature Spec Open License 2.1')
-                  .with_licence_url('https://opensource.org/licenses/Feature-Spec-2.1')
-                  .with_licence_custom('For feature specs only.')
-                  .build
+      dataset = build :dataset, :with_custom_licence,
+                                licence_custom: 'For feature specs only.'
 
       index_and_visit(dataset)
 
       expect(page)
-        .to have_css('meta[name="dc:rights"][content="Feature Spec Open License 2.1"]',
+        .to have_css('meta[name="dc:rights"][content="Example Open License 1.1"]',
                      visible: false)
 
       within('section.meta-data') do
         expect(page)
-          .to have_link('Feature Spec Open License 2.1',
-                        href: 'https://opensource.org/licenses/Feature-Spec-2.1')
+          .to have_link('Example Open License 1.1',
+                        href: 'https://opensource.org/licenses/Example-1.1')
 
         expect(page)
           .to have_link('View licence information',
@@ -154,244 +126,137 @@ RSpec.feature 'Dataset page', type: :feature, elasticsearch: true do
 
   feature 'Map preview links' do
     scenario 'WMS Resources have a link to map preview if we have inspire metadata' do
-      dataset = DatasetBuilder
-        .new
-        .with_datafiles(GEO_DATAFILES.map { |f| Datafile.new(f) })
-        .with_inspire_metadata(
-          'bbox_north_lat' => '1.0',
-          'bbox_east_long' => '1.0',
-          'bbox_south_lat' => '2.0',
-          'bbox_west_long' => '2.0',
-        )
-        .build
+      dataset = build :dataset, :inspire, inspire_metadata: {}
       index_and_visit(dataset)
-
       expect(page).to have_content('Preview on map')
     end
 
     scenario 'WMS Resources have no link to map preview if we have no inspire metadata' do
-      dataset = DatasetBuilder
-        .new
-        .with_datafiles(GEO_DATAFILES.map { |f| Datafile.new(f) })
-        .build
+      dataset = build :dataset
       index_and_visit(dataset)
-
       expect(page).not_to have_content('Preview on map')
     end
   end
 
   feature 'Meta data' do
-    before(:each) do
-      dataset = DatasetBuilder.new.build
-      index_and_visit(dataset)
-    end
-
     scenario 'Display the topic if there is one' do
+      dataset = build :dataset, :with_topic
+      index_and_visit(dataset)
       expect(page).to have_content('Topic: Government')
     end
 
     scenario 'Do not display the topic if information missing' do
-      dataset = DatasetBuilder.new.build
-      dataset['topic'] = nil
-
+      dataset = build :dataset
       index_and_visit(dataset)
-
       expect(page).to have_content('Topic: Not added')
     end
 
     scenario 'Last Updated field displays public_updated_at' do
-      dataset = DatasetBuilder.new.build
+      dataset = build :dataset
+      time = Time.parse(dataset.public_updated_at)
       index_and_visit(dataset)
-      expect(page).to have_content("Last updated: #{dataset['public_updated_at']}")
+      expect(page).to have_content("Last updated: #{time.strftime('%d %B %Y')}")
     end
   end
 
   feature 'Datalinks' do
+    let(:dataset) { build :dataset }
+
     scenario 'displays if required fields present' do
-      dataset = DatasetBuilder.new
-        .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
-        .build
-
+      dataset = build :dataset, datafiles: [build(:datafile, :raw, start_date: '01/01/2001')]
       index_and_visit(dataset)
-
       expect(page).to have_css('h2', text: 'Data links')
     end
 
     scenario 'datafiles are not present' do
-      dataset = DatasetBuilder.new
-        .build
-
       index_and_visit(dataset)
-
       expect(page).to have_content("This data hasn’t been released by the publisher.")
     end
 
     scenario 'display if some information is missing' do
-      dataset = DatasetBuilder.new
-        .with_datafiles(DATAFILES_WITHOUT_START_AND_ENDDATE)
-        .build
-
+      dataset = build :dataset, :with_datafile
       index_and_visit(dataset)
-
       expect(page).to have_css('h2', text: 'Data links')
     end
   end
 
   feature 'Side bar content' do
+    let(:dataset1) { build :dataset, title: '1 Data Set' }
+    let(:dataset2) { build :dataset, title: '2 Data Set' }
+    let(:dataset3) { build :dataset, :unrelated }
+
     context 'Related content and publisher datasets' do
       before do
-        title1 = '1 Data Set'
-        @title2 = '2 Data Set'
-        slug1 = 'first-dataset-data'
-        slug2 = 'second-dataset-data'
-
-        @first_dataset = DatasetBuilder.new
-          .with_title(title1)
-          .with_name(slug1)
-          .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
-          .build
-
-        second_dataset = DatasetBuilder.new
-          .with_title(@title2)
-          .with_name(slug2)
-          .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
-          .build
-
-        index(@first_dataset, second_dataset)
+        index(dataset1, dataset2)
         refresh_index
-
-        visit dataset_path(@first_dataset[:uuid], @first_dataset[:name])
+        visit dataset_path(dataset1.uuid, dataset1.name)
       end
 
       scenario 'displays related datasets if there is a match' do
         expect(page).to have_content('Related datasets')
-        expect(page).to have_content(@title2)
+        expect(page).to have_content(dataset2.title)
       end
 
       scenario 'displays link to publisher\'s datasets' do
         expect(page).to have_content('More from this publisher')
-        expect(page).to have_css('a', text: "All datasets from #{@first_dataset[:organisation][:title]}")
+        expect(page).to have_css('a', text: "All datasets from #{dataset1.organisation.title}")
       end
     end
 
     scenario 'displays filtered related datasets if filters form part of search query' do
-      title1 = 'First Dataset Data'
-      title2 = 'Second Dataset Data'
-      title3 = 'Completely unrelated'
-      slug1 = 'first-dataset-data'
-      slug2 = 'second-dataset-data'
-      slug3 = 'completely-unrelated'
-      london = 'London'
-      auckland = 'Auckland'
-
-      first_dataset = DatasetBuilder.new
-        .with_title(title1)
-        .with_name(slug1)
-        .with_location(london)
-        .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
-        .build
-
-      second_dataset = DatasetBuilder.new
-        .with_title(title2)
-        .with_name(slug2)
-        .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
-        .with_location(london)
-        .build
-
-      third_dataset = DatasetBuilder.new
-        .with_title(title3)
-        .with_name(slug3)
-        .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
-        .with_summary('Nothing')
-        .with_description('Nothing')
-        .with_location(auckland)
-        .with_publisher('Unrelated publisher')
-        .build
-
-      index(first_dataset, second_dataset, third_dataset)
-
+      index(dataset1, dataset2, dataset3)
       refresh_index
-
-      visit dataset_path(first_dataset[:uuid], first_dataset[:name])
+      visit dataset_path(dataset1.uuid, dataset1.name)
 
       expect(page).to have_content('Related datasets')
-      expect(page).to have_content(title2)
-      expect(page).to_not have_content(title3)
+      expect(page).to have_content(dataset2.title)
+      expect(page).to_not have_content(dataset3.title)
     end
 
     scenario 'does not display if related datasets is empty' do
       allow(Dataset).to receive(:related).and_return([])
-
-      dataset = DatasetBuilder.new
-        .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
-        .build
-
-      index_and_visit(dataset)
-
+      index_and_visit(dataset1)
       expect(page).to_not have_css('h3', text: 'Related datasets')
     end
   end
 
   feature 'Additional info' do
     scenario 'Is displayed if available' do
-      notes = 'Some very interesting notes'
-      dataset = DatasetBuilder.new
-        .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
-        .with_notes(notes)
-        .build
-
+      dataset = build :dataset, notes: 'Some very interesting notes'
       index_and_visit(dataset)
-
       expect(page).to have_css('h2', text: 'Additional information')
-      expect(page).to have_content(notes)
+      expect(page).to have_content(dataset.notes)
     end
 
     scenario 'Contains a link to original INSPIRE XML' do
-      dataset = DatasetBuilder
-        .new
-        .with_inspire_metadata('harvest_object_id' => '1234')
-        .build
+      dataset = build :dataset, :inspire
       index_and_visit(dataset)
-
       expect(page).to have_xpath("//a[@href='/api/2/rest/harvestobject/1234/xml']")
     end
 
     scenario 'Contains a link to HTML rendering of INSPIRE XML' do
-      dataset = DatasetBuilder
-        .new
-        .with_inspire_metadata('harvest_object_id' => '1234')
-        .build
+      dataset = build :dataset, :inspire
       index_and_visit(dataset)
-
       expect(page).to have_xpath("//a[@href='/api/2/rest/harvestobject/1234/html']")
     end
 
     scenario 'Is not displayed if not available' do
-      dataset = DatasetBuilder.new
-        .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
-        .build
-
+      dataset = build :dataset
       index_and_visit(dataset)
-
       expect(page).to_not have_css('h2', text: 'Additional information')
     end
   end
 
   feature 'Contact enquiries' do
     scenario 'Is not displayed if not available' do
-      dataset = DatasetBuilder.new
-        .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
-        .build
-
+      dataset = build :dataset
       index_and_visit(dataset)
       expect(page).to_not have_css('h2', text: 'Contact')
     end
 
     scenario 'Is displayed if available' do
-      dataset = DatasetBuilder.new
-                  .with_contact_name('Mr. Contact')
-                  .with_contact_email('contact@example.com')
-                  .build
+      dataset = build :dataset, contact_name: 'Mr. Contact',
+                                contact_email: 'mr.contact@example.com'
 
       index_and_visit(dataset)
 
@@ -399,87 +264,76 @@ RSpec.feature 'Dataset page', type: :feature, elasticsearch: true do
       expect(page).to have_css('h3', text: 'Enquiries')
 
       within('section.contact .enquiries') do
-        expect(page).to have_link(dataset[:contact_email])
-        expect(page).to have_content(dataset[:contact_name])
+        expect(page).to have_link(dataset.contact_email)
+        expect(page).to have_content(dataset.contact_name)
       end
     end
 
     scenario 'Is displayed if available on the organisation' do
-      dataset = DatasetBuilder.new
-                  .with_org_contact_name('Mr. Contact')
-                  .with_org_contact_email('contact@example.com')
-                  .build
+      organisation = build :organisation, :raw, contact_name: 'Mr. Contact',
+                                                contact_email: 'mr.contact@example.com'
 
+      dataset = build :dataset, organisation: organisation
       index_and_visit(dataset)
 
       expect(page).to have_css('h2', text: 'Contact')
       expect(page).to have_css('h3', text: 'Enquiries')
 
       within('section.contact .enquiries') do
-        expect(page).to have_link(dataset[:organisation][:contact_email])
-        expect(page).to have_content(dataset[:organisation][:contact_name])
+        expect(page).to have_link(dataset.organisation.contact_email)
+        expect(page).to have_content(dataset.organisation.contact_name)
       end
     end
   end
 
   feature 'Contact FOI' do
     scenario 'Is not displayed if not available' do
-      dataset = DatasetBuilder
-                  .new
-                  .build
-
+      dataset = build :dataset
       index_and_visit(dataset)
       expect(page).to_not have_css('h2', text: 'Contact')
     end
 
     scenario 'Is displayed if available' do
-      dataset = DatasetBuilder
-                  .new
-                  .with_foi_name('Mr. FOI')
-                  .with_foi_email('mr.foi@example.com')
-                  .with_foi_web('http://foi.com')
-                  .build
+      dataset = build :dataset, foi_name: 'Mr. FOI',
+                                foi_email: 'mr.foi@example.com',
+                                foi_web: 'http://foi.com'
 
       index_and_visit(dataset)
       expect(page).to have_css('h2', text: 'Contact')
       expect(page).to have_css('h3', text: 'Freedom of Information (FOI) requests')
 
       within('section.contact .foi') do
-        expect(page).to have_content(dataset[:foi_name])
-        expect(page).to have_content(dataset[:foi_email])
-        expect(page).to have_link(dataset[:foi_web], href: dataset[:foi_web])
+        expect(page).to have_content(dataset.foi_name)
+        expect(page).to have_content(dataset.foi_email)
+        expect(page).to have_link(dataset.foi_web, href: dataset.foi_web)
       end
     end
 
     scenario 'Is displayed if available on the organisation' do
-      dataset = DatasetBuilder
-                  .new
-                  .with_org_foi_name('Mr. FOI')
-                  .with_org_foi_email('mr.foi@example.com')
-                  .with_org_foi_web('http://foi.com')
-                  .build
+      organisation = build :organisation, :raw, foi_name: 'Mr. FOI',
+                                                foi_email: 'mr.foi@example.com',
+                                                foi_web: 'http://foi.com'
 
+      dataset = build :dataset, organisation: organisation
       index_and_visit(dataset)
+
       expect(page).to have_css('h2', text: 'Contact')
       expect(page).to have_css('h3', text: 'Freedom of Information (FOI) requests')
 
       within('section.contact .foi') do
-        expect(page).to have_content(dataset[:organisation][:foi_name])
-        expect(page).to have_content(dataset[:organisation][:foi_email])
+        expect(page).to have_content(dataset.organisation.foi_name)
+        expect(page).to have_content(dataset.organisation.foi_email)
 
-        expect(page).to have_link(dataset[:organisation][:foi_web],
-                                  href: dataset[:organisation][:foi_web])
+        expect(page).to have_link(dataset.organisation.foi_web,
+                                  href: dataset.organisation.foi_web)
       end
     end
   end
 
   feature 'Displaying datasets', js: true do
-    scenario 'Show more and show less' do
-      DATAFILES = create_datafiles(20)
-      dataset = DatasetBuilder.new
-        .with_datafiles(DATAFILES)
-        .build
+    let(:dataset) { build :dataset, datafiles: build_list(:datafile, 20, :raw) }
 
+    scenario 'Show more and show less' do
       index_and_visit(dataset)
 
       expect(page).to have_css('js-show-more-datafiles', count: 0)
@@ -491,147 +345,57 @@ RSpec.feature 'Dataset page', type: :feature, elasticsearch: true do
       expect(page).to have_css('.dgu-datafile', count: 20)
       expect(page).to have_css('.show-toggle', text: 'Show less')
     end
-
-    def create_datafiles(count)
-      datafiles = []
-
-      count.times do |i|
-        datafiles.push(
-          'id' => i,
-          'url' => "http://datafile-url",
-          'start_date' => nil,
-          'end_date' => nil,
-          'created_at' => '2017-07-31T14:40:57.528Z',
-          'updated_at' => '2017-08-31T14:40:57.528Z'
-        )
-      end
-
-      datafiles
-    end
   end
 
   feature 'Datafiles' do
+    let(:datafile1) { build :datafile, :raw, start_date: '2000/01/01' }
+    let(:datafile2) { build :datafile, :raw, start_date: '2002/01/01' }
+    let(:datafile3) { build :datafile, :raw }
+    let(:dataset) { build :dataset, datafiles: [datafile1, datafile2, datafile3] }
+
     scenario 'are grouped by year when they contain timeseries datafiles' do
-      timeseries_and_non_timeseries = [
-        {
-          id: 1,
-          url: "http://www.foobar.com",
-          name: "Datafile 1",
-          start_date: "2000/01/01",
-          end_date: "2000/12/12",
-          created_at: "1999/12/12",
-          updated_at: "2000/01/01"
-        },
-        {
-          id: 2,
-          url: "http://www.foobar.com",
-          name: "Datafile 2",
-          start_date: "2001/01/01",
-          end_date: "2001/12/12",
-          created_at: "2000/12/12",
-          updated_at: "2001/01/01"
-        },
-        {
-          id: 3,
-          url: "http://www.foobar.com",
-          name: "Datafile 3",
-          start_date: "2001/01/01",
-          end_date: "2001/12/12",
-          created_at: "2000/12/12",
-          updated_at: "2001/01/01"
-        },
-        {
-          id: 4,
-          url: "http://www.foobar.com",
-          name: "Datafile 4",
-          start_date: nil,
-          end_date: nil,
-          created_at: "2000/12/12",
-          updated_at: "2001/01/01"
-        }
-      ]
-
-      dataset = DatasetBuilder.new
-        .with_datafiles(timeseries_and_non_timeseries)
-        .build
-
       index_and_visit(dataset)
       expect(page).to have_css(".dgu-datafiles__year", count: 2)
 
       correct_order = [
-        Time.parse(timeseries_and_non_timeseries[1][:start_date]).year.to_s,
-        Time.parse(timeseries_and_non_timeseries[0][:start_date]).year.to_s
+        Time.parse(datafile2['start_date']).year.to_s,
+        Time.parse(datafile1['start_date']).year.to_s
       ]
-      actual_order = all('button.dgu-datafiles__year').map(&:text)
 
+      actual_order = all('button.dgu-datafiles__year').map(&:text)
       expect(actual_order).to eq correct_order
     end
 
     scenario 'are not grouped when they contain non timeseries datafiles' do
-      non_timeseries_data_files = [
-        {
-          id: 1,
-          url: "http://www.foobar.com",
-          name: "Datafile 1",
-          start_date: nil,
-          end_date: nil,
-          created_at: "1999/12/12",
-          updated_at: "2000/01/01"
-        },
-        {
-          id: 2,
-          url: "http://www.foobar.com",
-          name: "Datafile 2",
-          start_date: nil,
-          end_date: nil,
-          created_at: "2000/12/12",
-          updated_at: "2001/01/01"
-        },
-        {
-          id: 3,
-          url: "http://www.foobar.com",
-          name: "Datafile 3",
-          start_date: nil,
-          end_date: nil,
-          created_at: "2000/12/12",
-          updated_at: "2001/01/01"
-        }
-      ]
-
-      dataset = DatasetBuilder.new
-        .with_datafiles(non_timeseries_data_files)
-        .build
-
+      dataset = build :dataset, :with_datafile
       index_and_visit(dataset)
-
       expect(page).to have_css(".dgu-datalinks__year", count: 0)
     end
   end
 
   feature 'not released label' do
     scenario 'released is set to false' do
-      dataset = DatasetBuilder.new.with_released(false).build
+      dataset = build :dataset, released: false
       index_and_visit(dataset)
       expect(page).to have_content 'Not released'
     end
 
     scenario 'released is set to true' do
-      dataset = DatasetBuilder.new.with_released(true).build
+      dataset = build :dataset, released: true
       index_and_visit(dataset)
-      expect(page).to have_no_content 'Not released'
+      expect(page).to have_no_content('Not released')
     end
   end
 
   feature 'contact instructions' do
     scenario 'publisher contact details exist' do
-      dataset = DatasetBuilder.new.build
-      dataset[:contact_email] = "foo@bar.com"
+      dataset = build :dataset, contact_email: 'foo@bar.com'
       index_and_visit(dataset)
       expect(page).to have_content("Contact the publisher for more information.")
     end
 
     scenario 'publisher contact details do not exist' do
-      dataset = DatasetBuilder.new.build
+      dataset = build :dataset
       index_and_visit(dataset)
       expect(page).to have_content("Contact the team on data.gov.uk/support if you have any questions.")
     end
@@ -639,47 +403,25 @@ RSpec.feature 'Dataset page', type: :feature, elasticsearch: true do
 
   feature 'publisher edit link' do
     scenario 'cannot edit harvested dataset' do
-      dataset = DatasetBuilder
-                  .new
-                  .with_legacy_name('abc123')
-                  .with_harvested(true)
-                  .build
-
+      dataset = build :dataset, legacy_name: 'abc123', harvested: true
       index_and_visit(dataset)
-
       expect(page).to_not have_link('Sign in', href: 'https://data.gov.uk/dataset/edit/abc123')
     end
 
     scenario 'edit released dataset link with datafile' do
-      dataset = DatasetBuilder
-                  .new
-                  .with_legacy_name('abc123')
-                  .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
-                  .build
-
+      dataset = build :dataset, :with_datafile, legacy_name: 'abc123'
       index_and_visit(dataset)
-
       expect(page).to have_link('Sign in', href: 'https://data.gov.uk/dataset/edit/abc123')
     end
 
     scenario 'edit released dataset link with doc' do
-      dataset = DatasetBuilder
-                  .new
-                  .with_legacy_name('abc123')
-                  .with_docs([HTML_DATAFILE])
-                  .build
-
+      dataset = build :dataset, docs: [build(:doc, :raw)], legacy_name: 'abc123'
       index_and_visit(dataset)
-
       expect(page).to have_link('Sign in', href: 'https://data.gov.uk/dataset/edit/abc123')
     end
 
     scenario 'edit not released dataset link' do
-      dataset = DatasetBuilder
-                  .new
-                  .with_legacy_name('abc123')
-                  .build
-
+      dataset = build :dataset, legacy_name: 'abc123'
       index_and_visit(dataset)
       expect(page).to have_link('Sign in', href: 'https://data.gov.uk/dataset/edit/abc123')
     end
