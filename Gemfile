@@ -54,5 +54,6 @@ group :test do
   gem 'capybara-selenium', '0.0.6'
   gem 'chromedriver-helper', '~> 1.1'
   gem 'codeclimate-test-reporter', '~> 1.0.0'
+  gem 'factory_bot'
   gem 'simplecov', '~> 0.13'
 end

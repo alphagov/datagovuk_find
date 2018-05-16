@@ -1,16 +1,23 @@
 class TicketsController < ApplicationController
   def new
     @support_queue = params['support']
-    @ticket = ZendeskTicket.new
+    @ticket = Ticket.new
   end
 
   def create
-    @ticket = ZendeskTicket.new(params[:zendesk_ticket])
+    @ticket = Ticket.new(params[:ticket])
+
     if @ticket.valid?
-      @ticket.send_ticket
+      client.tickets.create!(@ticket.to_json)
       redirect_to tickets_confirmation_path
     else
       render :new
     end
+  end
+
+private
+
+  def client
+    Zendesk.client
   end
 end
