@@ -28,9 +28,12 @@ end
 
 module FindDataBeta
   class Application < Rails::Application
+    # Settings in config/environments/* take precedence over those specified here.
+    # Application configuration should go into files in config/initializers
+    # -- all .rb files in that directory are automatically loaded.
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
-    config.assets.initialize_on_precompile = false
     config.action_dispatch.rescue_responses['Datafile::DatafileNotFound'] = :not_found
     config.action_dispatch.rescue_responses['Dataset::DatasetNotFound'] = :not_found
     config.exceptions_app = self.routes
