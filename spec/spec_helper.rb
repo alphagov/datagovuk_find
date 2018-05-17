@@ -1,13 +1,16 @@
 require "simplecov"
 require 'webmock/rspec'
+require 'factory_bot'
 
 SimpleCov.start
 
 WebMock.disable_net_connect!(allow_localhost: true)
+FactoryBot.find_definitions
 
 RSpec.configure do |config|
   config.filter_run focus: true
   config.run_all_when_everything_filtered = true
+  config.include FactoryBot::Syntax::Methods
 
   config.before(:each) do
     delete_index
