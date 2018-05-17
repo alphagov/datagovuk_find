@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Datafile do
+RSpec.describe Datafile do
   describe "#start_year" do
     it 'returns the start year from the start date' do
       datafile = Datafile.new(DATA_FILES_WITH_START_AND_ENDDATE[0])

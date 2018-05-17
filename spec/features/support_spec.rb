@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Support tickets' do
+RSpec.describe 'Support tickets', type: :feature do
   before do
     visit support_path
   end

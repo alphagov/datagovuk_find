@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe SearchHelper do
+RSpec.describe SearchHelper do
   describe '#datafile_formats_for_select' do
     it 'returns a sorted list of unique formats' do
       dataset1 = DatasetBuilder.new

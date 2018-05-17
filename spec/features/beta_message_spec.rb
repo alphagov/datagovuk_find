@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "Combined data.gov.uk and beta banner" do
+RSpec.feature "Combined data.gov.uk and beta banner", type: :feature do
   scenario "Is displayed on all pages for a first time visitor", js: true do
     dataset = DatasetBuilder.new.build
 
@@ -44,7 +44,7 @@ feature "Combined data.gov.uk and beta banner" do
   end
 end
 
-feature "Beta banner" do
+RSpec.feature "Beta banner", type: :feature do
   it "is displayed on all pages after the combined banner is dismissed", js: true do
     dataset = DatasetBuilder.new.build
 
