@@ -25,6 +25,7 @@ en:
       inspire_access_constraints_unspecified: "Not specified"
       inspire_gemini_record: "Source Metadata"
       xml: "XML"
+      html: "HTML"
     breadcrumb:
       home: "Home"
       search: "Search"
