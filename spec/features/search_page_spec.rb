@@ -2,8 +2,7 @@
 
 require 'rails_helper'
 
-
-feature 'Search page', elasticsearch: true do
+RSpec.feature 'Search page', type: :feature, elasticsearch: true do
   scenario 'Displays a not found message when a search returns 0 results' do
     query = 'interesting dataset'
 

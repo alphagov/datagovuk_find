@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Dataset page', elasticsearch: true do
+RSpec.feature 'Dataset page', type: :feature, elasticsearch: true do
   scenario 'Displays 404 page if a dataset does not exist' do
     visit '/dataset/invalid-uuid/invalid-slug'
 

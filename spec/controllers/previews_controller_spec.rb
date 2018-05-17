@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe PreviewsController, type: :controller do
+RSpec.describe PreviewsController, type: :controller do
   render_views
 
   let(:dataset) do
