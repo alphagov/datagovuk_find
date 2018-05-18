@@ -91,57 +91,11 @@ class Dataset
   end
 
   def licence_title
-    @licence_title || case licence_code
-                      when 'cc-by'
-                        'Creative Commons Attribution'
-                      when 'cc-by-sa'
-                        'Creative Commons Attribution Share-Alike'
-                      when 'cc-nc'
-                        'Creative Commons Non-Commercial (Any)'
-                      when 'cc-zero'
-                        'Creative Commons CCZero'
-                      when 'notspecified'
-                        'License Not Specified'
-                      when 'odc-by'
-                        'Open Data Commons Attribution License'
-                      when 'odc-odbl'
-                        'Open Data Commons Open Database License (ODbL)'
-                      when 'odc-pddl'
-                        'Open Data Commons Public Domain Dedication and License (PDDL)'
-                      when 'other'
-                        'Other'
-                      when 'other-closed'
-                        'Other (Not Open)'
-                      when 'other-nc'
-                        'Other (Non-Commercial)'
-                      when 'other-open'
-                        'Other (Open)'
-                      when 'other-pd'
-                        'Other (Public Domain)'
-                      when 'uk-ogl'
-                        'Open Government Licence'
-                      end
+    @licence_title || I18n.t("datasets.licence_title.#{licence_code}")
   end
 
   def licence_url
-    @licence_url || case licence_code
-                    when 'cc-by'
-                      'http://www.opendefinition.org/licenses/cc-by'
-                    when 'cc-by-sa'
-                      'http://www.opendefinition.org/licenses/cc-by-sa'
-                    when 'cc-nc'
-                      'http://creativecommons.org/licenses/by-nc/2.0/'
-                    when 'cc-zero'
-                      'http://www.opendefinition.org/licenses/cc-zero'
-                    when 'odc-by'
-                      'http://www.opendefinition.org/licenses/odc-by'
-                    when 'odc-odbl'
-                      'http://www.opendefinition.org/licenses/odc-odbl'
-                    when 'odc-pddl'
-                      'http://www.opendefinition.org/licenses/odc-pddl'
-                    when 'uk-ogl'
-                      'http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/'
-                    end
+    @licence_url || I18n.t("datasets.licence_url.#{licence_code}")
   end
 
   def links

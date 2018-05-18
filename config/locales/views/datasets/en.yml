@@ -44,6 +44,30 @@ en:
       go_to_site: "Go to site"
       preview: "Preview"
       map_preview: "Preview on map"
+    licence_title:
+      cc-by: 'Creative Commons Attribution'
+      cc-by-sa: 'Creative Commons Attribution Share-Alike'
+      cc-nc: 'Creative Commons Non-Commercial (Any)'
+      cc-zero: 'Creative Commons CCZero'
+      notspecified: 'License Not Specified'
+      odc-by: 'Open Data Commons Attribution License'
+      odc-odbl: 'Open Data Commons Open Database License (ODbL)'
+      odc-pddl: 'Open Data Commons Public Domain Dedication and License (PDDL)'
+      other: 'Other'
+      other-closed: 'Other (Not Open)'
+      other-nc: 'Other (Non-Commercial)'
+      other-open: 'Other (Open)'
+      other-pd: 'Other (Public Domain)'
+      uk-ogl: 'Open Government Licence'
+    licence_url:
+      cc-by: 'http://www.opendefinition.org/licenses/cc-by'
+      cc-by-sa: 'http://www.opendefinition.org/licenses/cc-by-sa'
+      cc-nc: 'http://creativecommons.org/licenses/by-nc/2.0/'
+      cc-zero: 'http://www.opendefinition.org/licenses/cc-zero'
+      odc-by: 'http://www.opendefinition.org/licenses/odc-by'
+      odc-odbl: 'http://www.opendefinition.org/licenses/odc-odbl'
+      odc-pddl: 'http://www.opendefinition.org/licenses/odc-pddl'
+      uk-ogl: 'http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/'
     meta_data:
       availability: "Availability"
       publisher_datasets: "More from this publisher"
