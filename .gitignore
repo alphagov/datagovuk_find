@@ -1,5 +1,6 @@
 .env
 .byebug_history
+spec/examples.txt
 
 /coverage/
 /vendor/bundle
