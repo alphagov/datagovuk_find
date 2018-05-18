@@ -73,6 +73,8 @@
               <dt><%= t('.inspire_gemini_record') %></dt>
               <dd>
                 <%= link_to t('.xml'), "/api/2/rest/harvestobject/#{ i['harvest_object_id'] }/xml" %>
+                <br />
+                <%= link_to t('.html'), "/api/2/rest/harvestobject/#{ i['harvest_object_id'] }/html" %>
               </dd>
             <% end %>
           </dl>

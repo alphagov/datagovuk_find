@@ -346,6 +346,26 @@ RSpec.feature 'Dataset page', type: :feature, elasticsearch: true do
       expect(page).to have_content(notes)
     end
 
+    scenario 'Contains a link to original INSPIRE XML' do
+      dataset = DatasetBuilder
+        .new
+        .with_inspire_metadata('harvest_object_id' => '1234')
+        .build
+      index_and_visit(dataset)
+
+      expect(page).to have_xpath("//a[@href='/api/2/rest/harvestobject/1234/xml']")
+    end
+
+    scenario 'Contains a link to HTML rendering of INSPIRE XML' do
+      dataset = DatasetBuilder
+        .new
+        .with_inspire_metadata('harvest_object_id' => '1234')
+        .build
+      index_and_visit(dataset)
+
+      expect(page).to have_xpath("//a[@href='/api/2/rest/harvestobject/1234/html']")
+    end
+
     scenario 'Is not displayed if not available' do
       dataset = DatasetBuilder.new
         .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
