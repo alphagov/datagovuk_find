@@ -8,7 +8,7 @@ class Dataset
               :organisation, :id, :uuid, :datafiles, :licence, :licence_other,
               :location1, :location2, :location3, :public_updated_at, :topic,
               :licence_custom, :docs, :contact_email, :foi_email, :foi_web,
-              :notes, :inspire_dataset, :harvested, :contact_name
+              :notes, :inspire_dataset, :harvested, :contact_name, :released
 
   index_name ENV['ES_INDEX'] || "datasets-#{Rails.env}"
 
@@ -23,6 +23,7 @@ class Dataset
     @location1 = hash["location1"]
     @location2 = hash["location2"]
     @location3 = hash["location3"]
+    @released = hash["released"]
     @licence = hash["licence"]
     @licence_other = hash["licence_other"]
     @licence_custom = hash["licence_custom"]
@@ -76,10 +77,6 @@ class Dataset
   def self.datafiles
     query = { aggs: Search::Query.datafiles_aggregation }
     Dataset.search(query).aggregations['datafiles']
-  end
-
-  def released?
-    (docs.count + datafiles.count).positive?
   end
 
   def licence?

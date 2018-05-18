@@ -50,7 +50,7 @@
                 <%= link_to dataset.title, dataset_path(dataset.uuid, dataset.name) %>
               </h2>
               <dl class="dgu-metadata__box">
-                <% if !dataset.released? %>
+                <% unless dataset.released? %>
                   <dt><%= t('.meta_data_box.availability') %>:</dt>
                   <dd class="availability">
                   <span class="dgu-highlight">Not released</span>

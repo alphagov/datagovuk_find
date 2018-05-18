@@ -518,38 +518,16 @@ RSpec.feature 'Dataset page', type: :feature, elasticsearch: true do
   end
 
   feature 'not released label' do
-    scenario 'Not released label is not shown where there are files' do
-      dataset = DatasetBuilder
-                  .new
-                  .with_legacy_name('abc123')
-                  .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
-                  .build
-
+    scenario 'released is set to false' do
+      dataset = DatasetBuilder.new.with_released(false).build
       index_and_visit(dataset)
-
-      expect(page).to have_no_content('Not released')
+      expect(page).to have_content 'Not released'
     end
 
-    scenario 'Not released is not shown where there are docs' do
-      dataset = DatasetBuilder
-                  .new
-                  .with_legacy_name('abc123')
-                  .with_docs([HTML_DATAFILE])
-                  .build
-
+    scenario 'released is set to true' do
+      dataset = DatasetBuilder.new.with_released(true).build
       index_and_visit(dataset)
-
-      expect(page).to have_no_content('Not released')
-    end
-
-    scenario 'Not released is shown when there are no docs and no files' do
-      dataset = DatasetBuilder
-                  .new
-                  .with_legacy_name('abc123')
-                  .build
-
-      index_and_visit(dataset)
-      expect(page).to have_content('Not released')
+      expect(page).to have_no_content 'Not released'
     end
   end
 
