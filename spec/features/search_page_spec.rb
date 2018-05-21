@@ -27,6 +27,16 @@ RSpec.feature 'Search page', type: :feature, elasticsearch: true do
     expect(page).to have_css('a', text: dataset_title)
   end
 
+  scenario 'Search results indicate dataset availability' do
+    index(DatasetBuilder.new.with_released(true).build)
+    search_for('')
+    expect(page).to have_no_content 'Not released'
+
+    index(DatasetBuilder.new.with_released(false).build)
+    search_for('')
+    expect(page).to have_content 'Not released'
+  end
+
   scenario 'Search results are correctly sorted' do
     old_dataset = DatasetBuilder.new
                     .with_title('Old Interesting Dataset')

@@ -17,6 +17,7 @@ class DatasetBuilder
         created_at: '2013-08-31T00:56:15.435Z',
         last_updated_at: '2017-07-24T14:47:25.975Z',
         contact_email: '',
+        released: true,
         uuid: SecureRandom.uuid,
         organisation: {
             id: 582,
@@ -86,6 +87,11 @@ class DatasetBuilder
 
   def with_uuid(uuid)
     @dataset[:uuid] = uuid
+    self
+  end
+
+  def with_released(released)
+    @dataset[:released] = released
     self
   end
 
