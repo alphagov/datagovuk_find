@@ -54,6 +54,36 @@ class DatasetBuilder
     }
   end
 
+  def with_org_foi_name(name)
+    @dataset[:organisation][:foi_name] = name
+    self
+  end
+
+  def with_org_foi_email(email)
+    @dataset[:organisation][:foi_email] = email
+    self
+  end
+
+  def with_org_foi_web(web)
+    @dataset[:organisation][:foi_web] = web
+    self
+  end
+
+  def with_foi_name(name)
+    @dataset[:foi_name] = name
+    self
+  end
+
+  def with_foi_email(email)
+    @dataset[:foi_email] = email
+    self
+  end
+
+  def with_foi_web(web)
+    @dataset[:foi_web] = web
+    self
+  end
+
   def with_uuid(uuid)
     @dataset[:uuid] = uuid
     self
@@ -71,6 +101,21 @@ class DatasetBuilder
 
   def with_name(slug)
     @dataset[:name] = slug
+    self
+  end
+
+  def with_contact_name(name)
+    @dataset[:contact_name] = name
+    self
+  end
+
+  def with_org_contact_name(name)
+    @dataset[:organisation][:contact_name] = name
+    self
+  end
+
+  def with_org_contact_email(email)
+    @dataset[:organisation][:contact_email] = email
     self
   end
 

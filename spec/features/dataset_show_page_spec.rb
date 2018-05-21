@@ -377,28 +377,99 @@ RSpec.feature 'Dataset page', type: :feature, elasticsearch: true do
     end
   end
 
-  feature 'Contact' do
-    scenario 'Is displayed if available' do
-      contact_email = 'contact@somewhere.com'
-      dataset = DatasetBuilder.new
-        .with_contact_email(contact_email)
-        .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
-        .build
-
-      index_and_visit(dataset)
-
-      expect(page).to have_css('h2', text: 'Contact')
-      expect(page).to have_css('a', text: contact_email)
-    end
-
+  feature 'Contact enquiries' do
     scenario 'Is not displayed if not available' do
       dataset = DatasetBuilder.new
         .with_datafiles(DATA_FILES_WITH_START_AND_ENDDATE)
         .build
 
       index_and_visit(dataset)
-
       expect(page).to_not have_css('h2', text: 'Contact')
+    end
+
+    scenario 'Is displayed if available' do
+      dataset = DatasetBuilder.new
+                  .with_contact_name('Mr. Contact')
+                  .with_contact_email('contact@example.com')
+                  .build
+
+      index_and_visit(dataset)
+
+      expect(page).to have_css('h2', text: 'Contact')
+      expect(page).to have_css('h3', text: 'Enquiries')
+
+      within('section.contact .enquiries') do
+        expect(page).to have_link(dataset[:contact_email])
+        expect(page).to have_content(dataset[:contact_name])
+      end
+    end
+
+    scenario 'Is displayed if available on the organisation' do
+      dataset = DatasetBuilder.new
+                  .with_org_contact_name('Mr. Contact')
+                  .with_org_contact_email('contact@example.com')
+                  .build
+
+      index_and_visit(dataset)
+
+      expect(page).to have_css('h2', text: 'Contact')
+      expect(page).to have_css('h3', text: 'Enquiries')
+
+      within('section.contact .enquiries') do
+        expect(page).to have_link(dataset[:organisation][:contact_email])
+        expect(page).to have_content(dataset[:organisation][:contact_name])
+      end
+    end
+  end
+
+  feature 'Contact FOI' do
+    scenario 'Is not displayed if not available' do
+      dataset = DatasetBuilder
+                  .new
+                  .build
+
+      index_and_visit(dataset)
+      expect(page).to_not have_css('h2', text: 'Contact')
+    end
+
+    scenario 'Is displayed if available' do
+      dataset = DatasetBuilder
+                  .new
+                  .with_foi_name('Mr. FOI')
+                  .with_foi_email('mr.foi@example.com')
+                  .with_foi_web('http://foi.com')
+                  .build
+
+      index_and_visit(dataset)
+      expect(page).to have_css('h2', text: 'Contact')
+      expect(page).to have_css('h3', text: 'Freedom of Information (FOI) requests')
+
+      within('section.contact .foi') do
+        expect(page).to have_content(dataset[:foi_name])
+        expect(page).to have_content(dataset[:foi_email])
+        expect(page).to have_link(dataset[:foi_web], href: dataset[:foi_web])
+      end
+    end
+
+    scenario 'Is displayed if available on the organisation' do
+      dataset = DatasetBuilder
+                  .new
+                  .with_org_foi_name('Mr. FOI')
+                  .with_org_foi_email('mr.foi@example.com')
+                  .with_org_foi_web('http://foi.com')
+                  .build
+
+      index_and_visit(dataset)
+      expect(page).to have_css('h2', text: 'Contact')
+      expect(page).to have_css('h3', text: 'Freedom of Information (FOI) requests')
+
+      within('section.contact .foi') do
+        expect(page).to have_content(dataset[:organisation][:foi_name])
+        expect(page).to have_content(dataset[:organisation][:foi_email])
+
+        expect(page).to have_link(dataset[:organisation][:foi_web],
+                                  href: dataset[:organisation][:foi_web])
+      end
     end
   end
 
