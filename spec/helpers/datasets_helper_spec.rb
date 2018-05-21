@@ -8,13 +8,13 @@ RSpec.describe DatasetsHelper do
     end
 
     it 'uses the normal view if there are datafiles' do
-      url = helper.edit_dataset_url(Dataset.new(attributes.build))
+      url = helper.edit_dataset_url(Dataset.new(attributes.build.stringify_keys))
       expect(url).to eq 'https://data.gov.uk/dataset/edit/foo'
     end
 
     it 'uses the dataset editor even when there are no datafiles' do
       unpublished_attributes = attributes.with_datafiles([])
-      url = helper.edit_dataset_url(Dataset.new(unpublished_attributes.build))
+      url = helper.edit_dataset_url(Dataset.new(unpublished_attributes.build.stringify_keys))
       expect(url).to eq 'https://data.gov.uk/dataset/edit/foo'
     end
   end
@@ -30,12 +30,12 @@ RSpec.describe DatasetsHelper do
 
   describe '#contact_email_is_email?' do
     it 'returns true when the email is valid' do
-      dataset = Dataset.new(DatasetBuilder.new.with_contact_email('foo@bar.com').build)
+      dataset = Dataset.new(DatasetBuilder.new.with_contact_email('foo@bar.com').build.stringify_keys)
       expect(helper.contact_email_is_email?(dataset)).to be_truthy
     end
 
     it 'returns false when the email is invalid' do
-      dataset = Dataset.new(DatasetBuilder.new.with_contact_email('http://foo.com').build)
+      dataset = Dataset.new(DatasetBuilder.new.with_contact_email('http://foo.com').build.stringify_keys)
       expect(helper.contact_email_is_email?(dataset)).to be_falsey
     end
   end

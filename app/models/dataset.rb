@@ -4,27 +4,52 @@ class Dataset
 
   DatasetNotFound = Class.new(StandardError)
 
-  attr_accessor :name, :legacy_name, :title, :summary, :description,
-                :location1, :location2, :location3,
-                :foi_name, :foi_email, :foi_phone, :foi_web,
-                :contact_name, :contact_email, :contact_phone,
-                :licence_custom, :licence, :licence_other, :frequency,
-                :published_date, :last_updated_at, :created_at,
-                :harvested, :uuid, :short_id, :topic,
-                :inspire_dataset, :json, :notes,
-                :_index, :_type, :_id, :_score, :_source,
-                :_version, :public_updated_at
-
-  attr_writer :licence_code, :licence_title, :licence_url
-  attr_reader :organisation
+  attr_reader :name, :legacy_name, :title, :summary, :description, :foi_name,
+              :organisation, :id, :uuid, :datafiles, :licence, :licence_other,
+              :location1, :location2, :location3, :public_updated_at, :topic,
+              :licence_custom, :docs, :contact_email, :foi_email, :foi_web,
+              :notes, :inspire_dataset, :harvested, :contact_name
 
   index_name ENV['ES_INDEX'] || "datasets-#{Rails.env}"
+
+  def initialize(hash)
+    @name = hash["name"]
+    @legacy_name = hash["legacy_name"]
+    @title = hash["title"]
+    @summary = hash["summary"]
+    @description = hash["description"]
+    @id = hash["_id"]
+    @uuid = hash["uuid"]
+    @location1 = hash["location1"]
+    @location2 = hash["location2"]
+    @location3 = hash["location3"]
+    @licence = hash["licence"]
+    @licence_other = hash["licence_other"]
+    @licence_custom = hash["licence_custom"]
+    @licence_title = hash["licence_title"]
+    @licence_url = hash["licence_url"]
+    @licence_code = hash["licence_code"]
+    @public_updated_at = hash["public_updated_at"]
+    @topic = hash["topic"]
+    @contact_email = hash["contact_email"]
+    @contact_name = hash["contact_name"]
+    @foi_name = hash["foi_name"]
+    @foi_email = hash["foi_email"]
+    @foi_web = hash["foi_web"]
+    @notes = hash["notes"]
+    @inspire_dataset = hash["inspire_dataset"]
+    @harvested = hash["harvested"]
+    @organisation = Organisation.new(hash["organisation"])
+    @datafiles = hash["datafiles"].map { |file| Datafile.new(file) }
+    @docs = hash["docs"].map { |file| Doc.new(file) }
+  end
 
   def self.get_by_query(query:)
     Dataset
       .search(query)
       .map { |result| result._source.to_hash.merge(_id: result._id) }
       .reject { |attributes| attributes['title'].blank? }
+      .map(&:stringify_keys)
       .map(&Dataset.method(:new))
   end
 
@@ -55,22 +80,6 @@ class Dataset
 
   def released?
     (docs.count + datafiles.count).positive?
-  end
-
-  def docs
-    Array(@docs)
-  end
-
-  def docs=(docs)
-    @docs = docs.map { |file| Doc.new(file) }
-  end
-
-  def datafiles
-    Array(@datafiles)
-  end
-
-  def datafiles=(datafiles)
-    @datafiles = datafiles.map { |file| Datafile.new(file) }
   end
 
   def licence?
@@ -154,10 +163,6 @@ class Dataset
 
   def non_timeseries_datafiles
     datafiles.select(&:non_timeseries?)
-  end
-
-  def organisation=(organisation)
-    @organisation = Organisation.new(organisation)
   end
 
   def editable?

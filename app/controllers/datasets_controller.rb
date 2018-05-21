@@ -6,7 +6,7 @@ class DatasetsController < ApplicationController
     @timeseries_datafiles = @dataset.timeseries_datafiles
     @non_timeseries_datafiles = @dataset.non_timeseries_datafiles
     @referer_query = referer_query
-    @related_datasets = Dataset.related(@dataset._id)
+    @related_datasets = Dataset.related(@dataset.id)
 
     if request_to_outdated_url?
       return redirect_to newest_dataset_path, status: :moved_permanently
