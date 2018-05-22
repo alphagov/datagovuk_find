@@ -58,14 +58,14 @@ module DatasetsHelper
         name: dataset.organisation.title
       },
       description: dataset.summary,
-      license: dataset.licence == 'uk-ogl' ? '' : dataset.licence_other,
+      license: {
+        "@type": "CreativeWork",
+        name: dataset.licence_title,
+        text: dataset.licence_custom,
+        url: dataset.licence_url
+      },
       dateModified: dataset.public_updated_at
     }
-    if dataset.licence == 'uk-ogl'
-      dataset_metadata[:license] = "http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
-    elsif dataset.licence_other
-      dataset_metadata[:license] = dataset.licence_other
-    end
     if dataset.topic
       dataset_metadata[:keywords] = dataset.topic['title']
     end

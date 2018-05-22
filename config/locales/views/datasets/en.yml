@@ -60,6 +60,7 @@ en:
       view_licence_information: "View licence information"
       licence: "Licence"
       no_licence: "None"
+      other_licence: "Other Licence"
       uk_ogl: "Open Government Licence"
       accessibility:
         search_box_label: "Search"

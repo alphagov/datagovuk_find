@@ -9,13 +9,18 @@ RSpec.feature 'Dataset page', type: :feature, elasticsearch: true do
   end
 
   feature 'Licence information' do
-    scenario 'Link to Open Government Licence information' do
+    scenario 'Meta licence tag' do
       dataset = build :dataset, :with_ogl_licence
       index_and_visit(dataset)
 
       expect(page)
         .to have_css('meta[name="dc:rights"][content="Open Government Licence"]',
                      visible: false)
+    end
+
+    scenario 'Link to licence' do
+      dataset = build :dataset, :with_ogl_licence
+      index_and_visit(dataset)
 
       within('section.meta-data') do
         expect(page)
@@ -24,20 +29,30 @@ RSpec.feature 'Dataset page', type: :feature, elasticsearch: true do
       end
     end
 
-    scenario 'Link to Open Government Licence with additional information' do
+    scenario 'Link to licence with additional info' do
       dataset = build :dataset, :with_ogl_licence,
                                 licence_custom: 'Special case'
 
       index_and_visit(dataset)
 
-      expect(page)
-        .to have_css('meta[name="dc:rights"][content="Open Government Licence"]',
-                     visible: false)
+      within('section.meta-data') do
+        expect(page)
+          .to have_link('View licence information',
+                        href: '#licence-info')
+      end
+
+      within('section.dgu-licence-info') do
+        expect(page).to have_content('Special case')
+      end
+    end
+
+    scenario 'Link to custom licence (no title, no URL)' do
+      dataset = build :dataset, :with_custom_licence
+      index_and_visit(dataset)
 
       within('section.meta-data') do
         expect(page)
-          .to have_link('Open Government Licence',
-                        href: 'http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/')
+          .to have_content('Other Licence')
 
         expect(page)
           .to have_link('View licence information',
@@ -49,77 +64,34 @@ RSpec.feature 'Dataset page', type: :feature, elasticsearch: true do
       end
     end
 
-    scenario 'Link to Creative Commons CCZero information' do
-      dataset = build :dataset, :with_cczero_licence
+    scenario 'Simple licence title (no URL)' do
+      dataset = build :dataset, licence_title: 'My Licence'
       index_and_visit(dataset)
-
-      expect(page)
-        .to have_css('meta[name="dc:rights"][content="Creative Commons CCZero"]',
-                     visible: false)
 
       within('section.meta-data') do
         expect(page)
-          .to have_link('Creative Commons CCZero',
-                        href: 'http://www.opendefinition.org/licenses/cc-zero')
+          .to have_content('My Licence')
       end
     end
 
-    scenario 'Licence information' do
-      dataset = build :dataset, :with_no_licence
+    scenario 'Link to URL licence without a title' do
+      dataset = build :dataset, licence_url: 'http://licence.com'
       index_and_visit(dataset)
-
-      expect(page)
-        .to have_css('meta[name="dc:rights"][content="Other"]',
-                     visible: false)
 
       within('section.meta-data') do
         expect(page)
-          .to have_link('View licence information',
-                        href: '#licence-info')
-      end
-
-      within('section.dgu-licence-info') do
-        expect(page).to have_content('Special licence')
+          .to have_link('http://licence.com',
+                        href: 'http://licence.com')
       end
     end
 
-    scenario 'Explicit licence information' do
-      dataset = build :dataset, :with_custom_licence
+    scenario 'No licence' do
+      dataset = build :dataset
       index_and_visit(dataset)
-
-      expect(page)
-        .to have_css('meta[name="dc:rights"][content="Example Open License 1.1"]',
-                     visible: false)
 
       within('section.meta-data') do
         expect(page)
-          .to have_link('Example Open License 1.1',
-                        href: 'https://opensource.org/licenses/Example-1.1')
-      end
-    end
-
-    scenario 'Explicit licence information with additional license information' do
-      dataset = build :dataset, :with_custom_licence,
-                                licence_custom: 'For feature specs only.'
-
-      index_and_visit(dataset)
-
-      expect(page)
-        .to have_css('meta[name="dc:rights"][content="Example Open License 1.1"]',
-                     visible: false)
-
-      within('section.meta-data') do
-        expect(page)
-          .to have_link('Example Open License 1.1',
-                        href: 'https://opensource.org/licenses/Example-1.1')
-
-        expect(page)
-          .to have_link('View licence information',
-                        href: '#licence-info')
-      end
-
-      within('section.dgu-licence-info') do
-        expect(page).to have_content('For feature specs only.')
+          .to have_content('None')
       end
     end
   end

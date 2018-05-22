@@ -148,7 +148,7 @@ module Search
       location_param =  params.dig(:filters, :location)
       format_param =    params.dig(:filters, :format)
       topic_param = params.dig(:filters, :topic)
-      licence_param = params.dig(:filters, :licence)
+      licence_param = params.dig(:filters, :licence_code)
 
       query = begin
         QueryTransformer.new.apply(QueryParser.new.parse(query_param))
@@ -275,10 +275,10 @@ module Search
       }
     end
 
-    def self.licence_filter(licence)
+    def self.licence_filter(licence_code)
       {
         match: {
-          "licence": licence
+          "licence_code": licence_code
         }
       }
     end

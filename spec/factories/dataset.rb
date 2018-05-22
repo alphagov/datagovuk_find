@@ -5,9 +5,6 @@ FactoryBot.define do
     title 'Default dataset title'
     summary 'Ethnicity data'
     description 'Ethnicity data'
-    licence 'no-licence'
-    licence_other ''
-    licence_custom ''
     location1 'London'
     location2 'Southwark'
     location3 ''
@@ -55,28 +52,14 @@ FactoryBot.define do
       topic { build :topic }
     end
 
-    trait :with_no_licence do
-      licence 'no-licence'
-      licence_custom 'Special licence'
-    end
-
     trait :with_ogl_licence do
-      licence 'uk-ogl'
+      licence_code 'uk-ogl'
       licence_url 'http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/'
       licence_title 'Open Government Licence'
     end
 
-    trait :with_cczero_licence do
-      licence 'other'
-      licence_other 'cc-zero'
-      licence_url 'http://www.opendefinition.org/licenses/cc-zero'
-      licence_title 'Creative Commons CCZero'
-    end
-
     trait :with_custom_licence do
-      licence 'example-1.1'
-      licence_title 'Example Open License 1.1'
-      licence_url 'https://opensource.org/licenses/Example-1.1'
+      licence_custom 'Special case'
     end
 
     initialize_with { Dataset.new(attributes.stringify_keys) }

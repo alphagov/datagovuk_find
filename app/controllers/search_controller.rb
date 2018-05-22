@@ -8,7 +8,7 @@ class SearchController < ApplicationController
     @location = params.dig(:filters, :location)
     @format = params.dig(:filters, :format)
     @topic = params.dig(:filters, :topic)
-    @licence = params.dig(:filters, :licence)
+    @licence_code = params.dig(:filters, :licence_code)
     @datasets = @search.page(page_number)
   end
 
