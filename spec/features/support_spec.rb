@@ -1,14 +1,14 @@
 require 'rails_helper'
 
-RSpec.describe 'Support tickets', type: :feature do
+RSpec.feature 'Support tickets', type: :feature do
   before do
     visit support_path
   end
 
-  context 'when reporting a problem' do
+  feature 'Reporting a problem' do
     let(:ticket) { build :ticket, support: 'feedback' }
 
-    it 'sends a support ticket to Zendesk' do
+    scenario 'Send a support ticket to Zendesk' do
       choose 'I want to report a problem'
       click_on 'Continue'
       expect(page).to have_content 'Report a problem'
@@ -26,10 +26,10 @@ RSpec.describe 'Support tickets', type: :feature do
     end
   end
 
-  context 'when asking for data' do
+  feature 'Asking for data' do
     let(:ticket) { build :ticket, support: 'data' }
 
-    it 'sends a support ticket to Zendesk' do
+    scenario 'Send a support ticket to Zendesk' do
       choose 'I have a data request'
       click_on 'Continue'
       expect(page).to have_content 'Send a data request'
@@ -47,10 +47,10 @@ RSpec.describe 'Support tickets', type: :feature do
     end
   end
 
-  context 'when the data is invalid' do
+  feature 'Recover from invalid data' do
     let(:ticket) { build :ticket, email: 'foo' }
 
-    it 'shows the errors in the ticket form' do
+    scenario 'Show the errors in the ticket form' do
       choose 'I have a data request'
       click_on 'Continue'
       fill_in 'example-email', with: ticket.email
