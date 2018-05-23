@@ -225,7 +225,7 @@
     white-space: nowrap;
   }
   th, td {
-    font-size: 16px;
+    font-size: 19px;
   }
   margin-bottom: 20px;
 
@@ -251,11 +251,38 @@
     th {
       white-space: normal;
       vertical-align: top;
+      font-size: 16px;
     }
     td {
       vertical-align: top;
+      font-size: 16px;
     }
   }
+}
+
+// Supporting docs ===================================================================
+
+.supporting table {
+  th {
+    white-space: nowrap;
+  }
+  th, td {
+    font-size: 19px;
+  }
+
+  @include media(mobile) {
+    th {
+      white-space: normal;
+      vertical-align: top;
+      font-size: 16px;
+    }
+    td {
+      vertical-align: top;
+      white-space: normal;
+      font-size: 16px;
+    }
+  }
+
 }
 
 
