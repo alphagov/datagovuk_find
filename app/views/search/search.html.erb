@@ -26,13 +26,10 @@
 
     <div class="column-two-thirds dgu-results">
       <%= render 'sort' if @num_results > 1 %>
-
-      <% if @query.present? %>
-        <span class="dgu-results__summary">
-          <span class="bold-small"><%= number_with_delimiter(@num_results) %></span>
-          <%= t('.result').pluralize(@num_results) %> <%= t('.found') %>
-        </span>
-      <% end %>
+      <span class="dgu-results__summary">
+        <span class="bold-small"><%= number_with_delimiter(@num_results) %></span>
+        <%= t('.result').pluralize(@num_results) %> <%= t('.found') %>
+      </span>
 
       <div>
         <% if @num_results.zero? %>
@@ -40,8 +37,12 @@
             <h2 class="heading-medium"> <%= t('.zero_result_tips.try') %>:</h2>
             <ul class="list list-bullet">
               <li><%= t('.zero_result_tips.different_words') %></li>
-              <li><%= t('.zero_result_tips.clear_filters') %></li>
+              <li><%= t('.zero_result_tips.remove_filters') %></li>
             </ul>
+            <h2 class="heading-medium"> <%= t('.zero_result_tips.older_content') %></h2>
+            <p><%= t('.zero_result_tips.older_contentwe_can_help') %></p>
+            <p><%= t('.zero_result_tips.expand_your_search') %></p>
+
           </div>
         <% else %>
           <% @datasets.each do |dataset| %>
