@@ -4,73 +4,50 @@ require 'rails_helper'
 
 RSpec.feature 'Search page', type: :feature, elasticsearch: true do
   scenario 'Displays a not found message when a search returns 0 results' do
-    query = 'interesting dataset'
-
-    search_for(query)
-
+    search_for('interesting dataset')
     expect(page).to have_css('h1', text: 'Search results')
     expect(page).to have_content("0 results found")
   end
 
   scenario 'Displays search results' do
-    dataset_title = 'A very interesting dataset'
-    query = 'interesting dataset'
-
-    dataset = DatasetBuilder.new
-                .with_title(dataset_title)
-                .build
-
+    dataset = build :dataset, title: 'A very interesting dataset'
     index(dataset)
-    search_for(query)
+    search_for('interesting dataset')
 
     expect(page).to have_css('h1', text: 'Search results')
-    expect(page).to have_css('a', text: dataset_title)
+    expect(page).to have_css('a', text: dataset.title)
   end
 
   scenario 'Search results indicate dataset availability' do
-    index(DatasetBuilder.new.with_released(true).build)
+    index(build(:dataset, released: true))
     search_for('')
     expect(page).to have_no_content 'Not released'
 
-    index(DatasetBuilder.new.with_released(false).build)
+    index(build(:dataset, released: false))
     search_for('')
     expect(page).to have_content 'Not released'
   end
 
   scenario 'Search results are correctly sorted' do
-    old_dataset = DatasetBuilder.new
-                    .with_title('Old Interesting Dataset')
-                    .with_name('old-dataset')
-                    .public_updated_at(Time.now - 1)
-                    .build
-
-    new_dataset = DatasetBuilder.new
-                    .with_title('Recent Interesting Dataset')
-                    .with_name('new-dataset')
-                    .build
-
+    old_dataset = build :dataset, title: 'Old Interesting Dataset', public_updated_at: 1.hour.ago
+    new_dataset = build :dataset, title: 'Recent Interesting Dataset'
     index(old_dataset, new_dataset)
 
     search_for('Old Interesting Dataset')
-
     expect(page).to have_css('option[selected]', text: 'Best match')
 
     elements = all('h2 a')
-
     expect(elements[0]).to have_content 'Old'
     expect(elements[1]).to have_content 'Recent'
 
     filtered_search_for('Interesting Dataset', 'Most recent')
-
     expect(page).to have_css('option[selected]', text: 'Most recent')
 
     elements = all('h2 a')
-
     expect(elements[0]).to have_content 'Recent'
     expect(elements[1]).to have_content 'Old'
 
     filtered_search_for('Old Interesting Dataset', 'Best match')
-
     expect(page).to have_css('option[selected]', text: 'Best match')
 
     elements = all('h2 a')
@@ -79,48 +56,29 @@ RSpec.feature 'Search page', type: :feature, elasticsearch: true do
   end
 
   scenario 'Match publisher query against available publishers', js: true do
-    first_dataset = DatasetBuilder.new
-                      .with_title('Data About Tonka Trucks')
-                      .with_publisher('Tonka Trucks')
-                      .build
+    dataset1 = build :dataset, title: 'Wanted'
+    dataset2 = build :dataset, :unrelated, title: 'Unrelated'
 
-    second_dataset = DatasetBuilder.new
-                      .with_title('Data About Toby')
-                      .with_publisher('Toby Corp')
-                      .build
-
-    index(first_dataset, second_dataset)
-
+    index(dataset1, dataset2)
     visit('/search')
-
     assert_data_set_length_is(2)
 
     execute_script "window.location = '#publisher'"
-
-    find_field('publisher').send_keys('Tob', :down, :enter)
+    find_field('publisher').send_keys('Minist', :down, :enter)
     click_button 'Apply filters'
 
     search_results_headings = all('h2 a').map(&:text)
     expect(search_results_headings.length).to be(1)
-    expect(search_results_headings).to contain_exactly 'Data About Toby'
-    expect(page).not_to have_content('Data About Tonka Trucks')
+    expect(search_results_headings).to contain_exactly dataset1.title
+    expect(page).not_to have_content dataset2.title
   end
 
   scenario 'filter by OGL licence' do
-    first_dataset = DatasetBuilder.new
-                      .with_title('First Dataset Title')
-                      .with_licence('uk-ogl')
-                      .build
+    dataset1 = build :dataset, :with_ogl_licence
+    dataset2 = build :dataset, :unrelated
 
-    second_dataset = DatasetBuilder.new
-                      .with_title('Second Dataset Title')
-                      .with_licence('foo')
-                      .build
-
-    index(first_dataset, second_dataset)
-
+    index(dataset1, dataset2)
     visit('/search')
-
     assert_data_set_length_is(2)
 
     check('Open Government Licence (OGL) only')
@@ -131,165 +89,95 @@ RSpec.feature 'Search page', type: :feature, elasticsearch: true do
 
     results = all('h2 a')
     expect(results.length).to be(1)
-    expect(results[0]).to have_content 'First Dataset Title'
+    expect(results[0]).to have_content dataset1.title
   end
 
   scenario 'filter by topic', js: true do
-    first_dataset = DatasetBuilder.new
-                      .with_title('First Dataset Title')
-                      .with_topic(id: 1, name: "government", title: "Government")
-                      .build
+    dataset1 = build :dataset, :with_topic
+    dataset2 = build :dataset, :unrelated
 
-    second_dataset = DatasetBuilder.new
-                      .with_title('Second Dataset Title')
-                      .with_topic(id: 2, name: "business-and-economy", title: "Business and economy")
-                      .build
-
-    index(first_dataset, second_dataset)
-
+    index(dataset1, dataset2)
     visit('/search')
-
     assert_data_set_length_is(2)
 
     execute_script "window.location = '#topic'"
-
     find_field('topic').send_keys('Gov', :down, :enter)
     click_button 'Apply filters'
 
     search_results_headings = all('h2 a').map(&:text)
     expect(search_results_headings.length).to be(1)
-    expect(search_results_headings).to contain_exactly 'First Dataset Title'
+    expect(search_results_headings).to contain_exactly dataset1.title
   end
 
   scenario 'filter by datafile format', js: true do
-    first_dataset = DatasetBuilder.new
-                      .with_title('First Dataset Title')
-                      .with_datafiles([{ 'format' => 'foo' }])
-                      .build
+    dataset1 = build :dataset, :with_datafile
+    dataset2 = build :dataset, :unrelated
 
-    second_dataset = DatasetBuilder.new
-                      .with_title('Second Dataset Title')
-                      .with_datafiles([{ 'format' => 'bar' }])
-                      .build
-
-    index(first_dataset, second_dataset)
-
+    index(dataset1, dataset2)
     visit('/search')
-
     assert_data_set_length_is(2)
 
     execute_script "window.location = '#format'"
-    find_field('format').send_keys('FO', :down, :enter)
+    find_field('format').send_keys('CSV', :down, :enter)
     click_button 'Apply filters'
 
     search_results_headings = all('h2 a').map(&:text)
     expect(search_results_headings.length).to be(1)
-    expect(search_results_headings).to contain_exactly 'First Dataset Title'
+    expect(search_results_headings).to contain_exactly dataset1.title
   end
 
   scenario 'Searching for a phrase' do
-    index(DatasetBuilder.new.with_title('A very interesting dataset').build,
-          DatasetBuilder.new.with_title('A fairly interesting dataset').build)
+    index(build(:dataset, title: 'A very interesting dataset'),
+          build(:dataset, title: 'A fairly interesting dataset'))
 
     search_for('"Very interesting"')
-
     assert_search_results_headings('A very interesting dataset')
   end
 
   scenario 'Searching for a malformed phrase' do
-    index(DatasetBuilder.new.with_title('A very interesting dataset').build,
-          DatasetBuilder.new.with_title('A fairly interesting dataset').build)
+    index(build(:dataset, title: 'A very interesting dataset'),
+          build(:dataset, title: 'A fairly interesting dataset'))
 
     search_for('"Very interesting')
 
-    assert_search_results_headings(
-      'A very interesting dataset',
-      'A fairly interesting dataset'
-    )
-  end
-
-  scenario 'Searching with a plural query' do
-    index(DatasetBuilder.new.with_title('Maps').build)
-
-    search_for('Map')
-
-    assert_search_results_headings('Maps')
+    assert_search_results_headings('A very interesting dataset',
+                                   'A fairly interesting dataset')
   end
 
   scenario 'Search with a possessive query' do
-    index(DatasetBuilder.new.with_title('Government').build)
-
+    index(build(:dataset, title: 'Government'))
     search_for("Government's")
-
     assert_search_results_headings('Government')
   end
 
   scenario 'Search with lowercase query' do
-    index(DatasetBuilder.new.with_title('DEFRA').build)
-
-    search_for("defra")
-
-    assert_search_results_headings('DEFRA')
+    dataset = build :dataset, title: 'DEFRA'
+    index(dataset)
+    search_for(dataset.title.downcase)
+    assert_search_results_headings(dataset.title)
   end
 
   scenario 'Prominence of datasets based on organisation category' do
-    ministerial_dataset = DatasetBuilder
-                            .new
-                            .with_ministerial_department(
-                              'Department for Environment Food & Rural Affairs'
-                            )
-                            .build
-
-    non_ministerial_dataset = DatasetBuilder
-                                .new
-                                .with_non_ministerial_department(
-                                  'Forestry Commission'
-                                )
-                                .build
-
-    local_council_dataset = DatasetBuilder
-                              .new
-                              .with_local_council(
-                                'Plymouth City Council'
-                              )
-                              .build
-
-    non_departmental_public_body_dataset = DatasetBuilder
-                                             .new
-                                             .with_non_departmental_public_body(
-                                               'English Heritage'
-                                             )
-                                             .build
-
-    index(
-      ministerial_dataset,
-      non_ministerial_dataset,
-      local_council_dataset,
-      non_departmental_public_body_dataset
-    )
+    dataset1 = build :dataset, organisation: build(:organisation, :raw)
+    dataset2 = build :dataset, organisation: build(:organisation, :raw, :non_ministerial_department)
+    dataset3 = build :dataset, organisation: build(:organisation, :raw, :non_departmental_public_body)
+    dataset4 = build :dataset, organisation: build(:organisation, :raw, :local_council)
+    index(dataset1, dataset2, dataset3, dataset4)
 
     search_for('data')
-
     publishers = all('dd.published_by').map(&:text)
 
-    expect(publishers[0]).to eq('Department for Environment Food & Rural Affairs')
-                               .or eq('English Heritage')
-                                     .or eq('Forestry Commission')
-
-    expect(publishers[1]).to eq('Department for Environment Food & Rural Affairs')
-                               .or eq('English Heritage')
-                                     .or eq('Forestry Commission')
-
-    expect(publishers[2]).to eq('Department for Environment Food & Rural Affairs')
-                               .or eq('English Heritage')
-                                     .or eq('Forestry Commission')
+    publishers[0..2].each do |publisher|
+      expect(publisher).to eq('Ministry of Defence')
+                       .or eq('English Heritage')
+                       .or eq('Forestry Commission')
+    end
 
     expect(publishers[3]).to eq('Plymouth City Council')
   end
 
   scenario 'search results title', js: true do
-    index(DatasetBuilder.new.with_topic(id: 1, name: "government", title: "Government").build)
-
+    index(build(:dataset, :with_topic))
     search_for("apple")
     expect(page).to have_title('Results for "apple"')
 
@@ -301,10 +189,12 @@ RSpec.feature 'Search page', type: :feature, elasticsearch: true do
     click_button 'Apply filters'
 
     expect(page).to have_title('Results for "Government"')
+
     within '#content' do
       fill_in 'q', with: 'bear'
       find('.dgu-search-box__button').click
     end
+
     expect(page).to have_title('Results for "bear"')
   end
 
@@ -318,28 +208,14 @@ RSpec.feature 'Search page', type: :feature, elasticsearch: true do
   end
 
   scenario 'search filters are scoped to search query results' do
-    foo_dataset = DatasetBuilder
-                    .new
-                    .with_title('Foo')
-                    .with_publisher('Org 1')
-                    .with_topic(name: 'fun', title: 'Fun')
-                    .with_datafiles([{ format: 'CSV' }])
-                    .build
+    dataset1 = build :dataset, :with_topic, :with_datafile
+    dataset2 = build :dataset, :unrelated
 
-    bar_dataset = DatasetBuilder
-                    .new
-                    .with_title('Bar')
-                    .with_publisher('Org 2')
-                    .with_topic(name: 'trivia', title: 'Trivia')
-                    .with_datafiles([{ format: 'PDF' }])
-                    .build
+    index(dataset1, dataset2)
+    search_for(dataset1.title)
 
-    index(foo_dataset, bar_dataset)
-
-    search_for('foo')
-
-    expect(page).to have_select('Publisher', options: ['', 'Org 1'])
-    expect(page).to have_select('Topic', options: ['', 'Fun'])
-    expect(page).to have_select('Format', options: ['', 'CSV'])
+    expect(page).to have_select('Publisher', options: ['', dataset1.organisation.title])
+    expect(page).to have_select('Topic', options: ['', dataset1.topic['title']])
+    expect(page).to have_select('Format', options: ['', dataset1.datafiles.first.format])
   end
 end

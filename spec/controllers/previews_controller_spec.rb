@@ -3,14 +3,8 @@ require 'rails_helper'
 RSpec.describe PreviewsController, type: :controller do
   render_views
 
-  let(:dataset) do
-    DatasetBuilder.new
-      .with_name('a-nice-dataset')
-      .with_datafiles([datafile])
-      .build
-  end
-
-  let(:datafile) { Datafile.new(CSV_DATAFILE) }
+  let(:dataset) { build :dataset, :with_datafile }
+  let(:datafile) { dataset.datafiles.first }
 
   describe 'Generating the preview of a CSV file' do
     it 'will show the previewed CSV' do
@@ -18,7 +12,7 @@ RSpec.describe PreviewsController, type: :controller do
         to_return(body: "a,Paris,c,d\ne,f,Berlin,h\ni,j,k,l")
 
       index([dataset])
-      get :show, params: { dataset_uuid: dataset[:uuid], name: dataset[:name], datafile_uuid: datafile.uuid }
+      get :show, params: { dataset_uuid: dataset.uuid, name: dataset.name, datafile_uuid: datafile.uuid }
       expect(response.body).to have_content('Berlin')
       expect(response.body).to have_link("Download this file")
     end
@@ -28,7 +22,7 @@ RSpec.describe PreviewsController, type: :controller do
         to_timeout
 
       index([dataset])
-      get :show, params: { dataset_uuid: dataset[:uuid], name: dataset[:name], datafile_uuid: datafile.uuid }
+      get :show, params: { dataset_uuid: dataset.uuid, name: dataset.name, datafile_uuid: datafile.uuid }
 
       expect(response.body).to have_content(no_preview_notice(datafile))
       expect(response.body).not_to have_link("Download this file")
@@ -39,7 +33,7 @@ RSpec.describe PreviewsController, type: :controller do
         to_return(status: [500, "Internal Server Error"])
 
       index([dataset])
-      get :show, params: { dataset_uuid: dataset[:uuid], name: dataset[:name], datafile_uuid: datafile.uuid }
+      get :show, params: { dataset_uuid: dataset.uuid, name: dataset.name, datafile_uuid: datafile.uuid }
 
       expect(response.body).to have_content(no_preview_notice(datafile))
       expect(response.body).not_to have_link("Download this file")
@@ -50,7 +44,7 @@ RSpec.describe PreviewsController, type: :controller do
         to_return(body: "<!DOCTYPE html><html lang=\"en\"><h")
 
       index([dataset])
-      get :show, params: { dataset_uuid: dataset[:uuid], name: dataset[:name], datafile_uuid: datafile.uuid }
+      get :show, params: { dataset_uuid: dataset.uuid, name: dataset.name, datafile_uuid: datafile.uuid }
 
       expect(response.body).to have_content(no_preview_notice(datafile))
       expect(response.body).not_to have_link("Download this file")
@@ -61,7 +55,7 @@ RSpec.describe PreviewsController, type: :controller do
         to_return(body: "a,b,\",c,d\n000000\n")
 
       index([dataset])
-      get :show, params: { dataset_uuid: dataset[:uuid], name: dataset[:name], datafile_uuid: datafile.uuid }
+      get :show, params: { dataset_uuid: dataset.uuid, name: dataset.name, datafile_uuid: datafile.uuid }
 
       expect(response.body).to have_content(no_preview_notice(datafile))
       expect(response.body).not_to have_link("Download this file")

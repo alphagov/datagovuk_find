@@ -2,15 +2,17 @@ require 'rails_helper'
 
 RSpec.describe SearchHelper do
   describe '#datafile_formats_for_select' do
+    let(:dataset1) do
+      build :dataset, datafiles: [build(:datafile, :raw, format: 'foo'),
+                                  build(:datafile, :raw, format: '')]
+    end
+
+    let(:dataset2) do
+      build :dataset, datafiles: [build(:datafile, :raw, format: 'baz'),
+                                  build(:datafile, :raw, format: 'baz')]
+    end
+
     it 'returns a sorted list of unique formats' do
-      dataset1 = DatasetBuilder.new
-                  .with_datafiles([{ 'format' => 'foo' }, { 'format' => '' }])
-                  .build
-
-      dataset2 = DatasetBuilder.new
-                  .with_datafiles([{ 'format' => 'baz' }, { 'format' => 'baz' }])
-                  .build
-
       index(dataset1, dataset2)
       expect(datafile_formats_for_select).to eql %w(BAZ FOO)
     end
@@ -18,22 +20,20 @@ RSpec.describe SearchHelper do
 
   describe '#datafile_topics_for_select' do
     it 'returns a sorted list of unique topics' do
-      dataset1 = DatasetBuilder.new.with_topic('title' => 'foo').build
-      dataset2 = DatasetBuilder.new.with_topic('title' => 'baz').build
-      dataset3 = DatasetBuilder.new.with_topic('title' => 'baz').build
+      index(build(:dataset, topic: build(:topic, title: 'foo')),
+            build(:dataset, topic: build(:topic, title: 'baz')),
+            build(:dataset, topic: build(:topic, title: 'baz')))
 
-      index(dataset1, dataset2, dataset3)
       expect(dataset_topics_for_select).to eql %w(baz foo)
     end
   end
 
   describe '#datafile_publishers_for_select' do
     it 'returns a sorted list of unique publishers' do
-      dataset1 = DatasetBuilder.new.with_publisher('foo').build
-      dataset2 = DatasetBuilder.new.with_publisher('baz').build
-      dataset3 = DatasetBuilder.new.with_publisher('baz').build
+      index(build(:dataset, organisation: build(:organisation, :raw, title: 'foo')),
+            build(:dataset, organisation: build(:organisation, :raw, title: 'baz')),
+            build(:dataset, organisation: build(:organisation, :raw, title: 'baz')))
 
-      index(dataset1, dataset2, dataset3)
       expect(dataset_publishers_for_select).to eql %w(baz foo)
     end
   end

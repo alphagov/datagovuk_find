@@ -2,12 +2,11 @@ require "rails_helper"
 
 RSpec.feature "Combined data.gov.uk and beta banner", type: :feature do
   scenario "Is displayed on all pages for a first time visitor", js: true do
-    dataset = DatasetBuilder.new.build
-
+    dataset = build :dataset
     index(dataset)
 
     paths = [
-      dataset_path(dataset[:uuid], dataset[:name]),
+      dataset_path(dataset.uuid, dataset.name),
       root_path,
       search_path(q: "query")
     ]
@@ -23,12 +22,8 @@ RSpec.feature "Combined data.gov.uk and beta banner", type: :feature do
   end
 
   scenario "Dismissing banner on search page works and retains query", js: true do
-    dataset = DatasetBuilder.new
-                .with_title("Zebra data")
-                .build
-
+    dataset = build :dataset, title: 'Zebra data'
     index(dataset)
-
     visit search_path(q: 'zebra')
 
     expect(page).to have_field('Search', with: 'zebra')
@@ -46,10 +41,8 @@ end
 
 RSpec.feature "Beta banner", type: :feature do
   it "is displayed on all pages after the combined banner is dismissed", js: true do
-    dataset = DatasetBuilder.new.build
-
+    dataset = build :dataset
     index(dataset)
-
     visit root_path
 
     within '.dgu-beta__message' do
@@ -57,7 +50,7 @@ RSpec.feature "Beta banner", type: :feature do
     end
 
     paths = [
-      dataset_path(dataset[:uuid], dataset[:name]),
+      dataset_path(dataset.uuid, dataset.name),
       root_path,
       search_path(q: "query"),
       about_path,

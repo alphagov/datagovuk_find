@@ -26,46 +26,39 @@ RSpec.describe 'legacy', type: :request do
   end
 
   describe 'dataset page' do
+    let(:dataset) { build :dataset, legacy_name: 'a-legacy-name' }
+
+    before do
+      index(dataset)
+    end
+
     it 'redirects to the latest slugged URL' do
-      legacy_name = 'a-legacy-name'
-      dataset = DatasetBuilder.new.with_legacy_name(legacy_name).build
-      index([dataset])
-
-      get "/dataset/#{legacy_name}"
-
-      expect(response).to redirect_to(dataset_url(dataset[:uuid], dataset[:name]))
+      get "/dataset/#{dataset.legacy_name}"
+      expect(response).to redirect_to(dataset_url(dataset.uuid, dataset.name))
       expect(response).to have_http_status(:moved_permanently)
     end
   end
 
   describe 'datafile resources' do
-    let(:legacy_dataset_name) { 'a-legacy-name' }
-    let(:datafile) { CSV_DATAFILE.with_indifferent_access }
-    let(:dataset) do
-      DatasetBuilder
-        .new
-        .with_legacy_name(legacy_dataset_name)
-        .with_datafiles([datafile])
-        .build
-    end
+    let(:dataset) { build :dataset, :with_datafile, legacy_name: 'legacy' }
 
     context 'when the datafile can not be found' do
       it 'returns a not found error page' do
-        get "/dataset/#{legacy_dataset_name}/resource/#{datafile[:uuid]}"
-
+        get "/dataset/legacy/resource/#{dataset.datafiles.first.uuid}"
         expect(response).to have_http_status(:not_found)
       end
     end
 
     context 'when the datafile exists' do
-      before { index([dataset]) }
+      before do
+        index(dataset)
+      end
 
       it 'redirects to the datefile preview page' do
-        get "/dataset/#{legacy_dataset_name}/resource/#{datafile[:uuid]}"
+        get "/dataset/legacy/resource/#{dataset.datafiles.first.uuid}"
 
-        location = datafile_preview_path(
-          dataset[:uuid], dataset[:name], datafile[:uuid]
-        )
+        location = datafile_preview_path(dataset.uuid, dataset.name,
+                                         dataset.datafiles.first.uuid)
 
         expect(response).to redirect_to(location)
         expect(response).to have_http_status(:moved_permanently)
