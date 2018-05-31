@@ -2,7 +2,7 @@
 applications:
 - name: find-data-beta
   instances: 8
-  memory: 256M
+  memory: 512M
   buildpack: https://github.com/cloudfoundry/ruby-buildpack.git#v1.7.16
   routes:
   - route: find-data-beta.cloudapps.digital
