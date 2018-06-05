@@ -1,14 +1,13 @@
 class Datafile
   DatafileNotFound = Class.new(StandardError)
 
-  attr_reader :name, :url, :start_date, :end_date,
+  attr_reader :name, :url, :start_date,
               :created_at, :updated_at, :format, :size, :uuid
 
   def initialize(hash)
     @name = hash["name"]
     @url = hash["url"]
     @start_date = hash["start_date"]
-    @end_date = hash["end_date"]
     @created_at = hash["created_at"]
     @updated_at = hash["updated_at"]
     @format = hash["format"]
@@ -19,11 +18,6 @@ class Datafile
   def start_year
     return if start_date.blank?
     Time.parse(start_date).year
-  end
-
-  def most_recent_date
-    return updated_at if end_date.blank?
-    end_date > updated_at ? end_date : updated_at
   end
 
   def timeseries?
