@@ -35,6 +35,13 @@ Rails.application.routes.draw do
   resources :tickets, only: %i[new create]
   get 'tickets/confirmation', to: 'tickets#confirmation'
 
+  get 'data/map-preview', to: 'map_previews#show', as: 'map_preview'
+
+  defaults format: :xml do
+    get 'data/preview_proxy', to: 'map_previews#proxy'
+    get 'data/preview_getinfo', to: 'map_previews#getinfo'
+  end
+
   get 'dataset/:uuid/:name', to: 'datasets#show', as: 'dataset'
   get 'dataset/:dataset_uuid/:name/datafile/:datafile_uuid/preview', to: 'previews#show', as: 'datafile_preview'
 

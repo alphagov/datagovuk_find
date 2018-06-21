@@ -15,6 +15,6 @@ module MapPreviewHelper
       urls[:resname] = wfs_resource.name
     end
 
-    "https://data.gov.uk/data/map-preview?#{urls.to_query}"
+    "/data/map-preview?#{urls.to_query}"
   end
 end
