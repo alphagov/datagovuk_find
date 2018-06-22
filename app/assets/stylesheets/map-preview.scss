@@ -51,7 +51,7 @@ body {
 
 /* Prevent logos from being displayed and interfering with copyright annotations */
 .failedwms-icon {
-  background: url('map-preview/deadwms.gif') no-repeat;
+  background: image-url('map-preview/deadwms.gif') no-repeat;
   height: 16px;
   width: 16px;
 }
@@ -62,7 +62,7 @@ OpenLayers control styles overwrites style.css (default ol style sheet) */
   top: 5px;
   left: 5px;
   position: absolute;
-  background: url('map-preview/previous.png');
+  background: image-url('map-preview/previous.png');
   width: 24px;
   height: 22px;
 }
@@ -71,7 +71,7 @@ OpenLayers control styles overwrites style.css (default ol style sheet) */
   top: 5px;
   left: 53px;
   position: absolute;
-  background: url('map-preview/next.png');
+  background: image-url('map-preview/next.png');
   width: 24px;
   height: 22px;
 }
@@ -80,13 +80,13 @@ OpenLayers control styles overwrites style.css (default ol style sheet) */
   top: 5px;
   left: 29px;
   position: absolute;
-  background: url('map-preview/full-extent.png');
+  background: image-url('map-preview/full-extent.png');
   width: 24px;
   height: 22px;
 }
 
 .gx-activelayer-drag-icon {
-  background: url('map-preview/drag.png') no-repeat !important;
+  background: image-url('map-preview/drag.png') no-repeat !important;
   width: 16px !important;
   height: 16px !important;
 }
@@ -169,7 +169,7 @@ the map panel for the zoom slider will need to be moved if panels overlap
   -moz-border-left-colors: none;
   -moz-border-right-colors: none;
   -moz-border-top-colors: none;
-  background-image: url('map-preview/loading-transparent.gif');
+  background-image: image-url('map-preview/loading-transparent.gif');
   background-color: #d2e0f2;
   background-position: 10px 50%;
   background-repeat: no-repeat;
@@ -233,7 +233,7 @@ the map panel for the zoom slider will need to be moved if panels overlap
   right: 0;
   top: 10px;
   cursor: pointer;
-  background: url('map-preview/minus.png');
+  background: image-url('map-preview/minus.png');
   background-color: transparent;
 
   > img {
@@ -248,7 +248,7 @@ the map panel for the zoom slider will need to be moved if panels overlap
   right: 0;
   top: 10px;
   cursor: pointer;
-  background: url('map-preview/plus.png');
+  background: image-url('map-preview/plus.png');
   background-color: transparent;
 
   > img {
