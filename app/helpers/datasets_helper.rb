@@ -8,10 +8,6 @@ module DatasetsHelper
       'default' => 'Not available'
   }.freeze
 
-  def edit_dataset_url(dataset)
-    URI::HTTPS.build(host: 'data.gov.uk', path: "/dataset/edit/#{dataset.legacy_name}").to_s
-  end
-
   def to_markdown(content)
     markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: false)
     markdown.render(content).html_safe
