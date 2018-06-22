@@ -47,6 +47,27 @@ RSpec.feature 'Support tickets', type: :feature do
     end
   end
 
+  feature 'Becoming a publisher' do
+    let(:ticket) { build :ticket, support: 'publish' }
+
+    scenario 'Send a support ticket to Zendesk' do
+      choose 'I want to publish for an organisation'
+      click_on 'Continue'
+      expect(page).to have_content 'Publish for an organisation'
+
+      fill_in 'example-content', with: ticket.content
+      fill_in 'example-name', with: ticket.name
+      fill_in 'example-email', with: ticket.email
+
+      expect(Zendesk.client)
+        .to receive_message_chain('tickets.create!')
+        .with(ticket.to_json)
+
+      click_on 'Submit'
+      expect(page).to have_content 'Thanks for contacting data.gov.uk'
+    end
+  end
+
   feature 'Recover from invalid data' do
     let(:ticket) { build :ticket, email: 'foo' }
 

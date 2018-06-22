@@ -1,4 +1,4 @@
-<% content_for :page_title do %>Send a data request<% end %>
+<% content_for :page_title do %><%= t(".#{@ticket.support}_request") %><% end %>
 
 <%= content_for :breadcrumb do %>
   <%= render 'shared/breadcrumb' %>
@@ -21,11 +21,7 @@
       <% end %>
 
       <h1 class='heading-medium'>
-        <% if @support_queue == 'data'%>
-          <%= t('.send_data_request') %>
-        <% else %>
-          <%= t('.report_a_problem') %>
-        <% end %>
+        <%= t(".#{@ticket.support}_request") %>
       </h1>
 
       <%= form_for @ticket, url: { action: "create", controller: "tickets" } do |f| %>
@@ -64,7 +60,7 @@
                           class: input_box_class_for(@ticket, :email),
                           id: "example-email") %>
         </div>
-        <%= f.hidden_field(:support, :value => @support_queue) %>
+        <%= f.hidden_field(:support, :value => @ticket.support) %>
           <%= f.submit t('.submit'), class: "button dgu-support__button" %>
       <% end %>
     </div>
