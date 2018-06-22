@@ -334,6 +334,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  addressable
   brakeman (~> 4.2)
   browser (~> 2.5.3)
   byebug (~> 9)
@@ -357,6 +358,7 @@ DEPENDENCIES
   lograge (~> 0.10)
   logstash-event (~> 1.2)
   mime-types (~> 3.1)
+  nokogiri
   parslet
   pg (~> 0.18)
   pry (~> 0.10)
