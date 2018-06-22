@@ -43,10 +43,12 @@ private
     # http://lasigpublic.nerc-lancaster.ac.uk/ArcGIS/services/Biodiversity/GMFarmEvaluation/MapServer/WMSServer?request=GetCapabilities&service=WMS
 
     uri = Addressable::URI.parse(url)
-    args = uri.query_values.map { |k, v| [k.downcase, v] }.to_h
 
-    args['request'] ||= 'GetCapabilities'
-    args['service'] ||= 'WMS'
+    args = uri.query_values || {}
+    args = args.transform_keys(&:downcase)
+
+    args['request'] ||= params.fetch('request', 'GetCapabilities')
+    args['service'] ||= params.fetch('service', 'WMS')
 
     if %w(wms).exclude?(args['service'].downcase)
       raise 'Invalid value for "service"'
