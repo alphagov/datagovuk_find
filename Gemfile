@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 ruby IO.read('.ruby-version').strip
 
+gem 'addressable'
 gem 'browser', '~> 2.5.3'
 gem 'elasticsearch', '~> 5.0.4'
 gem 'elasticsearch-model', '~> 5.0.1'
@@ -17,6 +18,7 @@ gem 'kaminari', '~> 1.0.1'
 gem 'lograge', '~> 0.10'
 gem 'logstash-event', '~> 1.2'
 gem 'mime-types', '~> 3.1'
+gem 'nokogiri'
 gem 'parslet'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
