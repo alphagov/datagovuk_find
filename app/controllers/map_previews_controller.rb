@@ -20,16 +20,18 @@ class MapPreviewsController < ApplicationController
     base_wms_url = url_param.gsub(/;jsessionid=[a-z0-9]+/i, ';jsessionid=')
     response = URI(base_wms_url).read
     render xml: Nokogiri::XML(response)
-  rescue StandardError => _e
-    render status: :bad_request
+  rescue StandardError => exception
+    Raven.capture_exception(exception)
+    head :bad_request
   end
 
   def proxy
     url = correct_url(url_param)
     response = URI(url).read
     render xml: Nokogiri::XML(response)
-  rescue StandardError => _e
-    render status: :bad_request
+  rescue StandardError => exception
+    Raven.capture_exception(exception)
+    head :bad_request
   end
 
 private
@@ -51,7 +53,7 @@ private
     args['service'] = 'WMS'
 
     if %w(getcapabilities getfeatureinfo).exclude?(args['request'].downcase)
-      raise 'Invalid value for "request"'
+      raise "Invalid request value for #{uri}"
     end
 
     uri.query_values = args
