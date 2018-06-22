@@ -194,10 +194,10 @@ RSpec.feature 'Dataset page', type: :feature, elasticsearch: true do
 
   feature 'Additional info' do
     scenario 'Is displayed if available' do
-      dataset = build :dataset, notes: 'Some very interesting notes'
+      dataset = build :dataset
       index_and_visit(dataset)
       expect(page).to have_css('h2', text: 'Additional information')
-      expect(page).to have_content(dataset.notes)
+      expect(page).to have_content(dataset.description)
     end
 
     scenario 'Contains a link to original INSPIRE XML' do
@@ -213,7 +213,7 @@ RSpec.feature 'Dataset page', type: :feature, elasticsearch: true do
     end
 
     scenario 'Is not displayed if not available' do
-      dataset = build :dataset
+      dataset = build :dataset, description: nil
       index_and_visit(dataset)
       expect(page).to_not have_css('h2', text: 'Additional information')
     end

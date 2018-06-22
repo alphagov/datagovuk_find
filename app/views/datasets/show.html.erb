@@ -40,7 +40,7 @@
       </div>
     </div>
 
-    <% if @dataset.notes.present? || @dataset.inspire_dataset.present? %>
+    <% if @dataset.description.present? || @dataset.inspire_dataset.present? %>
       <%= render partial: "additional_info", locals: { dataset: @dataset } %>
     <% end %>
 

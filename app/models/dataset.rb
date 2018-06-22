@@ -7,9 +7,8 @@ class Dataset
   attr_reader :name, :legacy_name, :title, :summary, :description, :foi_name,
               :organisation, :id, :uuid, :datafiles, :location1, :location2,
               :location3, :public_updated_at, :topic, :licence_custom, :docs,
-              :contact_email, :foi_email, :foi_web, :notes, :inspire_dataset,
-              :harvested, :contact_name, :released, :licence_title, :licence_url,
-              :licence_code
+              :contact_email, :foi_email, :foi_web, :inspire_dataset, :harvested,
+              :contact_name, :released, :licence_title, :licence_url, :licence_code
 
   index_name ENV['ES_INDEX'] || "datasets-#{Rails.env}"
 
@@ -38,7 +37,6 @@ class Dataset
     @foi_name = hash["foi_name"]
     @foi_email = hash["foi_email"]
     @foi_web = hash["foi_web"]
-    @notes = hash["notes"]
     @inspire_dataset = hash["inspire_dataset"]
     @harvested = hash["harvested"]
     @organisation = Organisation.new(hash["organisation"])
