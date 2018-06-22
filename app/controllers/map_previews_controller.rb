@@ -48,11 +48,7 @@ private
     args = args.transform_keys(&:downcase)
 
     args['request'] ||= params.fetch('request', 'GetCapabilities')
-    args['service'] ||= params.fetch('service', 'WMS')
-
-    if %w(wms).exclude?(args['service'].downcase)
-      raise 'Invalid value for "service"'
-    end
+    args['service'] = 'WMS'
 
     if %w(getcapabilities getfeatureinfo).exclude?(args['request'].downcase)
       raise 'Invalid value for "request"'
