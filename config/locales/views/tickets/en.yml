@@ -2,8 +2,9 @@ en:
   tickets:
     new:
       problem: "There was a problem"
-      send_data_request: "Send a data request"
-      report_a_problem: "Report a problem"
+      data_request: "Send a data request"
+      feedback_request: "Report a problem"
+      publish_request: "Publish for an organisation"
       your_message: "Your message"
       enter_a_message: "Enter a message"
       name: "Name"
