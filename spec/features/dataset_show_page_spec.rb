@@ -377,25 +377,25 @@ RSpec.feature 'Dataset page', type: :feature, elasticsearch: true do
     scenario 'cannot edit harvested dataset' do
       dataset = build :dataset, legacy_name: 'abc123', harvested: true
       index_and_visit(dataset)
-      expect(page).to_not have_link('Sign in', href: 'https://data.gov.uk/dataset/edit/abc123')
+      expect(page).to_not have_link('Sign in', href: '/dataset/edit/abc123')
     end
 
     scenario 'edit released dataset link with datafile' do
       dataset = build :dataset, :with_datafile, legacy_name: 'abc123'
       index_and_visit(dataset)
-      expect(page).to have_link('Sign in', href: 'https://data.gov.uk/dataset/edit/abc123')
+      expect(page).to have_link('Sign in', href: '/dataset/edit/abc123')
     end
 
     scenario 'edit released dataset link with doc' do
       dataset = build :dataset, docs: [build(:doc, :raw)], legacy_name: 'abc123'
       index_and_visit(dataset)
-      expect(page).to have_link('Sign in', href: 'https://data.gov.uk/dataset/edit/abc123')
+      expect(page).to have_link('Sign in', href: '/dataset/edit/abc123')
     end
 
     scenario 'edit not released dataset link' do
       dataset = build :dataset, legacy_name: 'abc123'
       index_and_visit(dataset)
-      expect(page).to have_link('Sign in', href: 'https://data.gov.uk/dataset/edit/abc123')
+      expect(page).to have_link('Sign in', href: '/dataset/edit/abc123')
     end
   end
 end
