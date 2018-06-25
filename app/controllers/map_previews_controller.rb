@@ -41,9 +41,6 @@ private
   end
 
   def correct_url(url)
-    # Some URLs are bad and need cleaning up such as
-    # http://lasigpublic.nerc-lancaster.ac.uk/ArcGIS/services/Biodiversity/GMFarmEvaluation/MapServer/WMSServer?request=GetCapabilities&service=WMS
-
     uri = Addressable::URI.parse(url)
 
     args = uri.query_values || {}
