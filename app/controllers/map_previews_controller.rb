@@ -4,16 +4,14 @@ require 'open-uri'
 
 class MapPreviewsController < ApplicationController
   def show
-    wms_uri = URI(url_param)
-    wms_img_src = "#{wms_uri.scheme}://#{wms_uri.host}"
-
     # rubocop:disable Lint/PercentStringArray
     append_content_security_policy_directives(
-      img_src: %W(osinspiremappingprod.ordnancesurvey.co.uk #{wms_img_src} data:),
       script_src: %w(osinspiremappingprod.ordnancesurvey.co.uk 'unsafe-eval'),
       style_src: %w(osinspiremappingprod.ordnancesurvey.co.uk),
     )
     # rubocop:enable Lint/PercentStringArray
+
+    override_content_security_policy_directives(img_src: %w(* data:))
   end
 
   def getinfo
