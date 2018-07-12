@@ -14,4 +14,3 @@ applications:
   - find-staging-secrets
   - beta-staging-elasticsearch
   - logit-ssl-drain
-  - dgu-prometheus
