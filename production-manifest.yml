@@ -14,4 +14,3 @@ applications:
   - find-production-secrets
   - logit-ssl-drain
   - beta-production-elasticsearch
-  - dgu-prometheus
