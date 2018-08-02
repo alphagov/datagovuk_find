@@ -12,5 +12,5 @@ applications:
     RACK_ENV: staging
   services:
   - find-staging-secrets
-  - beta-staging-elasticsearch
+  - elasticsearch-beta-staging
   - logit-ssl-drain

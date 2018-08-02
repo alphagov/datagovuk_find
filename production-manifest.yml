@@ -13,4 +13,4 @@ applications:
   services:
   - find-production-secrets
   - logit-ssl-drain
-  - beta-production-elasticsearch
+  - elasticsearch-beta-production
