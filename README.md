@@ -21,3 +21,20 @@ Most of these can be installed with Homebrew on a Mac.
 ## Getting Started
 
 First run `bin/setup` to bundle, etc. Then run `rails s`.
+
+## Developing against production elasticsearch
+
+Grab the full URL (including HTTP Basic username and password) from the paas.
+You can do this with `cf env find-data-beta`.
+
+Open up an SSH tunnel to allow access to the elasticsearch instance:
+```
+cf ssh -N -L <es-port>:<es-host>:<es-port> find-data-beta
+```
+
+Set the following environment variables (via direnv or other method of your choice):
+- ES_HOST="https://<username>:<password>@localhost:<es-port>"
+- ES_INDEX="datasets-production"
+
+After (re)starting your Rails server, any requests to your local instance will
+behave the same as production.

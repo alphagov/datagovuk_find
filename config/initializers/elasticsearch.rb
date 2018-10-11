@@ -12,20 +12,23 @@ def es_config_from_vcap
   es_config_from_host(es_server)
 end
 
-def es_config_from_host(host)
+def es_config_from_host(config)
   {
-    host: host,
+    host: config.fetch("host"),
     transport_options: {
       request: {
-        timeout: Rails.configuration.elasticsearch['elastic_timeout']
-      }
-    }
+        timeout: config.fetch("elastic_timeout"),
+      },
+      ssl: {
+        verify: config.fetch("verify_ssl", true),
+      },
+    },
   }
 end
 
 
 if Rails.configuration.elasticsearch['host']
-  config = es_config_from_host(Rails.configuration.elasticsearch['host'])
+  config = es_config_from_host(Rails.configuration.elasticsearch)
 elsif Rails.configuration.elasticsearch['vcap_services']
   config = es_config_from_vcap
 else
