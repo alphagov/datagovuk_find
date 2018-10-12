@@ -15,17 +15,19 @@ String.prototype.hashCode = function() {
 
 var Orgvis = {
     vars: {
-        debug: true,
+        debug: false,
         visOffsetX:20,
         visOffsetY:0,
         transX:0,
         transY:0,
         infovisId:''
     },
+
     showSpaceTree: function(data, infovisId) {
         $("#infovis").css("background-image", "none");
         $(".infovis").height($(window).height()-250);
         this.vars['infovisId'] = infovisId;
+
         $jit.ST.Plot.NodeTypes.implement({
             'nodeline': {
                 'render': function(node, canvas, animating) {
@@ -46,8 +48,8 @@ var Orgvis = {
                     }
                 }
             }
-
         });
+
         var spaceTree = new $jit.ST({
             'injectInto': infovisId,
             Navigation: {
@@ -79,7 +81,6 @@ var Orgvis = {
                 overridable: true
             },
             request: function(nodeId, level, onComplete) {
-                //console.log("request called, nodeId: " + nodeId  + " , level: " + level + "\n");
                 var ans = [];//getTree(nodeId, level);
                 onComplete.onComplete(nodeId, ans);
             },
@@ -123,14 +124,12 @@ var Orgvis = {
 
                     // If the node is associated with junior posts
                 } else if(node.data.type == 'junior_posts'){
-
                     $(label).addClass('juniorPost');
                     $(label).addClass(node.data.nodeType);
 
                     label.innerHTML = node.name;
 
                     switch (node.data.nodeType) {
-
                         case 'jp_child' :
                             // Node is a Junior Post
                             var fteTotal = Math.round(node.data.FTE*100)/100;
@@ -143,10 +142,9 @@ var Orgvis = {
                             break;
                     }
 
-                    //log(node.data.colour);
                     $(label).css('color',node.data.colour);
                 } else {
-                    //log("clicked something, but not sure what!");
+                    log("clicked something, but not sure what!");
                 }
 
                 label.onclick = function(){
@@ -155,6 +153,7 @@ var Orgvis = {
                         offsetY: spaceTree.canvas.translateOffsetY,
                         enable: true
                     };
+
                     if(Orgvis.vars.transX != spaceTree.canvas.canvases[0].translateOffsetX ||
                         Orgvis.vars.transY != spaceTree.canvas.canvases[0].translateOffsetY){
                         log("Panning has occurred");
@@ -162,11 +161,10 @@ var Orgvis = {
                         m.offsetX -= spaceTree.canvas.canvases[0].translateOffsetX;
                         m.offsetY -= spaceTree.canvas.canvases[0].translateOffsetY;
                     } else {
-                        //log("Panning has not occurred");
+                        log("Panning has not occurred");
                     }
 
                     switch(node.data.type) {
-
                         default :
                             // A post has been clicked
                             $('#'+infovisId + " div.node").removeClass("selected");
@@ -180,7 +178,7 @@ var Orgvis = {
                                 Move: m
                             });
 
-                            if(Orgvis.vars.canvasPanned){
+                            if (Orgvis.vars.canvasPanned) {
                                 spaceTree.canvas.resize($('#'+infovisId).width(), $('#'+infovisId).height());
                                 Orgvis.vars.canvasPanned = false;
                             }
@@ -188,13 +186,11 @@ var Orgvis = {
                             break;
 
                         case 'junior_posts' :
-
-                            //log('clicked junior_posts node');
+                            log('clicked junior_posts node');
 
                             switch(node.data.nodeType){
-
                                 default :
-                                    //log('clicked junior_posts:default');
+                                    log('clicked junior_posts:default');
                                     $('#'+infovisId + " .infobox").hide();
                                     $('#'+infovisId + " div.node").removeClass("selected");
                                     $('#'+infovisId + " div#"+node.id).addClass("selected");
@@ -208,10 +204,8 @@ var Orgvis = {
                                     break;
 
                                 case 'jp_parent' :
-
                                     // A "JUNIOR POSTS" node has been clicked
-
-                                    //log('clicked junior_posts:jp_parent');
+                                    log('clicked junior_posts:jp_parent');
 
                                     $('#'+infovisId+ " .infobox").hide();
 
@@ -229,9 +223,8 @@ var Orgvis = {
                                     break;
 
                                 case 'jp_child' :
-
                                     // A junior post has been clicked
-                                    //log('clicked junior_posts:jp_child');
+                                    log('clicked junior_posts:jp_child');
 
                                     $('#'+infovisId+ " div.node").removeClass("selected");
                                     $('#'+infovisId+ " div#"+node.id).addClass("selected");
@@ -246,7 +239,7 @@ var Orgvis = {
                                     break;
 
                                 case 'jp_none' :
-                                    //log('clicked junior_posts:jp_none');
+                                    log('clicked junior_posts:jp_none');
                                     $('#'+infovisId).hide();
                                     $("div.jp_group_selector").hide();
                                     break;
@@ -260,41 +253,43 @@ var Orgvis = {
                 var style = label.style;
                 style.width = 170 + 'px';
             },
+
             onBeforePlotNode: function(node){
                 if (node.selected) {
                     node.data.$color = "ff7";
-                }
-                else {
+                } else {
                     delete node.data.$color;
                 }
             },
+            
             onBeforePlotLine: function(adj){
                 if (adj.nodeFrom.selected && adj.nodeTo.selected) {
                     adj.data.$color = "#333333";
                     adj.data.$lineWidth = 4;
-                }
-                else {
+                } else {
                     delete adj.data.$color;
                     delete adj.data.$lineWidth;
                 }
             }
-
         });
+
         $(window).resize(function(){
             try{
                 spaceTree.canvas.resize($('#'+infovisId).width(), $('#'+infovisId).height());
+            } catch(e) {
+              log(e)
             }
-            catch(e){}
-
         });
+
         spaceTree.loadJSON(data);
         spaceTree.compute();
         spaceTree.onClick(spaceTree.root);
-
     },
+
     init: function(filename){
         OrgDataLoader.load(filename)
     },
+
     fixInfovisSize: function() {
         var infoBoxSize = $('.infobox').height();
         var infoVisSize = $('.infovis').height();
@@ -303,7 +298,9 @@ var Orgvis = {
         }
         $(window).trigger('resize');
     },
-    loadPostInfobox:function(node, infovisId){
+
+    loadPostInfobox:function(node){
+        var infovisId = this.vars['infovisId'];
         var postID = node.data.id;
         var postUnit, tempUnitID, tempUnitLabel;
         tempUnitID = 'tempUnitId';
@@ -404,9 +401,11 @@ var Orgvis = {
         Orgvis.setInfoBoxLinks(infovisId);
         $('#'+infovisId + " .infobox").show();
         $('#'+infovisId + " div.heldBy").show();
-
     },
-    loadJuniorPostInfoBox:function(node, infovisId){
+
+    loadJuniorPostInfoBox:function(node){
+        var infovisId = this.vars['infovisId'];
+
         // Construct the HTML for the infobox
         var nd = node.data;
         var html = '<h1>'+node.name+'</h1>';
@@ -429,7 +428,7 @@ var Orgvis = {
         $('#'+infovisId + " .infobox").show();
         $('#'+infovisId + " .infobox div.content").show();
     },
-    setInfoBoxLinks:function(infovisId) {
+    setInfoBoxLinks: function() {
         var infovisId = this.vars['infovisId'];
         $("a.close").click(function(){
             $(this).parent().fadeOut();
@@ -439,12 +438,11 @@ var Orgvis = {
         $('div.panel h3').eq(0).click();
         return false;
     }
-
 };
 
 var OrgDataLoader = {
     docBase: "/organogram-ajax/preview/",
-    load: function (filename, infovisId, previewMarkup) {
+    load: function (filename, infovisId) {
         $.ajax({cache: false, dataType: "json", url: this.docBase+filename,
             success : function(ret) {
                 var data = ret.data;
@@ -467,7 +465,6 @@ var OrgDataLoader = {
                                     },
                                     error: function() {
                                         OrgDataLoader.errorMessage(ret.responseText);
-                                        $('tr.preview--show').hide();
                                     }
                                 });
                             }
@@ -475,13 +472,11 @@ var OrgDataLoader = {
                     },
                     error: function() {
                         OrgDataLoader.errorMessage(ret.responseText);
-                        $('tr.preview--show').hide();
                     }
                 });
             },
             error: function(ret) {
                 OrgDataLoader.errorMessage(ret.responseText);
-                $('tr.preview--show').hide();
             }
 
         });
@@ -567,6 +562,7 @@ var OrgDataLoader = {
             seniorPosts[seniorPost.id] = seniorPost;
             return seniorPost;
         }
+
         Number.prototype.formatMoney = function(c, d, t, s){
             var n = this,
                 s = s == undefined ? "&pound;" : s,
@@ -604,10 +600,10 @@ var OrgDataLoader = {
                     'nodeType': 'jp_child',
                     'type': 'junior_posts'
                 }
-            }
+            };
         }
 
-        senior.forEach(function(post, index, array) {
+        senior.forEach(function(post, index) {
             var reportsTo = post['Reports to Senior Post'];
             if (null == hierarchy[reportsTo]){
                 hierarchy[reportsTo] = [];
@@ -616,7 +612,7 @@ var OrgDataLoader = {
                 hierarchy[reportsTo].push(createSeniorPostNode(post, true));
             }
         });
-        junior.forEach(function(post, index, array) {
+        junior.forEach(function(post, index) {
             var reportsTo = post['Reporting Senior Post'];
             if (null == hierarchy[reportsTo]){
                 hierarchy[reportsTo] = [];
@@ -645,9 +641,7 @@ var OrgDataLoader = {
 
         if (topLevel.length == 1) {
             return tree[topLevel[0]];
-        }
-        else if (topLevel.length > 1) {
-
+        } else if (topLevel.length > 1) {
             var fake = {
                 "Post Unique Reference": "XX",
                 "Job Title": "Top Post",
@@ -724,164 +718,13 @@ var OrgDataLoader = {
         };
     }
 
-    var previewButton = null;
-    var previewShowClass = 'preview--show';
     var junior = null;
     var senior = null;
-    var previewMarkup =
-        '<tr class="preview"><td colspan="6">'+
-            '  <div class="organogram-preview">'+
-            '    <input type="button" class="organogram-preview-close" value="&times;">'+
-            '    <div class="chart">'+
-            '      <div class="infovis">'+
-            '      <div class="infobox">' +
-            '      </div></div>' +
-            '    </div>'+
-            '  </div>'+
-            '</td></tr>';
-
-//    TODO make stuff like the render size be defined up here
-
-    Drupal.behaviors.ckanPublisherTogglePreview = {
-        attach: function (context, settings) {
-            //console.log(settings);
-            previewLink = $('.organogram-preview');
-
-            // Preview
-            previewLink.click(function() {
-                if ($(this).html() == '▼ <span>Preview</span>') {
-                    var previewPanel = $(this).parent().parent().next();
-                    previewPanel.remove();
-                    $(this).html('▶ <span>Preview</span>');
-                    return;
-                }
-                $(this).html('▼ <span>Preview</span>');
-                $('.field-name-field-organogram tr.preview').remove();
-                $('html, body').animate({'scrollTop' : $(this).offset().top - 50},400, 'swing');
-
-                var preview =  $(this).parent().parent().after(previewMarkup);
-                var previewPanel = $(this).parent().parent().next();
-                var previewPanelId = $(this).attr('id') + '-tr';
-                previewPanel.attr('id', previewPanelId);
-                var infovisId = $(this).attr('id') + '-infovis';
-                $('#' + previewPanelId + ' .infovis').attr('id', infovisId);
-                previewPanel.addClass(previewShowClass);
-
-                previewPanel.find('.organogram-preview-close').on('click', function(){
-                    previewPanel.remove();
-                });
-                $(this).on('click', function(){
-                    $('html, body').animate({'scrollTop' : $(this).offset().top - 70},400, 'swing');
-                    previewPanel.addClass(previewShowClass);
-                });
-
-
-                if ($.browser.msie && parseInt($.browser.version, 10) < 9) {
-                    $(".infovis").css("background-image", "none");
-                    $(".infovis").height(70);
-                    var message = 'Unsupported browser. Requires Internet Explorer 9 or newer, or Chrome, Firefox, etc';
-                    $(".infovis").append('<div class="alert alert-block alert-danger"><h4 class="element-invisible">Error message</h4>'
-                        + message +'</div>');
-                }
-                else {
-
-                    var fid = $(this).attr('data-organogram-fid');
-                    $(this).parent().parent().next().find('.chart').append('<div class="ajax-progress"><div class="throbber">&nbsp;</div></div>');
-                    $('.infovis').css('background-image', 'none');
-                    OrgDataLoader.load(fid, infovisId, previewMarkup);
-                }
-            });
-        },
-
-        buildTree: function(department) {
-            var hierarchy = {};
-            var tree = [];
-            var processed = [];
-            function getChildren(postRef){
-                var children = [];
-                if (hierarchy[postRef]){
-                    hierarchy[postRef].forEach(function(post, index, array) {
-                        if (post['ref']){
-                            processed.push(post['ref']);
-                            post['children'] = getChildren(post['ref']);
-                        }
-                        children.push(post);
-                    });
-                }
-                return children;
-            }
-
-            senior.forEach(function(post, index, array) {
-                reportsTo = post['Reports to Senior Post'];
-                if (null == hierarchy[reportsTo]){
-                    hierarchy[reportsTo] = [];
-                }
-                hierarchy[reportsTo].push({
-                    'jobtitle' : post['Job Title'],
-                    'name' : post['Name'],
-                    'grade' : post['Grade (or equivalent)'],
-                    'FTE': + post['FTE'],
-                    'unit': post['Unit'],
-                    'payfloor': post['Actual Pay Floor (£)'],
-                    'payceiling': post['Actual Pay Ceiling (£)'],
-                    'ref' : post['Post Unique Reference'],
-                    'reportsto': post['Reports to Senior Post'],
-                    'senior' : true
-                });
-            });
-            junior.forEach(function(post, index, array) {
-                reportsTo = post['Reporting Senior Post'];
-                if (null == hierarchy[reportsTo]){
-                    hierarchy[reportsTo] = [];
-                }
-                hierarchy[reportsTo].push({
-                    'jobtitle': post['Generic Job Title'],
-                    'reportsto': reportsTo,
-                    'grade': post['Grade'],
-                    'FTE': + post['Number of Posts in FTE'],
-                    'unit': post['Unit'],
-                    'payfloor': post['Payscale Minimum (£)'],
-                    'payceiling': post['Payscale Maximum (£)'],
-                    'junior': true
-                });
-            });
-            //At this point hierarchy contains a map of senior posts with their reporting post and a list of
-            //junior posts who report to them.
-            senior.forEach(function(post, index, array) {
-                var postUR = post['Post Unique Reference'];
-                var children = getChildren(postUR);
-                if (-1 == processed.indexOf(postUR)){
-                    tree.push({
-                        'jobtitle' : post['Job Title'],
-                        'name' : post['Name'],
-                        'grade' : post['Grade (or equivalent)'],
-                        'FTE': + post['FTE'],
-                        'unit': post['Unit'],
-                        'payfloor': post['Actual Pay Floor (£)'],
-                        'payceiling': post['Actual Pay Ceiling (£)'],
-                        'ref' : post['Post Unique Reference'],
-                        'reportsto': post['Reports to Senior Post'],
-                        'children' : children,
-                        'senior' : true
-                    });
-                }
-            });
-            return  {
-                'jobtitle': department,
-                'children': tree
-            }
-        }
-    };
-
 
     Drupal.behaviors.organogramView = {
-        attach: function (context, settings) {
-            //console.log(settings);
+        attach: function() {
             var infovisId = 'infovis';
             if (typeof Drupal.settings.dgu_organogram !== 'undefined' && typeof Drupal.settings.dgu_organogram.fid !== 'undefined') {
-
-
-
                 if ($.browser.msie && parseInt($.browser.version, 10) < 9) {
                     $("#infovis").css("background", "none");
                     $("#infovis").css("border", "1px solid #eee");
@@ -894,9 +737,6 @@ var OrgDataLoader = {
                 else {
                     OrgDataLoader.load(Drupal.settings.dgu_organogram.fid, infovisId);
                 }
-
-
-
             }
         },
 
@@ -979,176 +819,4 @@ var OrgDataLoader = {
             }
         }
     };
-
-
-
-    Drupal.behaviors.organogramSignOff = {
-        attach: function (context, settings) {
-            //console.log(settings);
-            signOffCheckbox = $('.organogram-sign-off');
-
-            // Sign off
-            signOffCheckbox.change(function() {
-                if ($('.ajax-progress-throbber').length == 0) {
-                    $(this).parent().append('<div class="ajax-progress ajax-progress-throbber"><i class="glyphicon glyphicon-refresh glyphicon-spin"></i></div>');
-                    $('body').css('cursor', 'wait');
-                    signOffCheckbox.css('cursor', 'wait');
-                    $('.checkbox label').css('cursor', 'wait');
-
-
-//                if (this.checked == true) {
-//                   var message = 'Are you sure to sign off?'
-//                }
-//                else {
-//                    var message = 'Are you sure to undo sign off?'
-//                }
-//
-//                var confirmation = confirm(message);
-//                if (confirmation == true) {
-//                    alert('done');
-//                }
-
-                    $('<input>').attr({
-                        type: 'hidden',
-                        name: 'signoff',
-                        value: $(this).attr('data-fid')
-
-                    }).appendTo(this.form);
-
-                    $('#edit-submit').trigger('click');
-                    $(this).attr('disabled', true);
-                }
-
-            });
-        }
-    };
-
-    Drupal.behaviors.organogramUpload = {
-        attach: function (context, settings) {
-
-            $('.btn-organogram-upload').click(function() {
-                $('.input-group-btn input.form-submit').addClass('disabled');
-                $('input.form-file').change(function () {
-                    if ($('.form-type-managed-file .messages.error').length == 0) {
-                        $('.input-group-btn input.form-submit').removeClass('disabled');
-                    }
-                    else {
-                        $('.input-group-btn input.form-submit').addClass('disabled');
-                    }
-                });
-                $('.field-name-field-organogram .form-type-managed-file').show();
-                $('.field-name-field-organogram table').hide();
-                $('.form-item-publishers').hide();
-
-                Drupal.settings.organogramDateDisplay = $(this).data('organogram-date-display');
-                Drupal.settings.organogramDate = $(this).data('organogram-date');
-                $('.field-name-field-organogram .form-type-managed-file .form-select').val(Drupal.settings.organogramDate);
-                $('.field-name-field-organogram .form-type-managed-file #organogram-upload-date').text(Drupal.settings.organogramDateDisplay);
-            });
-            $('.btn-cancel').click(function() {
-                window.stop();
-                $('.field-name-field-organogram .form-type-managed-file').hide();
-                $('.field-name-field-organogram table').show();
-                $('.form-item-publishers').show();
-            });
-        }
-    };
-
-    Drupal.behaviors.organogramConfirm = {
-        attach: function(context, settings) {
-            $("input[name$='upload_button']").unbind('mousedown');
-            $("input[name$='upload_button']").mousedown(function (element) {
-                var target = element.target || element.srcElement;
-                var ajax = Drupal.ajax[$(target).attr('id')];
-                Drupal.behaviors.organogramConfirm.originalSuccess = ajax.options.success;
-                ajax.options.success = function(response, status) {
-                    if (response[1].data.indexOf('The spreadsheet contains errors') > -1) {
-                        $('.alert-danger').remove();
-                        Drupal.behaviors.organogramConfirm.originalSuccess(response, status);
-                        $('.field-name-field-organogram .form-type-managed-file .form-select').val(Drupal.settings.organogramDate);
-                        $('.field-name-field-organogram .form-type-managed-file #organogram-upload-date').text(Drupal.settings.organogramDateDisplay);
-                        $('.field-name-field-organogram .form-type-managed-file').show();
-                        $('.field-name-field-organogram table').hide();
-                        $('.form-item-publishers').hide();
-                    }
-                    else {
-                        $('.field-name-field-organogram').hide();
-                        $('.organogram-throbber').show();
-                        Drupal.behaviors.organogramConfirm.originalSuccess(response, status);
-                        $('input#edit-submit.btn.btn-primary.form-submit').click();
-                    }
-                }
-                ajax.form.ajaxSubmit(ajax.options);
-            });
-            $("input[name$='remove_button']").unbind('mousedown');
-            $("input[name$='remove_button']").mousedown(function (element) {
-                var target = element.target || element.srcElement;
-                var ajax = Drupal.ajax[$(target).attr('id')];
-                if (confirm('Are you sure you want to remove this organogram?')) {
-                    Drupal.behaviors.organogramConfirm.originalSuccess = ajax.options.success;
-                    ajax.options.success = function(response, status) {
-                        //read and store values from data drop down
-
-
-
-                        $('.field-name-field-organogram').hide();
-                        $('.organogram-throbber').show();
-
-
-                        Drupal.behaviors.organogramConfirm.originalSuccess(response, status);
-                        //restore darte on date drop down and upload widget label
-                        $('input#edit-submit.btn.btn-primary.form-submit').click();
-                    }
-                    ajax.form.ajaxSubmit(ajax.options);
-                    return true;
-                }
-                // Prevent default action.
-                return false;
-            });
-        }
-    };
-
-    Drupal.behaviors.organogramPublish = {
-        attach: function (context, settings) {
-            $('.btn-publish').click(function() {
-                $(this).parent().append('<div class="ajax-progress ajax-progress-throbber"><i class="glyphicon glyphicon-refresh glyphicon-spin"></i></div>');
-                $('body').css('cursor', 'wait');
-                $('.btn-publish').css('cursor', 'wait');
-            });
-        }
-    };
-
-    Drupal.behaviors.publisherSelect = {
-        attach: function (context, settings) {
-            jQuery('.chosen-select').chosen().change(function() {
-                var name = $(this).val();
-                window.location.href = '/organogram/manage/' + name;
-            });
-
-            jQuery('.chosen-select').chosen().on('chosen:showing_dropdown', function() {
-                jQuery('.chosen-results .result-selected').click(function() {
-                    var name = jQuery('.chosen-select').chosen().val();
-                    window.location.href = '/organogram/manage/' + name;
-                })
-            });
-        }
-    }
-
-    OrgDataLoader.docBase = '/organogram-ajax/preview/';
-
-    $.fn.listHandlers = function(events, outputFunction) {
-        return this.each(function(i){
-            var elem = this,
-                dEvents = $(this).data('events');
-            if (!dEvents) {return;}
-            $.each(dEvents, function(name, handler){
-                if((new RegExp('^(' + (events === '*' ? '.+' : events.replace(',','|').replace(/^on/i,'')) + ')$' ,'i')).test(name)) {
-                    $.each(handler, function(i,handler){
-                        outputFunction(elem, '\n' + i + ': [' + name + '] : ' + handler );
-                    });
-                }
-            });
-        });
-    };
-
 })(jQuery);
