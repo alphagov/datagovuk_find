@@ -9,15 +9,15 @@ var OrgDataLoader = {
                         Papa.parse(seniorcsv, {
                             header: true, delimiter: ',',
                             complete: function(seniorrows) {
-                                senior = seniorrows.data;
                                 $.ajax({url: OrgDataLoader.docBase + "data/" + data.value + "-junior.csv",
                                     success : function(juniorcsv){
                                         Papa.parse(juniorcsv, {
                                             header: true, delimiter: ',',
                                             complete: function(juniorrows) {
-                                                junior = juniorrows.data;
                                                 $('.chart .ajax-progress').remove();
-                                                Orgvis.showSpaceTree(OrgDataLoader.buildTree(data.name), infovisId);
+
+                                                var orgData = OrgDataLoader.buildTree(data.name, juniorrows.data, seniorrows.data);
+                                                Orgvis.showSpaceTree(orgData, infovisId);
                                             }
                                         });
                                     },
@@ -40,7 +40,7 @@ var OrgDataLoader = {
         });
     },
 
-    buildTree: function(department) {
+    buildTree: function(department, juniors, seniors) {
         var hierarchy = {};
         var tree = [];
         var processed = [];
@@ -161,7 +161,7 @@ var OrgDataLoader = {
             };
         }
 
-        senior.forEach(function(post, index) {
+        seniors.forEach(function(post, index) {
             var reportsTo = post['Reports to Senior Post'];
             if (null == hierarchy[reportsTo]){
                 hierarchy[reportsTo] = [];
@@ -170,7 +170,7 @@ var OrgDataLoader = {
                 hierarchy[reportsTo].push(createSeniorPostNode(post, true));
             }
         });
-        junior.forEach(function(post, index) {
+        juniors.forEach(function(post, index) {
             var reportsTo = post['Reporting Senior Post'];
             if (null == hierarchy[reportsTo]){
                 hierarchy[reportsTo] = [];
@@ -183,7 +183,7 @@ var OrgDataLoader = {
         //junior posts who report to them.
         var topLevel = [];
 
-        senior.forEach(function(post, index, array) {
+        seniors.forEach(function(post, index, array) {
             var postUR = post['Post Unique Reference'];
             var children = getChildren(postUR);
             if (-1 == processed.indexOf(postUR)){

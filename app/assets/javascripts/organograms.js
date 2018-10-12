@@ -46,9 +46,6 @@
         };
     }
 
-    var junior = null;
-    var senior = null;
-
     Drupal.behaviors.organogramView = {
         attach: function() {
             var infovisId = 'infovis';
