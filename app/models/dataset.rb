@@ -10,6 +10,11 @@ class Dataset
               :contact_email, :foi_email, :foi_web, :inspire_dataset, :harvested,
               :contact_name, :released, :licence_title, :licence_url, :licence_code
 
+  ORGANOGRAM_SCHEMA_IDS = [
+    "538b857a-64ba-490e-8440-0e32094a28a7", # Local authority
+    "d3c0b23f-6979-45e4-88ed-d2ab59b005d0", # Departmental
+  ].freeze
+
   index_name ENV['ES_INDEX'] || "datasets-#{Rails.env}"
 
   def initialize(hash)
@@ -42,11 +47,12 @@ class Dataset
     @organisation = Organisation.new(hash["organisation"])
     @datafiles = hash["datafiles"].map { |file| Datafile.new(file) }
     @docs = hash["docs"].map { |file| Doc.new(file) }
+    @schema_id = hash["schema_id"]
   end
 
   def self.get_by_query(query:)
     Dataset
-      .search(query)
+      .search(query).to_a
       .map { |result| result._source.to_hash.merge(_id: result._id) }
       .reject { |attributes| attributes['title'].blank? }
       .map(&:stringify_keys)
@@ -92,5 +98,9 @@ class Dataset
 
   def editable?
     harvested == false
+  end
+
+  def organogram?
+    ORGANOGRAM_SCHEMA_IDS.include?(@schema_id)
   end
 end

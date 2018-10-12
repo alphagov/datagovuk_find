@@ -11,15 +11,18 @@
 
       <% if @datafile.csv? && @datafile.preview.exists? %>
         <p>You're previewing the first <%= @datafile.preview.line_count %> rows of this file.</p>
-        <%= link_to t('.download_file'),
-        @datafile.url,
-          class: 'button',
-          :data => {
-            :'ga-event' => 'preview-download',
-            :'ga-format' => 'CSV',
-            :'ga-publisher' => @dataset.organisation.name
+        <%= link_to download_text(@dataset, @datafile), @datafile.url,
+          class: "button",
+          data: {
+            "ga-event" => "preview-download",
+            "ga-format" => "CSV",
+            "ga-publisher" => @dataset.organisation.name,
           }
-      %>
+        %>
+
+        <% if @dataset.organogram? %>
+          <%= link_to "View the full organogram", "#organogram", class: "button" %>
+        <% end %>
     </div>
     <div class = 'column-full'>
       <section class="dgu-datafile-preview">
@@ -47,6 +50,11 @@
           <p><%= "#{t('.no_preview_avail')} \"#{@datafile.name}\"" %></p>
         <% end %>
       </section>
+
+      <% if @dataset.organogram? %>
+        <section id="organogram" data-csv-url="<%= @datafile.url %>">
+        </section>
+      <% end %>
     </div>
   </div>
 </main>
