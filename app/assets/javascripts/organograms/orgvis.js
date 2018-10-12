@@ -262,10 +262,6 @@ var Orgvis = {
         spaceTree.onClick(spaceTree.root);
     },
 
-    init: function(filename){
-        OrgDataLoader.load(filename)
-    },
-
     fixInfovisSize: function() {
         var infoBoxSize = $('.infobox').height();
         var infoVisSize = $('.infovis').height();
