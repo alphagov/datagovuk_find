@@ -12,17 +12,6 @@ var Orgvis = {
       this.vars.debug && window.console && console.log && console.log(info);
     },
 
-    hashCode: function() {
-        var hash = 0, i, chr, len;
-        if (this.length === 0) return hash;
-        for (i = 0, len = this.length; i < len; i++) {
-            chr   = this.charCodeAt(i);
-            hash  = ((hash << 5) - hash) + chr;
-            hash |= 0; // Convert to 32bit integer
-        }
-        return hash;
-    },
-
     showSpaceTree: function(data, organogramContainer) {
         var $organogramContainer = organogramContainer;
         $organogramContainer.css("background-image", "none");
@@ -52,7 +41,7 @@ var Orgvis = {
         });
 
         var spaceTree = new $jit.ST({
-            'injectInto': $organogramContainer,
+            'injectInto': $organogramContainer.attr("id"),
             Navigation: {
                 enable: true,
                 panning: 'avoid nodes',
@@ -145,7 +134,7 @@ var Orgvis = {
 
                     $(label).css('color',node.data.colour);
                 } else {
-                    log("clicked something, but not sure what!");
+                    Orgvis.log("clicked something, but not sure what!");
                 }
 
                 label.onclick = function(){
@@ -157,12 +146,12 @@ var Orgvis = {
 
                     if(Orgvis.vars.transX != spaceTree.canvas.canvases[0].translateOffsetX ||
                         Orgvis.vars.transY != spaceTree.canvas.canvases[0].translateOffsetY){
-                        log("Panning has occurred");
+                        Orgvis.log("Panning has occurred");
                         Orgvis.vars.canvasPanned = true;
                         m.offsetX -= spaceTree.canvas.canvases[0].translateOffsetX;
                         m.offsetY -= spaceTree.canvas.canvases[0].translateOffsetY;
                     } else {
-                        log("Panning has not occurred");
+                        Orgvis.log("Panning has not occurred");
                     }
 
                     switch(node.data.type) {
@@ -187,11 +176,11 @@ var Orgvis = {
                             break;
 
                         case 'junior_posts' :
-                            log('clicked junior_posts node');
+                            Orgvis.log('clicked junior_posts node');
 
                             switch(node.data.nodeType){
                                 default :
-                                    log('clicked junior_posts:default');
+                                    Orgvis.log('clicked junior_posts:default');
                                     $organogramContainer.find(".infobox").hide();
                                     $organogramContainer.find("div.node").removeClass("selected");
                                     $organogramContainer.find("#"+node.id).addClass("selected");
@@ -208,7 +197,7 @@ var Orgvis = {
 
                                 case 'jp_child' :
                                     // A junior post has been clicked
-                                    log('clicked junior_posts:jp_child');
+                                    Orgvis.log('clicked junior_posts:jp_child');
 
                                     $organogramContainer.find("div.node").removeClass("selected");
                                     $organogramContainer.find("#"+node.id).addClass("selected");
@@ -224,7 +213,7 @@ var Orgvis = {
                                     break;
 
                                 case 'jp_none' :
-                                    log('clicked junior_posts:jp_none');
+                                    Orgvis.log('clicked junior_posts:jp_none');
 
                                     $organogramContainer.hide();
                                     $("div.jp_group_selector").hide();
@@ -264,7 +253,7 @@ var Orgvis = {
             try{
                 spaceTree.canvas.resize($organogramContainer.width(), $organogramContainer.height());
             } catch(e) {
-              log(e)
+              Orgvis.log(e)
             }
         });
 

@@ -128,10 +128,10 @@ var OrgDataLoader = {
                 d = ".",
                 t = ",",
                 b = number < 0 ? "-" : "",
-                i = parseInt(n = Math.abs(+n || 0).toFixed(c)) + "",
+                i = parseInt(number = Math.abs(+number || 0).toFixed(c)) + "",
                 j = (j = i.length) > 3 ? j % 3 : 0;
 
-            return s + b + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
+            return s + b + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(number - i).toFixed(c).slice(2) : "");
         }
 
         function getSalaryRange(post){
@@ -160,6 +160,17 @@ var OrgDataLoader = {
                     'type': 'junior_posts'
                 }
             };
+        }
+
+        function hashCode(string) {
+            var hash = 0, i, chr, len;
+            if (string.length === 0) return hash;
+            for (i = 0, len = string.length; i < len; i++) {
+                chr   = string.charCodeAt(i);
+                hash  = ((hash << 5) - hash) + chr;
+                hash |= 0; // Convert to 32bit integer
+            }
+            return hash;
         }
 
         seniors.forEach(function(post, index) {
