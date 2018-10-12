@@ -4,6 +4,7 @@ var OrgDataLoader = {
         $.ajax({cache: false, dataType: "json", url: this.docBase+filename,
             success : function(ret) {
                 var data = ret.data;
+
                 $.ajax({url: OrgDataLoader.docBase + "data/" + data.value + "-senior.csv",
                     success : function(seniorcsv){
                         Papa.parse(seniorcsv, {
@@ -36,7 +37,6 @@ var OrgDataLoader = {
             error: function(ret) {
                 OrgDataLoader.errorMessage(ret.responseText);
             }
-
         });
     },
 
@@ -46,6 +46,7 @@ var OrgDataLoader = {
         var processed = [];
         var seniorPosts = {};
         jobshare = [];
+
         function getChildren(postRef){
             var children = [];
             var juniorPosts = {
@@ -170,6 +171,7 @@ var OrgDataLoader = {
                 hierarchy[reportsTo].push(createSeniorPostNode(post, true));
             }
         });
+
         juniors.forEach(function(post, index) {
             var reportsTo = post['Reporting Senior Post'];
             if (null == hierarchy[reportsTo]){
@@ -179,6 +181,7 @@ var OrgDataLoader = {
                 hierarchy[reportsTo].push(createJuniorPostNode(post, index));
             }
         });
+
         //At this point hierarchy contains a map of senior posts with their reporting post and a list of
         //junior posts who report to them.
         var topLevel = [];
@@ -186,6 +189,7 @@ var OrgDataLoader = {
         seniors.forEach(function(post, index, array) {
             var postUR = post['Post Unique Reference'];
             var children = getChildren(postUR);
+
             if (-1 == processed.indexOf(postUR)){
                 var seniorPost = createSeniorPostNode(post, false);
                 seniorPost.children = children;
@@ -207,7 +211,7 @@ var OrgDataLoader = {
                 "data" : {
                     "heldBy" : "abc"
                 }
-            }
+            };
 
             var fakeNode = createSeniorPostNode(fake);
             fakeNode.children = [];
@@ -218,9 +222,10 @@ var OrgDataLoader = {
 
             tree.push(fakeNode);
 
-            return tree[tree.length - 1]
+            return tree[tree.length - 1];
         }
     },
+
     errorMessage: function (message){
         $('.field-name-field-organogram .form-type-managed-file').append('<div class="alert alert-block alert-danger"><a class="close" data-dismiss="alert" href="#">×</a><h4 class="element-invisible">Error message</h4>'
             + message +'</div>');
