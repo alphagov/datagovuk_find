@@ -95,9 +95,9 @@ var OrgDataLoader = {
                     'FTE': + post['FTE']*100/100,
                     'unit': post['Unit'],
                     'organisation': post['Organisation'],
-                    'payfloor': (post['Actual Pay Floor (£)'] * 100 / 100).formatMoney(0),
-                    'payceiling': (post['Actual Pay Ceiling (£)'] * 100 / 100).formatMoney(0),
-                    'cost': (post['Salary Cost of Reports (£)'] * 100 / 100).formatMoney(0),
+                    'payfloor': formatMoney(post['Actual Pay Floor (£)'] * 100 / 100),
+                    'payceiling': formatMoney(post['Actual Pay Ceiling (£)'] * 100 / 100),
+                    'cost': formatMoney(post['Salary Cost of Reports (£)'] * 100 / 100),
                     'reportsto': post['Reports to Senior Post'],
                     'senior' : true,
                     'type': 'senior_posts',
@@ -121,23 +121,23 @@ var OrgDataLoader = {
             return seniorPost;
         }
 
-        Number.formatMoney = function(c, d, t, s){
-            var n = this,
-                s = s == undefined ? "&pound;" : s,
-                c = isNaN(c = Math.abs(c)) ? 2 : c,
-                d = d == undefined ? "." : d,
-                t = t == undefined ? "," : t,
-                b = n < 0 ? "-" : "",
+        function formatMoney(number) {
+            var s = "&pound;",
+                c = 0,
+                d = ".",
+                t = ",",
+                b = number < 0 ? "-" : "",
                 i = parseInt(n = Math.abs(+n || 0).toFixed(c)) + "",
                 j = (j = i.length) > 3 ? j % 3 : 0;
+
             return s + b + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
-        };
+        }
 
         function getSalaryRange(post){
             var floor = post["Payscale Minimum (£)"] * 100 / 100;
             var ceil = post['Payscale Maximum (£)'] * 100 / 100;
 
-            return floor.formatMoney(0) + " - " + ceil.formatMoney(0);
+            return formatMoney(floor) + " - " + formatMoney(floor);
         }
 
         function createJuniorPostNode(post, index){
