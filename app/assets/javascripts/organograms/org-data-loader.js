@@ -1,6 +1,6 @@
 var OrgDataLoader = {
     docBase: "/organogram-ajax/preview/",
-    load: function (filename, infovisId) {
+    load: function (filename, organogramContainer) {
         $.ajax({cache: false, dataType: "json", url: this.docBase+filename,
             success : function(ret) {
                 var data = ret.data;
@@ -18,7 +18,7 @@ var OrgDataLoader = {
                                                 $('.chart .ajax-progress').remove();
 
                                                 var orgData = OrgDataLoader.buildTree(data.name, juniorrows.data, seniorrows.data);
-                                                Orgvis.showSpaceTree(orgData, infovisId);
+                                                Orgvis.showSpaceTree(orgData, organogramContainer);
                                             }
                                         });
                                     },

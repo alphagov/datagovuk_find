@@ -5,7 +5,7 @@ var Orgvis = {
         visOffsetY:0,
         transX:0,
         transY:0,
-        infovisId:''
+        organogramContainer:null
     },
 
     log: function(info) {
@@ -23,10 +23,11 @@ var Orgvis = {
         return hash;
     },
 
-    showSpaceTree: function(data, infovisId) {
-        $("#infovis").css("background-image", "none");
-        $(".infovis").height($(window).height()-250);
-        this.vars['infovisId'] = infovisId;
+    showSpaceTree: function(data, organogramContainer) {
+        var $organogramContainer = organogramContainer;
+        $organogramContainer.css("background-image", "none");
+        $organogramContainer.find(".infovis").height($(window).height()-250);
+        this.vars['organogramContainer'] = $organogramContainer;
 
         $jit.ST.Plot.NodeTypes.implement({
             'nodeline': {
@@ -51,7 +52,7 @@ var Orgvis = {
         });
 
         var spaceTree = new $jit.ST({
-            'injectInto': infovisId,
+            'injectInto': $organogramContainer,
             Navigation: {
                 enable: true,
                 panning: 'avoid nodes',
@@ -167,10 +168,10 @@ var Orgvis = {
                     switch(node.data.type) {
                         default :
                             // A post has been clicked
-                            $('#'+infovisId + " div.node").removeClass("selected");
-                            $('#'+infovisId + " div#"+node.id).addClass("selected");
-                            $('#'+infovisId + " .infobox").hide(0,function(){
-                                Orgvis.loadPostInfobox(node, infovisId);
+                            $organogramContainer.find("div.node").removeClass("selected");
+                            $organogramContainer.find("#"+node.id).addClass("selected");
+                            $organogramContainer.find(".infobox").hide(0,function(){
+                                Orgvis.loadPostInfobox(node, $organogramContainer);
                                 Orgvis.fixInfovisSize();
                             });
 
@@ -179,7 +180,7 @@ var Orgvis = {
                             });
 
                             if (Orgvis.vars.canvasPanned) {
-                                spaceTree.canvas.resize($('#'+infovisId).width(), $('#'+infovisId).height());
+                                spaceTree.canvas.resize($organogramContainer.width(), $organogramContainer.height());
                                 Orgvis.vars.canvasPanned = false;
                             }
 
@@ -191,57 +192,43 @@ var Orgvis = {
                             switch(node.data.nodeType){
                                 default :
                                     log('clicked junior_posts:default');
-                                    $('#'+infovisId + " .infobox").hide();
-                                    $('#'+infovisId + " div.node").removeClass("selected");
-                                    $('#'+infovisId + " div#"+node.id).addClass("selected");
-                                    st.onClick(node.id, {
-                                        Move: m
-                                    });
-                                    if(Orgvis.vars.canvasPanned){
-                                        spaceTree.canvas.resize($('#'+infovisId ).width(), $('#'+infovisId).height());
-                                        Orgvis.vars.canvasPanned = false;
-                                    }
-                                    break;
-
-                                case 'jp_parent' :
-                                    // A "JUNIOR POSTS" node has been clicked
-                                    log('clicked junior_posts:jp_parent');
-
-                                    $('#'+infovisId+ " .infobox").hide();
-
-                                    $('#'+infovisId+ " div.node").removeClass("selected");
-                                    $('#'+infovisId+ " div#"+node.id).addClass("selected");
-
+                                    $organogramContainer.find(".infobox").hide();
+                                    $organogramContainer.find("div.node").removeClass("selected");
+                                    $organogramContainer.find("#"+node.id).addClass("selected");
                                     spaceTree.onClick(node.id, {
                                         Move: m
                                     });
 
                                     if(Orgvis.vars.canvasPanned){
-                                        spaceTree.canvas.resize($('#'+infovisId).width(), $('#'+infovisId).height());
+                                        spaceTree.canvas.resize($organogramContainer.width(), $organogramContainer.height());
                                         Orgvis.vars.canvasPanned = false;
                                     }
+
                                     break;
 
                                 case 'jp_child' :
                                     // A junior post has been clicked
                                     log('clicked junior_posts:jp_child');
 
-                                    $('#'+infovisId+ " div.node").removeClass("selected");
-                                    $('#'+infovisId+ " div#"+node.id).addClass("selected");
-                                    $('#'+infovisId+ " .infobox").hide(0,function(){
-                                        Orgvis.loadJuniorPostInfoBox(node,infovisId);
+                                    $organogramContainer.find("div.node").removeClass("selected");
+                                    $organogramContainer.find("#"+node.id).addClass("selected");
+                                    $organogramContainer.find(".infobox").hide(0, function() {
+                                        Orgvis.loadJuniorPostInfoBox(node, $organogramContainer);
                                         Orgvis.fixInfovisSize();
                                     });
+
                                     if(Orgvis.vars.canvasPanned){
-                                        spaceTree.canvas.resize($('#'+infovisId).width(), $('#'+infovisId).height());
+                                        spaceTree.canvas.resize($organogramContainer.width(), $organogramContainer.height());
                                         Orgvis.vars.canvasPanned = false;
                                     }
                                     break;
 
                                 case 'jp_none' :
                                     log('clicked junior_posts:jp_none');
-                                    $('#'+infovisId).hide();
+
+                                    $organogramContainer.hide();
                                     $("div.jp_group_selector").hide();
+
                                     break;
                             }
 
@@ -275,7 +262,7 @@ var Orgvis = {
 
         $(window).resize(function(){
             try{
-                spaceTree.canvas.resize($('#'+infovisId).width(), $('#'+infovisId).height());
+                spaceTree.canvas.resize($organogramContainer.width(), $organogramContainer.height());
             } catch(e) {
               log(e)
             }
@@ -300,7 +287,7 @@ var Orgvis = {
     },
 
     loadPostInfobox:function(node){
-        var infovisId = this.vars['infovisId'];
+        var $organogramContainer = this.vars['organogramContainer'];
         var postID = node.data.id;
         var postUnit, tempUnitID, tempUnitLabel;
         tempUnitID = 'tempUnitId';
@@ -397,14 +384,14 @@ var Orgvis = {
             html+= '<a class="close">x</a>';
         }
 
-        $('#'+infovisId + " .infobox").html(html);
-        Orgvis.setInfoBoxLinks(infovisId);
-        $('#'+infovisId + " .infobox").show();
-        $('#'+infovisId + " div.heldBy").show();
+        $organogramContainer.find(".infobox").html(html);
+        Orgvis.setInfoBoxLinks($organogramContainer);
+        $organogramContainer.find(".infobox").show();
+        $organogramContainer.find("div.heldBy").show();
     },
 
     loadJuniorPostInfoBox:function(node){
-        var infovisId = this.vars['infovisId'];
+        var $organogramContainer = this.vars['organogramContainer'];
 
         // Construct the HTML for the infobox
         var nd = node.data;
@@ -423,13 +410,13 @@ var Orgvis = {
         html += '</div>'; // end panel
         html += '<a class="close">x</a>';
 
-        $('#'+infovisId + " .infobox").html(html);
-        Orgvis.setInfoBoxLinks(infovisId);
-        $('#'+infovisId + " .infobox").show();
-        $('#'+infovisId + " .infobox div.content").show();
+        $organogramContainer.find(".infobox").html(html);
+        Orgvis.setInfoBoxLinks($organogramContainer);
+        $organogramContainer.find(".infobox").show();
+        $organogramContainer.find(".infobox div.content").show();
     },
     setInfoBoxLinks: function() {
-        var infovisId = this.vars['infovisId'];
+        var $organogramContainer = this.vars['organogramContainer'];
         $("a.close").click(function(){
             $(this).parent().fadeOut();
         });
