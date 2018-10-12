@@ -1,8 +1,10 @@
 $(function() {
+  // This container needs to have an HTML ID (even if you're not using it here)
+  // in order for the visualiser library to work.
   var $organogramContainer = $("#organogram");
-  var fid = 1;
+  var csvURL = $organogramContainer.data("csv-url");
 
-  if (fid) {
+  if (csvURL) {
     if ($.browser.msie && parseInt($.browser.version, 10) < 9) {
       $organogramContainer.css("background", "none");
       $organogramContainer.css("border", "1px solid #eee");
@@ -12,7 +14,9 @@ $(function() {
       $organogramContainer.append('<div class="alert alert-block alert-danger"><a class="close" data-dismiss="alert" href="#">×</a><h4 class="element-invisible">Error message</h4>'
           + message +'</div>');
     } else {
-      OrgDataLoader.load(fid, $organogramContainer);
+      $organogramContainer.append("<div class='infobox' />");
+
+      OrgDataLoader.load(csvURL, $organogramContainer);
     }
   }
 });

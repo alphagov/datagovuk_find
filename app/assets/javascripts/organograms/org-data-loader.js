@@ -1,46 +1,39 @@
 var OrgDataLoader = {
-    docBase: "/organogram-ajax/preview/",
-    load: function (filename, organogramContainer) {
-        $.ajax({cache: false, dataType: "json", url: this.docBase+filename,
-            success : function(ret) {
-                var data = ret.data;
+    load: function (csvURL, organogramContainer) {
+        var seniorCSVURL = csvURL.replace(/-(senior|junior).csv$/, "-senior.csv");
+        var juniorCSVURL = csvURL.replace(/-(senior|junior).csv$/, "-junior.csv");
 
-                $.ajax({url: OrgDataLoader.docBase + "data/" + data.value + "-senior.csv",
-                    success : function(seniorcsv){
-                        Papa.parse(seniorcsv, {
-                            header: true, delimiter: ',',
-                            complete: function(seniorrows) {
-                                $.ajax({url: OrgDataLoader.docBase + "data/" + data.value + "-junior.csv",
-                                    success : function(juniorcsv){
-                                        Papa.parse(juniorcsv, {
-                                            header: true, delimiter: ',',
-                                            complete: function(juniorrows) {
-                                                $('.chart .ajax-progress').remove();
+        $.ajax({url: seniorCSVURL,
+            success : function(seniorCSV){
+                Papa.parse(seniorCSV, {
+                    header: true, delimiter: ',',
+                    complete: function(seniorRows) {
+                        $.ajax({url: juniorCSVURL,
+                            success : function(juniorCSV){
+                                Papa.parse(juniorCSV, {
+                                    header: true, delimiter: ',',
+                                    complete: function(juniorRows) {
+                                        $('.chart .ajax-progress').remove();
 
-                                                var orgData = OrgDataLoader.buildTree(data.name, juniorrows.data, seniorrows.data);
-                                                Orgvis.showSpaceTree(orgData, organogramContainer);
-                                            }
-                                        });
-                                    },
-                                    error: function() {
-                                        OrgDataLoader.errorMessage(ret.responseText);
+                                        var orgData = OrgDataLoader.buildTree(juniorRows.data, seniorRows.data);
+                                        Orgvis.showSpaceTree(orgData, organogramContainer);
                                     }
                                 });
+                            },
+                            error: function() {
+                                OrgDataLoader.errorMessage("Failed to load the junior positions CSV");
                             }
                         });
-                    },
-                    error: function() {
-                        OrgDataLoader.errorMessage(ret.responseText);
                     }
                 });
             },
-            error: function(ret) {
-                OrgDataLoader.errorMessage(ret.responseText);
+            error: function() {
+                OrgDataLoader.errorMessage("Failed to load the junior positions CSV");
             }
         });
     },
 
-    buildTree: function(department, juniors, seniors) {
+    buildTree: function(juniors, seniors) {
         var hierarchy = {};
         var tree = [];
         var processed = [];
