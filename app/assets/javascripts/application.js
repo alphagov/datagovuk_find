@@ -13,5 +13,6 @@
 //= require jquery
 //= require govuk_toolkit
 //= require accessible-autocomplete/dist/accessible-autocomplete.min
+//= require_tree ./organograms
 //= require_tree .
 //= stub map-preview
