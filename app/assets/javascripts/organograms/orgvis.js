@@ -21,7 +21,7 @@ var Orgvis = {
             hash |= 0; // Convert to 32bit integer
         }
         return hash;
-    };
+    },
 
     showSpaceTree: function(data, infovisId) {
         $("#infovis").css("background-image", "none");
