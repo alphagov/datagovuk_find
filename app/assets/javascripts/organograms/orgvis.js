@@ -1,6 +1,6 @@
 var Orgvis = {
     vars: {
-        debug: false,
+        debug: true,
         visOffsetX:20,
         visOffsetY:0,
         transX:0,
@@ -156,7 +156,7 @@ var Orgvis = {
 
                     switch(node.data.type) {
                         default :
-                            // A post has been clicked
+                            Orgvis.log('clicked a post node');
                             $organogramContainer.find("div.node").removeClass("selected");
                             $organogramContainer.find("#"+node.id).addClass("selected");
                             $organogramContainer.find(".infobox").hide(0,function(){
@@ -277,6 +277,11 @@ var Orgvis = {
 
     loadPostInfobox:function(node){
         var $organogramContainer = this.vars['organogramContainer'];
+
+        Orgvis.log("Loading post info box for " + node.name);
+        Orgvis.log($organogramContainer);
+        Orgvis.log(node.data);
+
         var postID = node.data.id;
         var postUnit, tempUnitID, tempUnitLabel;
         tempUnitID = 'tempUnitId';
@@ -381,6 +386,10 @@ var Orgvis = {
 
     loadJuniorPostInfoBox:function(node){
         var $organogramContainer = this.vars['organogramContainer'];
+
+        Orgvis.log("Loading junior post info box for " + node.name);
+        Orgvis.log($organogramContainer);
+        Orgvis.log(node.data);
 
         // Construct the HTML for the infobox
         var nd = node.data;
