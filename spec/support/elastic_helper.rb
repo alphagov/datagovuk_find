@@ -1,5 +1,5 @@
 def delete_index
-  ELASTIC.indices.delete index: "datasets-test"
+  Elasticsearch::Model.client.indices.delete index: "datasets-test"
 rescue StandardError
   Rails.logger.debug("No test search index to delete")
 end
@@ -7,7 +7,7 @@ end
 def create_index
   Rails.logger.info("Creating datasets-test index")
 
-  ELASTIC.indices.create(
+  Elasticsearch::Model.client.indices.create(
     index: "datasets-test",
     body: {
       settings: index_settings,

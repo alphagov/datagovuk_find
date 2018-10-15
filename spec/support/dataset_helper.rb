@@ -2,13 +2,13 @@ INDEX = "datasets-test".freeze
 
 def index(*datasets)
   datasets.each do |dataset, i|
-    ELASTIC.index index: INDEX, type: 'dataset', id: i, body: dataset.to_json
+    Elasticsearch::Model.client.index index: INDEX, type: 'dataset', id: i, body: dataset.to_json
   end
   refresh_index
 end
 
 def refresh_index
-  ELASTIC.indices.refresh index: INDEX
+  Elasticsearch::Model.client.indices.refresh index: INDEX
 end
 
 def index_and_visit(dataset)

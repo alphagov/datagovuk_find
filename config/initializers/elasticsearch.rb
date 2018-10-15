@@ -1,40 +1,22 @@
-def es_config_from_vcap
-  begin
-    vcap = JSON.parse(Rails.configuration.elasticsearch['vcap_services'])
-    es_server = vcap['elasticsearch'][0]['credentials']['uri']
-  rescue StandardError => e
-    Rails.logger.fatal "Failed to extract ES creds from VCAP_SERVICES. Exiting"
-    Rails.logger.fatal Rails.configuration.elasticsearch['vcap_services']
-    Rails.logger.fatal e
-    exit
-  end
+es_config = Rails.configuration.elasticsearch
 
-  es_config_from_host(es_server)
+host = es_config["host"]
+
+if host.blank?
+  vcap = JSON.parse(es_config["vcap_services"])
+  host = vcap.dig("elasticsearch", 0, "credentials", "uri")
 end
 
-def es_config_from_host(config)
-  {
-    host: config.fetch("host"),
-    transport_options: {
-      request: {
-        timeout: config.fetch("elastic_timeout"),
-      },
-      ssl: {
-        verify: config.fetch("verify_ssl", true),
-      },
+raise StandardError.new("No elasticsearch environment variables found") if host.blank?
+
+Elasticsearch::Model.client = Elasticsearch::Client.new(
+  host: host,
+  transport_options: {
+    request: {
+      timeout: es_config.fetch("elastic_timeout"),
     },
-  }
-end
-
-
-if Rails.configuration.elasticsearch['host']
-  config = es_config_from_host(Rails.configuration.elasticsearch)
-elsif Rails.configuration.elasticsearch['vcap_services']
-  config = es_config_from_vcap
-else
-  Rails.logger.fatal "No elasticsearch environment variables found"
-  config = nil
-end
-
-ELASTIC = Elasticsearch::Client.new(config)
-Elasticsearch::Model.client = ELASTIC
+    ssl: {
+      verify: es_config.fetch("verify_ssl", true),
+    },
+  },
+)
