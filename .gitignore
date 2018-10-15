@@ -4,6 +4,7 @@ spec/examples.txt
 
 /coverage/
 /vendor/bundle
+/.bundle
 /log
 /tmp
 /public/assets
