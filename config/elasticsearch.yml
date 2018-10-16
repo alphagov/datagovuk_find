@@ -8,6 +8,7 @@ test:
 development:
   <<: *default
   host: <%= ENV["ES_HOST"] || "http://localhost:9200" %>
+  verify_ssl: false
 
 integration:
   <<: *default
