@@ -32,9 +32,18 @@ Open up an SSH tunnel to allow access to the elasticsearch instance:
 cf ssh -N -L <es-port>:<es-host>:<es-port> find-data-beta
 ```
 
+You can use any port you like for the local connection (i.e., the first `<es-port>`)
+but I would recommend using the same port as the remote side to reduce confusion.
+
 Set the following environment variables (via direnv or other method of your choice):
-- ES_HOST="https://<username>:<password>@localhost:<es-port>"
-- ES_INDEX="datasets-production"
+- `ES_HOST="https://<username>:<password>@localhost:<es-port>"`
+- `ES_INDEX="datasets-production"`
+
+If you're using direnv you'll need to add `export ` in front of those lines in
+your `.envrc`.
 
 After (re)starting your Rails server, any requests to your local instance will
 behave the same as production.
+
+If you're having connection issues, try opening new tabs in your terminal to
+ensure all your environment variables are cleared and refreshed.
