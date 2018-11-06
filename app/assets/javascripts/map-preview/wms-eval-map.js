@@ -1851,18 +1851,11 @@ function buildUI(urls){
         Ext.MessageBox.alert('WMS Error', errorStr, '');
     }
 
-    var childLayerParams;
-    var browser = navigator.userAgent;
+    var childLayerParams = { format: 'image/png', transparent: 'true', version: '1.3.0' };
 
     // IE browsers handle PNG transparency very badly so gif images are used instead.
     if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)) {
-        childLayerParams = {
-            format: 'image/gif', transparent: 'true'
-        };
-    } else {
-        childLayerParams = {
-            format: 'image/png', transparent: 'true'
-        };
+        childLayerParams['format'] = 'image/gif';
     }
 
     // Build layer tree from valid WMS URLs
