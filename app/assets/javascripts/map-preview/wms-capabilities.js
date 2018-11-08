@@ -46,55 +46,37 @@ os.WMSCapabilitiesLoader = Ext.extend(GeoExt.tree.WMSCapabilitiesLoader,{
      */
     var capabilities = new OpenLayers.Format.WMSCapabilities().read(response.responseText);
 
-    if(!capabilities.capability){
+    if (!capabilities.capability) {
       this.hasLayers = false;
       scope.loading = false;
-    }
-    else{
+    } else {
       this.hasLayers = true;
       this.capabilitiesStore = new GeoExt.data.WMSCapabilitiesStore({data:capabilities});
 
-      var infoFormatsArr = (capabilities.capability.request.getfeatureinfo) ? capabilities.capability.request.getfeatureinfo.formats : [];
-
-      var exceptionFormatsArr = capabilities.capability.exception.formats;
-
       // choose preferred info_format
       // not supported: application/vnd.esri.wms_raw_xml, application/vnd.esri.wms_featureinfo_xml
-      infoFormat = "";
-      if (infoFormatsArr.indexOf("application/vnd.ogc.wms_xml") > -1) {
-        infoFormat = "application/vnd.ogc.wms_xml";
-      } else {
-        if (infoFormatsArr.indexOf("text/xml") > -1) {
-          infoFormat = "text/xml";
-        } else {
-          if (infoFormatsArr.indexOf("application/vnd.ogc.gml") > -1) {
-            infoFormat = "application/vnd.ogc.gml";
-          } else {
-            if (infoFormatsArr.indexOf("text/html") > -1) {
-              infoFormat = "text/html";
-            } else {
-              if (infoFormatsArr.indexOf("text/plain") > -1) {
-                infoFormat = "text/plain";
-              }
-            }
-          }
+      var infoFormats = [];
+      if (capabilities.capability.request.getfeatureinfo) {
+        infoFormats = capabilities.capability.request.getfeatureinfo.formats;
+      }
+
+      var preferredInfoFormats = ["application/vnd.ogc.wms_xml", "text/xml", "application/vnd.ogc.gml", "text/html", "text/plain"];
+      for (var format in preferredInfoFormats) {
+        if (infoFormats.indexOf(format) > -1) {
+          this.infoFormat = format;
+          break;
         }
       }
 
-      // choose preferred exception format
-      exceptionFormat = "";
-      /* DISABLED DUE TO http://redmine.dguteam.org.uk/issues/1955 */
-      /*if (exceptionFormatsArr.indexOf("application/vnd.ogc.se_xml") > -1) {
-          exceptionFormat = "application/vnd.ogc.se_xml";
-      } else {
-          if (exceptionFormatsArr.indexOf("XML") > -1) {
-              exceptionFormat = "XML";
-          } else {
-              if (exceptionFormatsArr.indexOf("text/xml") > -1) {
-                  exceptionFormat = "text/xml";
-              }
-          }
-      }*/
+      // Set the exception format for WMS interactions.
+      var preferredExceptionFormats = ["application/vnd.ogc.se_xml", "XML", "text/xml"];
+      var exceptionFormats = capabilities.capability.exception.formats;
+      for (var format in preferredExceptionFormats) {
+        if (exceptionFormats.indexOf(format) > -1) {
+          this.exceptionFormat = format;
+          break;
+        }
+      }
 
       this.processLayer(capabilities.capability,
         capabilities.capability.request.getmap.href, node);
@@ -176,8 +158,8 @@ os.WMSCapabilitiesLoader = Ext.extend(GeoExt.tree.WMSCapabilitiesLoader,{
       if (n) {
         if (n.attributes.layer)
         {
-          n.attributes.layer.data.INFO_FORMAT = infoFormat;
-          n.attributes.layer.data.EXCEPTIONS = exceptionFormat;
+          n.attributes.layer.data.INFO_FORMAT = this.infoFormat;
+          n.attributes.layer.data.EXCEPTIONS = this.exceptionFormat;
           n.attributes.layer.data.layer = this.createWMSLayer(el, url);
         }
         node.appendChild(n);
