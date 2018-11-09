@@ -166,8 +166,6 @@ Ext.onReady(function(){
         },
 
         getWaitText: function() {
-            //return ("Waiting for") + ' ' + this.counter + ' ' + (this.counter <= 1 ? ('map service to load.') : ('map services to load.'));
-            //console.log("waiting for " + this.counter);
             return ("Waiting for map services to load.");
         },
 
@@ -1101,10 +1099,6 @@ Ext.onReady(function(){
                     parentDomainOfNode = parentDomainOfNode.substring((parentDomainOfNode.indexOf(".") + 1), parentDomainOfNode.length);
                     if (parentDomain == parentDomainOfNode) {
                         Ext.MessageBox.alert('Error', ("The WMS source: " + children[j].text + " has failed to load - please switch it off or try a different projection."));
-                        //children[j].cascade(function(m){
-                            // var ui2 = m.getUI();
-                            // ui2.toggleCheck(false);
-                        // });
                         foundBadWMS = true;
                     }
                 }
@@ -1145,7 +1139,6 @@ Ext.onReady(function(){
         attribution: copyrightStatements,
         transitionEffect: 'resize',
         queryable: false
-        //singleTile: true
     });
 
     var wmsParams = {
@@ -1161,10 +1154,6 @@ Ext.onReady(function(){
 
     map.events.on({
         "zoomend": function(e){
-            // if (tiled.getVisibility()) {
-                // tiled.redraw();
-            // }
-
             var chxBaseMap = Ext.getCmp('checkboxes').items.get(0);
 
             if (map.getNumLayers() > 0)
@@ -1250,7 +1239,7 @@ Ext.onReady(function(){
                         combo.setValue("Irish Transverse Mercator");
                         break;
                     default:
-                        //console.log("oops");
+                        // console.log("Coordinate system not recognized");
                 }
             }
         }
@@ -1323,16 +1312,6 @@ Ext.onReady(function(){
         'rightclick': function(e) {
             clickControl.deactivate();
             clickControl.activate();
-            //alert('rightclick at '+e.xy.x+','+e.xy.y);
-        },
-        'click': function(e) {
-            //alert('click at '+e.xy.x+','+e.xy.y);
-        },
-        'dblclick': function(e) {
-            //alert('dblclick at '+e.xy.x+','+e.xy.y);
-        },
-        'dblrightclick': function(e) {
-            //alert('dblrightclick at '+e.xy.x+','+e.xy.y);
         }
     }});
     map.addControl(oClick);
@@ -1671,24 +1650,12 @@ Ext.onReady(function(){
                     width:popUpWidth,
                     height:popUpHeight,
                     minWidth: 400,
-                    //minHeight: 300,
                     boxMaxWidth: 600,
-                    //boxMaxHeight: 800,
                     layout: "accordion",
                     draggable: true,
-                    //autoScroll: true,
                     constrain: true,
                     items: items
                 });
-
-                //if (items.length == 0)
-                //{
-                    //popup.html = 'No features found.';
-                    //popup.minWidth = 400;
-                    //popup.width = 400;
-                    //popup.minHeight = 300;
-                    //popup.height = 300;
-                //}
 
                 popup.show();
                 OpenLayers.Element.removeClass(this.map.viewPortDiv, "olCursorWait");
@@ -1711,7 +1678,6 @@ Ext.onReady(function(){
     // keyboard control
     map.addControl(new OpenLayers.Control.KeyboardDefaults({
         autoActivate: true
-        //observeElement: "mappanel"
     }));
 
     // Add mouse position.
@@ -2068,8 +2034,6 @@ function buildUI(urls){
     mapPanel = new GeoExt.MapPanel({
         map: map,
         region: 'center',
-        //renderTo: "div-map",
-        // items: []
         items: [{
             xtype: "gx_zoomslider",
             vertical: true,
@@ -2178,7 +2142,6 @@ function buildUI(urls){
                             });
 
                             // reset map
-                            //mapPanel.map.setOptions(options4258);
                             OpenLayers.Util.extend(mapPanel.map, options4258);
                             mapPanel.map.options.projection = "EPSG:4258";
                             // reset layers
@@ -2284,7 +2247,6 @@ function buildUI(urls){
                             });
 
                             // reset map
-                            //mapPanel.map.setOptions(options27700);
                             OpenLayers.Util.extend(mapPanel.map, options27700);
                             mapPanel.map.options.projection = "EPSG:27700";
                             // reset layers
@@ -2326,19 +2288,16 @@ function buildUI(urls){
 
                             // Irish Transverse Mercator
                             var centre = mapPanel.map.getCenter().clone();
-                            //console.log("centre: " + centre.toShortString());
                             var zoom = mapPanel.map.getZoom();
                             var srcProj = mapPanel.map.getProjectionObject();
                             // transform centre
                             centre.transform(srcProj, proj2157);
-                            //console.log("centre: " + centre.toShortString() + " 2157");
                             // set sea rasters
                             mapPanel.map.baseLayer.mergeNewParams({
                                 LAYERS: 'InspireITM'
                             });
 
                             // reset map
-                            //mapPanel.map.setOptions(options2157);
                             OpenLayers.Util.extend(mapPanel.map, options2157);
                             mapPanel.map.options.projection = "EPSG:2157";
                             // reset layers
@@ -2372,26 +2331,22 @@ function buildUI(urls){
                             // centre map
                             mapPanel.map.setCenter(centre, zoom, true, true);
                             mapPanel.map.moveTo(centre);
-                            //map.events.triggerEvent("moveend");
                             break;
 
                         case "EPSG:29903":
 
                             // Irish Grid
                             var centre = mapPanel.map.getCenter().clone();
-                            //console.log("centre: " + centre.toShortString());
                             var zoom = mapPanel.map.getZoom();
                             var srcProj = mapPanel.map.getProjectionObject();
                             // transform centre
                             centre.transform(srcProj, proj29903);
-                            //console.log("centre: " + centre.toShortString() + " 29903");
                             // set sea rasters
                             mapPanel.map.baseLayer.mergeNewParams({
                                 LAYERS: 'InspireIG'
                             });
 
                             // reset map
-                            //mapPanel.map.setOptions(options29903);
                             OpenLayers.Util.extend(mapPanel.map, options29903);
                             mapPanel.map.options.projection = "EPSG:29903";
                             // reset layers
@@ -2442,7 +2397,6 @@ function buildUI(urls){
                             });
 
                             // reset map
-                            //mapPanel.map.setOptions(options4258);
                             OpenLayers.Util.extend(mapPanel.map, options4258);
                             mapPanel.map.options.projection = "EPSG:4258";
                             // reset layers
@@ -2714,7 +2668,6 @@ function buildUI(urls){
         map.zoomToExtent(mapBounds);
     } else {
         mapBounds = new OpenLayers.Bounds(-30, 48.00, 3.50, 64.00);
-        //mapBounds = new OpenLayers.Bounds(-13.02, 49.79, 3.26, 60.95); // Centred upon British Isles
         mapExtent = mapBounds.clone();
         map.zoomToExtent(mapBounds);
     }
@@ -2894,11 +2847,6 @@ function featuresAttributestoHTMLTable(feature){
         returnedTable += "<td>Data not supplied</td>";
 
     }
-
-    // this doesn't work in IE7-9 :-/
-    // Object.keys(feature.attributes).forEach(function(key) {
-        // returnedTable += "<tr><td>" + key + "</td><td>" + feature.attributes[key] + "</td></tr>";
-    // });
 
     returnedTable = returnedTable.replaceAll(">null<",">Data not supplied<");
     returnedTable = returnedTable.replaceAll(">Null<",">Data not supplied<");
