@@ -2778,29 +2778,6 @@ function baseMappingOn(visible){
     atrControl[0].updateAttribution();
 }
 
-// Get XML object
-function getXMLObject(){
-    var xmlHttp = false;
-    try {
-        // Old Microsoft Browsers
-        xmlHttp = new ActiveXObject("Msxml2.XMLHTTP")
-    catch (e) {
-        try {
-            // Microsoft IE 6.0+
-            xmlHttp = new ActiveXObject("Microsoft.XMLHTTP")
-        }
-        catch (e2) {
-            // Return false if no browser acceps the XMLHTTP object
-            xmlHttp = false
-        }
-    }
-    if (!xmlHttp && typeof XMLHttpRequest != 'undefined') {
-        //For Mozilla, Opera Browsers
-        xmlHttp = new XMLHttpRequest();
-    }
-    return xmlHttp;
-}
-
 function disabledEventPropagation(event){
    if (event.stopPropagation){
        event.stopPropagation();
