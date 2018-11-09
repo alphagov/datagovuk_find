@@ -54,6 +54,11 @@ Ext.onReady(function(){
 
     OSInspire.Layer = {};
 
+    /**
+     * Overrides for OpenLayers WMS map layer.
+     * This layer interacts with Web Mapping Services, these are usually remote endpoints.
+     * getURL function overrides default implementation for GetMap querystring on this layer.
+     */
     OSInspire.Layer.WMS = OpenLayers.Class(OpenLayers.Layer.WMS, {
         getURL: function(bounds){
             bounds = this.adjustBounds(bounds);
@@ -71,6 +76,9 @@ Ext.onReady(function(){
         CLASS_NAME: "OSInspire.Layer.WMS"
     });
 
+    /**
+     * Overrides how GetFeatureInfo responses are interpreted.
+     */
     OSInspire.WMSGetFeatureInfo = OpenLayers.Class(OpenLayers.Format.WMSGetFeatureInfo, {
         read : function(data){
             if (typeof data == "object") {
@@ -2642,22 +2650,8 @@ function buildUI(urls){
         ,border: false
         ,collapsible: true
         ,bodyStyle: 'padding:5px'
-        //,width: 348
         ,autoScroll: true
         ,items: [formPanel, checkboxes, layerTree]
-    });
-
-    // var myInfoPanelKeyHandler = function(e){
-        // var key = e.getKey();
-        // console.log("key press in the info panel");
-    // }
-
-    var myKeyMap = new Ext.KeyMap(document, {
-        key : Ext.EventObject.ENTER,
-        scope: this,
-        fn : function() {
-            //console.log("activeElement:" + document.activeElement);
-        }
     });
 
     // Define the Information panel
@@ -2669,36 +2663,6 @@ function buildUI(urls){
         ,border: false
         ,bodyStyle: "padding:10px"
         ,autoScroll: true
-        // ,keys: [{
-            // key: [Ext.EventObject.PAGE_UP], handler: function(e){
-                // console.log("here we are");
-            // }
-        // },{
-            // key: [Ext.EventObject.PAGE_DOWN], handler: myInfoPanelKeyHandler
-        // }]
-        // ,keys: new Ext.KeyMap(Ext.get("infoPanel"), [
-            // {
-                // key: Ext.EventObject.UP,
-                // fn: function(e){
-                    // console.log("infoPanel up");
-                    // //e.stopPropagation();
-                // },
-                // scope: this
-            // },
-            // {
-                // key: Ext.EventObject.DOWN,
-                // fn: function(e){ e.stopPropagation(); }
-            // },
-            // {
-                // key: Ext.EventObject.LEFT,
-                // fn: function(e){ e.stopPropagation(); }
-            // },
-            // {
-                // key: Ext.EventObject.RIGHT,
-                // fn: function(e){ e.stopPropagation(); }
-            // }
-        // ])
-        // ,renderTo: 'info'
         ,style: 'font-family: Arial; font-size: 13px'
         ,html: "<a href=\"/location/preview-on-map\" target=\"_blank\" title=\"Open Help Window\">Need help getting started?</a><br><br>"
         +"Please note:<br><br>"
@@ -2729,21 +2693,8 @@ function buildUI(urls){
         items: [layersPanel, activeLayersPanel, legendPanel, infoPanel]
     });
 
-    // code here if we need to keep activelayerspanel separate to the other left panels
-    // var leftContainer = new Ext.Panel({
-        // layout: 'vbox',
-        // layoutConfig: {
-            // align : 'stretch',
-            // pack  : 'start'
-        // },
-        // region : "west",
-        // width: 240,
-        // collapsible: true,
-        // border: false,
-        // items: [activeLayersPanel, leftPanel]
-    // });
-
-    // Define a viewport.  Left panel (Layers, Legend and Information) will be on the left, and the map will be on the right
+    // Define a viewport.  Left panel (Layers, Legend and Information) will be on the left
+    // and the map will be on the right
     new Ext.Viewport({
         layout: "fit",
         hideBorders: false,
@@ -2829,37 +2780,24 @@ function baseMappingOn(visible){
 
 // Get XML object
 function getXMLObject(){
-
     var xmlHttp = false;
-
     try {
-
         // Old Microsoft Browsers
         xmlHttp = new ActiveXObject("Msxml2.XMLHTTP")
-
-    }
     catch (e) {
-
         try {
-
             // Microsoft IE 6.0+
             xmlHttp = new ActiveXObject("Microsoft.XMLHTTP")
-
         }
         catch (e2) {
-
             // Return false if no browser acceps the XMLHTTP object
             xmlHttp = false
-
         }
     }
     if (!xmlHttp && typeof XMLHttpRequest != 'undefined') {
-
         //For Mozilla, Opera Browsers
         xmlHttp = new XMLHttpRequest();
-
     }
-
     return xmlHttp;
 }
 
