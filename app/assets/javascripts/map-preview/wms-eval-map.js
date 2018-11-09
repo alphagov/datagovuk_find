@@ -701,8 +701,6 @@ Ext.onReady(function(){
                 zoom = this.map.getZoomForResolution(state.resolution);
                 center = state.center;
                 this.map.setCenter(center, zoom);
-                //console.log("from: " + this.map.getCenter().toString() + " : " + this.map.getProjectionObject().getCode());
-                //console.log("to: " + center.toString() + " : same projection");
             } else {
                 currentProj = this.map.getProjectionObject();
                 var triggerMoveEnd = false;
@@ -711,224 +709,64 @@ Ext.onReady(function(){
                         triggerMoveEnd = true;
                 }
                 // set baselayer
+                var baseLayerForProjectionCode = 'InspireETRS89';
+                var optionsForProjectionCode = options4258;
+                var layersForProjectionCode = 'sea_dtm,overview_layers';
+
                 switch (state.projection.getCode()) {
-                    case "EPSG:4258":
-                        this.map.baseLayer.mergeNewParams({
-                            LAYERS: 'InspireETRS89'
-                        });
-                        // reset layers
-                        for (var i = 0, len = this.map.layers.length; i < len; i++) {
-                            this.map.layers[i].addOptions(options4258);
-                            if (this.map.layers[i].name == "Search Criteria") {
-                                if (this.map.layers[i].visibility == true)
-                                {
-                                    // if boxbounds isn't present extract marker from layer
-                                    if (this.boxbounds) {
-                                        var markerExtent = this.boxbounds.clone();
-                                        markerExtent.transform(this.boxproj, state.projection);
-                                    } else {
-                                        // find first feature's bounds
-                                        var markerExtent = this.map.layers[i].markers[0].bounds.clone();
-                                        // transform bounds
-                                        markerExtent.transform(currentProj, state.projection);
-                                    }
-                                    // remove feature
-                                    this.map.layers[i].clearMarkers();
-                                    // create feature
-                                    this.map.layers[i].addMarker(new OpenLayers.Marker.Box(markerExtent, "red"));
-                                    // redraw - possibly
-                                    this.map.layers[i].redraw();
-                                }
-
-                            }
-                        }
-                        OpenLayers.Util.extend(this.map, options4258);
-                        break;
                     case "EPSG:4326":
-                        this.map.baseLayer.mergeNewParams({
-                            LAYERS: 'InspireWGS84'
-                        });
-                        OpenLayers.Util.extend(this.map, options4326);
-                        // reset layers
-                        for (var i = 0, len = this.map.layers.length; i < len; i++) {
-                            this.map.layers[i].addOptions(options4326);
-                            if (this.map.layers[i].name == "Search Criteria") {
-                                if (this.map.layers[i].visibility == true)
-                                {
-                                    // if boxbounds isn't present extract marker from layer
-                                    if (this.boxbounds) {
-                                        var markerExtent = this.boxbounds.clone();
-                                        markerExtent.transform(this.boxproj, state.projection);
-                                    } else {
-                                        // find first feature's bounds
-                                        var markerExtent = this.map.layers[i].markers[0].bounds.clone();
-                                        // transform bounds
-                                        markerExtent.transform(currentProj, state.projection);
-                                    }
-                                    // remove feature
-                                    this.map.layers[i].clearMarkers();
-                                    // create feature
-                                    this.map.layers[i].addMarker(new OpenLayers.Marker.Box(markerExtent, "red"));
-                                    // redraw - possibly
-                                    this.map.layers[i].redraw();
-                                }
-
-                            }
-                        }
+                        baseLayerForProjectionCode = 'InspireWGS84';
+                        layersForProjectionCode = 'sea_dtm_4326,overview_layers';
+                        optionsForProjectionCode = options4326;
                         break;
                     case "EPSG:27700":
-                        this.map.baseLayer.mergeNewParams({
-                            LAYERS: 'InspireBNG'
-                        });
-                        OpenLayers.Util.extend(this.map, options27700);
-                        // reset layers
-                        for (var i = 0, len = this.map.layers.length; i < len; i++) {
-                            this.map.layers[i].addOptions(options27700);
-                            if (this.map.layers[i].name == "Search Criteria") {
-                                if (this.map.layers[i].visibility == true)
-                                {
-                                    // if boxbounds isn't present extract marker from layer
-                                    if (this.boxbounds) {
-                                        var markerExtent = this.boxbounds.clone();
-                                        markerExtent.transform(this.boxproj, state.projection);
-                                    } else {
-                                        // find first feature's bounds
-                                        var markerExtent = this.map.layers[i].markers[0].bounds.clone();
-                                        // transform bounds
-                                        markerExtent.transform(currentProj, state.projection);
-                                    }
-                                    // remove feature
-                                    this.map.layers[i].clearMarkers();
-                                    // create feature
-                                    this.map.layers[i].addMarker(new OpenLayers.Marker.Box(markerExtent, "red"));
-                                    // redraw - possibly
-                                    this.map.layers[i].redraw();
-                                }
-
-                            }
-                        }
+                        baseLayerForProjectionCode = 'InspireBNG';
+                        layersForProjectionCode = 'sea_dtm_27700,overview_layers';
+                        optionsForProjectionCode = options27700;
                         break;
                     case "EPSG:29903":
-                        this.map.baseLayer.mergeNewParams({
-                            LAYERS: 'InspireIG'
-                        });
-                        OpenLayers.Util.extend(this.map, options29903);
-                        // reset layers
-                        for (var i = 0, len = this.map.layers.length; i < len; i++) {
-                            this.map.layers[i].addOptions(options29903);
-                            if (this.map.layers[i].name == "Search Criteria") {
-                                if (this.map.layers[i].visibility == true)
-                                {
-                                    // if boxbounds isn't present extract marker from layer
-                                    if (this.boxbounds) {
-                                        var markerExtent = this.boxbounds.clone();
-                                        markerExtent.transform(this.boxproj, state.projection);
-                                    } else {
-                                        // find first feature's bounds
-                                        var markerExtent = this.map.layers[i].markers[0].bounds.clone();
-                                        // transform bounds
-                                        markerExtent.transform(currentProj, state.projection);
-                                    }
-                                    // remove feature
-                                    this.map.layers[i].clearMarkers();
-                                    // create feature
-                                    this.map.layers[i].addMarker(new OpenLayers.Marker.Box(markerExtent, "red"));
-                                    // redraw - possibly
-                                    this.map.layers[i].redraw();
-                                }
-
-                            }
-                        }
+                        baseLayerForProjectionCode = 'InspireIG';
+                        layersForProjectionCode = 'sea_dtm_29903,overview_layers';
+                        optionsForProjectionCode = options29903;
                         break;
                     case "EPSG:2157":
-                        this.map.baseLayer.mergeNewParams({
-                            LAYERS: 'InspireITM'
-                        });
-                        OpenLayers.Util.extend(this.map, options2157);
-                        // reset layers
-                        for (var i = 0, len = this.map.layers.length; i < len; i++) {
-                            this.map.layers[i].addOptions(options2157);
-                            if (this.map.layers[i].name == "Search Criteria") {
-                                if (this.map.layers[i].visibility == true)
-                                {
-                                    // if boxbounds isn't present extract marker from layer
-                                    if (this.boxbounds) {
-                                        var markerExtent = this.boxbounds.clone();
-                                        markerExtent.transform(this.boxproj, state.projection);
-                                    } else {
-                                        // find first feature's bounds
-                                        var markerExtent = this.map.layers[i].markers[0].bounds.clone();
-                                        // transform bounds
-                                        markerExtent.transform(currentProj, state.projection);
-                                    }
-                                    // remove feature
-                                    this.map.layers[i].clearMarkers();
-                                    // create feature
-                                    this.map.layers[i].addMarker(new OpenLayers.Marker.Box(markerExtent, "red"));
-                                    // redraw - possibly
-                                    this.map.layers[i].redraw();
-                                }
-
-                            }
-                        }
+                        baseLayerForProjectionCode = 'InspireITM';
+                        layersForProjectionCode = 'sea_dtm_2157,overview_layers';
+                        optionsForProjectionCode = options2157;
                         break;
-                    default:
-                        this.map.baseLayer.mergeNewParams({
-                            LAYERS: 'InspireETRS89'
-                        });
-                        OpenLayers.Util.extend(this.map, options4258);
-                        // reset layers
-                        for (var i = 0, len = this.map.layers.length; i < len; i++) {
-                            this.map.layers[i].addOptions(options4258);
-                            if (this.map.layers[i].name == "Search Criteria") {
-                                if (this.map.layers[i].visibility == true)
-                                {
-                                    // if boxbounds isn't present extract marker from layer
-                                    if (this.boxbounds) {
-                                        var markerExtent = this.boxbounds.clone();
-                                        markerExtent.transform(this.boxproj, state.projection);
-                                    } else {
-                                        // find first feature's bounds
-                                        var markerExtent = this.map.layers[i].markers[0].bounds.clone();
-                                        // transform bounds
-                                        markerExtent.transform(currentProj, state.projection);
-                                    }
-                                    // remove feature
-                                    this.map.layers[i].clearMarkers();
-                                    // create feature
-                                    this.map.layers[i].addMarker(new OpenLayers.Marker.Box(markerExtent, "red"));
-                                    // redraw - possibly
-                                    this.map.layers[i].redraw();
-                                }
-
+                }
+ 
+                this.map.baseLayer.mergeNewParams({ LAYERS: baseLayerForProjectionCode });
+                OpenLayers.Util.extend(this.map, optionsForProjectionCode);
+                // reset layers
+                for (var i = 0, len = this.map.layers.length; i < len; i++) {
+                    this.map.layers[i].addOptions(options4258);
+                    if (this.map.layers[i].name == "Search Criteria") {
+                        if (this.map.layers[i].visibility == true)
+                        {
+                            // if boxbounds isn't present extract marker from layer
+                            if (this.boxbounds) {
+                                var markerExtent = this.boxbounds.clone();
+                                markerExtent.transform(this.boxproj, state.projection);
+                            } else {
+                                // find first feature's bounds
+                                var markerExtent = this.map.layers[i].markers[0].bounds.clone();
+                                // transform bounds
+                                markerExtent.transform(currentProj, state.projection);
                             }
+                            // remove feature
+                            this.map.layers[i].clearMarkers();
+                            // create feature
+                            this.map.layers[i].addMarker(new OpenLayers.Marker.Box(markerExtent, "red"));
+                            // redraw - possibly
+                            this.map.layers[i].redraw();
                         }
+
+                    }
                 }
 
                 var ov = this.map.getControlsByClass("OpenLayers.Control.OverviewMap");
-                var optionsForProjectionCode = options4258;
-                var layersForProjectionCode = 'sea_dtm,overview_layers';
-                if (ov.length > 0)
-                {
-                    switch (state.projection.getCode()) {
-                        case "EPSG:4326":
-                            optionsForProjectionCode = options4326;
-                            layersForProjectionCode = 'sea_dtm_4326,overview_layers';
-                            break;
-                        case "EPSG:27700":
-                            optionsForProjectionCode = options27700;
-                            layersForProjectionCode = 'sea_dtm_27700,overview_layers';
-                            break;
-                        case "EPSG:29903":
-                            optionsForProjectionCode = options29903;
-                            layersForProjectionCode = 'sea_dtm_29903,overview_layers';
-                            break;
-                        case "EPSG:2157":
-                            optionsForProjectionCode = options2157;
-                            layersForProjectionCode = 'sea_dtm_2157,overview_layers';
-                            break;
-                    }
-
+                if (ov.length > 0) {
                     ov[0].ovmap.baseLayer.mergeNewParams({
                         LAYERS: layersForProjectionCode
                     });
