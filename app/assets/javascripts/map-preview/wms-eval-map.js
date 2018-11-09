@@ -906,63 +906,36 @@ Ext.onReady(function(){
                 }
 
                 var ov = this.map.getControlsByClass("OpenLayers.Control.OverviewMap");
+                var optionsForProjectionCode = options4258;
+                var layersForProjectionCode = 'sea_dtm,overview_layers';
                 if (ov.length > 0)
                 {
                     switch (state.projection.getCode()) {
-                        case "EPSG:4258":
-                            ov[0].ovmap.baseLayer.mergeNewParams({
-                                LAYERS: 'sea_dtm,overview_layers'
-                            });
-                            for (var i = 0; i < ov[0].ovmap.layers.length; i++) {
-                                ov[0].ovmap.layers[i].addOptions(options4258);
-                            }
-                            ov[0].ovmap.setOptions(options4258);
-                            break;
                         case "EPSG:4326":
-                            ov[0].ovmap.baseLayer.mergeNewParams({
-                                LAYERS: 'sea_dtm_4326,overview_layers'
-                            });
-                            for (var i = 0; i < ov[0].ovmap.layers.length; i++) {
-                                ov[0].ovmap.layers[i].addOptions(options4326);
-                            }
-                            ov[0].ovmap.setOptions(options4326);
+                            optionsForProjectionCode = options4326;
+                            layersForProjectionCode = 'sea_dtm_4326,overview_layers';
                             break;
                         case "EPSG:27700":
-                            ov[0].ovmap.baseLayer.mergeNewParams({
-                                LAYERS: 'sea_dtm_27700,overview_layers'
-                            });
-                            for (var i = 0; i < ov[0].ovmap.layers.length; i++) {
-                                ov[0].ovmap.layers[i].addOptions(options27700);
-                            }
-                            ov[0].ovmap.setOptions(options27700);
+                            optionsForProjectionCode = options27700;
+                            layersForProjectionCode = 'sea_dtm_27700,overview_layers';
                             break;
                         case "EPSG:29903":
-                            ov[0].ovmap.baseLayer.mergeNewParams({
-                                LAYERS: 'sea_dtm_29903,overview_layers'
-                            });
-                            for (var i = 0; i < ov[0].ovmap.layers.length; i++) {
-                                ov[0].ovmap.layers[i].addOptions(options29903);
-                            }
-                            ov[0].ovmap.setOptions(options29903);
+                            optionsForProjectionCode = options29903;
+                            layersForProjectionCode = 'sea_dtm_29903,overview_layers';
                             break;
                         case "EPSG:2157":
-                            ov[0].ovmap.baseLayer.mergeNewParams({
-                                LAYERS: 'sea_dtm_2157,overview_layers'
-                            });
-                            for (var i = 0; i < ov[0].ovmap.layers.length; i++) {
-                                ov[0].ovmap.layers[i].addOptions(options2157);
-                            }
-                            ov[0].ovmap.setOptions(options2157);
+                            optionsForProjectionCode = options2157;
+                            layersForProjectionCode = 'sea_dtm_2157,overview_layers';
                             break;
-                        default:
-                            ov[0].ovmap.baseLayer.mergeNewParams({
-                                LAYERS: 'sea_dtm,overview_layers'
-                            });
-                            for (var i = 0; i < ov[0].ovmap.layers.length; i++) {
-                                ov[0].ovmap.layers[i].addOptions(options4258);
-                            }
-                            ov[0].ovmap.setOptions(options4258);
                     }
+
+                    ov[0].ovmap.baseLayer.mergeNewParams({
+                        LAYERS: layersForProjectionCode
+                    });
+                    for (var i = 0; i < ov[0].ovmap.layers.length; i++) {
+                        ov[0].ovmap.layers[i].addOptions(optionsForProjectionCode);
+                    }
+                    ov[0].ovmap.setOptions(optionsForProjectionCode);
                 }
 
                 // centre map
