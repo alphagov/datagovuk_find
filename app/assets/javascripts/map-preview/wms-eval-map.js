@@ -41,6 +41,11 @@ Proj4js.defs["EPSG:4326"] = "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs";
 /* Tell OpenLayers which projections need reverseAxisOrder in WMS 1.3 */
 OpenLayers.Layer.WMS.prototype.yx["EPSG:4258"] = true;
 
+OpenLayers.Projection.defaults["EPSG:27700"]  = { yx: false };
+OpenLayers.Projection.defaults["EPSG:29903"]  = { yx: false };
+OpenLayers.Projection.defaults["EPSG:2157"]   = { yx: false };
+OpenLayers.Projection.defaults["EPSG:4326"]   = { yx: false };
+
 /* Provide a more informative default image for failed legendUrl requests */
 //GeoExt.LegendImage.prototype.defaultImgSrc = "http://46.137.180.108/images/no_legend.png";
 
