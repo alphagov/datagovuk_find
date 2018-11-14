@@ -59,6 +59,11 @@ Ext.onReady(function(){
 
     OSInspire.Layer = {};
 
+    /**
+     * Overrides for OpenLayers WMS map layer.
+     * This layer interacts with Web Mapping Services, these are usually remote endpoints.
+     * getURL function overrides default implementation for GetMap querystring on this layer.
+     */
     OSInspire.Layer.WMS = OpenLayers.Class(OpenLayers.Layer.WMS, {
         getURL: function(bounds){
             bounds = this.adjustBounds(bounds);
@@ -76,6 +81,9 @@ Ext.onReady(function(){
         CLASS_NAME: "OSInspire.Layer.WMS"
     });
 
+    /**
+     * Overrides how GetFeatureInfo responses are interpreted.
+     */
     OSInspire.WMSGetFeatureInfo = OpenLayers.Class(OpenLayers.Format.WMSGetFeatureInfo, {
         read : function(data){
             if (typeof data == "object") {
@@ -163,8 +171,6 @@ Ext.onReady(function(){
         },
 
         getWaitText: function() {
-            //return ("Waiting for") + ' ' + this.counter + ' ' + (this.counter <= 1 ? ('map service to load.') : ('map services to load.'));
-            //console.log("waiting for " + this.counter);
             return ("Waiting for map services to load.");
         },
 
@@ -700,8 +706,6 @@ Ext.onReady(function(){
                 zoom = this.map.getZoomForResolution(state.resolution);
                 center = state.center;
                 this.map.setCenter(center, zoom);
-                //console.log("from: " + this.map.getCenter().toString() + " : " + this.map.getProjectionObject().getCode());
-                //console.log("to: " + center.toString() + " : same projection");
             } else {
                 currentProj = this.map.getProjectionObject();
                 var triggerMoveEnd = false;
@@ -710,258 +714,71 @@ Ext.onReady(function(){
                         triggerMoveEnd = true;
                 }
                 // set baselayer
+                var baseLayerForProjectionCode = 'InspireETRS89';
+                var optionsForProjectionCode = options4258;
+                var layersForProjectionCode = 'sea_dtm,overview_layers';
+
                 switch (state.projection.getCode()) {
-                    case "EPSG:4258":
-                        this.map.baseLayer.mergeNewParams({
-                            LAYERS: 'InspireETRS89'
-                        });
-                        // reset layers
-                        for (var i = 0, len = this.map.layers.length; i < len; i++) {
-                            this.map.layers[i].addOptions(options4258);
-                            if (this.map.layers[i].name == "Search Criteria") {
-                                if (this.map.layers[i].visibility == true)
-                                {
-                                    // if boxbounds isn't present extract marker from layer
-                                    if (this.boxbounds) {
-                                        var markerExtent = this.boxbounds.clone();
-                                        markerExtent.transform(this.boxproj, state.projection);
-                                    } else {
-                                        // find first feature's bounds
-                                        var markerExtent = this.map.layers[i].markers[0].bounds.clone();
-                                        // transform bounds
-                                        markerExtent.transform(currentProj, state.projection);
-                                    }
-                                    // remove feature
-                                    this.map.layers[i].clearMarkers();
-                                    // create feature
-                                    this.map.layers[i].addMarker(new OpenLayers.Marker.Box(markerExtent, "red"));
-                                    // redraw - possibly
-                                    this.map.layers[i].redraw();
-                                }
-
-                            }
-                        }
-                        OpenLayers.Util.extend(this.map, options4258);
-                        break;
                     case "EPSG:4326":
-                        this.map.baseLayer.mergeNewParams({
-                            LAYERS: 'InspireWGS84'
-                        });
-                        OpenLayers.Util.extend(this.map, options4326);
-                        // reset layers
-                        for (var i = 0, len = this.map.layers.length; i < len; i++) {
-                            this.map.layers[i].addOptions(options4326);
-                            if (this.map.layers[i].name == "Search Criteria") {
-                                if (this.map.layers[i].visibility == true)
-                                {
-                                    // if boxbounds isn't present extract marker from layer
-                                    if (this.boxbounds) {
-                                        var markerExtent = this.boxbounds.clone();
-                                        markerExtent.transform(this.boxproj, state.projection);
-                                    } else {
-                                        // find first feature's bounds
-                                        var markerExtent = this.map.layers[i].markers[0].bounds.clone();
-                                        // transform bounds
-                                        markerExtent.transform(currentProj, state.projection);
-                                    }
-                                    // remove feature
-                                    this.map.layers[i].clearMarkers();
-                                    // create feature
-                                    this.map.layers[i].addMarker(new OpenLayers.Marker.Box(markerExtent, "red"));
-                                    // redraw - possibly
-                                    this.map.layers[i].redraw();
-                                }
-
-                            }
-                        }
+                        baseLayerForProjectionCode = 'InspireWGS84';
+                        layersForProjectionCode = 'sea_dtm_4326,overview_layers';
+                        optionsForProjectionCode = options4326;
                         break;
                     case "EPSG:27700":
-                        this.map.baseLayer.mergeNewParams({
-                            LAYERS: 'InspireBNG'
-                        });
-                        OpenLayers.Util.extend(this.map, options27700);
-                        // reset layers
-                        for (var i = 0, len = this.map.layers.length; i < len; i++) {
-                            this.map.layers[i].addOptions(options27700);
-                            if (this.map.layers[i].name == "Search Criteria") {
-                                if (this.map.layers[i].visibility == true)
-                                {
-                                    // if boxbounds isn't present extract marker from layer
-                                    if (this.boxbounds) {
-                                        var markerExtent = this.boxbounds.clone();
-                                        markerExtent.transform(this.boxproj, state.projection);
-                                    } else {
-                                        // find first feature's bounds
-                                        var markerExtent = this.map.layers[i].markers[0].bounds.clone();
-                                        // transform bounds
-                                        markerExtent.transform(currentProj, state.projection);
-                                    }
-                                    // remove feature
-                                    this.map.layers[i].clearMarkers();
-                                    // create feature
-                                    this.map.layers[i].addMarker(new OpenLayers.Marker.Box(markerExtent, "red"));
-                                    // redraw - possibly
-                                    this.map.layers[i].redraw();
-                                }
-
-                            }
-                        }
+                        baseLayerForProjectionCode = 'InspireBNG';
+                        layersForProjectionCode = 'sea_dtm_27700,overview_layers';
+                        optionsForProjectionCode = options27700;
                         break;
                     case "EPSG:29903":
-                        this.map.baseLayer.mergeNewParams({
-                            LAYERS: 'InspireIG'
-                        });
-                        OpenLayers.Util.extend(this.map, options29903);
-                        // reset layers
-                        for (var i = 0, len = this.map.layers.length; i < len; i++) {
-                            this.map.layers[i].addOptions(options29903);
-                            if (this.map.layers[i].name == "Search Criteria") {
-                                if (this.map.layers[i].visibility == true)
-                                {
-                                    // if boxbounds isn't present extract marker from layer
-                                    if (this.boxbounds) {
-                                        var markerExtent = this.boxbounds.clone();
-                                        markerExtent.transform(this.boxproj, state.projection);
-                                    } else {
-                                        // find first feature's bounds
-                                        var markerExtent = this.map.layers[i].markers[0].bounds.clone();
-                                        // transform bounds
-                                        markerExtent.transform(currentProj, state.projection);
-                                    }
-                                    // remove feature
-                                    this.map.layers[i].clearMarkers();
-                                    // create feature
-                                    this.map.layers[i].addMarker(new OpenLayers.Marker.Box(markerExtent, "red"));
-                                    // redraw - possibly
-                                    this.map.layers[i].redraw();
-                                }
-
-                            }
-                        }
+                        baseLayerForProjectionCode = 'InspireIG';
+                        layersForProjectionCode = 'sea_dtm_29903,overview_layers';
+                        optionsForProjectionCode = options29903;
                         break;
                     case "EPSG:2157":
-                        this.map.baseLayer.mergeNewParams({
-                            LAYERS: 'InspireITM'
-                        });
-                        OpenLayers.Util.extend(this.map, options2157);
-                        // reset layers
-                        for (var i = 0, len = this.map.layers.length; i < len; i++) {
-                            this.map.layers[i].addOptions(options2157);
-                            if (this.map.layers[i].name == "Search Criteria") {
-                                if (this.map.layers[i].visibility == true)
-                                {
-                                    // if boxbounds isn't present extract marker from layer
-                                    if (this.boxbounds) {
-                                        var markerExtent = this.boxbounds.clone();
-                                        markerExtent.transform(this.boxproj, state.projection);
-                                    } else {
-                                        // find first feature's bounds
-                                        var markerExtent = this.map.layers[i].markers[0].bounds.clone();
-                                        // transform bounds
-                                        markerExtent.transform(currentProj, state.projection);
-                                    }
-                                    // remove feature
-                                    this.map.layers[i].clearMarkers();
-                                    // create feature
-                                    this.map.layers[i].addMarker(new OpenLayers.Marker.Box(markerExtent, "red"));
-                                    // redraw - possibly
-                                    this.map.layers[i].redraw();
-                                }
-
-                            }
-                        }
+                        baseLayerForProjectionCode = 'InspireITM';
+                        layersForProjectionCode = 'sea_dtm_2157,overview_layers';
+                        optionsForProjectionCode = options2157;
                         break;
-                    default:
-                        this.map.baseLayer.mergeNewParams({
-                            LAYERS: 'InspireETRS89'
-                        });
-                        OpenLayers.Util.extend(this.map, options4258);
-                        // reset layers
-                        for (var i = 0, len = this.map.layers.length; i < len; i++) {
-                            this.map.layers[i].addOptions(options4258);
-                            if (this.map.layers[i].name == "Search Criteria") {
-                                if (this.map.layers[i].visibility == true)
-                                {
-                                    // if boxbounds isn't present extract marker from layer
-                                    if (this.boxbounds) {
-                                        var markerExtent = this.boxbounds.clone();
-                                        markerExtent.transform(this.boxproj, state.projection);
-                                    } else {
-                                        // find first feature's bounds
-                                        var markerExtent = this.map.layers[i].markers[0].bounds.clone();
-                                        // transform bounds
-                                        markerExtent.transform(currentProj, state.projection);
-                                    }
-                                    // remove feature
-                                    this.map.layers[i].clearMarkers();
-                                    // create feature
-                                    this.map.layers[i].addMarker(new OpenLayers.Marker.Box(markerExtent, "red"));
-                                    // redraw - possibly
-                                    this.map.layers[i].redraw();
-                                }
+                }
 
+                this.map.baseLayer.mergeNewParams({ LAYERS: baseLayerForProjectionCode });
+                OpenLayers.Util.extend(this.map, optionsForProjectionCode);
+                // reset layers
+                for (var i = 0, len = this.map.layers.length; i < len; i++) {
+                    this.map.layers[i].addOptions(optionsForProjectionCode);
+                    if (this.map.layers[i].name == "Search Criteria") {
+                        if (this.map.layers[i].visibility == true)
+                        {
+                            // if boxbounds isn't present extract marker from layer
+                            if (this.boxbounds) {
+                                var markerExtent = this.boxbounds.clone();
+                                markerExtent.transform(this.boxproj, state.projection);
+                            } else {
+                                // find first feature's bounds
+                                var markerExtent = this.map.layers[i].markers[0].bounds.clone();
+                                // transform bounds
+                                markerExtent.transform(currentProj, state.projection);
                             }
+                            // remove feature
+                            this.map.layers[i].clearMarkers();
+                            // create feature
+                            this.map.layers[i].addMarker(new OpenLayers.Marker.Box(markerExtent, "red"));
+                            // redraw - possibly
+                            this.map.layers[i].redraw();
                         }
+
+                    }
                 }
 
                 var ov = this.map.getControlsByClass("OpenLayers.Control.OverviewMap");
-                if (ov.length > 0)
-                {
-                    switch (state.projection.getCode()) {
-                        case "EPSG:4258":
-                            ov[0].ovmap.baseLayer.mergeNewParams({
-                                LAYERS: 'sea_dtm,overview_layers'
-                            });
-                            for (var i = 0; i < ov[0].ovmap.layers.length; i++) {
-                                ov[0].ovmap.layers[i].addOptions(options4258);
-                            }
-                            ov[0].ovmap.setOptions(options4258);
-                            break;
-                        case "EPSG:4326":
-                            ov[0].ovmap.baseLayer.mergeNewParams({
-                                LAYERS: 'sea_dtm_4326,overview_layers'
-                            });
-                            for (var i = 0; i < ov[0].ovmap.layers.length; i++) {
-                                ov[0].ovmap.layers[i].addOptions(options4326);
-                            }
-                            ov[0].ovmap.setOptions(options4326);
-                            break;
-                        case "EPSG:27700":
-                            ov[0].ovmap.baseLayer.mergeNewParams({
-                                LAYERS: 'sea_dtm_27700,overview_layers'
-                            });
-                            for (var i = 0; i < ov[0].ovmap.layers.length; i++) {
-                                ov[0].ovmap.layers[i].addOptions(options27700);
-                            }
-                            ov[0].ovmap.setOptions(options27700);
-                            break;
-                        case "EPSG:29903":
-                            ov[0].ovmap.baseLayer.mergeNewParams({
-                                LAYERS: 'sea_dtm_29903,overview_layers'
-                            });
-                            for (var i = 0; i < ov[0].ovmap.layers.length; i++) {
-                                ov[0].ovmap.layers[i].addOptions(options29903);
-                            }
-                            ov[0].ovmap.setOptions(options29903);
-                            break;
-                        case "EPSG:2157":
-                            ov[0].ovmap.baseLayer.mergeNewParams({
-                                LAYERS: 'sea_dtm_2157,overview_layers'
-                            });
-                            for (var i = 0; i < ov[0].ovmap.layers.length; i++) {
-                                ov[0].ovmap.layers[i].addOptions(options2157);
-                            }
-                            ov[0].ovmap.setOptions(options2157);
-                            break;
-                        default:
-                            ov[0].ovmap.baseLayer.mergeNewParams({
-                                LAYERS: 'sea_dtm,overview_layers'
-                            });
-                            for (var i = 0; i < ov[0].ovmap.layers.length; i++) {
-                                ov[0].ovmap.layers[i].addOptions(options4258);
-                            }
-                            ov[0].ovmap.setOptions(options4258);
+                if (ov.length > 0) {
+                    ov[0].ovmap.baseLayer.mergeNewParams({
+                        LAYERS: layersForProjectionCode
+                    });
+                    for (var i = 0; i < ov[0].ovmap.layers.length; i++) {
+                        ov[0].ovmap.layers[i].addOptions(optionsForProjectionCode);
                     }
+                    ov[0].ovmap.setOptions(optionsForProjectionCode);
                 }
 
                 // centre map
@@ -1098,10 +915,6 @@ Ext.onReady(function(){
                     parentDomainOfNode = parentDomainOfNode.substring((parentDomainOfNode.indexOf(".") + 1), parentDomainOfNode.length);
                     if (parentDomain == parentDomainOfNode) {
                         Ext.MessageBox.alert('Error', ("The WMS source: " + children[j].text + " has failed to load - please switch it off or try a different projection."));
-                        //children[j].cascade(function(m){
-                            // var ui2 = m.getUI();
-                            // ui2.toggleCheck(false);
-                        // });
                         foundBadWMS = true;
                     }
                 }
@@ -1142,7 +955,6 @@ Ext.onReady(function(){
         attribution: copyrightStatements,
         transitionEffect: 'resize',
         queryable: false
-        //singleTile: true
     });
 
     var wmsParams = {
@@ -1158,10 +970,6 @@ Ext.onReady(function(){
 
     map.events.on({
         "zoomend": function(e){
-            // if (tiled.getVisibility()) {
-                // tiled.redraw();
-            // }
-
             var chxBaseMap = Ext.getCmp('checkboxes').items.get(0);
 
             if (map.getNumLayers() > 0)
@@ -1247,7 +1055,7 @@ Ext.onReady(function(){
                         combo.setValue("Irish Transverse Mercator");
                         break;
                     default:
-                        //console.log("oops");
+                        // console.log("Coordinate system not recognized");
                 }
             }
         }
@@ -1320,16 +1128,6 @@ Ext.onReady(function(){
         'rightclick': function(e) {
             clickControl.deactivate();
             clickControl.activate();
-            //alert('rightclick at '+e.xy.x+','+e.xy.y);
-        },
-        'click': function(e) {
-            //alert('click at '+e.xy.x+','+e.xy.y);
-        },
-        'dblclick': function(e) {
-            //alert('dblclick at '+e.xy.x+','+e.xy.y);
-        },
-        'dblrightclick': function(e) {
-            //alert('dblrightclick at '+e.xy.x+','+e.xy.y);
         }
     }});
     map.addControl(oClick);
@@ -1668,24 +1466,12 @@ Ext.onReady(function(){
                     width:popUpWidth,
                     height:popUpHeight,
                     minWidth: 400,
-                    //minHeight: 300,
                     boxMaxWidth: 600,
-                    //boxMaxHeight: 800,
                     layout: "accordion",
                     draggable: true,
-                    //autoScroll: true,
                     constrain: true,
                     items: items
                 });
-
-                //if (items.length == 0)
-                //{
-                    //popup.html = 'No features found.';
-                    //popup.minWidth = 400;
-                    //popup.width = 400;
-                    //popup.minHeight = 300;
-                    //popup.height = 300;
-                //}
 
                 popup.show();
                 OpenLayers.Element.removeClass(this.map.viewPortDiv, "olCursorWait");
@@ -1708,7 +1494,6 @@ Ext.onReady(function(){
     // keyboard control
     map.addControl(new OpenLayers.Control.KeyboardDefaults({
         autoActivate: true
-        //observeElement: "mappanel"
     }));
 
     // Add mouse position.
@@ -2065,8 +1850,6 @@ function buildUI(urls){
     mapPanel = new GeoExt.MapPanel({
         map: map,
         region: 'center',
-        //renderTo: "div-map",
-        // items: []
         items: [{
             xtype: "gx_zoomslider",
             vertical: true,
@@ -2160,320 +1943,102 @@ function buildUI(urls){
             listeners: {
                 select: function(combo, record, index){
                     var epsg = "EPSG:" + combo.getValue();
+                    var centre = mapPanel.map.getCenter().clone();
+                    var zoom = mapPanel.map.getZoom();
+                    var srcProj = mapPanel.map.getProjectionObject();
                     switch (epsg) {
                         case "EPSG:4258":
-
-                            // ETRS89
-                            var centre = mapPanel.map.getCenter().clone();
-                            var zoom = mapPanel.map.getZoom();
-                            var srcProj = mapPanel.map.getProjectionObject();
-                            // transform centre
-                            centre.transform(srcProj, proj4258);
-                            // set sea raster
-                            mapPanel.map.baseLayer.mergeNewParams({
-                                LAYERS: 'InspireETRS89'
-                            });
-
-                            // reset map
-                            //mapPanel.map.setOptions(options4258);
-                            OpenLayers.Util.extend(mapPanel.map, options4258);
-                            mapPanel.map.options.projection = "EPSG:4258";
-                            // reset layers
-                            for (var i = 0, len = mapPanel.map.layers.length; i < len; i++) {
-                                mapPanel.map.layers[i].addOptions(options4258);
-                                if (mapPanel.map.layers[i].name == "Search Criteria") {
-                                    if (bBoxErr == 0) {
-                                        if (redBox != null) {
-                                            mapExtent = mapBounds.clone();
-                                            mapExtent.transform(proj4326, proj4258);
-                                            mapPanel.map.layers[i].removeMarker(redBox);
-                                            redBox = new OpenLayers.Marker.Box(mapExtent, borderColor);
-                                            mapPanel.map.layers[i].addMarker(redBox);
-                                            mapPanel.map.layers[i].redraw();
-                                        }
-                                    }
-                                }
-                            }
-
-                            // overview map
-                            // set ov layers
-                            overview.ovmap.baseLayer.mergeNewParams({
-                                LAYERS: 'sea_dtm,overview_layers'
-                            });
-                            // reset ov map projection details
-                            for (var i = 0; i < overview.ovmap.layers.length; i++) {
-                                overview.ovmap.layers[i].addOptions(options4258);
-                            }
-                            overview.ovmap.setOptions(options4258);
-                            overview.ovmap.options.projection = "EPSG:4258";
-                            // centre map
-                            mapPanel.map.setCenter(centre, zoom, true, true);
-                            mapPanel.map.moveTo(centre);
-                            // Openlayers - bug, moveend is not triggered when swapping between etrs89 & wgs84
-                            if (srcProj.getCode() == "EPSG:4326") {
-                                map.events.triggerEvent("moveend");
-                            }
+                            var baseLayerForEpsg = 'InspireETRS89';
+                            var optionsForEpsg = options4258;
+                            var projectionForEpsg = proj4258;
+                            var layersForEpsg = 'sea_dtm,overview_layers';
+                            var transformProjection = true;
                             break;
-
                         case "EPSG:4326":
-
                             // WGS84
-                            var centre = mapPanel.map.getCenter().clone();
-                            var zoom = mapPanel.map.getZoom();
-                            var srcProj = mapPanel.map.getProjectionObject();
-                            // transform centre
-                            centre.transform(srcProj, proj4326);
-                            // set sea rasters
-                            mapPanel.map.baseLayer.mergeNewParams({
-                                LAYERS: 'InspireWGS84'
-                            });
-
-                            // reset map
-                            OpenLayers.Util.extend(mapPanel.map, options4326);
-                            mapPanel.map.options.projection = "EPSG:4326";
-                            // reset layers
-                            for (var i = 0, len = mapPanel.map.layers.length; i < len; i++) {
-                                mapPanel.map.layers[i].addOptions(options4326);
-                                if (mapPanel.map.layers[i].name == "Search Criteria") {
-                                    if (bBoxErr == 0) {
-                                        if (redBox != null) {
-                                            mapExtent = mapBounds.clone();
-                                            mapPanel.map.layers[i].removeMarker(redBox);
-                                            redBox = new OpenLayers.Marker.Box(mapExtent, borderColor);
-                                            mapPanel.map.layers[i].addMarker(redBox);
-                                            mapPanel.map.layers[i].redraw();
-                                        }
-                                    }
-                                }
-                            }
-
-                            // overview map
-                            // set ov layers
-                            overview.ovmap.baseLayer.mergeNewParams({
-                                LAYERS: 'sea_dtm_4326,overview_layers'
-                            });
-                            // reset ov map projection details
-                            for (var i = 0; i < overview.ovmap.layers.length; i++) {
-                                overview.ovmap.layers[i].addOptions(options4326);
-                            }
-                            overview.ovmap.setOptions(options4326);
-                            overview.ovmap.options.projection = "EPSG:4326";
-                            // centre map
-                            mapPanel.map.setCenter(centre, zoom, true, true);
-                            mapPanel.map.moveTo(centre);
-                            // openlayers bug - we have to force a moveend event if moving between 4258 & 4236
-                            if (srcProj.getCode() == "EPSG:4258") {
-                                map.events.triggerEvent("moveend");
-                            }
+                            var baseLayerForEpsg = 'InspireWGS84';
+                            var optionsForEpsg = options4326;
+                            var projectionForEpsg = proj4326;
+                            var layersForEpsg = 'sea_dtm_4326,overview_layers';
                             break;
 
                         case "EPSG:27700":
-
                             // British National Grid
-                            var centre = mapPanel.map.getCenter().clone();
-                            var zoom = mapPanel.map.getZoom();
-                            var srcProj = mapPanel.map.getProjectionObject();
-                            // transform centre - IE9 doesn't like using proj27700
-                            centre.transform(srcProj, new OpenLayers.Projection("EPSG:27700"));
-                            // set layers
-                            mapPanel.map.baseLayer.mergeNewParams({
-                                LAYERS: 'InspireBNG'
-                            });
-
-                            // reset map
-                            //mapPanel.map.setOptions(options27700);
-                            OpenLayers.Util.extend(mapPanel.map, options27700);
-                            mapPanel.map.options.projection = "EPSG:27700";
-                            // reset layers
-                            for (var i = 0, len = mapPanel.map.layers.length; i < len; i++) {
-                                mapPanel.map.layers[i].addOptions(options27700);
-                                if (mapPanel.map.layers[i].name == "Search Criteria") {
-                                    if (bBoxErr == 0) {
-                                        if (redBox != null) {
-                                            mapExtent = mapBounds.clone();
-                                            mapExtent.transform(proj4326, new OpenLayers.Projection("EPSG:27700"));
-                                            mapPanel.map.layers[i].removeMarker(redBox);
-                                            redBox = new OpenLayers.Marker.Box(mapExtent, borderColor);
-                                            mapPanel.map.layers[i].addMarker(redBox);
-                                            mapPanel.map.layers[i].redraw();
-                                        }
-                                    }
-                                }
-                            }
-
-                            // overview map
-                            // set ov layers
-                            overview.ovmap.baseLayer.mergeNewParams({
-                                LAYERS: 'sea_dtm_27700,overview_layers'
-                            });
-                            // reset ov map projection details
-                            for (var i = 0; i < overview.ovmap.layers.length; i++) {
-                                overview.ovmap.layers[i].addOptions(options27700);
-                            }
-                            overview.ovmap.setOptions(options27700);
-                            overview.ovmap.options.projection = "EPSG:27700";
-                            // centre map
-                            mapPanel.map.setCenter(centre, zoom, true, true);
-                            // a moveTo is necessary to re-align overview
-                            mapPanel.map.moveTo(centre);
-                            //map.events.triggerEvent("moveend");
+                            var baseLayerForEpsg = 'InspireBNG';
+                            var optionsForEpsg = options27700;
+                            var projectionForEpsg = new OpenLayers.Projection("EPSG:27700");
+                            var layersForEpsg = 'sea_dtm_27700,overview_layers';
+                            var transformProjection = true;
                             break;
 
                         case "EPSG:2157":
-
                             // Irish Transverse Mercator
-                            var centre = mapPanel.map.getCenter().clone();
-                            //console.log("centre: " + centre.toShortString());
-                            var zoom = mapPanel.map.getZoom();
-                            var srcProj = mapPanel.map.getProjectionObject();
-                            // transform centre
-                            centre.transform(srcProj, proj2157);
-                            //console.log("centre: " + centre.toShortString() + " 2157");
-                            // set sea rasters
-                            mapPanel.map.baseLayer.mergeNewParams({
-                                LAYERS: 'InspireITM'
-                            });
-
-                            // reset map
-                            //mapPanel.map.setOptions(options2157);
-                            OpenLayers.Util.extend(mapPanel.map, options2157);
-                            mapPanel.map.options.projection = "EPSG:2157";
-                            // reset layers
-                            for (var i = 0, len = mapPanel.map.layers.length; i < len; i++) {
-                                mapPanel.map.layers[i].addOptions(options2157);
-                                if (mapPanel.map.layers[i].name == "Search Criteria") {
-                                    if (bBoxErr == 0) {
-                                        if (redBox != null) {
-                                            mapExtent = mapBounds.clone();
-                                            mapExtent.transform(proj4326, proj2157);
-                                            mapPanel.map.layers[i].removeMarker(redBox);
-                                            redBox = new OpenLayers.Marker.Box(mapExtent, borderColor);
-                                            mapPanel.map.layers[i].addMarker(redBox);
-                                            mapPanel.map.layers[i].redraw();
-                                        }
-                                    }
-                                }
-                            }
-
-                            // overview map
-                            // set ov layers
-                            overview.ovmap.baseLayer.mergeNewParams({
-                                LAYERS: 'sea_dtm_2157,overview_layers'
-                            });
-                            // reset ov map projection details
-                            for (var i = 0; i < overview.ovmap.layers.length; i++) {
-                                overview.ovmap.layers[i].addOptions(options2157);
-                            }
-                            overview.ovmap.setOptions(options2157);
-                            overview.ovmap.options.projection = "EPSG:2157";
-                            // centre map
-                            mapPanel.map.setCenter(centre, zoom, true, true);
-                            mapPanel.map.moveTo(centre);
-                            //map.events.triggerEvent("moveend");
+                            var baseLayerForEpsg = 'InspireITM';
+                            var optionsForEpsg = options2157;
+                            var projectionForEpsg = proj2157;
+                            var layersForEpsg = 'sea_dtm_2157,overview_layers';
+                            var transformProjection = true;
                             break;
 
                         case "EPSG:29903":
-
                             // Irish Grid
-                            var centre = mapPanel.map.getCenter().clone();
-                            //console.log("centre: " + centre.toShortString());
-                            var zoom = mapPanel.map.getZoom();
-                            var srcProj = mapPanel.map.getProjectionObject();
-                            // transform centre
-                            centre.transform(srcProj, proj29903);
-                            //console.log("centre: " + centre.toShortString() + " 29903");
-                            // set sea rasters
-                            mapPanel.map.baseLayer.mergeNewParams({
-                                LAYERS: 'InspireIG'
-                            });
-
-                            // reset map
-                            //mapPanel.map.setOptions(options29903);
-                            OpenLayers.Util.extend(mapPanel.map, options29903);
-                            mapPanel.map.options.projection = "EPSG:29903";
-                            // reset layers
-                            for (var i = 0, len = mapPanel.map.layers.length; i < len; i++) {
-                                mapPanel.map.layers[i].addOptions(options29903);
-                                if (mapPanel.map.layers[i].name == "Search Criteria") {
-                                    if (bBoxErr == 0) {
-                                        if (redBox != null) {
-                                            mapExtent = mapBounds.clone();
-                                            mapExtent.transform(proj4326, proj29903);
-                                            mapPanel.map.layers[i].removeMarker(redBox);
-                                            redBox = new OpenLayers.Marker.Box(mapExtent, borderColor);
-                                            mapPanel.map.layers[i].addMarker(redBox);
-                                            mapPanel.map.layers[i].redraw();
-                                        }
-                                    }
-                                }
-                            }
-
-                            // overview map
-                            // set ov layers
-                            overview.ovmap.baseLayer.mergeNewParams({
-                                LAYERS: 'sea_dtm_29903,overview_layers'
-                            });
-                            // reset ov map projection details
-                            for (var i = 0; i < overview.ovmap.layers.length; i++) {
-                                overview.ovmap.layers[i].addOptions(options29903);
-                            }
-                            overview.ovmap.setOptions(options29903);
-                            overview.ovmap.options.projection = "EPSG:29903";
-                            // centre map
-                            mapPanel.map.setCenter(centre, zoom, true, true);
-                            mapPanel.map.moveTo(centre);
-                            //map.events.triggerEvent("moveend");
+                            var baseLayerForEpsg = 'InspireIG';
+                            var optionsForEpsg = options29903;
+                            var projectionForEpsg = proj29903;
+                            var layersForEpsg = 'sea_dtm_29903,overview_layers';
+                            var transformProjection = true;
                             break;
 
                         default:
-
                             // ETRS89
-                            var centre = mapPanel.map.getCenter().clone();
-                            var zoom = mapPanel.map.getZoom();
-                            var srcProj = mapPanel.map.getProjectionObject();
-                            // transform centre
-                            centre.transform(srcProj, proj4258);
-                            // set sea rasters
-                            mapPanel.map.baseLayer.mergeNewParams({
-                                LAYERS: 'InspireETRS89'
-                            });
-
-                            // reset map
-                            //mapPanel.map.setOptions(options4258);
-                            OpenLayers.Util.extend(mapPanel.map, options4258);
-                            mapPanel.map.options.projection = "EPSG:4258";
-                            // reset layers
-                            for (var i = 0, len = mapPanel.map.layers.length; i < len; i++) {
-                                mapPanel.map.layers[i].addOptions(options4258);
-                                if (mapPanel.map.layers[i].name == "Search Criteria") {
-                                    if (bBoxErr == 0) {
-                                        if (redBox != null) {
-                                            mapExtent = mapBounds.clone();
-                                            mapExtent.transform(proj4326, proj4258);
-                                            mapPanel.map.layers[i].removeMarker(redBox);
-                                            redBox = new OpenLayers.Marker.Box(mapExtent, borderColor);
-                                            mapPanel.map.layers[i].addMarker(redBox);
-                                            mapPanel.map.layers[i].redraw();
-                                        }
+                            var baseLayerForEpsg = 'InspireETRS89';
+                            var optionsForEpsg = options4258;
+                            var projectionForEpsg = proj4258;
+                            var layersForEpsg = 'sea_dtm_4258,overview_layers';
+                            var transformProjection = true;
+                            break;
+                    }
+                    // transform centre
+                    centre.transform(srcProj, projectionForEpsg);
+                    // set sea raster
+                    mapPanel.map.baseLayer.mergeNewParams({ LAYERS: baseLayerForEpsg });
+                    // reset map
+                    OpenLayers.Util.extend(mapPanel.map, optionsForEpsg);
+                    mapPanel.map.options.projection = epsg;
+                    // reset layers
+                    for (var i = 0, len = mapPanel.map.layers.length; i < len; i++) {
+                        mapPanel.map.layers[i].addOptions(optionsForEpsg);
+                        if (mapPanel.map.layers[i].name == "Search Criteria") {
+                            if (bBoxErr == 0) {
+                                if (redBox != null) {
+                                    mapExtent = mapBounds.clone();
+                                    if (transformProjection) {
+                                      mapExtent.transform(proj4326, projectionForEpsg);
                                     }
+                                    mapPanel.map.layers[i].removeMarker(redBox);
+                                    redBox = new OpenLayers.Marker.Box(mapExtent, borderColor);
+                                    mapPanel.map.layers[i].addMarker(redBox);
+                                    mapPanel.map.layers[i].redraw();
                                 }
                             }
+                        }
+                    }
 
-                            // overview map
-                            // set ov layers
-                            overview.ovmap.baseLayer.mergeNewParams({
-                                LAYERS: 'sea_dtm_4258,overview_layers'
-                            });
-                            // reset ov map projection details
-                            for (var i = 0; i < overview.ovmap.layers.length; i++) {
-                                overview.ovmap.layers[i].addOptions(options4258);
-                            }
-                            overview.ovmap.setOptions(options4258);
-                            overview.ovmap.options.projection = "EPSG:4258";
-                            // centre map
-                            mapPanel.map.setCenter(centre, zoom, true, true);
-                            mapPanel.map.moveTo(centre);
-                            break;
+                    // overview map
+                    // set ov layers
+                    overview.ovmap.baseLayer.mergeNewParams({ LAYERS: layersForEpsg });
+                    // reset ov map projection details
+                    for (var i = 0; i < overview.ovmap.layers.length; i++) {
+                        overview.ovmap.layers[i].addOptions(optionsForEpsg);
+                    }
+                    overview.ovmap.setOptions(optionsForEpsg);
+                    overview.ovmap.options.projection = epsg;
+                    // centre map
+                    mapPanel.map.setCenter(centre, zoom, true, true);
+                    mapPanel.map.moveTo(centre);
+                    // Openlayers - bug, moveend is not triggered when swapping between etrs89 & wgs84
+                    if (srcProj.getCode() == "EPSG:4326" || srcProj.getCode() == "EPSG:4258") {
+                        map.events.triggerEvent("moveend");
                     }
                 },
                 afterrender: function () {
@@ -2647,22 +2212,8 @@ function buildUI(urls){
         ,border: false
         ,collapsible: true
         ,bodyStyle: 'padding:5px'
-        //,width: 348
         ,autoScroll: true
         ,items: [formPanel, checkboxes, layerTree]
-    });
-
-    // var myInfoPanelKeyHandler = function(e){
-        // var key = e.getKey();
-        // console.log("key press in the info panel");
-    // }
-
-    var myKeyMap = new Ext.KeyMap(document, {
-        key : Ext.EventObject.ENTER,
-        scope: this,
-        fn : function() {
-            //console.log("activeElement:" + document.activeElement);
-        }
     });
 
     // Define the Information panel
@@ -2674,36 +2225,6 @@ function buildUI(urls){
         ,border: false
         ,bodyStyle: "padding:10px"
         ,autoScroll: true
-        // ,keys: [{
-            // key: [Ext.EventObject.PAGE_UP], handler: function(e){
-                // console.log("here we are");
-            // }
-        // },{
-            // key: [Ext.EventObject.PAGE_DOWN], handler: myInfoPanelKeyHandler
-        // }]
-        // ,keys: new Ext.KeyMap(Ext.get("infoPanel"), [
-            // {
-                // key: Ext.EventObject.UP,
-                // fn: function(e){
-                    // console.log("infoPanel up");
-                    // //e.stopPropagation();
-                // },
-                // scope: this
-            // },
-            // {
-                // key: Ext.EventObject.DOWN,
-                // fn: function(e){ e.stopPropagation(); }
-            // },
-            // {
-                // key: Ext.EventObject.LEFT,
-                // fn: function(e){ e.stopPropagation(); }
-            // },
-            // {
-                // key: Ext.EventObject.RIGHT,
-                // fn: function(e){ e.stopPropagation(); }
-            // }
-        // ])
-        // ,renderTo: 'info'
         ,style: 'font-family: Arial; font-size: 13px'
         ,html: "<a href=\"/location/preview-on-map\" target=\"_blank\" title=\"Open Help Window\">Need help getting started?</a><br><br>"
         +"Please note:<br><br>"
@@ -2734,21 +2255,8 @@ function buildUI(urls){
         items: [layersPanel, activeLayersPanel, legendPanel, infoPanel]
     });
 
-    // code here if we need to keep activelayerspanel separate to the other left panels
-    // var leftContainer = new Ext.Panel({
-        // layout: 'vbox',
-        // layoutConfig: {
-            // align : 'stretch',
-            // pack  : 'start'
-        // },
-        // region : "west",
-        // width: 240,
-        // collapsible: true,
-        // border: false,
-        // items: [activeLayersPanel, leftPanel]
-    // });
-
-    // Define a viewport.  Left panel (Layers, Legend and Information) will be on the left, and the map will be on the right
+    // Define a viewport.  Left panel (Layers, Legend and Information) will be on the left
+    // and the map will be on the right
     new Ext.Viewport({
         layout: "fit",
         hideBorders: false,
@@ -2768,7 +2276,6 @@ function buildUI(urls){
         map.zoomToExtent(mapBounds);
     } else {
         mapBounds = new OpenLayers.Bounds(-30, 48.00, 3.50, 64.00);
-        //mapBounds = new OpenLayers.Bounds(-13.02, 49.79, 3.26, 60.95); // Centred upon British Isles
         mapExtent = mapBounds.clone();
         map.zoomToExtent(mapBounds);
     }
@@ -2830,42 +2337,6 @@ function baseMappingOn(visible){
     }
     var atrControl = map.getControlsByClass("OpenLayers.Control.Attribution");
     atrControl[0].updateAttribution();
-}
-
-// Get XML object
-function getXMLObject(){
-
-    var xmlHttp = false;
-
-    try {
-
-        // Old Microsoft Browsers
-        xmlHttp = new ActiveXObject("Msxml2.XMLHTTP")
-
-    }
-    catch (e) {
-
-        try {
-
-            // Microsoft IE 6.0+
-            xmlHttp = new ActiveXObject("Microsoft.XMLHTTP")
-
-        }
-        catch (e2) {
-
-            // Return false if no browser acceps the XMLHTTP object
-            xmlHttp = false
-
-        }
-    }
-    if (!xmlHttp && typeof XMLHttpRequest != 'undefined') {
-
-        //For Mozilla, Opera Browsers
-        xmlHttp = new XMLHttpRequest();
-
-    }
-
-    return xmlHttp;
 }
 
 function disabledEventPropagation(event){
@@ -2984,11 +2455,6 @@ function featuresAttributestoHTMLTable(feature){
         returnedTable += "<td>Data not supplied</td>";
 
     }
-
-    // this doesn't work in IE7-9 :-/
-    // Object.keys(feature.attributes).forEach(function(key) {
-        // returnedTable += "<tr><td>" + key + "</td><td>" + feature.attributes[key] + "</td></tr>";
-    // });
 
     returnedTable = returnedTable.replaceAll(">null<",">Data not supplied<");
     returnedTable = returnedTable.replaceAll(">Null<",">Data not supplied<");
