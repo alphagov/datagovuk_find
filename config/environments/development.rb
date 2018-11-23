@@ -50,4 +50,6 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   config.zendesk = nil
+
+  config.ckan_redirection_url = ENV['CKAN_REDIRECTION_URL']
 end

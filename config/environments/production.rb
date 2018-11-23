@@ -78,4 +78,6 @@ Rails.application.configure do
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     config.logger = ActiveSupport::Logger.new(STDOUT)
   end
+
+  config.ckan_redirection_url = ENV['CKAN_REDIRECTION_URL']
 end

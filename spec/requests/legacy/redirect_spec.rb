@@ -66,3 +66,14 @@ RSpec.describe 'legacy', type: :request do
     end
   end
 end
+
+RSpec.describe 'CKANRouter' do
+  describe 'routing' do
+    it 'routes GET /publish to CKAN domain' do
+      get "/publish"
+      location = "http://testdomain/publish"
+
+      expect(response).to redirect_to(location)
+    end
+  end
+end

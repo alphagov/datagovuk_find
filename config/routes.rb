@@ -46,4 +46,9 @@ Rails.application.routes.draw do
   get 'dataset/:dataset_uuid/:name/datafile/:datafile_uuid/preview', to: 'previews#show', as: 'datafile_preview'
 
   get 'acknowledge', to: 'messages#acknowledge'
+
+  # Route everything else to CKAN
+  if ENV["CKAN_REDIRECTION_URL"].present?
+    match "*path", to: "pages#redirect", via: :all
+  end
 end
