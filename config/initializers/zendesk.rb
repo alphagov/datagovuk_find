@@ -6,7 +6,6 @@ module Zendesk
     ZendeskAPI::Client.new do |config|
       config.username = ENV['ZENDESK_USERNAME']
       config.token = ENV['ZENDESK_API_KEY']
-      config.password = ENV['ZENDESK_PASSWORD']
       config.url = ENV['ZENDESK_END_POINT']
     end
   end
