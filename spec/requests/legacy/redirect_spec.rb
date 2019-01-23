@@ -65,6 +65,13 @@ RSpec.describe 'legacy', type: :request do
       end
     end
   end
+
+  describe "legacy organograms" do
+    it "redirects to S3" do
+      get "/sites/default/files/organogram/appointments-commission/31/03/2011/appointments_commission-2011-03-31-organogram-junior.csv"
+      expect(response).to redirect_to("https://s3-eu-west-1.amazonaws.com/datagovuk-production-ckan-organogram/legacy/organogram/appointments-commission/31/03/2011/appointments_commission-2011-03-31-organogram-junior.csv")
+    end
+  end
 end
 
 RSpec.describe 'CKANRouter' do
