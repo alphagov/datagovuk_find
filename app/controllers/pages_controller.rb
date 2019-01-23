@@ -8,6 +8,10 @@ class PagesController < ApplicationController
     @datafiles_count_by_format = Dataset.datafiles['formats']['buckets']
   end
 
+  def redirect
+    redirect_to("#{ENV['CKAN_REDIRECTION_URL']}/#{params[:path]}")
+  end
+
 private
 
   def get_datasets_count
