@@ -11,3 +11,7 @@ Metrics/BlockLength:
     - 'config/routes.rb'
     - 'lib/tasks/**/*.rake'
     - 'spec/**/*.rb'
+
+Style/FormatStringToken:
+  Exclude:
+    - "config/routes.rb"
