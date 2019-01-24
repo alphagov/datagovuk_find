@@ -10,7 +10,7 @@ applications:
   env:
     RAILS_ENV: staging
     RACK_ENV: staging
-    CKAN_REDIRECTION_URL: https://ckan.staging.publishing.service.gov.uk
+    CKAN_REDIRECTION_URL: ckan.staging.publishing.service.gov.uk
   services:
   - find-staging-secrets
   - elasticsearch-beta-staging

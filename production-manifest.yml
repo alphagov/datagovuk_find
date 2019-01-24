@@ -10,7 +10,7 @@ applications:
   env:
     RAILS_ENV: production
     RACK_ENV: production
-    CKAN_REDIRECTION_URL: https://ckan.publishing.service.gov.uk
+    CKAN_REDIRECTION_URL: ckan.publishing.service.gov.uk
   services:
   - find-production-secrets
   - logit-ssl-drain
