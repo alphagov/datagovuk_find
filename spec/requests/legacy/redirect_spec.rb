@@ -82,5 +82,12 @@ RSpec.describe 'CKANRouter' do
 
       expect(response).to redirect_to(location)
     end
+
+    it 'routes GET /dataset/edit/:legacy_name to CKAN domain' do
+      get "/dataset/edit/some_dataset"
+      location = "http://testdomain/dataset/edit/some_dataset"
+
+      expect(response).to redirect_to(location)
+    end
   end
 end
