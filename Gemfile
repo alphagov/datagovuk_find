@@ -34,13 +34,13 @@ gem 'zendesk_api'
 group :development, :test do
   gem 'brakeman', '~> 4.2'
   gem 'byebug', '~> 9'
-  gem 'govuk-lint', '~> 3.8.0'
+  gem 'govuk-lint', '~> 3.11'
   gem 'pry', '~> 0.10'
   gem 'pry-byebug', '~> 3.4'
   gem 'pry-stack_explorer', '~> 0.4.9'
   gem 'rspec', '~> 3.6'
   gem 'rspec-rails', '~> 3.6'
-  gem 'webmock'
+  gem 'webmock', '~> 3.5'
 end
 
 group :development do

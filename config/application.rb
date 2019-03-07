@@ -13,7 +13,7 @@ Bundler.require(*Rails.groups)
 if ENV["VCAP_SERVICES"]
   services = JSON.parse(ENV["VCAP_SERVICES"])
 
-  if services.keys.include?('user-provided')
+  if services.key?('user-provided')
     # Extract UPSes and pull out secrets configs
     user_provided_services = services['user-provided'].select { |s| s['name'].include?('secrets') }
     credentials = user_provided_services.map { |s| s['credentials'] }.reduce(:merge)

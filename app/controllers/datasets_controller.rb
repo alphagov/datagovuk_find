@@ -17,6 +17,7 @@ private
 
   def referer_query
     return if request.referer.nil?
+
     referer_query = URI(request.referer).query
 
     referer_query if current_host_matches_referer_host

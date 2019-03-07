@@ -139,6 +139,6 @@ private
   end
 
   def most_recent_datafile(dataset)
-    dataset.datafiles.sort_by(&:created_at).last
+    dataset.datafiles.max_by(&:created_at)
   end
 end
