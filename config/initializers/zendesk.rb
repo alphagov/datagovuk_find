@@ -25,6 +25,6 @@ module Zendesk
       @instance ||= self.new
     end
 
-    def create!(_); end
+    def create!(_arg); end
   end
 end

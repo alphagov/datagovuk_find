@@ -32,6 +32,7 @@ module SearchHelper
 
   def selected_filters
     return [] if no_filters_selected?
+
     params[:filters].except(:publisher).values.reject(&:blank?)
   end
 
