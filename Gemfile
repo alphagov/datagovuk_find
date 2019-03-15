@@ -22,7 +22,7 @@ gem 'nokogiri'
 gem 'parslet'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
-gem 'rails', '~> 5.1.6'
+gem 'rails', '~> 5.1.6.2'
 gem 'redcarpet', '~> 3.4'
 gem 'rest-client', '~> 2.0.2'
 gem 'sass-rails', '~> 5.0'
@@ -52,7 +52,7 @@ end
 group :test do
   gem 'capybara', '~> 2.15.1'
   gem 'capybara-selenium', '0.0.6'
-  gem 'chromedriver-helper', '~> 1.1'
+  gem 'chromedriver-helper', '~> 2'
   gem 'codeclimate-test-reporter', '~> 1.0.0'
   gem 'factory_bot'
   gem 'simplecov', '~> 0.13', require: false

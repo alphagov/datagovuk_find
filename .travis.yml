@@ -21,6 +21,7 @@ addons:
 before_install:
   - gem update --system
   - gem install bundler --no-document
+  - echo "73.0.3683.68" > ~/.chromedriver-version
 install:
   - bundle install --path vendor/bundle
   - yarn
