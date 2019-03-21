@@ -4,6 +4,7 @@ applications:
   instances: 1
   memory: 512M
   buildpack: https://github.com/cloudfoundry/ruby-buildpack.git#v1.7.34
+  stack: cflinuxfs3
   routes:
   - route: find-data-beta-staging.cloudapps.digital
   - route: test.data.gov.uk
