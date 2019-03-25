@@ -7,12 +7,11 @@ applications:
   stack: cflinuxfs3
   routes:
   - route: find-data-beta-staging.cloudapps.digital
-  - route: test.data.gov.uk
   env:
     RAILS_ENV: staging
     RACK_ENV: staging
     CKAN_REDIRECTION_URL: ckan.staging.publishing.service.gov.uk
   services:
   - find-staging-secrets
-  - elasticsearch-beta-staging
+  - elasticsearch-6-beta-staging
   - logit-ssl-drain

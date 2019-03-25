@@ -14,5 +14,5 @@ applications:
     CKAN_REDIRECTION_URL: ckan.publishing.service.gov.uk
   services:
   - find-production-secrets
+  - elasticsearch-6-beta-production
   - logit-ssl-drain
-  - elasticsearch-beta-production
