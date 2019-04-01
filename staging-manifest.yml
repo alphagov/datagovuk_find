@@ -6,7 +6,8 @@ applications:
   buildpack: https://github.com/cloudfoundry/ruby-buildpack.git#v1.7.34
   stack: cflinuxfs3
   routes:
-  - route: find-data-beta-staging.cloudapps.digital
+    - route: find-data-beta-staging.cloudapps.digital
+    - route: staging.data.gov.uk
   env:
     RAILS_ENV: staging
     RACK_ENV: staging
