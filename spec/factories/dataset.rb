@@ -21,6 +21,7 @@ FactoryBot.define do
     organisation { build :organisation, :raw }
     docs []
     datafiles []
+    schema_id '2d5b1042-0799-4ceb-9075-8307f90e877c'
 
     trait :inspire do
       inspire_dataset do
