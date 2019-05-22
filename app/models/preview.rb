@@ -38,7 +38,7 @@ private
   def fetch_raw
     connection = build_connection
 
-    connection.headers = { 'Range' => 'bytes=0-1024' }
+    connection.headers = { 'Range' => 'bytes=0-4096' }
 
     begin
       response = connection.get do |request|
