@@ -14,7 +14,6 @@ require 'rspec/rails'
 require 'capybara/rails'
 require 'capybara/rspec'
 require 'factory_bot'
-require 'selenium/webdriver'
 require 'webmock/rspec'
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -31,20 +30,6 @@ require 'webmock/rspec'
 # require only the support files necessary.
 #
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
-
-Capybara.register_driver :chrome do |app|
-  Capybara::Selenium::Driver.new(app, browser: :chrome)
-end
-
-Capybara.register_driver :headless_chrome do |app|
-  capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
-    chromeOptions: { args: %w(headless disable-gpu --no-sandbox --disable-dev-shm-usage) }
-  )
-
-  Capybara::Selenium::Driver.new app, browser: :chrome, desired_capabilities: capabilities
-end
-
-Capybara.javascript_driver = :headless_chrome
 
 FactoryBot.find_definitions
 
