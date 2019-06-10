@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'pages#home'
 
-  get "/sites/default/files/*organogram_path", to: redirect("https://s3-eu-west-1.amazonaws.com/datagovuk-production-ckan-organogram/legacy/%{organogram_path}"), format: false
+  get "/sites/default/files/*organogram_path", to: redirect("https://s3-eu-west-1.amazonaws.com/datagovuk-#{Rails.env}-ckan-organogram/legacy/%{organogram_path}"), format: false
 
   if ENV["CKAN_REDIRECTION_URL"].present?
     get 'dataset/edit/:legacy_name', to: redirect(domain: ENV['CKAN_REDIRECTION_URL'], subdomain: '', path: "/dataset/edit/%{legacy_name}")
