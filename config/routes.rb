@@ -55,6 +55,9 @@ Rails.application.routes.draw do
 
   # Route everything else to CKAN
   if ENV["CKAN_REDIRECTION_URL"].present?
-    match '*path', to: redirect(domain: ENV['CKAN_REDIRECTION_URL'], subdomain: '', path: "/%{path}"), via: :all
+    match '*path',
+      to: redirect(domain: ENV['CKAN_REDIRECTION_URL'], subdomain: '', path: "/%{path}"),
+      via: :all,
+      constraints: { path: /(?!#{Regexp.quote(Rails.application.config.assets.prefix[1..-1])}).+/ }
   end
 end
