@@ -131,7 +131,7 @@ var OrgDataLoader = {
             var floor = post["Payscale Minimum (£)"] * 100 / 100;
             var ceil = post['Payscale Maximum (£)'] * 100 / 100;
 
-            return formatMoney(floor) + " - " + formatMoney(floor);
+            return formatMoney(floor) + " - " + formatMoney(ceil);
         }
 
         function createJuniorPostNode(post, index){
