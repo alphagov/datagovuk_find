@@ -63,6 +63,10 @@ FactoryBot.define do
       licence_custom 'Special case'
     end
 
+    trait :with_custom_licence_brackets do
+      licence_custom '["Special case"]'
+    end
+
     initialize_with { Dataset.new(attributes.stringify_keys) }
   end
 end

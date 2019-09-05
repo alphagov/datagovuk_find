@@ -64,6 +64,24 @@ RSpec.feature 'Dataset page', type: :feature, elasticsearch: true do
       end
     end
 
+    scenario 'Link to custom licence brackets (no title, no URL)' do
+      dataset = build :dataset, :with_custom_licence_brackets
+      index_and_visit(dataset)
+
+      within('section.meta-data') do
+        expect(page)
+          .to have_content('Other Licence')
+
+        expect(page)
+          .to have_link('View licence information',
+                        href: '#licence-info')
+      end
+
+      within('section.dgu-licence-info') do
+        expect(page).to have_content('Special case')
+      end
+    end
+
     scenario 'Simple licence title (no URL)' do
       dataset = build :dataset, licence_title: 'My Licence'
       index_and_visit(dataset)
