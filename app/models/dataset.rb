@@ -31,7 +31,14 @@ class Dataset
     @released = hash["released"]
     @licence = hash["licence"]
     @licence_other = hash["licence_other"]
-    @licence_custom = hash["licence_custom"]
+    raw_licence_custom = hash["licence_custom"]
+    # left this code in place because extracting it into a method would break tests
+    # as the initialize is called twice in the tests
+    @licence_custom = if raw_licence_custom && raw_licence_custom.match?(/\[.+\]/)
+                        YAML.safe_load(raw_licence_custom).join("<br />")
+                      else
+                        raw_licence_custom
+                      end
     @licence_title = hash["licence_title"]
     @licence_url = hash["licence_url"]
     @licence_code = hash["licence_code"]
