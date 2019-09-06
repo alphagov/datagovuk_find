@@ -10,7 +10,7 @@ class Datafile
     @start_date = hash["start_date"]
     @created_at = hash["created_at"]
     @updated_at = hash["updated_at"]
-    @format = hash["format"]
+    @format = hash["format"]&.strip&.upcase
     @size = hash["size"]
     @uuid = hash["uuid"]
   end
@@ -30,19 +30,19 @@ class Datafile
   end
 
   def html?
-    format&.upcase == 'HTML'
+    format == 'HTML'
   end
 
   def csv?
-    format&.upcase == 'CSV'
+    format == 'CSV'
   end
 
   def wms?
-    format&.upcase == 'WMS'
+    format == 'WMS'
   end
 
   def wfs?
-    format&.upcase == 'WFS'
+    format == 'WFS'
   end
 
   def preview
