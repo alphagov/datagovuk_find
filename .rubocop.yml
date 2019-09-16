@@ -5,6 +5,7 @@ AllCops:
     - config.ru
     - db/schema.rb
     - vendor/**/*
+    - vendor/bundle/**/*
 
 Metrics/BlockLength:
   Exclude:

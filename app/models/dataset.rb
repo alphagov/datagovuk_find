@@ -34,7 +34,7 @@ class Dataset
     raw_licence_custom = hash["licence_custom"]
     # left this code in place because extracting it into a method would break tests
     # as the initialize is called twice in the tests
-    @licence_custom = if raw_licence_custom && raw_licence_custom.match?(/\[.+\]/)
+    @licence_custom = if raw_licence_custom && raw_licence_custom.match?(/^\[.+\]$/)
                         YAML.safe_load(raw_licence_custom).join("<br />")
                       else
                         raw_licence_custom
