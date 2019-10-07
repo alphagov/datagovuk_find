@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-accessible-autocomplete@^1.6.2:
-  version "1.6.2"
-  resolved "https://registry.yarnpkg.com/accessible-autocomplete/-/accessible-autocomplete-1.6.2.tgz#cb69d37748ba5b0351c84422468538890e25759c"
-  integrity sha512-7S+6Vi82LQFSSd5feKedu46tiY2/DShpdXiRp0NY3cLwc+DKe1ayWd66mb3JVi8LTQubRM7jco+u92e6w0bbvg==
+accessible-autocomplete@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/accessible-autocomplete/-/accessible-autocomplete-2.0.1.tgz#dbbe703d0b48cd37ec0fea97fe46f066528e8098"
+  integrity sha512-2Cq8uI+deZNGMS38MmzE+40yT1A2ZC+aRC80l4zazQeh9TrhTn7Ho1fZ0Den1F+WQBe8RNLZtufzGFrMVU8K8w==
   dependencies:
     preact "^8.3.1"
 
