@@ -108,6 +108,8 @@ class Dataset
   end
 
   def organogram?
+    return false unless @schema_id
+
     schema_id = @schema_id.gsub(/\["|"\]/, '')
     ORGANOGRAM_SCHEMA_IDS.include?(schema_id)
   end
