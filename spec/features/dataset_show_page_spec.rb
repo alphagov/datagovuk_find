@@ -31,7 +31,7 @@ RSpec.feature 'Dataset page', type: :feature, elasticsearch: true do
 
     scenario 'Link to licence with additional info' do
       dataset = build :dataset, :with_ogl_licence,
-                                licence_custom: 'Special case'
+                      licence_custom: 'Special case'
 
       index_and_visit(dataset)
 

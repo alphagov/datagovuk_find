@@ -16,5 +16,10 @@ RSpec.describe Dataset do
       dataset = build :dataset, schema_id: 'non-organogram'
       expect(dataset.organogram?).to be false
     end
+
+    it 'does not recognise nil ids as an organogram' do
+      dataset = build :dataset, schema_id: nil
+      expect(dataset.organogram?).to be false
+    end
   end
 end

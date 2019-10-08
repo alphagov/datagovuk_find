@@ -14,7 +14,7 @@ class Ticket
     @support = ticket_details[:support]
   end
 
-  def to_json
+  def to_json(*_args)
     { "requester": { "name": name, "email": email },
       "subject": support_queue + " Find open data - #{support} request",
       "comment": { "body": content } }
