@@ -1,4 +1,4 @@
 desc "Run govuk-lint on all files"
 task "lint" do
-  sh "govuk-lint-ruby --format clang"
+  sh "bundle exec rubocop --parallel app config lib spec --format clang"
 end
