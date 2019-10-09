@@ -25,7 +25,10 @@ class MapPreviewsController < ApplicationController
 
   def proxy
     url = correct_url(url_param)
-    response = URI(url).read.force_encoding("ISO-8859-1").encode("UTF-8")
+    response = URI(url)
+                 .read('Accept-Encoding' => 'gzip, deflate')
+                 .force_encoding("ISO-8859-1")
+                 .encode("UTF-8")
     render xml: Nokogiri::XML(response)
   rescue StandardError => e
     Raven.capture_exception(e)
