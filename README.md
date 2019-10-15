@@ -22,6 +22,20 @@ Most of these can be installed with Homebrew on a Mac.
 
 First run `bin/setup` to bundle, etc. Then run `rails s`.
 
+## Deployment
+
+You can track the deployments on travis - https://travis-ci.org/alphagov/datagovuk_find. 
+
+### Staging
+
+To deploy to staging merge a PR into master.
+
+Test that your changes are working here - https://staging.data.gov.uk before releasing to Production.
+
+### Production
+
+To deploy to production you need to tag the release, the tag needs to be in this format - `v9.9.9` where 9 is a number and the leading `v` is required. E.g. `v0.1.11` is valid, `0.1.11` is not.
+
 ## Developing against production elasticsearch
 
 Grab the full URL (including HTTP Basic username and password) from the paas.
