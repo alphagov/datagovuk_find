@@ -79,7 +79,7 @@ module DatasetsHelper
         "@type": "DataDownload",
         contentUrl: file.url,
         fileFormat: file.format,
-        name: file.name
+        name: file.name,
       )
     end
     files

@@ -12,7 +12,7 @@ def create_index
     body: {
       settings: index_settings,
       mappings: index_mappings,
-    }
+    },
   )
 rescue StandardError
   Rails.logger.debug("Could not create datasets-test index")

@@ -16,10 +16,10 @@ RSpec.describe Search::QueryParser do
               terms: a_collection_containing_exactly(
                 a_hash_including(term: "quick"),
                 a_hash_including(term: "brown"),
-                a_hash_including(term: "fox")
-              )
-            )
-          )
+                a_hash_including(term: "fox"),
+              ),
+            ),
+          ),
         )
 
         is_expected.to match(query: expected_query)
@@ -36,10 +36,10 @@ RSpec.describe Search::QueryParser do
               phrase: a_collection_containing_exactly(
                 a_hash_including(term: "quick"),
                 a_hash_including(term: "brown"),
-                a_hash_including(term: "fox")
-              )
-            )
-          )
+                a_hash_including(term: "fox"),
+              ),
+            ),
+          ),
         )
 
         is_expected.to match(query: expected_query)
@@ -54,18 +54,18 @@ RSpec.describe Search::QueryParser do
           a_hash_including(
             clause: a_hash_including(
               terms: a_collection_containing_exactly(
-                a_hash_including(term: "quick")
-              )
-            )
+                a_hash_including(term: "quick"),
+              ),
+            ),
           ),
           a_hash_including(
             clause: a_hash_including(
               phrase: a_collection_containing_exactly(
                 a_hash_including(term: "brown"),
-                a_hash_including(term: "fox")
-              )
-            )
-          )
+                a_hash_including(term: "fox"),
+              ),
+            ),
+          ),
         )
 
         is_expected.to match(query: expected_query)

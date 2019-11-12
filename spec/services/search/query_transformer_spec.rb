@@ -21,8 +21,8 @@ RSpec.describe Search::QueryTransformer do
           .to have_attributes(
             clauses: a_collection_containing_exactly(
               an_instance_of(Search::TermsClause)
-                .and(have_attributes(terms: "quick brown fox"))
-            )
+                .and(have_attributes(terms: "quick brown fox")),
+            ),
           )
       end
     end
@@ -35,8 +35,8 @@ RSpec.describe Search::QueryTransformer do
           .to have_attributes(
             clauses: a_collection_containing_exactly(
               an_instance_of(Search::PhraseClause)
-                .and(have_attributes(phrase: "quick brown fox"))
-            )
+                .and(have_attributes(phrase: "quick brown fox")),
+            ),
           )
       end
     end
@@ -51,8 +51,8 @@ RSpec.describe Search::QueryTransformer do
               an_instance_of(Search::TermsClause)
                 .and(have_attributes(terms: "quick")),
               an_instance_of(Search::PhraseClause)
-                .and(have_attributes(phrase: "brown fox"))
-            )
+                .and(have_attributes(phrase: "brown fox")),
+            ),
           )
       end
     end
