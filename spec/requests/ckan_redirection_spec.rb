@@ -1,7 +1,7 @@
-require 'rails_helper'
-require 'securerandom'
+require "rails_helper"
+require "securerandom"
 
-RSpec.describe 'CKAN redirection', type: :request do
+RSpec.describe "CKAN redirection", type: :request do
   let(:path) { nil }
 
   shared_examples "does redirect to CKAN" do

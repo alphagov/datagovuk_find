@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :doc do
-    name 'My Doc'
-    url 'http://example.com'
-    format ''
+    name "My Doc"
+    url "http://example.com"
+    format ""
     uuid SecureRandom.uuid
     created_at Time.now.iso8601
 

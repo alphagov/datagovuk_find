@@ -1,6 +1,6 @@
 class TicketsController < ApplicationController
   def new
-    @ticket = Ticket.new(support: params['support'])
+    @ticket = Ticket.new(support: params["support"])
   end
 
   def create

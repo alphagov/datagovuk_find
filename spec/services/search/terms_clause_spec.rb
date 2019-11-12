@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Search::TermsClause do
   subject { described_class.new(terms) }

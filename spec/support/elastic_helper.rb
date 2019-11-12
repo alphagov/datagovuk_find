@@ -11,8 +11,8 @@ def create_index
     index: "datasets-test",
     body: {
       settings: index_settings,
-      mappings: index_mappings
-    }
+      mappings: index_mappings,
+    },
   )
 rescue StandardError
   Rails.logger.debug("Could not create datasets-test index")
@@ -25,10 +25,10 @@ def index_settings
       normalizer: {
         lowercase_normalizer: {
           type: "custom",
-          filter: "lowercase"
-        }
-      }
-    }
+          filter: "lowercase",
+        },
+      },
+    },
   }
 end
 
@@ -41,41 +41,41 @@ def index_mappings
           index: true,
         },
         title: {
-          type: 'text',
+          type: "text",
           fields: {
             keyword: {
-              type: 'keyword',
+              type: "keyword",
               index: true,
             },
             english: {
-              type: 'text',
-              analyzer: 'english',
+              type: "text",
+              analyzer: "english",
             },
           },
         },
         summary: {
-          type: 'text',
+          type: "text",
           fields: {
             keyword: {
-              type: 'keyword',
+              type: "keyword",
               index: true,
             },
             english: {
-              type: 'text',
-              analyzer: 'english',
+              type: "text",
+              analyzer: "english",
             },
           },
         },
         description: {
-          type: 'text',
+          type: "text",
           fields: {
             keyword: {
-              type: 'keyword',
+              type: "keyword",
               index: true,
             },
             english: {
-              type: 'text',
-              analyzer: 'english',
+              type: "text",
+              analyzer: "english",
             },
           },
         },
@@ -88,27 +88,27 @@ def index_mappings
           index: true,
         },
         location1: {
-          type: 'text',
+          type: "text",
           fields: {
             raw: {
               type: "keyword",
               index: true,
-            }
-          }
+            },
+          },
         },
         topic: {
-          type: 'nested',
+          type: "nested",
           properties: {
             title: {
-              type: 'text',
+              type: "text",
               fields: {
                 raw: {
                   type: "keyword",
                   index: true,
-                }
-              }
-            }
-          }
+                },
+              },
+            },
+          },
         },
         organisation: {
           type: "nested",
@@ -121,42 +121,42 @@ def index_mappings
                   index: true,
                 },
                 english: {
-                  type: 'text',
-                  analyzer: 'english',
-                }
-              }
-            },
-            description: {
-              type: 'text',
-              fields: {
-                raw: {
-                  type: 'keyword',
-                  index: true,
-                },
-                english: {
-                  type: 'text',
-                  analyzer: 'english',
+                  type: "text",
+                  analyzer: "english",
                 },
               },
             },
-          }
+            description: {
+              type: "text",
+              fields: {
+                raw: {
+                  type: "keyword",
+                  index: true,
+                },
+                english: {
+                  type: "text",
+                  analyzer: "english",
+                },
+              },
+            },
+          },
         },
         datafiles: {
           type: "nested",
           properties: {
             format: {
               type: "keyword",
-              normalizer: "lowercase_normalizer"
-            }
-          }
+              normalizer: "lowercase_normalizer",
+            },
+          },
         },
         docs: {
           type: "nested",
           properties: {
-            format: { type: "keyword" }
-          }
-        }
-      }
-    }
+            format: { type: "keyword" },
+          },
+        },
+      },
+    },
   }
 end

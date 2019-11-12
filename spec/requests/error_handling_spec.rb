@@ -1,9 +1,9 @@
-require 'rails_helper'
-require 'securerandom'
+require "rails_helper"
+require "securerandom"
 
-RSpec.describe 'Error handling', type: :request do
+RSpec.describe "Error handling", type: :request do
   it "handles a Dataset that can't be found by legacy name" do
-    get '/dataset/missing'
+    get "/dataset/missing"
 
     expect(response).to have_http_status(:not_found)
   end

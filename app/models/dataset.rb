@@ -15,7 +15,7 @@ class Dataset
     "d3c0b23f-6979-45e4-88ed-d2ab59b005d0", # Departmental
   ].freeze
 
-  index_name ENV['ES_INDEX'] || "datasets-#{Rails.env}"
+  index_name ENV["ES_INDEX"] || "datasets-#{Rails.env}"
 
   def initialize(hash)
     @name = hash["name"]
@@ -61,7 +61,7 @@ class Dataset
     Dataset
       .search(query).to_a
       .map { |result| result._source.to_hash.merge(_id: result._id) }
-      .reject { |attributes| attributes['title'].blank? }
+      .reject { |attributes| attributes["title"].blank? }
       .map(&:stringify_keys)
       .map(&Dataset.method(:new))
   end
@@ -82,13 +82,13 @@ class Dataset
 
   def self.publishers
     query = { aggs: Search::Query.publishers_aggregation }
-    buckets = Dataset.search(query).aggregations['organisations']['org_titles']['buckets']
-    buckets.map { |bucket| bucket['key'] }.sort.uniq.reject(&:empty?)
+    buckets = Dataset.search(query).aggregations["organisations"]["org_titles"]["buckets"]
+    buckets.map { |bucket| bucket["key"] }.sort.uniq.reject(&:empty?)
   end
 
   def self.datafiles
     query = { aggs: Search::Query.datafiles_aggregation }
-    Dataset.search(query).aggregations['datafiles']
+    Dataset.search(query).aggregations["datafiles"]
   end
 
   def links
@@ -110,7 +110,7 @@ class Dataset
   def organogram?
     return false unless @schema_id
 
-    schema_id = @schema_id.gsub(/\["|"\]/, '')
+    schema_id = @schema_id.gsub(/\["|"\]/, "")
     ORGANOGRAM_SCHEMA_IDS.include?(schema_id)
   end
 end

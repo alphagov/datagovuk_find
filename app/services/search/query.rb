@@ -26,7 +26,7 @@ module Search
       [
         publishers_aggregation,
         datafile_formats_aggregation,
-        dataset_topics_aggregation
+        dataset_topics_aggregation,
       ]
     end
 
@@ -34,18 +34,18 @@ module Search
       {
         organisations: {
           nested: {
-            path: 'organisation'
+            path: "organisation",
           },
           aggs: {
             org_titles: {
               terms: {
-                field: 'organisation.title.raw',
-                order: { _term: 'asc' },
-                size: TERMS_SIZE
-              }
-            }
-          }
-        }
+                field: "organisation.title.raw",
+                order: { _term: "asc" },
+                size: TERMS_SIZE,
+              },
+            },
+          },
+        },
       }
     end
 
@@ -53,19 +53,19 @@ module Search
       {
         datafiles: {
           nested: {
-            path: 'datafiles'
+            path: "datafiles",
           },
           aggs: {
             datasets_with_datafiles: {
-              reverse_nested: {}
+              reverse_nested: {},
             },
             formats: {
               terms: {
-                field: 'datafiles.format'
-              }
-            }
-          }
-        }
+                field: "datafiles.format",
+              },
+            },
+          },
+        },
       }
     end
 
@@ -73,18 +73,18 @@ module Search
       {
         topics: {
           nested: {
-            path: 'topic'
+            path: "topic",
           },
           aggs: {
             topic_titles: {
               terms: {
-                field: 'topic.title.raw',
-                order: { _term: 'asc' },
-                size: TERMS_SIZE
-              }
-            }
-          }
-        }
+                field: "topic.title.raw",
+                order: { _term: "asc" },
+                size: TERMS_SIZE,
+              },
+            },
+          },
+        },
       }
     end
 
@@ -92,16 +92,16 @@ module Search
       {
         datafiles: {
           nested: {
-            path: 'datafiles'
+            path: "datafiles",
           },
           aggs: {
             datafile_formats: {
               terms: {
-                field: 'datafiles.format'
-              }
-            }
-          }
-        }
+                field: "datafiles.format",
+              },
+            },
+          },
+        },
       }
     end
 
@@ -116,33 +116,33 @@ module Search
                   fields: %w(title summary description),
                   like: {
                     _type: "dataset",
-                    _id: id
+                    _id: id,
                   },
                   min_term_freq: 1,
-                  min_doc_freq: 1
-                }
+                  min_doc_freq: 1,
+                },
               },
               {
                 more_like_this: {
                   fields: %w(organisation^2 location*^2),
                   like: {
                     _type: "dataset",
-                    _id: id
+                    _id: id,
                   },
                   boost: 20,
                   min_term_freq: 1,
-                  min_doc_freq: 1
-                }
-              }
-            ]
-          }
-        }
+                  min_doc_freq: 1,
+                },
+              },
+            ],
+          },
+        },
       }
     end
 
     def self.search(params)
-      query_param = params.fetch('q', '').squish
-      sort_param =  params['sort']
+      query_param = params.fetch("q", "").squish
+      sort_param =  params["sort"]
 
       publisher_param = params.dig(:filters, :publisher)
       location_param =  params.dig(:filters, :location)
@@ -173,10 +173,10 @@ module Search
       if query[:query][:bool][:must].any?
         query[:query][:bool][:should] ||= []
         query[:query][:bool][:should] << organisation_title_filter(query_param, boost: 1)
-        query[:query][:bool][:should] << organisation_category_filter('ministerial-department', boost: 2)
-        query[:query][:bool][:should] << organisation_category_filter('non-ministerial-department', boost: 2)
-        query[:query][:bool][:should] << organisation_category_filter('executive-ndpb', boost: 2)
-        query[:query][:bool][:should] << organisation_category_filter('local-council', boost: 1)
+        query[:query][:bool][:should] << organisation_category_filter("ministerial-department", boost: 2)
+        query[:query][:bool][:should] << organisation_category_filter("non-ministerial-department", boost: 2)
+        query[:query][:bool][:should] << organisation_category_filter("executive-ndpb", boost: 2)
+        query[:query][:bool][:should] << organisation_category_filter("local-council", boost: 1)
       end
 
       query[:sort] = { "public_updated_at": { "order": "desc" } } if sort_param == "recent"
@@ -191,10 +191,10 @@ module Search
         query: {
           constant_score: {
             filter: {
-              term: { legacy_name: legacy_name }
-            }
-          }
-        }
+              term: { legacy_name: legacy_name },
+            },
+          },
+        },
       }
     end
 
@@ -203,10 +203,10 @@ module Search
         query: {
           constant_score: {
             filter: {
-              term: { uuid: uuid }
-            }
-          }
-        }
+              term: { uuid: uuid },
+            },
+          },
+        },
       }
     end
 
@@ -219,13 +219,13 @@ module Search
               must: [
                 {
                   match: {
-                    "organisation.title.raw": publisher
-                  }
-                }
-              ]
-            }
-          }
-        }
+                    "organisation.title.raw": publisher,
+                  },
+                },
+              ],
+            },
+          },
+        },
       }
     end
 
@@ -238,13 +238,13 @@ module Search
               must: [
                 {
                   match: {
-                    "topic.title.raw": topic
-                  }
-                }
-              ]
-            }
-          }
-        }
+                    "topic.title.raw": topic,
+                  },
+                },
+              ],
+            },
+          },
+        },
       }
     end
 
@@ -257,57 +257,57 @@ module Search
               must: [
                 {
                   match: {
-                    "datafiles.format": format
-                  }
-                }
-              ]
-            }
-          }
-        }
+                    "datafiles.format": format,
+                  },
+                },
+              ],
+            },
+          },
+        },
       }
     end
 
     def self.location_filter(location)
       {
         match: {
-          "location1": location
-        }
+          "location1": location,
+        },
       }
     end
 
     def self.licence_filter(licence_code)
       {
         match: {
-          "licence_code": licence_code
-        }
+          "licence_code": licence_code,
+        },
       }
     end
 
     def self.organisation_category_filter(organisation_category, boost: 2)
       {
         nested: {
-          path: 'organisation',
+          path: "organisation",
           query: {
             term: {
-              'organisation.category.keyword' => {
+              "organisation.category.keyword" => {
                 value: organisation_category,
-                boost: boost
-              }
-            }
-          }
-        }
+                boost: boost,
+              },
+            },
+          },
+        },
       }
     end
 
     def self.organisation_title_filter(organisation_title, boost: 2)
       {
         nested: {
-          path: 'organisation',
+          path: "organisation",
           query: {
             match: {
               "organisation.title.english" => {
                 query: organisation_title,
-                analyzer: 'english',
+                analyzer: "english",
                 boost: boost,
               },
             },
@@ -336,8 +336,8 @@ module Search
         multi_match: {
           query: terms,
           fields: MULTI_MATCH_FIELDS_ENGLISH,
-          analyzer: 'english',
-        }
+          analyzer: "english",
+        },
       }
     end
 
@@ -345,9 +345,9 @@ module Search
       {
         multi_match: {
           query: phrase,
-          type: 'phrase',
+          type: "phrase",
           fields: MULTI_MATCH_FIELDS,
-        }
+        },
       }
     end
   end

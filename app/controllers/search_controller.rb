@@ -2,8 +2,8 @@ class SearchController < ApplicationController
   before_action :search_for_dataset, only: [:search]
 
   def search
-    @query = params['q'] || ''
-    @sort = params['sort']
+    @query = params["q"] || ""
+    @sort = params["sort"]
     @organisation = params.dig(:filters, :publisher)
     @location = params.dig(:filters, :location)
     @format = params.dig(:filters, :format)
@@ -21,7 +21,7 @@ private
   end
 
   def page_number
-    page = params['page']
+    page = params["page"]
     page && page.to_i.positive? ? page.to_i : 1
   end
 end

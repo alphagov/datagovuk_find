@@ -8,7 +8,7 @@ module DatafilesHelper
   end
 
   def format_of(datafile)
-    (datafile.format.presence || 'n/a').upcase
+    (datafile.format.presence || "n/a").upcase
   end
 
   def show_more?(index)

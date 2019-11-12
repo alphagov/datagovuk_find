@@ -3,9 +3,9 @@ class Ticket
 
   attr_accessor :name, :email, :content, :support
 
-  validates_format_of :email, with: /\A[^@]+@[^@]+\z/, message: 'Enter a valid email address'
-  validates :name, presence: { message: 'Enter a name' }
-  validates :content, presence: { message: 'Enter a message' }
+  validates_format_of :email, with: /\A[^@]+@[^@]+\z/, message: "Enter a valid email address"
+  validates :name, presence: { message: "Enter a name" }
+  validates :content, presence: { message: "Enter a message" }
 
   def initialize(ticket_details = {})
     @email = ticket_details[:email]
@@ -21,6 +21,6 @@ class Ticket
   end
 
   def support_queue
-    support == 'data' ? "[Data request]" : "[DGU]"
+    support == "data" ? "[Data request]" : "[DGU]"
   end
 end
