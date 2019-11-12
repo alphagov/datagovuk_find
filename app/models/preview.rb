@@ -1,4 +1,4 @@
-require 'csv'
+require "csv"
 
 class Preview
   attr_reader :url, :format, :body
@@ -38,14 +38,14 @@ private
   def fetch_raw
     connection = build_connection
 
-    connection.headers = { 'Range' => 'bytes=0-4096' }
+    connection.headers = { "Range" => "bytes=0-4096" }
 
     begin
       response = connection.get do |request|
         request.url(url)
         request.options.timeout = 5
       end
-      raw_body = response.body.tr("\r", "\n").force_encoding('iso-8859-1').encode('utf-8')
+      raw_body = response.body.tr("\r", "\n").force_encoding("iso-8859-1").encode("utf-8")
       raw_body.rpartition("\n")[0]
     rescue StandardError
       ""
@@ -60,6 +60,6 @@ private
   end
 
   def csv?
-    format&.upcase == 'CSV'
+    format&.upcase == "CSV"
   end
 end

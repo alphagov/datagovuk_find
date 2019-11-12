@@ -30,19 +30,19 @@ class Datafile
   end
 
   def html?
-    format == 'HTML'
+    format == "HTML"
   end
 
   def csv?
-    format == 'CSV'
+    format == "CSV"
   end
 
   def wms?
-    format == 'WMS'
+    format == "WMS"
   end
 
   def wfs?
-    format == 'WFS'
+    format == "WFS"
   end
 
   def preview

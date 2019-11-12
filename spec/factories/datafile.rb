@@ -1,13 +1,13 @@
 FactoryBot.define do
   factory :datafile do
     id 1
-    name 'Name'
-    url 'http://example.com'
-    format 'CSV'
+    name "Name"
+    url "http://example.com"
+    format "CSV"
     uuid SecureRandom.uuid
 
     trait :unrelated do
-      format 'unrelated'
+      format "unrelated"
     end
 
     trait :raw do

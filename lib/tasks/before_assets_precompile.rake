@@ -1,5 +1,5 @@
 task :before_assets_precompile do
-  system('bin/yarn')
+  system("bin/yarn")
 end
 
-Rake::Task['assets:precompile'].enhance %w[before_assets_precompile]
+Rake::Task["assets:precompile"].enhance %w[before_assets_precompile]

@@ -1,11 +1,11 @@
-require 'uri'
+require "uri"
 
 module DatasetsHelper
   NO_MORE = {
-      'discontinued' => 'Dataset no longer updated',
-      'never' => 'No future updates',
-      'one off' => 'No future updates',
-      'default' => 'Not available'
+      "discontinued" => "Dataset no longer updated",
+      "never" => "No future updates",
+      "one off" => "No future updates",
+      "default" => "Not available"
   }.freeze
 
   def to_markdown(content)
@@ -15,12 +15,12 @@ module DatasetsHelper
 
   def unescape(str)
     str = strip_tags(str).html_safe
-    str = str.gsub(/&(amp;)+/, '&')
+    str = str.gsub(/&(amp;)+/, "&")
     HTMLEntities.new.decode(str)
   end
 
   def dataset_location(dataset)
-    locations(dataset).empty? ? NO_MORE['default'] : locations(dataset)
+    locations(dataset).empty? ? NO_MORE["default"] : locations(dataset)
   end
 
   def expected_location_class_for(dataset)
@@ -36,7 +36,7 @@ module DatasetsHelper
   end
 
   def shorten_title(title)
-    title.truncate(70, separator: ' ', omission: ' ...')
+    title.truncate(70, separator: " ", omission: " ...")
   end
 
   def to_json_ld(dataset)
@@ -63,7 +63,7 @@ module DatasetsHelper
       dateModified: dataset.public_updated_at
     }
     if dataset.topic
-      dataset_metadata[:keywords] = dataset.topic['title']
+      dataset_metadata[:keywords] = dataset.topic["title"]
     end
     files = metadata_files(dataset)
     unless files.empty?
@@ -76,7 +76,7 @@ module DatasetsHelper
     files = []
     dataset.datafiles.each do |file|
       files.push(
-        "@type": 'DataDownload',
+        "@type": "DataDownload",
         contentUrl: file.url,
         fileFormat: file.format,
         name: file.name

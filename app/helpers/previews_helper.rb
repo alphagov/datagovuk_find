@@ -3,7 +3,7 @@ module PreviewsHelper
     if datafile.csv? && dataset.organogram?
       "Download the CSV"
     else
-      t('.download_file')
+      t(".download_file")
     end
   end
 end

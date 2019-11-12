@@ -34,13 +34,13 @@ module Search
       {
         organisations: {
           nested: {
-            path: 'organisation'
+            path: "organisation"
           },
           aggs: {
             org_titles: {
               terms: {
-                field: 'organisation.title.raw',
-                order: { _term: 'asc' },
+                field: "organisation.title.raw",
+                order: { _term: "asc" },
                 size: TERMS_SIZE
               }
             }
@@ -53,7 +53,7 @@ module Search
       {
         datafiles: {
           nested: {
-            path: 'datafiles'
+            path: "datafiles"
           },
           aggs: {
             datasets_with_datafiles: {
@@ -61,7 +61,7 @@ module Search
             },
             formats: {
               terms: {
-                field: 'datafiles.format'
+                field: "datafiles.format"
               }
             }
           }
@@ -73,13 +73,13 @@ module Search
       {
         topics: {
           nested: {
-            path: 'topic'
+            path: "topic"
           },
           aggs: {
             topic_titles: {
               terms: {
-                field: 'topic.title.raw',
-                order: { _term: 'asc' },
+                field: "topic.title.raw",
+                order: { _term: "asc" },
                 size: TERMS_SIZE
               }
             }
@@ -92,12 +92,12 @@ module Search
       {
         datafiles: {
           nested: {
-            path: 'datafiles'
+            path: "datafiles"
           },
           aggs: {
             datafile_formats: {
               terms: {
-                field: 'datafiles.format'
+                field: "datafiles.format"
               }
             }
           }
@@ -141,8 +141,8 @@ module Search
     end
 
     def self.search(params)
-      query_param = params.fetch('q', '').squish
-      sort_param =  params['sort']
+      query_param = params.fetch("q", "").squish
+      sort_param =  params["sort"]
 
       publisher_param = params.dig(:filters, :publisher)
       location_param =  params.dig(:filters, :location)
@@ -173,10 +173,10 @@ module Search
       if query[:query][:bool][:must].any?
         query[:query][:bool][:should] ||= []
         query[:query][:bool][:should] << organisation_title_filter(query_param, boost: 1)
-        query[:query][:bool][:should] << organisation_category_filter('ministerial-department', boost: 2)
-        query[:query][:bool][:should] << organisation_category_filter('non-ministerial-department', boost: 2)
-        query[:query][:bool][:should] << organisation_category_filter('executive-ndpb', boost: 2)
-        query[:query][:bool][:should] << organisation_category_filter('local-council', boost: 1)
+        query[:query][:bool][:should] << organisation_category_filter("ministerial-department", boost: 2)
+        query[:query][:bool][:should] << organisation_category_filter("non-ministerial-department", boost: 2)
+        query[:query][:bool][:should] << organisation_category_filter("executive-ndpb", boost: 2)
+        query[:query][:bool][:should] << organisation_category_filter("local-council", boost: 1)
       end
 
       query[:sort] = { "public_updated_at": { "order": "desc" } } if sort_param == "recent"
@@ -286,10 +286,10 @@ module Search
     def self.organisation_category_filter(organisation_category, boost: 2)
       {
         nested: {
-          path: 'organisation',
+          path: "organisation",
           query: {
             term: {
-              'organisation.category.keyword' => {
+              "organisation.category.keyword" => {
                 value: organisation_category,
                 boost: boost
               }
@@ -302,12 +302,12 @@ module Search
     def self.organisation_title_filter(organisation_title, boost: 2)
       {
         nested: {
-          path: 'organisation',
+          path: "organisation",
           query: {
             match: {
               "organisation.title.english" => {
                 query: organisation_title,
-                analyzer: 'english',
+                analyzer: "english",
                 boost: boost,
               },
             },
@@ -336,7 +336,7 @@ module Search
         multi_match: {
           query: terms,
           fields: MULTI_MATCH_FIELDS_ENGLISH,
-          analyzer: 'english',
+          analyzer: "english",
         }
       }
     end
@@ -345,7 +345,7 @@ module Search
       {
         multi_match: {
           query: phrase,
-          type: 'phrase',
+          type: "phrase",
           fields: MULTI_MATCH_FIELDS,
         }
       }

@@ -1,20 +1,20 @@
 module SearchHelper
   def display_sort(sort)
-    sort == 'best' ? 'Best Match' : 'Most Recent'
+    sort == "best" ? "Best Match" : "Most Recent"
   end
 
   def datafile_formats_for_select
-    buckets = search.aggregations['datafiles']['datafile_formats']['buckets']
+    buckets = search.aggregations["datafiles"]["datafile_formats"]["buckets"]
     map_keys(buckets).map(&:upcase)
   end
 
   def dataset_topics_for_select
-    buckets = search.aggregations['topics']['topic_titles']['buckets']
+    buckets = search.aggregations["topics"]["topic_titles"]["buckets"]
     map_keys(buckets)
   end
 
   def dataset_publishers_for_select
-    buckets = search.aggregations['organisations']['org_titles']['buckets']
+    buckets = search.aggregations["organisations"]["org_titles"]["buckets"]
     map_keys(buckets)
   end
 
@@ -47,7 +47,7 @@ private
   end
 
   def map_keys(buckets)
-    buckets.map { |bucket| bucket['key'] }.sort.uniq.reject(&:empty?)
+    buckets.map { |bucket| bucket["key"] }.sort.uniq.reject(&:empty?)
   end
 
   def search

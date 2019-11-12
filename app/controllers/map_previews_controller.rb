@@ -1,6 +1,6 @@
-require 'addressable'
-require 'nokogiri'
-require 'open-uri'
+require "addressable"
+require "nokogiri"
+require "open-uri"
 
 class MapPreviewsController < ApplicationController
   def show
@@ -15,7 +15,7 @@ class MapPreviewsController < ApplicationController
   end
 
   def getinfo
-    base_wms_url = url_param.gsub(/;jsessionid=[a-z0-9]+/i, ';jsessionid=')
+    base_wms_url = url_param.gsub(/;jsessionid=[a-z0-9]+/i, ";jsessionid=")
     response = URI(base_wms_url).read
     render xml: Nokogiri::XML(response)
   rescue StandardError => e
@@ -32,7 +32,7 @@ class MapPreviewsController < ApplicationController
     render xml: Nokogiri::XML(response)
   rescue Zlib::BufError
     response = URI(url)
-                 .read('Accept-Encoding' => '')
+                 .read("Accept-Encoding" => "")
                  .force_encoding("ISO-8859-1")
                  .encode("UTF-8")
     render xml: Nokogiri::XML(response)
@@ -53,10 +53,10 @@ private
     args = uri.query_values || {}
     args = args.transform_keys(&:downcase)
 
-    args['request'] ||= params.fetch('request', 'GetCapabilities')
-    args['service'] = 'WMS'
+    args["request"] ||= params.fetch("request", "GetCapabilities")
+    args["service"] = "WMS"
 
-    if %w(getcapabilities getfeatureinfo).exclude?(args['request'].downcase)
+    if %w(getcapabilities getfeatureinfo).exclude?(args["request"].downcase)
       raise "Invalid request value for #{uri}"
     end
 

@@ -14,28 +14,28 @@ RSpec.feature "Combined data.gov.uk and beta banner", type: :feature do
     paths.each do |path|
       visit path
 
-      within '.dgu-beta__message' do
-        expect(page).to have_content('We’ve been improving data.gov.uk')
+      within ".dgu-beta__message" do
+        expect(page).to have_content("We’ve been improving data.gov.uk")
       end
-      expect(page).to have_selector('#dgu-beta__banner', visible: true)
+      expect(page).to have_selector("#dgu-beta__banner", visible: true)
     end
   end
 
   scenario "Dismissing banner on search page works and retains query", js: true do
-    dataset = build :dataset, title: 'Zebra data'
+    dataset = build :dataset, title: "Zebra data"
     index(dataset)
-    visit search_path(q: 'zebra')
+    visit search_path(q: "zebra")
 
-    expect(page).to have_field('Search', with: 'zebra')
-    expect(page).to_not have_selector('.dgu-beta__banner--hidden')
+    expect(page).to have_field("Search", with: "zebra")
+    expect(page).to_not have_selector(".dgu-beta__banner--hidden")
 
-    within '.dgu-beta__message' do
+    within ".dgu-beta__message" do
       click_link "Don't show this message again"
     end
 
-    expect(page).to have_field('Search', with: 'zebra')
-    expect(page).to have_selector('.dgu-beta__banner--hidden', visible: false)
-    expect(page).to have_selector('#dgu-beta__banner', visible: false)
+    expect(page).to have_field("Search", with: "zebra")
+    expect(page).to have_selector(".dgu-beta__banner--hidden", visible: false)
+    expect(page).to have_selector("#dgu-beta__banner", visible: false)
   end
 end
 
@@ -45,7 +45,7 @@ RSpec.feature "Beta banner", type: :feature do
     index(dataset)
     visit root_path
 
-    within '.dgu-beta__message' do
+    within ".dgu-beta__message" do
       click_link "Don't show this message again"
     end
 
@@ -60,12 +60,12 @@ RSpec.feature "Beta banner", type: :feature do
     paths.each do |path|
       visit path
 
-      expect(page).to have_selector('#dgu-phase-banner', visible: true)
-      within '#dgu-phase-banner' do
-        expect(page).to have_content('This is a new service – your feedback will help us to improve it')
+      expect(page).to have_selector("#dgu-phase-banner", visible: true)
+      within "#dgu-phase-banner" do
+        expect(page).to have_content("This is a new service – your feedback will help us to improve it")
       end
 
-      expect(page).to_not have_selector('.phase-banner--hidden')
+      expect(page).to_not have_selector(".phase-banner--hidden")
     end
   end
 end

@@ -1,20 +1,20 @@
-require 'simplecov'
+require "simplecov"
 SimpleCov.start
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'
-require 'spec_helper'
-ENV['RAILS_ENV'] ||= 'test'
-ENV['CKAN_REDIRECTION_URL'] ||= 'testdomain'
-require File.expand_path('../config/environment', __dir__)
+require "spec_helper"
+ENV["RAILS_ENV"] ||= "test"
+ENV["CKAN_REDIRECTION_URL"] ||= "testdomain"
+require File.expand_path("../config/environment", __dir__)
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
-require 'rspec/rails'
+require "rspec/rails"
 
 # Add additional requires below this line. Rails is not loaded until this point!
-require 'capybara/rails'
-require 'capybara/rspec'
-require 'factory_bot'
-require 'webmock/rspec'
+require "capybara/rails"
+require "capybara/rspec"
+require "factory_bot"
+require "webmock/rspec"
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -29,7 +29,7 @@ require 'webmock/rspec'
 # directory. Alternatively, in the individual `*_spec.rb` files, manually
 # require only the support files necessary.
 #
-Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
 FactoryBot.find_definitions
 

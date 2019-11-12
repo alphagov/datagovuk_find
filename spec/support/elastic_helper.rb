@@ -41,41 +41,41 @@ def index_mappings
           index: true,
         },
         title: {
-          type: 'text',
+          type: "text",
           fields: {
             keyword: {
-              type: 'keyword',
+              type: "keyword",
               index: true,
             },
             english: {
-              type: 'text',
-              analyzer: 'english',
+              type: "text",
+              analyzer: "english",
             },
           },
         },
         summary: {
-          type: 'text',
+          type: "text",
           fields: {
             keyword: {
-              type: 'keyword',
+              type: "keyword",
               index: true,
             },
             english: {
-              type: 'text',
-              analyzer: 'english',
+              type: "text",
+              analyzer: "english",
             },
           },
         },
         description: {
-          type: 'text',
+          type: "text",
           fields: {
             keyword: {
-              type: 'keyword',
+              type: "keyword",
               index: true,
             },
             english: {
-              type: 'text',
-              analyzer: 'english',
+              type: "text",
+              analyzer: "english",
             },
           },
         },
@@ -88,7 +88,7 @@ def index_mappings
           index: true,
         },
         location1: {
-          type: 'text',
+          type: "text",
           fields: {
             raw: {
               type: "keyword",
@@ -97,10 +97,10 @@ def index_mappings
           }
         },
         topic: {
-          type: 'nested',
+          type: "nested",
           properties: {
             title: {
-              type: 'text',
+              type: "text",
               fields: {
                 raw: {
                   type: "keyword",
@@ -121,21 +121,21 @@ def index_mappings
                   index: true,
                 },
                 english: {
-                  type: 'text',
-                  analyzer: 'english',
+                  type: "text",
+                  analyzer: "english",
                 }
               }
             },
             description: {
-              type: 'text',
+              type: "text",
               fields: {
                 raw: {
-                  type: 'keyword',
+                  type: "keyword",
                   index: true,
                 },
                 english: {
-                  type: 'text',
-                  analyzer: 'english',
+                  type: "text",
+                  analyzer: "english",
                 },
               },
             },
