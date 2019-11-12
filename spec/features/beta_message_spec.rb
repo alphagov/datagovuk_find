@@ -8,7 +8,7 @@ RSpec.feature "Combined data.gov.uk and beta banner", type: :feature do
     paths = [
       dataset_path(dataset.uuid, dataset.name),
       root_path,
-      search_path(q: "query")
+      search_path(q: "query"),
     ]
 
     paths.each do |path|
@@ -54,7 +54,7 @@ RSpec.feature "Beta banner", type: :feature do
       root_path,
       search_path(q: "query"),
       about_path,
-      support_path
+      support_path,
     ]
 
     paths.each do |path|

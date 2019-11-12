@@ -367,7 +367,7 @@ RSpec.feature "Dataset page", type: :feature, elasticsearch: true do
 
       correct_order = [
         Time.parse(datafile2["start_date"]).year.to_s,
-        Time.parse(datafile1["start_date"]).year.to_s
+        Time.parse(datafile1["start_date"]).year.to_s,
       ]
 
       actual_order = all("button.dgu-datafiles__year").map(&:text)

@@ -26,7 +26,7 @@ module Search
       [
         publishers_aggregation,
         datafile_formats_aggregation,
-        dataset_topics_aggregation
+        dataset_topics_aggregation,
       ]
     end
 
@@ -133,7 +133,7 @@ module Search
                   min_term_freq: 1,
                   min_doc_freq: 1,
                 },
-              }
+              },
             ],
           },
         },
@@ -221,7 +221,7 @@ module Search
                   match: {
                     "organisation.title.raw": publisher,
                   },
-                }
+                },
               ],
             },
           },
@@ -240,7 +240,7 @@ module Search
                   match: {
                     "topic.title.raw": topic,
                   },
-                }
+                },
               ],
             },
           },
@@ -259,7 +259,7 @@ module Search
                   match: {
                     "datafiles.format": format,
                   },
-                }
+                },
               ],
             },
           },
