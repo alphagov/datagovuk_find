@@ -34,18 +34,18 @@ module Search
       {
         organisations: {
           nested: {
-            path: "organisation"
+            path: "organisation",
           },
           aggs: {
             org_titles: {
               terms: {
                 field: "organisation.title.raw",
                 order: { _term: "asc" },
-                size: TERMS_SIZE
-              }
-            }
-          }
-        }
+                size: TERMS_SIZE,
+              },
+            },
+          },
+        },
       }
     end
 
@@ -53,19 +53,19 @@ module Search
       {
         datafiles: {
           nested: {
-            path: "datafiles"
+            path: "datafiles",
           },
           aggs: {
             datasets_with_datafiles: {
-              reverse_nested: {}
+              reverse_nested: {},
             },
             formats: {
               terms: {
-                field: "datafiles.format"
-              }
-            }
-          }
-        }
+                field: "datafiles.format",
+              },
+            },
+          },
+        },
       }
     end
 
@@ -73,18 +73,18 @@ module Search
       {
         topics: {
           nested: {
-            path: "topic"
+            path: "topic",
           },
           aggs: {
             topic_titles: {
               terms: {
                 field: "topic.title.raw",
                 order: { _term: "asc" },
-                size: TERMS_SIZE
-              }
-            }
-          }
-        }
+                size: TERMS_SIZE,
+              },
+            },
+          },
+        },
       }
     end
 
@@ -92,16 +92,16 @@ module Search
       {
         datafiles: {
           nested: {
-            path: "datafiles"
+            path: "datafiles",
           },
           aggs: {
             datafile_formats: {
               terms: {
-                field: "datafiles.format"
-              }
-            }
-          }
-        }
+                field: "datafiles.format",
+              },
+            },
+          },
+        },
       }
     end
 
@@ -116,27 +116,27 @@ module Search
                   fields: %w(title summary description),
                   like: {
                     _type: "dataset",
-                    _id: id
+                    _id: id,
                   },
                   min_term_freq: 1,
-                  min_doc_freq: 1
-                }
+                  min_doc_freq: 1,
+                },
               },
               {
                 more_like_this: {
                   fields: %w(organisation^2 location*^2),
                   like: {
                     _type: "dataset",
-                    _id: id
+                    _id: id,
                   },
                   boost: 20,
                   min_term_freq: 1,
-                  min_doc_freq: 1
-                }
+                  min_doc_freq: 1,
+                },
               }
-            ]
-          }
-        }
+            ],
+          },
+        },
       }
     end
 
@@ -191,10 +191,10 @@ module Search
         query: {
           constant_score: {
             filter: {
-              term: { legacy_name: legacy_name }
-            }
-          }
-        }
+              term: { legacy_name: legacy_name },
+            },
+          },
+        },
       }
     end
 
@@ -203,10 +203,10 @@ module Search
         query: {
           constant_score: {
             filter: {
-              term: { uuid: uuid }
-            }
-          }
-        }
+              term: { uuid: uuid },
+            },
+          },
+        },
       }
     end
 
@@ -219,13 +219,13 @@ module Search
               must: [
                 {
                   match: {
-                    "organisation.title.raw": publisher
-                  }
+                    "organisation.title.raw": publisher,
+                  },
                 }
-              ]
-            }
-          }
-        }
+              ],
+            },
+          },
+        },
       }
     end
 
@@ -238,13 +238,13 @@ module Search
               must: [
                 {
                   match: {
-                    "topic.title.raw": topic
-                  }
+                    "topic.title.raw": topic,
+                  },
                 }
-              ]
-            }
-          }
-        }
+              ],
+            },
+          },
+        },
       }
     end
 
@@ -257,29 +257,29 @@ module Search
               must: [
                 {
                   match: {
-                    "datafiles.format": format
-                  }
+                    "datafiles.format": format,
+                  },
                 }
-              ]
-            }
-          }
-        }
+              ],
+            },
+          },
+        },
       }
     end
 
     def self.location_filter(location)
       {
         match: {
-          "location1": location
-        }
+          "location1": location,
+        },
       }
     end
 
     def self.licence_filter(licence_code)
       {
         match: {
-          "licence_code": licence_code
-        }
+          "licence_code": licence_code,
+        },
       }
     end
 
@@ -291,11 +291,11 @@ module Search
             term: {
               "organisation.category.keyword" => {
                 value: organisation_category,
-                boost: boost
-              }
-            }
-          }
-        }
+                boost: boost,
+              },
+            },
+          },
+        },
       }
     end
 
@@ -337,7 +337,7 @@ module Search
           query: terms,
           fields: MULTI_MATCH_FIELDS_ENGLISH,
           analyzer: "english",
-        }
+        },
       }
     end
 
@@ -347,7 +347,7 @@ module Search
           query: phrase,
           type: "phrase",
           fields: MULTI_MATCH_FIELDS,
-        }
+        },
       }
     end
   end

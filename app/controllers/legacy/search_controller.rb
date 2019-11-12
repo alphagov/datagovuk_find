@@ -3,7 +3,7 @@ class Legacy::SearchController < ApplicationController
     filters = {
       format: params["res_format"],
       publisher: params["publisher"],
-      licence: licence_param
+      licence: licence_param,
     }.compact
 
     redirect_to search_path(q: params["q"], filters: filters)

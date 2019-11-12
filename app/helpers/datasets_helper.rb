@@ -5,7 +5,7 @@ module DatasetsHelper
       "discontinued" => "Dataset no longer updated",
       "never" => "No future updates",
       "one off" => "No future updates",
-      "default" => "Not available"
+      "default" => "Not available",
   }.freeze
 
   def to_markdown(content)
@@ -47,20 +47,20 @@ module DatasetsHelper
       url: "#{request.protocol}#{request.host_with_port}#{request.fullpath}",
       includedInDataCatalog: {
         "@type": "DataCatalog",
-        url: "#{request.protocol}#{request.host_with_port}"
+        url: "#{request.protocol}#{request.host_with_port}",
       },
       creator: {
         "@type": "Organization",
-        name: dataset.organisation.title
+        name: dataset.organisation.title,
       },
       description: dataset.summary,
       license: {
         "@type": "CreativeWork",
         name: dataset.licence_title,
         text: dataset.licence_custom,
-        url: dataset.licence_url
+        url: dataset.licence_url,
       },
-      dateModified: dataset.public_updated_at
+      dateModified: dataset.public_updated_at,
     }
     if dataset.topic
       dataset_metadata[:keywords] = dataset.topic["title"]

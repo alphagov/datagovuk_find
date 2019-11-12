@@ -7,7 +7,7 @@ RSpec.describe "legacy", type: :request do
         "q" => "foo",
         "res_format" => "bar",
         "publisher" => "baz",
-        "license_id-is-ogl" => "true"
+        "license_id-is-ogl" => "true",
       }
 
       get "/data/search?#{legacy_params.to_query}"
@@ -17,8 +17,8 @@ RSpec.describe "legacy", type: :request do
         "filters" => {
           "format" => "bar",
           "publisher" => "baz",
-          "licence" => "uk-ogl"
-        }
+          "licence" => "uk-ogl",
+        },
       }
 
       expect(response).to redirect_to(search_path(expected_params))

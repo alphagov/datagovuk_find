@@ -11,7 +11,7 @@ def create_index
     index: "datasets-test",
     body: {
       settings: index_settings,
-      mappings: index_mappings
+      mappings: index_mappings,
     }
   )
 rescue StandardError
@@ -25,10 +25,10 @@ def index_settings
       normalizer: {
         lowercase_normalizer: {
           type: "custom",
-          filter: "lowercase"
-        }
-      }
-    }
+          filter: "lowercase",
+        },
+      },
+    },
   }
 end
 
@@ -93,8 +93,8 @@ def index_mappings
             raw: {
               type: "keyword",
               index: true,
-            }
-          }
+            },
+          },
         },
         topic: {
           type: "nested",
@@ -105,10 +105,10 @@ def index_mappings
                 raw: {
                   type: "keyword",
                   index: true,
-                }
-              }
-            }
-          }
+                },
+              },
+            },
+          },
         },
         organisation: {
           type: "nested",
@@ -123,8 +123,8 @@ def index_mappings
                 english: {
                   type: "text",
                   analyzer: "english",
-                }
-              }
+                },
+              },
             },
             description: {
               type: "text",
@@ -139,24 +139,24 @@ def index_mappings
                 },
               },
             },
-          }
+          },
         },
         datafiles: {
           type: "nested",
           properties: {
             format: {
               type: "keyword",
-              normalizer: "lowercase_normalizer"
-            }
-          }
+              normalizer: "lowercase_normalizer",
+            },
+          },
         },
         docs: {
           type: "nested",
           properties: {
-            format: { type: "keyword" }
-          }
-        }
-      }
-    }
+            format: { type: "keyword" },
+          },
+        },
+      },
+    },
   }
 end
