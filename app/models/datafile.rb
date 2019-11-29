@@ -18,7 +18,7 @@ class Datafile
   def start_year
     return if start_date.blank?
 
-    Time.parse(start_date).year
+    Time.zone.parse(start_date).year
   end
 
   def timeseries?
