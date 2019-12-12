@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe DatasetsHelper do
   describe "#sort_by_created_at" do
-    let(:datafile1) { build :datafile, created_at: 1.hours.ago.iso8601 }
+    let(:datafile1) { build :datafile, created_at: 1.hour.ago.iso8601 }
     let(:datafile2) { build :datafile, created_at: 2.hours.ago.iso8601 }
 
     it "orders datafiles lexicographically by created_at" do

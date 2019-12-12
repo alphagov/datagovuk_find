@@ -1,6 +1,7 @@
 inherit_gem:
   rubocop-govuk:
     - config/default.yml
+    - config/rails.yml
 
 AllCops:
   TargetRubyVersion: 2.5
@@ -20,3 +21,9 @@ Metrics/BlockLength:
 Style/FormatStringToken:
   Exclude:
     - "config/routes.rb"
+
+Rails/OutputSafety:
+  Enabled: false
+
+Rails/FilePath:
+  EnforcedStyle: slashes

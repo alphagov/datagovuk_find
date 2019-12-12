@@ -161,7 +161,7 @@ RSpec.feature "Dataset page", type: :feature, elasticsearch: true do
 
     scenario "Last Updated field displays public_updated_at" do
       dataset = build :dataset
-      time = Time.parse(dataset.public_updated_at)
+      time = Time.zone.parse(dataset.public_updated_at)
       index_and_visit(dataset)
       expect(page).to have_content("Last updated: #{time.strftime('%d %B %Y')}")
     end
@@ -366,8 +366,8 @@ RSpec.feature "Dataset page", type: :feature, elasticsearch: true do
       expect(page).to have_css(".dgu-datafiles__year", count: 2)
 
       correct_order = [
-        Time.parse(datafile2["start_date"]).year.to_s,
-        Time.parse(datafile1["start_date"]).year.to_s,
+        Time.zone.parse(datafile2["start_date"]).year.to_s,
+        Time.zone.parse(datafile1["start_date"]).year.to_s,
       ]
 
       actual_order = all("button.dgu-datafiles__year").map(&:text)
