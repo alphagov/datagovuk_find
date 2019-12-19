@@ -19,8 +19,7 @@ services:
 addons:
   chrome: stable
 before_install:
-  - gem update --system
-  - gem install bundler --no-document
+  - gem update bundler --no-document
 install:
   - bundle install --path vendor/bundle
   - yarn
