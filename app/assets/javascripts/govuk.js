@@ -8,6 +8,7 @@ $(document).ready(function () {
 
   // Clear cookie set by govuk_template.
   GOVUK.cookie('seen_cookie_message', null);
+  $('#global-cookie-message').remove();
 
   // Show and hide toggled content
   // Where .multiple-choice uses the data-target attribute
