@@ -6,6 +6,9 @@ $(document).ready(function () {
   // with role="button" when the space key is pressed.
   GOVUK.shimLinksWithButtonRole.init()
 
+  // Clear cookie set by govuk_template.
+  GOVUK.cookie('seen_cookie_message', null);
+
   // Show and hide toggled content
   // Where .multiple-choice uses the data-target attribute
   // to toggle hidden content
