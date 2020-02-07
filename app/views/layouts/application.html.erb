@@ -35,7 +35,6 @@
 <% end %>
 
 <% content_for :after_header do %>
-  <%= render 'layouts/beta_message' %>
   <%= render 'layouts/staging_ribbon' if Rails.env.staging? %>
 <% end %>
 
