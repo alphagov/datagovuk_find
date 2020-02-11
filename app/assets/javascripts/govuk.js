@@ -8,6 +8,11 @@ $(document).ready(function () {
 
   // Clear cookie set by govuk_template.
   GOVUK.cookie('seen_cookie_message', null);
+  document.cookie = '_ga=;expires=' + new Date() + ';domain=' + window.location.hostname + ';path=/'
+  document.cookie = '_gat=;expires=' + new Date() + ';domain=' + window.location.hostname + ';path=/'
+  document.cookie = '_gid=;expires=' + new Date() + ';domain=' + window.location.hostname + ';path=/'
+  document.cookie = '_session_id=;expires=' + new Date() + ';domain=' + window.location.hostname + ';path=/'
+  document.cookie = 'dgu_beta_banner_dismissed=;expires=' + new Date() + ';domain=' + window.location.hostname + ';path=/'
   $('#global-cookie-message').remove();
 
   // Show and hide toggled content
