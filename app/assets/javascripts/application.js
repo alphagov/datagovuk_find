@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require cookie-settings
 //= require govuk_toolkit
 //= require accessible-autocomplete/dist/accessible-autocomplete.min
 //= require govuk_publishing_components/all_components
