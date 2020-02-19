@@ -28,9 +28,10 @@
       </div>
     </div>
 
-<% content_for :header_class do %>
-  with-proposition
-<% end %>
+    <%= render "govuk_publishing_components/components/cookie_banner", {
+      text: sanitize("We use <a href='/cookies' class='govuk-link'>cookies to collect information</a> about how you use data.gov.uk. We use this information to make the website work as well as possible."),
+      cookie_preferences_href: "/cookies",
+    } %>
 
     <header role="banner" id="global-header" class="with-proposition">
       <div class="header-wrapper">
