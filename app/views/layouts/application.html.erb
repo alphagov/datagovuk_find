@@ -1,6 +1,5 @@
 <% content_for :head do %>
   <%= stylesheet_link_tag 'application' %>
-  <%= javascript_include_tag 'application' %>
   <%= render 'layouts/analytics' %>
   <%= csrf_meta_tags %>
 <% end %>
@@ -49,6 +48,8 @@
   <%= yield %>
 
   <div id="global-app-error" class="app-error hidden"></div>
+
+  <%= javascript_include_tag 'application' %>
 
   <%= javascript_tag do %>
     if (typeof window.GOVUK === 'undefined') document.body.className = document.body.className.replace('js-enabled', '');

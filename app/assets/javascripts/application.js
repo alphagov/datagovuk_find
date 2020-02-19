@@ -13,7 +13,10 @@
 //= require jquery
 //= require govuk_toolkit
 //= require accessible-autocomplete/dist/accessible-autocomplete.min
+//= require govuk_publishing_components/all_components
 //= require_tree ./organograms/lib
 //= require_tree ./organograms
 //= require_tree .
 //= stub map-preview
+
+window.GOVUK.modules.start()
