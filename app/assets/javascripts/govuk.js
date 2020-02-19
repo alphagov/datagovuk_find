@@ -6,14 +6,6 @@ $(document).ready(function () {
   // with role="button" when the space key is pressed.
   GOVUK.shimLinksWithButtonRole.init()
 
-  // Clear cookie set by govuk_template.
-  GOVUK.cookie('seen_cookie_message', null);
-  document.cookie = '_ga=;expires=' + new Date() + ';domain=' + window.location.hostname + ';path=/'
-  document.cookie = '_gat=;expires=' + new Date() + ';domain=' + window.location.hostname + ';path=/'
-  document.cookie = '_gid=;expires=' + new Date() + ';domain=' + window.location.hostname + ';path=/'
-  document.cookie = '_session_id=;expires=' + new Date() + ';domain=' + window.location.hostname + ';path=/'
-  document.cookie = 'dgu_beta_banner_dismissed=;expires=' + new Date() + ';domain=' + window.location.hostname + ';path=/'
-
   // Show and hide toggled content
   // Where .multiple-choice uses the data-target attribute
   // to toggle hidden content
