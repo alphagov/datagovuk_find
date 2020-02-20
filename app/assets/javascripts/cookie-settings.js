@@ -60,6 +60,10 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
 
     this.showConfirmationMessage()
 
+    if (window.GOVUK.analyticsInit) {
+      window.GOVUK.analyticsInit()
+    }
+
     return false
   }
 

@@ -101,7 +101,6 @@
     <div id="global-app-error" class="app-error hidden"></div>
 
     <%= javascript_include_tag 'application' %>
-    <%= render 'layouts/analytics' %>
 
     <%# if no GOVUK-namespaced module has loaded we can assume JS has failed and remove the class %>
     <script>if (typeof window.GOVUK === 'undefined') document.body.className = document.body.className.replace('js-enabled', '');</script>
