@@ -54,6 +54,35 @@
             <li>what you click on while you're visiting the site</li>
           </ul>
           We do not allow Google to use or share the data about how you use this site.
+          <p>These are the Google Analytics cookies we’ll use:</p>
+
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Purpose</th>
+                  <th>Expires</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>_ga, _gid</td>
+                  <td>These help us count how many people visit data.gov.uk<br/>
+                    by tracking if you’ve visited before
+                  </td>
+                  <td>_ga 2 years, _gid 24 hours</td>
+                </tr>
+
+                <tr>
+                  <td>_gat</td>
+                  <td>Used to manage the rate at which page view requests are made</td>
+                  <td>10 minutes</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         <% end %>
 
         <%= render "govuk_publishing_components/components/radio", {
@@ -74,7 +103,7 @@
         } %>
 
         <% cookies_campaigns_hint = capture do %>
-          These cookies may be set by third party websites and do things like measure how you view YouTube videos that are on data.gov.uk. We don't currently use any cookies in this category.
+          These cookies may be set by third party websites. We don't currently use any cookies in this category.
         <% end %>
 
         <%= render "govuk_publishing_components/components/radio", {
