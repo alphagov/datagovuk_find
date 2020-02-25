@@ -12,6 +12,20 @@
  *
  */
 
+$govuk-compatibility-govuktemplate: true;
+$govuk-use-legacy-palette: false;
+
+// Components from govuk_publishing_components gem
+@import 'govuk_publishing_components/govuk_frontend_support';
+@import 'govuk_publishing_components/component_support';
+@import 'govuk_publishing_components/components/_cookie-banner';
+@import 'govuk_publishing_components/components/_title';
+@import 'govuk_publishing_components/components/_notice';
+@import 'govuk_publishing_components/components/_heading';
+@import 'govuk_publishing_components/components/_govspeak';
+@import 'govuk_publishing_components/components/_radio';
+@import 'govuk_publishing_components/components/_button';
+
 $path: "/assets/";
 $helvetica-regular: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
 $nta-light-tabular: $helvetica-regular;
@@ -44,6 +58,7 @@ $alpine-fresh: #128400;
 @import 'elements/phase-banner';
 @import 'elements/components';
 
+@import 'cookie-settings';
 @import 'govuk-overrides';
 @import 'components';
 @import 'accessible-autocomplete/dist/accessible-autocomplete.min';

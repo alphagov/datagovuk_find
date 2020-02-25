@@ -1,70 +1,108 @@
-<% content_for :head do %>
-  <%= stylesheet_link_tag 'application' %>
-  <%= javascript_include_tag 'application' %>
-  <%= render 'layouts/analytics' %>
-  <%= csrf_meta_tags %>
-<% end %>
+<%= yield :top_of_page %>
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="lte-ie8" lang="<%= content_for?(:html_lang) ? yield(:html_lang) : "en" %>"><![endif]-->
+<!--[if gt IE 8]><!--><html lang="<%= content_for?(:html_lang) ? yield(:html_lang) : "en" %>"><!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <title><%= content_for?(:page_title) ? yield(:page_title) + " - " + t('.site_name') : t('.site_name') %></title>
 
-<% content_for :page_title do %> - <%= t('.site_name')%><% end %>
+    <%# the colour used for theme-color is the standard palette $black from
+        https://github.com/alphagov/govuk_frontend_toolkit/blob/master/stylesheets/colours/_palette.scss %>
+    <meta name="theme-color" content="#0b0c0c" />
 
-<% content_for :homepage_url do %>
-  <%= root_path %>
-<% end %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<% content_for :cookie_message do %>
-  <p>
-    data.gov.uk uses cookies to make the site simpler.
-    <%= link_to 'Find out more about cookies', cookies_path %>
-  </p>
-<% end %>
+    <%= stylesheet_link_tag "govuk-template.css", integrity: false %>
+    <%= stylesheet_link_tag 'application' %>
+    <%= csrf_meta_tags %>
 
-<% content_for :global_header_text do %>
-  <%= t('.data_gov_uk')%>
-  <div class="vertical-separator">|</div>
-  <%= t('.find_open_data') %>
-<% end %>
+    <%= yield :head %>
+  </head>
 
-<% content_for :logo_link_title do %><%= t('.go_to_home') %><% end %>
+  <body>
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
 
-<% content_for :header_class do %>
-  with-proposition
-<% end %>
-
-<% content_for :proposition_header do %>
-  <%= render 'layouts/proposition_header' %>
-<% end %>
-
-<% content_for :after_header do %>
-  <%= render 'layouts/staging_ribbon' if Rails.env.staging? %>
-<% end %>
-
-<% content_for :content do %>
-  <div class="dgu-top-non-content">
-    <div class="dgu-top-non-content__inner">
-      <%= render 'layouts/feedback_survey_banner' %>
-      <%= yield :breadcrumb %>
+    <div id="skiplink-container">
+      <div>
+        <a href="#content" class="skiplink govuk-link"><%= content_for?(:skip_link_message) ? yield(:skip_link_message) : "Skip to main content" %></a>
+      </div>
     </div>
-  </div>
 
-  <%= yield %>
+    <%= render "govuk_publishing_components/components/cookie_banner", {
+      text: sanitize("We use <a href='/cookies' class='govuk-link'>cookies to collect information</a> about how you use data.gov.uk. We use this information to make the website work as well as possible."),
+      cookie_preferences_href: "/cookies",
+    } %>
 
-  <div id="global-app-error" class="app-error hidden"></div>
+    <header role="banner" id="global-header" class="with-proposition">
+      <div class="header-wrapper">
+        <div class="header-global">
+          <div class="header-logo">
+            <a href="<%= root_path %>" id="logo" class="content">
+              <%= t('.data_gov_uk')%> | <%= t('.find_open_data') %>
+            </a>
+          </div>
+        </div>
+        <%= render 'layouts/proposition_header' %>
+      </div>
+    </header>
 
-  <%= javascript_tag do %>
-    if (typeof window.GOVUK === 'undefined') document.body.className = document.body.className.replace('js-enabled', '');
-  <% end %>
-<% end %>
+    <%= render 'layouts/staging_ribbon' if Rails.env.staging? %>
 
-<% content_for :footer_support_links do %>
-  <ul>
-    <li><%= link_to 'About', about_path %></li>
-    <li><%= link_to 'Accessibility', accessibility_path %></li>
-    <li><%= link_to 'Cookies', cookies_path %></li>
-    <li><%= link_to 'Privacy', privacy_path %></li>
-    <li><%= link_to 'Terms and conditions', terms_path %></li>
-    <li><%= link_to 'Support', support_path %></li>
-    <li>Built by the <%= link_to 'Government Digital Service', 'https://www.gov.uk/government/organisations/government-digital-service' %></li>
-  </ul>
-<% end %>
+    <div class="dgu-top-non-content">
+      <div class="dgu-top-non-content__inner">
+        <%= render 'layouts/feedback_survey_banner' %>
+        <%= yield :breadcrumb %>
+      </div>
+    </div>
 
-<%= render template: 'layouts/govuk_template' %>
+    <%= yield %>
+
+    <footer class="group js-footer" id="footer" role="contentinfo">
+      <div class="govuk-width-container">
+        <div class="footer-container govuk-main-wrapper">
+          <div class="footer-meta">
+            <div class="footer-meta-inner">
+              <ul>
+                <li><%= link_to 'About', about_path %></li>
+                <li><%= link_to 'Accessibility', accessibility_path %></li>
+                <li><%= link_to 'Cookies', cookies_path %></li>
+                <li><%= link_to 'Privacy', privacy_path %></li>
+                <li><%= link_to 'Terms and conditions', terms_path %></li>
+                <li><%= link_to 'Support', support_path %></li>
+                <li>Built by the <%= link_to 'Government Digital Service', 'https://www.gov.uk/government/organisations/government-digital-service' %></li>
+              </ul>
+              <div class="open-government-licence">
+                <p class="logo">
+                  <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+                     rel="license"
+                     class="govuk-link open-government-licence__logo-link">
+                    Open Government Licence
+                  </a>
+                </p>
+                <% if content_for?(:licence_message) %>
+                  <%= yield :licence_message %>
+                <% else %>
+                  <p>All content is available under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license" class="govuk-link">Open Government Licence v3.0</a>, except where otherwise stated</p>
+                <% end %>
+              </div>
+            </div>
+
+            <div class="copyright">
+              <a class="govuk-link"
+                 href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/">
+                 <%= content_for?(:crown_copyright_message) ? yield(:crown_copyright_message) : "© Crown copyright" %>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div id="global-app-error" class="app-error hidden"></div>
+
+    <%= javascript_include_tag 'application' %>
+
+    <%# if no GOVUK-namespaced module has loaded we can assume JS has failed and remove the class %>
+    <script>if (typeof window.GOVUK === 'undefined') document.body.className = document.body.className.replace('js-enabled', '');</script>
+  </body>
+</html>

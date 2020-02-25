@@ -38,7 +38,7 @@ module FindDataBeta
     config.action_dispatch.rescue_responses['Dataset::DatasetNotFound'] = :not_found
     config.exceptions_app = self.routes
 
-    config.analytics_tracking_id = nil
+    config.analytics_tracking_id = ENV['GA_TRACKING_ID']
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '**', '*.{rb,yml}')]
     config.filter_parameters << :password
     config.filter_parameters << :password_confirmation
