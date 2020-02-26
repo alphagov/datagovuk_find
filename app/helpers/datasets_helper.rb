@@ -58,7 +58,7 @@ module DatasetsHelper
         "@type": "CreativeWork",
         name: dataset.licence_title,
         text: dataset.licence_custom,
-        url: dataset.licence_url,
+        url: licence_url(dataset),
       },
       dateModified: dataset.public_updated_at,
     }
@@ -83,6 +83,10 @@ module DatasetsHelper
       )
     end
     files
+  end
+
+  def licence_url(dataset)
+    dataset.licence_url.presence || "#{request.protocol}#{request.host_with_port}#{request.fullpath}#license-info"
   end
 
   def contact_information_exists?(dataset)
