@@ -86,7 +86,7 @@ module DatasetsHelper
   end
 
   def licence_url(dataset)
-    dataset.licence_url.presence || "#{request.protocol}#{request.host_with_port}#{request.fullpath}#license-info"
+    dataset.licence_url.presence || "#{request.protocol}#{request.host_with_port}#{request.fullpath}#licence-info"
   end
 
   def contact_information_exists?(dataset)
