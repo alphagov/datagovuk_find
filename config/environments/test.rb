@@ -25,8 +25,7 @@ Rails.application.configure do
   # Render exceptions instead of raising them
   config.action_dispatch.show_exceptions = true
 
-  # Disable request forgery protection in test environment.
-  config.action_controller.allow_forgery_protection = false
+  # Disable caching in test environment.
   config.action_mailer.perform_caching = false
 
   # Tell Action Mailer not to deliver emails to the real world.
@@ -39,4 +38,7 @@ Rails.application.configure do
 
   # Raises error for missing translations
   config.action_view.raise_on_missing_translations = true
+
+  # The support forms require CSRF authentication, this should be checked in the tests
+  config.action_controller.allow_forgery_protection = true  
 end
