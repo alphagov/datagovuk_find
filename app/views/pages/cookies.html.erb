@@ -87,17 +87,17 @@
 
         <%= render "govuk_publishing_components/components/radio", {
           name: "cookies-usage",
-          inline: true,
+          inline: false,
           heading: "Cookies that measure website use",
           hint: cookies_usage_hint,
           items: [
             {
               value: "on",
-              text: "On"
+              text: "Use cookies that measure my website use"
             },
             {
               value: "off",
-              text: "Off"
+              text: "Do not use cookies that measure my website use"
             }
           ]
         } %>
@@ -108,34 +108,34 @@
 
         <%= render "govuk_publishing_components/components/radio", {
           name: "cookies-campaigns",
-          inline: true,
+          inline: false,
           heading: "Cookies that help with our communications and marketing",
           hint: cookies_campaigns_hint,
           items: [
             {
               value: "on",
-              text: "On"
+              text: "Use cookies that help with communications and marketing"
             },
             {
               value: "off",
-              text: "Off"
+              text: "Do not use cookies that help with communications and marketing"
             }
           ]
         } %>
 
         <%= render "govuk_publishing_components/components/radio", {
           name: "cookies-settings",
-          inline: true,
+          inline: false,
           heading: "Cookies that remember your settings",
           hint: "These cookies do things like remember your preferences and the choices you make, to personalise your experience of using the site.",
           items: [
             {
               value: "on",
-              text: "On"
+              text: "Use cookies that remember my settings on the site"
             },
             {
               value: "off",
-              text: "Off"
+              text: "Do not use cookies that remember my settings on the site"
             }
           ]
         } %>
