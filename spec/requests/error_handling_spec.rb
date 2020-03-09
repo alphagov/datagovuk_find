@@ -21,4 +21,12 @@ RSpec.describe "Error handling", type: :request do
     get "/dataset/#{dataset.uuid}/#{dataset.name}/datafile/#{SecureRandom.uuid}/preview"
     expect(response).to have_http_status(:not_found)
   end
+
+  it "handles a legacy Datafile that can't be found by UUID" do
+    dataset = build :dataset
+    index(dataset)
+
+    get "/dataset/#{dataset.name}/resource/#{SecureRandom.uuid}"
+    expect(response).to have_http_status(:not_found)
+  end
 end
