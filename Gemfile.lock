@@ -406,6 +406,7 @@ DEPENDENCIES
   nokogiri
   parslet
   pg (~> 0.18)
+  plek (~> 3.0)
   pry (~> 0.10)
   pry-byebug (~> 3.4)
   pry-stack_explorer (~> 0.4.9)
