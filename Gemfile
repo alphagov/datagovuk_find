@@ -36,7 +36,7 @@ group :development, :test do
   gem "brakeman", "~> 4.2"
   gem "byebug", "~> 9"
   gem "pry", "~> 0.10"
-  gem "pry-byebug", "~> 3.4"
+  gem "pry-byebug", "~> 3.5"
   gem "pry-stack_explorer", "~> 0.4.9"
   gem "rspec", "~> 3.6"
   gem "rspec-rails", "~> 3.6"
