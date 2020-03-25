@@ -122,7 +122,7 @@ GEM
       sass (= 3.7.4)
       sassc-rails (>= 2.0.1)
       sprockets (< 4)
-    govuk_template (0.23.1)
+    govuk_template (0.26.0)
       rails (>= 3.1)
     govuk_test (0.5.0)
       capybara
