@@ -331,8 +331,7 @@ GEM
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.2)
     slop (3.6.0)
-    spring (2.0.2)
-      activesupport (>= 4.2)
+    spring (2.1.0)
     spring-commands-rspec (1.0.4)
       spring (>= 0.9.1)
     spring-watcher-listen (2.0.1)
@@ -349,7 +348,7 @@ GEM
     thor (1.0.1)
     thread_safe (0.3.6)
     tilt (2.0.10)
-    tzinfo (1.2.6)
+    tzinfo (1.2.7)
       thread_safe (~> 0.1)
     uglifier (3.2.0)
       execjs (>= 0.3.0, < 3)
@@ -424,7 +423,7 @@ DEPENDENCIES
   secure_headers (~> 6.3)
   sentry-raven
   simplecov (~> 0.13)
-  spring (~> 2.0)
+  spring (~> 2.1)
   spring-commands-rspec
   spring-watcher-listen (~> 2.0.0)
   uglifier (>= 1.3.0)
