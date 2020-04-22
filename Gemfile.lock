@@ -131,7 +131,7 @@ GEM
       selenium-webdriver
       webdrivers
     hashdiff (0.3.8)
-    hashie (3.5.6)
+    hashie (3.6.0)
     htmlentities (4.3.4)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
@@ -373,8 +373,8 @@ GEM
     websocket-extensions (0.1.4)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zendesk_api (1.14.4)
-      faraday (~> 0.9)
+    zendesk_api (1.25.0)
+      faraday (>= 0.9.0, < 2.0.0)
       hashie (>= 3.5.2, < 4.0.0)
       inflection
       mime-types
