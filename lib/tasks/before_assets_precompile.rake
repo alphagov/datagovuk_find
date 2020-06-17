@@ -1,4 +1,4 @@
-task :before_assets_precompile do
+task before_assets_precompile: :environment do
   system("bin/yarn")
 end
 

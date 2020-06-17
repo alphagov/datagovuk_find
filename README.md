@@ -61,3 +61,7 @@ behave the same as production.
 
 If you're having connection issues, try opening new tabs in your terminal to
 ensure all your environment variables are cleared and refreshed.
+
+## Testing on docker ckan
+
+Source the `bin/setup-docker-test.sh` script in order to set up the environment variables for testing and install chrome on the debian docker container.

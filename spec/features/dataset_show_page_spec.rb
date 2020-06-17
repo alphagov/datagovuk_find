@@ -239,13 +239,13 @@ RSpec.feature "Dataset page", type: :feature, elasticsearch: true do
     scenario "Contains a link to original INSPIRE XML" do
       dataset = build :dataset, :inspire
       index_and_visit(dataset)
-      expect(page).to have_xpath("//a[@href='/api/2/rest/harvestobject/1234/xml']")
+      expect(page).to have_xpath("//a[@href='/api/2/rest/harvestobject/1234/xml']", visible: :all)
     end
 
     scenario "Contains a link to HTML rendering of INSPIRE XML" do
       dataset = build :dataset, :inspire
       index_and_visit(dataset)
-      expect(page).to have_xpath("//a[@href='/api/2/rest/harvestobject/1234/html']")
+      expect(page).to have_xpath("//a[@href='/api/2/rest/harvestobject/1234/html']", visible: :all)
     end
 
     scenario "Is not displayed if not available" do

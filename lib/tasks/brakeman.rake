@@ -1,4 +1,4 @@
 desc "Run Brakeman"
-task :brakeman do
+task brakeman: :environment do
   sh "brakeman -w2 -q"
 end
