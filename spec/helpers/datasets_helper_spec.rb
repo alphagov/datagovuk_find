@@ -22,4 +22,16 @@ RSpec.describe DatasetsHelper do
       expect(helper.contact_email_is_email?(dataset)).to be_falsey
     end
   end
+
+  describe "#foi_email_is_email?" do
+    it "returns true when the email is valid" do
+      dataset = build :dataset, foi_email: "foo@bar.com"
+      expect(helper.foi_email_is_email?(dataset)).to be_truthy
+    end
+
+    it "returns false when the email is invalid" do
+      dataset = build :dataset, foi_email: "http://foo.com"
+      expect(helper.foi_email_is_email?(dataset)).to be_falsey
+    end
+  end
 end
