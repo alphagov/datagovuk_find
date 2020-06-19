@@ -1,8 +1,29 @@
 <%
-  if contact_email_is_email?(dataset)
-    mail = mail_to(contact_email_for(dataset), nil, {'data-ga-event': 'contact', 'data-ga-publisher': @dataset.organisation.name, class: 'govuk_link'})
+  default_name = "Contanct #{@dataset.organisation.title} regarding this dataset"
+  ga_data = {'data-ga-event': 'contact', 'data-ga-publisher': @dataset.organisation.name}
+
+  if contact_name_for(dataset).present?
+    email_name = contact_name_for(dataset)
   else
-    mail = link_to(contact_email_for(dataset), contact_email_for(dataset), {'data-ga-event': 'contact', 'data-ga-publisher': @dataset.organisation.name, class: 'govuk_link'})
+    email_name = default_name
+  end
+
+  if foi_name_for(dataset).present?
+    foi_name = foi_name_for(dataset)
+  else
+    foi_name = default_name
+  end
+
+  if contact_email_is_email?(dataset)
+    mail = mail_to(contact_email_for(dataset), email_name, ga_data, class: 'govuk_link')
+  else
+    mail = link_to(email_name, contact_email_for(dataset), ga_data, class: 'govuk_link')
+  end
+
+  if foi_email_is_email?(dataset)
+    foi_mail = mail_to(foi_email_for(dataset), foi_name, ga_data, class: 'govuk_link')
+  else
+    foi_mail = link_to(foi_name, foi_email_for(dataset), ga_data, class: 'govuk_link')
   end
 %>
 <section class="contact">
@@ -16,7 +37,6 @@
         <%= t('datasets.contact.enquiries') %>
       </h3>
       <p>
-        <%= content_tag(:span, contact_name_for(dataset)) if contact_name_for(dataset).present? %>
         <%= content_tag(:span, mail) if mail.present? %>
       </p>
     </div>
@@ -29,11 +49,10 @@
       </h3>
 
       <p>
-        <%= content_tag(:span, foi_name_for(dataset)) if foi_name_for(dataset).present? %>
-        <%= content_tag(:span, mail_to(foi_email_for(dataset), nil, {class: 'ga-contact'})) if foi_email_for(dataset).present? %>
+        <%= content_tag(:span, foi_mail) if foi_mail.present? %>
         <% if foi_web_address_for(dataset).present? %>
           <%= content_tag(:span) do %>
-            <%= link_to(foi_web_address_for(dataset), foi_web_address_for(dataset), { class: 'ga-contact'} ) %>
+            <%= link_to("Freedom of information requests for #{@dataset.organisation.title}", foi_web_address_for(dataset), ga_data) %>
           <% end %>
         <% end %>
 
