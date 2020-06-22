@@ -3,7 +3,7 @@
 <main role="main" id="content">
   <div class="grid-row">
     <div class="column-two-thirds">
-      <%= link_to t('.back_link'), dataset_path(@dataset.uuid, @dataset.name), class: 'link-back' %>
+      <%= link_to t('.back_link'), dataset_path(@dataset.uuid, @dataset.name), class: 'link-back govuk-link' %>
       <h1 class="heading-large">
         <%= @dataset.title %>
         <span class="heading-secondary dgu-home-spacer__bottom"><%= @datafile.name %></span>
@@ -12,7 +12,7 @@
       <% if @datafile.csv? && @datafile.preview.exists? %>
         <p>You're previewing the first <%= @datafile.preview.line_count %> rows of this file.</p>
         <%= link_to download_text(@dataset, @datafile), @datafile.url,
-          class: "button",
+          class: "govuk-button",
           data: {
             "ga-event" => "preview-download",
             "ga-format" => "CSV",

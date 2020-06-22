@@ -3,9 +3,9 @@
     <a href="#proposition-links" class="js-header-toggle menu"><%= t('.menu') %></a>
     <nav id="proposition-menu">
       <ul id="proposition-links">
-        <li><%= link_to t('.publishers'), publishers_path %></li>
-        <li><a href='https://guidance.data.gov.uk/publish_and_manage_data/'>Documentation</a></li>
-        <li><%= link_to t('.support'), support_path %></li>
+        <li><%= link_to t('.publishers'), publishers_path, class: 'govuk-link' %></li>
+        <li><a href='https://guidance.data.gov.uk/publish_and_manage_data/' , class="govuk-link">Documentation</a></li>
+        <li><%= link_to t('.support'), support_path, class: 'govuk-link' %></li>
       </ul>
     </nav>
   </div>

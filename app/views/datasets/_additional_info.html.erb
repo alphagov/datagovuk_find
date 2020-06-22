@@ -72,9 +72,9 @@
             <% if i['harvest_object_id'] %>
               <dt><%= t('.inspire_gemini_record') %></dt>
               <dd>
-                <%= link_to t('.xml'), "/api/2/rest/harvestobject/#{ i['harvest_object_id'] }/xml" %>
+                <%= link_to t('.xml'), "/api/2/rest/harvestobject/#{ i['harvest_object_id'] }/xml", class: 'govuk_link' %>
                 <br />
-                <%= link_to t('.html'), "/api/2/rest/harvestobject/#{ i['harvest_object_id'] }/html" %>
+                <%= link_to t('.html'), "/api/2/rest/harvestobject/#{ i['harvest_object_id'] }/html", class: 'govuk_link' %>
               </dd>
             <% end %>
           </dl>

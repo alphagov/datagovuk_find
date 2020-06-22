@@ -1,8 +1,8 @@
 <%
   if contact_email_is_email?(dataset)
-    mail = mail_to(contact_email_for(dataset), nil, {'data-ga-event': 'contact', 'data-ga-publisher': @dataset.organisation.name})
+    mail = mail_to(contact_email_for(dataset), nil, {'data-ga-event': 'contact', 'data-ga-publisher': @dataset.organisation.name, class: 'govuk_link'})
   else
-    mail = link_to(contact_email_for(dataset), contact_email_for(dataset), {'data-ga-event': 'contact', 'data-ga-publisher': @dataset.organisation.name})
+    mail = link_to(contact_email_for(dataset), contact_email_for(dataset), {'data-ga-event': 'contact', 'data-ga-publisher': @dataset.organisation.name, class: 'govuk_link'})
   end
 %>
 <section class="contact">

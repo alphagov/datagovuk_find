@@ -6,13 +6,13 @@
         <nav aria-label="Breadcrumb">
           <ol>
             <li>
-              <%= link_to t('.home'), root_path %>
+              <%= link_to t('.home'), root_path, class: 'govuk-link' %>
             </li>
             <li>
               <% if @referer_query.nil? %>
                 <%= @dataset.organisation.title %>
               <% else %>
-                <%= link_to t('.search'), "/search?#{@referrer}" %>
+                <%= link_to t('.search'), "/search?#{@referrer}", class: 'govuk-link' %>
               <% end %>
             </li>
             <li aria-current="page">

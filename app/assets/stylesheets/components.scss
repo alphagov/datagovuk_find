@@ -131,6 +131,10 @@
     float:right;
     word-spacing: 6px;
   }
+
+  a:focus {
+    @include govuk-focused-text;
+  }
 }
 
 // sorting controls ============================================================

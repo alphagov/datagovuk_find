@@ -48,7 +48,7 @@
           <% @datasets.each do |dataset| %>
             <div class="dgu-results__result">
               <h2 class="heading-medium">
-                <%= link_to dataset.title, dataset_path(dataset.uuid, dataset.name) %>
+                <%= link_to dataset.title, dataset_path(dataset.uuid, dataset.name), class: 'govuk-link' %>
               </h2>
               <dl class="dgu-metadata__box">
                 <% unless dataset.released? %>
