@@ -14,10 +14,10 @@
                 'ga-event' => "download",
                 'ga-format' => "CSV",
                 'ga-publisher' => @dataset.organisation.name
-              },
-              'aria-label': "Download datafile #{datafile.name} format: #{format_of(datafile)} dataset: #{@dataset.title}" do %>
-            <%= (datafile.name ? datafile.name : 'Data Link') %>
-            <span class='visually-hidden'>Download datafile '<%= datafile.name %>', Format: <%= format_of(datafile) %>, Dataset: <%= @dataset.title %></span>
+              } do %>
+            <span class="visually-hidden">Download </span>
+            <%= (datafile.name ? datafile.name : 'Data') %>
+            <span class='visually-hidden'>, Format: <%= format_of(datafile) %>, Dataset: <%= @dataset.title %></span>
           <% end %>
         </td>
         <% if datafile.format.blank? %>
