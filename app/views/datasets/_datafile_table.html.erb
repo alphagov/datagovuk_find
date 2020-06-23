@@ -14,10 +14,10 @@
                 'ga-event' => "download",
                 'ga-format' => "CSV",
                 'ga-publisher' => @dataset.organisation.name
-              },
-              'aria-label': "Download datafile #{datafile.name} format: #{format_of(datafile)} dataset: #{@dataset.title}" do %>
-            <%= (datafile.name ? datafile.name : 'Data Link') %>
-            <span class='visually-hidden'>Download datafile '<%= datafile.name %>', Format: <%= format_of(datafile) %>, Dataset: <%= @dataset.title %></span>
+              } do %>
+            <span class="visually-hidden">Download </span>
+            <%= (datafile.name ? datafile.name : 'Data') %>
+            <span class='visually-hidden'>, Format: <%= format_of(datafile) %>, Dataset: <%= @dataset.title %></span>
           <% end %>
         </td>
         <% if datafile.format.blank? %>
@@ -37,17 +37,16 @@
           <td class="dgu-secondary-text">Not available</td>
         <% end %>
         <td class="datafiles__preview">
-          <% if datafile.html? %>
-            <%= link_to t('.go_to_site'), datafile.url %>
-          <% elsif datafile.csv? %>
-            <%= link_to t('.preview'),
-                datafile_preview_path(@dataset.uuid, @dataset.name, datafile.uuid),
+          <% if datafile.csv? %>
+            <%= link_to datafile_preview_path(@dataset.uuid, @dataset.name, datafile.uuid),
                 :data => {
-                  :'ga-event' => 'preview',
-                  :'ga-format' => (datafile.format.presence || 'n/a').upcase,
-                  :'ga-publisher' => @dataset.organisation.name
-                  }
-            %>
+                  'ga-event' => 'preview',
+                  'ga-format' => (datafile.format.presence || 'n/a').upcase,
+                  'ga-publisher' => @dataset.organisation.name
+                  } do %>
+                  Preview
+                  <span class='visually-hidden'> CSV '<%= datafile.name %>', Dataset: <%= @dataset.title %></span>
+                  <% end %>
           <% elsif datafile.wms? && @dataset.inspire_dataset.present? %>
             <%= link_to t('.map_preview'), map_preview_url(@dataset, datafile) %>
           <% else %>
