@@ -15,30 +15,6 @@ $(document).ready(function () {
   var showHide = new ShowHide()
   showHide.init()
 
-  if (document.getElementById('publisher')) {
-    accessibleAutocomplete.enhanceSelectElement({
-      selectElement: document.querySelector('#publisher'),
-      showAllValues: true,
-      preserveNullOptions: true
-    })
-  }
-
-  if (document.getElementById('format')) {
-    accessibleAutocomplete.enhanceSelectElement({
-      selectElement: document.querySelector('#format'),
-      showAllValues: true,
-      preserveNullOptions: true
-    })
-  }
-
-  if(document.getElementById('topic')) {
-    accessibleAutocomplete.enhanceSelectElement({
-      selectElement: document.querySelector('#topic'),
-      showAllValues: true,
-      preserveNullOptions: true
-    })
-  }
-
   new FoldableText('.js-summary', 200)
     .init()
 

@@ -2,14 +2,3 @@
 # yarn lockfile v1
 
 
-accessible-autocomplete@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/accessible-autocomplete/-/accessible-autocomplete-2.0.2.tgz#869d6b3b80a31e21614076b0ce47999f6b1802c8"
-  integrity sha512-cdA4O4u1xmefZuAdtL+0VBnDivdapgIZRQjm0E1bcekHnH5h67Vt1QL79NqPtlAn+6lyrR+H+pbnYVvUOJ1ULQ==
-  dependencies:
-    preact "^8.3.1"
-
-preact@^8.3.1:
-  version "8.4.2"
-  resolved "https://registry.yarnpkg.com/preact/-/preact-8.4.2.tgz#1263b974a17d1ea80b66590e41ef786ced5d6a23"
-  integrity sha512-TsINETWiisfB6RTk0wh3/mvxbGRvx+ljeBccZ4Z6MPFKgu/KFGyf2Bmw3Z/jlXhL5JlNKY6QAbA9PVyzIy9//A==
