@@ -43,10 +43,9 @@
                   'ga-event' => 'preview',
                   'ga-format' => (datafile.format.presence || 'n/a').upcase,
                   'ga-publisher' => @dataset.organisation.name
-                  },
-                  'aria-label': "Preview CSV #{datafile.name}, dataset: #{@dataset.title}" do %>
+                  } do %>
                   Preview
-                  <span class='visually-hidden'>Preview CSV '<%= datafile.name %>', Dataset: <%= @dataset.title %></span>
+                  <span class='visually-hidden'> CSV '<%= datafile.name %>', Dataset: <%= @dataset.title %></span>
                   <% end %>
           <% elsif datafile.wms? && @dataset.inspire_dataset.present? %>
             <%= link_to t('.map_preview'), map_preview_url(@dataset, datafile) %>
