@@ -29,6 +29,9 @@ en:
       filter_by_format: "Format"
       filter_by_topic: "Topic"
       filter_by_publisher: "Publisher"
+      all_formats: "All formats"
+      all_topics: "All topics"
+      all_publishers: "All publishers"
       filter_by_ogl: "Open Government Licence (OGL) only"
       accessibility:
         submit_button: "Apply filters"

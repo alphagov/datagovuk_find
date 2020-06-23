@@ -2,17 +2,17 @@
 
 <div class="form-group">
   <%= label_tag 'publisher', t('.filter_by_publisher'), class: 'form-label' %>
-  <%= select_tag('filters[publisher]', options_for_select(dataset_publishers_for_select, selected_publisher), id: 'publisher', class: 'form-control dgu-filters__filter', include_blank: true) %>
+  <%= select_tag('filters[publisher]', options_for_select(dataset_publishers_for_select, selected_publisher), id: 'publisher', class: 'form-control dgu-filters__filter', include_blank: t('.all_publishers')) %>
 </div>
 
 <div class="form-group">
   <%= label_tag 'topic', t('.filter_by_topic'), class: 'form-label' %>
-  <%= select_tag('filters[topic]', options_for_select(dataset_topics_for_select, selected_topic), id: 'topic', class: 'form-control dgu-filters__filter', include_blank: true) %>
+  <%= select_tag('filters[topic]', options_for_select(dataset_topics_for_select, selected_topic), id: 'topic', class: 'form-control dgu-filters__filter', include_blank: t('.all_topics')) %>
 </div>
 
 <div class="form-group">
   <%= label_tag 'format', t('.filter_by_format'), class: 'form-label' %>
-  <%= select_tag('filters[format]', options_for_select(datafile_formats_for_select, selected_format), id: 'format', class: 'form-control dgu-filters__filter', include_blank: true) %>
+  <%= select_tag('filters[format]', options_for_select(datafile_formats_for_select, selected_format), id: 'format', class: 'form-control dgu-filters__filter', include_blank: t('.all_formats')) %>
 </div>
 
 <div class="form-group">
