@@ -24,9 +24,9 @@
 
 <div class="form-group">
   <div class="dgu-filters__apply-button">
-    <input class="button" type="submit" value="<%= t('.accessibility.submit_button') %>"/>
+    <input class="govuk-button" type="submit" value="<%= t('.accessibility.submit_button') %>"/>
   </div>
   <div class="dgu-filters__remove-button">
-    <%= link_to t('.remove_filters'), search_path(q: @query) %>
+    <%= link_to t('.remove_filters'), search_path(q: @query), class: 'govuk-link' %>
   </div>
 </div>

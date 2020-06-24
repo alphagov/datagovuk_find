@@ -84,7 +84,7 @@ RSpec.feature "Search page", type: :feature, elasticsearch: true do
     check("Open Government Licence (OGL) only")
 
     within(".dgu-filters__apply-button") do
-      find(".button").click
+      find(".govuk-button").click
     end
 
     results = all("h2 a")

@@ -16,7 +16,7 @@
     </p>
 
     <p>
-      <%= link_to 'Sign in', '/user/login', role: 'button', class: 'button', rel: %w(nofollow) %>
+      <%= link_to 'Sign in', '/user/login', role: 'button', class: 'govuk-button', rel: %w(nofollow) %>
     </p>
 
     <div role="note" aria-label="Publisher information" class="panel panel-border-narrow text">
@@ -32,8 +32,8 @@
     </h2>
 
     <p>
-      To get started, take a look at the <%= link_to 'information about publishing datasets', 'https://guidance.data.gov.uk/publish_and_manage_data/', target: '_blank' %>.
-      You can also <%= link_to 'ask us for help', support_path %>.
+      To get started, take a look at the <%= link_to 'information about publishing datasets', 'https://guidance.data.gov.uk/publish_and_manage_data/', target: '_blank', class: 'govuk-link' %>.
+      You can also <%= link_to 'ask us for help', support_path, class: 'govuk-link' %>.
     </p>
   </div>
 </main>

@@ -14,7 +14,8 @@
                 'ga-event' => "download",
                 'ga-format' => "CSV",
                 'ga-publisher' => @dataset.organisation.name
-              } do %>
+              },
+              class: 'govuk-link' do %>
             <span class="visually-hidden">Download </span>
             <%= (datafile.name ? datafile.name : 'Data') %>
             <span class='visually-hidden'>, Format: <%= format_of(datafile) %>, Dataset: <%= @dataset.title %></span>
@@ -43,7 +44,8 @@
                   'ga-event' => 'preview',
                   'ga-format' => (datafile.format.presence || 'n/a').upcase,
                   'ga-publisher' => @dataset.organisation.name
-                  } do %>
+                  },
+                  class: 'govuk-link' do %>
                   Preview
                   <span class='visually-hidden'> CSV '<%= datafile.name %>', Dataset: <%= @dataset.title %></span>
                   <% end %>

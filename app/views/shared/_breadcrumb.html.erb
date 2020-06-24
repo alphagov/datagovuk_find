@@ -3,7 +3,7 @@
     <div class="breadcrumbs">
       <nav aria-label="Breadcrumb">
         <ol>
-          <li><%= link_to t('.home'), root_path %></li>
+          <li><%= link_to t('.home'), root_path, class: 'govuk-link' %></li>
           <li aria-current="page"><%= yield :page_title %></li>
         </ol>
       </nav>
