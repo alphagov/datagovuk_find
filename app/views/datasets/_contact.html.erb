@@ -52,7 +52,7 @@
         <%= content_tag(:span, foi_mail) if foi_mail.present? %>
         <% if foi_web_address_for(dataset).present? %>
           <%= content_tag(:span) do %>
-            <%= link_to("Freedom of information requests for #{@dataset.organisation.title}", foi_web_address_for(dataset), ga_data) %>
+            <%= link_to("Freedom of information requests for this dataset", foi_web_address_for(dataset), ga_data) %>
           <% end %>
         <% end %>
 
