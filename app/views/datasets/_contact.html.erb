@@ -1,5 +1,5 @@
 <%
-  default_name = "Contanct #{@dataset.organisation.title} regarding this dataset"
+  default_name = "Contact #{@dataset.organisation.title} regarding this dataset"
   link_attrs = {'data-ga-event': 'contact', 'data-ga-publisher': @dataset.organisation.name, 'class': 'govuk_link'}
 
   if contact_name_for(dataset).present?
