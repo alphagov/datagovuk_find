@@ -1,6 +1,6 @@
 <%
   default_name = "Contanct #{@dataset.organisation.title} regarding this dataset"
-  ga_data = {'data-ga-event': 'contact', 'data-ga-publisher': @dataset.organisation.name}
+  link_attrs = {'data-ga-event': 'contact', 'data-ga-publisher': @dataset.organisation.name, 'class': 'govuk_link'}
 
   if contact_name_for(dataset).present?
     email_name = contact_name_for(dataset)
@@ -15,15 +15,15 @@
   end
 
   if contact_email_is_email?(dataset)
-    mail = mail_to(contact_email_for(dataset), email_name, ga_data, class: 'govuk_link')
+    mail = mail_to(contact_email_for(dataset), email_name, link_attrs)
   else
-    mail = link_to(email_name, contact_email_for(dataset), ga_data, class: 'govuk_link')
+    mail = link_to(email_name, contact_email_for(dataset), link_attrs)
   end
 
   if foi_email_is_email?(dataset)
-    foi_mail = mail_to(foi_email_for(dataset), foi_name, ga_data, class: 'govuk_link')
+    foi_mail = mail_to(foi_email_for(dataset), foi_name, link_attrs)
   else
-    foi_mail = link_to(foi_name, foi_email_for(dataset), ga_data, class: 'govuk_link')
+    foi_mail = link_to(foi_name, foi_email_for(dataset), link_attrs)
   end
 %>
 <section class="contact">
@@ -52,7 +52,7 @@
         <%= content_tag(:span, foi_mail) if foi_mail.present? %>
         <% if foi_web_address_for(dataset).present? %>
           <%= content_tag(:span) do %>
-            <%= link_to("Freedom of information requests for this dataset", foi_web_address_for(dataset), ga_data) %>
+            <%= link_to("Freedom of information requests for this dataset", foi_web_address_for(dataset), link_attrs) %>
           <% end %>
         <% end %>
 
