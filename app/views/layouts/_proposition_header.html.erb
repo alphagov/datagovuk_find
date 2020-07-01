@@ -1,12 +1,12 @@
-<div class="header-proposition">
-  <div class="content">
-    <a href="#proposition-links" class="js-header-toggle menu"><%= t('.menu') %></a>
-    <nav id="proposition-menu">
-      <ul id="proposition-links">
-        <li><%= link_to t('.publishers'), publishers_path, class: 'govuk-link' %></li>
-        <li><a href='https://guidance.data.gov.uk/publish_and_manage_data/' , class="govuk-link">Documentation</a></li>
-        <li><%= link_to t('.support'), support_path, class: 'govuk-link' %></li>
-      </ul>
-    </nav>
-  </div>
+<div class="govuk-header__content">
+  <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">
+    <%= t('.menu') %>
+  </button>
+  <nav>
+    <ul id="navigation" class="govuk-header__navigation" aria-label="Top Level Navigation">
+      <li class="govuk-header__navigation-item"><%= link_to t('.publishers'), publishers_path, class: 'govuk-header__link' %></li>
+      <li class="govuk-header__navigation-item"><a href='https://guidance.data.gov.uk/publish_and_manage_data/' , class="govuk-header__link">Documentation</a></li>
+      <li class="govuk-header__navigation-item"><%= link_to t('.support'), support_path, class: 'govuk-header__link' %></li>
+    </ul>
+  </nav>
 </div>

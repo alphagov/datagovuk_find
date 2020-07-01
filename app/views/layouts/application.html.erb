@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <!--[if lt IE 9]><html class="lte-ie8" lang="<%= content_for?(:html_lang) ? yield(:html_lang) : "en" %>"><![endif]-->
 <!--[if gt IE 8]><!--><html lang="<%= content_for?(:html_lang) ? yield(:html_lang) : "en" %>"><!--<![endif]-->
+<html class="govuk-template">
   <head>
     <meta charset="utf-8">
     <title><%= content_for?(:page_title) ? yield(:page_title) + " - " + t('.site_name') : t('.site_name') %></title>
@@ -11,35 +12,29 @@
     <meta name="theme-color" content="#0b0c0c" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    
     <%= stylesheet_link_tag 'application' %>
     <%= csrf_meta_tags %>
 
     <%= yield :head %>
   </head>
 
-  <body>
+  <body class="govuk-template__body">
     <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
 
-    <div id="skiplink-container">
-      <div>
-        <a href="#content" class="skiplink govuk-link"><%= content_for?(:skip_link_message) ? yield(:skip_link_message) : "Skip to main content" %></a>
-      </div>
-    </div>
+    <a href="#content" class="govuk-skip-link"><%= content_for?(:skip_link_message) ? yield(:skip_link_message) : "Skip to main content" %></a>
 
     <%= render "govuk_publishing_components/components/cookie_banner", {
       text: sanitize("We use <a href='/cookies' class='govuk-link'>cookies to collect information</a> about how you use data.gov.uk. We use this information to make the website work as well as possible."),
       cookie_preferences_href: "/cookies",
     } %>
 
-    <header role="banner" id="global-header" class="with-proposition">
-      <div class="header-wrapper">
-        <div class="header-global">
-          <div class="header-logo">
-            <a href="<%= root_path %>" id="logo" class="content govuk-link">
+    <header role="banner" class="govuk-header" data-module="govuk-header">
+      <div class="govuk-header__container govuk-width-container">
+        <div class="govuk-header__logo">
+          <a href="<%= root_path %>" class="govuk-header__link govuk-header__link--homepage">
               <%= t('.data_gov_uk')%> | <%= t('.find_open_data') %>
             </a>
-          </div>
         </div>
         <%= render 'layouts/proposition_header' %>
       </div>
@@ -56,46 +51,40 @@
 
     <%= yield %>
 
-    <footer class="group js-footer" id="footer" role="contentinfo">
-      <div class="govuk-width-container">
-        <div class="footer-container govuk-main-wrapper">
-          <div class="footer-meta">
-            <div class="footer-meta-inner">
-              <ul>
-                <li><%= link_to 'About', about_path, class: 'govuk-link' %></li>
-                <li><%= link_to 'Accessibility', accessibility_path, class: 'govuk-link' %></li>
-                <li><%= link_to 'Cookies', cookies_path, class: 'govuk-link' %></li>
-                <li><%= link_to 'Privacy', privacy_path, class: 'govuk-link' %></li>
-                <li><%= link_to 'Terms and conditions', terms_path, class: 'govuk-link' %></li>
-                <li><%= link_to 'Support', support_path, class: 'govuk-link' %></li>
-                <li>Built by the <%= link_to 'Government Digital Service', 'https://www.gov.uk/government/organisations/government-digital-service', class: 'govuk-link' %></li>
-              </ul>
-              <div class="open-government-licence">
-                <p class="logo">
-                  <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
-                     rel="license"
-                     class="govuk-link open-government-licence__logo-link">
-                    Open Government Licence
-                  </a>
-                </p>
-                <% if content_for?(:licence_message) %>
-                  <%= yield :licence_message %>
-                <% else %>
-                  <p>All content is available under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license" class="govuk-link">Open Government Licence v3.0</a>, except where otherwise stated</p>
-                <% end %>
-              </div>
-            </div>
-
-            <div class="copyright">
-              <a class="govuk-link"
-                 href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/">
-                 <%= content_for?(:crown_copyright_message) ? yield(:crown_copyright_message) : "© Crown copyright" %>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <%= render "govuk_publishing_components/components/layout_footer", {
+      meta: {
+        items: [
+          {
+            href: "/about",
+            text: "About"
+          },
+          {
+            href: "/accessibility",
+            text: "Accessibility"
+          },
+          {
+            href: "/cookies",
+            text: "Cookies"
+          },
+          {
+            href: "/privacy",
+            text: "Privacy"
+          },
+          {
+            href: "/terms",
+            text: "Terms and conditions"
+          },
+          {
+            href: "/support",
+            text: "Support"
+          },
+          {
+            href: "https://www.gov.uk/government/organisations/government-digital-service",
+            text: "Built by the Government Digital Service"
+          }
+        ]
+      }
+    } %>
 
     <div id="global-app-error" class="app-error hidden"></div>
 
