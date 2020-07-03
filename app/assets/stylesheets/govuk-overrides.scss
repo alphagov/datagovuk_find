@@ -1,51 +1,30 @@
-#global-header {
-  padding: 5px 0;
+.govuk-header {
+  border-bottom: none;
 
-  .header-global {
-    @media (min-width: $desktop-breakpoint) {
-      width: 50% !important;
+  &__container {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 5px;
+  }
+
+  &__logo {
+    width: 75%;
+  }
+  
+  &__logo, &__content {
+    @include media(desktop) {
+      width: 50%;
     }
   }
 
-  #logo {
+  &__link--homepage {
+    font-weight: 400;
     font-size: 24px;
-    font-weight: normal;
-    background: none;
-
-    img {
-      display: none;
-    }
-
-    .vertical-separator {
-      display: inline-block;
-      margin-left: 4px;
-      color: black;
-      border-left: thin solid $grey-2;
-      @media (max-width: 646px) {
-        display: block;
-        line-height: 0;
-        font-size: 0;
-      }
-    }
   }
 
-  .header-proposition {
-    @media (min-width: $desktop-breakpoint) {
-      width: 50% !important;
-    }
-
-    #proposition-links {
-      margin: 0;
-
-      @media (min-width: $desktop-breakpoint) {
-        float: right;
-      }
-    }
+  &__navigation {
+    text-align: right;
   }
-}
-
-#global-header-bar {
-  display: none;
 }
 
 .phase-banner .phase-tag {
