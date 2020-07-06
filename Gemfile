@@ -14,7 +14,7 @@ gem "govuk_publishing_components", "~> 21.57.1"
 gem "htmlentities", "~> 4.3"
 gem "jbuilder", "~> 2.5"
 gem "jquery-rails"
-gem "kaminari", "< 1.3"
+gem "kaminari", "< 1.2"  # do not upgrade this unless elasticsearch is also upgraded
 gem "lograge", "~> 0.10"
 gem "logstash-event", "~> 1.2"
 gem "mime-types", "~> 3.1"
