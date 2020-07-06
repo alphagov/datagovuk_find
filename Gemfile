@@ -5,7 +5,7 @@ ruby IO.read(".ruby-version").strip
 gem "addressable"
 gem "browser", "~> 2.5.3"
 gem "elasticsearch", "~> 5.0.4"
-gem "elasticsearch-model", "~> 5.0.1"
+gem "elasticsearch-model", "~> 7.1.0"
 gem "elasticsearch-rails", "~> 7.1.0"
 gem "faraday"
 gem "faraday_middleware"
