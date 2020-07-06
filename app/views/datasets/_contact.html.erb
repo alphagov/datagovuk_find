@@ -1,6 +1,6 @@
 <%
   default_name = "Contact #{@dataset.organisation.title} regarding this dataset"
-  link_attrs = {'data-ga-event': 'contact', 'data-ga-publisher': @dataset.organisation.name, 'class': 'govuk_link'}
+  link_attrs = {'data-ga-event': 'contact', 'data-ga-publisher': @dataset.organisation.name, 'class': 'govuk-link'}
 
   email_name = contact_name_for(dataset).presence || default_name
   foi_name = foi_name_for(dataset).presence || default_name
