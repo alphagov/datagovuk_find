@@ -3,7 +3,7 @@ applications:
 - name: find-data-beta-staging
   instances: 1
   memory: 512M
-  buildpack: https://github.com/cloudfoundry/ruby-buildpack.git#v1.8.0
+  buildpack: https://github.com/cloudfoundry/ruby-buildpack.git#v1.8.17
   stack: cflinuxfs3
   routes:
     - route: find-data-beta-staging.cloudapps.digital
