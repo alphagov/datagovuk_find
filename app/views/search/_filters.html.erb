@@ -1,32 +1,32 @@
-<h2 class="heading-medium"> <%= t('.filter_by') %></h2>
+<h2 class="heading-medium"> <%= t(".filter_by") %></h2>
 
-<div class="form-group">
-  <%= label_tag 'publisher', t('.filter_by_publisher'), class: 'form-label' %>
-  <%= select_tag('filters[publisher]', options_for_select(dataset_publishers_for_select, selected_publisher), id: 'publisher', class: 'form-control dgu-filters__filter', include_blank: true) %>
+<div class="govuk-form-group">
+  <%= label_tag "publisher", t(".filter_by_publisher"), class: "govuk-label" %>
+  <%= select_tag("filters[publisher]", options_for_select(dataset_publishers_for_select, selected_publisher), id: "publisher", class: "govuk-select dgu-filters__filter", include_blank: true) %>
 </div>
 
-<div class="form-group">
-  <%= label_tag 'topic', t('.filter_by_topic'), class: 'form-label' %>
-  <%= select_tag('filters[topic]', options_for_select(dataset_topics_for_select, selected_topic), id: 'topic', class: 'form-control dgu-filters__filter', include_blank: true) %>
+<div class="govuk-form-group">
+  <%= label_tag "topic", t(".filter_by_topic"), class: "govuk-label" %>
+  <%= select_tag("filters[topic]", options_for_select(dataset_topics_for_select, selected_topic), id: "topic", class: "govuk-select dgu-filters__filter", include_blank: true) %>
 </div>
 
-<div class="form-group">
-  <%= label_tag 'format', t('.filter_by_format'), class: 'form-label' %>
-  <%= select_tag('filters[format]', options_for_select(datafile_formats_for_select, selected_format), id: 'format', class: 'form-control dgu-filters__filter', include_blank: true) %>
+<div class="govuk-form-group">
+  <%= label_tag "format", t(".filter_by_format"), class: "govuk-label" %>
+  <%= select_tag("filters[format]", options_for_select(datafile_formats_for_select, selected_format), id: "format", class: "govuk-select dgu-filters__filter", include_blank: true) %>
 </div>
 
-<div class="form-group">
-  <div class="multiple-choice">
-    <%= check_box_tag 'filters[licence_code]', 'uk-ogl', @licence_code == 'uk-ogl' %>
-    <%= label_tag 'filters[licence_code]', t('.filter_by_ogl') %>
-  </div>
-</div>
+<%= render "govuk_publishing_components/components/checkboxes", {
+  name: "filters[licence_code]",
+  items: [
+    {
+      label: t(".filter_by_ogl"),
+      value: "uk-ogl"
+    }
+  ]
+} %>
 
-<div class="form-group">
-  <div class="dgu-filters__apply-button">
-    <input class="govuk-button" type="submit" value="<%= t('.accessibility.submit_button') %>"/>
-  </div>
-  <div class="dgu-filters__remove-button">
-    <%= link_to t('.remove_filters'), search_path(q: @query), class: 'govuk-link' %>
-  </div>
-</div>
+<%= render "govuk_publishing_components/components/button", {
+  text: t(".accessibility.submit_button"),
+  margin_bottom: true
+} %>
+<p class="govuk-body"><%= link_to t(".remove_filters"), search_path(q: @query), class: "govuk-link" %></p>
