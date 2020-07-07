@@ -134,38 +134,7 @@
 // sorting controls ============================================================
 
 .dgu-sort {
-
-  &__apply {
-    float: right;
-    margin-left: 1em;
-
-    input {
-      background: none;
-      border: none;
-      color: #005ea5;
-      text-decoration: underline;
-      cursor: pointer;
-    }
-  }
-
-  &__sort-type {
-    margin-top: 5px;
-    float: right;
-    width: 128px;
-    background: image-url("triangle-down.png") no-repeat right 8px;
-    background-size: 8%;
-    select {
-      @include copy-19;
-      width: 128px;
-      background: transparent;
-      border: none;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-    }
-    select::-ms-expand {
-      display: none;
-    }
-  }
+  float: right;
 }
 
 // Datafiles ===================================================================

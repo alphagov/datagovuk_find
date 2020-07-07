@@ -39,6 +39,10 @@ $(document).ready(function () {
     })
   }
 
+  document.getElementById('sort-datasets').addEventListener('change', function(event) {
+    event.target.form.submit()
+  })
+
   new FoldableText('.js-summary', 200)
     .init()
 
@@ -69,7 +73,7 @@ ShowHide.prototype = {
     event.preventDefault()
 
     var openCloseAllControl = $(event.target)
-    var dataLinks = $(this.selector);
+    var dataLinks = $(this.selector)
     var dataLinkContent = dataLinks.find(this.contentSelector)
     var dataLinkExpand = dataLinks.find(this.expandSelector)
     var allOpen = openCloseAllControl.data('allOpen')
@@ -156,7 +160,7 @@ LimitDatasets.prototype.toggle = function (event) {
   if (folded === 'folded') {
     $target.text('Show less')
     this.moreFiles.show()
-    $(this.moreFiles[0]).attr('tabindex', -1).focus();
+    $(this.moreFiles[0]).attr('tabindex', -1).focus()
     $target.data('folded', 'unfolded')
   } else {
     $target.text('Show more')

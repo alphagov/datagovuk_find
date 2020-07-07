@@ -1,15 +1,24 @@
 <div class="dgu-sort">
-  <div class="dgu-sort__apply visuallyhidden">
-    <input type="submit" value=<%= t('.accessibility.submit_button') %>/>
-  </div>
-
-  <div class="dgu-sort__sort-type">
-    <label>
-      <span class="visuallyhidden"> <%= t('.accessibility.sort_type_label') %></span>
-      <select id="sort-datasets" name="sort" onchange="this.form.submit()">
-        <option <%= 'selected' if @sort!='recent' %> value="best"> <%= t('.match') %></option>
-        <option <%= 'selected' if @sort=='recent' %> value="recent"> <%= t('.recent') %></option>
-      </select>
-    </label>
+  <%= render "govuk_publishing_components/components/select", {
+    id: "sort-datasets",
+    name: "sort",
+    label: t('.sort_by'),
+    options: [
+      {
+        text: t('.match'),
+        value: 'best',
+        selected: @sort === 'best' || @sort != 'recent'
+      },
+      {
+        text: t('.recent'),
+        value: 'recent',
+        selected: @sort === 'recent'
+      }
+    ]
+  } %>
+  <div class="govuk-visually-hidden">
+    <%= render "govuk_publishing_components/components/button", {
+      text: t('.accessibility.submit_button'),
+    } %>
   </div>
 </div>

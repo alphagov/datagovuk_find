@@ -39,6 +39,6 @@ en:
     sort:
       match: "Best match"
       recent: "Most recent"
+      sort_by: "Sort by"
       accessibility:
         submit_button: "Apply sorting"
-        sort_type_label: "Sorting type"
