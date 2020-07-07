@@ -4,6 +4,7 @@ en:
       results_page_title: 'Results for "%{query}"'
       search_results: 'Search Results'
       search_results_heading: "Search results"
+      search_data_gov_uk: "Search data.gov.uk"
       accessibility:
         search_box_label: "Search"
         search_button_label: "Find data"
@@ -23,6 +24,7 @@ en:
         last_updated: "Last updated"
         geo_area: "Geographical area"
         not_applicable: "Not applicable"
+        not_released: "Not released"
     filters:
       filter_by: "Filter by"
       filter_by_geo: "Geographical area"

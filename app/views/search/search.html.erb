@@ -3,81 +3,90 @@
     t('.search_results') %><% end %>
 
 <form action="/search" method="GET">
-  <main role="main" id="content">
-  <h1 class="heading-large"> <%= t('.search_results_heading') %></h1>
-  <div class="grid-row">
-    <div class="column-two-thirds dgu-search-box">
-      <label for="q" class="visuallyhidden"> <%= t('.accessibility.search_box_label') %></label>
-      <input id="q"
-             name="q"
-             type="text"
-             class="form-control dgu-search-box__input"
-             value="<%= @query %>"/><button type="submit"
-                                            class="dgu-search-box__button">
-               <%= t('.accessibility.search_button_label') %>
-             </button>
-    </div>
-  </div>
+  <main role="main" id="main-content" class="govuk-main-wrapper">
+    <div class="govuk-width-container">
+      <%= render "govuk_publishing_components/components/heading", {
+        text: t(".search_results_heading"),
+        margin_bottom: 6,
+        heading_level: 1,
+        font_size: "l",
+      } %>
 
-  <div class="grid-row dgu-filters">
-    <div class="column-one-third">
-      <%= render 'filters' %>
-    </div>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <%= render "govuk_publishing_components/components/search", {
+            label_text: t('.search_data_gov_uk')
+          } %>
+        </div>
+      </div>
 
-    <div class="column-two-thirds dgu-results">
-      <%= render 'sort' if @num_results > 1 %>
-      <span class="dgu-results__summary">
-        <span class="bold-small"><%= number_with_delimiter(@num_results) %></span>
-        <%= t('.result').pluralize(@num_results) %> <%= t('.found') %>
-      </span>
+      <div class="govuk-grid-row dgu-filters">
+        <div class="govuk-grid-column-one-third">
+          <%= render 'filters' %>
+        </div>
 
-      <div>
-        <% if @num_results.zero? %>
-          <div class="dgu-results__zero">
-            <h2 class="heading-medium"> <%= t('.zero_result_tips.try') %>:</h2>
-            <ul class="list list-bullet">
-              <li><%= t('.zero_result_tips.different_words') %></li>
-              <li><%= t('.zero_result_tips.remove_filters') %></li>
-            </ul>
-            <h2 class="heading-medium"> <%= t('.zero_result_tips.older_content') %></h2>
-            <p><%= t('.zero_result_tips.we_can_help') %></p>
-            <p><%= t('.zero_result_tips.expand_your_search') %></p>
+        <div class="govuk-grid-column-two-thirds dgu-results">
+          <%= render 'sort' if @num_results > 1 %>
+          <span class="dgu-results__summary">
+            <span class="govuk-body-s govuk-!-font-weight-bold"><%= number_with_delimiter(@num_results) %></span>
+            <%= t('.result').pluralize(@num_results) %> <%= t('.found') %>
+          </span>
 
-          </div>
-        <% else %>
-          <% @datasets.each do |dataset| %>
-            <div class="dgu-results__result">
-              <h2 class="heading-medium">
-                <%= link_to dataset.title, dataset_path(dataset.uuid, dataset.name), class: 'govuk-link' %>
-              </h2>
-              <dl class="dgu-metadata__box">
-                <% unless dataset.released? %>
-                  <dt><%= t('.meta_data_box.availability') %>:</dt>
-                  <dd class="availability">
-                  <span class="dgu-highlight">Not released</span>
-                  </dd>
-                <% end %>
-                <dt><%= t('.meta_data_box.published_by') %>:</dt>
-                <dd class="published_by"><%= dataset.organisation['title'] %></dd>
-                <dt><%= t('.meta_data_box.last_updated') %>:</dt>
-                <% if dataset.public_updated_at.present? %>
-                  <dd class="last_updated"><%= format_timestamp(dataset.public_updated_at) %></dd>
-                <% else %>
-                  <dd class="last_updated dgu-secondary-text"> <%= t('.meta_data_box.not_applicable') %></dd>
-                <% end %>
-              </dl>
-              <p><%= truncate(strip_tags(dataset.summary), length: 200, separator: ' ') %></p>
+          <% if @num_results.zero? %>
+            <div class="dgu-results__zero">
+              <%= render "govuk_publishing_components/components/heading", {
+                text: "#{t(".zero_result_tips.try")}:",
+                margin_bottom: 4,
+                heading_level: 2,
+                font_size: "m",
+              } %>
+              <ul class="govuk-list govuk-list--bullet">
+                <li><%= t('.zero_result_tips.different_words') %></li>
+                <li><%= t('.zero_result_tips.remove_filters') %></li>
+              </ul>
+              <%= render "govuk_publishing_components/components/heading", {
+                text: t('.zero_result_tips.older_content'),
+                margin_bottom: 4,
+                heading_level: 2,
+                font_size: "m",
+              } %>
+              <p class="govuk-body"><%= t('.zero_result_tips.we_can_help') %></p>
+              <p class="govuk-body"><%= t('.zero_result_tips.expand_your_search') %></p>
+            </div>
+          <% else %>
+            <% @datasets.each do |dataset| %>
+              <div class="dgu-results__result">
+                <h2 class="govuk-heading-m">
+                  <%= link_to dataset.title, dataset_path(dataset.uuid, dataset.name), class: 'govuk-link' %>
+                </h2>
+                <dl class="dgu-metadata__box">
+                  <% unless dataset.released? %>
+                    <dt><%= t('.meta_data_box.availability') %>:</dt>
+                    <dd>
+                      <span class="dgu-highlight"><%= t('.meta_data_box.not_released') %></span>
+                    </dd>
+                  <% end %>
+                  <dt><%= t('.meta_data_box.published_by') %>:</dt>
+                  <dd class="published_by"><%= dataset.organisation['title'] %></dd>
+                  <dt><%= t('.meta_data_box.last_updated') %>:</dt>
+                  <% if dataset.public_updated_at.present? %>
+                    <dd><%= format_timestamp(dataset.public_updated_at) %></dd>
+                  <% else %>
+                    <dd class="dgu-secondary-text"> <%= t('.meta_data_box.not_applicable') %></dd>
+                  <% end %>
+                </dl>
+                <p><%= truncate(strip_tags(dataset.summary), length: 200, separator: ' ') %></p>
+              </div>
+            <% end %>
+            <div class="dgu-pagination">
+              <nav>
+                <%= page_entries_info @datasets, entry_name: 'dataset' %>
+                <span class="dgu-pagination__numbers"><%= paginate @datasets, window: 2 %></span>
+              </nav>
             </div>
           <% end %>
-          <div class="dgu-pagination">
-            <nav>
-              <%= page_entries_info @datasets, entry_name: 'dataset' %>
-              <span class="dgu-pagination__numbers"><%= paginate @datasets, window: 2 %></span>
-            </nav>
-          </div>
-        <% end %>
+        </div>
       </div>
     </div>
   </main>
-  </div>
 </form>
