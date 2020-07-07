@@ -1,20 +1,7 @@
-<div class="grid-row">
-  <div class="column-two-thirds">
-    <h1 class="heading-xlarge">
-      <%= t('.find_gov_data') %>
-    </h1>
-    <p class="lede">
-    <%= t('.lede') %>
-    </p>
-  </div>
-</div>
-<div class="grid-row">
-  <div class="column-two-thirds dgu-search-box">
-    <form action="/search" method="GET">
-      <label for="q" class="visuallyhidden"><%= t('.accessibility.search_box_label') %></label>
-      <input id="q" name="q" type="text" class="form-control dgu-search-box__input" /><!-- Make sure there is no space between the input and button else the button will become detached --><button type="submit" class="dgu-search-box__button">
-        <%= t('.accessibility.search_button_label') %>
-      </button>
-    </form>
-  </div>
+<div class="govuk-grid-row">
+  <form action="/search" method="GET" class="govuk-grid-column-two-thirds">
+    <%= render "govuk_publishing_components/components/search", {
+      label_text: t('.accessibility.search_button_label')
+    } %>
+  </form>
 </div>

@@ -1,6 +1,18 @@
 <% content_for :page_title do %><%= t('.find_open_data') %><% end %>
 
 <main role="main" id="main-content" class="govuk-main-wrapper">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <%= render "govuk_publishing_components/components/title", {
+        title: t('.find_open_data')
+      } %>
+
+      <%= render "govuk_publishing_components/components/lead_paragraph", {
+        text: t('.lede')
+      } %>
+    </div>
+  </div>
+
   <%= render 'search' %>
   <%= render 'topics' %>
 </main>
