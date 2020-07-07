@@ -22,7 +22,7 @@
   <body class="govuk-template__body">
     <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
 
-    <a href="#content" class="govuk-skip-link"><%= content_for?(:skip_link_message) ? yield(:skip_link_message) : "Skip to main content" %></a>
+    <%= render "govuk_publishing_components/components/skip_link", {} %>
 
     <%= render "govuk_publishing_components/components/cookie_banner", {
       text: sanitize("We use <a href='/cookies' class='govuk-link'>cookies to collect information</a> about how you use data.gov.uk. We use this information to make the website work as well as possible."),
@@ -49,7 +49,9 @@
       </div>
     </div>
 
-    <%= yield %>
+    <div class="govuk-width-container">
+      <%= yield %>
+    </div>
 
     <%= render "govuk_publishing_components/components/layout_footer", {
       meta: {
