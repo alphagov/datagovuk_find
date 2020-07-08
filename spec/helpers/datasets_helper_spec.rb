@@ -12,7 +12,7 @@ RSpec.describe DatasetsHelper do
   end
 
   describe "#contact_email_is_email?" do
-    it "returns true when the email is valid" do
+    it "returns true when email string is 'valid' (contains '@')" do
       dataset = build :dataset, contact_email: "foo@bar.com"
       expect(helper.contact_email_is_email?(dataset)).to be_truthy
     end
@@ -24,7 +24,7 @@ RSpec.describe DatasetsHelper do
   end
 
   describe "#foi_email_is_email?" do
-    it "returns true when the email is valid" do
+    it "returns true when email string is 'valid' (contains '@')" do
       dataset = build :dataset, foi_email: "foo@bar.com"
       expect(helper.foi_email_is_email?(dataset)).to be_truthy
     end
