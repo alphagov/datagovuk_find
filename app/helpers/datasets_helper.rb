@@ -125,6 +125,10 @@ module DatasetsHelper
     dataset.foi_name.presence || dataset.organisation.foi_name
   end
 
+  def foi_email_is_email?(dataset)
+    foi_email_for(dataset) =~ /@/
+  end
+
   def foi_email_for(dataset)
     dataset.foi_email.presence || dataset.organisation.foi_email
   end

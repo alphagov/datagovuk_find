@@ -31,8 +31,10 @@ en:
       search: "Search"
     contact:
       contact: "Contact"
+      default_message: "Contact %{title} regarding this dataset"
       enquiries: "Enquiries"
       foi_requests: "Freedom of Information (FOI) requests"
+      foi_message: "Freedom of information requests for this dataset"
     datafile_table:
       link_to_data: "Link to the data"
       format: "Format"

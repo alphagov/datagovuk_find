@@ -272,8 +272,7 @@ RSpec.feature "Dataset page", type: :feature, elasticsearch: true do
       expect(page).to have_css("h3", text: "Enquiries")
 
       within("section.contact .enquiries") do
-        expect(page).to have_link(dataset.contact_email)
-        expect(page).to have_content(dataset.contact_name)
+        expect(page).to have_link(dataset.contact_name, href: "mailto:#{dataset.contact_email}")
       end
     end
 
@@ -288,8 +287,7 @@ RSpec.feature "Dataset page", type: :feature, elasticsearch: true do
       expect(page).to have_css("h3", text: "Enquiries")
 
       within("section.contact .enquiries") do
-        expect(page).to have_link(dataset.organisation.contact_email)
-        expect(page).to have_content(dataset.organisation.contact_name)
+        expect(page).to have_link(dataset.organisation.contact_name, href: "mailto:#{dataset.organisation.contact_email}")
       end
     end
   end
@@ -311,9 +309,8 @@ RSpec.feature "Dataset page", type: :feature, elasticsearch: true do
       expect(page).to have_css("h3", text: "Freedom of Information (FOI) requests")
 
       within("section.contact .foi") do
-        expect(page).to have_content(dataset.foi_name)
-        expect(page).to have_content(dataset.foi_email)
-        expect(page).to have_link(dataset.foi_web, href: dataset.foi_web)
+        expect(page).to have_link(dataset.foi_name, href: "mailto:#{dataset.foi_email}")
+        expect(page).to have_link("Freedom of information requests for this dataset", href: dataset.foi_web)
       end
     end
 
@@ -329,11 +326,8 @@ RSpec.feature "Dataset page", type: :feature, elasticsearch: true do
       expect(page).to have_css("h3", text: "Freedom of Information (FOI) requests")
 
       within("section.contact .foi") do
-        expect(page).to have_content(dataset.organisation.foi_name)
-        expect(page).to have_content(dataset.organisation.foi_email)
-
-        expect(page).to have_link(dataset.organisation.foi_web,
-                                  href: dataset.organisation.foi_web)
+        expect(page).to have_link(dataset.organisation.foi_name, href: "mailto:#{dataset.organisation.foi_email}")
+        expect(page).to have_link("Freedom of information requests for this dataset", href: dataset.organisation.foi_web)
       end
     end
   end

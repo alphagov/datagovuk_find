@@ -1,9 +1,11 @@
 <%
-  if contact_email_is_email?(dataset)
-    mail = mail_to(contact_email_for(dataset), nil, {'data-ga-event': 'contact', 'data-ga-publisher': @dataset.organisation.name, class: 'govuk_link'})
-  else
-    mail = link_to(contact_email_for(dataset), contact_email_for(dataset), {'data-ga-event': 'contact', 'data-ga-publisher': @dataset.organisation.name, class: 'govuk_link'})
-  end
+  default_message = t('datasets.contact.default_message', title: @dataset.organisation.title)
+  link_attrs = {'data-ga-event': 'contact', 'data-ga-publisher': @dataset.organisation.name, 'class': 'govuk-link'}
+
+  email_name = contact_name_for(dataset).presence || default_message
+  foi_name = foi_name_for(dataset).presence || default_message
+  mail = contact_email_is_email?(dataset) ? mail_to(contact_email_for(dataset), email_name, link_attrs) : link_to(email_name, contact_email_for(dataset), link_attrs)
+  foi_mail = foi_email_is_email?(dataset) ? mail_to(foi_email_for(dataset), foi_name, link_attrs) : link_to(foi_name, foi_email_for(dataset), link_attrs)
 %>
 <section class="contact">
   <h2 class="heading-medium">
@@ -16,7 +18,6 @@
         <%= t('datasets.contact.enquiries') %>
       </h3>
       <p>
-        <%= content_tag(:span, contact_name_for(dataset)) if contact_name_for(dataset).present? %>
         <%= content_tag(:span, mail) if mail.present? %>
       </p>
     </div>
@@ -29,11 +30,10 @@
       </h3>
 
       <p>
-        <%= content_tag(:span, foi_name_for(dataset)) if foi_name_for(dataset).present? %>
-        <%= content_tag(:span, mail_to(foi_email_for(dataset), nil, {class: 'ga-contact'})) if foi_email_for(dataset).present? %>
+        <%= content_tag(:span, foi_mail) if foi_mail.present? %>
         <% if foi_web_address_for(dataset).present? %>
           <%= content_tag(:span) do %>
-            <%= link_to(foi_web_address_for(dataset), foi_web_address_for(dataset), { class: 'ga-contact'} ) %>
+            <%= link_to(t('datasets.contact.foi_message'), foi_web_address_for(dataset), link_attrs) %>
           <% end %>
         <% end %>
 
