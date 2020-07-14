@@ -2,17 +2,17 @@
 
 <div class="govuk-form-group">
   <%= label_tag "publisher", t(".filter_by_publisher"), class: "govuk-label" %>
-  <%= select_tag("filters[publisher]", options_for_select(dataset_publishers_for_select, selected_publisher), id: "publisher", class: "govuk-select dgu-filters__filter", include_blank: true) %>
+  <%= select_tag("filters[publisher]", options_for_select(dataset_publishers_for_select, selected_publisher), id: "publisher", class: "govuk-select dgu-filters__filter js-accessible-autocomplete", include_blank: true) %>
 </div>
 
 <div class="govuk-form-group">
   <%= label_tag "topic", t(".filter_by_topic"), class: "govuk-label" %>
-  <%= select_tag("filters[topic]", options_for_select(dataset_topics_for_select, selected_topic), id: "topic", class: "govuk-select dgu-filters__filter", include_blank: true) %>
+  <%= select_tag("filters[topic]", options_for_select(dataset_topics_for_select, selected_topic), id: "topic", class: "govuk-select dgu-filters__filter js-accessible-autocomplete", include_blank: true) %>
 </div>
 
 <div class="govuk-form-group">
   <%= label_tag "format", t(".filter_by_format"), class: "govuk-label" %>
-  <%= select_tag("filters[format]", options_for_select(datafile_formats_for_select, selected_format), id: "format", class: "govuk-select dgu-filters__filter", include_blank: true) %>
+  <%= select_tag("filters[format]", options_for_select(datafile_formats_for_select, selected_format), id: "format", class: "govuk-select dgu-filters__filter js-accessible-autocomplete", include_blank: true) %>
 </div>
 
 <%= render "govuk_publishing_components/components/checkboxes", {

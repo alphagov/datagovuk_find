@@ -15,33 +15,25 @@ $(document).ready(function () {
   var showHide = new ShowHide()
   showHide.init()
 
-  if (document.getElementById('publisher')) {
-    accessibleAutocomplete.enhanceSelectElement({
-      selectElement: document.querySelector('#publisher'),
-      showAllValues: true,
-      preserveNullOptions: true
-    })
+  var autocompleteSelects = document.getElementsByClassName('js-accessible-autocomplete')
+
+  if (autocompleteSelects.length > 0) {
+    for (var i = 0; i < autocompleteSelects.length; i += 1) {
+      accessibleAutocomplete.enhanceSelectElement({
+        selectElement: autocompleteSelects[i],
+        showAllValues: true,
+        preserveNullOptions: true
+      })
+    }
   }
 
-  if (document.getElementById('format')) {
-    accessibleAutocomplete.enhanceSelectElement({
-      selectElement: document.querySelector('#format'),
-      showAllValues: true,
-      preserveNullOptions: true
+  var sortDatasets = document.getElementById('sort-datasets')
+
+  if (sortDatasets) {
+    sortDatasets.addEventListener('change', function(event) {
+      event.target.form.submit()
     })
   }
-
-  if(document.getElementById('topic')) {
-    accessibleAutocomplete.enhanceSelectElement({
-      selectElement: document.querySelector('#topic'),
-      showAllValues: true,
-      preserveNullOptions: true
-    })
-  }
-
-  document.getElementById('sort-datasets').addEventListener('change', function(event) {
-    event.target.form.submit()
-  })
 
   new FoldableText('.js-summary', 200)
     .init()
