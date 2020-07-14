@@ -18,9 +18,9 @@ end
 
 def search_for(query)
   visit "/"
-  within "#content" do
+  within "#main-content" do
     fill_in "q", with: query
-    find(".dgu-search-box__button").click
+    find(".gem-c-search__submit").click
   end
 end
 
