@@ -379,49 +379,49 @@ PLATFORMS
 
 DEPENDENCIES
   addressable
-  brakeman (~> 4.8)
-  browser (~> 2.5.3)
-  byebug (~> 11)
-  capybara (~> 3.32.1)
-  codeclimate-test-reporter (~> 1.0.0)
-  elasticsearch (~> 5.0.5)
-  elasticsearch-model (~> 5.0.1)
-  elasticsearch-rails (~> 7.1.0)
+  brakeman
+  browser
+  byebug
+  capybara
+  codeclimate-test-reporter
+  elasticsearch
+  elasticsearch-model
+  elasticsearch-rails
   factory_bot
   faraday
   faraday_middleware
   govuk_elements_rails
-  govuk_publishing_components (~> 21.57.1)
-  govuk_test (~> 0.5.0)
-  htmlentities (~> 4.3)
-  jbuilder (~> 2.5)
+  govuk_publishing_components
+  govuk_test
+  htmlentities
+  jbuilder
   jquery-rails
   kaminari (< 1.2)
-  lograge (~> 0.10)
-  logstash-event (~> 1.2)
-  mime-types (~> 3.1)
+  lograge
+  logstash-event
+  mime-types
   nokogiri
   parslet
-  pg (~> 0.18)
-  pry (~> 0.10)
-  pry-byebug (~> 3.8)
-  pry-stack_explorer (~> 0.4.9)
-  puma (~> 3.12)
-  rails (~> 5.1.6.2)
-  redcarpet (~> 3.5)
-  rest-client (~> 2.0.2)
-  rspec (~> 3.6)
-  rspec-rails (~> 3.6)
+  pg
+  pry
+  pry-byebug
+  pry-stack_explorer
+  puma
+  rails (= 5.1.6.2)
+  redcarpet
+  rest-client
+  rspec
+  rspec-rails
   rubocop-govuk
-  sass-rails (~> 5.0)
-  secure_headers (~> 6.3)
+  sass-rails
+  secure_headers
   sentry-raven
-  simplecov (~> 0.13)
-  spring (~> 2.0)
+  simplecov
+  spring
   spring-commands-rspec
-  spring-watcher-listen (~> 2.0.0)
-  uglifier (>= 1.3.0)
-  webmock (~> 3.5)
+  spring-watcher-listen
+  uglifier
+  webmock
   zendesk_api
 
 RUBY VERSION
