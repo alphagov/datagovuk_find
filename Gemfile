@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 ruby IO.read(".ruby-version").strip
 
-gem "rails", "5.2.4.3"
+gem "rails", "6.0.3.2"
 
 gem "addressable"
 gem "bootsnap"
