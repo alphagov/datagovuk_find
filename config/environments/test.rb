@@ -15,7 +15,7 @@ Rails.application.configure do
   # Configure public file server for tests with Cache-Control for performance.
   config.public_file_server.enabled = true
   config.public_file_server.headers = {
-    'Cache-Control' => "public, max-age=#{1.hour.seconds.to_i}"
+    'Cache-Control' => "public, max-age=#{1.hour.to_i}"
   }
 
   # Handle errors and disable caching.
@@ -25,7 +25,9 @@ Rails.application.configure do
   # Render exceptions instead of raising them
   config.action_dispatch.show_exceptions = true
 
-  # Disable caching in test environment.
+  # The support forms require CSRF authentication, this should be checked in the tests
+  config.action_controller.allow_forgery_protection = true
+
   config.action_mailer.perform_caching = false
 
   # Tell Action Mailer not to deliver emails to the real world.
@@ -38,7 +40,4 @@ Rails.application.configure do
 
   # Raises error for missing translations
   config.action_view.raise_on_missing_translations = true
-
-  # The support forms require CSRF authentication, this should be checked in the tests
-  config.action_controller.allow_forgery_protection = true  
 end
