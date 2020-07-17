@@ -14,7 +14,7 @@ RSpec.describe SearchHelper do
 
     it "returns a sorted list of unique formats" do
       index(dataset1, dataset2)
-      expect(datafile_formats_for_select).to eql %w(BAZ FOO)
+      expect(datafile_formats_for_select).to eql %w[BAZ FOO]
     end
   end
 
@@ -24,7 +24,7 @@ RSpec.describe SearchHelper do
             build(:dataset, topic: build(:topic, title: "baz")),
             build(:dataset, topic: build(:topic, title: "baz")))
 
-      expect(dataset_topics_for_select).to eql %w(baz foo)
+      expect(dataset_topics_for_select).to eql %w[baz foo]
     end
   end
 
@@ -34,7 +34,7 @@ RSpec.describe SearchHelper do
             build(:dataset, organisation: build(:organisation, :raw, title: "baz")),
             build(:dataset, organisation: build(:organisation, :raw, title: "baz")))
 
-      expect(dataset_publishers_for_select).to eql %w(baz foo)
+      expect(dataset_publishers_for_select).to eql %w[baz foo]
     end
   end
 end

@@ -1,5 +1,3 @@
-# coding: utf-8
-
 require "rails_helper"
 
 RSpec.feature "Search page", type: :feature, elasticsearch: true do

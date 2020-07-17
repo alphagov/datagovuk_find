@@ -4,7 +4,7 @@ FactoryBot.define do
     url { "http://example.com" }
     format { "" }
     uuid { SecureRandom.uuid }
-    created_at { Time.now.iso8601 }
+    created_at { Time.zone.now.iso8601 }
 
     trait :raw do
       initialize_with { attributes.stringify_keys }
