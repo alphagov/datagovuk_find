@@ -2,9 +2,10 @@ source "https://rubygems.org"
 
 ruby IO.read(".ruby-version").strip
 
-gem "rails", "5.1.6.2"
+gem "rails", "5.2.4.3"
 
 gem "addressable"
+gem "bootsnap"
 gem "browser"
 gem "elasticsearch"
 gem "elasticsearch-model"
