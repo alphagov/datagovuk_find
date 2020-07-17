@@ -28,11 +28,9 @@ class Preview
 private
 
   def render
-    begin
-      csv? ? CSV.parse(fetch_raw).reject(&:empty?) : []
-    rescue StandardError
-      []
-    end
+    csv? ? CSV.parse(fetch_raw).reject(&:empty?) : []
+  rescue StandardError
+    []
   end
 
   def fetch_raw

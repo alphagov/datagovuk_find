@@ -31,3 +31,7 @@ Rails/OutputSafety:
 
 Rails/FilePath:
   EnforcedStyle: slashes
+
+Rails/SaveBang:
+  AllowedReceivers:
+    - Elasticsearch::Model.client.indices
