@@ -1,69 +1,55 @@
-<div class="grid-row dgu-topics">
-  <div class="column-one-third">
-    <div>
-      <ol>
-        <li>
-          <h2><%= link_to t('.business_and_economy_label'), search_path(filters: { topic: 'Business and economy' }), class: 'govuk-link' %></h2>
-          <p><%= t('.business_and_economy_description') %></p>
-        </li>
-        <li>
-          <h2><%= link_to t('.crime_and_justice_label'), search_path(filters: { topic: 'Crime and justice' }), class: 'govuk-link' %></h2>
-          <p><%= t('.crime_and_justice_description') %></p>
-        </li>
-        <li>
-          <h2><%= link_to t('.defence_label'), search_path(filters: { topic: 'Defence' }), class: 'govuk-link' %></h2>
-          <p><%= t('.defence_description') %></p>
-        </li>
-        <li>
-          <h2><%= link_to t('.education_label'), search_path(filters: { topic: 'Education' }), class: 'govuk-link' %></h2>
-          <p><%= t('.education_description') %></p>
-        </li>
-      </ol>
-    </div>
-  </div>
-
-  <div class="column-one-third">
-    <div>
-      <ol>
-        <li>
-          <h2><%= link_to t('.environment_label'), search_path(filters: { topic: 'Environment' }), class: 'govuk-link' %></h2>
-          <p><%= t('.environment_description') %></p>
-        </li>
-        <li>
-          <h2><%= link_to t('.government_label'), search_path(filters: { topic: 'Government' }), class: 'govuk-link' %></h2>
-          <p><%= t('.government_description') %></p>
-        </li>
-        <li>
-          <h2><%= link_to t('.government_spending_label'), search_path(filters: { topic: 'Government spending' }), class: 'govuk-link' %></h2>
-          <p><%= t('.government_spending_description') %></p>
-        </li>
-        <li>
-          <h2><%= link_to t('.health_label'), search_path(filters: { topic: 'Health' }), class: 'govuk-link' %></h2>
-          <p><%= t('.health_description') %></p>
-        </li>
-      </ol>
-    </div>
-  </div>
-  <div class="column-one-third">
-    <div>
-      <ol>
-        <li>
-          <h2><%= link_to t('.mapping_label'), search_path(filters: { topic: 'Mapping' }), class: 'govuk-link' %></h2>
-          <p><%= t('.mapping_description') %></p>
-        </li>
-        <li>
-          <h2><%= link_to t('.society_label'), search_path(filters: { topic: 'Society' }), class: 'govuk-link' %></h2>
-          <p><%= t('.society_description') %></p>
-        </li>
-        <li>
-          <h2><%= link_to t('.towns_and_cities_label'), search_path(filters: { topic: 'Towns and cities' }), class: 'govuk-link' %></h2>
-          <p><%= t('.towns_and_cities_description') %></p>
-        </li>
-        <li>
-          <h2><%= link_to t('.transport_label'), search_path(filters: { topic: 'Transport' }), class: 'govuk-link' %></h2>
-          <p><%= t('.transport_description') %></p>
-        </li>
-      </ol>
-    </div>
+<div class="govuk-grid-row">
+  <h2 class="govuk-visually-hidden"><%= t('.topics_heading') %></h2>
+  <div class="govuk-grid-column-full">
+    <ul class="govuk-list dgu-topics__list">
+      <li>
+        <h3 class="govuk-heading-s dgu-topics__heading"><%= link_to t('.business_and_economy_label'), search_path(filters: { topic: 'Business and economy' }), class: 'govuk-link' %></h3>
+        <p class="govuk-body"><%= t('.business_and_economy_description') %></p>
+      </li>
+      <li>
+        <h3 class="govuk-heading-s dgu-topics__heading"><%= link_to t('.crime_and_justice_label'), search_path(filters: { topic: 'Crime and justice' }), class: 'govuk-link' %></h3>
+        <p class="govuk-body"><%= t('.crime_and_justice_description') %></p>
+      </li>
+      <li>
+        <h3 class="govuk-heading-s dgu-topics__heading"><%= link_to t('.defence_label'), search_path(filters: { topic: 'Defence' }), class: 'govuk-link' %></h3>
+        <p class="govuk-body"><%= t('.defence_description') %></p>
+      </li>
+      <li>
+        <h3 class="govuk-heading-s dgu-topics__heading"><%= link_to t('.education_label'), search_path(filters: { topic: 'Education' }), class: 'govuk-link' %></h3>
+        <p class="govuk-body"><%= t('.education_description') %></p>
+      </li>
+      <li>
+        <h3 class="govuk-heading-s dgu-topics__heading"><%= link_to t('.environment_label'), search_path(filters: { topic: 'Environment' }), class: 'govuk-link' %></h3>
+        <p class="govuk-body"><%= t('.environment_description') %></p>
+      </li>
+      <li>
+        <h3 class="govuk-heading-s dgu-topics__heading"><%= link_to t('.government_label'), search_path(filters: { topic: 'Government' }), class: 'govuk-link' %></h3>
+        <p class="govuk-body"><%= t('.government_description') %></p>
+      </li>
+      <li>
+        <h3 class="govuk-heading-s dgu-topics__heading"><%= link_to t('.government_spending_label'), search_path(filters: { topic: 'Government spending' }), class: 'govuk-link' %></h3>
+        <p class="govuk-body"><%= t('.government_spending_description') %></p>
+      </li>
+      <li>
+        <h3 class="govuk-heading-s dgu-topics__heading"><%= link_to t('.health_label'), search_path(filters: { topic: 'Health' }), class: 'govuk-link' %></h3>
+        <p class="govuk-body"><%= t('.health_description') %></p>
+      </li>
+      <li>
+        <h3 class="govuk-heading-s dgu-topics__heading"><%= link_to t('.mapping_label'), search_path(filters: { topic: 'Mapping' }), class: 'govuk-link' %></h3>
+        <p class="govuk-body"><%= t('.mapping_description') %></p>
+      </li>
+      <li>
+        <h3 class="govuk-heading-s dgu-topics__heading"><%= link_to t('.society_label'), search_path(filters: { topic: 'Society' }), class: 'govuk-link' %></h3>
+        <p class="govuk-body"><%= t('.society_description') %></p>
+      </li>
+      <li>
+        <h3 class="govuk-heading-s dgu-topics__heading"><%= link_to t('.towns_and_cities_label'), search_path(filters: { topic: 'Towns and cities' }), class: 'govuk-link' %></h3>
+        <p class="govuk-body"><%= t('.towns_and_cities_description') %></p>
+      </li>
+      <li>
+        <h3 class="govuk-heading-s dgu-topics__heading"><%= link_to t('.transport_label'), search_path(filters: { topic: 'Transport' }), class: 'govuk-link' %></h3>
+        <p class="govuk-body"><%= t('.transport_description') %></p>
+      </li>
+    </ul>
   </div>
 </div>

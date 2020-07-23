@@ -1,12 +1,10 @@
 en:
   pages:
     search:
-      find_gov_data: "Find open data"
-      lede: "Find data published by central government, local authorities and public bodies to help you build products and services"
       accessibility:
-        search_box_label: "Search"
-        search_button_label: "Find data"
+        search_button_label: "Search data.gov.uk"
     topics:
+      topics_heading: "Data topics"
       business_and_economy_label: "Business and economy"
       business_and_economy_description: "Small businesses, industry, imports, exports and trade"
       crime_and_justice_label: "Crime and justice"
@@ -33,3 +31,4 @@ en:
       transport_description: "Airports, roads, freight, electric vehicles, parking, buses and footpaths"
     home:
       find_open_data: "Find open data"
+      lede: "Find data published by central government, local authorities and public bodies to help you build products and services"
