@@ -1,7 +1,7 @@
 def delete_index
   Elasticsearch::Model.client.indices.delete index: "datasets-test"
-rescue StandardError
-  Rails.logger.debug("No test search index to delete")
+rescue Elasticsearch::Transport::Transport::Errors::NotFound
+  Rails.logger.info("Index datasets-test not found. Ignored.")
 end
 
 def create_index
@@ -14,8 +14,6 @@ def create_index
       mappings: index_mappings,
     },
   )
-rescue StandardError
-  Rails.logger.debug("Could not create datasets-test index")
 end
 
 def index_settings
