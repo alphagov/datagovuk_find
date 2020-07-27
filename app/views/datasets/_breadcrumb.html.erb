@@ -1,26 +1,25 @@
 <% if @dataset %>
-  <div class="grid-row">
-    <!-- Only display breadcrumb if the referrer host matches the application host  -->
-    <div class="column-full">
-      <div class="breadcrumbs">
-        <nav aria-label="Breadcrumb">
-          <ol>
-            <li>
-              <%= link_to t('.home'), root_path, class: 'govuk-link' %>
-            </li>
-            <li>
-              <% if @referer_query.nil? %>
-                <%= @dataset.organisation.title %>
-              <% else %>
-                <%= link_to t('.search'), "/search?#{@referrer}", class: 'govuk-link' %>
-              <% end %>
-            </li>
-            <li aria-current="page">
-              <%= shorten_title(@dataset.title) %>
-            </li>
-          </ol>
-        </nav>
+  <section id="dgu-breadcrumb">
+    <div class="govuk-grid-row">
+      <!-- Only display breadcrumb if the referrer host matches the application host  -->
+      <div class="govuk-grid-column-full">
+        <%= render "govuk_publishing_components/components/breadcrumbs", {
+          collapse_on_mobile: true,
+          breadcrumbs: [
+            {
+              title: t('.home'),
+              url: root_path
+            },
+            {
+              title: @referer_query.nil? ? @dataset.organisation.title : t('.search'),
+              url: @referer_query.nil? ? false : "/search?#{@referrer}"
+            },
+            {
+              title: shorten_title(@dataset.title)
+            }
+          ]
+        } %>
       </div>
     </div>
-  </div>
+  </section>
 <% end %>
