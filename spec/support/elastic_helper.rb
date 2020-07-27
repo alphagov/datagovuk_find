@@ -7,7 +7,7 @@ end
 def create_index
   Rails.logger.info("Creating datasets-test index")
 
-  Elasticsearch::Model.client.indices.create(
+  Elasticsearch::Model.client.indices.create!(
     index: "datasets-test",
     body: {
       settings: index_settings,
