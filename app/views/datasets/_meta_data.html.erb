@@ -8,15 +8,15 @@
   <% end %>
 <% end %>
 
-<section class="meta-data">
-  <div class="grid-row">
-    <div class="column-two-thirds">
-      <div class="dgu-metadata__box dgu-metadata__box--in-dataset">
-        <dl class="metadata">
+<section id="dgu-metadata">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="dgu-metadata dgu-metadata--in-dataset">
+        <dl>
           <% unless @dataset.released %>
             <dt><%= t('.availability') %>:</dt>
             <dd>
-              <span class="dgu-highlight">Not released</span>
+              <span class="dgu-highlight"><%= t('.not_released') %></span>
             </dd>
           <% end %>
           <dt><%= t('.published_by') %>:</dt>
@@ -61,47 +61,64 @@
           </dd>
         </dl>
 
-        <h3 class="heading-small">
-          <%= t('.summary') %>
-        </h3>
-        <div class="js-summary" style="line-height: 1.5em; overflow: hidden" property="dc:description">
+        <%= render "govuk_publishing_components/components/heading", {
+          text: t('.summary'),
+          margin_bottom: 1,
+          heading_level: 3,
+          font_size: "s"
+        } %>
+
+        <div class="js-summary" class="dataset-summary" property="dc:description">
           <%= to_markdown(@dataset.summary) %>
         </div>
       </div>
     </div>
 
-    <div class="column-one-third dgu-dataset-right">
-      <div class="dgu-dataset-right__sidebar__publisher_datasets">
-        <h3 class="heading-small"><%= t('.publisher_datasets') %></h3>
+    <div class="govuk-grid-column-one-third dgu-dataset-right">
+      <div class="govuk-!-margin-bottom-4">
+        <%= render "govuk_publishing_components/components/heading", {
+          text: t('.publisher_datasets'),
+          heading_level: 3,
+          font_size: "s"
+        } %>
         <%= link_to search_path(filters: { publisher: @dataset.organisation.title }), class: 'govuk-link' do %>
           <%= "All datasets from #{@dataset.organisation.title}" %>
         <% end %>
       </div>
 
       <% unless @related_datasets.empty? %>
-        <div class="dgu-dataset-right__sidebar">
-          <h3 class="heading-small"><%= t('.related_datasets') %></h3>
-          <ul>
-            <% @related_datasets.each do |dataset| %>
-              <li>
-                <%= link_to unescape(dataset.title), dataset_path(dataset.uuid, dataset.name), class: 'govuk-link' %>
-              </li>
-            <% end %>
-          </ul>
+        <%
+          related_list_items = []
+          @related_datasets.each do |dataset|
+            related_list_items << sanitize(link_to unescape(dataset.title), dataset_path(dataset.uuid, dataset.name), class: "govuk-link")
+          end
+        %>
+
+        <div class="govuk-!-margin-bottom-4">
+          <%= render "govuk_publishing_components/components/heading", {
+            text: t('.related_datasets'),
+            heading_level: 3,
+            font_size: "s"
+          } %>
+          <%= render "govuk_publishing_components/components/list", {
+            items: related_list_items
+          } %>
         </div>
       <% end %>
 
-      <h3 class="heading-small"><%= t('.search_gov_data') %></h3>
-      <form action="/search" method="GET" class="dgu-search-box">
-        <label for="q" class="visuallyhidden"><%= t('.accessibility.search_box_label') %></label>
-        <input id="q"
-               name="q"
-               type="text"
-               class="form-control dgu-search-box__input"/><button type="submit"
-                                                                   class="dgu-search-box__button">
-                                                            <%= t('.accessibility.search_box_button')%>
-                                                           </button>
-      </form>
+      <div class="govuk-!-margin-bottom-4">
+        <%= render "govuk_publishing_components/components/heading", {
+          text: t('.search_gov_data'),
+          heading_level: 3,
+          font_size: "s"
+        } %>
+
+        <form action="/search" method="GET">
+          <%= render "govuk_publishing_components/components/search", {
+            label_text: t('.accessibility.search_box_label')
+          } %>
+        </form>
+      </div>
     </div>
   </div>
 </section>

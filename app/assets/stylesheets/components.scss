@@ -7,7 +7,7 @@
 
 .dgu-highlight {
   background: $grey-3;
-  padding: em(2) em(5) em(2) em(5);
+  padding: 2px govuk-spacing(1);
 }
 
 .table-wrapper {
@@ -80,15 +80,15 @@
   }
 }
 
-.dgu-metadata__box {
+.dgu-metadata {
+  margin-top: govuk-spacing(1);
+  margin-bottom: govuk-spacing(4);
 
   &--in-dataset {
     background: $highlight-colour;
-    padding: 25px 30px 15px 30px;
+    padding: govuk-spacing(5) govuk-spacing(6) govuk-spacing(3) govuk-spacing(6);
   }
 
-  margin-top: 5px;
-  margin-bottom: 10px;
   dt, dd {
     display: inline-block;
     margin-bottom: 5px;
@@ -110,6 +110,11 @@
     }
   }
 
+}
+
+.dataset-summary {
+  line-height: 1.5em;
+  overflow: hidden;
 }
 
 // pagination controls =========================================================
