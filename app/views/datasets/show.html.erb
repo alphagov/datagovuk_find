@@ -8,78 +8,96 @@
   <%= render 'breadcrumb' %>
 <% end%>
 
-<main role="main" id="content">
-  <div>
-    <%= render "meta_data" %>
-
-    <div class="grid-row">
-      <div class="column-full">
-        <section class="dgu-datalinks">
-          <h2 class="heading-medium"><%= t('.data_links')%>
-          <% unless @timeseries_datafiles.empty? %>
-            <!-- accordions for time series datasets -->
-            <% if !browser.ie?(8) %>
-              <span class="showHide-open-all"><%= t('.open_all') %></span>
-            <% end %>
-          <% end %>
-          </h2>
-
-          <% unless @timeseries_datafiles.empty? %>
-            <%= render partial: "timeseries_data", locals: { datafiles: @timeseries_datafiles } %>
-          <% end %>
-
-          <% unless @non_timeseries_datafiles.empty? %>
-            <%= render partial: "non_timeseries_data", locals: { datafiles: @non_timeseries_datafiles } %>
-          <% end %>
-
-          <% if @dataset.datafiles.empty? %>
-            <%= render partial: "no_datafiles", locals: { dataset: @dataset } %>
-          <% end %>
-
-        </section>
-      </div>
+<main role="main" id="main-content" class="govuk-main-wrapper">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <%= render "govuk_publishing_components/components/heading", {
+          text: unescape(@dataset.title),
+          margin_bottom: 8,
+          heading_level: 1,
+          font_size: "l"
+        } %>
     </div>
-
-    <% if @dataset.description.present? || @dataset.inspire_dataset.present? %>
-      <%= render partial: "additional_info", locals: { dataset: @dataset } %>
-    <% end %>
-
-    <% unless @dataset.docs.empty? %>
-      <%= render partial: "supporting_docs", locals: { dataset: @dataset } %>
-    <% end %>
-
-    <% if contact_information_exists?(@dataset) %>
-      <%= render partial: "contact", locals: { dataset: @dataset } %>
-    <% end %>
-
-    <% if @dataset.licence_custom.present? %>
-      <section class="dgu-licence-info">
-        <div class="grid-row">
-          <div class="column-full">
-            <h2 class="heading-medium" id="licence-info">
-              <%= t('.licence_information') %>
-            </h2>
-            <p class="dgu-licence-info__notes">
-              <%= to_markdown(@dataset.licence_custom) %>
-            </p>
-          </div>
-        </div>
-      </section>
-    <% end %>
-
-    <% if @dataset.editable? %>
-      <section>
-        <div class="grid-row">
-          <div class="column-full">
-            <h2 class="heading-medium"><%= t('datasets.publishers.title') %></h2>
-            <div role="note" aria-label="Publisher information" class="panel panel-border-narrow text">
-              <p><%= t('datasets.publishers.information') %></p>
-            </div>
-            <p><%= link_to t('datasets.publishers.button'), "/dataset/edit/#{@dataset.legacy_name}", role: 'button', class: 'govuk-button', rel: %w(nofollow) %></p>
-          </div>
-        </div>
-      </section>
-    <% end %>
-
   </div>
+
+  <%= render "meta_data" %>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <section id="dgu-datalinks">
+        <%= render "govuk_publishing_components/components/heading", {
+          text: t('.data_links'),
+          margin_bottom: 4,
+          heading_level: 2,
+          font_size: "m"
+        } %>
+
+        <% unless @timeseries_datafiles.empty? %>
+          <%= render partial: "timeseries_data", locals: { datafiles: @timeseries_datafiles } %>
+        <% end %>
+
+        <% unless @non_timeseries_datafiles.empty? %>
+          <%= render partial: "non_timeseries_data", locals: { datafiles: @non_timeseries_datafiles } %>
+        <% end %>
+
+        <% if @dataset.datafiles.empty? %>
+          <%= render partial: "no_datafiles", locals: { dataset: @dataset } %>
+        <% end %>
+
+      </section>
+    </div>
+  </div>
+
+  <% if @dataset.description.present? || @dataset.inspire_dataset.present? %>
+    <%= render partial: "additional_info", locals: { dataset: @dataset } %>
+  <% end %>
+
+  <% unless @dataset.docs.empty? %>
+    <%= render partial: "supporting_docs", locals: { dataset: @dataset } %>
+  <% end %>
+
+  <% if contact_information_exists?(@dataset) %>
+    <%= render partial: "contact", locals: { dataset: @dataset } %>
+  <% end %>
+
+  <% if @dataset.licence_custom.present? %>
+    <section id="dgu-licence-info">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+          <%= render "govuk_publishing_components/components/heading", {
+            text: t('.licence_information'),
+            margin_bottom: 4,
+            heading_level: 2,
+            font_size: "m"
+          } %>
+          <p class="dgu-licence-info__notes">
+            <%= to_markdown(@dataset.licence_custom) %>
+          </p>
+        </div>
+      </div>
+    </section>
+  <% end %>
+
+  <% if @dataset.editable? %>
+    <section id="dgu-editable">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+          <%= render "govuk_publishing_components/components/heading", {
+            text: t('datasets.publishers.title'),
+            margin_bottom: 4,
+            heading_level: 2,
+            font_size: "m"
+          } %>
+          
+          <div class="govuk-details__text govuk-!-margin-bottom-4">
+            <%= t('datasets.publishers.information') %>
+          </div>
+          <%= render "govuk_publishing_components/components/button", {
+            text: t('datasets.publishers.button'),
+            href: "/dataset/edit/#{@dataset.legacy_name}"
+          } %>
+        </div>
+      </div>
+    </section>
+  <% end %>
 </main>
