@@ -51,6 +51,7 @@ en:
       map_preview: "Preview on map"
     meta_data:
       availability: "Availability"
+      not_released: "Not released"
       publisher_datasets: "More from this publisher"
       published_by: "Published by"
       last_updated: "Last updated"

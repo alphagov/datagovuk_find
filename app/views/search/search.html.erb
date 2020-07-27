@@ -59,7 +59,7 @@
                 <h2 class="govuk-heading-m">
                   <%= link_to dataset.title, dataset_path(dataset.uuid, dataset.name), class: 'govuk-link' %>
                 </h2>
-                <dl class="dgu-metadata__box">
+                <dl class="dgu-metadata">
                   <% unless dataset.released? %>
                     <dt><%= t('.meta_data_box.availability') %>:</dt>
                     <dd>
