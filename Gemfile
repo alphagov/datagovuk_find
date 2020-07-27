@@ -53,6 +53,6 @@ group :test do
   gem "capybara", "~> 3.32.1"
   gem "codeclimate-test-reporter", "~> 1.0.0"
   gem "factory_bot"
-  gem "govuk_test", "~> 0.5.0"
+  gem "govuk_test", "~> 1.0.3"
   gem "simplecov", "~> 0.13", require: false
 end
