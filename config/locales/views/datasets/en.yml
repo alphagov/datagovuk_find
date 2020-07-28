@@ -87,3 +87,5 @@ en:
       title: "Edit this dataset"
       information: "You must have an account for this publisher on data.gov.uk to make any changes to a dataset."
       button: "Sign in"
+    non_timeseries_data:
+      other_data_files: "Other data files"
