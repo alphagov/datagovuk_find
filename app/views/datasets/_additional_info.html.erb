@@ -1,81 +1,103 @@
+<section id="dgu-additional-info">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <%= render "govuk_publishing_components/components/heading", {
+        text: t('.additional_info'),
+        margin_bottom: 4,
+        heading_level: 2,
+        font_size: "m"
+      } %>
 
-  <section class="dgu-additional-info">
-    <h2 class="heading-medium">
-      <%= t('.additional_info') %>
-    </h2>
-    <% if dataset.description.present? %>
-      <p class="dgu-additional-info__notes">
-        <%= dataset.description %>
-      </p>
-    <% end %>
+      <% if dataset.description.present? %>
+        <p class="govuk-body">
+          <%= dataset.description %>
+        </p>
+      <% end %>
 
-    <% if dataset.inspire_dataset.present? %>
-      <% i = dataset.inspire_dataset %>
+      <% if dataset.inspire_dataset.present? %>
+        <%
+          i = dataset.inspire_dataset
+          translations = {
+            added: t('.inspire_added'),
+            access_constraints: t('.inspire_access_constraints'),
+            access_constraints_unspecified: t('.inspire_access_constraints_unspecified'),
+            guid: t('.inspire_guid'),
+            extent: t('.inspire_extent'),
+            latitude: t('.inspire_latitude'),
+            longitude: t('.inspire_longitude'),
+            to: t('.inspire_to'),
+            spatial_ref_system: t('.inspire_spatial_ref_system'),
+            dataset_ref_date: t('.inspire_dataset_ref_date'),
+            frequency: t('.inspire_frequency'),
+            responsible_party: t('.inspire_responsible_party'),
+            iso_resource: t('.inspire_iso_resource'),
+            metadata_lang: t('.inspire_metadata_lang'),
+            gemini_record: t('.inspire_gemini_record'),
+            xml: t('.xml'),
+            html: t('.html'),
+          }
+        %>
 
-      <details>
-        <% unless browser.ie? || browser.edge? %>
-          <summary><span class="summary"><%= t('.view_additional_metadata') %></span></summary>
-        <% end %>
-
-
-        <div class="panel panel-border-narrow">
-
-          <dl class="dgu-deflist">
+        <%= render "govuk_publishing_components/components/details", {
+          title: t('.view_additional_metadata')
+        } do %>
+          <dl class="dgu-deflist govuk-clearfix">
             <% if i['metadata_date'] %>
-              <dt><%= t('.inspire_added') %></dt>
+              <dt><%= translations[:added] %></dt>
               <dd><%= i['metadata_date'] %></dd>
             <% end %>
             <% if i['access_constraints'] %>
               <% ref = JSON.parse(i['access_constraints']) %>
-              <dt><%= t('.inspire_access_constraints') %></dt>
-              <dd><%= ref.first || t('.inspire_access_constraints_unspecified') %></dd>
+              <dt><%= translations[:access_constraints] %></dt>
+              <dd><%= ref.first || translations[:access_constraints_unspecified] %></dd>
             <% end %>
             <% if i['guid'] %>
-              <dt><%= t('.inspire_guid') %></dt>
+              <dt><%= translations[:guid] %></dt>
               <dd><%= i['guid'] %></dd>
             <% end %>
             <% if i['bbox_east_long'] and i['bbox_west_long'] and i['bbox_north_lat'] and i['bbox_south_lat'] %>
-              <dt><%= t('.inspire_extent') %></dt>
+              <dt><%= translations[:extent] %></dt>
               <dd>
-                <%= t('.inspire_latitude') %>: <%= i['bbox_north_lat'] %>° <%= t('.inspire_to') %> <%= i['bbox_south_lat'] %>°</dd>
+                <%= translations[:latitude] %>: <%= i['bbox_north_lat'] %>° <%= translations[:to] %> <%= i['bbox_south_lat'] %>°</dd>
               <dd>
-                <%= t('.inspire_longitude') %>: <%= i['bbox_west_long'] %>° <%= t('.inspire_to') %> <%= i['bbox_east_long'] %>°
+                <%= translations[:longitude] %>: <%= i['bbox_west_long'] %>° <%= translations[:to] %> <%= i['bbox_east_long'] %>°
               </dd>
             <% end %>
             <% if i['spatial_reference_system'] %>
-              <dt><%= t('.inspire_spatial_ref_system') %></dt>
+              <dt><%= translations[:spatial_ref_system] %></dt>
               <dd><%= i['spatial_reference_system'] %></dd>
             <% end %>
             <% if i['dataset_reference_date'] %>
               <% ref = JSON.parse(i['dataset_reference_date']) %>
-              <dt><%= t('.inspire_dataset_ref_date') %></dt>
+              <dt><%= translations[:dataset_ref_date] %></dt>
               <% ref.each do |date| %>
                 <dd><%= date['value'] %> (<%= date['type'] %>)</dd>
               <% end %>
             <% end %>
             <% if i['frequency_of_update'] %>
-              <dt><%= t('.inspire_frequency') %></dt>
+              <dt><%= translations[:frequency] %></dt>
               <dd><%= i['frequency_of_update'] %></dd>
             <% end %>
             <% if i['responsible_party'] %>
-              <dt><%= t('.inspire_responsible_party') %></dt>
+              <dt><%= translations[:responsible_party] %></dt>
               <dd><%= i['responsible_party'] %></dd>
             <% end %>
             <% if i['resource_type'] %>
-              <dt><%= t('.inspire_iso_resource') %></dt>
+              <dt><%= translations[:iso_resource] %></dt>
               <dd><%= i['resource_type'] %></dd>
             <% end %>
             <% if i['metadata_language'] %>
-              <dt><%= t('.inspire_metadata_lang') %></dt>
+              <dt><%= translations[:metadata_lang] %></dt>
               <dd><%= i['metadata_language'] %></dd>
             <% end %>
             <% if i['harvest_object_id'] %>
-              <dt><%= t('.inspire_gemini_record') %></dt>
-              <dd><%= link_to t('.xml'), "/api/2/rest/harvestobject/#{ i['harvest_object_id'] }/xml", class: 'govuk-link' %></dd>
-              <dd><%= link_to t('.html'), "/api/2/rest/harvestobject/#{ i['harvest_object_id'] }/html", class: 'govuk-link' %></dd>
+              <dt><%= translations[:gemini_record] %></dt>
+              <dd><%= link_to translations[:xml], "/api/2/rest/harvestobject/#{ i['harvest_object_id'] }/xml", class: 'govuk-link' %></dd>
+              <dd><%= link_to translations[:html], "/api/2/rest/harvestobject/#{ i['harvest_object_id'] }/html", class: 'govuk-link' %></dd>
             <% end %>
           </dl>
-        </div>
-      </details>
-    <% end %>
-  </section>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</section>
