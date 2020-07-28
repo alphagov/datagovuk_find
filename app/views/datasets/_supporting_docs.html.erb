@@ -1,26 +1,39 @@
-<section class="supporting docs">
-  <h2 class="heading-medium">
-    <%= t('.supporting_docs')%>
-  </h2>
+<% table_rows = [] %>
 
-  <table>
-    <thead>
-    <tr>
-      <th class="title"><%= t('.link_to_doc')%></th>
-      <th><%= t('.format')%></th>
-      <th><%= t('.date_added')%></th>
-    </tr>
-    </thead>
-    <tbody>
-    <% dataset.docs.each do |doc| %>
-      <tr>
-        <td class="title">
-          <a href="<%= doc.url%>" class="govuk-link"><%= doc.name %></a>
-        </td>
-        <td><%= doc.format or "N/A" %></td>
-        <td><%= format_timestamp(doc.created_at) or "N/A" %></td>
-      </tr>
-    <% end %>
-    </tbody>
-  </table>
+<% dataset.docs.each do |doc| %>
+<% table_rows << [
+  {
+    text: sanitize(link_to doc.name, doc.url, class: "govuk-link")
+  },
+  {
+    text: doc.format || "N/A"
+  },
+  {
+    text: format_timestamp(doc.created_at) || "N/A"
+  },
+] %>
+<% end %>
+
+<section id="supporting-docs">
+  <%= render "govuk_publishing_components/components/heading", {
+    text: t('.supporting_docs'),
+    margin_bottom: 4,
+    heading_level: 2,
+    font_size: "m"
+  } %>
+
+  <%= render "govuk_publishing_components/components/table", {
+    head: [
+      {
+        text: t('.link_to_doc')
+      },
+      {
+        text: t('.format')
+      },
+      {
+        text: t('.date_added')
+      },
+    ],
+    rows: table_rows
+  } %>
 </section>
