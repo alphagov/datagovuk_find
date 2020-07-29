@@ -7,37 +7,44 @@
   mail = contact_email_is_email?(dataset) ? mail_to(contact_email_for(dataset), email_name, link_attrs) : link_to(email_name, contact_email_for(dataset), link_attrs)
   foi_mail = foi_email_is_email?(dataset) ? mail_to(foi_email_for(dataset), foi_name, link_attrs) : link_to(foi_name, foi_email_for(dataset), link_attrs)
 %>
-<section class="contact">
-  <h2 class="heading-medium">
-    <%= t('datasets.contact.contact') %>
-  </h2>
-
-  <% if contact_email_exists?(dataset) %>
-    <div class="column-one-half enquiries">
-      <h3 class="heading-small">
-        <%= t('datasets.contact.enquiries') %>
-      </h3>
-      <p>
-        <%= content_tag(:span, mail) if mail.present? %>
-      </p>
+<section id="dgu-contact">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <%= render "govuk_publishing_components/components/heading", {
+        text: t('datasets.contact.contact'),
+        margin_bottom: 8,
+        heading_level: 2,
+        font_size: "m"
+      } %>
     </div>
-  <% end %>
 
-  <% if foi_details_exist?(dataset) %>
-    <div class="column-one-half foi">
-      <h3 class="heading-small">
-        <%= t('datasets.contact.foi_requests') %>
-      </h3>
+    <% if contact_email_exists?(dataset) %>
+      <div class="govuk-grid-column-one-half">
+        <%= render "govuk_publishing_components/components/heading", {
+          text: t('datasets.contact.enquiries'),
+          margin_bottom: 4,
+          heading_level: 3,
+          font_size: "s"
+        } %>
+        
+        <p class="govuk-body"><%= mail %></p>
+      </div>
+    <% end %>
 
-      <p>
-        <%= content_tag(:span, foi_mail) if foi_mail.present? %>
+    <% if foi_details_exist?(dataset) %>
+      <div class="column-one-half foi">
+        <%= render "govuk_publishing_components/components/heading", {
+          text: t('datasets.contact.foi_requests'),
+          margin_bottom: 4,
+          heading_level: 3,
+          font_size: "s"
+        } %>
+
+        <p class="govuk-body"><%= foi_mail %></p>
         <% if foi_web_address_for(dataset).present? %>
-          <%= content_tag(:span) do %>
-            <%= link_to(t('datasets.contact.foi_message'), foi_web_address_for(dataset), link_attrs) %>
-          <% end %>
+          <p class="govuk-body"><%= link_to(t('datasets.contact.foi_message'), foi_web_address_for(dataset), link_attrs) %></p>
         <% end %>
-
-      </p>
-    </div>
-  <% end %>
+      </div>
+    <% end %>
+  </div>
 </section>
