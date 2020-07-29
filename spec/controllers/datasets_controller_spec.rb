@@ -15,7 +15,7 @@ RSpec.describe DatasetsController, type: :controller do
         request.env["HTTP_REFERER"] = "http://test.host/search?q=fancypants"
         get :show, params: { uuid: dataset.uuid, name: dataset.name }
 
-        expect(response.body).to have_css("div.breadcrumbs")
+        expect(response.body).to have_css("#dgu-breadcrumb")
         expect(response.body).to_not have_css("li", text: "Ministry of Defence")
         expect(response.body).to have_css("li", text: "Search")
       end
@@ -26,7 +26,7 @@ RSpec.describe DatasetsController, type: :controller do
         request.env["HTTP_REFERER"] = "http://unknown.host/search?q=fancypants"
         get :show, params: { uuid: dataset.uuid, name: dataset.name }
 
-        expect(response.body).to have_css("div.breadcrumbs")
+        expect(response.body).to have_css("#dgu-breadcrumb")
         expect(response.body).to have_css("li", text: "Ministry of Defence")
         expect(response.body).to_not have_css("li", text: "Search")
       end

@@ -22,7 +22,7 @@ RSpec.feature "Dataset page", type: :feature, elasticsearch: true do
       dataset = build :dataset, :with_ogl_licence
       index_and_visit(dataset)
 
-      within("section.meta-data") do
+      within("#dgu-metadata") do
         expect(page)
           .to have_link("Open Government Licence",
                         href: "http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/")
@@ -35,13 +35,13 @@ RSpec.feature "Dataset page", type: :feature, elasticsearch: true do
 
       index_and_visit(dataset)
 
-      within("section.meta-data") do
+      within("#dgu-metadata") do
         expect(page)
           .to have_link("View licence information",
                         href: "#licence-info")
       end
 
-      within("section.dgu-licence-info") do
+      within("#dgu-licence-info") do
         expect(page).to have_content("Special case")
       end
     end
@@ -50,7 +50,7 @@ RSpec.feature "Dataset page", type: :feature, elasticsearch: true do
       dataset = build :dataset, :with_custom_licence
       index_and_visit(dataset)
 
-      within("section.meta-data") do
+      within("#dgu-metadata") do
         expect(page)
           .to have_content("Other Licence")
 
@@ -59,7 +59,7 @@ RSpec.feature "Dataset page", type: :feature, elasticsearch: true do
                         href: "#licence-info")
       end
 
-      within("section.dgu-licence-info") do
+      within("#dgu-licence-info") do
         expect(page).to have_content("Special case")
       end
     end
@@ -68,7 +68,7 @@ RSpec.feature "Dataset page", type: :feature, elasticsearch: true do
       dataset = build :dataset, :with_custom_licence_brackets
       index_and_visit(dataset)
 
-      within("section.meta-data") do
+      within("#dgu-metadata") do
         expect(page)
           .to have_content("Other Licence")
 
@@ -77,7 +77,7 @@ RSpec.feature "Dataset page", type: :feature, elasticsearch: true do
                         href: "#licence-info")
       end
 
-      within("section.dgu-licence-info") do
+      within("#dgu-licence-info") do
         expect(page).to have_content("Special case")
       end
     end
@@ -86,7 +86,7 @@ RSpec.feature "Dataset page", type: :feature, elasticsearch: true do
       dataset = build :dataset, :with_custom_licence_brackets_middle
       index_and_visit(dataset)
 
-      within("section.meta-data") do
+      within("#dgu-metadata") do
         expect(page)
           .to have_content("Other Licence")
 
@@ -95,7 +95,7 @@ RSpec.feature "Dataset page", type: :feature, elasticsearch: true do
                         href: "#licence-info")
       end
 
-      within("section.dgu-licence-info") do
+      within("#dgu-licence-info") do
         expect(page).to have_content("Special case")
       end
     end
@@ -104,7 +104,7 @@ RSpec.feature "Dataset page", type: :feature, elasticsearch: true do
       dataset = build :dataset, licence_title: "My Licence"
       index_and_visit(dataset)
 
-      within("section.meta-data") do
+      within("#dgu-metadata") do
         expect(page)
           .to have_content("My Licence")
       end
@@ -114,7 +114,7 @@ RSpec.feature "Dataset page", type: :feature, elasticsearch: true do
       dataset = build :dataset, licence_url: "http://licence.com"
       index_and_visit(dataset)
 
-      within("section.meta-data") do
+      within("#dgu-metadata") do
         expect(page)
           .to have_link("http://licence.com",
                         href: "http://licence.com")
@@ -125,7 +125,7 @@ RSpec.feature "Dataset page", type: :feature, elasticsearch: true do
       dataset = build :dataset
       index_and_visit(dataset)
 
-      within("section.meta-data") do
+      within("#dgu-metadata") do
         expect(page)
           .to have_content("None")
       end
@@ -271,7 +271,7 @@ RSpec.feature "Dataset page", type: :feature, elasticsearch: true do
       expect(page).to have_css("h2", text: "Contact")
       expect(page).to have_css("h3", text: "Enquiries")
 
-      within("section.contact .enquiries") do
+      within("#dgu-contact") do
         expect(page).to have_link(dataset.contact_name, href: "mailto:#{dataset.contact_email}")
       end
     end
@@ -286,7 +286,7 @@ RSpec.feature "Dataset page", type: :feature, elasticsearch: true do
       expect(page).to have_css("h2", text: "Contact")
       expect(page).to have_css("h3", text: "Enquiries")
 
-      within("section.contact .enquiries") do
+      within("#dgu-contact") do
         expect(page).to have_link(dataset.organisation.contact_name, href: "mailto:#{dataset.organisation.contact_email}")
       end
     end
@@ -308,7 +308,7 @@ RSpec.feature "Dataset page", type: :feature, elasticsearch: true do
       expect(page).to have_css("h2", text: "Contact")
       expect(page).to have_css("h3", text: "Freedom of Information (FOI) requests")
 
-      within("section.contact .foi") do
+      within("#dgu-contact") do
         expect(page).to have_link(dataset.foi_name, href: "mailto:#{dataset.foi_email}")
         expect(page).to have_link("Freedom of information requests for this dataset", href: dataset.foi_web)
       end
@@ -325,7 +325,7 @@ RSpec.feature "Dataset page", type: :feature, elasticsearch: true do
       expect(page).to have_css("h2", text: "Contact")
       expect(page).to have_css("h3", text: "Freedom of Information (FOI) requests")
 
-      within("section.contact .foi") do
+      within("#dgu-contact") do
         expect(page).to have_link(dataset.organisation.foi_name, href: "mailto:#{dataset.organisation.foi_email}")
         expect(page).to have_link("Freedom of information requests for this dataset", href: dataset.organisation.foi_web)
       end
@@ -339,12 +339,12 @@ RSpec.feature "Dataset page", type: :feature, elasticsearch: true do
       index_and_visit(dataset)
 
       expect(page).to have_css("js-show-more-datafiles", count: 0)
-      expect(page).to have_css(".dgu-datafile", count: 5)
+      expect(page).to have_css(".js-datafile-visible", count: 5)
       expect(page).to have_css(".show-toggle", text: "Show more")
 
       find(".show-toggle").click
 
-      expect(page).to have_css(".dgu-datafile", count: 20)
+      expect(page).to have_css(".js-datafile-visible", count: 20)
       expect(page).to have_css(".show-toggle", text: "Show less")
     end
   end
@@ -357,21 +357,23 @@ RSpec.feature "Dataset page", type: :feature, elasticsearch: true do
 
     scenario "are grouped by year when they contain timeseries datafiles" do
       index_and_visit(dataset)
-      expect(page).to have_css(".dgu-datafiles__year", count: 2)
+      expect(page).to have_css("#dgu-datafiles-year")
 
-      correct_order = [
-        Time.zone.parse(datafile2["start_date"]).year.to_s,
-        Time.zone.parse(datafile1["start_date"]).year.to_s,
-      ]
+      within("#dgu-datafiles-year") do
+        correct_order = [
+          Time.zone.parse(datafile2["start_date"]).year.to_s,
+          Time.zone.parse(datafile1["start_date"]).year.to_s,
+        ]
 
-      actual_order = all("button.dgu-datafiles__year").map(&:text)
-      expect(actual_order).to eq correct_order
+        actual_order = all(".govuk-accordion__section-button").map(&:text)
+        expect(actual_order).to eq correct_order
+      end
     end
 
     scenario "are not grouped when they contain non timeseries datafiles" do
       dataset = build :dataset, :with_datafile
       index_and_visit(dataset)
-      expect(page).to have_css(".dgu-datalinks__year", count: 0)
+      expect(page).to have_css("#dgu-datafiles-year", count: 0)
     end
   end
 
