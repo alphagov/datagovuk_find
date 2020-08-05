@@ -32,7 +32,7 @@ gem "uglifier", ">= 1.3.0"
 gem "zendesk_api"
 
 group :development, :test do
-  gem "brakeman", "~> 4.8"
+  gem "brakeman", "~> 4.9"
   gem "byebug", "~> 11"
   gem "pry", "~> 0.10"
   gem "pry-byebug", "~> 3.8"
