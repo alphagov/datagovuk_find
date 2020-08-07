@@ -53,13 +53,7 @@ end
 
 group :test do
   gem "capybara"
-  # Gem codeclimate-test-reporter pinned to ~> 1.0.9 because simplecov >= 0.13
-  # causes it to be downgraded to 1.0.7, which doesn't work.
-  #
-  # Also note that the gem was deprecated in favour of a new tool:
-  # https://docs.codeclimate.com/docs/configuring-test-coverage
-  gem "codeclimate-test-reporter", "~> 1.0.9"
   gem "factory_bot"
   gem "govuk_test"
-  gem "simplecov"
+  gem "simplecov", "< 0.18" # see https://github.com/codeclimate/test-reporter/issues/413
 end
