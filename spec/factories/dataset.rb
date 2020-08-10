@@ -17,7 +17,7 @@ FactoryBot.define do
     contact_email ""
     uuid SecureRandom.uuid
     notes ""
-    public_updated_at Time.now.iso8601
+    public_updated_at Time.zone.now.iso8601
     organisation { build :organisation, :raw }
     docs []
     datafiles []
