@@ -10,25 +10,23 @@
     <div class="column-two-thirds">
       <h1 class='heading-large'>Support</h1>
 
-      <p>
-        The Government Digital Service (GDS) maintains the service behind data.gov.uk and helps
-        publishers to manage and update their data. GDS provides operational support
-        from 9am to 5pm, Monday to Friday.
-      </p>
+      <p>The Government Digital Service (GDS) maintains the technical service behind data.gov.uk
+         and helps government publishers to manage and update their data.</p>
 
-      <p>
-        For questions about a dataset, you can contact the publisher directly if they’ve provided contact details on the
-        dataset page.
-      </p>
+      <p>It cannot</p>
+      <ul class="list list-bullet">
+        <li>help you find or research datasets</li>
+        <li>provide personal information or medical records</li>
+        <li>combine data from multiple datasets</li>
+      </ul>
 
-      <p>
-        Please give us your feedback about the site using <%= link_to "our survey", "http://www.smartsurvey.co.uk/s/3SEXD/", class: "govuk-link" %>.
-      </p>
+      <p>For questions about <%= link_to "GOV.UK", "https://www.gov.uk/", class: "govuk-link" %> check the GOV.UK help pages
+         or <%= link_to "contact", "https://www.gov.uk/contact/govuk", class: "govuk-link" %> the team.</p>
 
-      <p>
-        To get answers about <%= link_to "GOV.UK", "https://www.gov.uk/", class: "govuk-link" %> you can check the GOV.UK help pages
-        or <%= link_to "contact", "https://www.gov.uk/contact/govuk", class: "govuk-link" %> the team.
-      </p>
+      <p>The NHS <%= link_to "publishes its own data.", "https://digital.nhs.uk/data-and-information/data-collections-and-data-sets/data-sets", class: "govuk-link" %></p>
+
+      <h1 class="heading-medium">If you have a question about a dataset</h1>
+      <p>If you have a question about a specific dataset, contact the publisher directly.</p>
 
       <form action="tickets/new" method="get">
         <div class="form-group">
@@ -45,7 +43,7 @@
 
             <div class="multiple-choice">
               <input id="support-2" type="radio" name="support" value="data">
-              <label for="support-2">I have a data request</label>
+              <label for="support-2">I want government to publish new data</label>
             </div>
 
             <div class="multiple-choice">
@@ -58,6 +56,7 @@
         <input class="govuk-button" type="submit" value="Continue">
       </form>
 
+      <p>Please give us your feedback about the site using <%= link_to "our survey", "http://www.smartsurvey.co.uk/s/3SEXD/", class: "govuk-link" %>.</p>
     </div>
   </div>
 </main>

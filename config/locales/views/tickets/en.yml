@@ -2,7 +2,7 @@ en:
   tickets:
     new:
       problem: "There was a problem"
-      data_request: "Send a data request"
+      data_request: "Ask the government to publish new data"
       feedback_request: "Report a problem"
       publish_request: "Publish for an organisation"
       your_message: "Your message"
