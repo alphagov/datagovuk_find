@@ -25,8 +25,10 @@ FactoryBot.define do
 
     trait :inspire do
       inspire_dataset do
-        { "bbox_north_lat" => "1.0", "bbox_east_long" => "1.0",
-          "bbox_south_lat" => "2.0", "bbox_west_long" => "2.0",
+        { "bbox_north_lat" => "1.0",
+          "bbox_east_long" => "1.0",
+          "bbox_south_lat" => "2.0",
+          "bbox_west_long" => "2.0",
           "harvest_object_id" => 1234 }
       end
 
