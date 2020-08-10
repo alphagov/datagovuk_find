@@ -1,7 +1,7 @@
 module Search
   class Query
-    MULTI_MATCH_FIELDS = %w(title summary description location*^2).freeze
-    MULTI_MATCH_FIELDS_ENGLISH = %w(title.english^2 summary.english description.english).freeze
+    MULTI_MATCH_FIELDS = %w[title summary description location*^2].freeze
+    MULTI_MATCH_FIELDS_ENGLISH = %w[title.english^2 summary.english description.english].freeze
     TERMS_SIZE = 10_000
 
     attr_accessor :clauses
@@ -113,7 +113,7 @@ module Search
             queries: [
               {
                 more_like_this: {
-                  fields: %w(title summary description),
+                  fields: %w[title summary description],
                   like: {
                     _type: "dataset",
                     _id: id,
@@ -124,7 +124,7 @@ module Search
               },
               {
                 more_like_this: {
-                  fields: %w(organisation^2 location*^2),
+                  fields: %w[organisation^2 location*^2],
                   like: {
                     _type: "dataset",
                     _id: id,

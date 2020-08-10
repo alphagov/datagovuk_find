@@ -2,10 +2,10 @@ require "uri"
 
 module DatasetsHelper
   NO_MORE = {
-      "discontinued" => "Dataset no longer updated",
-      "never" => "No future updates",
-      "one off" => "No future updates",
-      "default" => "Not available",
+    "discontinued" => "Dataset no longer updated",
+    "never" => "No future updates",
+    "one off" => "No future updates",
+    "default" => "Not available",
   }.freeze
 
   def to_markdown(content)
