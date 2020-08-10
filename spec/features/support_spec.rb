@@ -26,13 +26,13 @@ RSpec.feature "Support tickets", type: :feature do
     end
   end
 
-  feature "Asking for data" do
+  feature "Asking government to publish new data" do
     let(:ticket) { build :ticket, support: "data" }
 
     scenario "Send a support ticket to Zendesk" do
-      choose "I have a data request"
+      choose "I want government to publish new data"
       click_on "Continue"
-      expect(page).to have_content "Send a data request"
+      expect(page).to have_content "Ask the government to publish new data"
 
       fill_in "example-content", with: ticket.content
       fill_in "example-name", with: ticket.name
@@ -72,7 +72,7 @@ RSpec.feature "Support tickets", type: :feature do
     let(:ticket) { build :ticket, email: "foo" }
 
     scenario "Show the errors in the ticket form" do
-      choose "I have a data request"
+      choose "I want government to publish new data"
       click_on "Continue"
       fill_in "example-email", with: ticket.email
 
