@@ -1,11 +1,13 @@
+# The test environment is used exclusively to run your application's
+# test suite. You never need to work with it otherwise. Remember that
+# your test database is "scratch space" for the test suite and is wiped
+# and recreated between test runs. Don't rely on the data there!
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  # The test environment is used exclusively to run your application's
-  # test suite. You never need to work with it otherwise. Remember that
-  # your test database is "scratch space" for the test suite and is wiped
-  # and recreated between test runs. Don't rely on the data there!
-  config.cache_classes = true
+  config.cache_classes = false
+  config.action_view.cache_template_loading = true
 
   # Do not eager load code on boot. This avoids loading your whole application
   # just for the purpose of running a single test. If you are using a tool that
@@ -15,17 +17,20 @@ Rails.application.configure do
   # Configure public file server for tests with Cache-Control for performance.
   config.public_file_server.enabled = true
   config.public_file_server.headers = {
-    'Cache-Control' => "public, max-age=#{1.hour.seconds.to_i}"
+    'Cache-Control' => "public, max-age=#{1.hour.to_i}"
   }
 
   # Handle errors and disable caching.
   config.consider_all_requests_local = false
   config.action_controller.perform_caching = false
+  config.cache_store = :null_store
 
   # Render exceptions instead of raising them
   config.action_dispatch.show_exceptions = true
 
-  # Disable caching in test environment.
+  # The support forms require CSRF authentication, this should be checked in the tests
+  config.action_controller.allow_forgery_protection = true
+
   config.action_mailer.perform_caching = false
 
   # Tell Action Mailer not to deliver emails to the real world.
@@ -36,9 +41,6 @@ Rails.application.configure do
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
 
-  # Raises error for missing translations
+  # Raises error for missing translations.
   config.action_view.raise_on_missing_translations = true
-
-  # The support forms require CSRF authentication, this should be checked in the tests
-  config.action_controller.allow_forgery_protection = true  
 end
