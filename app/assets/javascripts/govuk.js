@@ -15,27 +15,23 @@ $(document).ready(function () {
   var showHide = new ShowHide()
   showHide.init()
 
-  if (document.getElementById('publisher')) {
-    accessibleAutocomplete.enhanceSelectElement({
-      selectElement: document.querySelector('#publisher'),
-      showAllValues: true,
-      preserveNullOptions: true
-    })
+  var autocompleteSelects = document.getElementsByClassName('js-accessible-autocomplete')
+
+  if (autocompleteSelects.length > 0) {
+    for (var i = 0; i < autocompleteSelects.length; i += 1) {
+      accessibleAutocomplete.enhanceSelectElement({
+        selectElement: autocompleteSelects[i],
+        showAllValues: true,
+        preserveNullOptions: true
+      })
+    }
   }
 
-  if (document.getElementById('format')) {
-    accessibleAutocomplete.enhanceSelectElement({
-      selectElement: document.querySelector('#format'),
-      showAllValues: true,
-      preserveNullOptions: true
-    })
-  }
+  var sortDatasets = document.getElementById('sort-datasets')
 
-  if(document.getElementById('topic')) {
-    accessibleAutocomplete.enhanceSelectElement({
-      selectElement: document.querySelector('#topic'),
-      showAllValues: true,
-      preserveNullOptions: true
+  if (sortDatasets) {
+    sortDatasets.addEventListener('change', function(event) {
+      event.target.form.submit()
     })
   }
 
@@ -69,7 +65,7 @@ ShowHide.prototype = {
     event.preventDefault()
 
     var openCloseAllControl = $(event.target)
-    var dataLinks = $(this.selector);
+    var dataLinks = $(this.selector)
     var dataLinkContent = dataLinks.find(this.contentSelector)
     var dataLinkExpand = dataLinks.find(this.expandSelector)
     var allOpen = openCloseAllControl.data('allOpen')
@@ -156,7 +152,7 @@ LimitDatasets.prototype.toggle = function (event) {
   if (folded === 'folded') {
     $target.text('Show less')
     this.moreFiles.show()
-    $(this.moreFiles[0]).attr('tabindex', -1).focus();
+    $(this.moreFiles[0]).attr('tabindex', -1).focus()
     $target.data('folded', 'unfolded')
   } else {
     $target.text('Show more')
