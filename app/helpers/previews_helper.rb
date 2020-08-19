@@ -6,4 +6,8 @@ module PreviewsHelper
       t(".download_file")
     end
   end
+
+  def is_numeric(string)
+    string.match?(/\d/)
+  end
 end

@@ -1,16 +1,46 @@
 <% content_for :page_title do %><%= @datafile.name %><% end %>
 
-<main role="main" id="content">
-  <div class="grid-row">
-    <div class="column-two-thirds">
+<main role="main" id="main-content" class="govuk-main-wrapper">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
       <%= link_to t('.back_link'), dataset_path(@dataset.uuid, @dataset.name), class: 'link-back govuk-link' %>
-      <h1 class="heading-large">
-        <%= @dataset.title %>
-        <span class="heading-secondary dgu-home-spacer__bottom"><%= @datafile.name %></span>
-      </h1>
+
+      <%= render "govuk_publishing_components/components/heading", {
+        text: sanitize("#{@dataset.title}<span class=\"govuk-caption-l gem-c-title__context\">#{@datafile.name}</span>"),
+        margin_bottom: 8,
+        heading_level: 1,
+        font_size: "l"
+      } %>
 
       <% if @datafile.csv? && @datafile.preview.exists? %>
-        <p>You're previewing the first <%= @datafile.preview.line_count %> rows of this file.</p>
+        <%
+          table_rows = []
+          table_headings = []
+
+          if @datafile.preview.rows.present?
+            @datafile.preview.rows.each do |row|
+              table_row = []
+              row.each do |col|
+                table_row << {
+                  text: col,
+                  format: is_numeric(col) ? "numeric" : false
+                }
+              end
+              table_rows <<  table_row
+            end
+          end
+
+          if @datafile.preview.headers.present?
+            @datafile.preview.headers.each_with_index do |col, index|
+              table_headings << {
+                text: col,
+                format: (table_rows.select {|row| row[index][:format] == "numeric"}).length > 0 ? "numeric" : false
+              }
+            end
+          end
+        %>
+        
+        <p class="govuk-body"><%= t('.preview_line', line_count: @datafile.preview.line_count) %></p>
         <%= link_to download_text(@dataset, @datafile), @datafile.url,
           class: "govuk-button",
           data: {
@@ -21,40 +51,29 @@
         %>
 
         <% if @dataset.organogram? %>
-          <%= link_to "View the full organogram", "#organogram", class: "button" %>
+          <%= link_to t('.view_full_organogram'), "#organogram", class: "govuk-button" %>
         <% end %>
-    </div>
-    <div class = 'column-full'>
-      <section class="dgu-datafile-preview">
-        <div class="dgu-datafile-preview__inner">
-          <table>
-            <thead>
-              <tr>
-                <% @datafile.preview.headers.each do |col| %>
-                  <th><%= col %></th>
-                <% end %>
-              </tr>
-            </thead>
-            <tbody>
-              <% @datafile.preview.rows.each do |row| %>
-                <tr>
-                  <% row.each do |col| %>
-                    <td><%= col %></td>
-                  <% end %>
-                </tr>
-              <% end %>
-            </tbody>
-          </table>
-        </div>
-        <% else %>
-          <p><%= "#{t('.no_preview_avail')} \"#{@datafile.name}\"" %></p>
-        <% end %>
-      </section>
-
-      <% if @dataset.organogram? %>
-        <section id="organogram" data-csv-url="<%= @datafile.url %>">
-        </section>
+      <% else %>
+        <p class="govuk-body"><%= "#{t('.no_preview_avail')} \"#{@datafile.name}\"" %></p>
       <% end %>
     </div>
+
+    <% if @datafile.csv? && @datafile.preview.exists? %>
+      <div class="govuk-grid-column-full">
+        <section id="dgu-preview">
+          <div class="dgu-datafile-preview">
+            <%= render "govuk_publishing_components/components/table", {
+              head: table_headings,
+              rows: table_rows
+            } %>
+          </div>
+        </section>
+
+        <% if @dataset.organogram? %>
+          <section id="organogram" data-csv-url="<%= @datafile.url %>">
+          </section>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </main>
