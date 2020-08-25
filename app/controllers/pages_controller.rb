@@ -8,6 +8,10 @@ class PagesController < ApplicationController
     @datafiles_count_by_format = Dataset.datafiles["formats"]["buckets"]
   end
 
+  def ckan_maintenance
+    render "ckan_maintenance", status: :service_unavailable
+  end
+
 private
 
   def get_datasets_count
