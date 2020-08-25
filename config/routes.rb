@@ -31,6 +31,7 @@ Rails.application.routes.draw do
     get 'site-changes', to: :site_changes
     get 'support'
     get 'terms'
+    get 'ckan_maintenance'
   end
 
   match "404", to: "errors#not_found", via: :all
