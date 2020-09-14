@@ -82,4 +82,25 @@ RSpec.feature "Support tickets", type: :feature do
       expect(page).to have_content "Enter a message"
     end
   end
+
+  feature "Reporting an accessibility issue" do
+    let(:ticket) { build :ticket, support: "accessibility" }
+
+    scenario "Send a support ticket to Zendesk" do
+      choose "I want to report an accessibility issue"
+      click_on "Continue"
+      expect(page).to have_content "Report an accessibility issue"
+
+      fill_in "example-content", with: ticket.content
+      fill_in "example-name", with: ticket.name
+      fill_in "example-email", with: ticket.email
+
+      expect(Zendesk.client)
+        .to receive_message_chain("tickets.create!")
+        .with(ticket.to_json)
+
+      click_on "Submit"
+      expect(page).to have_content "Thanks for contacting data.gov.uk"
+    end
+  end
 end

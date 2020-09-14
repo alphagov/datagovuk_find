@@ -5,6 +5,7 @@ en:
       data_request: "Ask the government to publish new data"
       feedback_request: "Report a problem"
       publish_request: "Publish for an organisation"
+      accessibility_request: "Report an accessibility issue"
       your_message: "Your message"
       enter_a_message: "Enter a message"
       name: "Name"
