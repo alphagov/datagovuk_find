@@ -1,7 +1,5 @@
 source "https://rubygems.org"
 
-ruby IO.read(".ruby-version").strip
-
 gem "rails", "6.0.3.2"
 
 gem "addressable"
