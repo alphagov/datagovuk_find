@@ -4,63 +4,69 @@
   <%= render 'shared/breadcrumb' %>
 <% end%>
 
-<main role="main" id="content">
+<main role="main" id="main-content" class="govuk-main-wrapper">
 
-  <div class="grid-row inner">
-    <div class="column-two-thirds">
-      <h1 class='heading-large'>Support</h1>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <%= render "govuk_publishing_components/components/heading", {
+        text: "Support",
+        margin_bottom: 6,
+        heading_level: 1,
+        font_size: "l",
+      } %>
 
-      <p>The Government Digital Service (GDS) maintains the technical service behind data.gov.uk
+      <p class="govuk-body">The Government Digital Service (GDS) maintains the technical service behind data.gov.uk
          and helps government publishers to manage and update their data.</p>
 
-      <p>It cannot</p>
+      <p class="govuk-body">It cannot</p>
       <ul class="list list-bullet">
         <li>help you find or research datasets</li>
         <li>provide personal information or medical records</li>
         <li>combine data from multiple datasets</li>
       </ul>
 
-      <p>For questions about <%= link_to "GOV.UK", "https://www.gov.uk/", class: "govuk-link" %> check the GOV.UK help pages
-         or <%= link_to "contact", "https://www.gov.uk/contact/govuk", class: "govuk-link" %> the team.</p>
+      <p class="govuk-body">For questions about GOV.UK check the <%= link_to "GOV.UK help pages", "https://www.gov.uk/help", class: "govuk-link" %> or <%= link_to "contact GOV.UK", "https://www.gov.uk/contact/govuk", class: "govuk-link" %>.</p>
+      <p class="govuk-body">The NHS <%= link_to "publishes its own data.", "https://digital.nhs.uk/data-and-information/data-collections-and-data-sets/data-sets", class: "govuk-link" %></p>
 
-      <p>The NHS <%= link_to "publishes its own data.", "https://digital.nhs.uk/data-and-information/data-collections-and-data-sets/data-sets", class: "govuk-link" %></p>
-
-      <h1 class="heading-medium">If you have a question about a dataset</h1>
-      <p>If you have a question about a specific dataset, contact the publisher directly.</p>
+      <%= render "govuk_publishing_components/components/heading", {
+        text: "If you have a question about a dataset",
+        margin_bottom: 4,
+        heading_level: 2,
+        font_size: "m",
+      } %>
+      <p class="govuk-body">If you have a question about a specific dataset, contact the publisher directly.</p>
 
       <form action="tickets/new" method="get">
-        <div class="form-group">
-          <fieldset>
+        <%= render "govuk_publishing_components/components/radio", {
+          name: "support",
+          heading: "How can we help you?",
+          items: [
+            {
+              value: "feedback",
+              text: "I want to report a problem"
+            },
+            {
+              value: "data",
+              text: "I want government to publish new data"
+            },
+            {
+              value: "publish",
+              text: "I want to publish for an organisation"
+            },
+            {
+              value: "accessibility",
+              text: "I want to report an accessibility issue"
+            },
+          ]
+        } %>
 
-            <legend>
-              <h1 class="heading-medium">How can we help you?</h1>
-            </legend>
-
-            <div class="multiple-choice">
-              <input id="support-1" type="radio" name="support" value="feedback">
-              <label for="support-1">I want to report a problem</label>
-            </div>
-
-            <div class="multiple-choice">
-              <input id="support-2" type="radio" name="support" value="data">
-              <label for="support-2">I want government to publish new data</label>
-            </div>
-
-            <div class="multiple-choice">
-              <input id="support-3" type="radio" name="support" value="publish">
-              <label for="support-3">I want to publish for an organisation</label>
-            </div>
-
-            <div class="multiple-choice">
-              <input id="support-4" type="radio" name="support" value="accessibility">
-              <label for="support-4">I want to report an accessibility issue</label>
-            </div>
-          </fieldset>
-        </div>
-        <input class="govuk-button" type="submit" value="Continue">
+        <%= render "govuk_publishing_components/components/button", {
+          text: "Continue",
+          margin_bottom: true,
+        } %>
       </form>
 
-      <p>Please give us your feedback about the site using <%= link_to "our survey", "http://www.smartsurvey.co.uk/s/3SEXD/", class: "govuk-link" %>.</p>
+      <p class="govuk-body">Please give us your feedback about the site using <%= link_to "our survey", "http://www.smartsurvey.co.uk/s/3SEXD/", class: "govuk-link" %>.</p>
     </div>
   </div>
 </main>
