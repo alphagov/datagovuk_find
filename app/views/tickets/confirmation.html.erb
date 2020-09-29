@@ -1,13 +1,18 @@
 <% content_for :page_title do %>Confirmation<% end %>
 
-<main role="main" id="content">
-  <div class="grid-row inner">
-    <div class="column-two-thirds">
-      <h1 class='heading-large'><%= t('.thanks_for_contacting') %></h1>
-      <p>
+<main role="main" id="main-content" class="govuk-main-wrapper">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+    <%= render "govuk_publishing_components/components/heading", {
+        text: t('.thanks_for_contacting'),
+        margin_bottom: 6,
+        heading_level: 1,
+        font_size: "l",
+      } %>
+      <p class="govuk-body">
         <%= t('.built_by_gds') %>
       </p>
-      <p>
+      <p class="govuk-body">
         <%= t('.operational_support') %>
       </p>
       <%= link_to 'Go back to support', support_path, class: 'govuk-link' %>
