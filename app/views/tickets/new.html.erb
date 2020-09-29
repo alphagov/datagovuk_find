@@ -4,64 +4,77 @@
   <%= render 'shared/breadcrumb' %>
 <% end%>
 
-<main role="main" id="content">
-  <div class="grid-row inner">
-    <div class="column-full">
+<main role="main" id="main-content" class="govuk-main-wrapper">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
       <% if @ticket.errors.any? %>
-        <div class="error-summary" role="alert" aria-labelledby="error-summary-heading">
-          <h2 class="heading-medium error-summary-heading" id="error-summary-heading">
-            <%= t('.problem')%>
-          </h2>
-          <ul class="error-summary-list">
-            <% @ticket.errors.messages.each do |attr, error| %>
-              <li><a href="#error-<%= attr.to_s %>"> <%= error[0] %></a></li>
-            <% end %>
-          </ul>
-        </div>
+        <%
+          errors = @ticket.errors.messages.map do |attr, error|
+            {
+              text: error[0],
+              href: "#error-#{attr.to_s}"
+            }
+          end
+        %>
+        
+        <%= render "govuk_publishing_components/components/error_summary", {
+          title: t('.problem'),
+          items: errors
+        } %>
       <% end %>
 
-      <h1 class='heading-medium'>
-        <%= t(".#{@ticket.support}_request") %>
-      </h1>
+      <%= render "govuk_publishing_components/components/heading", {
+        text: t(".#{@ticket.support}_request"),
+        margin_bottom: 4,
+        heading_level: 1,
+        font_size: "l",
+      } %>
 
       <%= form_for @ticket, url: { action: "create", controller: "tickets" } do |f| %>
-        <div class="form-group <% if @ticket.errors[:content].any? %> form-group-error <% end %>">
-          <label for="example-content" id="error-content">
-            <span class="form-label dgu-support__form-label"><%= t('.your_message') %></span>
-            <% if @ticket.errors[:content].any? %>
-              <span class="error-message"><%= t('.enter_a_message') %></span>
-            <% end %>
-          </label>
-          <%= f.text_area(:content,
-                          class: input_box_class_for(@ticket, :content),
-                          id: "example-content",
-                          rows: 8 ) %>
-        </div>
-        <div class="form-group <% if @ticket.errors[:name].any? %> form-group-error <% end %>">
-          <label for="example-name" id="error-name">
-            <span class="form-label dgu-support__form-label"><%= t('.name') %></span>
-            <% if @ticket.errors[:name].any? %>
-              <span class="error-message"><%= t('.enter_a_name') %></span>
-            <% end %>
-          </label>
-          <%= f.text_field(:name,
-                          class: input_box_class_for(@ticket, :name),
-                          id: "example-name") %>
-        </div>
-        <div class="form-group <% if @ticket.errors[:email].any? %> form-group-error <% end %>" >
-          <label for="example-email" id="error-email">
-            <span class="form-label dgu-support__form-label"><%= t('.email_address') %></span>
-            <% if @ticket.errors[:email].any? %>
-              <span class="error-message"><%= t('.enter_an_email') %></span>
-            <% end %>
-          </label>
-          <span class="form-hint"><%= t('.use_this_to_reply') %></span>
-          <%= f.text_field(:email,
-                          class: input_box_class_for(@ticket, :email),
-                          id: "example-email") %>
-        </div>
+        <%
+          content_error = t('.enter_a_message') if @ticket.errors[:content].any?
+          content_error_id = "error-content" if @ticket.errors[:content].any?
+          name_error = t('.enter_a_name') if @ticket.errors[:name].any?
+          name_error_id = "error-name" if @ticket.errors[:name].any?
+          email_error = t('.enter_an_email') if @ticket.errors[:email].any?
+          email_error_id = "error-email" if @ticket.errors[:email].any?
+        %>
+
+        <%= render "govuk_publishing_components/components/textarea", {
+          label: {
+            text: t('.your_message'),
+          },
+          name: "ticket[content]",
+          error_message: content_error,
+          id: content_error_id,
+          rows: 8,
+        } %>
+
+        <%= render "govuk_publishing_components/components/input", {
+          label: {
+            text: t('.name'),
+          },
+          name: "ticket[name]",
+          error_message: name_error,
+          id: name_error_id,
+          autocomplete: "name",
+        } %>
+
+        <%= render "govuk_publishing_components/components/input", {
+          label: {
+            text: t('.email_address'),
+          },
+          name: "ticket[email]",
+          error_message: email_error,
+          id: email_error_id,
+          hint: t('.use_this_to_reply'),
+          autocomplete: "email",
+        } %>
+
         <%= f.hidden_field(:support, :value => @ticket.support) %>
-          <%= f.submit t('.submit'), class: "govuk-button dgu-support__button" %>
+        <%= render "govuk_publishing_components/components/button", {
+          text: t('.submit'),
+        } %>      
       <% end %>
     </div>
   </div>
