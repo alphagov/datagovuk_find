@@ -13,9 +13,9 @@ RSpec.feature "Support tickets", type: :feature do
       click_on "Continue"
       expect(page).to have_content "Report a problem"
 
-      fill_in "example-content", with: ticket.content
-      fill_in "example-name", with: ticket.name
-      fill_in "example-email", with: ticket.email
+      fill_in "Your message", with: ticket.content
+      fill_in "Name", with: ticket.name
+      fill_in "Email address", with: ticket.email
 
       expect(Zendesk.client)
         .to receive_message_chain("tickets.create!")
@@ -34,9 +34,9 @@ RSpec.feature "Support tickets", type: :feature do
       click_on "Continue"
       expect(page).to have_content "Ask the government to publish new data"
 
-      fill_in "example-content", with: ticket.content
-      fill_in "example-name", with: ticket.name
-      fill_in "example-email", with: ticket.email
+      fill_in "Your message", with: ticket.content
+      fill_in "Name", with: ticket.name
+      fill_in "Email address", with: ticket.email
 
       expect(Zendesk.client)
         .to receive_message_chain("tickets.create!")
@@ -55,9 +55,9 @@ RSpec.feature "Support tickets", type: :feature do
       click_on "Continue"
       expect(page).to have_content "Publish for an organisation"
 
-      fill_in "example-content", with: ticket.content
-      fill_in "example-name", with: ticket.name
-      fill_in "example-email", with: ticket.email
+      fill_in "Your message", with: ticket.content
+      fill_in "Name", with: ticket.name
+      fill_in "Email address", with: ticket.email
 
       expect(Zendesk.client)
         .to receive_message_chain("tickets.create!")
@@ -74,7 +74,7 @@ RSpec.feature "Support tickets", type: :feature do
     scenario "Show the errors in the ticket form" do
       choose "I want government to publish new data"
       click_on "Continue"
-      fill_in "example-email", with: ticket.email
+      fill_in "Email address", with: ticket.email
 
       click_on "Submit"
       expect(page).to have_content "Enter a valid email address"
@@ -91,9 +91,9 @@ RSpec.feature "Support tickets", type: :feature do
       click_on "Continue"
       expect(page).to have_content "Report an accessibility issue"
 
-      fill_in "example-content", with: ticket.content
-      fill_in "example-name", with: ticket.name
-      fill_in "example-email", with: ticket.email
+      fill_in "Your message", with: ticket.content
+      fill_in "Name", with: ticket.name
+      fill_in "Email address", with: ticket.email
 
       expect(Zendesk.client)
         .to receive_message_chain("tickets.create!")
