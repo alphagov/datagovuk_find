@@ -1,239 +1,261 @@
 <% content_for :page_title do %>Privacy<% end %>
 
-<main role="main" id="content">
+<main role="main" id="main-content" class="govuk-main-wrapper">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <%= render "govuk_publishing_components/components/title", {
+        title: "Privacy"
+      } %>
 
-  <div class="text">
+      <p class="govuk-body">Last updated 23 May 2018</p>
 
-    <h1 class="heading-large">
-      Privacy
-    </h1>
+      <%= render "govuk_publishing_components/components/heading", {
+        text: "Who we are",
+        margin_bottom: 4,
+        font_size: "m",
+      } %>
 
-    <p>Last updated 23 May 2018</p>
-
-    <h2 class="heading-medium">
-      Who we are
-    </h2>
-
-    <p>
-      Find open data is a data service provided by the
-      <%= link_to 'Government Digital Service', 'https://www.gov.uk/government/organisations/government-digital-service', class: 'govuk-link' %>
-      (GDS) which is part of the Cabinet Office. Our job is the digital
-      transformation of government.
-    </p>
-
-    <p>
-      Data.gov.uk helps people to find and use open government data, and
-      supports government publishers to maintain data.
-    </p>
-
-    <p>
-      The data controller for GDS is the Cabinet Office — a data controller
-      determines how and why personal data is processed. For more
-      information read the Cabinet Office’s entry in the
-      <%= link_to 'Data Protection Public Register', 'https://ico.org.uk/ESDWebPages/Entry/Z7414053', class: 'govuk-link' %>.
-    </p>
-
-    <h2 class="heading-medium">
-      What data we need
-    </h2>
-
-    <p>
-      The personal data we collect from you will include:
-    </p>
-
-    <ul class="list list-bullet">
-      <li>your name</li>
-      <li>your email address</li>
-      <li>your organisation</li>
-    </ul>
-
-    <p>
-      The legal basis for processing this data is in the exercise of a public
-      task of a Government Department to undertake its functions.
-    </p>
-
-    <h2 class="heading-medium">
-      Why we need it
-    </h2>
-
-    <p>
-      We collect your personal data so we can provide access to the publishing
-      service and to send you email notifications about service changes.
-    </p>
-
-    <p>
-      We collect an email address and name so we can verify you work for the
-      publishing organisation.
-    </p>
-
-    <h2 class="heading-medium">
-      What we do with it
-    </h2>
-
-    <p>
-      We use the data you provide to set up your account so you can manage and
-      publish data. From time to time, we might need to update you about changes
-      in the service.
-    </p>
-
-    <p>We will not:</p>
-
-    <ul class="list list-bullet">
-      <li>sell or rent your data to third parties</li>
-      <li>share your data with third parties for marketing purposes</li>
-    </ul>
-
-    <p>
-      We will share your data if we are required to do so by law — for example,
-      by court order, or to prevent fraud or other crime.
-    </p>
-
-    <h2 class="heading-medium">
-      How long we keep your data
-    </h2>
-
-    <p>
-      We will only retain your personal data for as long as it is required by
-      law. In general, this means that we will only hold your personal data for
-      the length of time you use this service, or up to 12 months after you
-      leave the service whereby all information will then be deleted.
-    </p>
-
-    <h2 class="heading-medium">
-      Children’s privacy protection
-    </h2>
-
-    <p>
-      We understand the importance of protecting children’s privacy online. Our
-      service is not designed for, or intentionally targeted at, children 13
-      years of age or younger. It is not our policy to intentionally collect or
-      maintain data about anyone under the age of 13.
-    </p>
-
-    <h2 class="heading-medium">
-      Where your data is processed and stored
-    </h2>
-
-    <p>
-      To make sure that your data is as safe as possible, we design and
-      maintain systems with secure accounts. Your personal data will not be
-      transferred outside of
-      the <%= link_to 'European Economic Area (EEA)', 'https://www.gov.uk/eu-eea', class: 'govuk-link' %>
-      while it’s processed at GDS.
-    </p>
-
-    <h2 class="heading-medium">
-      How we protect your data and keep it secure
-    </h2>
-
-    <p>
-      We are committed to doing all that we can to keep your data secure. To
-      prevent unauthorised access or disclosure we have put in place technical
-      and organisational procedures to secure the data we collect about you.
-    </p>
-
-    <p>
-      For example, we protect your data using varying levels of encryption. We
-      also make sure that any third parties that we deal with have an obligation
-      to keep all personal data they process on our behalf secure.
-    </p>
-
-    <h2 class="heading-medium">
-      What are your rights
-    </h2>
-
-    <p>You have the right to:</p>
-
-    <ul class="list list-bullet">
-      <li>request information about how your personal data is processed and to
-        request a copy of that personal data
-      </li>
-      <li>request that any inaccuracies in your personal data are rectified
-        without delay
-      </li>
-      <li>request that any incomplete personal data is completed, including by
-        means of a supplementary statement
-      </li>
-      <li>request that your personal data is erased if there is no longer a
-        justification for it to be processed
-      </li>
-      <li>request that the processing of your personal data is restricted in
-        certain circumstances — for example, where accuracy is contested
-      </li>
-    </ul>
-
-    <p>If your personal data is processed on the basis of consent, you have the
-      right to:
-    </p>
-
-    <ul class="list list-bullet">
-      <li>request a copy of any personal data you have provided, and for this to
-        be provided in a structured, commonly used and machine-readable format
-      </li>
-    </ul>
-
-    <h2 class="heading-medium">
-      Changes to this notice
-    </h2>
-
-    <p>
-      We may change this privacy notice at our discretion at any time. In that
-      case the ‘Last updated’ date at the top of this page will also change. Any
-      changes to this privacy notice will apply to you and your data
-      immediately. If these changes affect how your personal data is processed,
-      GDS will take reasonable steps to make sure you know.
-    </p>
-
-    <h2 class="heading-medium">
-      Questions and complaints
-    </h2>
-
-    <p>
-      The data controller for your personal data is the Cabinet Office. Contact
-      the  GDS Privacy Team if you have any questions or think that
-      your personal data has been misused or mishandled.
-    </p>
-
-    <p>
-      Email: <%= mail_to 'gds-privacy-office@digital.cabinet-office.gov.uk', nil, class: 'govuk-link' %>
-    </p>
-
-    <p>
-      The contact details for our Data Protection Officer are:
-    </p>
-
-    <div class="contact">
-      <p>
-        Data Protection Officer<br />
-        <%= mail_to 'DPO@cabinetoffice.gov.uk', nil, class: 'govuk-link' %><br />
-        Cabinet Office<br />
-        70 Whitehall<br />
-        London <br />
-        SW1A 2AS
+      <p class="govuk-body">
+        Find open data is a data service provided by the
+        <%= link_to 'Government Digital Service', 'https://www.gov.uk/government/organisations/government-digital-service', class: 'govuk-link' %>
+        (GDS) which is part of the Cabinet Office. Our job is the digital
+        transformation of government.
       </p>
-    </div>
 
-    <p>
-      The Data Protection Officer provides independent advice and monitoring of our use of personal information.
-    </p>
-
-    <p>
-      If you have a complaint, you can also contact
-      the <%= link_to 'Information Commissioner', 'https://ico.org.uk/', class: 'govuk-link' %>, who
-      is an independent regulator set up to uphold information rights.
-    </p>
-
-    <div class="contact">
-      <p>
-        Information Commissioner’s Office<br />
-        <%= mail_to 'casework@ico.org.uk', nil, class: 'govuk-link' %><br />
-        0303 123 1113</br>
-        Wycliffe House<br />
-        Water Lane<br />
-        Wilmslow<br />
-        Cheshire<br />
-        SK9 5AF
+      <p class="govuk-body">
+        Data.gov.uk helps people to find and use open government data, and
+        supports government publishers to maintain data.
       </p>
+
+      <p class="govuk-body">
+        The data controller for GDS is the Cabinet Office — a data controller
+        determines how and why personal data is processed. For more
+        information read the Cabinet Office’s entry in the
+        <%= link_to 'Data Protection Public Register', 'https://ico.org.uk/ESDWebPages/Entry/Z7414053', class: 'govuk-link' %>.
+      </p>
+
+      <%= render "govuk_publishing_components/components/heading", {
+        text: "What data we need",
+        margin_bottom: 4,
+        font_size: "m",
+      } %>
+
+      <p class="govuk-body">
+        The personal data we collect from you will include:
+      </p>
+
+      <%= render "govuk_publishing_components/components/list", {
+        visible_counters: true,
+        items: [
+          "your name",
+          "your email address",
+          "your organisation",
+        ]
+      } %>
+
+      <p class="govuk-body">
+        The legal basis for processing this data is in the exercise of a public
+        task of a Government Department to undertake its functions.
+      </p>
+
+      <%= render "govuk_publishing_components/components/heading", {
+        text: "Why we need it",
+        margin_bottom: 4,
+        font_size: "m",
+      } %>
+
+      <p class="govuk-body">
+        We collect your personal data so we can provide access to the publishing
+        service and to send you email notifications about service changes.
+      </p>
+
+      <p class="govuk-body">
+        We collect an email address and name so we can verify you work for the
+        publishing organisation.
+      </p>
+
+      <%= render "govuk_publishing_components/components/heading", {
+        text: "What we do with it",
+        margin_bottom: 4,
+        font_size: "m",
+      } %>
+
+      <p class="govuk-body">
+        We use the data you provide to set up your account so you can manage and
+        publish data. From time to time, we might need to update you about changes
+        in the service.
+      </p>
+
+      <p class="govuk-body">We will not:</p>
+
+      <%= render "govuk_publishing_components/components/list", {
+        visible_counters: true,
+        items: [
+          "sell or rent your data to third parties",
+          "share your data with third parties for marketing purposes",
+        ]
+      } %>
+
+      <p class="govuk-body">
+        We will share your data if we are required to do so by law — for example,
+        by court order, or to prevent fraud or other crime.
+      </p>
+
+      <%= render "govuk_publishing_components/components/heading", {
+        text: "How long we keep your data",
+        margin_bottom: 4,
+        font_size: "m",
+      } %>
+
+      <p class="govuk-body">
+        We will only retain your personal data for as long as it is required by
+        law. In general, this means that we will only hold your personal data for
+        the length of time you use this service, or up to 12 months after you
+        leave the service whereby all information will then be deleted.
+      </p>
+
+      <%= render "govuk_publishing_components/components/heading", {
+        text: "Children’s privacy protection",
+        margin_bottom: 4,
+        font_size: "m",
+      } %>
+
+      <p class="govuk-body">
+        We understand the importance of protecting children’s privacy online. Our
+        service is not designed for, or intentionally targeted at, children 13
+        years of age or younger. It is not our policy to intentionally collect or
+        maintain data about anyone under the age of 13.
+      </p>
+
+      <%= render "govuk_publishing_components/components/heading", {
+        text: "Where your data is processed and stored",
+        margin_bottom: 4,
+        font_size: "m",
+      } %>
+
+      <p class="govuk-body">
+        To make sure that your data is as safe as possible, we design and
+        maintain systems with secure accounts. Your personal data will not be
+        transferred outside of
+        the <%= link_to 'European Economic Area (EEA)', 'https://www.gov.uk/eu-eea', class: 'govuk-link' %>
+        while it’s processed at GDS.
+      </p>
+
+      <%= render "govuk_publishing_components/components/heading", {
+        text: "How we protect your data and keep it secure",
+        margin_bottom: 4,
+        font_size: "m",
+      } %>
+
+      <p class="govuk-body">
+        We are committed to doing all that we can to keep your data secure. To
+        prevent unauthorised access or disclosure we have put in place technical
+        and organisational procedures to secure the data we collect about you.
+      </p>
+
+      <p class="govuk-body">
+        For example, we protect your data using varying levels of encryption. We
+        also make sure that any third parties that we deal with have an obligation
+        to keep all personal data they process on our behalf secure.
+      </p>
+
+      <%= render "govuk_publishing_components/components/heading", {
+        text: "What are your rights",
+        margin_bottom: 4,
+        font_size: "m",
+      } %>
+
+      <p class="govuk-body">You have the right to:</p>
+
+      <%= render "govuk_publishing_components/components/list", {
+        visible_counters: true,
+        items: [
+          "request information about how your personal data is processed and to request a copy of that personal data",
+          "request that any inaccuracies in your personal data are rectified without delay",
+          "request that any incomplete personal data is completed, including by means of a supplementary statement",
+          "request that your personal data is erased if there is no longer a justification for it to be processed",
+          "request that the processing of your personal data is restricted in certain circumstances — for example, where accuracy is contested",
+        ]
+      } %>
+
+      <p class="govuk-body">If your personal data is processed on the basis of consent, you have the
+        right to:
+      </p>
+
+      <%= render "govuk_publishing_components/components/list", {
+        visible_counters: true,
+        items: [
+          "request a copy of any personal data you have provided, and for this to be provided in a structured, commonly used and machine-readable format",
+        ]
+      } %>
+
+      <%= render "govuk_publishing_components/components/heading", {
+        text: "Changes to this notice",
+        margin_bottom: 4,
+        font_size: "m",
+      } %>
+
+      <p class="govuk-body">
+        We may change this privacy notice at our discretion at any time. In that
+        case the ‘Last updated’ date at the top of this page will also change. Any
+        changes to this privacy notice will apply to you and your data
+        immediately. If these changes affect how your personal data is processed,
+        GDS will take reasonable steps to make sure you know.
+      </p>
+
+      <%= render "govuk_publishing_components/components/heading", {
+        text: "Questions and complaints",
+        margin_bottom: 4,
+        font_size: "m",
+      } %>
+
+      <p class="govuk-body">
+        The data controller for your personal data is the Cabinet Office. Contact
+        the  GDS Privacy Team if you have any questions or think that
+        your personal data has been misused or mishandled.
+      </p>
+
+      <p class="govuk-body">
+        Email: <%= mail_to 'gds-privacy-office@digital.cabinet-office.gov.uk', nil, class: 'govuk-link' %>
+      </p>
+
+      <p class="govuk-body">
+        The contact details for our Data Protection Officer are:
+      </p>
+
+      <div class="contact">
+        <p class="govuk-body">
+          Data Protection Officer<br />
+          <%= mail_to 'DPO@cabinetoffice.gov.uk', nil, class: 'govuk-link' %><br />
+          Cabinet Office<br />
+          70 Whitehall<br />
+          London <br />
+          SW1A 2AS
+        </p>
+      </div>
+
+      <p class="govuk-body">
+        The Data Protection Officer provides independent advice and monitoring of our use of personal information.
+      </p>
+
+      <p class="govuk-body">
+        If you have a complaint, you can also contact
+        the <%= link_to 'Information Commissioner', 'https://ico.org.uk/', class: 'govuk-link' %>, who
+        is an independent regulator set up to uphold information rights.
+      </p>
+
+      <div class="contact">
+        <p class="govuk-body">
+          Information Commissioner’s Office<br />
+          <%= mail_to 'casework@ico.org.uk', nil, class: 'govuk-link' %><br />
+          0303 123 1113<br />
+          Wycliffe House<br />
+          Water Lane<br />
+          Wilmslow<br />
+          Cheshire<br />
+          SK9 5AF
+        </p>
+      </div>
     </div>
   </div>
 </main>
