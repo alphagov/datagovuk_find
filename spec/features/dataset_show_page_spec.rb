@@ -22,7 +22,7 @@ RSpec.feature "Dataset page", type: :feature, elasticsearch: true do
       dataset = build :dataset, :with_ogl_licence
       index_and_visit(dataset)
 
-      within("section.meta-data") do
+      within("#dgu-metadata") do
         expect(page)
           .to have_link("Open Government Licence",
                         href: "http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/")
@@ -35,13 +35,13 @@ RSpec.feature "Dataset page", type: :feature, elasticsearch: true do
 
       index_and_visit(dataset)
 
-      within("section.meta-data") do
+      within("#dgu-metadata") do
         expect(page)
           .to have_link("View licence information",
                         href: "#licence-info")
       end
 
-      within("section.dgu-licence-info") do
+      within("#dgu-licence-info") do
         expect(page).to have_content("Special case")
       end
     end
@@ -50,7 +50,7 @@ RSpec.feature "Dataset page", type: :feature, elasticsearch: true do
       dataset = build :dataset, :with_custom_licence
       index_and_visit(dataset)
 
-      within("section.meta-data") do
+      within("#dgu-metadata") do
         expect(page)
           .to have_content("Other Licence")
 
@@ -59,7 +59,7 @@ RSpec.feature "Dataset page", type: :feature, elasticsearch: true do
                         href: "#licence-info")
       end
 
-      within("section.dgu-licence-info") do
+      within("#dgu-licence-info") do
         expect(page).to have_content("Special case")
       end
     end
@@ -68,7 +68,7 @@ RSpec.feature "Dataset page", type: :feature, elasticsearch: true do
       dataset = build :dataset, :with_custom_licence_brackets
       index_and_visit(dataset)
 
-      within("section.meta-data") do
+      within("#dgu-metadata") do
         expect(page)
           .to have_content("Other Licence")
 
@@ -77,7 +77,7 @@ RSpec.feature "Dataset page", type: :feature, elasticsearch: true do
                         href: "#licence-info")
       end
 
-      within("section.dgu-licence-info") do
+      within("#dgu-licence-info") do
         expect(page).to have_content("Special case")
       end
     end
@@ -86,7 +86,7 @@ RSpec.feature "Dataset page", type: :feature, elasticsearch: true do
       dataset = build :dataset, :with_custom_licence_brackets_middle
       index_and_visit(dataset)
 
-      within("section.meta-data") do
+      within("#dgu-metadata") do
         expect(page)
           .to have_content("Other Licence")
 
@@ -95,7 +95,7 @@ RSpec.feature "Dataset page", type: :feature, elasticsearch: true do
                         href: "#licence-info")
       end
 
-      within("section.dgu-licence-info") do
+      within("#dgu-licence-info") do
         expect(page).to have_content("Special case")
       end
     end
@@ -104,7 +104,7 @@ RSpec.feature "Dataset page", type: :feature, elasticsearch: true do
       dataset = build :dataset, licence_title: "My Licence"
       index_and_visit(dataset)
 
-      within("section.meta-data") do
+      within("#dgu-metadata") do
         expect(page)
           .to have_content("My Licence")
       end
@@ -114,7 +114,7 @@ RSpec.feature "Dataset page", type: :feature, elasticsearch: true do
       dataset = build :dataset, licence_url: "http://licence.com"
       index_and_visit(dataset)
 
-      within("section.meta-data") do
+      within("#dgu-metadata") do
         expect(page)
           .to have_link("http://licence.com",
                         href: "http://licence.com")
@@ -125,7 +125,7 @@ RSpec.feature "Dataset page", type: :feature, elasticsearch: true do
       dataset = build :dataset
       index_and_visit(dataset)
 
-      within("section.meta-data") do
+      within("#dgu-metadata") do
         expect(page)
           .to have_content("None")
       end
