@@ -1,8 +1,6 @@
 <%
-  accordion_items = []
-
-  group_and_order(datafiles).each do |year, datafiles|
-    accordion_items << {
+  accordion_items = group_and_order(datafiles).map do |year, datafiles|
+    {
       heading: {
         text: year.presence || t('.other_data_files')
       },
@@ -14,5 +12,6 @@
 %>
 
 <%= render "govuk_publishing_components/components/accordion", {
+  id: "dgu-datafiles-year",
   items: accordion_items
 } %>

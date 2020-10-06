@@ -357,15 +357,17 @@ RSpec.feature "Dataset page", type: :feature, elasticsearch: true do
 
     scenario "are grouped by year when they contain timeseries datafiles" do
       index_and_visit(dataset)
-      expect(page).to have_css(".dgu-datafiles__year", count: 2)
+      expect(page).to have_css("#dgu-datafiles-year")
 
-      correct_order = [
-        Time.zone.parse(datafile2["start_date"]).year.to_s,
-        Time.zone.parse(datafile1["start_date"]).year.to_s,
-      ]
+      within("#dgu-datafiles-year") do
+        correct_order = [
+          Time.zone.parse(datafile2["start_date"]).year.to_s,
+          Time.zone.parse(datafile1["start_date"]).year.to_s,
+        ]
 
-      actual_order = all("button.dgu-datafiles__year").map(&:text)
-      expect(actual_order).to eq correct_order
+        actual_order = all(".govuk-accordion__section-button").map(&:text)
+        expect(actual_order).to eq correct_order
+      end
     end
 
     scenario "are not grouped when they contain non timeseries datafiles" do
