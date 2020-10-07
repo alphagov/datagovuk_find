@@ -33,6 +33,9 @@ $govuk-use-legacy-palette: false;
 @import 'govuk_publishing_components/components/_skip-link';
 @import 'govuk_publishing_components/components/_table';
 @import 'govuk_publishing_components/components/_title';
+@import 'govuk_publishing_components/components/_error-summary';
+@import 'govuk_publishing_components/components/_textarea';
+@import 'govuk_publishing_components/components/_input';
 
 $path: "/assets/";
 $helvetica-regular: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
