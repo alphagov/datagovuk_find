@@ -339,12 +339,12 @@ RSpec.feature "Dataset page", type: :feature, elasticsearch: true do
       index_and_visit(dataset)
 
       expect(page).to have_css("js-show-more-datafiles", count: 0)
-      expect(page).to have_css(".dgu-datafile", count: 5)
+      expect(page).to have_css(".js-datafile-visible", count: 5)
       expect(page).to have_css(".show-toggle", text: "Show more")
 
       find(".show-toggle").click
 
-      expect(page).to have_css(".dgu-datafile", count: 20)
+      expect(page).to have_css(".js-datafile-visible", count: 20)
       expect(page).to have_css(".show-toggle", text: "Show less")
     end
   end
