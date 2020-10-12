@@ -1,85 +1,99 @@
 <% content_for :page_title do %>Terms and conditions<% end %>
 
-<main role="main" id="content">
+<main role="main" id="main-content" class="govuk-main-wrapper">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <%= render "govuk_publishing_components/components/title", {
+        title: "Terms and conditions"
+      } %>
 
-  <div class="text">
-    <h1 class="heading-large">
-      Terms and conditions
-    </h1>
+      <p class="govuk-body">
+        This page and any pages it links to explains Find open data's terms of use. You must agree to these to use
+        Find open data.
+      </p>
 
-    <p>
-      This page and any pages it links to explains Find open data's terms of use. You must agree to these to use
-      Find open data.
-    </p>
+      <%= render "govuk_publishing_components/components/heading", {
+        text: "Who we are",
+        margin_bottom: 4,
+        font_size: "m",
+      } %>
 
-    <h2 class="heading-medium">
-      Who we are
-    </h2>
+      <p class="govuk-body">
+        Find open data is managed by <%= link_to 'Government Digital Service', 'https://www.gov.uk/government/organisations/government-digital-service', class: 'govuk-link' %>
+        (GDS) on behalf of the Crown. GDS is part of the Cabinet Office and will be referred to as 'we' from now on.
+      </p>
 
-    <p>
-      Find open data is managed by <%= link_to 'Government Digital Service', 'https://www.gov.uk/government/organisations/government-digital-service', class: 'govuk-link' %>
-      (GDS) on behalf of the Crown. GDS is part of the Cabinet Office and will be referred to as 'we' from now on.
-    </p>
+      <%= render "govuk_publishing_components/components/heading", {
+        text: "Using Find open data",
+        margin_bottom: 4,
+        font_size: "m",
+      } %>
 
-    <h2 class="heading-medium">
-      Using Find open data
-    </h2>
+      <p class="govuk-body">
+        You agree to use Find open data only for lawful purposes. You must also use it in a way that doesn't infringe the
+        rights of, or restrict or inhibit the use and enjoyment of, this site by anyone else.
+      </p>
 
-    <p>
-      You agree to use Find open data only for lawful purposes. You must also use it in a way that doesn't infringe the
-      rights of, or restrict or inhibit the use and enjoyment of, this site by anyone else.
-    </p>
+      <%= render "govuk_publishing_components/components/heading", {
+        text: "Linking from Find open data",
+        margin_bottom: 4,
+        font_size: "m",
+      } %>
 
-    <h2 class="heading-medium">
-      Linking from Find open data
-    </h2>
+      <p class="govuk-body">
+        Find open data links to websites that are managed by other government departments and agencies, service providers or
+        other organisations. We don't have any control over the content on these websites.
+      </p>
 
-    <p>
-      Find open data links to websites that are managed by other government departments and agencies, service providers or
-      other organisations. We don't have any control over the content on these websites.
-    </p>
+      <p class="govuk-body">We're not responsible for:</p>
 
-    <p>We're not responsible for:</p>
+      <%= render "govuk_publishing_components/components/list", {
+        visible_counters: true,
+        items: [
+          "the protection of any information you give to these websites",
+          "any loss or damage that may come from your use of these websites, or any other websites they link to",
+        ]
+      } %>
 
-    <ul class="list list-bullet">
-      <li>the protection of any information you give to these websites</li>
-      <li>any loss or damage that may come from your use of these websites, or any other websites they link to</li>
-    </ul>
+      <p class="govuk-body">
+        You agree to release us from any claims or disputes that may come from using these websites.
+      </p>
 
-    <p>
-      You agree to release us from any claims or disputes that may come from using these websites.
-    </p>
+      <p class="govuk-body">
+        You should read all terms and conditions, privacy policies and end user licences that relate to these websites
+        before you use them.
+      </p>
 
-    <p>
-      You should read all terms and conditions, privacy policies and end user licences that relate to these websites
-      before you use them.
-    </p>
+      <%= render "govuk_publishing_components/components/heading", {
+        text: "Responsibility for datasets",
+        margin_bottom: 4,
+        font_size: "m",
+      } %>
 
-    <h2 class="heading-medium">
-      Responsibility for datasets
-    </h2>
+      <p class="govuk-body">
+        Only publishers with accounts for Find open data can ask for datasets to be deleted.
+        <%= link_to 'Contact us', support_path, class: 'govuk-link' %> to ask for datasets to be deleted if you are a publisher.
+      </p>
 
-    <p>
-      Only publishers with accounts for Find open data can ask for datasets to be deleted.
-      <%= link_to 'Contact us', support_path, class: 'govuk-link' %> to ask for datasets to be deleted if you are a publisher.
-    </p>
+      <p class="govuk-body">
+        Find open data does not host datasets. They are the responsibility of the publishing organisation.
+        All requests for data under the Freedom of Information Act and the Data Protection Act should be sent to the publishing organisation.
+      </p>
 
-    <p>
-      Find open data does not host datasets. They are the responsibility of the publishing organisation.
-      All requests for data under the Freedom of Information Act and the Data Protection Act should be sent to the publishing organisation.
-    </p>
+      <%= render "govuk_publishing_components/components/heading", {
+        text: "Changes to these terms and conditions",
+        margin_bottom: 4,
+        font_size: "m",
+      } %>
 
-    <h2 class="heading-medium">
-      Changes to these terms and conditions
-    </h2>
+      <p class="govuk-body">
+        Please check these terms and conditions regularly. We can update them at any time without notice.
+      </p>
 
-    <p>
-      Please check these terms and conditions regularly. We can update them at any time without notice.
-    </p>
-
-    <p>
-      You'll agree to any changes if you continue to use Find open data after the terms and conditions have been
-      updated.
-    </p>
+      <p class="govuk-body">
+        You'll agree to any changes if you continue to use Find open data after the terms and conditions have been
+        updated.
+      </p>
+    </div>
   </div>
 </main>
