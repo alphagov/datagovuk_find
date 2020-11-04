@@ -282,6 +282,11 @@
       outline: 3px solid govuk-colour("yellow");
     }
   }
+
+  &__organogram:focus {
+    border: 3px solid govuk-colour("black");
+    outline: 3px solid govuk-colour("yellow");
+  }
 }
 
 // =============================================================================

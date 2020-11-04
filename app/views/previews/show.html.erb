@@ -72,7 +72,7 @@
         </section>
 
         <% if @dataset.organogram? %>
-          <section id="organogram" data-csv-url="<%= @datafile.url %>">
+          <section id="organogram" class="dgu-datafile-preview__organogram" data-csv-url="<%= @datafile.url %>" tabindex="0">
           </section>
         <% end %>
       </div>
