@@ -40,7 +40,7 @@ module Search
             org_titles: {
               terms: {
                 field: "organisation.title.raw",
-                order: { _term: "asc" },
+                order: { _key: "asc" },
                 size: TERMS_SIZE,
               },
             },
@@ -79,7 +79,7 @@ module Search
             topic_titles: {
               terms: {
                 field: "topic.title.raw",
-                order: { _term: "asc" },
+                order: { _key: "asc" },
                 size: TERMS_SIZE,
               },
             },
