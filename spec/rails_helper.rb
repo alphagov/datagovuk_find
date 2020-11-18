@@ -33,7 +33,7 @@ Dir[Rails.root.join("spec/support/**/*.rb")].sort.each { |f| require f }
 
 FactoryBot.find_definitions
 
-WebMock.disable_net_connect!(allow_localhost: true, allow: "elasticsearch")
+WebMock.disable_net_connect!(allow_localhost: true, allow: %w[elasticsearch elasticsearch6])
 
 RSpec.configure do |config|
   # RSpec Rails can automatically mix in different behaviours to your tests
