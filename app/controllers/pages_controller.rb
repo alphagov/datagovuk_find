@@ -15,7 +15,7 @@ class PagesController < ApplicationController
 private
 
   def get_datasets_count
-    query = Search::Query.search(q: "")
+    query = Search::Query.search(q: "", track_total_hits: true)
     Dataset.search(query).total_count
   end
 end

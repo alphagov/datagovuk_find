@@ -52,6 +52,6 @@ private
 
   def search
     query = Search::Query.search(params)
-    Dataset.search(query)
+    Dataset.search(query, track_total_hits: true)
   end
 end

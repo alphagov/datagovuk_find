@@ -32,127 +32,125 @@ end
 
 def index_mappings
   {
-    dataset: {
-      properties: {
-        name: {
-          type: "keyword",
-          index: true,
-        },
-        title: {
-          type: "text",
-          fields: {
-            keyword: {
-              type: "keyword",
-              index: true,
-            },
-            english: {
-              type: "text",
-              analyzer: "english",
-            },
+    properties: {
+      name: {
+        type: "keyword",
+        index: true,
+      },
+      title: {
+        type: "text",
+        fields: {
+          keyword: {
+            type: "keyword",
+            index: true,
+          },
+          english: {
+            type: "text",
+            analyzer: "english",
           },
         },
-        summary: {
-          type: "text",
-          fields: {
-            keyword: {
-              type: "keyword",
-              index: true,
-            },
-            english: {
-              type: "text",
-              analyzer: "english",
-            },
+      },
+      summary: {
+        type: "text",
+        fields: {
+          keyword: {
+            type: "keyword",
+            index: true,
+          },
+          english: {
+            type: "text",
+            analyzer: "english",
           },
         },
-        description: {
-          type: "text",
-          fields: {
-            keyword: {
-              type: "keyword",
-              index: true,
-            },
-            english: {
-              type: "text",
-              analyzer: "english",
-            },
+      },
+      description: {
+        type: "text",
+        fields: {
+          keyword: {
+            type: "keyword",
+            index: true,
+          },
+          english: {
+            type: "text",
+            analyzer: "english",
           },
         },
-        legacy_name: {
-          type: "keyword",
-          index: true,
-        },
-        uuid: {
-          type: "keyword",
-          index: true,
-        },
-        location1: {
-          type: "text",
-          fields: {
-            raw: {
-              type: "keyword",
-              index: true,
-            },
+      },
+      legacy_name: {
+        type: "keyword",
+        index: true,
+      },
+      uuid: {
+        type: "keyword",
+        index: true,
+      },
+      location1: {
+        type: "text",
+        fields: {
+          raw: {
+            type: "keyword",
+            index: true,
           },
         },
-        topic: {
-          type: "nested",
-          properties: {
-            title: {
-              type: "text",
-              fields: {
-                raw: {
-                  type: "keyword",
-                  index: true,
-                },
+      },
+      topic: {
+        type: "nested",
+        properties: {
+          title: {
+            type: "text",
+            fields: {
+              raw: {
+                type: "keyword",
+                index: true,
               },
             },
           },
         },
-        organisation: {
-          type: "nested",
-          properties: {
-            title: {
-              type: "text",
-              fields: {
-                raw: {
-                  type: "keyword",
-                  index: true,
-                },
-                english: {
-                  type: "text",
-                  analyzer: "english",
-                },
+      },
+      organisation: {
+        type: "nested",
+        properties: {
+          title: {
+            type: "text",
+            fields: {
+              raw: {
+                type: "keyword",
+                index: true,
+              },
+              english: {
+                type: "text",
+                analyzer: "english",
               },
             },
-            description: {
-              type: "text",
-              fields: {
-                raw: {
-                  type: "keyword",
-                  index: true,
-                },
-                english: {
-                  type: "text",
-                  analyzer: "english",
-                },
+          },
+          description: {
+            type: "text",
+            fields: {
+              raw: {
+                type: "keyword",
+                index: true,
+              },
+              english: {
+                type: "text",
+                analyzer: "english",
               },
             },
           },
         },
-        datafiles: {
-          type: "nested",
-          properties: {
-            format: {
-              type: "keyword",
-              normalizer: "lowercase_normalizer",
-            },
+      },
+      datafiles: {
+        type: "nested",
+        properties: {
+          format: {
+            type: "keyword",
+            normalizer: "lowercase_normalizer",
           },
         },
-        docs: {
-          type: "nested",
-          properties: {
-            format: { type: "keyword" },
-          },
+      },
+      docs: {
+        type: "nested",
+        properties: {
+          format: { type: "keyword" },
         },
       },
     },

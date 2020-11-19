@@ -40,7 +40,7 @@ module Search
             org_titles: {
               terms: {
                 field: "organisation.title.raw",
-                order: { _term: "asc" },
+                order: { _key: "asc" },
                 size: TERMS_SIZE,
               },
             },
@@ -79,7 +79,7 @@ module Search
             topic_titles: {
               terms: {
                 field: "topic.title.raw",
-                order: { _term: "asc" },
+                order: { _key: "asc" },
                 size: TERMS_SIZE,
               },
             },
@@ -114,10 +114,7 @@ module Search
               {
                 more_like_this: {
                   fields: %w[title summary description],
-                  like: {
-                    _type: "dataset",
-                    _id: id,
-                  },
+                  like: { _id: id },
                   min_term_freq: 1,
                   min_doc_freq: 1,
                 },
@@ -125,10 +122,7 @@ module Search
               {
                 more_like_this: {
                   fields: %w[organisation^2 location*^2],
-                  like: {
-                    _type: "dataset",
-                    _id: id,
-                  },
+                  like: { _id: id },
                   boost: 20,
                   min_term_freq: 1,
                   min_doc_freq: 1,

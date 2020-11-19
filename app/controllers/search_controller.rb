@@ -16,7 +16,7 @@ private
 
   def search_for_dataset
     query = Search::Query.search(params)
-    @search = Dataset.search(query)
+    @search = Dataset.search(query, track_total_hits: true)
     @num_results = @search.results.total_count
   end
 

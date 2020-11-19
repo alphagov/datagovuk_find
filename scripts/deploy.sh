@@ -55,6 +55,11 @@ then
   CF_ENV='staging'
 fi
 
+if [[ $CF_ENV == 'staging']]
+then
+  CF_SPACE="$CF_SPACE-staging"
+fi
+
 cf login -a $CF_API -u $CF_USER -p $CF_PASS -s $CF_SPACE
 cf add-plugin-repo CF-Community https://plugins.cloudfoundry.org
 cf install-plugin autopilot -r CF-Community -f
