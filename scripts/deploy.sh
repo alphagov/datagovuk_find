@@ -55,7 +55,7 @@ then
   CF_ENV='staging'
 fi
 
-if [[ $CF_ENV == 'staging']]
+if [[ $CF_ENV == "staging" ]]
 then
   CF_SPACE="$CF_SPACE-staging"
 fi
