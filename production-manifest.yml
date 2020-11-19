@@ -16,5 +16,5 @@ applications:
     GOVUK_WEBSITE_ROOT: https://www.gov.uk
   services:
   - find-production-secrets
-  - elasticsearch-6-beta-production
+  - elasticsearch-7-production
   - logit-ssl-drain
