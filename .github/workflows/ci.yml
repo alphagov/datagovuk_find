@@ -1,0 +1,54 @@
+on: [pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      redis:
+        image: redis
+        ports:
+          - 6379:6379
+        options: --health-cmd "redis-cli ping" --health-interval 10s --health-timeout 5s --health-retries 5
+    env:
+      RAILS_ENV: test
+      REDIS_URL: redis://localhost:6379/0
+    steps:
+      - name: Configure sysctl limits
+        run: |
+          sudo swapoff -a
+          sudo sysctl -w vm.swappiness=1
+          sudo sysctl -w fs.file-max=262144
+          sudo sysctl -w vm.max_map_count=262144
+
+      - uses: getong/elasticsearch-action@v1.2
+        with:
+          elasticsearch version: '7.6.1'
+          host port: 9200
+          container port: 9200
+          host node port: 9300
+          node port: 9300
+          discovery type: 'single-node'
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+      - uses: actions/cache@v1
+        with:
+          path: vendor/bundle
+          key: bundle-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: bundle
+      - name: Check for cached node modules
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: yarn
+      - run: yarn install --frozen-lockfile
+      - uses: nanasess/setup-chromedriver@master
+        with:
+          # Optional: do not specify to match Chrome's version
+          chromedriver-version: '77.0.3865.40'
+      - run: |
+          export DISPLAY=:99
+          chromedriver --url-base=/wd/hub &
+          sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional
+      - run: bundle install --jobs 4 --retry 3 --deployment
+      - run: bundle exec rake
