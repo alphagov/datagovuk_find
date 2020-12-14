@@ -1,10 +1,12 @@
-<div class="panel panel-border-narrow">
-  <p><%= t('datasets.show.not_released') %><br />
-  <% if contact_information_exists?(dataset) %>
-    <%= t('datasets.show.contact_the_publisher') %>
-  <% else %>
-    <%= t('datasets.show.contact_the_team') %>
-    <%= link_to 'data.gov.uk/support', support_path, class: 'govuk-link' %>
-    <%= t('datasets.show.if_you_have_questions') %>
-  <% end %>
+<div class="govuk-details__text govuk-!-margin-bottom-4">
+  <p class="govuk-body"><%= t('datasets.show.not_released') %></p>
+  <p class="govuk-body">
+    <% if contact_information_exists?(dataset) %>
+      <%= t('datasets.show.contact_the_publisher') %>
+    <% else %>
+      <%= t('datasets.show.contact_the_team') %>
+      <%= link_to 'data.gov.uk/support', support_path, class: 'govuk-link' %>
+      <%= t('datasets.show.if_you_have_questions') %>
+    <% end %>
+  </p>
 </div>
