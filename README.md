@@ -5,7 +5,16 @@
 
 This repository contains the beta-stage frontend component of data.gov.uk
 
-## Prerequisites
+## How to run this repo locally
+
+There are currently 2 ways to run this repo locally:
+
+1. Via  [docker-ckan](https://github.com/alphagov/docker-ckan) - An end to end setup from ckan to elasticsearch to Find. This is the presently most supported means for running Find and is recommended for local development. Instructions for how to setup and run Find this way available on the linked repo.
+2. Manual installation. Instructions for this below.
+3. Via [govuk-docker](https://github.com/alphagov/govuk-docker) - You can `make` Find as you would any other repo supported by govuk-docker using this method. This is the quickest means to setup Find however this will not give you a complete visual setup and is primarily for running tests.
+
+## Manual installation
+### Prerequisites
 
 You will need to install the following for development.
 
@@ -18,7 +27,7 @@ You will need to install the following for development.
 
 Most of these can be installed with Homebrew on a Mac.
 
-## Getting Started
+### Getting Started
 
 First run `bin/setup` to bundle, etc. Then run `rails s`.
 
