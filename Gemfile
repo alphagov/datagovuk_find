@@ -5,7 +5,7 @@ gem "rails", "6.0.3.4"
 gem "addressable"
 gem "bootsnap"
 gem "browser"
-gem "elasticsearch", "~> 7.9.0" # gem's major must match db's
+gem "elasticsearch", "~> 7.11.0" # gem's major must match db's
 gem "elasticsearch-model"
 gem "elasticsearch-rails"
 gem "faraday"
