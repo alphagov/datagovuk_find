@@ -12,7 +12,7 @@
     <meta name="theme-color" content="#0b0c0c" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
     <%= stylesheet_link_tag 'application' %>
     <%= csrf_meta_tags %>
 
@@ -22,12 +22,12 @@
   <body class="govuk-template__body">
     <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
 
-    <%= render "govuk_publishing_components/components/skip_link", {} %>
-
     <%= render "govuk_publishing_components/components/cookie_banner", {
       text: sanitize("We use <a href='/cookies' class='govuk-link'>cookies to collect information</a> about how you use data.gov.uk. We use this information to make the website work as well as possible."),
       cookie_preferences_href: "/cookies",
     } %>
+
+    <%= render "govuk_publishing_components/components/skip_link", {} %>
 
     <header role="banner" class="govuk-header" data-module="govuk-header">
       <div class="govuk-header__container govuk-width-container">
