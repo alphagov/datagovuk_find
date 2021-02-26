@@ -31,12 +31,16 @@
 
     <header role="banner" class="govuk-header" data-module="govuk-header">
       <div class="govuk-header__container govuk-width-container">
-        <div class="govuk-header__logo">
-          <a href="<%= root_path %>" class="govuk-header__link govuk-header__link--homepage">
-              <%= t('.data_gov_uk')%> | <%= t('.find_open_data') %>
-            </a>
+        <div class="govuk-grid-row">
+          <div class="govuk-header__logo govuk-grid-column-one-half">
+            <a href="<%= root_path %>" class="govuk-header__link govuk-header__link--homepage">
+                <%= t('.data_gov_uk')%> | <%= t('.find_open_data') %>
+              </a>
+          </div>
+          <div class="govuk-grid-column-one-half">
+            <%= render 'layouts/proposition_header' %>
+          </div>
         </div>
-        <%= render 'layouts/proposition_header' %>
       </div>
     </header>
 
