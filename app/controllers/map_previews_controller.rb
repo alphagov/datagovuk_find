@@ -18,8 +18,7 @@ class MapPreviewsController < ApplicationController
     base_wms_url = url_param.gsub(/;jsessionid=[a-z0-9]+/i, ";jsessionid=")
     response = URI(base_wms_url).read
     render xml: Nokogiri::XML(response)
-  rescue StandardError => e
-    Raven.capture_exception(e)
+  rescue StandardError
     head :bad_request
   end
 
@@ -36,8 +35,7 @@ class MapPreviewsController < ApplicationController
                  .force_encoding("ISO-8859-1")
                  .encode("UTF-8")
     render xml: Nokogiri::XML(response)
-  rescue StandardError => e
-    Raven.capture_exception(e)
+  rescue StandardError
     head :bad_request
   end
 
