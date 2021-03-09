@@ -30,7 +30,9 @@ You can track the deployments on travis - https://travis-ci.org/alphagov/datagov
 
 To deploy to staging merge a PR into master.
 
-Test that your changes are working here - https://staging.data.gov.uk before releasing to Production.
+Test that your changes are working here - https://find-data-beta-staging.cloudapps.digital before releasing to Production.
+
+(There is also https://staging.data.gov.uk but it currently has an [authentication configuration issue](https://github.com/alphagov/paas-ip-authentication-route-service/pull/10)).
 
 ### Production
 
