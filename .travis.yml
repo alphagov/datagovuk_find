@@ -11,7 +11,7 @@ cache:
   yarn: true
 branches:
   only:
-    - master
+    - main
     - /^v\d+\.\d+\.\d+$/
 services:
   - postgresql
