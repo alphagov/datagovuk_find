@@ -13,6 +13,7 @@ development:
 integration:
   <<: *default
   host: <%= ENV["ES_HOST"] %>
+  vcap_services: '<%= ENV["VCAP_SERVICES"] %>'
 
 staging:
   <<: *default

@@ -1,0 +1,19 @@
+---
+applications:
+- name: find-data-beta-integration
+  instances: 1
+  memory: 512M
+  buildpack: https://github.com/cloudfoundry/ruby-buildpack.git#v1.8.17
+  stack: cflinuxfs3
+  routes:
+    - route: find-data-beta-integration.cloudapps.digital
+  env:
+    RAILS_ENV: integration
+    RACK_ENV: integration
+    CKAN_REDIRECTION_URL: ckan.integration.publishing.service.gov.uk
+    GOVUK_APP_DOMAIN: www.gov.uk
+    GOVUK_WEBSITE_ROOT: https://www.gov.uk
+  services:
+  - find-integration-secrets
+  - elasticsearch-7-integration
+  - logit-ssl-drain
