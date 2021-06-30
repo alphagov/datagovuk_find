@@ -4,15 +4,15 @@ module Zendesk
     return DummyClient.instance if Rails.env.test?
 
     ZendeskAPI::Client.new do |config|
-      config.username = ENV['ZENDESK_USERNAME']
-      config.token = ENV['ZENDESK_API_KEY']
-      config.url = ENV['ZENDESK_END_POINT']
+      config.username = ENV["ZENDESK_USERNAME"]
+      config.token = ENV["ZENDESK_API_KEY"]
+      config.url = ENV["ZENDESK_END_POINT"]
     end
   end
 
   class DummyClient
     def self.instance
-      @instance ||= self.new
+      @instance ||= new
     end
 
     def tickets
@@ -22,7 +22,7 @@ module Zendesk
 
   class DummyTickets
     def self.instance
-      @instance ||= self.new
+      @instance ||= new
     end
 
     def create!(_arg); end
