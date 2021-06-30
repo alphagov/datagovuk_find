@@ -9,6 +9,6 @@ SecureHeaders::Configuration.default do |config|
     media_src: ["'self'"],
     object_src: ["'self'"],
     script_src: ["'unsafe-inline'", "'self'", "www.google-analytics.com"],
-    style_src: ["'unsafe-inline'", "'self'"]
+    style_src: ["'unsafe-inline'", "'self'"],
   }
 end

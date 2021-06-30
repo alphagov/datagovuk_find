@@ -1,3 +1,5 @@
+require "active_support/core_ext/integer/time"
+
 # The test environment is used exclusively to run your application's
 # test suite. You never need to work with it otherwise. Remember that
 # your test database is "scratch space" for the test suite and is wiped
@@ -17,18 +19,18 @@ Rails.application.configure do
   # Configure public file server for tests with Cache-Control for performance.
   config.public_file_server.enabled = true
   config.public_file_server.headers = {
-    'Cache-Control' => "public, max-age=#{1.hour.to_i}"
+    "Cache-Control" => "public, max-age=#{1.hour.to_i}",
   }
 
-  # Handle errors and disable caching.
-  config.consider_all_requests_local = false
+  # Show full error reports and disable caching.
+  config.consider_all_requests_local       = false
   config.action_controller.perform_caching = false
   config.cache_store = :null_store
 
-  # Render exceptions instead of raising them
+  # Raise exceptions instead of rendering exception templates.
   config.action_dispatch.show_exceptions = true
 
-  # The support forms require CSRF authentication, this should be checked in the tests
+  # Disable request forgery protection in test environment.
   config.action_controller.allow_forgery_protection = true
 
   config.action_mailer.perform_caching = false
@@ -41,6 +43,15 @@ Rails.application.configure do
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
 
+  # Raise exceptions for disallowed deprecations.
+  config.active_support.disallowed_deprecation = :raise
+
+  # Tell Active Support which deprecation messages to disallow.
+  config.active_support.disallowed_deprecation_warnings = []
+
   # Raises error for missing translations.
-  config.action_view.raise_on_missing_translations = true
+  # config.i18n.raise_on_missing_translations = true
+
+  # Annotate rendered view with file names.
+  # config.action_view.annotate_rendered_view_with_filenames = true
 end
