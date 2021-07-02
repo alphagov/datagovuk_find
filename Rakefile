@@ -5,4 +5,9 @@ require_relative "config/application"
 
 Rails.application.load_tasks
 
-task default: %i[brakeman rubocop spec]
+desc "lint Ruby"
+task lint: :environment do
+  sh "bundle exec rubocop"
+end
+
+task default: %i[brakeman lint spec]
