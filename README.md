@@ -24,11 +24,18 @@ First run `bin/setup` to bundle, etc. Then run `rails s`.
 
 ## Deployment
 
-You can track the deployments on travis - https://travis-ci.org/alphagov/datagovuk_find. 
+Continuous Integration has been setup using Github Actions. 
+  - Tests are run on pull requests.
+  - Deployments to Staging happen automatically when marging branches into the `main` branch.
+  - In order to carry out a release to production a developer in the govuk team will need to create a release tag with a  leading `v` and [approve](https://docs.github.com/en/actions/managing-workflow-runs/reviewing-deployments) of the deployment in Github Actions.
+
+Further information about the deploying to PaaS are in the developer documents here: 
+
+https://docs.publishing.service.gov.uk/manual/data-gov-uk-deployment.html#paas-staging-and-production-environments
 
 ### Staging
 
-To deploy to staging merge a PR into master.
+To deploy to staging merge a PR into `main`.
 
 Test that your changes are working here - https://find-data-beta-staging.cloudapps.digital before releasing to Production.
 
@@ -37,6 +44,8 @@ Test that your changes are working here - https://find-data-beta-staging.cloudap
 ### Production
 
 To deploy to production you need to tag the release, the tag needs to be in this format - `v9.9.9` where 9 is a number and the leading `v` is required. E.g. `v0.1.11` is valid, `0.1.11` is not.
+
+Then the deployment needs to be [approved](https://docs.github.com/en/actions/managing-workflow-runs/reviewing-deployments).
 
 ## Developing against production elasticsearch
 
