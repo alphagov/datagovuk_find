@@ -1,4 +1,10 @@
-on: [pull_request]
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - 'v*'
+  pull_request:
 
 jobs:
   test:
@@ -52,3 +58,57 @@ jobs:
           sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional
       - run: bundle install --jobs 4 --retry 3 --deployment
       - run: bundle exec rake
+  deploy_to_staging:
+    if: github.ref == 'refs/heads/main'
+    needs: test
+    environment: staging
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+      - uses: actions/cache@v1
+        with:
+          path: vendor/bundle
+          key: bundle-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: bundle
+      - name: install cloud foundry
+        run: |
+          wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | sudo apt-key add -
+          echo "deb http://packages.cloudfoundry.org/debian stable main" | sudo tee /etc/apt/sources.list.d/cloudfoundry-cli.list
+          sudo apt-get update
+          sudo apt-get install cf-cli
+      - name: Deploy to staging
+        env:
+          SECRET_KEY_BASE: ${{ secrets.SECRET_KEY_BASE }}
+          CF_USER: ${{ secrets.CF_USER }}
+          CF_PASS: ${{ secrets.CF_PASS }}
+          CF_SPACE: ${{ secrets.CF_SPACE }}
+          CF_API: ${{ secrets.CF_API }}
+        run: scripts/deploy.sh find-data-beta-staging staging
+  deploy_to_production:
+    if: startsWith(github.ref, 'refs/tags/')
+    needs: test
+    environment: production
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+      - uses: actions/cache@v1
+        with:
+          path: vendor/bundle
+          key: bundle-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: bundle
+      - name: install cloud foundry
+        run: |
+          wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | sudo apt-key add -
+          echo "deb http://packages.cloudfoundry.org/debian stable main" | sudo tee /etc/apt/sources.list.d/cloudfoundry-cli.list
+          sudo apt-get update
+          sudo apt-get install cf-cli
+      - name: Deploy to production
+        env:
+          SECRET_KEY_BASE: ${{ secrets.SECRET_KEY_BASE }}
+          CF_USER: ${{ secrets.CF_USER }}
+          CF_PASS: ${{ secrets.CF_PASS }}
+          CF_SPACE: ${{ secrets.CF_SPACE }}
+          CF_API: ${{ secrets.CF_API }}
+        run: scripts/deploy.sh find-data-beta production
