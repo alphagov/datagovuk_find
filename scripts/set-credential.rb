@@ -17,7 +17,7 @@ secret_service = sys_env["VCAP_SERVICES"]["user-provided"].select { |s| s["name"
 puts "Using secrets service '#{secret_service['name']}'"
 puts "\nWARNING! This is a potentially destructive operation!"
 puts "Do you wish to continue changing #{key} on #{secret_service['name']}? [yN]"
-unless %w[y yes].include?(STDIN.gets.chomp.downcase)
+unless %w[y yes].include?($stdin.gets.chomp.downcase)
   puts "Aborting"
   exit
 end
