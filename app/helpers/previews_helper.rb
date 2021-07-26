@@ -8,8 +8,13 @@ module PreviewsHelper
   end
 
   def numeric?(value)
-    return false unless value.respond_to?(:match?)
-
-    value.match?(/\d/)
+    value.to_s.match?(/\A
+                      \-? # may be negative
+                      (
+                        \d+(\.\d+)? # digits, potential followed by decimal
+                        |
+                        \.\d+ # decimal point followed by digits
+                      )
+                      \Z/x)
   end
 end
