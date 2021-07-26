@@ -23,7 +23,7 @@
               row.each do |col|
                 table_row << {
                   text: col,
-                  format: is_numeric(col) ? "numeric" : false
+                  format: numeric?(col) ? "numeric" : false
                 }
               end
               table_rows <<  table_row
@@ -39,7 +39,7 @@
             end
           end
         %>
-        
+
         <p class="govuk-body"><%= t('.preview_line', line_count: @datafile.preview.line_count) %></p>
         <%= link_to download_text(@dataset, @datafile), @datafile.url,
           class: "govuk-button",

@@ -7,7 +7,7 @@ module PreviewsHelper
     end
   end
 
-  def is_numeric(value)
+  def numeric?(value)
     return false unless value.respond_to?(:match?)
 
     value.match?(/\d/)
