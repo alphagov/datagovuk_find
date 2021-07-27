@@ -145,10 +145,10 @@ module Search
       licence_param = params.dig(:filters, :licence_code)
 
       query = begin
-                QueryTransformer.new.apply(QueryParser.new.parse(query_param))
-              rescue Parslet::ParseFailed
-                Query.new(TermsClause.new(query_param))
-              end
+        QueryTransformer.new.apply(QueryParser.new.parse(query_param))
+      rescue Parslet::ParseFailed
+        Query.new(TermsClause.new(query_param))
+      end
 
       query = query.to_elasticsearch
 
