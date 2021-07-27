@@ -9,7 +9,7 @@ module PreviewsHelper
 
   def numeric?(value)
     value.to_s.match?(/\A
-                      \-? # may be negative
+                      -? # may be negative
                       (
                         \d+(\.\d+)? # digits, potential followed by decimal
                         |
