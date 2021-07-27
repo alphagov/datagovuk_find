@@ -7,7 +7,14 @@ module PreviewsHelper
     end
   end
 
-  def is_numeric(string)
-    string.match?(/\d/)
+  def numeric?(value)
+    value.to_s.match?(/\A
+                      \-? # may be negative
+                      (
+                        \d+(\.\d+)? # digits, potential followed by decimal
+                        |
+                        \.\d+ # decimal point followed by digits
+                      )
+                      \Z/x)
   end
 end
