@@ -11,7 +11,7 @@ applications:
   env:
     RAILS_ENV: production
     RACK_ENV: production
-    CKAN_REDIRECTION_URL: ckan.publishing.service.gov.uk
+    CKAN_DOMAIN: ckan.publishing.service.gov.uk
     GOVUK_APP_DOMAIN: www.gov.uk
     GOVUK_WEBSITE_ROOT: https://www.gov.uk
   services:
