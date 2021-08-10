@@ -4,8 +4,8 @@ Rails.application.routes.draw do
 
   get "/sites/default/files/*organogram_path", to: redirect("https://s3-eu-west-1.amazonaws.com/datagovuk-#{Rails.env}-ckan-organogram/legacy/%{organogram_path}"), format: false
 
-  if ENV["CKAN_REDIRECTION_URL"].present?
-    get "dataset/edit/:legacy_name", to: redirect(domain: ENV["CKAN_REDIRECTION_URL"], subdomain: "", path: "/dataset/edit/%{legacy_name}")
+  if ENV["CKAN_DOMAIN"].present?
+    get "dataset/edit/:legacy_name", to: redirect(domain: ENV["CKAN_DOMAIN"], subdomain: "", path: "/dataset/edit/%{legacy_name}")
   end
 
   get "dataset/:uuid", to: "datasets#show", uuid: /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/
@@ -55,9 +55,9 @@ Rails.application.routes.draw do
   get "acknowledge", to: "messages#acknowledge"
 
   # Route everything else to CKAN
-  if ENV["CKAN_REDIRECTION_URL"].present?
+  if ENV["CKAN_DOMAIN"].present?
     match "*path",
-          to: redirect(domain: ENV["CKAN_REDIRECTION_URL"], subdomain: "", path: "/%{path}"),
+          to: redirect(domain: ENV["CKAN_DOMAIN"], subdomain: "", path: "/%{path}"),
           via: :all,
           constraints: { path: /(?!#{Regexp.quote(Rails.application.config.assets.prefix[1..-1])}).+/ }
   end
