@@ -9,28 +9,6 @@ inherit_mode:
 
 AllCops:
   TargetRubyVersion: 2.5
-  Exclude:
-    - bin/**/*
-    - config.ru
-    - db/schema.rb
-    - vendor/**/*
-    - vendor/bundle/**/*
-
-Metrics/BlockLength:
-  Exclude:
-    - 'config/routes.rb'
-    - 'lib/tasks/**/*.rake'
-    - 'spec/**/*.rb'
-
-Style/FormatStringToken:
-  Exclude:
-    - "config/routes.rb"
-
-Rails/OutputSafety:
-  Enabled: false
-
-Rails/FilePath:
-  EnforcedStyle: slashes
 
 Rails/SaveBang:
   AllowedReceivers:
