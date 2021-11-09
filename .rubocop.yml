@@ -7,9 +7,6 @@ inherit_mode:
   merge:
     - Exclude
 
-AllCops:
-  TargetRubyVersion: 2.5
-
 Rails/SaveBang:
   AllowedReceivers:
     - Elasticsearch::Model.client.indices
