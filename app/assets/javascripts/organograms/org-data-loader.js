@@ -99,7 +99,8 @@ var OrgDataLoader = {
                     'profession' : post['Professional/Occupational Group'],
                     'email' : post['Contact E-mail'],
                     'phone' : post['Contact Phone'],
-                    'notes' : post['Notes']
+                    'notes' : post['Notes'],
+                    'office_region': post['Office Region']
                 }
             }
 
@@ -150,7 +151,8 @@ var OrgDataLoader = {
                     'profession_group': post['Professional/Occupational Group'],
                     'junior': true,
                     'nodeType': 'jp_child',
-                    'type': 'junior_posts'
+                    'type': 'junior_posts',
+                    'office_region': post['Office Region']
                 }
             };
         }

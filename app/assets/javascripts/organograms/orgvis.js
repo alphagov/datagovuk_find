@@ -322,6 +322,9 @@ var Orgvis = {
             if(typeof nd.phone != 'undefined'){
                 html += '<p class="phone"><span>Phone</span><span class="value">' + nd.phone + '</span></p>';
             }
+            if(typeof nd.office_region != 'undefined'){
+                html += '<p class="office_region"><span>Office Region</span><span class="value">' + nd.office_region + '</span></p>';
+            }
             if(typeof nd.notes != 'undefined'){
                 html += '<p class="notes"><span>Notes</span><span class="value">' + nd.notes + '</span></p>';
             }
@@ -400,6 +403,7 @@ var Orgvis = {
         html += '<p class="paybandRange"><span>Payband Salary Range</span><span class="value">'+nd.salaryrange+'</span></p>';
         html += '<p class="reportsTo"><span>Reports To</span><span class="value">'+nd.reportsto+'</span></p>';
         html += '<p class="unit"><span>Unit</span><span class="value">'+nd.unit+'</span></p>';
+        html += '<p class="officeRegion"><span>Office Region</span><span class="value">'+nd.office_region+'</span></p>';
         html += '</div>'; // end content
         html += '</div>'; // end panel
         html += '<a class="close">x</a>';
