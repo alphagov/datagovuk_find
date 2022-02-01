@@ -1,4 +1,4 @@
-# This Dockerfile is used with the docker-ckan dev stack
+FROM ruby:2.7.5
 FROM ruby:2.7.2
 
 WORKDIR /srv/app/datagovuk_find
