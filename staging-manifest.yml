@@ -16,5 +16,5 @@ applications:
     GOVUK_WEBSITE_ROOT: https://www.gov.uk
   services:
   - find-staging-secrets
-  - elasticsearch-7-staging
+  - opensearch-staging
   - logit-ssl-drain

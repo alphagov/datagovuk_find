@@ -58,7 +58,7 @@ module FindDataBeta
     config.filter_parameters << :password
     config.filter_parameters << :password_confirmation
 
-    config.elasticsearch = config_for(:elasticsearch)
+    config.elasticsearch = config_for(:opensearch)
 
     config.ssl_options = { hsts: { expires: 1.week } }
 

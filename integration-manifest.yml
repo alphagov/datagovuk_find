@@ -15,5 +15,5 @@ applications:
     GOVUK_WEBSITE_ROOT: https://www.gov.uk
   services:
   - find-integration-secrets
-  - elasticsearch-7-integration
+  - opensearch-integration
   - logit-ssl-drain
