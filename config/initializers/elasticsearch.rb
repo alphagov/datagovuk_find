@@ -4,10 +4,10 @@ host = es_config[:host]
 
 if host.blank?
   vcap = JSON.parse(es_config[:vcap_services])
-  host = vcap.dig("elasticsearch", 0, "credentials", "uri")
+  host = vcap.dig("opensearch", 0, "credentials", "uri")
 end
 
-raise StandardError, "No elasticsearch environment variables found" if host.blank?
+raise StandardError, "No opensearch environment variables found" if host.blank?
 
 Elasticsearch::Model.client = Elasticsearch::Client.new(
   host: host,
