@@ -8,6 +8,7 @@ applications:
   routes:
   - route: find-data-beta.cloudapps.digital
   - route: data.gov.uk
+  - route: www.data.gov.uk
   env:
     RAILS_ENV: production
     RACK_ENV: production
