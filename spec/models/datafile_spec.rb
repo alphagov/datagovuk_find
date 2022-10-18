@@ -27,5 +27,12 @@ RSpec.describe Datafile do
         expect(datafile.csv?).to be true
       end
     end
+
+    describe "#csv?" do
+      it 'returns true if datafile is ".csv "' do
+        datafile = build :datafile, format: ".csv "
+        expect(datafile.csv?).to be true
+      end
+    end
   end
 end

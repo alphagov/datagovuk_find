@@ -10,7 +10,7 @@ class Datafile
     @start_date = hash["start_date"]
     @created_at = hash["created_at"]
     @updated_at = hash["updated_at"]
-    @format = hash["format"]&.strip&.upcase
+    @format = hash["format"]&.strip&.delete_prefix(".")&.upcase
     @size = hash["size"]
     @uuid = hash["uuid"]
   end
