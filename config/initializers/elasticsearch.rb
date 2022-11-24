@@ -9,6 +9,9 @@ end
 
 raise StandardError, "No opensearch environment variables found" if host.blank?
 
+zero_false_or_no = /^[0fn]/i
+elasticsearch_verify_ssl = !zero_false_or_no.match?(ENV["ELASTICSEARCH_VERIFY_SSL"])
+
 Elasticsearch::Model.client = Elasticsearch::Client.new(
   host: host,
   transport_options: {
@@ -16,7 +19,7 @@ Elasticsearch::Model.client = Elasticsearch::Client.new(
       timeout: es_config.fetch(:elastic_timeout),
     },
     ssl: {
-      verify: es_config.fetch(:verify_ssl, true),
+      verify: es_config.fetch(:verify_ssl, elasticsearch_verify_ssl),
     },
   },
 )
