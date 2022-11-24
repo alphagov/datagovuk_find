@@ -12,6 +12,10 @@ class PagesController < ApplicationController
     render "ckan_maintenance", status: :service_unavailable
   end
 
+  def home
+    expires_in 30.minutes, public: true
+  end
+
 private
 
   def get_datasets_count
