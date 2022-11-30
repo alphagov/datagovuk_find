@@ -2,11 +2,11 @@
 // Front-end components go here
 
 .dgu-secondary-text {
-  color: $secondary-text-colour;
+  // FIXME color: $secondary-text-colour;
 }
 
 .dgu-highlight {
-  background: $grey-3;
+  // FIXME background: $grey-3;
   padding: em(2) em(5) em(2) em(5);
 }
 
@@ -83,7 +83,7 @@
 .dgu-metadata__box {
 
   &--in-dataset {
-    background: $highlight-colour;
+    // FIXME background: $highlight-colour;
     padding: 25px 30px 15px 30px;
   }
 
@@ -104,11 +104,11 @@
     width: 60%;
   }
 
-  @include media(mobile) {
+  // FIXME @include media(mobile) {
     dt,dd {
       width: 100%;
     }
-  }
+  // FIXME }
 
 }
 
@@ -127,7 +127,7 @@
   }
 
   a:focus {
-    @include govuk-focused-text;
+    // FIXME @include govuk-focused-text;
   }
 }
 
@@ -149,7 +149,7 @@
   margin-bottom: 20px;
 
   &__year {
-    font-family: $helvetica-regular;
+    // FIXME font-family: $helvetica-regular;
     text-decoration: none !important;
 
     &:focus {
@@ -166,7 +166,7 @@
     }
   }
 
-  @include media(mobile) {
+  // FIXME @include media(mobile) {
     th {
       white-space: normal;
       vertical-align: top;
@@ -176,7 +176,7 @@
       vertical-align: top;
       font-size: 16px;
     }
-  }
+  // FIXME }
 }
 
 // Supporting docs ===================================================================
@@ -189,7 +189,7 @@
     font-size: 19px;
   }
 
-  @include media(mobile) {
+  // FIXME @include media(mobile) {
     th {
       white-space: normal;
       vertical-align: top;
@@ -200,7 +200,7 @@
       white-space: normal;
       font-size: 16px;
     }
-  }
+  // FIXME }
 
 }
 
@@ -221,9 +221,9 @@
 
     }
   }
-  @include media(mobile) {
+  // FIXME @include media(mobile) {
     padding-left: 15px;
-  }
+  // FIXME }
 }
 
 // =============================================================================
@@ -319,7 +319,7 @@ section .year-expand {
   overflow: hidden;
   border-bottom: 1px solid #BFC1C3;
   &:hover {
-    background: $highlight-colour;
+    // FIXME background: $highlight-colour;
   }
   h3 {
     color: #005ea5;
@@ -345,7 +345,7 @@ span.showHide-open-all {
   float: right;
   font-weight: normal;
   display: inline-block;
-  color: $link-colour;
+  // FIXME color: $link-colour;
   text-decoration: underline;
   cursor: pointer;
 }
@@ -370,12 +370,12 @@ span.showHide-open-all {
 
 
 .dgu-top-non-content {
-  @extend %site-width-container;
+  // FIXME @extend %site-width-container;
 }
 
 
 .dgu-back-link {
-  font-family: $helvetica-regular;
+  // FIXME font-family: $helvetica-regular;
   font-size: 16px;
   line-height: 20px;
   display: inline-block;
@@ -383,7 +383,7 @@ span.showHide-open-all {
   margin-top: 15px;
   margin-bottom: 15px;
   padding-left: 14px;
-  border-bottom: 1px solid $text-colour;
+  // FIXME border-bottom: 1px solid $text-colour;
   text-decoration: none;
 
   &:link, &:visited, &:hover, &:active, &:focus {
@@ -391,9 +391,9 @@ span.showHide-open-all {
   }
 
   &:focus {
-    outline: 3px solid $focus-colour;
+    // FIXME outline: 3px solid $focus-colour;
     outline-offset: 0;
-    background-color: $focus-colour;
+    // FIXME background-color: $focus-colour;
   }
 
   &:before {
