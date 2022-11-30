@@ -1,4 +1,5 @@
-<%= render "govuk_publishing_components/components/layout_header/navigation_items", {
+<%= render "govuk_publishing_components/components/layout_header", {
+  product_name: locals[:title],
   navigation_items: [
     {
       text: t(".publishers"),
@@ -12,5 +13,5 @@
       text: t(".support"),
       href: support_path,
     }
-  ]
+  ]    
 } %>

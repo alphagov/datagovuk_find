@@ -1,7 +1,4 @@
-<div id="dgu-phase-banner" class="phase-banner">
-  <p>
-    <strong class="phase-tag">BETA</strong>
-    <span><%= t(".beta_survey_message_html", :href => link_to(t('.href'), t('.survey_url'), class: 'govuk-link'))%>
-    </span>
-  </p>
-</div>
+<%= render "govuk_publishing_components/components/phase_banner", {
+  phase: "beta",
+  message: t(".beta_survey_message_html", :href => link_to(t('.href'), t('.survey_url'), class: 'govuk-link'))
+} %>

@@ -2,101 +2,110 @@
 <!DOCTYPE html>
 <!--[if lt IE 9]><html class="lte-ie8" lang="<%= content_for?(:html_lang) ? yield(:html_lang) : "en" %>"><![endif]-->
 <!--[if gt IE 8]><!--><html lang="<%= content_for?(:html_lang) ? yield(:html_lang) : "en" %>"><!--<![endif]-->
-<html class="govuk-template">
-  <head>
-    <meta charset="utf-8">
-    <title><%= content_for?(:page_title) ? yield(:page_title) + " - " + t('.site_name') : t('.site_name') %></title>
+<html lang="en" class="govuk-template ">
 
-    <%# the colour used for theme-color is the standard palette $black from
-        https://github.com/alphagov/govuk_frontend_toolkit/blob/master/stylesheets/colours/_palette.scss %>
-    <meta name="theme-color" content="#0b0c0c" />
+<head>
+  <meta charset="utf-8">
+  <title><%= content_for?(:page_title) ? yield(:page_title) + " - " + t('.site_name') : t('.site_name') %></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b0c0c">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <%= stylesheet_link_tag 'application' %>
-    <%= csrf_meta_tags %>
+  <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon">
+  <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
 
-    <%= yield :head %>
-  </head>
+  <%= stylesheet_link_tag 'application' %>
+  <%= csrf_meta_tags %>
 
-  <body class="govuk-template__body">
-    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+  <%= yield :head %>
 
-    <%= render "govuk_publishing_components/components/cookie_banner", {
-      text: sanitize("We use <a href='/cookies' class='govuk-link'>cookies to collect information</a> about how you use data.gov.uk. We use this information to make the website work as well as possible."),
-      cookie_preferences_href: "/cookies",
-    } %>
+  <!--[if IE 8]>
+    <link href="/govuk-frontend/all-ie8.css" rel="stylesheet">
+  <![endif]-->
 
-    <%= render "govuk_publishing_components/components/skip_link", {} %>
+  <!--[if lt IE 9]>
+    <script src="/html5-shiv/html5shiv.js"></script>
+  <![endif]-->
 
-    <header role="banner" class="govuk-header" data-module="govuk-header">
-      <div class="govuk-header__container govuk-width-container">
-        <div class="govuk-grid-row">
-          <div class="govuk-header__logo govuk-grid-column-one-half">
-            <a href="<%= root_path %>" class="govuk-header__link govuk-header__link--homepage">
-                <%= t('.data_gov_uk')%> | <%= t('.find_open_data') %>
-              </a>
-          </div>
-          <div class="govuk-grid-column-one-half">
-            <%= render 'layouts/proposition_header' %>
-          </div>
-        </div>
-      </div>
-    </header>
+</head>
 
+<body class="govuk-template__body ">
+  <script>
+    document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');
+  </script>
+
+  <%= render "govuk_publishing_components/components/cookie_banner", {
+    text: sanitize("We use <a href='/cookies' class='govuk-link'>cookies to collect information</a> about how you use data.gov.uk. We use this information to make the website work as well as possible."),
+    cookie_preferences_href: "/cookies",
+  } %>
+
+  <%= render "govuk_publishing_components/components/skip_link", {} %>
+
+  <% pageTitle = capture do %>
+    <%= t('.data_gov_uk')%> | <%= t('.find_open_data') %>
+  <% end %>
+
+  <%= render 'layouts/proposition_header', locals: { title: pageTitle } %>
+
+  <div class="govuk-width-container ">
     <%= render 'layouts/staging_ribbon' if Rails.env.staging? %>
+    <%= render 'layouts/feedback_survey_banner' %>
+    <%= yield :breadcrumb %>
 
-    <div class="dgu-top-non-content">
-      <div class="dgu-top-non-content__inner">
-        <%= render 'layouts/feedback_survey_banner' %>
-        <%= yield :breadcrumb %>
-      </div>
-    </div>
-
-    <div class="govuk-width-container">
+    <main class="govuk-main-wrapper" id="main-content" role="main">
       <%= yield %>
-    </div>
+    </main>
+  </div>
 
-    <%= render "govuk_publishing_components/components/layout_footer", {
-      meta: {
-        items: [
-          {
-            href: "/about",
-            text: "About"
-          },
-          {
-            href: "/accessibility",
-            text: "Accessibility"
-          },
-          {
-            href: "/cookies",
-            text: "Cookies"
-          },
-          {
-            href: "/privacy",
-            text: "Privacy"
-          },
-          {
-            href: "/terms",
-            text: "Terms and conditions"
-          },
-          {
-            href: "/support",
-            text: "Support"
-          },
-          {
-            href: "https://www.gov.uk/government/organisations/government-digital-service",
-            text: "Built by the Government Digital Service"
-          }
-        ]
-      }
-    } %>
+  <%= render "govuk_publishing_components/components/layout_footer", {
+    meta: {
+      items: [
+        {
+          href: "/about",
+          text: "About"
+        },
+        {
+          href: "/accessibility",
+          text: "Accessibility"
+        },
+        {
+          href: "/cookies",
+          text: "Cookies"
+        },
+        {
+          href: "/privacy",
+          text: "Privacy"
+        },
+        {
+          href: "/terms",
+          text: "Terms and conditions"
+        },
+        {
+          href: "/support",
+          text: "Support"
+        },
+        {
+          href: "https://www.gov.uk/government/organisations/government-digital-service",
+          text: "Built by the Government Digital Service"
+        }
+      ]
+    }
+  } %>
 
-    <div id="global-app-error" class="app-error hidden"></div>
+  <div id="global-app-error" class="app-error hidden"></div>
 
-    <%= javascript_include_tag 'application' %>
+  <%= javascript_include_tag 'application' %>
 
-    <%# if no GOVUK-namespaced module has loaded we can assume JS has failed and remove the class %>
-    <script>if (typeof window.GOVUK === 'undefined') document.body.className = document.body.className.replace('js-enabled', '');</script>
-  </body>
+  <%# if no GOVUK-namespaced module has loaded we can assume JS has failed and remove the class %>
+  <script>if (typeof window.GOVUK === 'undefined') document.body.className = document.body.className.replace('js-enabled', '');</script>
+  <script>
+    window.GOVUKFrontend.initAll()
+  </script>
+</body>
+
 </html>
