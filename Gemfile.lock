@@ -229,7 +229,7 @@ GEM
     multipart-post (2.1.1)
     netrc (0.11.0)
     nio4r (2.5.8)
-    nokogiri (1.13.3)
+    nokogiri (1.14.2)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
     parallel (1.22.1)
@@ -483,7 +483,7 @@ DEPENDENCIES
   zendesk_api
 
 RUBY VERSION
-   ruby 2.7.6p219
+   ruby 3.2.0p0
 
 BUNDLED WITH
    2.1.4
