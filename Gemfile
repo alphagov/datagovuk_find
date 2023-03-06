@@ -19,6 +19,7 @@ gem "kaminari", "< 1.2" # do not upgrade this unless elasticsearch is also upgra
 gem "lograge"
 gem "logstash-event"
 gem "mime-types"
+gem "net-smtp"
 gem "nokogiri"
 gem "parslet"
 gem "pg"
