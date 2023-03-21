@@ -5,5 +5,5 @@ RSpec.describe Search::TermsClause do
 
   let(:terms) { double }
 
-  it { is_expected.to have_attributes(terms:) }
+  it { is_expected.to have_attributes(terms: terms) }
 end
