@@ -10,7 +10,7 @@ end
 raise StandardError, "No opensearch environment variables found" if host.blank?
 
 Elasticsearch::Model.client = Elasticsearch::Client.new(
-  host: host,
+  host:,
   transport_options: {
     request: {
       timeout: es_config.fetch(:elastic_timeout),

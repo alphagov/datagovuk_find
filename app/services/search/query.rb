@@ -185,7 +185,7 @@ module Search
         query: {
           constant_score: {
             filter: {
-              term: { legacy_name: legacy_name },
+              term: { legacy_name: },
             },
           },
         },
@@ -197,7 +197,7 @@ module Search
         query: {
           constant_score: {
             filter: {
-              term: { uuid: uuid },
+              term: { uuid: },
             },
           },
         },
@@ -285,7 +285,7 @@ module Search
             term: {
               "organisation.category.keyword" => {
                 value: organisation_category,
-                boost: boost,
+                boost:,
               },
             },
           },
@@ -302,7 +302,7 @@ module Search
               "organisation.title.english" => {
                 query: organisation_title,
                 analyzer: "english",
-                boost: boost,
+                boost:,
               },
             },
           },
