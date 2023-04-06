@@ -85,3 +85,12 @@ ensure all your environment variables are cleared and refreshed.
 ## Testing on docker ckan
 
 Source the `bin/setup-docker-test.sh` script in order to set up the environment variables for testing and install chrome on the debian docker container.
+
+## Example application URLs
+
+- Find landing page: https://data.gov.uk
+- Search results: https://data.gov.uk/search?filters%5Btopic%5D=Environment
+- Dataset: https://data.gov.uk/dataset/ce5f9a81-742d-4446-8610-2ec138e1b7e5/st-john-s-lake-intertidal-biotope-map-tamar-estuary-plymouth
+- Dataset with publisher login: https://data.gov.uk/dataset/cf725d50-6535-4f8b-bc98-5ab01aa866a7/grants-to-voluntary-community-and-social-enterprise-organisations-local-government-transparency-code
+- Support page: https://data.gov.uk/support
+- Publisher login page: https://data.gov.uk/publishers
