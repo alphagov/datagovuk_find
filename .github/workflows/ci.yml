@@ -34,7 +34,7 @@ jobs:
           host node port: 9300
           node port: 9300
           discovery type: 'single-node'
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: ruby/setup-ruby@v1
       - uses: actions/cache@v3
         with:
@@ -64,7 +64,7 @@ jobs:
     environment: staging
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: ruby/setup-ruby@v1
       - uses: actions/cache@v3
         with:
@@ -91,7 +91,7 @@ jobs:
     environment: production
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: ruby/setup-ruby@v1
       - uses: actions/cache@v3
         with:
