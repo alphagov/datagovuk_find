@@ -86,6 +86,7 @@ GEM
     crack (0.4.5)
       rexml
     crass (1.0.6)
+    date (3.3.3)
     debug_inspector (1.1.0)
     diff-lcs (1.5.0)
     docile (1.4.0)
@@ -409,6 +410,7 @@ GEM
     statsd-ruby (1.5.0)
     thor (1.2.1)
     tilt (2.0.10)
+    timeout (0.3.2)
     tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
     uglifier (4.2.0)
@@ -467,6 +469,9 @@ DEPENDENCIES
   lograge
   logstash-event
   mime-types
+  net-imap
+  net-pop
+  net-smtp
   nokogiri
   parslet
   pg
@@ -492,7 +497,7 @@ DEPENDENCIES
   zendesk_api
 
 RUBY VERSION
-   ruby 2.7.6p219
+   ruby 3.2.0p0
 
 BUNDLED WITH
    2.1.4
