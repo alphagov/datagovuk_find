@@ -7,20 +7,23 @@ gem "rails", "6.1.6.1"
 gem "addressable"
 gem "bootsnap"
 gem "browser"
-gem "elasticsearch", "~> 7.9.0" # gem's major must match db's
+gem "elasticsearch", "~> 7.11.2" # gem's major must match db's
 gem "elasticsearch-model"
 gem "elasticsearch-rails"
 gem "faraday"
 gem "faraday_middleware"
 gem "govuk_elements_rails"
-gem "govuk_publishing_components"
+gem "govuk_publishing_components", "~> 28.7.1"
 gem "htmlentities"
 gem "jbuilder"
 gem "jquery-rails"
-gem "kaminari", "< 1.2" # do not upgrade this unless elasticsearch is also upgraded
+gem "kaminari", "< 1.2"
 gem "lograge"
 gem "logstash-event"
 gem "mime-types"
+gem "net-smtp"
+gem 'net-imap', require: false
+gem 'net-pop', require: false
 gem "nokogiri"
 gem "parslet"
 gem "pg"
