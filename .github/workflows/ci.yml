@@ -2,6 +2,7 @@ on:
   push:
     branches:
       - main
+      - upgrade-kaminari
     tags:
       - 'v*'
   pull_request:
