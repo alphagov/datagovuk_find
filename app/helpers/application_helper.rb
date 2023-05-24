@@ -17,12 +17,12 @@ module Kaminari::Helpers::HelperMethods
                  end
 
     if collection.total_pages < 2
-      t('helpers.page_entries_info.one_page.display_entries', entry_name: entry_name, count: collection.total_count)
+      t("helpers.page_entries_info.one_page.display_entries", entry_name:, count: collection.total_count)
     else
       from = collection.offset_value + 1
       to   = collection.offset_value + collection.to_a.size
 
-      t('helpers.page_entries_info.more_pages.display_entries', entry_name: entry_name, first: from, last: to, total: collection.total_count)
+      t("helpers.page_entries_info.more_pages.display_entries", entry_name:, first: from, last: to, total: collection.total_count)
     end.html_safe
   end
 end

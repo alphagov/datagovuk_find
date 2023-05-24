@@ -21,9 +21,9 @@ gem "kaminari"
 gem "lograge"
 gem "logstash-event"
 gem "mime-types"
+gem "net-imap", require: false
+gem "net-pop", require: false
 gem "net-smtp"
-gem 'net-imap', require: false
-gem 'net-pop', require: false
 gem "nokogiri"
 gem "parslet"
 gem "pg"

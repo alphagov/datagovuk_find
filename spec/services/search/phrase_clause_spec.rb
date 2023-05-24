@@ -5,5 +5,5 @@ RSpec.describe Search::PhraseClause do
 
   let(:phrase) { double }
 
-  it { is_expected.to have_attributes(phrase: phrase) }
+  it { is_expected.to have_attributes(phrase:) }
 end
