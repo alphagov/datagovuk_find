@@ -1,4 +1,4 @@
-FROM ruby:2.7.6
+FROM ruby:3.2.0
 
 WORKDIR /srv/app/datagovuk_find
 
