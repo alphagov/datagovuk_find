@@ -6,7 +6,7 @@ class Legacy::SearchController < ApplicationController
       licence: licence_param,
     }.compact
 
-    redirect_to search_path(q: params["q"], filters: filters)
+    redirect_to search_path(q: params["q"], filters:)
   end
 
 private

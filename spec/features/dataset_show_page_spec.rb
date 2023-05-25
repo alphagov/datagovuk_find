@@ -282,7 +282,7 @@ RSpec.feature "Dataset page", type: :feature, elasticsearch: true do
       organisation = build :organisation, :raw, contact_name: "Mr. Contact",
                                                 contact_email: "mr.contact@example.com"
 
-      dataset = build :dataset, organisation: organisation
+      dataset = build(:dataset, organisation:)
       index_and_visit(dataset)
 
       expect(page).to have_css("h2", text: "Contact")
@@ -321,7 +321,7 @@ RSpec.feature "Dataset page", type: :feature, elasticsearch: true do
                                                 foi_email: "mr.foi@example.com",
                                                 foi_web: "http://foi.com"
 
-      dataset = build :dataset, organisation: organisation
+      dataset = build(:dataset, organisation:)
       index_and_visit(dataset)
 
       expect(page).to have_css("h2", text: "Contact")
