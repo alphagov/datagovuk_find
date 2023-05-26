@@ -2,14 +2,14 @@ module ApplicationHelper
   def format_timestamp(timestamp)
     Time.zone.parse(timestamp).strftime("%d %B %Y")
   end
-end
 
-# Apply a monkeypatch in order to get page_entries_info to work
-#
-# https://github.com/elastic/elasticsearch-rails/issues/966#issuecomment-772994670
+  # As there is an issue with how Kaminari processes records -
+  #
+  # https://github.com/elastic/elasticsearch-rails/issues/966#issuecomment-772994670
+  #
+  # copy the function block without `collection.respond_to?(:records)` check to get paging working
 
-module Kaminari::Helpers::HelperMethods
-  def page_entries_info(collection, entry_name: nil)
+  def dgu_page_entries_info(collection, entry_name: nil)
     entry_name = if entry_name
                    entry_name.pluralize(collection.size, I18n.locale)
                  else
