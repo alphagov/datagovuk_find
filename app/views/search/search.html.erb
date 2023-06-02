@@ -80,7 +80,7 @@
             <% end %>
             <div class="dgu-pagination">
               <nav>
-                <%= page_entries_info @datasets, entry_name: 'dataset' %>
+                <%= dgu_page_entries_info @datasets, entry_name: 'dataset' %>
                 <span class="dgu-pagination__numbers"><%= paginate @datasets, window: 2 %></span>
               </nav>
             </div>
