@@ -2,6 +2,10 @@
     t('.results_page_title', query: search_term) :
     t('.search_results') %><% end %>
 
+<% content_for :head do %>
+  <meta name="robots" content="noindex">
+<% end %>
+
 <form action="/search" method="GET">
   <main role="main" id="main-content" class="govuk-main-wrapper">
     <div class="govuk-width-container">
