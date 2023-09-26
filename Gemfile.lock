@@ -97,17 +97,17 @@ GEM
     docile (1.4.0)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
-    elasticsearch (7.11.2)
-      elasticsearch-api (= 7.11.2)
-      elasticsearch-transport (= 7.11.2)
-    elasticsearch-api (7.11.2)
+    elasticsearch (7.17.9)
+      elasticsearch-api (= 7.17.9)
+      elasticsearch-transport (= 7.17.9)
+    elasticsearch-api (7.17.9)
       multi_json
     elasticsearch-model (7.2.0)
       activesupport (> 3)
       elasticsearch (~> 7)
       hashie
     elasticsearch-rails (7.2.1)
-    elasticsearch-transport (7.11.2)
+    elasticsearch-transport (7.17.9)
       faraday (~> 1)
       multi_json
     erubi (1.12.0)
@@ -460,7 +460,7 @@ DEPENDENCIES
   browser
   byebug
   capybara
-  elasticsearch (~> 7.11.2)
+  elasticsearch (~> 7.17.9)
   elasticsearch-model
   elasticsearch-rails (~> 7.2.1)
   factory_bot
