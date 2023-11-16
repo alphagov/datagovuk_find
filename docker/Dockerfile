@@ -1,4 +1,4 @@
-FROM ruby:3.2.0
+FROM ruby:3.2.2
 
 WORKDIR /srv/app/datagovuk_find
 
@@ -14,6 +14,6 @@ RUN apt-get update && apt-get install -y yarn
 
 COPY ./ /srv/app/datagovuk_find
 
-RUN gem install bundler --conservative && \
+RUN gem install bundler && \
     bundle install && \
     bin/yarn
