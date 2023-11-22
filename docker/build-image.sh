@@ -12,6 +12,10 @@ build () {
 
 DOCKER_TAG="${GITHUB_SHA}"
 
+if [[ -n ${GH_REF:-} ]]; then
+  DOCKER_TAG="${GH_REF}"
+fi
+
 build "${DOCKER_TAG}"
 
 if [[ -n ${DRY_RUN:-} ]]; then

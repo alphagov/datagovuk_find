@@ -1,0 +1,23 @@
+name: Create charts PR on tags creation
+
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: [ "Build and push images on tags" ]
+    types:
+      - completed
+
+jobs:
+  create_pr:
+    name: Create charts PR on tags creation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set GH_REF
+        # Change back to git tag once we no longer need the k versions
+        run: echo "GH_REF=`echo $(git fetch -t -q && git tag -l "k*" | sort --version-sort | tail -n1)`" >> $GITHUB_ENV
+      - run: bash ./docker/create-pr.sh
+        env:
+          GH_TOKEN: ${{ secrets.PR_GITHUB_TOKEN }}
+          IS_TAG: "true"
+          ENVS: "staging,production"
