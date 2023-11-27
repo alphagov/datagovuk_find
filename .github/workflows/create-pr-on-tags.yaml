@@ -14,8 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Set GH_REF
-        # Change back to git tag once we no longer need the k versions
-        run: echo "GH_REF=`echo $(git fetch -t -q && git tag -l "k*" | sort --version-sort | tail -n1)`" >> $GITHUB_ENV
+        run: echo "GH_REF=`echo $(git fetch -t -q | sort --version-sort | tail -n1)`" >> $GITHUB_ENV
       - run: bash ./docker/create-pr.sh
         env:
           GH_TOKEN: ${{ secrets.PR_GITHUB_TOKEN }}
