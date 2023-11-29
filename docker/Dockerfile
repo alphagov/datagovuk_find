@@ -13,6 +13,7 @@ COPY ./ /srv/app/datagovuk_find
 
 RUN gem install bundler && \
     bundle install 
-    
-RUN bin/yarn && \
-    rails assets:precompile
+
+RUN rails assets:precompile
+
+RUN bin/yarn 
