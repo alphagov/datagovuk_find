@@ -7,7 +7,7 @@ FROM $builder_image AS builder
 WORKDIR /srv/app/datagovuk_find
 
 RUN apt-get update
-RUN apt-get install -y nodejs postgresql postgresql-contrib
+RUN apt-get install -y nodejs
 
 COPY ./ /srv/app/datagovuk_find
 
