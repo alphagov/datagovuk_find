@@ -12,6 +12,7 @@ RUN apt-get install -y nodejs postgresql postgresql-contrib
 COPY ./ /srv/app/datagovuk_find
 
 RUN gem install bundler && \
-    bundle install && \
-    bin/yarn && \
+    bundle install 
+    
+RUN bin/yarn && \
     rails assets:precompile
