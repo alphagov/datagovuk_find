@@ -35,6 +35,3 @@ environment ENV.fetch("RAILS_ENV") { "development" }
 # process behavior so workers use less memory.
 #
 # preload_app!
-
-# Allow puma to be restarted by `rails restart` command.
-plugin :tmp_restart
