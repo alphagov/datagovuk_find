@@ -19,7 +19,7 @@
 }
 
 .cookie-settings__confirmation {
-  @include govuk-font(19);
+  // FIXME @include govuk-font(19);
   display: none;
   margin-top: govuk-spacing(3);
 }

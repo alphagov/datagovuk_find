@@ -1,7 +1,7 @@
 <div class="govuk-grid-row">
   <h2 class="govuk-visually-hidden"><%= t('.topics_heading') %></h2>
-  <div class="govuk-grid-column-full">
-    <ul class="govuk-list dgu-topics__list">
+  <div class="govuk-grid-column-one-third">
+    <ul class="govuk-list">
       <li>
         <h3 class="govuk-heading-s dgu-topics__heading"><%= link_to t('.business_and_economy_label'), search_path(filters: { topic: 'Business and economy' }), class: 'govuk-link' %></h3>
         <p class="govuk-body"><%= t('.business_and_economy_description') %></p>
@@ -22,6 +22,10 @@
         <h3 class="govuk-heading-s dgu-topics__heading"><%= link_to t('.environment_label'), search_path(filters: { topic: 'Environment' }), class: 'govuk-link' %></h3>
         <p class="govuk-body"><%= t('.environment_description') %></p>
       </li>
+    </ul>
+  </div>
+  <div class="govuk-grid-column-one-third">
+    <ul class="govuk-list">
       <li>
         <h3 class="govuk-heading-s dgu-topics__heading"><%= link_to t('.government_label'), search_path(filters: { topic: 'Government' }), class: 'govuk-link' %></h3>
         <p class="govuk-body"><%= t('.government_description') %></p>
@@ -38,6 +42,10 @@
         <h3 class="govuk-heading-s dgu-topics__heading"><%= link_to t('.mapping_label'), search_path(filters: { topic: 'Mapping' }), class: 'govuk-link' %></h3>
         <p class="govuk-body"><%= t('.mapping_description') %></p>
       </li>
+    </ul>
+  </div>
+  <div class="govuk-grid-column-one-third">
+    <ul class="govuk-list">      
       <li>
         <h3 class="govuk-heading-s dgu-topics__heading"><%= link_to t('.society_label'), search_path(filters: { topic: 'Society' }), class: 'govuk-link' %></h3>
         <p class="govuk-body"><%= t('.society_description') %></p>

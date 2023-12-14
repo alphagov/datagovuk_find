@@ -1,12 +1,17 @@
-<div class="grid-row">
-  <div class="column-full">
-    <div class="breadcrumbs">
-      <nav aria-label="Breadcrumb">
-        <ol>
-          <li><%= link_to t('.home'), root_path, class: 'govuk-link' %></li>
-          <li aria-current="page"><%= yield :page_title %></li>
-        </ol>
-      </nav>
-    </div>
-  </div>
-</div>
+<% pageTitle = capture do %>
+  <%= yield :page_title %>
+<% end %>
+
+<%= render "govuk_publishing_components/components/breadcrumbs", {
+  collapse_on_mobile: true,
+  breadcrumbs: [
+    {
+      title: t('.home'),
+      url: root_path
+    },
+    {
+      title: pageTitle,
+      url: ""
+    }
+  ]
+} %>
