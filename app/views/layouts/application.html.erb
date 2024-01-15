@@ -44,6 +44,7 @@
       </div>
     </header>
 
+    <%= render 'layouts/integration_ribbon' if Rails.env.integration? %>
     <%= render 'layouts/staging_ribbon' if Rails.env.staging? %>
 
     <div class="dgu-top-non-content">
