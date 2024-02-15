@@ -78,10 +78,11 @@
           ga('send', eventParams)
         }
       }
-};
+  };
 <% else %>
-var analyticsInit = function() { /* Analytics not configured. */ };
+  var analyticsInit = function() { /* Analytics not configured. */ };
 <% end %>
+window.GOVUK = window.GOVUK || {};
 window.GOVUK.analyticsInit = analyticsInit;
 </script>
 
