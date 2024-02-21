@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 ruby File.read(".ruby-version").strip
 
-gem "rails", "7.0.5.1"
+gem "rails", "7.1.3"
 
 gem "addressable"
 gem "bootsnap"
