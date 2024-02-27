@@ -12,6 +12,6 @@ class Legacy::SearchController < ApplicationController
 private
 
   def licence_param
-    return "uk-ogl" if params["license_id-is-ogl"] == "true"
+    "uk-ogl" if params["license_id-is-ogl"] == "true"
   end
 end

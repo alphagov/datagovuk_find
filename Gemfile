@@ -1,7 +1,5 @@
 source "https://rubygems.org"
 
-ruby File.read(".ruby-version").strip
-
 gem "rails", "7.0.5.1"
 
 gem "addressable"
@@ -27,6 +25,7 @@ gem "net-smtp"
 gem "nokogiri"
 gem "parslet"
 gem "pg"
+gem "plek", "~> 4.1" # TODO: unconstrain once govuk_pub_components up-to-date.
 gem "puma"
 gem "redcarpet"
 gem "rest-client"

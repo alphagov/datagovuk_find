@@ -1,20 +1,23 @@
-FROM ruby:3.2.2
+ARG ruby_version=3.2
+ARG base_image=ghcr.io/alphagov/govuk-ruby-base:$ruby_version
+ARG builder_image=ghcr.io/alphagov/govuk-ruby-builder:$ruby_version
 
-WORKDIR /srv/app/datagovuk_find
+FROM $builder_image AS builder
 
-RUN apt-get update
-RUN apt-get install -y nodejs postgresql postgresql-contrib
+WORKDIR $APP_HOME
+COPY Gemfile* .ruby-version ./
+RUN bundle install
+COPY . ./
+RUN ES_HOST=x rails assets:precompile && rm -fr log
 
-# to install yarn we have to remove cmdtest
-RUN apt-get remove -y cmdtest
-RUN apt autoremove -y
-RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
-RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
-RUN apt-get update && apt-get install -y yarn
 
-COPY ./ /srv/app/datagovuk_find
+FROM $base_image
 
-RUN gem install bundler && \
-    bundle install && \
-    bin/yarn && \
-    rails assets:precompile
+WORKDIR $APP_HOME
+COPY --from=builder $BUNDLE_PATH $BUNDLE_PATH
+COPY --from=builder $APP_HOME .
+
+USER app
+CMD ["puma"]
+
+LABEL org.opencontainers.image.source=https://github.com/alphagov/datagovuk_find
