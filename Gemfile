@@ -25,7 +25,7 @@ gem "net-smtp"
 gem "nokogiri"
 gem "parslet"
 gem "pg"
-gem "plek", "~> 4.1" # TODO: unconstrain once govuk_pub_components up-to-date.
+gem "plek", "~> 5.0" # TODO: unconstrain once govuk_pub_components up-to-date.
 gem "puma"
 gem "redcarpet"
 gem "rest-client"

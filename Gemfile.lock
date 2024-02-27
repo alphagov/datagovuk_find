@@ -461,7 +461,7 @@ GEM
       racc
     parslet (2.0.0)
     pg (1.5.5)
-    plek (4.1.0)
+    plek (5.0.0)
     prometheus_exporter (2.1.0)
       webrick
     pry (0.14.2)
@@ -693,7 +693,7 @@ DEPENDENCIES
   nokogiri
   parslet
   pg
-  plek (~> 4.1)
+  plek (~> 5.0)
   pry
   pry-byebug
   pry-stack_explorer
