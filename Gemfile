@@ -57,5 +57,5 @@ group :test do
   gem "capybara"
   gem "factory_bot"
   gem "govuk_test"
-  gem "simplecov", "< 0.18" # see https://github.com/codeclimate/test-reporter/issues/413
+  gem "simplecov", "< 0.23" # see https://github.com/codeclimate/test-reporter/issues/413
 end
