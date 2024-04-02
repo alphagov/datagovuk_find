@@ -5,77 +5,11 @@
 <% end%>
 
 <main role="main" id="main-content" class="govuk-main-wrapper">
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      <% if @ticket.errors.any? %>
-        <%
-          errors = @ticket.errors.messages.map do |attr, error|
-            {
-              text: error[0],
-              href: "#error-#{attr.to_s}"
-            }
-          end
-        %>
-        
-        <%= render "govuk_publishing_components/components/error_summary", {
-          title: t('.problem'),
-          items: errors
-        } %>
-      <% end %>
-
-      <%= render "govuk_publishing_components/components/heading", {
-        text: t(".#{@ticket.support}_request"),
-        margin_bottom: 4,
-        heading_level: 1,
-        font_size: "l",
-      } %>
-
-      <%= form_for @ticket, url: { action: "create", controller: "tickets" } do |f| %>
-        <%
-          content_error = t('.enter_a_message') if @ticket.errors[:content].any?
-          content_error_id = "error-content" if @ticket.errors[:content].any?
-          name_error = t('.enter_a_name') if @ticket.errors[:name].any?
-          name_error_id = "error-name" if @ticket.errors[:name].any?
-          email_error = t('.enter_an_email') if @ticket.errors[:email].any?
-          email_error_id = "error-email" if @ticket.errors[:email].any?
-        %>
-
-        <%= render "govuk_publishing_components/components/textarea", {
-          label: {
-            text: t('.your_message'),
-          },
-          name: "ticket[content]",
-          error_message: content_error,
-          id: content_error_id,
-          rows: 8,
-        } %>
-
-        <%= render "govuk_publishing_components/components/input", {
-          label: {
-            text: t('.name'),
-          },
-          name: "ticket[name]",
-          error_message: name_error,
-          id: name_error_id,
-          autocomplete: "name",
-        } %>
-
-        <%= render "govuk_publishing_components/components/input", {
-          label: {
-            text: t('.email_address'),
-          },
-          name: "ticket[email]",
-          error_message: email_error,
-          id: email_error_id,
-          hint: t('.use_this_to_reply'),
-          autocomplete: "email",
-        } %>
-
-        <%= f.hidden_field(:support, :value => @ticket.support) %>
-        <%= render "govuk_publishing_components/components/button", {
-          text: t('.submit'),
-        } %>      
-      <% end %>
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <h1 class="heading-large">Service unavailable</h1>
+      <p>Sorry you can't use this service because of a technical problem.</p>
+      <p>We're working on a fix. Please try again later.</p>
     </div>
   </div>
 </main>
