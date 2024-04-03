@@ -5,11 +5,68 @@
 <% end%>
 
 <main role="main" id="main-content" class="govuk-main-wrapper">
-  <div class="grid-row">
-    <div class="column-two-thirds">
-      <h1 class="heading-large">Service unavailable</h1>
-      <p>Sorry you can't use this service because of a technical problem.</p>
-      <p>We're working on a fix. Please try again later.</p>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <%= render "govuk_publishing_components/components/heading", {
+        text: "Support",
+        margin_bottom: 6,
+        heading_level: 1,
+        font_size: "l",
+      } %>
+
+      <p class="govuk-body">The Government Digital Service (GDS) maintains the technical service behind data.gov.uk
+         and helps government publishers to manage and update their data.</p>
+
+      <p class="govuk-body">It cannot</p>
+      <ul class="list list-bullet">
+        <li>help you find or research datasets</li>
+        <li>provide personal information or medical records</li>
+        <li>combine data from multiple datasets</li>
+      </ul>
+
+      <p class="govuk-body">For questions about GOV.UK check the <%= link_to "GOV.UK help pages", "https://www.gov.uk/help", class: "govuk-link" %> or <%= link_to "contact GOV.UK", "https://www.gov.uk/contact/govuk", class: "govuk-link" %>.</p>
+      <p class="govuk-body">The NHS <%= link_to "publishes its own data.", "https://digital.nhs.uk/data-and-information/data-collections-and-data-sets/data-sets", class: "govuk-link" %></p>
+
+      <%= render "govuk_publishing_components/components/heading", {
+        text: "If you have a question about a dataset",
+        margin_bottom: 4,
+        heading_level: 2,
+        font_size: "m",
+      } %>
+      <p class="govuk-body">If you have a question about a specific dataset, contact the publisher directly.</p>
+
+      <form action="tickets/new" method="get">
+        <%= render "govuk_publishing_components/components/radio", {
+          name: "support",
+          heading: "How can we help you?",
+          items: [
+            {
+              value: "feedback",
+              text: "I want to report a problem"
+            },
+            {
+              value: "data",
+              text: "I want government to publish new data"
+            },
+            {
+              value: "publish",
+              text: "I want to publish for an organisation"
+            },
+            {
+              value: "accessibility",
+              text: "I want to report an accessibility issue"
+            },
+          ]
+        } %>
+
+        <%= render "govuk_publishing_components/components/button", {
+          text: "Continue",
+          margin_bottom: true,
+        } %>
+      </form>
+
+      <p class="govuk-body">Please give us your feedback about the site using <%= link_to "our survey", "http://www.smartsurvey.co.uk/s/3SEXD/", class: "govuk-link" %>.</p>
     </div>
   </div>
 </main>
