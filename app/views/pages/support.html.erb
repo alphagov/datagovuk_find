@@ -36,35 +36,13 @@
       } %>
       <p class="govuk-body">If you have a question about a specific dataset, contact the publisher directly.</p>
 
-      <form action="tickets/new" method="get">
-        <%= render "govuk_publishing_components/components/radio", {
-          name: "support",
-          heading: "How can we help you?",
-          items: [
-            {
-              value: "feedback",
-              text: "I want to report a problem"
-            },
-            {
-              value: "data",
-              text: "I want government to publish new data"
-            },
-            {
-              value: "publish",
-              text: "I want to publish for an organisation"
-            },
-            {
-              value: "accessibility",
-              text: "I want to report an accessibility issue"
-            },
-          ]
-        } %>
-
-        <%= render "govuk_publishing_components/components/button", {
-          text: "Continue",
-          margin_bottom: true,
-        } %>
-      </form>
+      <%= render "govuk_publishing_components/components/heading", {
+        text: "Other urgent requests",
+        margin_bottom: 4,
+        heading_level: 2,
+        font_size: "m",
+      } %>
+      <p class="govuk-body">If your request is urgent, please use <%= link_to "the form", "https://www.gov.uk/contact/govuk", class: "govuk-link" %> and mention that it's about data.gov.uk.</p>
 
       <p class="govuk-body">Please give us your feedback about the site using <%= link_to "our survey", "http://www.smartsurvey.co.uk/s/3SEXD/", class: "govuk-link" %>.</p>
     </div>
