@@ -5,11 +5,17 @@
 <% end%>
 
 <main role="main" id="main-content" class="govuk-main-wrapper">
-  <div class="grid-row">
-    <div class="column-two-thirds">
-      <h1 class="heading-large">Service unavailable</h1>
-      <p>Sorry you can't use this service because of a technical problem.</p>
-      <p>We're working on a fix. Please try again later.</p>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <%= render "govuk_publishing_components/components/heading", {
+        text: "Other urgent requests",
+        margin_bottom: 4,
+        heading_level: 1,
+        font_size: "l",
+      } %>
+
+      <p class="govuk-body">If your request is urgent, please use <%= link_to 'the form', 'https://www.gov.uk/contact/govuk', class: 'govuk-link' %> and mention that it's about data.gov.uk.</p>
     </div>
   </div>
 </main>
