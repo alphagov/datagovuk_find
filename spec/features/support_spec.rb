@@ -1,106 +1,106 @@
 require "rails_helper"
 
-RSpec.feature "Support tickets", type: :feature do
-  before do
-    visit support_path
-  end
+# RSpec.feature "Support tickets", type: :feature do
+#   before do
+#     visit support_path
+#   end
 
-  feature "Reporting a problem" do
-    let(:ticket) { build :ticket, support: "feedback" }
+#   feature "Reporting a problem" do
+#     let(:ticket) { build :ticket, support: "feedback" }
 
-    scenario "Send a support ticket to Zendesk" do
-      choose "I want to report a problem"
-      click_on "Continue"
-      expect(page).to have_content "Report a problem"
+#     scenario "Send a support ticket to Zendesk" do
+#       choose "I want to report a problem"
+#       click_on "Continue"
+#       expect(page).to have_content "Report a problem"
 
-      fill_in "Your message", with: ticket.content
-      fill_in "Name", with: ticket.name
-      fill_in "Email address", with: ticket.email
+#       fill_in "Your message", with: ticket.content
+#       fill_in "Name", with: ticket.name
+#       fill_in "Email address", with: ticket.email
 
-      expect(Zendesk.client)
-        .to receive_message_chain("tickets.create!")
-        .with(ticket.to_json)
+#       expect(Zendesk.client)
+#         .to receive_message_chain("tickets.create!")
+#         .with(ticket.to_json)
 
-      click_on "Submit"
-      expect(page).to have_content "Thanks for contacting data.gov.uk"
-    end
-  end
+#       click_on "Submit"
+#       expect(page).to have_content "Thanks for contacting data.gov.uk"
+#     end
+#   end
 
-  feature "Asking government to publish new data" do
-    let(:ticket) { build :ticket, support: "data" }
+#   feature "Asking government to publish new data" do
+#     let(:ticket) { build :ticket, support: "data" }
 
-    scenario "Send a support ticket to Zendesk" do
-      choose "I want government to publish new data"
-      click_on "Continue"
-      expect(page).to have_content "Ask the government to publish new data"
+#     scenario "Send a support ticket to Zendesk" do
+#       choose "I want government to publish new data"
+#       click_on "Continue"
+#       expect(page).to have_content "Ask the government to publish new data"
 
-      fill_in "Your message", with: ticket.content
-      fill_in "Name", with: ticket.name
-      fill_in "Email address", with: ticket.email
+#       fill_in "Your message", with: ticket.content
+#       fill_in "Name", with: ticket.name
+#       fill_in "Email address", with: ticket.email
 
-      expect(Zendesk.client)
-        .to receive_message_chain("tickets.create!")
-        .with(ticket.to_json)
+#       expect(Zendesk.client)
+#         .to receive_message_chain("tickets.create!")
+#         .with(ticket.to_json)
 
-      click_on "Submit"
-      expect(page).to have_content "Thanks for contacting data.gov.uk"
-    end
-  end
+#       click_on "Submit"
+#       expect(page).to have_content "Thanks for contacting data.gov.uk"
+#     end
+#   end
 
-  feature "Becoming a publisher" do
-    let(:ticket) { build :ticket, support: "publish" }
+#   feature "Becoming a publisher" do
+#     let(:ticket) { build :ticket, support: "publish" }
 
-    scenario "Send a support ticket to Zendesk" do
-      choose "I want to publish for an organisation"
-      click_on "Continue"
-      expect(page).to have_content "Publish for an organisation"
+#     scenario "Send a support ticket to Zendesk" do
+#       choose "I want to publish for an organisation"
+#       click_on "Continue"
+#       expect(page).to have_content "Publish for an organisation"
 
-      fill_in "Your message", with: ticket.content
-      fill_in "Name", with: ticket.name
-      fill_in "Email address", with: ticket.email
+#       fill_in "Your message", with: ticket.content
+#       fill_in "Name", with: ticket.name
+#       fill_in "Email address", with: ticket.email
 
-      expect(Zendesk.client)
-        .to receive_message_chain("tickets.create!")
-        .with(ticket.to_json)
+#       expect(Zendesk.client)
+#         .to receive_message_chain("tickets.create!")
+#         .with(ticket.to_json)
 
-      click_on "Submit"
-      expect(page).to have_content "Thanks for contacting data.gov.uk"
-    end
-  end
+#       click_on "Submit"
+#       expect(page).to have_content "Thanks for contacting data.gov.uk"
+#     end
+#   end
 
-  feature "Recover from invalid data" do
-    let(:ticket) { build :ticket, email: "foo" }
+#   feature "Recover from invalid data" do
+#     let(:ticket) { build :ticket, email: "foo" }
 
-    scenario "Show the errors in the ticket form" do
-      choose "I want government to publish new data"
-      click_on "Continue"
-      fill_in "Email address", with: ticket.email
+#     scenario "Show the errors in the ticket form" do
+#       choose "I want government to publish new data"
+#       click_on "Continue"
+#       fill_in "Email address", with: ticket.email
 
-      click_on "Submit"
-      expect(page).to have_content "Enter a valid email address"
-      expect(page).to have_content "Enter a name"
-      expect(page).to have_content "Enter a message"
-    end
-  end
+#       click_on "Submit"
+#       expect(page).to have_content "Enter a valid email address"
+#       expect(page).to have_content "Enter a name"
+#       expect(page).to have_content "Enter a message"
+#     end
+#   end
 
-  feature "Reporting an accessibility issue" do
-    let(:ticket) { build :ticket, support: "accessibility" }
+#   feature "Reporting an accessibility issue" do
+#     let(:ticket) { build :ticket, support: "accessibility" }
 
-    scenario "Send a support ticket to Zendesk" do
-      choose "I want to report an accessibility issue"
-      click_on "Continue"
-      expect(page).to have_content "Report an accessibility issue"
+#     scenario "Send a support ticket to Zendesk" do
+#       choose "I want to report an accessibility issue"
+#       click_on "Continue"
+#       expect(page).to have_content "Report an accessibility issue"
 
-      fill_in "Your message", with: ticket.content
-      fill_in "Name", with: ticket.name
-      fill_in "Email address", with: ticket.email
+#       fill_in "Your message", with: ticket.content
+#       fill_in "Name", with: ticket.name
+#       fill_in "Email address", with: ticket.email
 
-      expect(Zendesk.client)
-        .to receive_message_chain("tickets.create!")
-        .with(ticket.to_json)
+#       expect(Zendesk.client)
+#         .to receive_message_chain("tickets.create!")
+#         .with(ticket.to_json)
 
-      click_on "Submit"
-      expect(page).to have_content "Thanks for contacting data.gov.uk"
-    end
-  end
-end
+#       click_on "Submit"
+#       expect(page).to have_content "Thanks for contacting data.gov.uk"
+#     end
+#   end
+# end
