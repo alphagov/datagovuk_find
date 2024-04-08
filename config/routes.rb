@@ -30,6 +30,7 @@ Rails.application.routes.draw do
     get "publishers"
     get "site-changes", to: :site_changes
     get "support"
+    get "support/new", to: redirect("/support")
     get "terms"
     get "ckan_maintenance"
   end
@@ -39,8 +40,7 @@ Rails.application.routes.draw do
 
   get "search/", to: "search#search"
 
-  resources :tickets, only: %i[new create]
-  get "tickets/confirmation", to: "tickets#confirmation"
+  get "tickets/new", to: redirect("/support")
 
   get "data/map-preview", to: "map_previews#show", as: "map_preview"
 
