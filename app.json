@@ -10,18 +10,6 @@
     },
     "ES_HOST": {
       "required": true
-    },
-    "ZENDESK_API_KEY": {
-      "required": true
-    },
-    "ZENDESK_END_POINT": {
-      "required": true
-    },
-    "ZENDESK_PASSWORD": {
-      "required": true
-    },
-    "ZENDESK_USERNAME": {
-      "required": true
     }
   },
   "formation": {},

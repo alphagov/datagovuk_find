@@ -40,8 +40,6 @@ Rails.application.routes.draw do
 
   get "search/", to: "search#search"
 
-  get "tickets/new", to: redirect("/support")
-
   get "data/map-preview", to: "map_previews#show", as: "map_preview"
 
   defaults format: :xml do
