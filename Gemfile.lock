@@ -191,7 +191,6 @@ GEM
       domain_name (~> 0.5)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
-    inflection (1.0.0)
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
@@ -655,12 +654,6 @@ GEM
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.6.13)
-    zendesk_api (1.37.0)
-      faraday (>= 0.9.0, < 2.0.0)
-      hashie (>= 3.5.2, < 6.0.0)
-      inflection
-      mini_mime
-      multipart-post (~> 2.0)
 
 PLATFORMS
   ruby
@@ -714,7 +707,6 @@ DEPENDENCIES
   spring-watcher-listen
   uglifier
   webmock
-  zendesk_api
 
 BUNDLED WITH
    2.5.6
