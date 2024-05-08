@@ -8,7 +8,7 @@ SecureHeaders::Configuration.default do |config|
     manifest_src: ["'self'"],
     media_src: ["'self'"],
     object_src: ["'self'"],
-    script_src: ["'unsafe-inline'", "'self'", "www.google-analytics.com"],
+    script_src: ["'unsafe-inline'", "'self'", "www.google-analytics.com", "www.googletagmanager.com"],
     style_src: ["'unsafe-inline'", "'self'"],
   }
 end
