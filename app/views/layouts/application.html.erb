@@ -5,12 +5,24 @@
 <html class="govuk-template">
   <head>
   <% if ENV["GOOGLE_TAG_MANAGER_ID"] %>
-    <%= render "govuk_publishing_components/components/google_tag_manager_script", {
-      gtm_id: ENV["GOOGLE_TAG_MANAGER_ID"],
-      gtm_auth: ENV["GOOGLE_TAG_MANAGER_AUTH"],
-      gtm_preview: ENV["GOOGLE_TAG_MANAGER_PREVIEW"]
-    } %>
+    <% 
+      gtm_auth = ENV["GOOGLE_TAG_MANAGER_AUTH"]
+      gtm_preview = ENV["GOOGLE_TAG_MANAGER_PREVIEW"]
+    
+      gtm_attributes = []
+        gtm_attributes << "gtm_auth=" + gtm_auth if gtm_auth
+        gtm_attributes << "gtm_preview=#{gtm_preview}&gtm_cookies_win=x" if gtm_preview
+      gtm_attributes = gtm_attributes.join('&')
+    %>
+    <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl+'&<%= raw gtm_attributes %>';f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','<%= ENV["GOOGLE_TAG_MANAGER_ID"] %>');
+    </script>
   <% end %>
+
 <script>
 <% if Rails.application.config.analytics_tracking_id.present? %>
   var analyticsInit = function() {
