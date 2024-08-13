@@ -33,7 +33,9 @@ Dir[Rails.root.join("spec/support/**/*.rb")].sort.each { |f| require f }
 
 FactoryBot.find_definitions
 
-WebMock.disable_net_connect!(
+# TODO: fix webmock for local testing
+# WebMock.disable_net_connect!(
+WebMock.allow_net_connect!(
   allow_localhost: true,
   allow: Rails.configuration.elasticsearch["host"],
 )
