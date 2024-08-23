@@ -1,33 +1,18 @@
-class Datafile
+class SolrDatafile
   DatafileNotFound = Class.new(StandardError)
 
   attr_reader :name, :url, :start_date,
               :created_at, :updated_at, :format, :size, :uuid
 
   def initialize(hash)
-    @name = hash["name"]
+    hash["name"].present? ? @name = hash["name"] : @name = hash["description"]
     @url = hash["url"]
     @start_date = hash["start_date"]
-    @created_at = hash["created_at"]
-    @updated_at = hash["updated_at"]
+    @created_at = hash["created"]
+    # @updated_at = hash["metadata_modified"]
     @format = hash["format"]&.strip&.delete_prefix(".")&.upcase
-    @size = hash["size"].number_to_human_size
-    s
-    @uuid = hash["uuid"]
-  end
-
-  def start_year
-    return if start_date.blank?
-
-    Time.zone.parse(start_date).year
-  end
-
-  def timeseries?
-    start_date.present?
-  end
-
-  def non_timeseries?
-    start_date.blank?
+    # @size = hash["size"]
+    @uuid = hash["id"]
   end
 
   def html?
