@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   get "dataset/:uuid", to: "datasets#show", uuid: /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/
 
+  mount GovukPublishingComponents::Engine, at: "/component-guide" #if Rails.env.development?
+
   scope module: "legacy" do
     get "dataset/:legacy_name",
         to: "datasets#available_soon",
