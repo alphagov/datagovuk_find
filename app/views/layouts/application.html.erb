@@ -2,116 +2,21 @@
 <!DOCTYPE html>
 <!--[if lt IE 9]><html class="lte-ie8" lang="<%= content_for?(:html_lang) ? yield(:html_lang) : "en" %>"><![endif]-->
 <!--[if gt IE 8]><!--><html lang="<%= content_for?(:html_lang) ? yield(:html_lang) : "en" %>"><!--<![endif]-->
-<html class="govuk-template">
+<html lang="en" class="govuk-template ">
   <head>
-  <% if ENV["GOOGLE_TAG_MANAGER_ID"] %>
-    <% 
-      gtm_auth = ENV["GOOGLE_TAG_MANAGER_AUTH"]
-      gtm_preview = ENV["GOOGLE_TAG_MANAGER_PREVIEW"]
-    
-      gtm_attributes = []
-        gtm_attributes << "gtm_auth=" + gtm_auth if gtm_auth
-        gtm_attributes << "gtm_preview=#{gtm_preview}&gtm_cookies_win=x" if gtm_preview
-      gtm_attributes = gtm_attributes.join('&')
-    %>
-    <script>
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl+'&<%= raw gtm_attributes %>';f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','<%= ENV["GOOGLE_TAG_MANAGER_ID"] %>');
-    </script>
-  <% end %>
-
-<script>
-<% if Rails.application.config.analytics_tracking_id.present? %>
-  var analyticsInit = function() {
-      var consentCookie = window.GOVUK.getConsentCookie();
-
-      if (consentCookie && consentCookie["usage"]) {
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga')
-
-        ga('create', '<%= Rails.application.config.analytics_tracking_id %>', 'auto')
-        var dimensions = {}
-
-        $(document).ready(function() {
-          dimensions['dimension11'] = 'find-open-data'
-          ga('send', 'pageview', dimensions)
-          $('[data-ga-event]').on('click', sendAnalyticsEvent)
-        })
-
-        // Analytics event firing
-        function sendAnalyticsEvent() {
-          var eventType = $(this).data('ga-event')
-          var orgName = $(this).data('ga-publisher')
-          var eventParams = {}
-          switch (eventType) {
-            case 'download':
-              eventParams = {
-                hitType: 'event',
-                eventCategory: 'datafile',
-                eventAction: 'download',
-                eventLabel: $(this).attr('href'),
-                dimension4: orgName,
-                dimension5: $(this).data('ga-format'),
-                dimension11: 'find-open-data'
-              }
-              break
-            case 'contact':
-              eventParams = {
-                hitType: 'event',
-                eventCategory: 'contact-details',
-                eventAction: 'click',
-                eventLabel: orgName,
-                dimension4: orgName,
-                dimension11: 'find-open-data'
-              }
-              break
-            case 'preview':
-              eventParams = {
-                hitType: 'event',
-                eventCategory: 'datafile-preview',
-                eventAction: 'click',
-                eventLabel: $(this).attr('href'),
-                dimension4: orgName,
-                dimension5: $(this).data('ga-format'),
-                dimension11: 'find-open-data'
-              }
-              break
-            case 'preview-download':
-              eventParams = {
-                hitType: 'event',
-                eventCategory: 'datafile-preview',
-                eventAction: 'download',
-                eventLabel: $(this).attr('href'),
-                dimension4: orgName,
-                dimension5: $(this).data('ga-format'),
-                dimension11: 'find-open-data'
-              }
-              break
-          }
-          ga('send', eventParams)
-        }
-      }
-  };
-<% else %>
-  var analyticsInit = function() { /* Analytics not configured. */ };
-<% end %>
-window.GOVUK = window.GOVUK || {};
-window.GOVUK.analyticsInit = analyticsInit;
-</script>
-
+    <%= render 'layouts/gtm_configuration' %>
     <meta charset="utf-8">
     <title><%= content_for?(:page_title) ? yield(:page_title) + " - " + t('.site_name') : t('.site_name') %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <%# the colour used for theme-color is the standard palette $black from
-        https://github.com/alphagov/govuk_frontend_toolkit/blob/master/stylesheets/colours/_palette.scss %>
-    <meta name="theme-color" content="#0b0c0c" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon">
+    <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
 
     <%= stylesheet_link_tag 'application' %>
     <%= csrf_meta_tags %>
@@ -129,33 +34,33 @@ window.GOVUK.analyticsInit = analyticsInit;
 
     <%= render "govuk_publishing_components/components/skip_link", {} %>
 
-    <header role="banner" class="govuk-header" data-module="govuk-header">
-      <div class="govuk-header__container govuk-width-container">
-        <div class="govuk-grid-row">
-          <div class="govuk-header__logo govuk-grid-column-one-half">
-            <a href="<%= root_path %>" class="govuk-header__link govuk-header__link--homepage">
-                <%= t('.data_gov_uk')%> | <%= t('.find_open_data') %>
-              </a>
-          </div>
-          <div class="govuk-grid-column-one-half">
-            <%= render 'layouts/proposition_header' %>
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <%= render 'layouts/integration_ribbon' if Rails.env.integration? %>
-    <%= render 'layouts/staging_ribbon' if Rails.env.staging? %>
-
-    <div class="dgu-top-non-content">
-      <div class="dgu-top-non-content__inner">
-        <%= render 'layouts/feedback_survey_banner' %>
-        <%= yield :breadcrumb %>
-      </div>
-    </div>
+    <%= render "govuk_publishing_components/components/layout_header", {
+      product_name: "#{t('.data_gov_uk')} | #{t('.find_open_data')}",
+      navigation_items: [
+        {
+          text: t(".publishers"),
+          href: publishers_path,
+        },
+        {
+          text: t(".documentation"),
+          href: "https://guidance.data.gov.uk/publish_and_manage_data/",
+        },
+        {
+          text: t(".support"),
+          href: support_path,
+        }
+      ]
+    } %>
 
     <div class="govuk-width-container">
-      <%= yield %>
+      <%= render 'layouts/integration_ribbon' if Rails.env.integration? %>
+      <%= render 'layouts/staging_ribbon' if Rails.env.staging? %>
+      <%= render 'layouts/feedback_survey_banner' %>
+      <%= yield :breadcrumb %>
+
+      <main class="govuk-main-wrapper" id="main-content" role="main">
+        <%= yield %>
+      </main>
     </div>
 
     <%= render "govuk_publishing_components/components/layout_footer", {
@@ -199,5 +104,8 @@ window.GOVUK.analyticsInit = analyticsInit;
 
     <%# if no GOVUK-namespaced module has loaded we can assume JS has failed and remove the class %>
     <script>if (typeof window.GOVUK === 'undefined') document.body.className = document.body.className.replace('js-enabled', '');</script>
+    <script>
+      window.GOVUKFrontend.initAll()
+    </script>
   </body>
 </html>
