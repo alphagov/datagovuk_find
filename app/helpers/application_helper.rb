@@ -25,4 +25,19 @@ module ApplicationHelper
       t("helpers.page_entries_info.more_pages.display_entries", entry_name:, first: from, last: to, total: collection.total_count)
     end.html_safe
   end
+
+  def homepage_categories
+    items = []
+    t('pages.home.homepage_links').each do |link|
+      items << {
+        link: {
+          text: link[:text],
+          path: search_path(filters: { topic: link[:text] }),
+        },
+        description: link[:description],
+      }
+    end
+
+    items
+  end
 end
