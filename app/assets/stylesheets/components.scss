@@ -2,11 +2,11 @@
 // Front-end components go here
 
 .dgu-secondary-text {
-  color: $secondary-text-colour;
+  color: $govuk-secondary-text-colour;
 }
 
 .dgu-highlight {
-  background: $grey-3;
+  background: govuk-colour("light-grey");
   padding: em(2) em(5) em(2) em(5);
 }
 
@@ -83,7 +83,7 @@
 .dgu-metadata__box {
 
   &--in-dataset {
-    background: $highlight-colour;
+    // FIXME background: $highlight-colour;
     padding: 25px 30px 15px 30px;
   }
 
@@ -104,7 +104,7 @@
     width: 60%;
   }
 
-  @include media(mobile) {
+  @include govuk-media-query($until: tablet) {
     dt,dd {
       width: 100%;
     }
@@ -149,7 +149,6 @@
   margin-bottom: 20px;
 
   &__year {
-    font-family: $helvetica-regular;
     text-decoration: none !important;
 
     &:focus {
@@ -166,7 +165,7 @@
     }
   }
 
-  @include media(mobile) {
+  @include govuk-media-query($until: tablet) {
     th {
       white-space: normal;
       vertical-align: top;
@@ -189,7 +188,7 @@
     font-size: 19px;
   }
 
-  @include media(mobile) {
+  @include govuk-media-query($until: tablet) {
     th {
       white-space: normal;
       vertical-align: top;
@@ -201,7 +200,6 @@
       font-size: 16px;
     }
   }
-
 }
 
 
@@ -221,7 +219,7 @@
 
     }
   }
-  @include media(mobile) {
+  @include govuk-media-query($until: tablet) {
     padding-left: 15px;
   }
 }
@@ -246,7 +244,7 @@
 // Search filters ============================================================
 
 .dgu-filters {
-  @media (max-width: 641px) {
+  @include govuk-media-query($until: desktop) {
     margin-bottom: 2em;
   }
   padding-top: 30px;
@@ -319,7 +317,7 @@ section .year-expand {
   overflow: hidden;
   border-bottom: 1px solid #BFC1C3;
   &:hover {
-    background: $highlight-colour;
+    // FIXME background: $highlight-colour;
   }
   h3 {
     color: #005ea5;
@@ -345,7 +343,7 @@ span.showHide-open-all {
   float: right;
   font-weight: normal;
   display: inline-block;
-  color: $link-colour;
+  color: $govuk-link-colour;
   text-decoration: underline;
   cursor: pointer;
 }
@@ -370,12 +368,11 @@ span.showHide-open-all {
 
 
 .dgu-top-non-content {
-  @extend %site-width-container;
+  @include govuk-width-container($width: "$govuk-page-width");
 }
 
 
 .dgu-back-link {
-  font-family: $helvetica-regular;
   font-size: 16px;
   line-height: 20px;
   display: inline-block;
@@ -383,7 +380,7 @@ span.showHide-open-all {
   margin-top: 15px;
   margin-bottom: 15px;
   padding-left: 14px;
-  border-bottom: 1px solid $text-colour;
+  border-bottom: 1px solid $govuk-text-colour;
   text-decoration: none;
 
   &:link, &:visited, &:hover, &:active, &:focus {
@@ -391,9 +388,9 @@ span.showHide-open-all {
   }
 
   &:focus {
-    outline: 3px solid $focus-colour;
+    outline: 3px solid $govuk-focus-colour;
     outline-offset: 0;
-    background-color: $focus-colour;
+    background-color: $govuk-focus-colour;
   }
 
   &:before {

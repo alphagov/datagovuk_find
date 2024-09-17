@@ -10,9 +10,9 @@
   &__logo {
     width: 75%;
   }
-  
+
   &__logo, &__content {
-    @include media(desktop) {
+    @include govuk-media-query($from: desktop) {
       width: 50%;
     }
   }
@@ -41,10 +41,6 @@
   margin-bottom: 40px;
 }
 
-* {
-  font-family: $helvetica-regular !important;
-}
-
 details {
   margin-bottom: 30px;
   p:last-child {
@@ -58,7 +54,7 @@ details {
 
 button.button.secondary {
   background: none;
-  color: $govuk-blue;
+  color: $govuk-brand-colour;
   text-decoration: underline;
   box-shadow: none;
   padding: .8em 0 0 0;
@@ -82,7 +78,7 @@ button.button.secondary {
 }
 
 .breadcrumbs li {
-  @include device-pixel-ratio() {
+  @include govuk-device-pixel-ratio {
     background-image: image-url("separator-2x.png");
   }
 }
