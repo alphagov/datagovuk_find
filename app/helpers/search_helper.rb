@@ -40,6 +40,33 @@ module SearchHelper
     params[:q].presence || selected_topic.presence
   end
 
+  def search_results_metadata(dataset)
+    items = []
+
+    items << {
+      field: t('search.search.meta_data_box.availability'),
+      value: t('search.search.meta_data_box.not_released'),
+    } unless dataset.released?
+
+    items << {
+      field: t('search.search.meta_data_box.published_by'),
+      value: dataset.organisation['title'],
+    }
+
+    if dataset.public_updated_at.present?
+      updated_value = format_timestamp(dataset.public_updated_at)
+    else
+      updated_value = t('search.search.meta_data_box.not_applicable')
+    end
+
+    items << {
+      field: t('search.search.meta_data_box.last_updated'),
+      value: updated_value
+    }
+
+    items
+  end
+
 private
 
   def no_filters_selected?
