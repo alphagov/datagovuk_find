@@ -42,3 +42,16 @@ en:
       sort_by: "Sort by"
       accessibility:
         submit_button: "Apply sorting"
+  solr_search:
+    search:
+      results_page_title: 'Results for "%{query}"'
+      search_results: 'Search Results'
+      search_results_heading: "Search results"
+      search_data_gov_uk: "Search data.gov.uk"
+      result: "result"
+      found: "found"
+      meta_data_box:
+        availability: "Availability"
+        published_by: "Published by"
+        last_updated: "Last updated"
+        not_applicable: "Not applicable"
