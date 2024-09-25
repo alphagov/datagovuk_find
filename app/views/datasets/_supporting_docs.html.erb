@@ -1,26 +1,23 @@
-<section class="supporting docs">
-  <h2 class="heading-medium">
-    <%= t('.supporting_docs')%>
-  </h2>
-
-  <table>
-    <thead>
-    <tr>
-      <th class="title"><%= t('.link_to_doc')%></th>
-      <th><%= t('.format')%></th>
-      <th><%= t('.date_added')%></th>
-    </tr>
-    </thead>
-    <tbody>
-    <% dataset.docs.each do |doc| %>
-      <tr>
-        <td class="title">
-          <a href="<%= doc.url%>" class="govuk-link"><%= doc.name %></a>
-        </td>
-        <td><%= doc.format or "N/A" %></td>
-        <td><%= format_timestamp(doc.created_at) or "N/A" %></td>
+<section class="govuk-!-margin-bottom-4">
+  <table class="govuk-table">
+    <caption class="govuk-table__caption govuk-table__caption--m"><% t('.supporting_docs') %></caption>
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header"><%= t('.link_to_doc')%></th>
+        <th scope="col" class="govuk-table__header"><%= t('.format')%></th>
+        <th scope="col" class="govuk-table__header"><%= t('.date_added')%></th>
       </tr>
-    <% end %>
+    </thead>
+    <tbody class="govuk-table__body">
+      <% dataset.docs.each do |doc| %>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">
+            <a href="<%= doc.url%>" class="govuk-link"><%= doc.name %></a>
+          </th>
+          <td class="govuk-table__cell"><%= doc.format or "N/A" %></td>
+          <td class="govuk-table__cell"><%= format_timestamp(doc.created_at) or "N/A" %></td>
+        </tr>
+      <% end %>
     </tbody>
   </table>
 </section>
