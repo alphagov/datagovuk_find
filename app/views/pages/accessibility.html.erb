@@ -2,171 +2,169 @@
   Accessibility
 <% end %>
 
-<main role="main" id="main-content" class="govuk-main-wrapper">
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      <%= render "govuk_publishing_components/components/title", {
-        title: "Accessibility statement for Find open data"
-      } %>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <%= render "govuk_publishing_components/components/title", {
+      title: "Accessibility statement for Find open data"
+    } %>
 
-      <p class="govuk-body">
-        This accessibility statement applies to Find open data at <%= link_to "https://data.gov.uk/", "/", class: "govuk-link" %>
-      </p>
+    <p class="govuk-body">
+      This accessibility statement applies to Find open data at <%= link_to "https://data.gov.uk/", "/", class: "govuk-link" %>
+    </p>
 
-      <p class="govuk-body">
-      This website is run by the GOV.UK team at the Government Digital Service (GDS).
-      We want as many people as possible to be able to use this website. For example, that means you should be able to:
-      </p>
+    <p class="govuk-body">
+    This website is run by the GOV.UK team at the Government Digital Service (GDS).
+    We want as many people as possible to be able to use this website. For example, that means you should be able to:
+    </p>
 
-      <%= render "govuk_publishing_components/components/list", {
-        visible_counters: true,
-        items: [
-          "change colours, contrast levels and fonts",
-          "zoom in up to 300% without problems",
-          "navigate most of the website using just a keyboard",
-          "navigate most of the website using speech recognition software",
-          "listen to most of the website using a screen reader (including the most recent versions of JAWS, NVDA and VoiceOver)",
-        ]
-      } %>
+    <%= render "govuk_publishing_components/components/list", {
+      visible_counters: true,
+      items: [
+        "change colours, contrast levels and fonts",
+        "zoom in up to 300% without problems",
+        "navigate most of the website using just a keyboard",
+        "navigate most of the website using speech recognition software",
+        "listen to most of the website using a screen reader (including the most recent versions of JAWS, NVDA and VoiceOver)",
+      ]
+    } %>
 
-      <p class="govuk-body">
-        We’ve also made the website text as simple as possible to understand.
-      </p>
+    <p class="govuk-body">
+      We’ve also made the website text as simple as possible to understand.
+    </p>
 
-      <p class="govuk-body">
-        <%= link_to "AbilityNet", "https://mcmw.abilitynet.org.uk/", class: "govuk-link" %> has advice on making your device easier to use if you have a disability.
-      </p>
+    <p class="govuk-body">
+      <%= link_to "AbilityNet", "https://mcmw.abilitynet.org.uk/", class: "govuk-link" %> has advice on making your device easier to use if you have a disability.
+    </p>
 
-      <%= render "govuk_publishing_components/components/heading", {
-        text: "How accessible this website is",
-        margin_bottom: 4,
-        font_size: "m",
-      } %>
+    <%= render "govuk_publishing_components/components/heading", {
+      text: "How accessible this website is",
+      margin_bottom: 4,
+      font_size: "m",
+    } %>
 
-      <p class="govuk-body">
-        We know some parts of this website are not fully accessible for the following reasons:
-      </p>
+    <p class="govuk-body">
+      We know some parts of this website are not fully accessible for the following reasons:
+    </p>
 
-      <%= render "govuk_publishing_components/components/list", {
-        visible_counters: true,
-        items: [
-          "Find open data links to several external websites belonging to other government organisations. We cannot guarantee that these websites meet our accessibility requirements.",
-          "Some data sets have broken links.",
-        ]
-      } %>
+    <%= render "govuk_publishing_components/components/list", {
+      visible_counters: true,
+      items: [
+        "Find open data links to several external websites belonging to other government organisations. We cannot guarantee that these websites meet our accessibility requirements.",
+        "Some data sets have broken links.",
+      ]
+    } %>
 
-      <%= render "govuk_publishing_components/components/heading", {
-        text: "Feedback and contact information",
-        margin_bottom: 4,
-        font_size: "m",
-      } %>
+    <%= render "govuk_publishing_components/components/heading", {
+      text: "Feedback and contact information",
+      margin_bottom: 4,
+      font_size: "m",
+    } %>
 
-      <p class="govuk-body">
-        If you need any part of this service in a different format like large print, audio recording or braille, please contact the data set publisher.
-        Their contact details should be on the data set’s page.
-      </p>
+    <p class="govuk-body">
+      If you need any part of this service in a different format like large print, audio recording or braille, please contact the data set publisher.
+      Their contact details should be on the data set’s page.
+    </p>
 
-      <%= render "govuk_publishing_components/components/heading", {
-        text: "Reporting accessibility problems with this website",
-        margin_bottom: 4,
-        font_size: "m",
-      } %>
+    <%= render "govuk_publishing_components/components/heading", {
+      text: "Reporting accessibility problems with this website",
+      margin_bottom: 4,
+      font_size: "m",
+    } %>
 
-      <p class="govuk-body">
-        We’re always looking to improve the accessibility of this website.
-        If you find any problems not listed on this page or think we’re not meeting accessibility requirements, please select ‘Report a problem’ on the <%= link_to "data.gov.uk support page", "/support", class: "govuk-link" %>.
-      </p>
+    <p class="govuk-body">
+      We’re always looking to improve the accessibility of this website.
+      If you find any problems not listed on this page or think we’re not meeting accessibility requirements, please select ‘Report a problem’ on the <%= link_to "data.gov.uk support page", "/support", class: "govuk-link" %>.
+    </p>
 
-      <%= render "govuk_publishing_components/components/heading", {
-        text: "Enforcement procedure",
-        margin_bottom: 4,
-        font_size: "m",
-      } %>
+    <%= render "govuk_publishing_components/components/heading", {
+      text: "Enforcement procedure",
+      margin_bottom: 4,
+      font_size: "m",
+    } %>
 
-      <p class="govuk-body">
-        The Equality and Human Rights Commission (EHRC) is responsible for enforcing the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018 (the ‘accessibility regulations’).
-        If you’re not happy with how we respond to your complaint, <%= link_to "contact the Equality Advisory and Support Service (EASS)", "https://www.equalityadvisoryservice.com/", class: "govuk-link" %>.
-      </p>
+    <p class="govuk-body">
+      The Equality and Human Rights Commission (EHRC) is responsible for enforcing the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018 (the ‘accessibility regulations’).
+      If you’re not happy with how we respond to your complaint, <%= link_to "contact the Equality Advisory and Support Service (EASS)", "https://www.equalityadvisoryservice.com/", class: "govuk-link" %>.
+    </p>
 
-      <%= render "govuk_publishing_components/components/heading", {
-        text: "Technical information about this website’s accessibility",
-        margin_bottom: 4,
-        font_size: "m",
-      } %>
+    <%= render "govuk_publishing_components/components/heading", {
+      text: "Technical information about this website’s accessibility",
+      margin_bottom: 4,
+      font_size: "m",
+    } %>
 
-      <p class="govuk-body">
-        GDS is committed to making its website accessible, in accordance with the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018.
-      </p>
+    <p class="govuk-body">
+      GDS is committed to making its website accessible, in accordance with the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018.
+    </p>
 
-      <%= render "govuk_publishing_components/components/heading", {
-        text: "Compliance status",
-        margin_bottom: 4,
-        font_size: "m",
-      } %>
+    <%= render "govuk_publishing_components/components/heading", {
+      text: "Compliance status",
+      margin_bottom: 4,
+      font_size: "m",
+    } %>
 
-      <p class="govuk-body">
-        This website is partially compliant with the <%= link_to "Web Content Accessibility Guidelines version 2.1","https://www.w3.org/TR/WCAG21/", class: "govuk-link"%> AA standard, due to the non-compliances listed below.
-      </p>
+    <p class="govuk-body">
+      This website is partially compliant with the <%= link_to "Web Content Accessibility Guidelines version 2.1","https://www.w3.org/TR/WCAG21/", class: "govuk-link"%> AA standard, due to the non-compliances listed below.
+    </p>
 
-      <%= render "govuk_publishing_components/components/heading", {
-        text: "Non-accessible content",
-        margin_bottom: 2,
-        heading_level: 3,
-        font_size: "s",
-      } %>
+    <%= render "govuk_publishing_components/components/heading", {
+      text: "Non-accessible content",
+      margin_bottom: 2,
+      heading_level: 3,
+      font_size: "s",
+    } %>
 
-      <p class="govuk-body">
-        The content listed below is non-accessible for the following reasons.
-      </p>
+    <p class="govuk-body">
+      The content listed below is non-accessible for the following reasons.
+    </p>
 
-      <%= render "govuk_publishing_components/components/heading", {
-        text: "Non-compliance with the accessibility regulations",
-        margin_bottom: 2,
-        heading_level: 3,
-        font_size: "s",
-      } %>
+    <%= render "govuk_publishing_components/components/heading", {
+      text: "Non-compliance with the accessibility regulations",
+      margin_bottom: 2,
+      heading_level: 3,
+      font_size: "s",
+    } %>
 
-      <p class="govuk-body">
-        Find open data links to several external websites belonging to other government organisations. We cannot guarantee that these websites meet our accessibility requirements. This is not a fail under any specific WCAG criterion, but should be looked at in order to maximise accessibility.
-      </p>
+    <p class="govuk-body">
+      Find open data links to several external websites belonging to other government organisations. We cannot guarantee that these websites meet our accessibility requirements. This is not a fail under any specific WCAG criterion, but should be looked at in order to maximise accessibility.
+    </p>
 
-      <p class="govuk-body">
-        Some data sets have broken links. This fails WCAG 2.1 success criterion 2.4.4 (Link Purpose).
-      </p>
+    <p class="govuk-body">
+      Some data sets have broken links. This fails WCAG 2.1 success criterion 2.4.4 (Link Purpose).
+    </p>
 
-      <%= render "govuk_publishing_components/components/heading", {
-        text: "How we tested this website",
-        margin_bottom: 4,
-        font_size: "m",
-      } %>
+    <%= render "govuk_publishing_components/components/heading", {
+      text: "How we tested this website",
+      margin_bottom: 4,
+      font_size: "m",
+    } %>
 
-      <p class="govuk-body">
-        We commissioned an expert agency (Digital Accessibility Centre) to review the website.
-      </p>
+    <p class="govuk-body">
+      We commissioned an expert agency (Digital Accessibility Centre) to review the website.
+    </p>
 
-      <%= render "govuk_publishing_components/components/heading", {
-        text: "What we’re doing to improve accessibility",
-        margin_bottom: 4,
-        font_size: "m",
-      } %>
+    <%= render "govuk_publishing_components/components/heading", {
+      text: "What we’re doing to improve accessibility",
+      margin_bottom: 4,
+      font_size: "m",
+    } %>
 
-      <p class="govuk-body">
-        We will adopt improvements to the GOV.UK design system as part of any future work on Find Open Data.
-      </p>
+    <p class="govuk-body">
+      We will adopt improvements to the GOV.UK design system as part of any future work on Find Open Data.
+    </p>
 
-      <%= render "govuk_publishing_components/components/heading", {
-        text: "Preparation of this accessibility statement",
-        margin_bottom: 4, 
-        font_size: "m",
-      } %>
+    <%= render "govuk_publishing_components/components/heading", {
+      text: "Preparation of this accessibility statement",
+      margin_bottom: 4,
+      font_size: "m",
+    } %>
 
-      <p class="govuk-body">
-        This statement was prepared on 21 September 2020. It was last reviewed on 22 September 2020.
-      </p>
+    <p class="govuk-body">
+      This statement was prepared on 21 September 2020. It was last reviewed on 22 September 2020.
+    </p>
 
-      <p class="govuk-body">
-        This website was last tested in May 2019. The test was carried out by Digital Accessibility Centre.
-      </p>
-    </div>
+    <p class="govuk-body">
+      This website was last tested in May 2019. The test was carried out by Digital Accessibility Centre.
+    </p>
   </div>
-</main>
+</div>

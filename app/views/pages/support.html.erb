@@ -4,45 +4,42 @@
   <%= render 'shared/breadcrumb' %>
 <% end%>
 
-<main role="main" id="main-content" class="govuk-main-wrapper">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <%= render "govuk_publishing_components/components/heading", {
+      text: "Support",
+      margin_bottom: 6,
+      heading_level: 1,
+      font_size: "l",
+    } %>
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      <%= render "govuk_publishing_components/components/heading", {
-        text: "Support",
-        margin_bottom: 6,
-        heading_level: 1,
-        font_size: "l",
-      } %>
+    <p class="govuk-body">The Government Digital Service (GDS) maintains the technical service behind data.gov.uk
+        and helps government publishers to manage and update their data.</p>
 
-      <p class="govuk-body">The Government Digital Service (GDS) maintains the technical service behind data.gov.uk
-         and helps government publishers to manage and update their data.</p>
+    <p class="govuk-body">It cannot</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>help you find or research datasets</li>
+      <li>provide personal information or medical records</li>
+      <li>combine data from multiple datasets</li>
+    </ul>
 
-      <p class="govuk-body">It cannot</p>
-      <ul class="list list-bullet">
-        <li>help you find or research datasets</li>
-        <li>provide personal information or medical records</li>
-        <li>combine data from multiple datasets</li>
-      </ul>
+    <p class="govuk-body">For questions about GOV.UK check the <%= link_to "GOV.UK help pages", "https://www.gov.uk/help", class: "govuk-link" %> or <%= link_to "contact GOV.UK", "https://www.gov.uk/contact/govuk", class: "govuk-link" %>.</p>
+    <p class="govuk-body">The NHS <%= link_to "publishes its own data.", "https://digital.nhs.uk/data-and-information/data-collections-and-data-sets/data-sets", class: "govuk-link" %></p>
 
-      <p class="govuk-body">For questions about GOV.UK check the <%= link_to "GOV.UK help pages", "https://www.gov.uk/help", class: "govuk-link" %> or <%= link_to "contact GOV.UK", "https://www.gov.uk/contact/govuk", class: "govuk-link" %>.</p>
-      <p class="govuk-body">The NHS <%= link_to "publishes its own data.", "https://digital.nhs.uk/data-and-information/data-collections-and-data-sets/data-sets", class: "govuk-link" %></p>
+    <%= render "govuk_publishing_components/components/heading", {
+      text: "If you have a question about a dataset",
+      margin_bottom: 4,
+      heading_level: 2,
+      font_size: "m",
+    } %>
+    <p class="govuk-body">If you have a question about a specific dataset, contact the publisher directly using the contact details on the dataset page.</p>
 
-      <%= render "govuk_publishing_components/components/heading", {
-        text: "If you have a question about a dataset",
-        margin_bottom: 4,
-        heading_level: 2,
-        font_size: "m",
-      } %>
-      <p class="govuk-body">If you have a question about a specific dataset, contact the publisher directly using the contact details on the dataset page.</p>
-
-      <%= render "govuk_publishing_components/components/heading", {
-        text: "Other urgent requests",
-        margin_bottom: 4,
-        heading_level: 2,
-        font_size: "m",
-      } %>
-      <p class="govuk-body">If your request is urgent, please use <%= link_to "the form", "https://www.gov.uk/contact/govuk", class: "govuk-link" %> and mention that it's about data.gov.uk.</p>
-    </div>
+    <%= render "govuk_publishing_components/components/heading", {
+      text: "Other urgent requests",
+      margin_bottom: 4,
+      heading_level: 2,
+      font_size: "m",
+    } %>
+    <p class="govuk-body">If your request is urgent, please use <%= link_to "the form", "https://www.gov.uk/contact/govuk", class: "govuk-link" %> and mention that it's about data.gov.uk.</p>
   </div>
-</main>
+</div>

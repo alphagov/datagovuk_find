@@ -4,36 +4,32 @@
   <%= render 'shared/breadcrumb' %>
 <% end%>
 
-<main role="main" id="content">
-  <div class="text">
-    <h1 class="heading-large">
-      Publish your data
-    </h1>
+<%= render "govuk_publishing_components/components/heading", {
+  text: "Publish your data",
+  font_size: "l",
+  heading_level: 1,
+  margin_bottom: 4,
+} %>
 
-    <p>
-      You must have a Data publisher account to publish data for your
-      organisation. If you already have one, sign in to get started.
-    </p>
+<p class="govuk-body">
+  You must have a Data publisher account to publish data for your
+  organisation. If you already have one, sign in to get started.
+</p>
 
-    <p>
-      <%= link_to 'Sign in', '/user/login', role: 'button', class: 'govuk-button', rel: %w(nofollow) %>
-    </p>
+<%= link_to 'Sign in', '/user/login', role: 'button', class: 'govuk-button', rel: %w(nofollow) %>
 
-    <div role="note" aria-label="Publisher information" class="panel panel-border-narrow text">
-      <p>
-        To make any changes to an existing dataset, publishers must go to the
-        dataset they want to change, go to the bottom of the page in the Edit
-        this dataset section, and then sign in.
-      </p>
-    </div>
+<%= render "govuk_publishing_components/components/inset_text", {
+  text: "To make any changes to an existing dataset, publishers must go to the dataset they want to change, go to the bottom of the page in the Edit this dataset section, and then sign in.",
+  margin_top: 0,
+  margin_bottom: 9,
+} %>
 
-    <h2 class="heading-medium">
-      Become a publisher
-    </h2>
+<%= render "govuk_publishing_components/components/heading", {
+  text: "Become a publisher",
+  margin_bottom: 4,
+} %>
 
-    <p>
-      To get started, take a look at the <%= link_to 'information about publishing datasets', 'https://guidance.data.gov.uk/publish_and_manage_data/', target: '_blank', class: 'govuk-link' %>.
-      You can also <%= link_to 'ask us for help', support_path, class: 'govuk-link' %>.
-    </p>
-  </div>
-</main>
+<p class="govuk-body">
+  To get started, take a look at the <%= link_to 'information about publishing datasets', 'https://guidance.data.gov.uk/publish_and_manage_data/', target: '_blank', class: 'govuk-link' %>.
+  You can also <%= link_to 'ask us for help', support_path, class: 'govuk-link' %>.
+</p>

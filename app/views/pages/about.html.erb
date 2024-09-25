@@ -2,80 +2,78 @@
   About
 <% end %>
 
-<main role="main" id="main-content" class="govuk-main-wrapper">
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      <%= render "govuk_publishing_components/components/title", {
-        title: "About Find open data"
-      } %>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <%= render "govuk_publishing_components/components/title", {
+      title: "About Find open data"
+    } %>
 
-      <p class="govuk-body">Since 2010 data.gov.uk has been helping people to find and use open government data, and supporting government
-        publishers to maintain data. In March 2018, we re-designed the site and launched the Find open data service.</p>
+    <p class="govuk-body">Since 2010 data.gov.uk has been helping people to find and use open government data, and supporting government
+      publishers to maintain data. In March 2018, we re-designed the site and launched the Find open data service.</p>
 
-      <%= render "govuk_publishing_components/components/heading", {
-        text: "What’s on Find open data",
-        margin_bottom: 4,
-        font_size: "m",
-      } %>
+    <%= render "govuk_publishing_components/components/heading", {
+      text: "What’s on Find open data",
+      margin_bottom: 4,
+      font_size: "m",
+    } %>
 
-      <p class="govuk-body">You can find:</p>
+    <p class="govuk-body">You can find:</p>
 
-      <%= render "govuk_publishing_components/components/list", {
-        visible_counters: true,
-        items: [
-          "data published by central government, local authorities and public bodies",
-          "links to download data files",
-          "help on creating an account to publish data",
-        ]
-      } %>
+    <%= render "govuk_publishing_components/components/list", {
+      visible_counters: true,
+      items: [
+        "data published by central government, local authorities and public bodies",
+        "links to download data files",
+        "help on creating an account to publish data",
+      ]
+    } %>
 
-      <%= render "govuk_publishing_components/components/heading", {
-        text: "How Find open data and policy work together",
-        margin_bottom: 4,
-        font_size: "m",
-      } %>
+    <%= render "govuk_publishing_components/components/heading", {
+      text: "How Find open data and policy work together",
+      margin_bottom: 4,
+      font_size: "m",
+    } %>
 
-      <p class="govuk-body">Better data can help inform better policy-making and continuous improvement of services. Departments can combat
-        fraud and reduce waste.</p>
+    <p class="govuk-body">Better data can help inform better policy-making and continuous improvement of services. Departments can combat
+      fraud and reduce waste.</p>
 
-      <p class="govuk-body">By taking ethical, open, innovative and transparent approaches to data we can build greater levels of trust with
-        citizens, whilst delivering more cost-effective and better targeted and tailored services to their needs.</p>
+    <p class="govuk-body">By taking ethical, open, innovative and transparent approaches to data we can build greater levels of trust with
+      citizens, whilst delivering more cost-effective and better targeted and tailored services to their needs.</p>
 
-      <p class="govuk-body">Data is at the heart of digital transformation and a part of the <%= link_to "Government Transformation Strategy", "https://www.gov.uk/government/publications/government-transformation-strategy-2017-to-2020/government-transformation-strategy-better-use-of-data", class: "govuk-link" %>.</p>
+    <p class="govuk-body">Data is at the heart of digital transformation and a part of the <%= link_to "Government Transformation Strategy", "https://www.gov.uk/government/publications/government-transformation-strategy-2017-to-2020/government-transformation-strategy-better-use-of-data", class: "govuk-link" %>.</p>
 
-      <p class="govuk-body">GDS works with other organisations both within and outside government on shaping the strategic direction on how
-        data is managed, accessed and used. We work collaboratively on a range of issues with the Office for National
-        Statistics, Department for Digital, Culture, Media & Sport and The National Cyber Security Centre.</p>
+    <p class="govuk-body">GDS works with other organisations both within and outside government on shaping the strategic direction on how
+      data is managed, accessed and used. We work collaboratively on a range of issues with the Office for National
+      Statistics, Department for Digital, Culture, Media & Sport and The National Cyber Security Centre.</p>
 
-      <%= render "govuk_publishing_components/components/heading", {
-        text: "Reuse information published on Find open data",
-        margin_bottom: 4,
-        font_size: "m",
-      } %>
+    <%= render "govuk_publishing_components/components/heading", {
+      text: "Reuse information published on Find open data",
+      margin_bottom: 4,
+      font_size: "m",
+    } %>
 
-      <p class="govuk-body">You can republish any of the content on Find open data, as long as you meet the conditions of either the <%= link_to "Open Government Licence", "http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/", class: "govuk-link" %> or
-        the licence it's covered by. For questions about a dataset, you can contact the publisher directly if they’ve
-        provided contact details on the relevant dataset page.</p>
-      
-      <%= render "govuk_publishing_components/components/heading", {
-        text: "Linking to datasets on GOV.UK",
-        margin_bottom: 4,
-        font_size: "m",
-      } %>
+    <p class="govuk-body">You can republish any of the content on Find open data, as long as you meet the conditions of either the <%= link_to "Open Government Licence", "http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/", class: "govuk-link" %> or
+      the licence it's covered by. For questions about a dataset, you can contact the publisher directly if they’ve
+      provided contact details on the relevant dataset page.</p>
 
-      <p class="govuk-body">Data is integral to our work to transform government. Organisations can publish data on Find open data by linking to
-        datasets published on GOV.UK. To help organisations prepare and publish data on GOV.UK, we have some
-        recommendations for publishing:</p>
+    <%= render "govuk_publishing_components/components/heading", {
+      text: "Linking to datasets on GOV.UK",
+      margin_bottom: 4,
+      font_size: "m",
+    } %>
 
-      
-      <%= render "govuk_publishing_components/components/list", {
-        visible_counters: true,
-        items: [
-          sanitize(link_to "central government transparency data", "https://www.gov.uk/government/collections/how-to-publish-central-government-transparency-data", class: "govuk-link"),
-          sanitize(link_to "payment data", "https://www.gov.uk/guidance/how-to-publish-prompt-payment-data", class: "govuk-link"),
-          sanitize(link_to "spend control data", "https://www.gov.uk/guidance/how-to-publish-spend-control-data", class: "govuk-link"),
-        ]
-      } %>
-    </div>
+    <p class="govuk-body">Data is integral to our work to transform government. Organisations can publish data on Find open data by linking to
+      datasets published on GOV.UK. To help organisations prepare and publish data on GOV.UK, we have some
+      recommendations for publishing:</p>
+
+
+    <%= render "govuk_publishing_components/components/list", {
+      visible_counters: true,
+      items: [
+        sanitize(link_to "central government transparency data", "https://www.gov.uk/government/collections/how-to-publish-central-government-transparency-data", class: "govuk-link"),
+        sanitize(link_to "payment data", "https://www.gov.uk/guidance/how-to-publish-prompt-payment-data", class: "govuk-link"),
+        sanitize(link_to "spend control data", "https://www.gov.uk/guidance/how-to-publish-spend-control-data", class: "govuk-link"),
+      ]
+    } %>
   </div>
-</main>
+</div>
