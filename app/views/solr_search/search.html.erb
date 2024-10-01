@@ -27,26 +27,26 @@
         <div class="govuk-grid-column-two-thirds dgu-results">
           <%= render '/search/sort' if @num_results > 1 %>
           <span class="dgu-results__summary">
-            <span class="govuk-body-s govuk-!-font-weight-bold"><%= number_with_delimiter(@num_results) %></span>
+          <span class="govuk-body-s govuk-!-font-weight-bold"><%= number_with_delimiter(@num_results) %></span>
             <%= t('.result').pluralize(@num_results) %> <%= t('.found') %>
           </span>
 
           <% @datasets.each do |dataset| %>
             <div class="dgu-results__result">
               <h2 class="govuk-heading-m">
-                <%= dataset["title"] %>
+                <%= dataset.title %>
               </h2>
               <dl class="dgu-metadata__box">
                 <dt><%= t('.meta_data_box.published_by') %>:</dt>
-                <dd class="published_by"><%= JSON.parse(dataset["validated_data_dict"])["organization"]["title"] %></dd>
+                <dd class="published_by"><%= dataset.organisation %></dd>
                 <dt><%= t('.meta_data_box.last_updated') %>:</dt>
-                <% if dataset["metadata_modified"].present? %>
-                  <dd><%= format_timestamp(dataset["metadata_modified"]) %></dd>
+                <% if dataset.public_updated_at.present? %>
+                  <dd><%= format_timestamp(dataset.public_updated_at) %></dd>
                 <% else %>
                   <dd class="dgu-secondary-text"> <%= t('.meta_data_box.not_applicable') %></dd>
                 <% end %>
               </dl>
-              <p><%= truncate(strip_tags(dataset["notes"]), length: 200, separator: ' ') %></p>
+              <p><%= truncate(strip_tags(dataset.summary), length: 200, separator: ' ') %></p>
             </div>
           <% end %>
         </div>
