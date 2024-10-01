@@ -3,17 +3,21 @@ module Search
     def self.search(params)
       query_param = params.fetch("q", "").squish
       page = params["page"]
+      sort_param = params["sort"]
       page && page.to_i.positive? ? page.to_i : 1
 
       solr_client = client
 
       query = "*:*" if query_param.empty?
 
+      sort_query = "metadata_modified desc" if sort_param == "recent"
+
       solr_client.get "select", params: {
         q: query,
         start: page,
         rows: 20,
         fl: field_list,
+        sort: sort_query,
       }
     end
 
