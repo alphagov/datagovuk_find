@@ -58,4 +58,27 @@ RSpec.describe "Solr Search page", type: :feature do
       expect(page).to have_select("sort", selected: "Most recent")
     end
   end
+
+  describe "When a search term has been entered" do
+    before do
+      # rsolr_client.commit
+      ENV["SOLR_URL"] = "http://localhost:8983/solr/ckan"
+    end
+
+    scenario "Displays a maximum of 20 results" do
+      search_solr_for("organogram")
+      results = all(".dgu-results__result")
+      expect(results.length).to be(20)
+    end
+
+    scenario "Displays relevant results" do
+      search_solr_for("organogram")
+
+      elements = all("h2")
+
+      elements[2..20].each do |element|
+        expect(element).to have_content(/organogram/i)
+      end
+    end
+  end
 end

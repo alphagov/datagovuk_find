@@ -8,7 +8,7 @@ module Search
 
       solr_client = client
 
-      query = "*:*" if query_param.empty?
+      query = query_param.present? ? "title:\"#{query_param}\" || notes:\"#{query_param}\"" : "*:*"
 
       sort_query = "metadata_modified desc" if sort_param == "recent"
 
