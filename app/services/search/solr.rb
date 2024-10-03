@@ -12,10 +12,8 @@ module Search
 
       sort_query = "metadata_modified desc" if sort_param == "recent"
 
-      solr_client.get "select", params: {
+      solr_client.paginate page, 20, "select", params: {
         q: query,
-        start: page,
-        rows: 20,
         fl: field_list,
         sort: sort_query,
       }

@@ -34,6 +34,7 @@ gem "sass-rails"
 gem "secure_headers"
 gem "sentry-raven"
 gem "uglifier"
+gem "will_paginate"
 
 group :development, :test do
   gem "brakeman"

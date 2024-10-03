@@ -9,11 +9,11 @@ private
 
   def search_for_dataset
     query = Search::Solr.search(params)
+    @docs = query["response"]["docs"]
+    @num_results = query["response"]["numFound"]
 
-    @datasets = query["response"]["docs"].map do |doc|
+    @datasets = @docs.map do |doc|
       SolrDataset.new(doc)
     end
-
-    @num_results = query["response"]["numFound"]
   end
 end

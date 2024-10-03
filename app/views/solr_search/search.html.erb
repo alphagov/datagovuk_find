@@ -49,6 +49,12 @@
               <p><%= truncate(strip_tags(dataset.summary), length: 200, separator: ' ') %></p>
             </div>
           <% end %>
+          <div class="dgu-pagination">
+            <nav>
+              <%= solr_dgu_page_entries_info @docs, entry_name: 'dataset' %>
+              <span class="dgu-pagination__numbers"><%= will_paginate @docs, previous_label: "Prev", next_label: "Next", inner_window: 2, outer_window: 0 %></span>
+            </nav>
+          </div>
         </div>
       </div>
     </div>

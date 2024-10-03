@@ -25,4 +25,21 @@ module ApplicationHelper
       t("helpers.page_entries_info.more_pages.display_entries", entry_name:, first: from, last: to, total: collection.total_count)
     end.html_safe
   end
+
+  def solr_dgu_page_entries_info(collection, entry_name: nil)
+    entry_name = if entry_name
+                   entry_name.pluralize(collection.size, I18n.locale)
+                 else
+                   collection.entry_name(count: collection.size).downcase
+                 end
+
+    if collection.total_pages < 2
+      t("helpers.page_entries_info.one_page.display_entries", entry_name:, count: collection.page_total)
+    else
+      offset_value = collection.per_page * (collection.current_page - 1)
+      from = offset_value + 1
+      to   = offset_value + collection.to_a.size
+      t("helpers.page_entries_info.more_pages.display_entries", entry_name:, first: from, last: to, total: collection.page_total)
+    end.html_safe
+  end
 end
