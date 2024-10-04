@@ -4,14 +4,13 @@ gem "rails", "7.0.5.1"
 
 gem "addressable"
 gem "bootsnap"
-gem "browser"
 gem "elasticsearch", "~> 7.11.2" # gem's major must match db's
 gem "elasticsearch-model"
 gem "elasticsearch-rails", "~> 7.2.1"
 gem "faraday"
 gem "faraday_middleware"
 gem "govuk_elements_rails"
-gem "govuk_publishing_components", "~> 28.7.1" # TODO: Revert https://github.com/alphagov/datagovuk_find/pull/1286 once 39.2.3+
+gem "govuk_publishing_components", "~> 39.2.0" # TODO: Revert https://github.com/alphagov/datagovuk_find/pull/1286 once 39.2.3+
 gem "htmlentities"
 gem "jbuilder"
 gem "jquery-rails"

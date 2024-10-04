@@ -23,7 +23,7 @@
                 <span class='visually-hidden'>, Format: <%= format_of(datafile) %>, Dataset: <%= @dataset.title %></span>
               <% end %>
         </td>
-        
+
         <td class="govuk-table__cell">
           <% if datafile.format.blank? %>
             <span class="dgu-secondary-text">N/A</span>
@@ -67,6 +67,6 @@
   </tbody>
 </table>
 
-<% if datafiles.length > 5 && !browser.ie?(version: 8) %>
+<% if datafiles.length > 5 %>
   <button class="govuk-button govuk-button--secondary show-toggle" aria-label="Show more data links">Show more</button>
 <% end %>

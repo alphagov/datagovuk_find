@@ -1,32 +1,3 @@
-.govuk-header {
-  border-bottom: none;
-
-  &__container {
-    border-bottom: none;
-    margin-bottom: 0;
-    padding-bottom: 5px;
-  }
-
-  &__logo {
-    width: 75%;
-  }
-  
-  &__logo, &__content {
-    @include media(desktop) {
-      width: 50%;
-    }
-  }
-
-  &__link--homepage {
-    font-weight: 400;
-    font-size: 24px;
-  }
-
-  &__navigation {
-    text-align: right;
-  }
-}
-
 .phase-banner .phase-tag {
   padding-bottom: 2px;
 }
@@ -39,10 +10,6 @@
 .heading-xlarge {
   margin-top: 1.65em;
   margin-bottom: 40px;
-}
-
-* {
-  font-family: $helvetica-regular !important;
 }
 
 details {
@@ -58,7 +25,7 @@ details {
 
 button.button.secondary {
   background: none;
-  color: $govuk-blue;
+  color: $govuk-brand-colour;
   text-decoration: underline;
   box-shadow: none;
   padding: .8em 0 0 0;
@@ -82,7 +49,7 @@ button.button.secondary {
 }
 
 .breadcrumbs li {
-  @include device-pixel-ratio() {
+  @include govuk-device-pixel-ratio {
     background-image: image-url("separator-2x.png");
   }
 }

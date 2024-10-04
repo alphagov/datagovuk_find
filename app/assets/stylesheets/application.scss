@@ -12,25 +12,32 @@
  *
  */
 
-$govuk-compatibility-govuktemplate: true;
+$govuk-compatibility-govuktemplate: false;
 $govuk-use-legacy-palette: false;
 
 // Components from govuk_publishing_components gem
 @import 'govuk_publishing_components/govuk_frontend_support';
 @import 'govuk_publishing_components/component_support';
 @import 'govuk_publishing_components/components/_button';
+@import 'govuk_publishing_components/components/_breadcrumbs';
+@import 'govuk_publishing_components/components/_cards';
 @import 'govuk_publishing_components/components/_checkboxes';
 @import 'govuk_publishing_components/components/_cookie-banner';
+@import 'govuk_publishing_components/components/_details';
+@import 'govuk_publishing_components/components/_error-summary';
 @import 'govuk_publishing_components/components/_govspeak';
 @import 'govuk_publishing_components/components/_heading';
+@import 'govuk_publishing_components/components/_inset-text';
 @import 'govuk_publishing_components/components/_layout-footer';
 @import 'govuk_publishing_components/components/_layout-header';
 @import 'govuk_publishing_components/components/_lead-paragraph';
 @import 'govuk_publishing_components/components/_notice';
+@import 'govuk_publishing_components/components/_phase-banner';
 @import 'govuk_publishing_components/components/_radio';
 @import 'govuk_publishing_components/components/_search';
 @import 'govuk_publishing_components/components/_select';
 @import 'govuk_publishing_components/components/_skip-link';
+@import 'govuk_publishing_components/components/_summary-list';
 @import 'govuk_publishing_components/components/_table';
 @import 'govuk_publishing_components/components/_title';
 @import 'govuk_publishing_components/components/_error-summary';
@@ -51,26 +58,19 @@ $alpine-fresh: #128400;
 @import 'design-patterns/buttons';
 @import 'design-patterns/breadcrumbs';
 
-// From GDS's alphagov/govuk_elements
-@import 'elements/helpers';
-@import 'elements/reset';
-@import 'elements/layout';
-@import 'elements/elements-typography';
-@import 'elements/buttons';
-@import 'elements/lists';
-@import 'elements/tables';
-@import 'elements/details';
-@import 'elements/panels';
-@import 'elements/forms';
-@import 'elements/forms/form-date';
-@import 'elements/forms/form-validation';
-@import 'elements/forms/form-multiple-choice';
-@import 'elements/breadcrumbs';
-@import 'elements/phase-banner';
-@import 'elements/components';
-
 @import 'cookie-settings';
-@import 'govuk-overrides';
-@import 'components';
 @import 'accessible-autocomplete/dist/accessible-autocomplete.min';
 @import 'organograms';
+
+@import 'components';
+@import 'govuk-overrides';
+
+.summary-box {
+  margin: 0 0 govuk-spacing(6) 0;
+  padding: govuk-spacing(4);
+  background: govuk-colour("light-grey");
+}
+
+.summary-box__inner {
+  padding-top: govuk-spacing(4);
+}
