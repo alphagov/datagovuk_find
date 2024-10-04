@@ -9,10 +9,8 @@ module Search
 
       query = "*:*" if query_param.empty?
 
-      solr_client.get "select", params: {
+      solr_client.paginate page, 20, "select", params: {
         q: query,
-        start: page,
-        rows: 20,
         fl: field_list,
       }
     end
