@@ -21,6 +21,16 @@ module Search
       }
     end
 
+    def self.get_by_uuid(uuid:)
+      solr_client = client
+
+      solr_client.get "select", params: {
+        q: "*:*",
+        fq: "id:#{uuid}",
+        fl: field_list,
+      }
+    end
+
     def self.field_list
       %w[
         id
