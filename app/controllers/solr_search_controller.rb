@@ -1,7 +1,9 @@
 class SolrSearchController < ApplicationController
   before_action :search_for_dataset, only: [:search]
 
-  def search; end
+  def search
+    @sort = params["sort"]
+  end
 
 private
 
