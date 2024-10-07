@@ -86,3 +86,14 @@ en:
       title: "Edit this dataset"
       information: "You must have an account for this publisher on data.gov.uk to make any changes to a dataset."
       button: "Sign in"
+  solr_datasets:
+      meta_data:
+        published_by: "Published by"
+        last_updated: "Last updated"
+        summary: "Summary"
+        topic: "Topic"
+        topic_not_added: "Not added"
+        view_licence_information: "View licence information"
+        licence: "Licence"
+        no_licence: "None"
+        other_licence: "Other Licence"
