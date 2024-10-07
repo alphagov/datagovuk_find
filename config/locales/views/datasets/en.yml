@@ -97,3 +97,6 @@ en:
         licence: "Licence"
         no_licence: "None"
         other_licence: "Other Licence"
+      breadcrumb:
+        home: "Home"
+        search: "Search"
