@@ -34,7 +34,7 @@
           <% @datasets.each do |dataset| %>
             <div class="dgu-results__result">
               <h2 class="govuk-heading-m">
-                <%= dataset["title"] %>
+                <%= link_to dataset["title"], solr_dataset_path(dataset["id"], dataset["name"]), class: 'govuk-link' %>
               </h2>
               <dl class="dgu-metadata__box">
                 <dt><%= t('.meta_data_box.published_by') %>:</dt>
