@@ -56,4 +56,11 @@ RSpec.feature "Solr Dataset page", type: :feature do
       expect(page).to have_css("a", text: "All datasets from #{dataset.organisation['title']}")
     end
   end
+
+  scenario "Displays the search box" do
+    expect(page).to have_css("h3", text: "Search")
+    within("form.dgu-search-box") do
+      expect(page).to have_content("Search")
+    end
+  end
 end

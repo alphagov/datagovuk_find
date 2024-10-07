@@ -98,6 +98,10 @@ en:
         no_licence: "None"
         other_licence: "Other Licence"
         publisher_datasets: "More from this publisher"
+        search_gov_data: "Search"
+        accessibility:
+          search_box_label: "Search"
+          search_box_button: "Find data"
       breadcrumb:
         home: "Home"
         search: "Search"
