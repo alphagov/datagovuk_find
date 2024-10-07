@@ -60,5 +60,13 @@
         </div>
       </div>
     </div>
+    <div class="column-one-third dgu-dataset-right">
+      <div class="dgu-dataset-right__sidebar__publisher_datasets">
+        <h3 class="heading-small"><%= t('.publisher_datasets') %></h3>
+        <%= link_to search_solr_path(filters: { publisher: @dataset.organisation["title"] }), class: 'govuk-link' do %>
+          <%= "All datasets from #{@dataset.organisation["title"]}" %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </section>

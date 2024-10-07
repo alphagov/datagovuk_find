@@ -49,4 +49,11 @@ RSpec.feature "Solr Dataset page", type: :feature do
       expect(page).to have_content("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod mauris in augue laoreet congue. Phasellus bibendum leo vel magna lacinia eleifend. Nam vitae lectus quis nulla varius faucibus id quis nibh. Nullam auctor ipsum non nunc efficitur bibendum Sed vitae ex nisi. Suspendisse posuere purus ac dui posuere, in interdum risus ornare.\nThe following files can be found on the website here:\nhttps://www.gov.uk/")
     end
   end
+
+  feature "Show more from publisher" do
+    scenario "Displays the link publisher's datasets" do
+      expect(page).to have_content("More from this publisher")
+      expect(page).to have_css("a", text: "All datasets from #{dataset.organisation['title']}")
+    end
+  end
 end
