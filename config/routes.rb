@@ -52,6 +52,8 @@ Rails.application.routes.draw do
 
   # /solr feature flag
   get "search/solr", to: "solr_search#search"
+  get "dataset/solr/:uuid", to: "solr_datasets#show", uuid: /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/
+  get "dataset/solr/:uuid/:name", to: "solr_datasets#show", as: "solr_dataset"
 
   get "acknowledge", to: "messages#acknowledge"
 

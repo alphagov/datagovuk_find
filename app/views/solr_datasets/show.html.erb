@@ -1,0 +1,11 @@
+<% content_for :page_title do %><%= @dataset.title %><% end %>
+
+<%= content_for :breadcrumb do %>
+  <%= render 'breadcrumb' %>
+<% end%>
+
+<main role="main" id="content">
+  <div>
+    <%= render "meta_data" %>
+  </div>
+</main>

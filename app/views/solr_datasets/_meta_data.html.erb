@@ -1,0 +1,84 @@
+<% content_for :head do %>
+  <%= tag.meta name: 'dc:title',   content: @dataset.title %>
+  <%= tag.meta name: 'dc:creator', content: @dataset.organisation["title"] %>
+  <%= tag.meta name: 'dc:date', content: Date.parse(@dataset.public_updated_at).to_formatted_s %>
+  <% if @dataset.licence_title.present? %>
+    <%= tag.meta name: 'dc:rights', content: @dataset.licence_title %>
+  <% end %>
+<% end %>
+
+<section class="meta-data">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <h1 class="heading-large" property="dc:title">
+        <%= unescape(@dataset.title) %>
+      </h1>
+    </div>
+  </div>
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <div class="dgu-metadata__box dgu-metadata__box--in-dataset">
+        <dl class="metadata">
+          <dt><%= t('.published_by') %>:</dt>
+          <dd property="dc:creator">
+            <%= @dataset.organisation["title"] %>
+          </dd>
+
+          <dt><%= t('.last_updated') %>:</dt>
+          <dd property="dc:date" content="<%= format_timestamp(@dataset.public_updated_at) %>">
+            <%= format_timestamp(@dataset.public_updated_at) %>
+          </dd>
+
+          <dt><%= t('.topic') %>:</dt>
+          <% if @dataset.topic %>
+            <dd><%= @dataset.topic %></dd>
+          <% else %>
+            <dd><%= t('.topic_not_added') %></dd>
+          <% end %>
+
+          <dt><%= t('.licence') %>:</dt>
+          <dd property="dc:rights">
+            <% if @dataset.licence_url.present? %>
+              <%= link_to @dataset.licence_title,
+                          @dataset.licence_url.html_safe,
+                            rel: 'dc:rights',
+                            class: 'govuk-link' %>
+            <% elsif @dataset.licence_title.present? %>
+              <%= @dataset.licence_title %>
+            <% else %>
+              <%= t('.no_licence') %>
+            <% end %>
+          </dd>
+        </dl>
+
+        <h3 class="heading-small">
+          <%= t('.summary') %>
+        </h3>
+        <div class="js-summary" style="line-height: 1.5em; overflow: hidden" property="dc:description">
+          <%= to_markdown(@dataset.summary) %>
+        </div>
+      </div>
+    </div>
+    <div class="column-one-third dgu-dataset-right">
+      <div class="dgu-dataset-right__sidebar__publisher_datasets">
+        <h3 class="heading-small"><%= t('.publisher_datasets') %></h3>
+        <%= link_to search_solr_path(filters: { publisher: @dataset.organisation["title"] }), class: 'govuk-link' do %>
+          <%= "All datasets from #{@dataset.organisation["title"]}" %>
+        <% end %>
+      </div>
+
+      <h3 class="heading-small"><%= t('.search_gov_data') %></h3>
+      <form action="/search/solr" method="GET" class="dgu-search-box">
+        <label for="q" class="visuallyhidden"><%= t('.accessibility.search_box_label') %></label>
+        <input id="q"
+               name="q"
+               type="text"
+               class="form-control dgu-search-box__input"/><button type="submit"
+                                                                   class="dgu-search-box__button">
+                                                            <%= t('.accessibility.search_box_button')%>
+                                                          </button>
+      </form>
+    </div>
+  </div>
+</section>
