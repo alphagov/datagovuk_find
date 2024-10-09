@@ -125,5 +125,28 @@ RSpec.describe Search::Solr do
         expect(data_dict["organization"]["title"]).to eq("Ministry of Housing, Communities and Local Government")
       end
     end
+
+    context "datafiles" do
+      let(:dataset) { results["response"]["docs"].first }
+      let(:data_dict) { JSON.parse(dataset["validated_data_dict"]) }
+      let(:datafile) { data_dict["resources"].first }
+
+      it "includes the file id" do
+        expect(datafile["id"]).to eq("ed403118-c791-4494-92f3-acd633e48178")
+      end
+
+      it "includes the file title or description if present" do
+        expect(datafile["name"]).to eq(nil)
+        expect(datafile["description"]).to eq("Non-consolidated performance related payments 2010-11")
+      end
+
+      it "includes the url of the file" do
+        expect(datafile["url"]).to eq("https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/5722/2016987.xls")
+      end
+
+      it "includes the file format" do
+        expect(datafile["format"]).to eq("XLS")
+      end
+    end
   end
 end
