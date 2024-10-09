@@ -3,7 +3,7 @@ class SolrDataset
 
   DatasetNotFound = Class.new(StandardError)
 
-  attr_reader :id, :name, :title, :summary, :public_updated_at, :topic, :licence_title, :licence_url, :organisation
+  attr_reader :id, :name, :title, :summary, :public_updated_at, :topic, :licence_title, :licence_url, :organisation, :datafiles
 
   def initialize(dataset)
     @id = dataset["id"]
@@ -17,5 +17,10 @@ class SolrDataset
     @licence_title = dataset_dict["license_title"]
     @licence_url = dataset_dict["license_url"]
     @organisation = dataset_dict["organization"]
+
+    @datafiles = []
+    dataset_dict["resources"].each do |datafile|
+      @datafiles << SolrDatafile.new(datafile)
+    end
   end
 end
