@@ -20,7 +20,7 @@ class SolrDataset
 
     @datafiles = []
     dataset_dict["resources"].each do |datafile|
-      @datafiles << SolrDatafile.new(datafile)
+      @datafiles << SolrDatafile.new(datafile, dataset["metadata_created"])
     end
   end
 end

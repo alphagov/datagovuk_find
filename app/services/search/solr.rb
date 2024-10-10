@@ -39,6 +39,7 @@ module Search
         organization
         notes
         metadata_modified
+        metadata_created
         extras_theme-primary
         validated_data_dict
       ].freeze
