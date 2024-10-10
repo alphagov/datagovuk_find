@@ -7,5 +7,17 @@
 <main role="main" id="content">
   <div>
     <%= render "meta_data" %>
+
+    <div class="grid-row">
+      <div class="column-full">
+        <section class="dgu-datalinks">
+          <h2 class="heading-medium"><%= t('.data_links')%></h2>
+
+          <% if @dataset.datafiles.present? %>
+            <%= render partial: 'datafile_table', locals: { datafiles: @dataset.datafiles } %>
+          <% end %>
+        </section>
+      </div>
+    </div>
   </div>
 </main>

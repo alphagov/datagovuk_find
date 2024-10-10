@@ -105,3 +105,13 @@ en:
       breadcrumb:
         home: "Home"
         search: "Search"
+      show:
+        data_links: "Data links"
+      datafile_table:
+        link_to_data: "Link to the data"
+        format: "Format"
+        file_added: "File added"
+        data_preview: "Data preview"
+        data_link: "Data Link"
+        n_a: "N/A"
+        not_available: "Not available"
