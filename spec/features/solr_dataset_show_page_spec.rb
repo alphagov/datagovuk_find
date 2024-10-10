@@ -63,4 +63,44 @@ RSpec.feature "Solr Dataset page", type: :feature do
       expect(page).to have_content("Search")
     end
   end
+
+  feature "Data links are present" do
+    scenario "displays the data links heading" do
+      expect(page).to have_css("h2", text: "Data links")
+    end
+
+    scenario "displays the table headers" do
+      expect(page).to have_css("th", text: "Link to the data")
+      expect(page).to have_css("th", text: "Format")
+      expect(page).to have_css("th", text: "File added")
+      expect(page).to have_css("th", text: "Data preview")
+    end
+
+    scenario "displays the list of data files" do
+      expect(page).to have_css("td a", count: 12)
+    end
+
+    scenario "displays the name of the data file as a link" do
+      expect(page).to have_css("td a", text: "Non-consolidated performance related payments 2015-16 (XLS format)")
+    end
+
+    scenario "Displays the format of the file if available" do
+      expect(page).to have_css("td", text: "XLS")
+    end
+
+    scenario "Displays the date of when the file was added" do
+      expect(page).to have_css("td", text: "30 June 2017")
+    end
+
+    scenario "Show more and show less if more than 5 files", js: true do
+      expect(page).to have_css("js-show-more-datafiles", count: 0)
+      expect(page).to have_css(".js-datafile-visible", count: 5)
+      expect(page).to have_css(".show-toggle", text: "Show more")
+
+      find(".show-toggle").click
+
+      expect(page).to have_css(".js-datafile-visible", count: 12)
+      expect(page).to have_css(".show-toggle", text: "Show less")
+    end
+  end
 end
