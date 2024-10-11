@@ -102,6 +102,7 @@ en:
         accessibility:
           search_box_label: "Search"
           search_box_button: "Find data"
+        availability: "Availability"
       breadcrumb:
         home: "Home"
         search: "Search"
