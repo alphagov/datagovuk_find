@@ -124,5 +124,9 @@ RSpec.feature "Solr Dataset page", type: :feature do
     scenario "a message is displayed to the user" do
       expect(page).to have_content("This data hasn’t been released by the publisher.")
     end
+
+    scenario "a 'not released' label is shown in the metadata box" do
+      expect(page).to have_content("Availability: Not released")
+    end
   end
 end

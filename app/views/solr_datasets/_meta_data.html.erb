@@ -20,6 +20,12 @@
     <div class="column-two-thirds">
       <div class="dgu-metadata__box dgu-metadata__box--in-dataset">
         <dl class="metadata">
+          <% unless @dataset.datafiles.present? %>
+            <dt><%= t('.availability') %>:</dt>
+            <dd>
+              <span class="dgu-highlight">Not released</span>
+            </dd>
+          <% end %>
           <dt><%= t('.published_by') %>:</dt>
           <dd property="dc:creator">
             <%= @dataset.organisation.title %>
