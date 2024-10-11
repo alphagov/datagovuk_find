@@ -106,4 +106,23 @@ RSpec.feature "Solr Dataset page", type: :feature do
       expect(page).to have_css(".show-toggle", text: "Show less")
     end
   end
+
+  feature "Data links are not available" do
+    let(:response) { JSON.parse(File.read(Rails.root.join("spec/fixtures/solr_dataset_without_datafiles.json").to_s)) }
+    let(:params) { response["response"]["docs"].first }
+    let(:dataset) { SolrDataset.new(params) }
+
+    before do
+      allow(Search::Solr).to receive(:get_by_uuid).and_return(response)
+      visit solr_dataset_path(dataset.id, dataset.name)
+    end
+
+    scenario "displays the data links heading" do
+      expect(page).to have_css("h2", text: "Data links")
+    end
+
+    scenario "a message is displayed to the user" do
+      expect(page).to have_content("This data hasn’t been released by the publisher.")
+    end
+  end
 end
