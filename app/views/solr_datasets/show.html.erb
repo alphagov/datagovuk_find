@@ -21,5 +21,9 @@
         </section>
       </div>
     </div>
+
+    <% if contact_information_exists?(@dataset) %>
+      <%= render partial: "contact", locals: { dataset: @dataset } %>
+    <% end %>
   </div>
 </main>
