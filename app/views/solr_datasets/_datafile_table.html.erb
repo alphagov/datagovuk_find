@@ -15,7 +15,7 @@
               :data => {
                 'ga-event' => "download",
                 'ga-format' => format_of(datafile),
-                'ga-publisher' => @dataset.organisation["name"]
+                'ga-publisher' => @dataset.organisation.name
               },
               class: 'govuk-link' do %>
                 <span class="visually-hidden">Download </span>

@@ -4,9 +4,12 @@ RSpec.feature "Solr Dataset page", type: :feature do
   let(:response) { JSON.parse(File.read(Rails.root.join("spec/fixtures/solr_dataset.json").to_s)) }
   let(:params) { response["response"]["docs"].first }
   let(:dataset) { SolrDataset.new(params) }
+  let(:org_response) { JSON.parse(File.read(Rails.root.join("spec/fixtures/solr_organisation.json").to_s)) }
+  let(:organisation) { org_response["response"]["docs"].first }
 
   before do
     allow(Search::Solr).to receive(:get_by_uuid).and_return(response)
+    allow_any_instance_of(RSolr::Client).to receive(:get).and_return(org_response)
     visit solr_dataset_path(dataset.id, dataset.name)
   end
 
@@ -53,7 +56,7 @@ RSpec.feature "Solr Dataset page", type: :feature do
   feature "Show more from publisher" do
     scenario "Displays the link publisher's datasets" do
       expect(page).to have_content("More from this publisher")
-      expect(page).to have_css("a", text: "All datasets from #{dataset.organisation['title']}")
+      expect(page).to have_css("a", text: "All datasets from #{dataset.organisation.title}")
     end
   end
 

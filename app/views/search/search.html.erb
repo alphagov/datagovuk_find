@@ -71,7 +71,7 @@
                     </dd>
                   <% end %>
                   <dt><%= t('.meta_data_box.published_by') %>:</dt>
-                  <dd class="published_by"><%= dataset.organisation['title'] %></dd>
+                  <dd class="published_by"><%= dataset.organisation.title %></dd>
                   <dt><%= t('.meta_data_box.last_updated') %>:</dt>
                   <% if dataset.public_updated_at.present? %>
                     <dd><%= format_timestamp(dataset.public_updated_at) %></dd>
