@@ -129,4 +129,16 @@ RSpec.feature "Solr Dataset page", type: :feature do
       expect(page).to have_content("Availability: Not released")
     end
   end
+
+  feature "Contact information" do
+    scenario "Enquiries details exist" do
+      expect(page).to have_css("h3", text: "Enquiries")
+      expect(page).to have_link("Contact Ministry of Housing, Communities and Local Government regarding this dataset", href: "http://forms.communities.gov.uk/")
+    end
+
+    scenario "FOI details exist" do
+      expect(page).to have_css("h3", text: "Freedom of Information (FOI) requests")
+      expect(page).to have_link("DCLG FOI enquiries", href: "mailto:foirequests@communities.gsi.gov.uk")
+    end
+  end
 end
