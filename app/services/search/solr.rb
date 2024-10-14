@@ -31,6 +31,18 @@ module Search
       }
     end
 
+    def self.get_organisation(name)
+      solr_client = client
+
+      solr_client.get "select", params: {
+        q: "*:*",
+        fq: [
+          "site_id:dgu_organisations",
+          "name:#{name}",
+        ],
+      }
+    end
+
     def self.field_list
       %w[
         id
