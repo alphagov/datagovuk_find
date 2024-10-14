@@ -16,11 +16,16 @@ class SolrDataset
     dataset_dict = JSON.parse(dataset["validated_data_dict"])
     @licence_title = dataset_dict["license_title"]
     @licence_url = dataset_dict["license_url"]
-    @organisation = dataset_dict["organization"]
+    @organisation = Organisation.new(get_organisation(dataset_dict["organization"]["name"]))
 
     @datafiles = []
     dataset_dict["resources"].each do |datafile|
       @datafiles << SolrDatafile.new(datafile, dataset["metadata_created"])
     end
+  end
+
+  def get_organisation(name)
+    query = Search::Solr.get_organisation(name)
+    query["response"]["docs"].first
   end
 end
