@@ -1,0 +1,23 @@
+{
+  "response":{
+    "numFound":1,
+    "start":0,
+    "numFoundExact":true,
+    "docs":[
+      {
+        "site_id":"dgu_organisations",
+        "id":"48f370c9-7ab9-4550-9722-8c9477020fc7",
+        "title":"Ministry of Housing, Communities and Local Government",
+        "title_ngram":"Ministry of Housing, Communities and Local Government",
+        "name":"department-for-communities-and-local-government",
+        "name_ngram":"department-for-communities-and-local-government",
+        "extras_foi-email":"foirequests@communities.gsi.gov.uk",
+        "extras_foi-name":"DCLG FOI enquiries",
+        "extras_contact-email":"http://forms.communities.gov.uk/",
+        "index_id":"30294c0c-0dc0-4f34-be0e-b0bc445ecd4a",
+        "_version_":"1812627371691343874",
+        "indexed_ts":"2024-10-11T14:16:09.558Z"
+      }
+    ]
+  }
+}
