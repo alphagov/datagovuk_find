@@ -22,6 +22,10 @@
       </div>
     </div>
 
+    <% unless @dataset.docs.empty? %>
+      <%= render partial: "supporting_docs", locals: { dataset: @dataset }  %>
+    <% end %>
+
     <% if contact_information_exists?(@dataset) %>
       <%= render partial: "contact", locals: { dataset: @dataset } %>
     <% end %>
