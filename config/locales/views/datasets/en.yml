@@ -120,3 +120,8 @@ en:
         data_link: "Data Link"
         n_a: "N/A"
         not_available: "Not available"
+      supporting_docs:
+        supporting_docs: "Supporting documents"
+        link_to_doc: "Link to the document"
+        date_added: "Date added"
+        format: "Format"

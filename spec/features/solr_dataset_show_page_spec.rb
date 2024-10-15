@@ -80,7 +80,7 @@ RSpec.feature "Solr Dataset page", type: :feature do
     end
 
     scenario "displays the list of data files" do
-      expect(page).to have_css("td a", count: 12)
+      expect(page).to have_css(".dgu-datalinks td a", count: 12)
     end
 
     scenario "displays the name of the data file as a link" do
@@ -139,6 +139,38 @@ RSpec.feature "Solr Dataset page", type: :feature do
     scenario "FOI details exist" do
       expect(page).to have_css("h3", text: "Freedom of Information (FOI) requests")
       expect(page).to have_link("DCLG FOI enquiries", href: "mailto:foirequests@communities.gsi.gov.uk")
+    end
+  end
+
+  feature "Additional information" do
+    scenario "Additional links are available" do
+      expect(page).to have_css(".docs td a", count: 2)
+    end
+
+    scenario "displays the table headers" do
+      expect(page).to have_css(".docs th", text: "Link to the document")
+      expect(page).to have_css(".docs th", text: "Format")
+      expect(page).to have_css(".docs th", text: "Date added")
+    end
+
+    scenario "displays the name of the data file as a link" do
+      expect(page).to have_css(".docs td a", text: "Technical specification")
+    end
+
+    scenario "displays a placeholder name for a data file if it isn't provided" do
+      expect(page).to have_css(".docs td a", text: "No name specified")
+    end
+
+    scenario "Displays the format of the file if available" do
+      expect(page).to have_css(".docs td", text: "HTML")
+    end
+
+    scenario "Displays the N/A for format of the file if not provided" do
+      expect(page).to have_css(".docs td", text: "N/A")
+    end
+
+    scenario "Displays the date of when the file was added" do
+      expect(page).to have_css(".docs td", text: "02 July 2020")
     end
   end
 end

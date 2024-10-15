@@ -3,7 +3,7 @@ class SolrDataset
 
   DatasetNotFound = Class.new(StandardError)
 
-  attr_reader :id, :name, :title, :summary, :public_updated_at, :topic, :licence_title, :licence_url, :organisation, :datafiles, :contact_email, :contact_name, :foi_name, :foi_email, :foi_web
+  attr_reader :id, :name, :title, :summary, :public_updated_at, :topic, :licence_title, :licence_url, :organisation, :datafiles, :contact_email, :contact_name, :foi_name, :foi_email, :foi_web, :docs
 
   def initialize(dataset)
     @id = dataset["id"]
@@ -19,8 +19,9 @@ class SolrDataset
     @organisation = Organisation.new(get_organisation(dataset_dict["organization"]["name"]))
 
     @datafiles = []
+    @docs = []
     dataset_dict["resources"].each do |datafile|
-      @datafiles << SolrDatafile.new(datafile, dataset["metadata_created"])
+      datafile["resource-type"] == "supporting-document" ? @docs << datafile : @datafiles << SolrDatafile.new(datafile, dataset["metadata_created"])
     end
 
     @contact_email = dataset_dict["contact-email"]
