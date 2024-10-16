@@ -1,6 +1,6 @@
 <% content_for :head do %>
   <%= tag.meta name: 'dc:title',   content: @dataset.title %>
-  <%= tag.meta name: 'dc:creator', content: @dataset.organisation["title"] %>
+  <%= tag.meta name: 'dc:creator', content: @dataset.organisation.title %>
   <%= tag.meta name: 'dc:date', content: Date.parse(@dataset.public_updated_at).to_formatted_s %>
   <% if @dataset.licence_title.present? %>
     <%= tag.meta name: 'dc:rights', content: @dataset.licence_title %>
@@ -20,9 +20,15 @@
     <div class="column-two-thirds">
       <div class="dgu-metadata__box dgu-metadata__box--in-dataset">
         <dl class="metadata">
+          <% unless @dataset.datafiles.present? %>
+            <dt><%= t('.availability') %>:</dt>
+            <dd>
+              <span class="dgu-highlight">Not released</span>
+            </dd>
+          <% end %>
           <dt><%= t('.published_by') %>:</dt>
           <dd property="dc:creator">
-            <%= @dataset.organisation["title"] %>
+            <%= @dataset.organisation.title %>
           </dd>
 
           <dt><%= t('.last_updated') %>:</dt>
@@ -63,8 +69,8 @@
     <div class="column-one-third dgu-dataset-right">
       <div class="dgu-dataset-right__sidebar__publisher_datasets">
         <h3 class="heading-small"><%= t('.publisher_datasets') %></h3>
-        <%= link_to search_solr_path(filters: { publisher: @dataset.organisation["title"] }), class: 'govuk-link' do %>
-          <%= "All datasets from #{@dataset.organisation["title"]}" %>
+        <%= link_to search_solr_path(filters: { publisher: @dataset.organisation.title }), class: 'govuk-link' do %>
+          <%= "All datasets from #{@dataset.organisation.title}" %>
         <% end %>
       </div>
 

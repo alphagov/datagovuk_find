@@ -5,9 +5,12 @@ RSpec.describe SolrDatasetsController, type: :controller do
   let(:results) { JSON.parse(File.read(Rails.root.join("spec/fixtures/solr_dataset.json").to_s)) }
   let(:params) { results["response"]["docs"].first }
   let(:dataset) { SolrDataset.new(params) }
+  let(:org_response) { JSON.parse(File.read(Rails.root.join("spec/fixtures/solr_organisation.json").to_s)) }
+  let(:organisation) { org_response["response"]["docs"].first }
 
   before do
     allow(Search::Solr).to receive(:get_by_uuid).and_return(results)
+    allow_any_instance_of(RSolr::Client).to receive(:get).and_return(org_response)
   end
 
   describe "Breadcrumb" do

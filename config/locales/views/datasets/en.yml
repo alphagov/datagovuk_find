@@ -102,6 +102,26 @@ en:
         accessibility:
           search_box_label: "Search"
           search_box_button: "Find data"
+        availability: "Availability"
       breadcrumb:
         home: "Home"
         search: "Search"
+      show:
+        data_links: "Data links"
+        not_released: "This data hasn’t been released by the publisher."
+        contact_the_publisher: "Contact the publisher for more information."
+        contact_the_team: "Contact the team on"
+        if_you_have_questions: "if you have any questions."
+      datafile_table:
+        link_to_data: "Link to the data"
+        format: "Format"
+        file_added: "File added"
+        data_preview: "Data preview"
+        data_link: "Data Link"
+        n_a: "N/A"
+        not_available: "Not available"
+      supporting_docs:
+        supporting_docs: "Supporting documents"
+        link_to_doc: "Link to the document"
+        date_added: "Date added"
+        format: "Format"

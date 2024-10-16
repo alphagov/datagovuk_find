@@ -4,9 +4,12 @@ RSpec.feature "Solr Dataset page", type: :feature do
   let(:response) { JSON.parse(File.read(Rails.root.join("spec/fixtures/solr_dataset.json").to_s)) }
   let(:params) { response["response"]["docs"].first }
   let(:dataset) { SolrDataset.new(params) }
+  let(:org_response) { JSON.parse(File.read(Rails.root.join("spec/fixtures/solr_organisation.json").to_s)) }
+  let(:organisation) { org_response["response"]["docs"].first }
 
   before do
     allow(Search::Solr).to receive(:get_by_uuid).and_return(response)
+    allow_any_instance_of(RSolr::Client).to receive(:get).and_return(org_response)
     visit solr_dataset_path(dataset.id, dataset.name)
   end
 
@@ -53,7 +56,7 @@ RSpec.feature "Solr Dataset page", type: :feature do
   feature "Show more from publisher" do
     scenario "Displays the link publisher's datasets" do
       expect(page).to have_content("More from this publisher")
-      expect(page).to have_css("a", text: "All datasets from #{dataset.organisation['title']}")
+      expect(page).to have_css("a", text: "All datasets from #{dataset.organisation.title}")
     end
   end
 
@@ -61,6 +64,113 @@ RSpec.feature "Solr Dataset page", type: :feature do
     expect(page).to have_css("h3", text: "Search")
     within("form.dgu-search-box") do
       expect(page).to have_content("Search")
+    end
+  end
+
+  feature "Data links are present" do
+    scenario "displays the data links heading" do
+      expect(page).to have_css("h2", text: "Data links")
+    end
+
+    scenario "displays the table headers" do
+      expect(page).to have_css("th", text: "Link to the data")
+      expect(page).to have_css("th", text: "Format")
+      expect(page).to have_css("th", text: "File added")
+      expect(page).to have_css("th", text: "Data preview")
+    end
+
+    scenario "displays the list of data files" do
+      expect(page).to have_css(".dgu-datalinks td a", count: 12)
+    end
+
+    scenario "displays the name of the data file as a link" do
+      expect(page).to have_css("td a", text: "Non-consolidated performance related payments 2015-16 (XLS format)")
+    end
+
+    scenario "Displays the format of the file if available" do
+      expect(page).to have_css("td", text: "XLS")
+    end
+
+    scenario "Displays the date of when the file was added" do
+      expect(page).to have_css("td", text: "30 June 2017")
+    end
+
+    scenario "Show more and show less if more than 5 files", js: true do
+      expect(page).to have_css("js-show-more-datafiles", count: 0)
+      expect(page).to have_css(".js-datafile-visible", count: 5)
+      expect(page).to have_css(".show-toggle", text: "Show more")
+
+      find(".show-toggle").click
+
+      expect(page).to have_css(".js-datafile-visible", count: 12)
+      expect(page).to have_css(".show-toggle", text: "Show less")
+    end
+  end
+
+  feature "Data links are not available" do
+    let(:response) { JSON.parse(File.read(Rails.root.join("spec/fixtures/solr_dataset_without_datafiles.json").to_s)) }
+    let(:params) { response["response"]["docs"].first }
+    let(:dataset) { SolrDataset.new(params) }
+
+    before do
+      allow(Search::Solr).to receive(:get_by_uuid).and_return(response)
+      visit solr_dataset_path(dataset.id, dataset.name)
+    end
+
+    scenario "displays the data links heading" do
+      expect(page).to have_css("h2", text: "Data links")
+    end
+
+    scenario "a message is displayed to the user" do
+      expect(page).to have_content("This data hasn’t been released by the publisher.")
+    end
+
+    scenario "a 'not released' label is shown in the metadata box" do
+      expect(page).to have_content("Availability: Not released")
+    end
+  end
+
+  feature "Contact information" do
+    scenario "Enquiries details exist" do
+      expect(page).to have_css("h3", text: "Enquiries")
+      expect(page).to have_link("Contact Ministry of Housing, Communities and Local Government regarding this dataset", href: "http://forms.communities.gov.uk/")
+    end
+
+    scenario "FOI details exist" do
+      expect(page).to have_css("h3", text: "Freedom of Information (FOI) requests")
+      expect(page).to have_link("DCLG FOI enquiries", href: "mailto:foirequests@communities.gsi.gov.uk")
+    end
+  end
+
+  feature "Additional information" do
+    scenario "Additional links are available" do
+      expect(page).to have_css(".docs td a", count: 2)
+    end
+
+    scenario "displays the table headers" do
+      expect(page).to have_css(".docs th", text: "Link to the document")
+      expect(page).to have_css(".docs th", text: "Format")
+      expect(page).to have_css(".docs th", text: "Date added")
+    end
+
+    scenario "displays the name of the data file as a link" do
+      expect(page).to have_css(".docs td a", text: "Technical specification")
+    end
+
+    scenario "displays a placeholder name for a data file if it isn't provided" do
+      expect(page).to have_css(".docs td a", text: "No name specified")
+    end
+
+    scenario "Displays the format of the file if available" do
+      expect(page).to have_css(".docs td", text: "HTML")
+    end
+
+    scenario "Displays the N/A for format of the file if not provided" do
+      expect(page).to have_css(".docs td", text: "N/A")
+    end
+
+    scenario "Displays the date of when the file was added" do
+      expect(page).to have_css(".docs td", text: "02 July 2020")
     end
   end
 end

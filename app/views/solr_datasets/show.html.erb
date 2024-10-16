@@ -7,5 +7,27 @@
 <main role="main" id="content">
   <div>
     <%= render "meta_data" %>
+
+    <div class="grid-row">
+      <div class="column-full">
+        <section class="dgu-datalinks">
+          <h2 class="heading-medium"><%= t('.data_links')%></h2>
+
+          <% if @dataset.datafiles.present? %>
+            <%= render partial: 'datafile_table', locals: { datafiles: @dataset.datafiles } %>
+          <% else %>
+            <%= render partial: 'no_datafiles', locals: { dataset: @dataset } %>
+          <% end %>
+        </section>
+      </div>
+    </div>
+
+    <% unless @dataset.docs.empty? %>
+      <%= render partial: "supporting_docs", locals: { dataset: @dataset }  %>
+    <% end %>
+
+    <% if contact_information_exists?(@dataset) %>
+      <%= render partial: "contact", locals: { dataset: @dataset } %>
+    <% end %>
   </div>
 </main>

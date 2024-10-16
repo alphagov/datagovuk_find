@@ -13,7 +13,7 @@ RSpec.describe Search::Solr do
     end
 
     it "connects to Solr with a valid URL" do
-      expect(client.options[:url]).to eq(ENV["SOLR_URL"])
+      expect(client.options[:url]).to be == ENV["SOLR_URL"]
     end
 
     it "only sets up the connection once" do
@@ -123,6 +123,65 @@ RSpec.describe Search::Solr do
       it "includes the organization name" do
         data_dict = JSON.parse(dataset["validated_data_dict"])
         expect(data_dict["organization"]["title"]).to eq("Ministry of Housing, Communities and Local Government")
+      end
+    end
+
+    context "datafiles" do
+      let(:dataset) { results["response"]["docs"].first }
+      let(:data_dict) { JSON.parse(dataset["validated_data_dict"]) }
+      let(:datafile) { data_dict["resources"].first }
+
+      it "includes the file id" do
+        expect(datafile["id"]).to eq("ed403118-c791-4494-92f3-acd633e48178")
+      end
+
+      it "includes the file title or description if present" do
+        expect(datafile["name"]).to eq(nil)
+        expect(datafile["description"]).to eq("Non-consolidated performance related payments 2010-11")
+      end
+
+      it "includes the url of the file" do
+        expect(datafile["url"]).to eq("https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/5722/2016987.xls")
+      end
+
+      it "includes the file format" do
+        expect(datafile["format"]).to eq("XLS")
+      end
+    end
+  end
+
+  describe "get_organisation" do
+    let(:response) { JSON.parse(File.read(Rails.root.join("spec/fixtures/solr_organisation.json").to_s)) }
+    let(:results) { described_class.get_organisation("department-for-communities-and-local-government") }
+    let(:organisation) { results["response"]["docs"].first }
+
+    before do
+      allow_any_instance_of(RSolr::Client).to receive(:get).and_return(response)
+    end
+
+    it "returns one result" do
+      expect(results["response"]["numFound"]).to eq(1)
+    end
+
+    it "returns the title" do
+      expect(organisation["title"]).to eq("Ministry of Housing, Communities and Local Government")
+    end
+
+    it "returns the name" do
+      expect(organisation["name"]).to eq("department-for-communities-and-local-government")
+    end
+
+    context "contact information" do
+      it "returns the foi-email if available" do
+        expect(organisation["extras_foi-email"]).to eq("foirequests@communities.gsi.gov.uk")
+      end
+
+      it "returns the foi-name if available" do
+        expect(organisation["extras_foi-name"]).to eq("DCLG FOI enquiries")
+      end
+
+      it "returns the contact-email if available" do
+        expect(organisation["extras_contact-email"]).to eq("http://forms.communities.gov.uk/")
       end
     end
   end
