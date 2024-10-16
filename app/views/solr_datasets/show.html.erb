@@ -22,6 +22,10 @@
       </div>
     </div>
 
+    <% if @dataset.inspire_dataset.present? %>
+      <%= render partial: "additional_info", locals: { dataset: @dataset } %>
+    <% end %>
+
     <% unless @dataset.docs.empty? %>
       <%= render partial: "supporting_docs", locals: { dataset: @dataset }  %>
     <% end %>

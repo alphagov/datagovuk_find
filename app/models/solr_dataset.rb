@@ -3,7 +3,7 @@ class SolrDataset
 
   DatasetNotFound = Class.new(StandardError)
 
-  attr_reader :id, :name, :title, :summary, :public_updated_at, :topic, :licence_title, :licence_url, :organisation, :datafiles, :contact_email, :contact_name, :foi_name, :foi_email, :foi_web, :docs, :licence_custom
+  attr_reader :id, :name, :title, :summary, :public_updated_at, :topic, :licence_title, :licence_url, :organisation, :datafiles, :contact_email, :contact_name, :foi_name, :foi_email, :foi_web, :docs, :licence_custom, :inspire_dataset
 
   def initialize(dataset)
     @id = dataset["id"]
@@ -31,6 +31,34 @@ class SolrDataset
     @foi_name = dataset_dict["foi-name"]
     @foi_email = dataset_dict["foi-email"]
     @foi_web = dataset_dict["foi-web"]
+
+    @inspire_dataset = additional_information(dataset_dict["extras"]) if dataset_dict["extras"].present?
+  end
+
+  def additional_information(data)
+    additional_info = {}
+    data.each do |item|
+      additional_info.store(item["key"], item["value"])
+    end
+
+    additional_info = additional_info&.slice(
+      "licence",
+      "metadata-date",
+      "access_constraints",
+      "guid",
+      "bbox-east-long",
+      "bbox-west-long",
+      "bbox-north-lat",
+      "bbox-south-lat",
+      "spatial-reference-system",
+      "dataset-reference-date",
+      "frequency-of-update",
+      "responsible-party",
+      "resource-type",
+      "metadata-language",
+      "harvest_object_id",
+    )
+    additional_info.empty? ? nil : additional_info
   end
 
   def get_organisation(name)
