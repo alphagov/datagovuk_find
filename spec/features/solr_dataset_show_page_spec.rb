@@ -173,4 +173,28 @@ RSpec.feature "Solr Dataset page", type: :feature do
       expect(page).to have_css(".docs td", text: "02 July 2020")
     end
   end
+
+  feature "Custom licence" do
+    scenario "Does not display the title" do
+      expect(page).to_not have_css("section.dgu-licence-info h2", text: "Licence information")
+    end
+
+    scenario "Does not show licence information" do
+      expect(page).to_not have_css("section.dgu-licence-info")
+    end
+  end
+
+  feature "Inspire dataset" do
+    let(:response) { JSON.parse(File.read(Rails.root.join("spec/fixtures/solr_inspire_dataset.json").to_s)) }
+
+    feature "Custom licence" do
+      scenario "Displays title if present" do
+        expect(page).to have_css("section.dgu-licence-info h2", text: "Licence information")
+      end
+
+      scenario "Displays licence information if present" do
+        expect(page).to have_css("section.dgu-licence-info", text: "Licence information\nUnder the OGL, Land Registry permits you to use the data for commercial or non-commercial purposes. \\n(a) use the polygons (including the associated geometry, namely x,y co-ordinates); or\\Ordnance Survey Public Sector End User Licence - INSPIRE (http://www.ordnancesurvey.co.uk/business-and-government/public-sector/mapping-agreements/inspire-licence.html)")
+      end
+    end
+  end
 end

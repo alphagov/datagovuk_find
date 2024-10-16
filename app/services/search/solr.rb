@@ -54,6 +54,7 @@ module Search
         metadata_created
         extras_theme-primary
         validated_data_dict
+        extras_licence
       ].freeze
     end
 
