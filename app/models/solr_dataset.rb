@@ -3,7 +3,7 @@ class SolrDataset
 
   DatasetNotFound = Class.new(StandardError)
 
-  attr_reader :id, :name, :title, :summary, :public_updated_at, :topic, :licence_title, :licence_url, :organisation, :datafiles, :contact_email, :contact_name, :foi_name, :foi_email, :foi_web, :docs
+  attr_reader :id, :name, :title, :summary, :public_updated_at, :topic, :licence_title, :licence_url, :organisation, :datafiles, :contact_email, :contact_name, :foi_name, :foi_email, :foi_web, :docs, :licence_custom
 
   def initialize(dataset)
     @id = dataset["id"]
@@ -16,6 +16,8 @@ class SolrDataset
     dataset_dict = JSON.parse(dataset["validated_data_dict"])
     @licence_title = dataset_dict["license_title"]
     @licence_url = dataset_dict["license_url"]
+    @licence_custom = dataset["extras_licence"].gsub(/"|\[|\]/, "") if dataset["extras_licence"].present?
+
     @organisation = Organisation.new(get_organisation(dataset_dict["organization"]["name"]))
 
     @datafiles = []
