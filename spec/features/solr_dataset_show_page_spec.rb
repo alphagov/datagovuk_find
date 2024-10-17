@@ -142,7 +142,7 @@ RSpec.feature "Solr Dataset page", type: :feature do
     end
   end
 
-  feature "Additional information" do
+  feature "Supporting documents" do
     scenario "Additional links are available" do
       expect(page).to have_css(".docs td a", count: 2)
     end
@@ -171,6 +171,140 @@ RSpec.feature "Solr Dataset page", type: :feature do
 
     scenario "Displays the date of when the file was added" do
       expect(page).to have_css(".docs td", text: "02 July 2020")
+    end
+  end
+
+  feature "Custom licence" do
+    scenario "Does not display the title" do
+      expect(page).to_not have_css("section.dgu-licence-info h2", text: "Licence information")
+    end
+
+    scenario "Does not show licence information" do
+      expect(page).to_not have_css("section.dgu-licence-info")
+    end
+  end
+
+  feature "Additional information" do
+    scenario "does not display title" do
+      expect(page).to_not have_css(".dgu-additional-info h2", text: "Additional information")
+    end
+
+    scenario "Does not display link to expand information" do
+      expect(page).to_not have_css(".dgu-additional-info .summary", text: "View additional metadata")
+    end
+
+    scenario "Does not display list of information" do
+      expect(page).to_not have_css(".dgu-deflist")
+    end
+  end
+
+  feature "Publisher edit link" do
+    scenario "Displays the title" do
+      expect(page).to have_css("h2", text: "Edit this dataset")
+    end
+
+    scenario "Displays sign in message" do
+      expect(page).to have_css("p", text: "You must have an account for this publisher on data.gov.uk to make any changes to a dataset.")
+    end
+
+    scenario "Displays sign in button" do
+      expect(page).to have_link("Sign in", href: "/dataset/edit/a-very-interesting-dataset")
+    end
+  end
+
+  feature "Inspire dataset" do
+    let(:response) { JSON.parse(File.read(Rails.root.join("spec/fixtures/solr_inspire_dataset.json").to_s)) }
+
+    feature "Custom licence" do
+      scenario "Displays title if present" do
+        expect(page).to have_css("section.dgu-licence-info h2", text: "Licence information")
+      end
+
+      scenario "Displays licence information if present" do
+        expect(page).to have_css("section.dgu-licence-info", text: "Licence information\nUnder the OGL, Land Registry permits you to use the data for commercial or non-commercial purposes. \\n(a) use the polygons (including the associated geometry, namely x,y co-ordinates); or\\Ordnance Survey Public Sector End User Licence - INSPIRE (http://www.ordnancesurvey.co.uk/business-and-government/public-sector/mapping-agreements/inspire-licence.html)")
+      end
+    end
+
+    feature "Additional information" do
+      scenario "Displays title" do
+        expect(page).to have_css(".dgu-additional-info h2", text: "Additional information")
+      end
+
+      scenario "Displays link to expand information" do
+        expect(page).to have_css(".dgu-additional-info .summary", text: "View additional metadata")
+      end
+
+      scenario "Displays date added to data.gov.uk" do
+        expect(page).to have_css(".dgu-additional-info", text: "Added to data.gov.uk")
+        expect(page).to have_css(".dgu-additional-info", text: "2020-12-14")
+      end
+
+      scenario "Displays access constraints" do
+        expect(page).to have_css(".dgu-additional-info", text: "Access contraints")
+        expect(page).to have_css(".dgu-additional-info", text: "Not specified")
+      end
+
+      scenario "Displays harvest GUID" do
+        expect(page).to have_css(".dgu-additional-info", text: "Harvest GUID")
+        expect(page).to have_css(".dgu-additional-info", text: "3df58f2f-a13e-46e9-a657-f532f7ad2fc1")
+      end
+
+      scenario "Displays extent" do
+        expect(page).to have_css(".dgu-additional-info", text: "Extent")
+        expect(page).to have_css(".dgu-additional-info", text: "Latitude: 55.80° to ° Longitude: -6.33° to 1.78°")
+      end
+
+      scenario "Displays spatial reference" do
+        expect(page).to have_css(".dgu-additional-info", text: "Spatial reference")
+        expect(page).to have_css(".dgu-additional-info", text: "http://www.opengis.net/def/crs/EPSG/0/27700")
+      end
+
+      scenario "Displays dataset reference date" do
+        expect(page).to have_css(".dgu-additional-info", text: "Dataset reference date")
+        expect(page).to have_css(".dgu-additional-info", text: "2020-12-29 (publication)")
+      end
+
+      scenario "Displays frequency of update" do
+        expect(page).to have_css(".dgu-additional-info", text: "Frequency of update")
+        expect(page).to have_css(".dgu-additional-info", text: "monthly")
+      end
+
+      scenario "Displays responsible party" do
+        expect(page).to have_css(".dgu-additional-info", text: "Responsible party")
+        expect(page).to have_css(".dgu-additional-info", text: "HM Land Registry (pointOfContact)")
+      end
+
+      scenario "Displays ISO 19139 resource type" do
+        expect(page).to have_css(".dgu-additional-info", text: "ISO 19139 resource type")
+        expect(page).to have_css(".dgu-additional-info", text: "dataset")
+      end
+
+      scenario "Displays metadata language" do
+        expect(page).to have_css(".dgu-additional-info", text: "Metadata language")
+        expect(page).to have_css(".dgu-additional-info", text: "eng")
+      end
+
+      scenario "Contains a link to original source INSPIRE XML" do
+        expect(page).to have_xpath("//a[@href='/api/2/rest/harvestobject/d35b1574-9823-4fbc-80c0-cd1cc3b84bea/xml']", visible: :all)
+      end
+
+      scenario "Contains a link to HTML rendering of INSPIRE HTML" do
+        expect(page).to have_xpath("//a[@href='/api/2/rest/harvestobject/d35b1574-9823-4fbc-80c0-cd1cc3b84bea/html']", visible: :all)
+      end
+    end
+
+    feature "Publisher edit link" do
+      scenario "Does not display the title" do
+        expect(page).to_not have_css("h2", text: "Edit this dataset")
+      end
+
+      scenario "Does not display the sign in message" do
+        expect(page).to_not have_css("p", text: "You must have an account for this publisher on data.gov.uk to make any changes to a dataset.")
+      end
+
+      scenario "Does not display the sign in button" do
+        expect(page).to_not have_link("Sign in", href: "/dataset/edit/performance-related-pay-department-for-communities-and-local-government")
+      end
     end
   end
 end

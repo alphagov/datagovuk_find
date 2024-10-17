@@ -22,12 +22,45 @@
       </div>
     </div>
 
+    <% if @dataset.inspire_dataset.present? %>
+      <%= render partial: "additional_info", locals: { dataset: @dataset } %>
+    <% end %>
+
     <% unless @dataset.docs.empty? %>
       <%= render partial: "supporting_docs", locals: { dataset: @dataset }  %>
     <% end %>
 
     <% if contact_information_exists?(@dataset) %>
       <%= render partial: "contact", locals: { dataset: @dataset } %>
+    <% end %>
+
+    <% if @dataset.licence_custom.present? %>
+      <section class="dgu-licence-info">
+        <div class="grid-row">
+          <div class="column-full">
+            <h2 class="heading-medium" id="licence-info">
+              <%= t('.licence_information') %>
+            </h2>
+            <p class="dgu-licence-info__notes">
+              <%= to_markdown(@dataset.licence_custom) %>
+            </p>
+          </div>
+        </div>
+      </section>
+    <% end %>
+
+    <% if @dataset.editable? %>
+      <section>
+        <div class="grid-row">
+          <div class="column-full">
+            <h2 class="heading-medium"><%= t('datasets.publishers.title') %></h2>
+            <div role="note" aria-label="Publisher information" class="panel panel-border-narrow text">
+              <p><%= t('datasets.publishers.information') %></p>
+            </div>
+            <p><%= link_to t('datasets.publishers.button'), "/dataset/edit/#{@dataset.name}", role: 'button', class: 'govuk-button', rel: %w(nofollow) %></p>
+          </div>
+        </div>
+      </section>
     <% end %>
   </div>
 </main>
