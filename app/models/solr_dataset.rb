@@ -3,7 +3,7 @@ class SolrDataset
 
   DatasetNotFound = Class.new(StandardError)
 
-  attr_reader :id, :name, :title, :summary, :public_updated_at, :topic, :licence_title, :licence_url, :organisation, :datafiles, :contact_email, :contact_name, :foi_name, :foi_email, :foi_web, :docs, :licence_custom, :inspire_dataset
+  attr_reader :id, :name, :title, :summary, :public_updated_at, :topic, :licence_title, :licence_url, :organisation, :datafiles, :contact_email, :contact_name, :foi_name, :foi_email, :foi_web, :docs, :licence_custom, :inspire_dataset, :harvested
 
   def initialize(dataset)
     @id = dataset["id"]
@@ -33,6 +33,11 @@ class SolrDataset
     @foi_web = dataset_dict["foi-web"]
 
     @inspire_dataset = additional_information(dataset_dict["extras"]) if dataset_dict["extras"].present?
+    @harvested = @inspire_dataset.present? ? true : false
+  end
+
+  def editable?
+    harvested == false
   end
 
   def additional_information(data)
