@@ -198,6 +198,20 @@ RSpec.feature "Solr Dataset page", type: :feature do
     end
   end
 
+  feature "Publisher edit link" do
+    scenario "Displays the title" do
+      expect(page).to have_css("h2", text: "Edit this dataset")
+    end
+
+    scenario "Displays sign in message" do
+      expect(page).to have_css("p", text: "You must have an account for this publisher on data.gov.uk to make any changes to a dataset.")
+    end
+
+    scenario "Displays sign in button" do
+      expect(page).to have_link("Sign in", href: "/dataset/edit/a-very-interesting-dataset")
+    end
+  end
+
   feature "Inspire dataset" do
     let(:response) { JSON.parse(File.read(Rails.root.join("spec/fixtures/solr_inspire_dataset.json").to_s)) }
 
@@ -276,6 +290,20 @@ RSpec.feature "Solr Dataset page", type: :feature do
 
       scenario "Contains a link to HTML rendering of INSPIRE HTML" do
         expect(page).to have_xpath("//a[@href='/api/2/rest/harvestobject/d35b1574-9823-4fbc-80c0-cd1cc3b84bea/html']", visible: :all)
+      end
+    end
+
+    feature "Publisher edit link" do
+      scenario "Does not display the title" do
+        expect(page).to_not have_css("h2", text: "Edit this dataset")
+      end
+
+      scenario "Does not display the sign in message" do
+        expect(page).to_not have_css("p", text: "You must have an account for this publisher on data.gov.uk to make any changes to a dataset.")
+      end
+
+      scenario "Does not display the sign in button" do
+        expect(page).to_not have_link("Sign in", href: "/dataset/edit/performance-related-pay-department-for-communities-and-local-government")
       end
     end
   end
