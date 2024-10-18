@@ -1,6 +1,6 @@
 class SolrDatafile
   attr_reader :name, :url, :created_at,
-              :format, :size, :uuid
+              :format, :uuid
 
   def initialize(hash, created_at)
     @name = hash["name"] || hash["description"]
@@ -8,7 +8,6 @@ class SolrDatafile
 
     @created_at = hash["created"] || created_at
     @format = hash["format"]&.strip&.delete_prefix(".")&.upcase
-    @size = hash["size"]
     @uuid = hash["id"]
   end
 end
