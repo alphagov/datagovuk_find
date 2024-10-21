@@ -97,6 +97,8 @@ en:
         licence: "Licence"
         no_licence: "None"
         other_licence: "Other Licence"
+        uk_ogl: "Open Government Licence"
+        uk_ogl_url: "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
         publisher_datasets: "More from this publisher"
         search_gov_data: "Search"
         accessibility:
