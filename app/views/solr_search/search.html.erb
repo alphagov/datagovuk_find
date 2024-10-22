@@ -24,6 +24,9 @@
       </div>
 
       <div class="govuk-grid-row dgu-filters">
+        <div class="govuk-grid-column-one-third">
+          <%= render 'filters' %>
+        </div>
         <div class="govuk-grid-column-two-thirds dgu-results">
           <%= render '/search/sort' if @num_results > 1 %>
           <span class="dgu-results__summary">
