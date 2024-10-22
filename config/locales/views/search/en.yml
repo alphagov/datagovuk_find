@@ -55,3 +55,12 @@ en:
         published_by: "Published by"
         last_updated: "Last updated"
         not_applicable: "Not applicable"
+    filters:
+      filter_by: "Filter by"
+      filter_by_format: "Format"
+      filter_by_topic: "Topic"
+      filter_by_publisher: "Publisher"
+      filter_by_ogl: "Open Government Licence (OGL) only"
+      accessibility:
+        submit_button: "Apply filters"
+      remove_filters: "Remove filters"
