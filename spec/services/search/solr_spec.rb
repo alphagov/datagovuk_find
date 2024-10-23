@@ -185,4 +185,19 @@ RSpec.describe Search::Solr do
       end
     end
   end
+
+  describe "get_organisations" do
+    let(:response) { JSON.parse(File.read(Rails.root.join("spec/fixtures/solr_organisation_titles.json").to_s)) }
+    let(:results) { described_class.get_organisations }
+
+    before do
+      allow_any_instance_of(RSolr::Client).to receive(:get).and_return(response)
+    end
+
+    it "returns a list of organisation titles" do
+      expect(results.count).to eq(10)
+      expect(results[0]).to eq("Aberdeen City Council")
+      expect(results[1]).to eq("Aberdeenshire Council")
+    end
+  end
 end
