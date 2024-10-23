@@ -2,10 +2,12 @@ require "rails_helper"
 
 RSpec.describe "Solr Search page", type: :feature do
   let(:results) { File.read(Rails.root.join("spec/fixtures/solr_response.json").to_s) }
+  let(:organisations) { [ "Aberdeen City Council", "Aberdeenshire Council", "Academics" ] }
 
   describe "Default search page behaviour" do
     before do
       allow(Search::Solr).to receive(:search).and_return(JSON.parse(results))
+      allow(Search::Solr).to receive(:get_organisations).and_return(organisations)
       visit "/search/solr"
     end
 
@@ -53,6 +55,13 @@ RSpec.describe "Solr Search page", type: :feature do
         expect(page).to have_css("select#publisher")
       end
 
+      scenario "Displays list of organisations in the 'Publisher' filter" do
+        select_options = all("select#publisher option")
+        expect(select_options.length).to be(4)
+        expect(select_options[1]).to have_content "Aberdeen City Council"
+        expect(select_options[2]).to have_content "Aberdeenshire Council"
+      end
+
       scenario "Displays the 'Topic' filter" do
         expect(page).to have_css(".dgu-filters .govuk-form-group", text: "Topic")
         expect(page).to have_css("select#topic")
@@ -80,6 +89,7 @@ RSpec.describe "Solr Search page", type: :feature do
   describe "When a user filters the results" do
     before do
       allow(Search::Solr).to receive(:search).and_return(JSON.parse(results))
+      allow(Search::Solr).to receive(:get_organisations).and_return(organisations)
     end
 
     scenario "Results are sorted by best match" do

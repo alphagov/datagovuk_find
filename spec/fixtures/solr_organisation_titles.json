@@ -1,0 +1,29 @@
+{
+  "response":{
+    "numFound":10,
+    "start":0,
+    "numFoundExact":true,
+    "docs":[
+      {
+        "title":"Aberdeen City Council"},
+      {
+        "title":"Aberdeenshire Council"},
+      {
+        "title":"Academics"},
+      {
+        "title":"Active Travel England"},
+      {
+        "title":"Adur District Council"},
+      {
+        "title":"Advanced Research and Invention Agency"},
+      {
+        "title":"Advantage West Midlands"},
+      {
+        "title":"Advisory, Conciliation and Arbitration Service"},
+      {
+        "title":"Agri-Food and Biosciences Institute"},
+      {
+        "title":"Air Accident Investigation Branch"}
+    ]
+  }
+}
