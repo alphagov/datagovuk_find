@@ -31,6 +31,20 @@ module Search
       }
     end
 
+    def self.get_organisations
+      solr_client = client
+
+      query = solr_client.get "select", params: {
+        q: "*:*",
+        fq: [
+          "site_id:dgu_organisations",
+        ],
+        fl: "title",
+        rows: 1600,
+      }
+      query["response"]["docs"].map { |org| org["title"] }
+    end
+
     def self.get_organisation(name)
       solr_client = client
 
