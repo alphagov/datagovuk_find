@@ -8,6 +8,7 @@ class SolrSearchController < ApplicationController
 private
 
   def search_for_dataset
+    @organisations = Search::Solr.get_organisations
     query = Search::Solr.search(params)
 
     @datasets = query["response"]["docs"]
