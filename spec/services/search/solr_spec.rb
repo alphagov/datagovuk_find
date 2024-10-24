@@ -194,10 +194,10 @@ RSpec.describe Search::Solr do
       allow_any_instance_of(RSolr::Client).to receive(:get).and_return(response)
     end
 
-    it "returns a list of organisation titles" do
-      expect(results.count).to eq(10)
-      expect(results[0]).to eq("Aberdeen City Council")
-      expect(results[1]).to eq("Aberdeenshire Council")
+    it "returns a list of organisation titles and slugs" do
+      expect(results.count).to eq(5)
+      expect(results["Aberdeen City Council"]).to eq("aberdeen-city-council")
+      expect(results["Aberdeenshire Council"]).to eq("aberdeenshire-council")
     end
   end
 end

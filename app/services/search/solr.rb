@@ -4,6 +4,7 @@ module Search
       query_param = params.fetch("q", "").squish
       page = params["page"]
       sort_param = params["sort"]
+      publisher_param = params.dig(:filters, :publisher)
       page && page.to_i.positive? ? page.to_i : 1
 
       solr_client = client
@@ -11,9 +12,12 @@ module Search
       query = query_param.present? ? "title:\"#{query_param}\" OR notes:\"#{query_param}\" AND NOT site_id:dgu_organisations" : "*:*"
 
       sort_query = "metadata_modified desc" if sort_param == "recent"
+      filter_query = []
+      filter_query << publisher_filter(publisher_param) if publisher_param.present?
 
       solr_client.get "select", params: {
         q: query,
+        fq: filter_query,
         start: page,
         rows: 20,
         fl: field_list,
@@ -31,18 +35,27 @@ module Search
       }
     end
 
+    def self.publisher_filter(organisation)
+      "organization:#{@organisations_list[organisation]}"
+    end
+
     def self.get_organisations
       solr_client = client
+      @organisations_list = {}
 
       query = solr_client.get "select", params: {
         q: "*:*",
         fq: [
           "site_id:dgu_organisations",
         ],
-        fl: "title",
+        fl: %w[title name],
         rows: 1600,
       }
-      query["response"]["docs"].map { |org| org["title"] }
+      query["response"]["docs"].each do |org|
+        @organisations_list.store(org["title"], org["name"])
+      end
+
+      @organisations_list
     end
 
     def self.get_organisation(name)
