@@ -23,6 +23,30 @@ module Search
         fl: field_list,
         sort: sort_query,
       }
+
+      # if query_param.empty? 
+        # solr_client.get "select", params: {
+        #   q: query,
+          # fq: filter_query,
+          # start: page,
+          # rows: 20,
+          # fl: field_list,
+          # sort: sort_query,
+        # }
+      # else
+      #   solr_client.get "select", params: {
+      #     q: query,
+      #     fq: filter_query,
+      #     start: page,
+      #     rows: 20,
+      #     fl: field_list,
+      #     sort: sort_query,
+      #     facet: "true",
+      #     "facet.field": "organization",
+      #     "facet.sort": "count",
+      #     "facet.mincount": 1,
+      #   }
+      # end
     end
 
     def self.get_by_uuid(uuid:)
