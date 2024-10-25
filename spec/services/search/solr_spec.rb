@@ -200,4 +200,34 @@ RSpec.describe Search::Solr do
       expect(results["Aberdeenshire Council"]).to eq("aberdeenshire-council")
     end
   end
+
+  describe "#query_solr" do
+    let(:response) { File.read(Rails.root.join("spec/fixtures/solr_response.json").to_s) }
+    let(:results) { described_class.search("q" => "") }
+    let(:requested_fields) { %w[id name title organization notes metadata_modified extras_theme-primary validated_data_dict] }
+
+    before do
+      allow_any_instance_of(RSolr::Client).to receive(:get).and_return(JSON.parse(response))
+    end
+
+    it "returns a JSON response" do
+      expect(results).to be_a(Hash)
+    end
+
+    it "includes a count of the results" do
+      expect(results["response"]["numFound"]).to eq(2)
+    end
+
+    it "includes the datasets" do
+      datasets = results["response"]["docs"]
+      expect(datasets.length).to eq(2)
+    end
+
+    it "includes the requested fields from solr" do
+      dataset = results["response"]["docs"].first
+      requested_fields.each do |field|
+        expect(dataset[field]).not_to be_empty
+      end
+    end
+  end
 end
