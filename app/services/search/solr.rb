@@ -6,6 +6,7 @@ module Search
       sort_param = params["sort"]
       publisher_param = params.dig(:filters, :publisher)
       topic_param = params.dig(:filters, :topic)
+      format_param = params.dig(:filters, :format)
       licence_param = params.dig(:filters, :licence_code)
       @page && @page.to_i.positive? ? @page.to_i : 1
 
@@ -17,6 +18,7 @@ module Search
       @filter_query = []
       @filter_query << publisher_filter(publisher_param) if publisher_param.present?
       @filter_query << topic_filter(topic_param) if topic_param.present?
+      @filter_query << format_filter(format_param) if format_param.present?
       @filter_query << licence_filter(licence_param) if licence_param.present?
 
       query_param.empty? ? query_solr : query_solr_with_organisation_facet
@@ -38,6 +40,11 @@ module Search
 
     def self.topic_filter(topic)
       "extras_theme-primary:\"#{topic.parameterize(separator: '-')}\""
+    end
+
+    def self.format_filter(format)
+      format = "GeoJSON" if format == "GEOJSON"
+      "res_format:#{format}"
     end
 
     def self.licence_filter(licence)
