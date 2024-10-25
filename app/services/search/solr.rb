@@ -15,7 +15,7 @@ module Search
       @filter_query = []
       @filter_query << publisher_filter(publisher_param) if publisher_param.present?
 
-      query_solr
+      query_param.empty? ? query_solr : query_solr_with_organisation_facet
     end
 
     def self.get_by_uuid(uuid:)
@@ -72,6 +72,21 @@ module Search
         rows: 20,
         fl: field_list,
         sort: @sort_query,
+      }
+    end
+
+    def self.query_solr_with_organisation_facet
+      client.get "select", params: {
+        q: @query,
+        fq: @filter_query,
+        start: @page,
+        rows: 20,
+        fl: field_list,
+        sort: @sort_query,
+        facet: "true",
+        "facet.field": "organization",
+        "facet.sort": "count",
+        "facet.mincount": 1,
       }
     end
 
