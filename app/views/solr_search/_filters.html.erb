@@ -6,7 +6,7 @@
 
 <div class="govuk-form-group">
   <%= label_tag "topic", t(".filter_by_topic"), class: "govuk-label" %>
-  <%= select_tag("filters[topic]", options_for_select(""), id: "topic", class: "govuk-select dgu-filters__filter js-accessible-autocomplete", include_blank: true) %>
+  <%= select_tag("filters[topic]", options_for_select(dataset_topics_for_select, selected_topic), id: "topic", class: "govuk-select dgu-filters__filter js-accessible-autocomplete", include_blank: true) %>
 </div>
 
 <div class="govuk-form-group">
