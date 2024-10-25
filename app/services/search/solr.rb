@@ -2,27 +2,20 @@ module Search
   class Solr
     def self.search(params)
       query_param = params.fetch("q", "").squish
-      page = params["page"]
+      @page = params["page"]
       sort_param = params["sort"]
       publisher_param = params.dig(:filters, :publisher)
-      page && page.to_i.positive? ? page.to_i : 1
+      @page && @page.to_i.positive? ? @page.to_i : 1
 
-      solr_client = client
+      get_organisations
 
-      query = query_param.present? ? "title:\"#{query_param}\" OR notes:\"#{query_param}\" AND NOT site_id:dgu_organisations" : "*:*"
+      @query = query_param.present? ? "title:\"#{query_param}\" OR notes:\"#{query_param}\" AND NOT site_id:dgu_organisations" : "*:*"
 
-      sort_query = "metadata_modified desc" if sort_param == "recent"
-      filter_query = []
-      filter_query << publisher_filter(publisher_param) if publisher_param.present?
+      @sort_query = "metadata_modified desc" if sort_param == "recent"
+      @filter_query = []
+      @filter_query << publisher_filter(publisher_param) if publisher_param.present?
 
-      solr_client.get "select", params: {
-        q: query,
-        fq: filter_query,
-        start: page,
-        rows: 20,
-        fl: field_list,
-        sort: sort_query,
-      }
+      query_solr
     end
 
     def self.get_by_uuid(uuid:)
@@ -67,6 +60,18 @@ module Search
           "site_id:dgu_organisations",
           "name:#{name}",
         ],
+        fl: %w[title name],
+      }
+    end
+
+    def self.query_solr
+      client.get "select", params: {
+        q: @query,
+        fq: @filter_query,
+        start: @page,
+        rows: 20,
+        fl: field_list,
+        sort: @sort_query,
       }
     end
 

@@ -1,7 +1,7 @@
 <h2 class="heading-medium"> <%= t(".filter_by") %></h2>
 <div class="govuk-form-group">
   <%= label_tag "publisher", t(".filter_by_publisher"), class: "govuk-label" %>
-  <%= select_tag("filters[publisher]", options_for_select(@organisations.keys, selected_publisher), id: "publisher", class: "govuk-select dgu-filters__filter js-accessible-autocomplete", include_blank: true) %>
+  <%= select_tag("filters[publisher]", options_for_select(@organisations, selected_publisher), id: "publisher", class: "govuk-select dgu-filters__filter js-accessible-autocomplete", include_blank: true) %>
 </div>
 
 <div class="govuk-form-group">
