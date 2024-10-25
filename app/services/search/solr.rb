@@ -5,6 +5,7 @@ module Search
       @page = params["page"]
       sort_param = params["sort"]
       publisher_param = params.dig(:filters, :publisher)
+      licence_param = params.dig(:filters, :licence_code)
       @page && @page.to_i.positive? ? @page.to_i : 1
 
       get_organisations
@@ -14,6 +15,7 @@ module Search
       @sort_query = "metadata_modified desc" if sort_param == "recent"
       @filter_query = []
       @filter_query << publisher_filter(publisher_param) if publisher_param.present?
+      @filter_query << licence_filter(licence_param) if licence_param.present?
 
       query_param.empty? ? query_solr : query_solr_with_organisation_facet
     end
@@ -30,6 +32,10 @@ module Search
 
     def self.publisher_filter(organisation)
       "organization:#{@organisations_list[organisation]}"
+    end
+
+    def self.licence_filter(licence)
+      "license_id:#{licence}"
     end
 
     def self.get_organisations
