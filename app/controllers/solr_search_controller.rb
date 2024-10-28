@@ -8,18 +8,18 @@ class SolrSearchController < ApplicationController
 private
 
   def search_for_dataset
-    query = Search::Solr.search(params)
+    @query = Search::Solr.search(params)
 
-    @organisations = get_organisations(query)
-    @datasets = query["response"]["docs"]
-    @num_results = query["response"]["numFound"]
+    @organisations = get_organisations
+    @datasets = @query["response"]["docs"]
+    @num_results = @query["response"]["numFound"]
   end
 
-  def get_organisations(query)
+  def get_organisations
     if params.fetch("q", "").empty?
       Search::Solr.get_organisations.keys
     else
-      slugs = query["facet_counts"]["facet_fields"]["organization"]
+      slugs = @query["facet_counts"]["facet_fields"]["organization"]
 
       slugs = slugs.values_at(* slugs.each_index.select(&:even?))
 

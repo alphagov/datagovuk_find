@@ -21,7 +21,7 @@ module Search
       @filter_query << format_filter(format_param) if format_param.present?
       @filter_query << licence_filter(licence_param) if licence_param.present?
 
-      query_param.empty? ? query_solr : query_solr_with_organisation_facet
+      query_param.empty? ? query_solr : query_solr_with_facets
     end
 
     def self.get_by_uuid(uuid:)
@@ -83,6 +83,47 @@ module Search
       }
     end
 
+    def self.get_topic(topic)
+      # We need to map the topics returned to the names that should be displayed in the UI.
+      # E.g. topic will return:
+      # ["environ",
+      #   "govern",
+      #   "governmentspend",
+      #   "spend",
+      #   "and",
+      #   "busi",
+      #   "businessandeconomi",
+      #   "economi",
+      #   "health"]
+
+      # The index should contain something like:
+      #   docs:[
+      #     {
+      #       name: "govern",
+      #       title: "Government",
+      #     },
+      #     {
+      #       name: "governmentspend",
+      #       title: "Government spending",
+      #     },
+      #     {
+      #       name: "businessandeconomi",
+      #       title: "Business and economy",
+      #     },
+      #   ]
+
+      # solr_client = client
+
+      # solr_client.get "select", params: {
+      #   q: "*:*",
+      #   fq: [
+      #     "new_custom_index_for_topics",
+      #     "name:#{name}",
+      #   ],
+      #   fl: %w[title name],
+      # }
+    end
+
     def self.query_solr
       client.get "select", params: {
         q: @query,
@@ -94,7 +135,7 @@ module Search
       }
     end
 
-    def self.query_solr_with_organisation_facet
+    def self.query_solr_with_facets
       client.get "select", params: {
         q: @query,
         fq: @filter_query,
@@ -103,7 +144,7 @@ module Search
         fl: field_list,
         sort: @sort_query,
         facet: "true",
-        "facet.field": "organization",
+        "facet.field": %w[organization extras_theme-primary],
         "facet.sort": "count",
         "facet.mincount": 1,
       }
