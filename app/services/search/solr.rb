@@ -144,7 +144,7 @@ module Search
         fl: field_list,
         sort: @sort_query,
         facet: "true",
-        "facet.field": %w[organization extras_theme-primary],
+        "facet.field": %w[organization extras_theme-primary res_format],
         "facet.sort": "count",
         "facet.mincount": 1,
       }

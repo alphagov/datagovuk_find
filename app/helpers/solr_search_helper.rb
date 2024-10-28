@@ -45,16 +45,30 @@ module SolrSearchHelper
   end
 
   def datafile_formats_for_select
-    %w[
-      CSV
-      GEOJSON
-      HTML
-      KML
-      PDF
-      WMS
-      XLS
-      XML
-      ZIP
-    ].freeze
+    if params.fetch("q", "").empty?
+      %w[
+        CSV
+        GEOJSON
+        HTML
+        KML
+        PDF
+        WMS
+        XLS
+        XML
+        ZIP
+      ].freeze
+    else
+      # the formats returned also includes invalid formats
+
+      formats = @query["facet_counts"]["facet_fields"]["res_format"]
+
+      formats = formats.values_at(* formats.each_index.select(&:even?))
+
+      # results_formats = []
+      # slugs.each do |format|
+      #   results_formats << Search::Solr.get_format(format)["response"]["docs"].first["title"]
+      # end
+      formats
+    end
   end
 end
