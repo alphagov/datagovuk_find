@@ -27,7 +27,7 @@ RSpec.describe Search::Solr do
     let(:results) { described_class.search("q" => "") }
 
     before do
-      allow_any_instance_of(RSolr::Client).to receive(:get).and_return(JSON.parse(response))
+      allow_any_instance_of(RSolr::Client).to receive(:paginate).and_return(JSON.parse(response))
     end
 
     it "returns a JSON response" do
