@@ -1,10 +1,6 @@
 require "rails_helper"
 
 RSpec.describe Search::Solr do
-  before do
-    ENV["SOLR_URL"] = "http://localhost:8983/solr"
-  end
-
   describe "#client" do
     let(:client) { described_class.client }
 
@@ -13,7 +9,7 @@ RSpec.describe Search::Solr do
     end
 
     it "connects to Solr with a valid URL" do
-      expect(client.options[:url]).to be == ENV["SOLR_URL"]
+      expect(client.options[:url]).to eq(ENV["SOLR_URL"])
     end
 
     it "only sets up the connection once" do
