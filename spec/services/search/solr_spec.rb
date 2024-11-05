@@ -1,10 +1,6 @@
 require "rails_helper"
 
 RSpec.describe Search::Solr do
-  before do
-    ENV["SOLR_URL"] = "http://localhost:8983/solr"
-  end
-
   describe "#client" do
     let(:client) { described_class.client }
 
@@ -13,7 +9,7 @@ RSpec.describe Search::Solr do
     end
 
     it "connects to Solr with a valid URL" do
-      expect(client.options[:url]).to be == ENV["SOLR_URL"]
+      expect(client.options[:url]).to eq(ENV["SOLR_URL"])
     end
 
     it "only sets up the connection once" do
@@ -183,6 +179,89 @@ RSpec.describe Search::Solr do
       it "returns the contact-email if available" do
         expect(organisation["extras_contact-email"]).to eq("http://forms.communities.gov.uk/")
       end
+    end
+  end
+
+  describe "get_organisations" do
+    let(:response) { JSON.parse(File.read(Rails.root.join("spec/fixtures/solr_organisation_titles.json").to_s)) }
+    let(:results) { described_class.get_organisations }
+
+    before do
+      allow_any_instance_of(RSolr::Client).to receive(:get).and_return(response)
+    end
+
+    it "returns a list of organisation titles and slugs" do
+      expect(results.count).to eq(5)
+      expect(results["Aberdeen City Council"]).to eq("aberdeen-city-council")
+      expect(results["Aberdeenshire Council"]).to eq("aberdeenshire-council")
+    end
+  end
+
+  describe "#query_solr" do
+    let(:response) { File.read(Rails.root.join("spec/fixtures/solr_response.json").to_s) }
+    let(:results) { described_class.search("q" => "") }
+    let(:requested_fields) { %w[id name title organization notes metadata_modified extras_theme-primary validated_data_dict] }
+
+    before do
+      allow_any_instance_of(RSolr::Client).to receive(:get).and_return(JSON.parse(response))
+    end
+
+    it "returns a JSON response" do
+      expect(results).to be_a(Hash)
+    end
+
+    it "includes a count of the results" do
+      expect(results["response"]["numFound"]).to eq(2)
+    end
+
+    it "includes the datasets" do
+      datasets = results["response"]["docs"]
+      expect(datasets.length).to eq(2)
+    end
+
+    it "includes the requested fields from solr" do
+      dataset = results["response"]["docs"].first
+      requested_fields.each do |field|
+        expect(dataset[field]).not_to be_empty
+      end
+    end
+  end
+
+  describe "#query_solr_with_organisation_facet" do
+    let(:response) { File.read(Rails.root.join("spec/fixtures/solr_response_with_organisation_facet.json").to_s) }
+    let(:results) { described_class.search("q" => "interesting dataset") }
+    let(:requested_fields) { %w[id name title organization notes metadata_modified extras_theme-primary validated_data_dict] }
+
+    before do
+      allow_any_instance_of(RSolr::Client).to receive(:get).and_return(JSON.parse(response))
+    end
+
+    it "returns a JSON response" do
+      expect(results).to be_a(Hash)
+    end
+
+    it "includes a count of the results" do
+      expect(results["response"]["numFound"]).to eq(2)
+    end
+
+    it "includes the datasets" do
+      datasets = results["response"]["docs"]
+      expect(datasets.length).to eq(2)
+    end
+
+    it "includes the requested fields from solr" do
+      dataset = results["response"]["docs"].first
+      requested_fields.each do |field|
+        expect(dataset[field]).not_to be_empty
+      end
+    end
+
+    it "includes the datasets' organisations" do
+      org_facets = results["facet_counts"]["facet_fields"]["organization"]
+      expect(org_facets[0]).to eq("department-for-communities-and-local-government")
+      expect(org_facets[1]).to eq(1)
+      expect(org_facets[2]).to eq("mole-valley-district-council")
+      expect(org_facets[3]).to eq(1)
     end
   end
 end
