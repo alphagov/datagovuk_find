@@ -11,7 +11,7 @@
 
 <div class="govuk-form-group">
   <%= label_tag "format", t(".filter_by_format"), class: "govuk-label" %>
-  <%= select_tag("filters[format]", options_for_select(@presenter.format_options, selected_format), id: "format", class: "govuk-select dgu-filters__filter js-accessible-autocomplete", include_blank: true) %>
+  <%= select_tag("filters[format]", options_for_select(@presenter.format_options, @presenter.selected_format), id: "format", class: "govuk-select dgu-filters__filter js-accessible-autocomplete", include_blank: true) %>
 </div>
 
 <%= render "govuk_publishing_components/components/checkboxes", {

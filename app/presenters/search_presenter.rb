@@ -67,4 +67,8 @@ class SearchPresenter
   def selected_topic
     search_params.dig(:filters, :topic)
   end
+
+  def selected_format
+    search_params.dig(:filters, :format)
+  end
 end
