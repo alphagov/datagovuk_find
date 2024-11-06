@@ -95,19 +95,19 @@ RSpec.describe "Solr Search page", type: :feature do
     end
   end
 
-  describe "When a user filters the results" do
+  describe "When a user sorts the results" do
     before do
       allow(Search::Solr).to receive(:search).and_return(JSON.parse(results))
       allow(Search::Solr).to receive(:get_organisations).and_return(organisations)
     end
 
     scenario "Results are sorted by best match" do
-      filtered_solr_search_for("Best match")
+      sorted_solr_search_for("Best match")
       expect(page).to have_select("sort", selected: "Best match")
     end
 
     scenario "Results are sorted by most recent" do
-      filtered_solr_search_for("Most recent")
+      sorted_solr_search_for("Most recent")
       expect(page).to have_select("sort", selected: "Most recent")
     end
   end
