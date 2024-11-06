@@ -90,7 +90,7 @@ RSpec.describe "Solr Search page", type: :feature do
       end
 
       scenario "Displays the 'Remove filters' option" do
-        expect(page).to have_link("Remove filters", href: "/search/solr")
+        expect(page).to have_link("Remove filters", href: "/search/solr?q=")
       end
     end
   end
