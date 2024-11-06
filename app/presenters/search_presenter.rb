@@ -1,4 +1,21 @@
 class SearchPresenter
+  TOPIC_MAPPINGS = {
+    "Business and economy" => %w[busi businessandeconomi economi],
+    "Crime and justice" => %w[crime crimeandjustic justic],
+    "Defence" => %w[defenc],
+    "Digital services performance" => %w[digit digitalservicesperform perform servic],
+    "Education" => %w[educ],
+    "Environment" => %w[environ],
+    "Government" => %w[govern],
+    "Government reference data" => %w[data governmentreferencedata refer],
+    "Government spending" => %w[governmentspend spend],
+    "Health" => %w[health],
+    "Mapping" => %w[map],
+    "Society" => %w[societi],
+    "Towns and cities" => %w[city town townsandc],
+    "Transport" => %w[transport],
+  }.freeze
+
   attr_reader :search_response, :search_params
 
   def initialize(search_response, search_params)
@@ -24,22 +41,14 @@ class SearchPresenter
   end
 
   def topic_options
-    [
-      "Business and economy",
-      "Crime and justice",
-      "Defence",
-      "Digital service performance",
-      "Education",
-      "Environment",
-      "Government",
-      "Government reference data",
-      "Government spending",
-      "Health",
-      "Mapping",
-      "Society",
-      "Towns and cities",
-      "Transport",
-    ].freeze
+    if search_keywords.empty?
+      TOPIC_MAPPINGS.keys
+    else
+      topic_counts = search_response.dig("facet_counts", "facet_fields", "extras_theme-primary")
+      tokenized_topics = topic_counts.values_at(* topic_counts.each_index.select(&:even?))
+
+      TOPIC_MAPPINGS.select { |_, tokens| (tokenized_topics & tokens).any? }.keys
+    end
   end
 
   def format_options
