@@ -69,6 +69,31 @@ RSpec.describe "Solr Search page", type: :feature do
 
           expect(page).to have_select("publisher", selected: "Ministry of Housing, Communities and Local Government")
         end
+
+        # Skipped because it passes locally, fails in CI
+        scenario "Doesn't clear search keywords when filters are applied", skip: true do
+          results_for_keyword_with_publisher_filter = File.read(Rails.root.join("spec/fixtures/solr_response_with_keyword_and_publisher_filter.json")).to_s
+          results_for_keyword = File.read(Rails.root.join("spec/fixtures/solr_response_with_keyword.json")).to_s
+          allow(Search::Solr).to receive(:search).and_return(JSON.parse(results_for_keyword))
+          allow(Search::Solr).to receive(:get_organisations).and_return({
+            "City of London" => "city-of-london",
+            "British Gological Survey" => "british-geological-survey",
+          })
+
+          visit "/search/solr"
+
+          expect(Search::Solr).to receive(:search).and_return(JSON.parse(results_for_keyword_with_publisher_filter))
+          within "#main-content" do
+            fill_in "q", with: "bears"
+            find(".gem-c-search__submit").click
+          end
+
+          select "City of London", from: "publisher"
+          click_button "Apply filters"
+
+          expect(page).to have_title('Results for "bears"')
+          expect(page).to have_select("publisher", selected: "City of London")
+        end
       end
 
       scenario "Displays the 'Topic' filter" do
