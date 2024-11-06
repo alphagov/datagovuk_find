@@ -19,6 +19,7 @@
         <div class="govuk-grid-column-two-thirds" id="search-box">
           <%= render "govuk_publishing_components/components/search", {
             label_text: t('.search_data_gov_uk'),
+            value: @presenter.search_keywords,
           } %>
         </div>
       </div>
