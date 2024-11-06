@@ -31,7 +31,11 @@
       "organization":[
         "department-for-communities-and-local-government",1,
         "mole-valley-district-council",1
-      ] 
+      ],
+      "extras_theme-primary": [
+        "societi", 18, 
+        "health", 9
+      ]
     }
   }
 }

@@ -227,8 +227,8 @@ RSpec.describe Search::Solr do
     end
   end
 
-  describe "#query_solr_with_organisation_facet" do
-    let(:response) { File.read(Rails.root.join("spec/fixtures/solr_response_with_organisation_facet.json").to_s) }
+  describe "#query_solr_with_facets" do
+    let(:response) { File.read(Rails.root.join("spec/fixtures/solr_response_with_facets.json").to_s) }
     let(:results) { described_class.search("q" => "interesting dataset") }
     let(:requested_fields) { %w[id name title organization notes metadata_modified extras_theme-primary validated_data_dict] }
 
@@ -262,6 +262,14 @@ RSpec.describe Search::Solr do
       expect(org_facets[1]).to eq(1)
       expect(org_facets[2]).to eq("mole-valley-district-council")
       expect(org_facets[3]).to eq(1)
+    end
+
+    it "includes the datasets' (tokenized) topics" do
+      topic_facets = results["facet_counts"]["facet_fields"]["extras_theme-primary"]
+      expect(topic_facets[0]).to eq("societi")
+      expect(topic_facets[1]).to eq(18)
+      expect(topic_facets[2]).to eq("health")
+      expect(topic_facets[3]).to eq(9)
     end
   end
 end
