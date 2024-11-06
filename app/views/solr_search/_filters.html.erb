@@ -28,4 +28,4 @@
   text: t(".accessibility.submit_button"),
   margin_bottom: true
 } %>
-<p class="govuk-body"><%= link_to t(".remove_filters"), search_solr_path(q: @query), class: "govuk-link" %></p>
+<p class="govuk-body"><%= link_to t(".remove_filters"), search_solr_path(q: @presenter.search_keywords), class: "govuk-link" %></p>
