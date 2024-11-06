@@ -59,4 +59,12 @@ class SearchPresenter
   def search_keywords
     search_params.fetch("q", "")
   end
+
+  def selected_publisher
+    search_params.dig(:filters, :publisher)
+  end
+
+  def selected_topic
+    search_params.dig(:filters, :topic)
+  end
 end
