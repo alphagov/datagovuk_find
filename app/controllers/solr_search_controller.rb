@@ -1,17 +1,15 @@
 class SolrSearchController < ApplicationController
-  before_action :search_for_dataset, only: [:search]
-
   def search
     @sort = params["sort"]
+
+    @presenter = SearchPresenter.new(solr_search_response, params)
+    @datasets = solr_search_response["response"]["docs"]
+    @num_results = solr_search_response["response"]["numFound"]
   end
 
 private
 
-  def search_for_dataset
-    query = Search::Solr.search(params)
-
-    @presenter = SearchPresenter.new(query, params)
-    @datasets = query["response"]["docs"]
-    @num_results = query["response"]["numFound"]
+  def solr_search_response
+    @solr_search_response ||= Search::Solr.search(params)
   end
 end
