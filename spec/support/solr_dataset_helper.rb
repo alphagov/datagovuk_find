@@ -1,5 +1,4 @@
-def filtered_solr_search_for(sort_method)
-  visit "/search/solr"
+def sorted_solr_search_for(sort_method)
   within ".dgu-sort" do
     select sort_method, from: "sort-datasets"
   end
