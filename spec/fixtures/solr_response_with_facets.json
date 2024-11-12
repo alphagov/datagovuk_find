@@ -35,6 +35,10 @@
       "extras_theme-primary": [
         "societi", 18, 
         "health", 9
+      ],
+      "res_format": [
+        "CSV", 4, 
+        "ZIP", 2
       ]
     }
   }

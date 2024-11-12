@@ -37,6 +37,10 @@
       "extras_theme-primary":[
         "govern",
         2
+      ],
+      "res_format": [
+        "CSV", 4, 
+        "ZIP", 2
       ]
     }
   }
