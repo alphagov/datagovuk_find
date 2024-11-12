@@ -271,5 +271,13 @@ RSpec.describe Search::Solr do
       expect(topic_facets[2]).to eq("health")
       expect(topic_facets[3]).to eq(9)
     end
+
+    it "includes the datasets' formats" do
+      topic_facets = results["facet_counts"]["facet_fields"]["res_format"]
+      expect(topic_facets[0]).to eq("CSV")
+      expect(topic_facets[1]).to eq(4)
+      expect(topic_facets[2]).to eq("ZIP")
+      expect(topic_facets[3]).to eq(2)
+    end
   end
 end
