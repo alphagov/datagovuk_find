@@ -42,9 +42,20 @@ module Search
       "extras_theme-primary:\"#{topic.parameterize(separator: '-')}\""
     end
 
+    FORMAT_MAPPINGS = {
+      "CSV" => ["CSV", ".csv", "csv", "CSV ", "csv.", ".CSV", "https://www.iana.org/assignments/media-types/text/csv"],
+      "GEOJSON" => %w[GeoJSON geojson],
+      "HTML" => %w[HTML html .html],
+      "KML" => %w[KML kml],
+      "PDF" => %w[PDF .pdf pdf],
+      "WMS" => ["WMS", "OGC WMS", "ogc wfs", "wms"],
+      "XLS" => %w[XLS xls .xls],
+      "XML" => %w[XML],
+      "ZIP" => %w[ZIP Zip https://www.iana.org/assignments/media-types/application/zip zip .zip],
+    }.freeze
+
     def self.format_filter(format)
-      format = "GeoJSON" if format == "GEOJSON"
-      "res_format:#{format}"
+      FORMAT_MAPPINGS[format].map { |f| "res_format:\"#{f}\"" }.join("OR")
     end
 
     def self.licence_filter(licence)
