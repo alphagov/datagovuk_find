@@ -27,13 +27,10 @@ class SearchPresenter
     if search_keywords.empty?
       Search::Solr.get_organisations.keys
     else
-      slugs = search_response["facet_counts"]["facet_fields"]["organization"]
+      slugs = facet_values("organization")
 
-      slugs = slugs.values_at(* slugs.each_index.select(&:even?))
-
-      results_organisations = []
-      slugs.each do |slug|
-        results_organisations << Search::Solr.get_organisation(slug)["response"]["docs"].first["title"]
+      results_organisations = slugs.map do |slug|
+        Search::Solr.get_organisation(slug)["response"]["docs"].first["title"]
       end
 
       results_organisations.sort
@@ -44,8 +41,7 @@ class SearchPresenter
     if search_keywords.empty?
       TOPIC_MAPPINGS.keys
     else
-      topic_counts = search_response.dig("facet_counts", "facet_fields", "extras_theme-primary")
-      tokenized_topics = topic_counts.values_at(* topic_counts.each_index.select(&:even?))
+      tokenized_topics = facet_values("extras_theme-primary")
 
       TOPIC_MAPPINGS.select { |_, tokens| (tokenized_topics & tokens).any? }.keys
     end
@@ -79,5 +75,12 @@ class SearchPresenter
 
   def selected_format
     search_params.dig(:filters, :format)
+  end
+
+private
+
+  def facet_values(facet_name)
+    counts = search_response.dig("facet_counts", "facet_fields", facet_name)
+    counts.values_at(* counts.each_index.select(&:even?))
   end
 end
