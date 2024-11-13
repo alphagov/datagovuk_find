@@ -49,11 +49,14 @@ class SearchPresenter
 
   def format_options
     if search_keywords.empty?
-      Search::Solr::FORMAT_MAPPINGS.keys
+      Search::Solr::FORMAT_MAPPINGS.keys << "Other"
     else
       raw_formats = facet_values("res_format")
 
       main_formats = (cleaned_formats(raw_formats) & Search::Solr::FORMAT_MAPPINGS.keys).sort
+      other_formats = cleaned_formats(raw_formats) - main_formats
+
+      other_formats.present? ? (main_formats << "Other") : main_formats.sort
     end
   end
 

@@ -44,7 +44,7 @@ RSpec.describe SearchPresenter do
       } }
       presenter = described_class.new(query_response, {})
 
-      expect(presenter.format_options).to eql(Search::Solr::FORMAT_MAPPINGS.keys)
+      expect(presenter.format_options).to eql(Search::Solr::FORMAT_MAPPINGS.keys << "Other")
     end
 
     it "returns only datafiles' formats included in returned datasets" do
@@ -65,6 +65,41 @@ RSpec.describe SearchPresenter do
         GEOJSON
         HTML
       ])
+    end
+
+    it "returns includes Other option for non-standard formats" do
+      query_response =
+        { "responseHeader" => {
+            "params" => { "q" => "title:\"dogs\" OR notes:\"dogs\" AND NOT site_id:dgu_organisations" },
+          },
+          "facet_counts" => {
+            "facet_fields" => {
+              "res_format" => ["CSV", 10, "some-weird-format", 1],
+            },
+          } }
+
+      presenter = described_class.new(query_response, { "q" => "dogs" })
+
+      expect(presenter.format_options).to eql(%w[
+        CSV
+        Other
+      ])
+    end
+
+    it "doesn't include Other if no results are returned" do
+      query_response =
+        { "responseHeader" => {
+            "params" => { "q" => "title:\"dogs\" OR notes:\"dogs\" AND NOT site_id:dgu_organisations" },
+          },
+          "facet_counts" => {
+            "facet_fields" => {
+              "res_format" => [],
+            },
+          } }
+
+      presenter = described_class.new(query_response, { "q" => "dogs" })
+
+      expect(presenter.format_options).to eql(%w[])
     end
   end
 end

@@ -287,5 +287,19 @@ RSpec.describe Search::Solr do
         "res_format:\"CSV\"ORres_format:\".csv\"ORres_format:\"csv\"ORres_format:\"CSV \"ORres_format:\"csv.\"ORres_format:\".CSV\"ORres_format:\"https://www.iana.org/assignments/media-types/text/csv\"",
       )
     end
+
+    it "returns negative solr filter query for Other formats" do
+      query_string =
+        "-res_format:\"CSV\"-res_format:\".csv\"-res_format:\"csv\"-res_format:\"CSV \"-res_format:\"csv.\"-res_format:\".CSV\"-res_format:\"https://www.iana.org/assignments/media-types/text/csv\"" \
+        "-res_format:\"GeoJSON\"-res_format:\"geojson\"" \
+        "-res_format:\"HTML\"-res_format:\"html\"-res_format:\".html\"" \
+        "-res_format:\"KML\"-res_format:\"kml\"" \
+        "-res_format:\"PDF\"-res_format:\".pdf\"-res_format:\"pdf\"" \
+        "-res_format:\"WMS\"-res_format:\"wms\"-res_format:\"OGC WMS\"" \
+        "-res_format:\"XLS\"-res_format:\"xls\"-res_format:\".xls\"-res_format:\"XML\"" \
+        "-res_format:\"ZIP\"-res_format:\"Zip\"-res_format:\"https://www.iana.org/assignments/media-types/application/zip\"-res_format:\"zip\"-res_format:\".zip\"" \
+
+      expect(described_class.format_filter("Other")).to eq(query_string)
+    end
   end
 end
