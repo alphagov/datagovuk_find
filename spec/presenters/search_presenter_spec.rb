@@ -54,7 +54,7 @@ RSpec.describe SearchPresenter do
           },
           "facet_counts" => {
             "facet_fields" => {
-              "res_format" => ["CSV", 10, "GEOJSON", 5, "csv.", 2, ".html"],
+              "res_format" => ["CSV", 10, "GEOJSON", 5, "csv.", 2, ".html", 1, "json2.0", 1],
             },
           } }
 
@@ -64,6 +64,7 @@ RSpec.describe SearchPresenter do
         CSV
         GEOJSON
         HTML
+        JSON
       ])
     end
 

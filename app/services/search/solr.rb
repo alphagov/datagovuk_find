@@ -44,10 +44,14 @@ module Search
 
     FORMAT_MAPPINGS = {
       "CSV" => ["CSV", ".csv", "csv", "CSV ", "csv.", ".CSV", "https://www.iana.org/assignments/media-types/text/csv"],
+      "ESRI REST" => ["Esri REST", "ESRI REST API"],
       "GEOJSON" => %w[GeoJSON geojson],
       "HTML" => %w[HTML html .html],
+      "JSON" => ["JSON", "json1.0", "json2.0", "https://www.iana.org/assignments/media-types/application/json"],
       "KML" => %w[KML kml],
       "PDF" => %w[PDF .pdf pdf],
+      "SHP" => %w[SHP],
+      "WFS" => ["WFS", "OGC WFS", "ogc wfs", "wfs"],
       "WMS" => ["WMS", "OGC WMS", "ogc wfs", "wms"],
       "XLS" => %w[XLS xls .xls],
       "XML" => %w[XML],

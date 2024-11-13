@@ -87,6 +87,7 @@ private
     cleaned_formats = raw_formats.map do |raw_format|
       raw_format.strip.delete_prefix(".").delete_suffix(".")
         .gsub(/\Ahttps:\/\/www\.iana\.org\/assignments\/media-types\/(?:text|application)\//, "")
+        .sub(/\d+\.\d+\Z/, "")
         .delete_prefix("OGC ")
         .upcase
     end
