@@ -55,6 +55,8 @@ module Search
     }.freeze
 
     def self.format_filter(format)
+      return other_formats_filter_query if format == "Other"
+
       FORMAT_MAPPINGS[format].map { |f| "res_format:\"#{f}\"" }.join("OR")
     end
 
@@ -138,6 +140,13 @@ module Search
 
     def self.client
       @client ||= RSolr.connect(url: ENV["SOLR_URL"])
+    end
+
+    def self.other_formats_filter_query
+      query_parts = FORMAT_MAPPINGS.values.flatten.map do |format|
+        "-res_format:\"#{format}\""
+      end
+      query_parts.join("")
     end
   end
 end
