@@ -48,17 +48,13 @@ class SearchPresenter
   end
 
   def format_options
-    %w[
-      CSV
-      GEOJSON
-      HTML
-      KML
-      PDF
-      WMS
-      XLS
-      XML
-      ZIP
-    ].freeze
+    if search_keywords.empty?
+      Search::Solr::FORMAT_MAPPINGS.keys
+    else
+      raw_formats = facet_values("res_format")
+
+      main_formats = (cleaned_formats(raw_formats) & Search::Solr::FORMAT_MAPPINGS.keys).sort
+    end
   end
 
   def search_keywords
@@ -82,5 +78,16 @@ private
   def facet_values(facet_name)
     counts = search_response.dig("facet_counts", "facet_fields", facet_name)
     counts.values_at(* counts.each_index.select(&:even?))
+  end
+
+  def cleaned_formats(raw_formats)
+    cleaned_formats = raw_formats.map do |raw_format|
+      raw_format.strip.delete_prefix(".").delete_suffix(".")
+        .gsub(/\Ahttps:\/\/www\.iana\.org\/assignments\/media-types\/(?:text|application)\//, "")
+        .delete_prefix("OGC ")
+        .upcase
+    end
+
+    cleaned_formats.uniq
   end
 end

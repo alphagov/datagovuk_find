@@ -42,19 +42,28 @@ RSpec.describe SearchPresenter do
         "status" => 0,
         "params" => { "q" => "*:*", "wt" => "json" },
       } }
-
       presenter = described_class.new(query_response, {})
+
+      expect(presenter.format_options).to eql(Search::Solr::FORMAT_MAPPINGS.keys)
+    end
+
+    it "returns only datafiles' formats included in returned datasets" do
+      query_response =
+        { "responseHeader" => {
+            "params" => { "q" => "title:\"dogs\" OR notes:\"dogs\" AND NOT site_id:dgu_organisations" },
+          },
+          "facet_counts" => {
+            "facet_fields" => {
+              "res_format" => ["CSV", 10, "GEOJSON", 5, "csv.", 2, ".html"],
+            },
+          } }
+
+      presenter = described_class.new(query_response, { "q" => "dogs" })
 
       expect(presenter.format_options).to eql(%w[
         CSV
         GEOJSON
         HTML
-        KML
-        PDF
-        WMS
-        XLS
-        XML
-        ZIP
       ])
     end
   end

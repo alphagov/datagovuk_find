@@ -280,4 +280,12 @@ RSpec.describe Search::Solr do
       expect(topic_facets[3]).to eq(2)
     end
   end
+
+  describe ".topic_filter" do
+    it "returns solr filter query with all format variations for a main format" do
+      expect(described_class.format_filter("CSV")).to eq(
+        "res_format:\"CSV\"ORres_format:\".csv\"ORres_format:\"csv\"ORres_format:\"CSV \"ORres_format:\"csv.\"ORres_format:\".CSV\"ORres_format:\"https://www.iana.org/assignments/media-types/text/csv\"",
+      )
+    end
+  end
 end
