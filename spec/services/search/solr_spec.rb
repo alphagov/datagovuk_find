@@ -291,13 +291,18 @@ RSpec.describe Search::Solr do
     it "returns negative solr filter query for Other formats" do
       query_string =
         "-res_format:\"CSV\"-res_format:\".csv\"-res_format:\"csv\"-res_format:\"CSV \"-res_format:\"csv.\"-res_format:\".CSV\"-res_format:\"https://www.iana.org/assignments/media-types/text/csv\"" \
+        "-res_format:\"Esri REST\"-res_format:\"ESRI REST API\"" \
         "-res_format:\"GeoJSON\"-res_format:\"geojson\"" \
         "-res_format:\"HTML\"-res_format:\"html\"-res_format:\".html\"" \
+        "-res_format:\"JSON\"-res_format:\"json1.0\"-res_format:\"json2.0\"-res_format:\"https://www.iana.org/assignments/media-types/application/json\"" \
         "-res_format:\"KML\"-res_format:\"kml\"" \
         "-res_format:\"PDF\"-res_format:\".pdf\"-res_format:\"pdf\"" \
-        "-res_format:\"WMS\"-res_format:\"wms\"-res_format:\"OGC WMS\"" \
-        "-res_format:\"XLS\"-res_format:\"xls\"-res_format:\".xls\"-res_format:\"XML\"" \
-        "-res_format:\"ZIP\"-res_format:\"Zip\"-res_format:\"https://www.iana.org/assignments/media-types/application/zip\"-res_format:\"zip\"-res_format:\".zip\"" \
+        "-res_format:\"SHP\"" \
+        "-res_format:\"WFS\"-res_format:\"OGC WFS\"-res_format:\"ogc wfs\"-res_format:\"wfs\"" \
+        "-res_format:\"WMS\"-res_format:\"OGC WMS\"-res_format:\"ogc wfs\"-res_format:\"wms\"" \
+        "-res_format:\"XLS\"-res_format:\"xls\"-res_format:\".xls\"" \
+        "-res_format:\"XML\"" \
+        "-res_format:\"ZIP\"-res_format:\"Zip\"-res_format:\"https://www.iana.org/assignments/media-types/application/zip\"-res_format:\"zip\"-res_format:\".zip\""
 
       expect(described_class.format_filter("Other")).to eq(query_string)
     end
