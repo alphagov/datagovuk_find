@@ -7,7 +7,7 @@ class SolrDatafile
     @url = hash["url"]
 
     @created_at = hash["created"] || created_at
-    @format = hash["format"]&.strip&.delete_prefix(".")&.upcase
+    @format = hash["format"]&.strip&.delete_prefix(".")&.delete_suffix(".")&.upcase
     @uuid = hash["id"]
   end
 end

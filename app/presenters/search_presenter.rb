@@ -27,13 +27,10 @@ class SearchPresenter
     if search_keywords.empty?
       Search::Solr.get_organisations.keys
     else
-      slugs = search_response["facet_counts"]["facet_fields"]["organization"]
+      slugs = facet_values("organization")
 
-      slugs = slugs.values_at(* slugs.each_index.select(&:even?))
-
-      results_organisations = []
-      slugs.each do |slug|
-        results_organisations << Search::Solr.get_organisation(slug)["response"]["docs"].first["title"]
+      results_organisations = slugs.map do |slug|
+        Search::Solr.get_organisation(slug)["response"]["docs"].first["title"]
       end
 
       results_organisations.sort
@@ -44,25 +41,23 @@ class SearchPresenter
     if search_keywords.empty?
       TOPIC_MAPPINGS.keys
     else
-      topic_counts = search_response.dig("facet_counts", "facet_fields", "extras_theme-primary")
-      tokenized_topics = topic_counts.values_at(* topic_counts.each_index.select(&:even?))
+      tokenized_topics = facet_values("extras_theme-primary")
 
       TOPIC_MAPPINGS.select { |_, tokens| (tokenized_topics & tokens).any? }.keys
     end
   end
 
   def format_options
-    %w[
-      CSV
-      GEOJSON
-      HTML
-      KML
-      PDF
-      WMS
-      XLS
-      XML
-      ZIP
-    ].freeze
+    if search_keywords.empty?
+      Search::Solr::FORMAT_MAPPINGS.keys << "Other"
+    else
+      raw_formats = facet_values("res_format")
+
+      main_formats = (cleaned_formats(raw_formats) & Search::Solr::FORMAT_MAPPINGS.keys).sort
+      other_formats = cleaned_formats(raw_formats) - main_formats
+
+      other_formats.present? ? (main_formats << "Other") : main_formats.sort
+    end
   end
 
   def search_keywords
@@ -79,5 +74,24 @@ class SearchPresenter
 
   def selected_format
     search_params.dig(:filters, :format)
+  end
+
+private
+
+  def facet_values(facet_name)
+    counts = search_response.dig("facet_counts", "facet_fields", facet_name)
+    counts.values_at(* counts.each_index.select(&:even?))
+  end
+
+  def cleaned_formats(raw_formats)
+    cleaned_formats = raw_formats.map do |raw_format|
+      raw_format.strip.delete_prefix(".").delete_suffix(".")
+        .gsub(/\Ahttps:\/\/www\.iana\.org\/assignments\/media-types\/(?:text|application)\//, "")
+        .sub(/\d+\.\d+\Z/, "")
+        .delete_prefix("OGC ")
+        .upcase
+    end
+
+    cleaned_formats.uniq
   end
 end

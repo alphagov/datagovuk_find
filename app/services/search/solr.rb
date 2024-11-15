@@ -42,9 +42,26 @@ module Search
       "extras_theme-primary:\"#{topic.parameterize(separator: '-')}\""
     end
 
+    FORMAT_MAPPINGS = {
+      "CSV" => ["CSV", ".csv", "csv", "CSV ", "csv.", ".CSV", "https://www.iana.org/assignments/media-types/text/csv"],
+      "ESRI REST" => ["Esri REST", "ESRI REST API"],
+      "GEOJSON" => %w[GeoJSON geojson],
+      "HTML" => %w[HTML html .html],
+      "JSON" => ["JSON", "json1.0", "json2.0", "https://www.iana.org/assignments/media-types/application/json"],
+      "KML" => %w[KML kml],
+      "PDF" => %w[PDF .pdf pdf],
+      "SHP" => %w[SHP],
+      "WFS" => ["WFS", "OGC WFS", "ogc wfs", "wfs"],
+      "WMS" => ["WMS", "OGC WMS", "ogc wfs", "wms"],
+      "XLS" => %w[XLS xls .xls],
+      "XML" => %w[XML],
+      "ZIP" => %w[ZIP Zip https://www.iana.org/assignments/media-types/application/zip zip .zip],
+    }.freeze
+
     def self.format_filter(format)
-      format = "GeoJSON" if format == "GEOJSON"
-      "res_format:#{format}"
+      return other_formats_filter_query if format == "Other"
+
+      FORMAT_MAPPINGS[format].map { |f| "res_format:\"#{f}\"" }.join("OR")
     end
 
     def self.licence_filter(licence)
@@ -103,7 +120,7 @@ module Search
         fl: field_list,
         sort: @sort_query,
         facet: "true",
-        "facet.field": %w[organization extras_theme-primary],
+        "facet.field": %w[organization extras_theme-primary res_format],
         "facet.sort": "count",
         "facet.mincount": 1,
       }
@@ -119,6 +136,7 @@ module Search
         metadata_modified
         metadata_created
         extras_theme-primary
+        res_format
         validated_data_dict
         extras_licence
       ].freeze
@@ -126,6 +144,13 @@ module Search
 
     def self.client
       @client ||= RSolr.connect(url: ENV["SOLR_URL"])
+    end
+
+    def self.other_formats_filter_query
+      query_parts = FORMAT_MAPPINGS.values.flatten.map do |format|
+        "-res_format:\"#{format}\""
+      end
+      query_parts.join("")
     end
   end
 end
