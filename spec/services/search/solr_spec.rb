@@ -281,7 +281,7 @@ RSpec.describe Search::Solr do
     end
   end
 
-  describe ".topic_filter" do
+  describe ".format_filter" do
     it "returns solr filter query with all format variations for a main format" do
       expect(described_class.format_filter("CSV")).to eq(
         "res_format:\"CSV\"ORres_format:\".csv\"ORres_format:\"csv\"ORres_format:\"CSV \"ORres_format:\"csv.\"ORres_format:\".CSV\"ORres_format:\"https://www.iana.org/assignments/media-types/text/csv\"",
@@ -305,6 +305,20 @@ RSpec.describe Search::Solr do
         "-res_format:\"ZIP\"-res_format:\"Zip\"-res_format:\"https://www.iana.org/assignments/media-types/application/zip\"-res_format:\"zip\"-res_format:\".zip\""
 
       expect(described_class.format_filter("Other")).to eq(query_string)
+    end
+  end
+
+  describe ".licence_filter" do
+    it "returns solr filter query with all variations of Open Government Licence" do
+      expect(described_class.licence_filter("uk-ogl")).to eq(
+        "license_id:(uk-ogl OGL-UK-* ogl)",
+      )
+    end
+
+    it "returns solr filter query for other licences" do
+      expect(described_class.licence_filter("other-nc")).to eq(
+        "license_id:\"other-nc\"",
+      )
     end
   end
 end
