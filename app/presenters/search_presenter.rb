@@ -76,6 +76,10 @@ class SearchPresenter
     search_params.dig(:filters, :format)
   end
 
+  def selected_licence
+    search_params&.dig(:filters, :licence_code)
+  end
+
 private
 
   def facet_values(facet_name)
