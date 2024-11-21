@@ -28,6 +28,23 @@ RSpec.feature "Solr Dataset page edge cases", type: :feature do
                         href: "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/")
       end
     end
+
+    scenario "Link to licence with additional info" do
+      modifed_json_fixture = modified_dataset_json(
+        "extras_licence", "Fair Usage"
+      )
+      given_a_dataset_exists_and_i_visit_the_page(modifed_json_fixture)
+
+      within("section.meta-data") do
+        expect(page)
+          .to have_link("View licence information",
+                        href: "#licence-info")
+      end
+
+      within("section.dgu-licence-info") do
+        expect(page).to have_content("Fair Usage")
+      end
+    end
   end
 
   def given_a_dataset_without_datafiles_exists
