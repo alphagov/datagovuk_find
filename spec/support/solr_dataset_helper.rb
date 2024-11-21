@@ -19,3 +19,13 @@ def modified_dataset_validated_data_dict_json(property, new_value)
 
   parsed_json
 end
+
+def modified_dataset_json(property, new_value)
+  parsed_json = JSON.parse(File.read(Rails.root.join("spec/fixtures/solr_dataset.json").to_s))
+  first_doc = parsed_json["response"]["docs"].first
+
+  # Update the value if the property exists, or add it if it doesn't
+  first_doc[property] = new_value
+
+  parsed_json
+end
