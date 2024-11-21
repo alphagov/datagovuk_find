@@ -64,8 +64,10 @@ module Search
       FORMAT_MAPPINGS[format].map { |f| "res_format:\"#{f}\"" }.join("OR")
     end
 
+    OGL_IDS = ["uk-ogl", /OGL-UK-*/, "ogl"].freeze
+
     def self.licence_filter(licence)
-      return "license_id:(uk-ogl OGL-UK-* ogl)" if licence == "uk-ogl"
+      return "license_id:(#{OGL_IDS.map { |id| id.is_a?(Regexp) ? id.source : id }.join(' ')})" if licence == "uk-ogl"
 
       "license_id:\"#{licence}\""
     end
