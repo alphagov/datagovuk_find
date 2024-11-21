@@ -1,13 +1,33 @@
 require "rails_helper"
 
 RSpec.feature "Solr Dataset page edge cases", type: :feature do
-  scenario "User views a dataset page without datafiles" do
+  background do
     given_an_organisation_exists
+  end
+
+  scenario "User views a dataset page without datafiles" do
     given_a_dataset_without_datafiles_exists
     when_i_visit_solr_dataset_page(@response_no_datafiles, @dataset_no_datafiles)
 
     then_a_message_indicates_no_data_links_are_available
     and_a_not_released_label_is_displayed
+  end
+
+  feature "Licence information" do
+    scenario "Link to licence for OGL-UK-3.0 dataset" do
+      modifed_json_fixture = modified_dataset_validated_data_dict_json(
+        "license_id", "OGL-UK-3.0"
+      )
+      given_a_dataset_exists_and_i_visit_the_page(modifed_json_fixture)
+
+      expect(page)
+      .to have_css('meta[name="dc:rights"][content="UK Open Government Licence (OGL)"]', visible: false)
+      within(".metadata") do
+        expect(page)
+          .to have_link("Open Government Licence",
+                        href: "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/")
+      end
+    end
   end
 
   def given_a_dataset_without_datafiles_exists
@@ -23,6 +43,14 @@ RSpec.feature "Solr Dataset page edge cases", type: :feature do
 
   def when_i_visit_solr_dataset_page(response, dataset)
     allow(Search::Solr).to receive(:get_by_uuid).and_return(response)
+    visit solr_dataset_path(dataset.id, dataset.name)
+  end
+
+  def given_a_dataset_exists_and_i_visit_the_page(modifed_json_fixture)
+    allow(Search::Solr).to receive(:get_by_uuid).and_return(modifed_json_fixture)
+    params = modifed_json_fixture["response"]["docs"].first
+    dataset = SolrDataset.new(params)
+
     visit solr_dataset_path(dataset.id, dataset.name)
   end
 
