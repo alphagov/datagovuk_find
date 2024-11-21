@@ -61,6 +61,10 @@ FactoryBot.define do
       licence_title { "Open Government Licence" }
     end
 
+    trait :with_ogl_uk_licence_id do
+      licence_code { "OGL-UK-3.0" }
+    end
+
     trait :with_custom_licence do
       licence_custom { "Special case" }
     end

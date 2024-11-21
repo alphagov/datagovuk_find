@@ -35,6 +35,141 @@ RSpec.feature "Solr Dataset page", type: :feature do
     end
   end
 
+  feature "Licence information" do
+    scenario "Meta licence tag" do
+      dataset = build :dataset, :with_ogl_licence
+      # TODO: stub the response somehow
+
+      expect(page)
+        .to have_css('meta[name="dc:rights"][content="Open Government Licence"]',
+                     visible: false)
+    end
+
+    scenario "Link to licence" do
+      dataset = build :dataset, :with_ogl_licence
+      # TODO: stub the response somehow
+
+      within("section.meta-data") do
+        expect(page)
+          .to have_link("Open Government Licence",
+                        href: "http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/")
+      end
+    end
+
+    scenario "Link to licence for UK-OGL-3.0 dataset" do
+      dataset = build :dataset, :with_ogl_uk_licence_id
+      # TODO: stub the response somehow
+  
+      within("section.meta-data") do
+        expect(page)
+          .to have_link("Open Government Licence",
+                        href: "http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/")
+      end
+    end
+
+    scenario "Link to licence with additional info" do
+      dataset = build :dataset, :with_ogl_licence,
+                      licence_custom: "Special case"
+
+      # TODO: stub the response somehow
+
+      within("section.meta-data") do
+        expect(page)
+          .to have_link("View licence information",
+                        href: "#licence-info")
+      end
+
+      within("section.dgu-licence-info") do
+        expect(page).to have_content("Special case")
+      end
+    end
+
+    scenario "Link to custom licence (no title, no URL)" do
+      dataset = build :dataset, :with_custom_licence
+      # TODO: stub the response somehow
+
+      within("section.meta-data") do
+        expect(page)
+          .to have_content("Other Licence")
+
+        expect(page)
+          .to have_link("View licence information",
+                        href: "#licence-info")
+      end
+
+      within("section.dgu-licence-info") do
+        expect(page).to have_content("Special case")
+      end
+    end
+
+    scenario "Link to custom licence brackets (no title, no URL)" do
+      dataset = build :dataset, :with_custom_licence_brackets
+      # TODO: stub the response somehow
+
+      within("section.meta-data") do
+        expect(page)
+          .to have_content("Other Licence")
+
+        expect(page)
+          .to have_link("View licence information",
+                        href: "#licence-info")
+      end
+
+      within("section.dgu-licence-info") do
+        expect(page).to have_content("Special case")
+      end
+    end
+
+    scenario "Link to custom licence brackets (no title, no URL)" do
+      dataset = build :dataset, :with_custom_licence_brackets_middle
+      # TODO: stub the response somehow
+
+      within("section.meta-data") do
+        expect(page)
+          .to have_content("Other Licence")
+
+        expect(page)
+          .to have_link("View licence information",
+                        href: "#licence-info")
+      end
+
+      within("section.dgu-licence-info") do
+        expect(page).to have_content("Special case")
+      end
+    end
+
+    scenario "Simple licence title (no URL)" do
+      dataset = build :dataset, licence_title: "My Licence"
+      # TODO: stub the response somehow
+
+      within("section.meta-data") do
+        expect(page)
+          .to have_content("My Licence")
+      end
+    end
+
+    scenario "Link to URL licence without a title" do
+      dataset = build :dataset, licence_url: "http://licence.com"
+      # TODO: stub the response somehow
+
+      within("section.meta-data") do
+        expect(page)
+          .to have_link("http://licence.com",
+                        href: "http://licence.com")
+      end
+    end
+
+    scenario "No licence" do
+      dataset = build :dataset
+      # TODO: stub the response somehow
+
+      within("section.meta-data") do
+        expect(page)
+          .to have_content("None")
+      end
+    end
+  end
+
   feature "Metadata box" do
     scenario "Displays the publisher name" do
       expect(page).to have_content("Published by: Ministry of Housing, Communities and Local Government")
