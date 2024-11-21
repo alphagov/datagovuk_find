@@ -45,18 +45,16 @@
 
           <dt><%= t('.licence') %>:</dt>
           <dd property="dc:rights">
-            <% if @dataset.licence_url.present? %>
-              <% if @dataset.licence_code == "uk-ogl" %>
-                <%= link_to t('.uk_ogl'),
-                            t('.uk_ogl_url'),
-                              rel: 'dc:rights',
-                              class: 'govuk-link' %>
-              <% else %>
-                <%= link_to @dataset.licence_title,
-                            @dataset.licence_url.html_safe,
-                              rel: 'dc:rights',
-                              class: 'govuk-link' %>
-              <% end %>
+            <% if Search::Solr::OGL_IDS.any? { |id| id === @dataset.licence_code } %>
+              <%= link_to t('.uk_ogl'),
+                          t('.uk_ogl_url'),
+                            rel: 'dc:rights',
+                            class: 'govuk-link' %>
+            <% elsif @dataset.licence_url.present? %>
+              <%= link_to @dataset.licence_title,
+                          @dataset.licence_url.html_safe,
+                            rel: 'dc:rights',
+                            class: 'govuk-link' %>
             <% elsif @dataset.licence_title.present? %>
               <%= @dataset.licence_title %>
             <% else %>
