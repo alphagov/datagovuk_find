@@ -65,7 +65,9 @@ module Search
     end
 
     def self.licence_filter(licence)
-      "license_id:#{licence}"
+      return "license_id:(uk-ogl OGL-UK-* ogl)" if licence == "uk-ogl"
+
+      "license_id:\"#{licence}\""
     end
 
     def self.get_organisations
