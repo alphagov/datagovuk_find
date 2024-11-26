@@ -1,6 +1,13 @@
+require "factory_bot"
+require_relative "../../spec/factories/solr_response.rb"
+
 class SolrDatasetsController < ApplicationController
   def show
     solr_response = Search::Solr.get_by_uuid(uuid: params[:uuid])
+
+    # solr_response = FactoryBot.build(:solr_response)
+    # pp solr_response
+
     @dataset = SolrDataset.new(solr_response["response"]["docs"].first)
 
     @referer_query = referer_query
