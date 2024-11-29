@@ -105,7 +105,7 @@ RSpec.describe Search::Solr do
       end
 
       it "includes the notes" do
-        expect(dataset["notes"]).to eq("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod mauris in augue laoreet congue. Phasellus bibendum leo vel magna lacinia eleifend. Nam vitae lectus quis nulla varius faucibus id quis nibh. Nullam auctor ipsum non nunc efficitur bibendum Sed vitae ex nisi. Suspendisse posuere purus ac dui posuere, in interdum risus ornare. \n\nThe following files can be found on the website here:\n\nhttps://www.gov.uk/")
+        expect(dataset["notes"]).to eq("Lorem ipsum dolor sit amet.")
       end
 
       it "includes the last updated date" do

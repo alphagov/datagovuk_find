@@ -1,310 +1,197 @@
 require "rails_helper"
 
 RSpec.feature "Solr Dataset page", type: :feature do
-  let(:response) { JSON.parse(File.read(Rails.root.join("spec/fixtures/solr_dataset.json").to_s)) }
-  let(:params) { response["response"]["docs"].first }
-  let(:dataset) { SolrDataset.new(params) }
-  let(:org_response) { JSON.parse(File.read(Rails.root.join("spec/fixtures/solr_organisation.json").to_s)) }
-  let(:organisation) { org_response["response"]["docs"].first }
-
-  before do
-    allow(Search::Solr).to receive(:get_by_uuid).and_return(response)
-    allow_any_instance_of(RSolr::Client).to receive(:get).and_return(org_response)
-    visit solr_dataset_path(dataset.id, dataset.name)
+  background do
+    given_an_organisation_exists
+    given_a_dataset_exists
+    when_i_visit_solr_dataset_page
   end
 
-  feature "Meta information" do
-    scenario "Meta title tag" do
-      expect(page)
-        .to have_css('meta[name="dc:title"][content="A very interesting dataset"]', visible: false)
-    end
+  scenario "User views standard dataset page with datafiles (JavaScript disbled)" do
+    # Meta information
+    then_the_meta_title_tag_is_correct
+    and_the_meta_creator_tag_is_correct
+    and_the_meta_date_tag_is_correct
+    and_the_meta_licence_tag_is_correct
 
-    scenario "Meta creator tag" do
-      expect(page)
-        .to have_css('meta[name="dc:creator"][content="Ministry of Housing, Communities and Local Government"]', visible: false)
-    end
+    # Licence information
+    then_the_ogl_licence_link_is_displayed
 
-    scenario "Meta date tag" do
-      expect(page)
-        .to have_css('meta[name="dc:date"][content="2017-06-30"]', visible: false)
-    end
+    # Metadata box
+    then_the_publisher_name_is_displayed
+    and_the_last_updated_date_is_correct
+    and_the_topic_is_displayed_if_present
+    and_the_summary_is_displayed
 
-    scenario "Meta licence tag" do
-      expect(page)
-        .to have_css('meta[name="dc:rights"][content="UK Open Government Licence (OGL)"]', visible: false)
+    # Sidebar
+    then_the_publisher_datasets_link_is_displayed
+    then_the_search_box_is_displayed
+
+    # Data links
+    then_the_data_links_heading_is_displayed
+    and_the_table_headers_are_correct
+    and_the_list_of_data_files_is_displayed_with_count_of(12)
+    and_the_file_details_are_correct
+
+    # Contact information
+    then_enquiries_details_are_displayed
+    and_foi_details_are_displayed
+
+    # Supporting documents
+    then_the_supporting_documents_are_displayed
+    and_supporting_documents_details_are_correct
+
+    then_the_custom_licence_is_not_displayed
+    then_the_additional_information_is_not_displayed
+
+    then_the_publisher_edit_link_is_displayed
+  end
+
+  scenario "User views standard dataset page with datafiles (JavaScript enabled)", js: true do
+    # Data links
+    then_the_list_of_data_files_is_displayed_with_count_of(5)
+    and_show_more_and_show_less_functionality_is_working
+  end
+
+  def given_a_dataset_exists
+    @response = JSON.parse(File.read(Rails.root.join("spec/fixtures/solr_dataset.json").to_s))
+    params = @response["response"]["docs"].first
+    @dataset = SolrDataset.new(params)
+  end
+
+  def given_an_organisation_exists
+    org_response = JSON.parse(File.read(Rails.root.join("spec/fixtures/solr_organisation.json").to_s))
+    allow(Search::Solr).to receive(:get_organisation).and_return(org_response)
+  end
+
+  def when_i_visit_solr_dataset_page
+    allow(Search::Solr).to receive(:get_by_uuid).and_return(@response)
+    visit solr_dataset_path(@dataset.id, @dataset.name)
+  end
+
+  def then_the_meta_title_tag_is_correct
+    expect(page).to have_css('meta[name="dc:title"][content="A very interesting dataset"]', visible: false)
+  end
+
+  def and_the_meta_creator_tag_is_correct
+    expect(page).to have_css('meta[name="dc:creator"][content="Ministry of Housing, Communities and Local Government"]', visible: false)
+  end
+
+  def and_the_meta_date_tag_is_correct
+    expect(page).to have_css('meta[name="dc:date"][content="2017-06-30"]', visible: false)
+  end
+
+  def and_the_meta_licence_tag_is_correct
+    expect(page).to have_css('meta[name="dc:rights"][content="UK Open Government Licence (OGL)"]', visible: false)
+  end
+
+  def then_the_ogl_licence_link_is_displayed
+    within(".metadata") do
+      expect(page).to have_link("Open Government Licence", href: "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/")
     end
   end
 
-  feature "Metadata box" do
-    scenario "Displays the publisher name" do
-      expect(page).to have_content("Published by: Ministry of Housing, Communities and Local Government")
-    end
-
-    scenario "'Last updated' field displays public_updated_at" do
-      expect(page).to have_content("Last updated: 30 June 2017")
-    end
-
-    scenario "Displays the topic if there is one" do
-      expect(page).to have_content("Topic: Government")
-    end
-
-    scenario "Displays the summary" do
-      expect(page).to have_content("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod mauris in augue laoreet congue. Phasellus bibendum leo vel magna lacinia eleifend. Nam vitae lectus quis nulla varius faucibus id quis nibh. Nullam auctor ipsum non nunc efficitur bibendum Sed vitae ex nisi. Suspendisse posuere purus ac dui posuere, in interdum risus ornare.\nThe following files can be found on the website here:\nhttps://www.gov.uk/")
-    end
+  def then_the_publisher_name_is_displayed
+    expect(page).to have_content("Published by: Ministry of Housing, Communities and Local Government")
   end
 
-  feature "Show more from publisher" do
-    scenario "Displays the link publisher's datasets" do
-      expect(page).to have_content("More from this publisher")
-      expect(page).to have_css("a", text: "All datasets from #{dataset.organisation.title}")
-    end
+  def and_the_last_updated_date_is_correct
+    expect(page).to have_content("Last updated: 30 June 2017")
   end
 
-  scenario "Displays the search box" do
+  def and_the_topic_is_displayed_if_present
+    expect(page).to have_content("Topic: Government")
+  end
+
+  def and_the_summary_is_displayed
+    expect(page).to have_content("Lorem ipsum dolor sit amet.")
+  end
+
+  def then_the_publisher_datasets_link_is_displayed
+    expect(page).to have_css("a", text: "All datasets from #{@dataset.organisation.title}")
+  end
+
+  def then_the_search_box_is_displayed
     expect(page).to have_css("h3", text: "Search")
     within("form.dgu-search-box") do
       expect(page).to have_content("Search")
     end
   end
 
-  feature "Data links are present" do
-    scenario "displays the data links heading" do
-      expect(page).to have_css("h2", text: "Data links")
-    end
-
-    scenario "displays the table headers" do
-      expect(page).to have_css("th", text: "Link to the data")
-      expect(page).to have_css("th", text: "Format")
-      expect(page).to have_css("th", text: "File added")
-      expect(page).to have_css("th", text: "Data preview")
-    end
-
-    scenario "displays the list of data files" do
-      expect(page).to have_css(".dgu-datalinks td a", count: 12)
-    end
-
-    scenario "displays the name of the data file as a link" do
-      expect(page).to have_css("td a", text: "Non-consolidated performance related payments 2015-16 (XLS format)")
-    end
-
-    scenario "Displays the format of the file if available" do
-      expect(page).to have_css("td", text: "XLS")
-    end
-
-    scenario "Displays the date of when the file was added" do
-      expect(page).to have_css("td", text: "30 June 2017")
-    end
-
-    scenario "Show more and show less if more than 5 files", js: true do
-      expect(page).to have_css("js-show-more-datafiles", count: 0)
-      expect(page).to have_css(".js-datafile-visible", count: 5)
-      expect(page).to have_css(".show-toggle", text: "Show more")
-
-      find(".show-toggle").click
-
-      expect(page).to have_css(".js-datafile-visible", count: 12)
-      expect(page).to have_css(".show-toggle", text: "Show less")
-    end
+  def then_the_data_links_heading_is_displayed
+    expect(page).to have_css("h2", text: "Data links")
   end
 
-  feature "Data links are not available" do
-    let(:response) { JSON.parse(File.read(Rails.root.join("spec/fixtures/solr_dataset_without_datafiles.json").to_s)) }
-    let(:params) { response["response"]["docs"].first }
-    let(:dataset) { SolrDataset.new(params) }
-
-    before do
-      allow(Search::Solr).to receive(:get_by_uuid).and_return(response)
-      visit solr_dataset_path(dataset.id, dataset.name)
-    end
-
-    scenario "displays the data links heading" do
-      expect(page).to have_css("h2", text: "Data links")
-    end
-
-    scenario "a message is displayed to the user" do
-      expect(page).to have_content("This data hasn’t been released by the publisher.")
-    end
-
-    scenario "a 'not released' label is shown in the metadata box" do
-      expect(page).to have_content("Availability: Not released")
-    end
+  def and_the_table_headers_are_correct
+    expect(page).to have_css("th", text: "Link to the data")
+    expect(page).to have_css("th", text: "Format")
+    expect(page).to have_css("th", text: "File added")
+    expect(page).to have_css("th", text: "Data preview")
   end
 
-  feature "Contact information" do
-    scenario "Enquiries details exist" do
-      expect(page).to have_css("h3", text: "Enquiries")
-      expect(page).to have_link("Contact Ministry of Housing, Communities and Local Government regarding this dataset", href: "http://forms.communities.gov.uk/")
-    end
-
-    scenario "FOI details exist" do
-      expect(page).to have_css("h3", text: "Freedom of Information (FOI) requests")
-      expect(page).to have_link("DCLG FOI enquiries", href: "mailto:foirequests@communities.gsi.gov.uk")
-    end
+  def and_the_list_of_data_files_is_displayed_with_count_of(count)
+    expect(page).to have_css(".dgu-datalinks td a", count:)
   end
 
-  feature "Supporting documents" do
-    scenario "Additional links are available" do
-      expect(page).to have_css(".docs td a", count: 2)
-    end
+  alias_method :then_the_list_of_data_files_is_displayed_with_count_of, :and_the_list_of_data_files_is_displayed_with_count_of
 
-    scenario "displays the table headers" do
-      expect(page).to have_css(".docs th", text: "Link to the document")
-      expect(page).to have_css(".docs th", text: "Format")
-      expect(page).to have_css(".docs th", text: "Date added")
-    end
-
-    scenario "displays the name of the data file as a link" do
-      expect(page).to have_css(".docs td a", text: "Technical specification")
-    end
-
-    scenario "displays a placeholder name for a data file if it isn't provided" do
-      expect(page).to have_css(".docs td a", text: "No name specified")
-    end
-
-    scenario "Displays the format of the file if available" do
-      expect(page).to have_css(".docs td", text: "HTML")
-    end
-
-    scenario "Displays the N/A for format of the file if not provided" do
-      expect(page).to have_css(".docs td", text: "N/A")
-    end
-
-    scenario "Displays the date of when the file was added" do
-      expect(page).to have_css(".docs td", text: "02 July 2020")
-    end
+  def and_the_file_details_are_correct
+    expect(page).to have_css("td a", text: "Non-consolidated performance related payments 2015-16 (XLS format)")
+    expect(page).to have_css("td", text: "XLS")
+    expect(page).to have_css("td", text: "30 June 2017")
   end
 
-  feature "Custom licence" do
-    scenario "Does not display the title" do
-      expect(page).to_not have_css("section.dgu-licence-info h2", text: "Licence information")
-    end
-
-    scenario "Does not show licence information" do
-      expect(page).to_not have_css("section.dgu-licence-info")
-    end
+  def and_show_more_and_show_less_functionality_is_working
+    expect(page).to have_css(".js-datafile-visible", count: 5)
+    find(".show-toggle").click
+    expect(page).to have_css(".js-datafile-visible", count: 12)
+    find(".show-toggle").click
+    expect(page).to have_css(".js-datafile-visible", count: 5)
   end
 
-  feature "Additional information" do
-    scenario "does not display title" do
-      expect(page).to_not have_css(".dgu-additional-info h2", text: "Additional information")
-    end
-
-    scenario "Does not display link to expand information" do
-      expect(page).to_not have_css(".dgu-additional-info .summary", text: "View additional metadata")
-    end
-
-    scenario "Does not display list of information" do
-      expect(page).to_not have_css(".dgu-deflist")
-    end
+  def then_enquiries_details_are_displayed
+    expect(page).to have_css("h3", text: "Enquiries")
+    expect(page).to have_link(
+      "Contact Ministry of Housing, Communities and Local Government regarding this dataset",
+      href: "http://forms.communities.gov.uk/",
+    )
   end
 
-  feature "Publisher edit link" do
-    scenario "Displays the title" do
-      expect(page).to have_css("h2", text: "Edit this dataset")
-    end
-
-    scenario "Displays sign in message" do
-      expect(page).to have_css("p", text: "You must have an account for this publisher on data.gov.uk to make any changes to a dataset.")
-    end
-
-    scenario "Displays sign in button" do
-      expect(page).to have_link("Sign in", href: "/dataset/edit/a-very-interesting-dataset")
-    end
+  def and_foi_details_are_displayed
+    expect(page).to have_css("h3", text: "Freedom of Information (FOI) requests")
+    expect(page).to have_link("DCLG FOI enquiries", href: "mailto:foirequests@communities.gsi.gov.uk")
   end
 
-  feature "Inspire dataset" do
-    let(:response) { JSON.parse(File.read(Rails.root.join("spec/fixtures/solr_inspire_dataset.json").to_s)) }
+  def then_the_supporting_documents_are_displayed
+    expect(page).to have_css(".docs td a", count: 2)
+  end
 
-    feature "Custom licence" do
-      scenario "Displays title if present" do
-        expect(page).to have_css("section.dgu-licence-info h2", text: "Licence information")
-      end
+  def and_supporting_documents_details_are_correct
+    expect(page).to have_css(".docs th", text: "Link to the document")
+    expect(page).to have_css(".docs th", text: "Format")
+    expect(page).to have_css(".docs th", text: "Date added")
 
-      scenario "Displays licence information if present" do
-        expect(page).to have_css("section.dgu-licence-info", text: "Licence information\nUnder the OGL, Land Registry permits you to use the data for commercial or non-commercial purposes. \\n(a) use the polygons (including the associated geometry, namely x,y co-ordinates); or\\Ordnance Survey Public Sector End User Licence - INSPIRE (http://www.ordnancesurvey.co.uk/business-and-government/public-sector/mapping-agreements/inspire-licence.html)")
-      end
-    end
+    expect(page).to have_css(".docs td a", text: "Technical specification")
+    expect(page).to have_css(".docs td a", text: "No name specified")
+    expect(page).to have_css(".docs td", text: "HTML")
+    expect(page).to have_css(".docs td", text: "N/A")
+    expect(page).to have_css(".docs td", text: "02 July 2020")
+  end
 
-    feature "Additional information" do
-      scenario "Displays title" do
-        expect(page).to have_css(".dgu-additional-info h2", text: "Additional information")
-      end
+  def then_the_custom_licence_is_not_displayed
+    expect(page).to_not have_css("section.dgu-licence-info h2", text: "Licence information")
+    expect(page).to_not have_css("section.dgu-licence-info")
+  end
 
-      scenario "Displays link to expand information" do
-        expect(page).to have_css(".dgu-additional-info .summary", text: "View additional metadata")
-      end
+  def then_the_additional_information_is_not_displayed
+    expect(page).to_not have_css(".dgu-additional-info h2", text: "Additional information")
+    expect(page).to_not have_css(".dgu-additional-info .summary", text: "View additional metadata")
+    expect(page).to_not have_css(".dgu-deflist")
+  end
 
-      scenario "Displays date added to data.gov.uk" do
-        expect(page).to have_css(".dgu-additional-info", text: "Added to data.gov.uk")
-        expect(page).to have_css(".dgu-additional-info", text: "2020-12-14")
-      end
-
-      scenario "Displays access constraints" do
-        expect(page).to have_css(".dgu-additional-info", text: "Access contraints")
-        expect(page).to have_css(".dgu-additional-info", text: "Not specified")
-      end
-
-      scenario "Displays harvest GUID" do
-        expect(page).to have_css(".dgu-additional-info", text: "Harvest GUID")
-        expect(page).to have_css(".dgu-additional-info", text: "3df58f2f-a13e-46e9-a657-f532f7ad2fc1")
-      end
-
-      scenario "Displays extent" do
-        expect(page).to have_css(".dgu-additional-info", text: "Extent")
-        expect(page).to have_css(".dgu-additional-info", text: "Latitude: 55.80° to ° Longitude: -6.33° to 1.78°")
-      end
-
-      scenario "Displays spatial reference" do
-        expect(page).to have_css(".dgu-additional-info", text: "Spatial reference")
-        expect(page).to have_css(".dgu-additional-info", text: "http://www.opengis.net/def/crs/EPSG/0/27700")
-      end
-
-      scenario "Displays dataset reference date" do
-        expect(page).to have_css(".dgu-additional-info", text: "Dataset reference date")
-        expect(page).to have_css(".dgu-additional-info", text: "2020-12-29 (publication)")
-      end
-
-      scenario "Displays frequency of update" do
-        expect(page).to have_css(".dgu-additional-info", text: "Frequency of update")
-        expect(page).to have_css(".dgu-additional-info", text: "monthly")
-      end
-
-      scenario "Displays responsible party" do
-        expect(page).to have_css(".dgu-additional-info", text: "Responsible party")
-        expect(page).to have_css(".dgu-additional-info", text: "HM Land Registry (pointOfContact)")
-      end
-
-      scenario "Displays ISO 19139 resource type" do
-        expect(page).to have_css(".dgu-additional-info", text: "ISO 19139 resource type")
-        expect(page).to have_css(".dgu-additional-info", text: "dataset")
-      end
-
-      scenario "Displays metadata language" do
-        expect(page).to have_css(".dgu-additional-info", text: "Metadata language")
-        expect(page).to have_css(".dgu-additional-info", text: "eng")
-      end
-
-      scenario "Contains a link to original source INSPIRE XML" do
-        expect(page).to have_xpath("//a[@href='/api/2/rest/harvestobject/d35b1574-9823-4fbc-80c0-cd1cc3b84bea/xml']", visible: :all)
-      end
-
-      scenario "Contains a link to HTML rendering of INSPIRE HTML" do
-        expect(page).to have_xpath("//a[@href='/api/2/rest/harvestobject/d35b1574-9823-4fbc-80c0-cd1cc3b84bea/html']", visible: :all)
-      end
-    end
-
-    feature "Publisher edit link" do
-      scenario "Does not display the title" do
-        expect(page).to_not have_css("h2", text: "Edit this dataset")
-      end
-
-      scenario "Does not display the sign in message" do
-        expect(page).to_not have_css("p", text: "You must have an account for this publisher on data.gov.uk to make any changes to a dataset.")
-      end
-
-      scenario "Does not display the sign in button" do
-        expect(page).to_not have_link("Sign in", href: "/dataset/edit/performance-related-pay-department-for-communities-and-local-government")
-      end
-    end
+  def then_the_publisher_edit_link_is_displayed
+    expect(page).to have_css("h2", text: "Edit this dataset")
+    expect(page).to have_css("p", text: "You must have an account for this publisher on data.gov.uk to make any changes to a dataset.")
+    expect(page).to have_link("Sign in", href: "/dataset/edit/a-very-interesting-dataset")
   end
 end
