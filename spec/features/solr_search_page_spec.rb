@@ -25,6 +25,8 @@ RSpec.feature "Solr Search page" do
 
     when_i_sort_results_by_most_recent
     then_i_can_see_results_sorted_by_most_recent
+
+    then_i_can_see_pagination_info
   end
 
   def given_i_am_on_the_solr_search_page
@@ -121,5 +123,11 @@ RSpec.feature "Solr Search page" do
 
   def then_i_can_see_results_sorted_by_most_recent
     expect(page).to have_select("sort", selected: "Most recent")
+  end
+
+  def then_i_can_see_pagination_info
+    within(".dgu-pagination") do
+      expect(page).to have_content("Displaying all 2 datasets")
+    end
   end
 end
