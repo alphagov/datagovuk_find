@@ -281,6 +281,14 @@ RSpec.describe Search::Solr do
     end
   end
 
+  describe ".build_filter_query" do
+    it "includes active datasets filter" do
+      filter_query = described_class.build_filter_query({ filters: {} })
+
+      expect(filter_query).to eq(["state:active"])
+    end
+  end
+
   describe ".format_filter" do
     it "returns solr filter query with all format variations for a main format" do
       expect(described_class.format_filter("CSV")).to eq(

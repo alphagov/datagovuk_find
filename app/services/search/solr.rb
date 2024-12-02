@@ -4,10 +4,6 @@ module Search
       query_param = params.fetch("q", "").squish
       @page = params["page"]
       sort_param = params["sort"]
-      publisher_param = params.dig(:filters, :publisher)
-      topic_param = params.dig(:filters, :topic)
-      format_param = params.dig(:filters, :format)
-      licence_param = params.dig(:filters, :licence_code)
       @page && @page.to_i.positive? ? @page.to_i : 1
 
       get_organisations
@@ -15,11 +11,7 @@ module Search
       @query = query_param.present? ? "title:\"#{query_param}\" OR notes:\"#{query_param}\" AND NOT site_id:dgu_organisations" : "*:*"
 
       @sort_query = "metadata_modified desc" if sort_param == "recent"
-      @filter_query = []
-      @filter_query << publisher_filter(publisher_param) if publisher_param.present?
-      @filter_query << topic_filter(topic_param) if topic_param.present?
-      @filter_query << format_filter(format_param) if format_param.present?
-      @filter_query << licence_filter(licence_param) if licence_param.present?
+      build_filter_query(params)
 
       query_param.empty? ? query_solr : query_solr_with_facets
     end
@@ -32,6 +24,21 @@ module Search
         fq: "id:#{uuid}",
         fl: field_list,
       }
+    end
+
+    def self.build_filter_query(params)
+      publisher_param = params.dig(:filters, :publisher)
+      topic_param = params.dig(:filters, :topic)
+      format_param = params.dig(:filters, :format)
+      licence_param = params.dig(:filters, :licence_code)
+
+      filter_query = ["state:active"]
+      filter_query << publisher_filter(publisher_param) if publisher_param.present?
+      filter_query << topic_filter(topic_param) if topic_param.present?
+      filter_query << format_filter(format_param) if format_param.present?
+      filter_query << licence_filter(licence_param) if licence_param.present?
+
+      @filter_query = filter_query
     end
 
     def self.publisher_filter(organisation)
