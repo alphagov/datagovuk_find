@@ -53,6 +53,12 @@
               <p><%= truncate(strip_tags(dataset["notes"]), length: 200, separator: ' ') %></p>
             </div>
           <% end %>
+          <div class="dgu-pagination">
+            <nav>
+              <%= dgu_page_entries_info @datasets, entry_name: 'dataset' %>
+              <span class="dgu-pagination__numbers"><%= paginate @datasets, window: 2 %></span>
+            </nav>
+          </div>
         </div>
       </div>
     </div>

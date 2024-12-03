@@ -3,8 +3,13 @@ class SolrSearchController < ApplicationController
     @sort = params["sort"]
 
     @presenter = SearchPresenter.new(solr_search_response, params)
-    @datasets = solr_search_response["response"]["docs"]
+
     @num_results = solr_search_response["response"]["numFound"]
+    @datasets = Kaminari.paginate_array(
+      solr_search_response["response"]["docs"],
+      total_count: @num_results,
+    ).page(params[:page])
+     .per(Search::Solr::RESULTS_PER_PAGE)
   end
 
 private

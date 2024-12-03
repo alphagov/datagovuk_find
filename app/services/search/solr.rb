@@ -1,5 +1,7 @@
 module Search
   class Solr
+    RESULTS_PER_PAGE = 20
+
     def self.search(params)
       query_param = params.fetch("q", "").squish
       @page = params["page"]
@@ -116,7 +118,7 @@ module Search
         q: @query,
         fq: @filter_query,
         start: @page,
-        rows: 20,
+        rows: RESULTS_PER_PAGE,
         fl: field_list,
         sort: @sort_query,
       }
@@ -127,7 +129,7 @@ module Search
         q: @query,
         fq: @filter_query,
         start: @page,
-        rows: 20,
+        rows: RESULTS_PER_PAGE,
         fl: field_list,
         sort: @sort_query,
         facet: "true",
