@@ -281,6 +281,26 @@ RSpec.describe Search::Solr do
     end
   end
 
+  describe ".build_term_query" do
+    it "returns special syntax that requests all documents in the index, if q param is missing" do
+      term_query = described_class.build_term_query(
+        "",
+      )
+
+      expect(term_query).to eq("*:*")
+    end
+
+    it "returns a solr query for the search term" do
+      term_query = described_class.build_term_query(
+        "animal health",
+      )
+
+      expect(term_query).to eq(
+        "title:\"animal health\" OR notes:\"animal health\" AND NOT site_id:dgu_organisations",
+      )
+    end
+  end
+
   describe ".build_filter_query" do
     it "includes active datasets filter" do
       filter_query = described_class.build_filter_query({ filters: {} })

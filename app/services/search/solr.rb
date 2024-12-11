@@ -9,9 +9,8 @@ module Search
       @page && @page.to_i.positive? ? @page.to_i : 1
 
       get_organisations
-
-      @query = query_param.present? ? "title:\"#{query_param}\" OR notes:\"#{query_param}\" AND NOT site_id:dgu_organisations" : "*:*"
-
+      
+      build_term_query(query_param)
       @sort_query = "metadata_modified desc" if sort_param == "recent"
       build_filter_query(params)
 
@@ -26,6 +25,10 @@ module Search
         fq: "id:#{uuid}",
         fl: field_list,
       }
+    end
+
+    def self.build_term_query(query_param)
+      @query = query_param.present? ? "title:\"#{query_param}\" OR notes:\"#{query_param}\" AND NOT site_id:dgu_organisations" : "*:*"
     end
 
     def self.build_filter_query(params)
