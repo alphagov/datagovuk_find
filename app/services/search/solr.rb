@@ -119,6 +119,7 @@ module Search
     def self.query_solr
       client.get "select", params: {
         q: @query,
+        sow: true,
         fq: @filter_query,
         start: @page,
         rows: RESULTS_PER_PAGE,
@@ -130,6 +131,7 @@ module Search
     def self.query_solr_with_facets
       client.get "select", params: {
         q: @query,
+        sow: true,
         fq: @filter_query,
         start: @page,
         rows: RESULTS_PER_PAGE,
