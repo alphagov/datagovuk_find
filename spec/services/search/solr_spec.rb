@@ -290,13 +290,33 @@ RSpec.describe Search::Solr do
       expect(term_query).to eq("*:*")
     end
 
-    it "returns a solr query for the search term" do
+    it "returns a solr query for multiple search terms" do
       term_query = described_class.build_term_query(
         "animal health",
       )
 
       expect(term_query).to eq(
-        "title:\"animal health\" OR notes:\"animal health\" AND NOT site_id:dgu_organisations",
+        "title:(animal health) OR notes:(animal health) AND NOT site_id:dgu_organisations",
+      )
+    end
+
+    it "returns a solr query for exact phrase search (in quotes)" do
+      term_query = described_class.build_term_query(
+        "\"animal health\"",
+      )
+
+      expect(term_query).to eq(
+        "title:(\"animal health\") OR notes:(\"animal health\") AND NOT site_id:dgu_organisations",
+      )
+    end
+
+    it "returns a solr query for multiple search terms including exact phrase search (in quotes)" do
+      term_query = described_class.build_term_query(
+        "\"animal health\" dogs",
+      )
+
+      expect(term_query).to eq(
+        "title:(\"animal health\" dogs) OR notes:(\"animal health\" dogs) AND NOT site_id:dgu_organisations",
       )
     end
   end
