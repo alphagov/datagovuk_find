@@ -296,7 +296,7 @@ RSpec.describe Search::Solr do
       )
 
       expect(term_query).to eq(
-        "title:(animal health) OR notes:(animal health) AND NOT site_id:dgu_organisations",
+        "(title:(animal health) OR notes:(animal health)) AND NOT site_id:dgu_organisations",
       )
     end
 
@@ -306,7 +306,7 @@ RSpec.describe Search::Solr do
       )
 
       expect(term_query).to eq(
-        "title:(\"animal health\") OR notes:(\"animal health\") AND NOT site_id:dgu_organisations",
+        "(title:(\"animal health\") OR notes:(\"animal health\")) AND NOT site_id:dgu_organisations",
       )
     end
 
@@ -316,7 +316,7 @@ RSpec.describe Search::Solr do
       )
 
       expect(term_query).to eq(
-        "title:(\"animal health\" dogs) OR notes:(\"animal health\" dogs) AND NOT site_id:dgu_organisations",
+        "(title:(\"animal health\" dogs) OR notes:(\"animal health\" dogs)) AND NOT site_id:dgu_organisations",
       )
     end
   end
