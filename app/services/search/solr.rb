@@ -9,7 +9,7 @@ module Search
       @page && @page.to_i.positive? ? @page.to_i : 1
 
       get_organisations
-      
+
       build_term_query(query_param)
       @sort_query = "metadata_modified desc" if sort_param == "recent"
       build_filter_query(params)
@@ -119,6 +119,7 @@ module Search
     def self.query_solr
       client.get "select", params: {
         q: @query,
+        "q.op": "OR",
         sow: true,
         fq: @filter_query,
         start: @page,
@@ -131,6 +132,7 @@ module Search
     def self.query_solr_with_facets
       client.get "select", params: {
         q: @query,
+        "q.op": "OR",
         sow: true,
         fq: @filter_query,
         start: @page,
