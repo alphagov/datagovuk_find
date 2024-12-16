@@ -28,7 +28,12 @@ module Search
     end
 
     def self.build_term_query(query_param)
-      @query = query_param.present? ? "(title:(#{query_param}) OR notes:(#{query_param})) AND NOT site_id:dgu_organisations" : "*:*"
+      return @query = "*:*" if query_param.blank?
+
+      processed_query = SearchHelper.process_query(query_param)
+      raise NoSearchTermsError, "Query string is empty after processing" if processed_query.empty?
+
+      @query = "(title:(#{processed_query}) OR notes:(#{processed_query})) AND NOT site_id:dgu_organisations"
     end
 
     def self.build_filter_query(params)
@@ -119,7 +124,7 @@ module Search
     def self.query_solr
       client.get "select", params: {
         q: @query,
-        "q.op": "OR",
+        # "q.op": "OR",
         sow: true,
         fq: @filter_query,
         start: @page,
@@ -130,9 +135,10 @@ module Search
     end
 
     def self.query_solr_with_facets
+      Rails.logger.debug @query
       client.get "select", params: {
         q: @query,
-        "q.op": "OR",
+        # "q.op": "OR",
         sow: true,
         fq: @filter_query,
         start: @page,
@@ -172,5 +178,7 @@ module Search
       end
       query_parts.join("")
     end
+
+    class NoSearchTermsError < StandardError; end
   end
 end
