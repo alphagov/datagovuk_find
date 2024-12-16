@@ -296,7 +296,7 @@ RSpec.describe Search::Solr do
       )
 
       expect(term_query).to eq(
-        "(title:(animal health) OR notes:(animal health)) AND NOT site_id:dgu_organisations",
+        "(title:(animal health)^2 OR notes:(animal health)) AND NOT site_id:dgu_organisations",
       )
     end
 
@@ -306,7 +306,7 @@ RSpec.describe Search::Solr do
       )
 
       expect(term_query).to eq(
-        "(title:(\"animal health\") OR notes:(\"animal health\")) AND NOT site_id:dgu_organisations",
+        "(title:(\"animal health\")^2 OR notes:(\"animal health\")) AND NOT site_id:dgu_organisations",
       )
     end
 
@@ -316,7 +316,7 @@ RSpec.describe Search::Solr do
       )
 
       expect(term_query).to eq(
-        "(title:(\"animal health\" dogs) OR notes:(\"animal health\" dogs)) AND NOT site_id:dgu_organisations",
+        "(title:(\"animal health\" dogs)^2 OR notes:(\"animal health\" dogs)) AND NOT site_id:dgu_organisations",
       )
     end
 
@@ -326,7 +326,7 @@ RSpec.describe Search::Solr do
       )
 
       expect(term_query).to eq(
-        "(title:(organogram staff roles salaries) OR notes:(organogram staff roles salaries)) AND NOT site_id:dgu_organisations",
+        "(title:(organogram staff roles salaries)^2 OR notes:(organogram staff roles salaries)) AND NOT site_id:dgu_organisations",
       )
     end
 
@@ -336,7 +336,7 @@ RSpec.describe Search::Solr do
       )
 
       expect(term_query).to eq(
-        "(title:(\"organogram of staff roles & salaries\") OR notes:(\"organogram of staff roles & salaries\")) AND NOT site_id:dgu_organisations",
+        "(title:(\"organogram of staff roles & salaries\")^2 OR notes:(\"organogram of staff roles & salaries\")) AND NOT site_id:dgu_organisations",
       )
     end
 
