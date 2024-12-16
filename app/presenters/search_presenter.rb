@@ -83,7 +83,9 @@ class SearchPresenter
 private
 
   def facet_values(facet_name)
-    counts = search_response.dig("facet_counts", "facet_fields", facet_name)
+    return [] if search_response.dig("facet_counts", "facet_fields").nil?
+
+    counts = search_response["facet_counts"]["facet_fields"][facet_name]
     counts.values_at(* counts.each_index.select(&:even?))
   end
 
