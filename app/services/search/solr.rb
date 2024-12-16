@@ -33,7 +33,7 @@ module Search
       processed_query = SearchHelper.process_query(query_param)
       raise NoSearchTermsError, "Query string is empty after processing" if processed_query.empty?
 
-      @query = "(title:(#{processed_query}) OR notes:(#{processed_query})) AND NOT site_id:dgu_organisations"
+      @query = "(title:(#{processed_query})^2 OR notes:(#{processed_query})) AND NOT site_id:dgu_organisations"
     end
 
     def self.build_filter_query(params)
