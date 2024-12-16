@@ -60,5 +60,49 @@ RSpec.describe SolrSearchController, type: :controller do
         expect(controller.instance_variable_get(:@datasets)).to be_empty
       end
     end
+
+    context "when there is a Solr error (HTTP 400)" do
+      before do
+        mock_solr_http_error(status: 400)
+        get :search, params: { q: "&&" }
+      end
+
+      it "returns a successful response" do
+        expect(response).to be_successful
+      end
+
+      it "sets number of results as 0" do
+        expect(controller.instance_variable_get(:@num_results)).to eq(0)
+      end
+
+      it "sets datasets as an empty array" do
+        expect(controller.instance_variable_get(:@datasets)).to be_empty
+      end
+    end
+
+    context "when there is an unexpected error" do
+      it "raises an error for an unexpected Solr error" do
+        mock_solr_http_error(status: 500)
+
+        expect { get :search, params: valid_params }.to raise_error(StandardError)
+      end
+
+      it "raises an error for an unexpected error" do
+        allow(Search::Solr).to receive(:search).and_raise(StandardError)
+
+        expect { get :search, params: valid_params }.to raise_error(StandardError)
+      end
+    end
+
+    def mock_solr_http_error(status:, body: "Error response")
+      response_double = double("response")
+      allow(response_double).to receive(:[]).with(:status).and_return(status)
+      allow(response_double).to receive(:[]).with(:body).and_return(body)
+      allow(response_double).to receive(:[]).with(:headers).and_return("")
+      allow(response_double).to receive(:[]=).with(:status, status)
+      allow(response_double).to receive(:[]=).with(:body, body)
+
+      allow(Search::Solr).to receive(:search).and_raise(RSolr::Error::Http.new("Bad Request", response_double))
+    end
   end
 end

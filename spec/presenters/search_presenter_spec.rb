@@ -34,6 +34,13 @@ RSpec.describe SearchPresenter do
         "Towns and cities",
       ])
     end
+
+    it "returns empty array if facet_fields are not present in the response" do
+      query_response = { "facet_counts" => {} }
+      presenter = described_class.new(query_response, { "q" => "the" })
+
+      expect(presenter.topic_options).to eql([])
+    end
   end
 
   describe "#format_options" do
@@ -101,6 +108,13 @@ RSpec.describe SearchPresenter do
       presenter = described_class.new(query_response, { "q" => "dogs" })
 
       expect(presenter.format_options).to eql(%w[])
+    end
+
+    it "returns empty array if facet_fields are not present in the response" do
+      query_response = { "facet_counts" => {} }
+      presenter = described_class.new(query_response, { "q" => "the" })
+
+      expect(presenter.format_options).to eql([])
     end
   end
 end

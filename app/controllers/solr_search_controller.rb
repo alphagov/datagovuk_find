@@ -15,6 +15,22 @@ class SolrSearchController < ApplicationController
 private
 
   def solr_search_response
-    @solr_search_response ||= Search::Solr.search(params)
+    @solr_search_response ||= begin
+      Search::Solr.search(params)
+    rescue RSolr::Error::Http => e
+      handle_solr_http_error(e)
+    end
+  end
+
+  def handle_solr_http_error(error)
+    if error.response[:status].to_s.start_with?("4")
+      no_results_found
+    else
+      raise error
+    end
+  end
+
+  def no_results_found
+    { "response" => { "numFound" => 0, "docs" => [] } }
   end
 end
