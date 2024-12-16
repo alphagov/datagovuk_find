@@ -80,6 +80,25 @@ RSpec.describe SolrSearchController, type: :controller do
       end
     end
 
+    context "when query string is empty after processing" do
+      before do
+        allow(Search::Solr).to receive(:search).and_raise(Search::Solr::NoSearchTermsError)
+        get :search, params: { q: "the" }
+      end
+
+      it "returns a successful response" do
+        expect(response).to be_successful
+      end
+
+      it "sets number of results as 0" do
+        expect(controller.instance_variable_get(:@num_results)).to eq(0)
+      end
+
+      it "sets datasets as an empty array" do
+        expect(controller.instance_variable_get(:@datasets)).to be_empty
+      end
+    end
+
     context "when there is an unexpected error" do
       it "raises an error for an unexpected Solr error" do
         mock_solr_http_error(status: 500)

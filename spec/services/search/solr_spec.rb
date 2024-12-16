@@ -319,6 +319,34 @@ RSpec.describe Search::Solr do
         "(title:(\"animal health\" dogs) OR notes:(\"animal health\" dogs)) AND NOT site_id:dgu_organisations",
       )
     end
+
+    it "returns a solr query for search terms without stop words" do
+      term_query = described_class.build_term_query(
+        "organogram of staff roles & salaries",
+      )
+
+      expect(term_query).to eq(
+        "(title:(organogram staff roles salaries) OR notes:(organogram staff roles salaries)) AND NOT site_id:dgu_organisations",
+      )
+    end
+
+    it "returns a solr query for search phrases including stop words" do
+      term_query = described_class.build_term_query(
+        "\"organogram of staff roles & salaries\"",
+      )
+
+      expect(term_query).to eq(
+        "(title:(\"organogram of staff roles & salaries\") OR notes:(\"organogram of staff roles & salaries\")) AND NOT site_id:dgu_organisations",
+      )
+    end
+
+    it "raises an error if query is empty after processing" do
+      expect {
+        described_class.build_term_query(
+          "the or",
+        )
+      }.to raise_error(Search::Solr::NoSearchTermsError)
+    end
   end
 
   describe ".build_filter_query" do

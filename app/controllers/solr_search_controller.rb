@@ -17,6 +17,8 @@ private
   def solr_search_response
     @solr_search_response ||= begin
       Search::Solr.search(params)
+    rescue Search::Solr::NoSearchTermsError
+      no_results_found
     rescue RSolr::Error::Http => e
       handle_solr_http_error(e)
     end
