@@ -64,3 +64,9 @@ en:
       accessibility:
         submit_button: "Apply filters"
       remove_filters: "Remove filters"
+    no_results:
+      try: "Improve your search results by"
+      remove_filters: "removing filters"
+      check_spelling: "double-checking your spelling"
+      fewer_words: "using fewer keywords"
+      less_specific: "searching for something less specific"
