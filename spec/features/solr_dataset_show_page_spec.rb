@@ -66,7 +66,7 @@ RSpec.feature "Solr Dataset page", type: :feature do
 
   def when_i_visit_solr_dataset_page
     allow(Search::Solr).to receive(:get_by_uuid).and_return(@response)
-    visit solr_dataset_path(@dataset.id, @dataset.name)
+    visit solr_dataset_path(@dataset.uuid, @dataset.name)
   end
 
   def then_the_meta_title_tag_is_correct

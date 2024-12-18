@@ -29,6 +29,6 @@ private
   end
 
   def newest_solr_dataset_path
-    solr_dataset_path(@dataset.id, @dataset.name)
+    solr_dataset_path(@dataset.uuid, @dataset.name)
   end
 end
