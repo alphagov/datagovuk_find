@@ -30,9 +30,10 @@ RSpec.feature "Solr Inspire dataset", type: :feature do
   end
 
   def given_an_inspire_dataset_exists
-    @response_inspire = JSON.parse(File.read(Rails.root.join("spec/fixtures/solr_inspire_dataset.json").to_s))
-    params = @response_inspire["response"]["docs"].first
+    response_inspire = JSON.parse(File.read(Rails.root.join("spec/fixtures/solr_inspire_dataset.json").to_s))
+    params = response_inspire["response"]["docs"].first
     @dataset_inspire = SolrDataset.new(params)
+    allow(SolrDataset).to receive(:get_by_uuid).and_return(@dataset_inspire)
   end
 
   def given_an_organisation_exists
@@ -40,8 +41,7 @@ RSpec.feature "Solr Inspire dataset", type: :feature do
     allow(Search::Solr).to receive(:get_organisation).and_return(org_response)
   end
 
-  def when_i_visit_solr_dataset_page(response, dataset)
-    allow(Search::Solr).to receive(:get_by_uuid).and_return(response)
+  def when_i_visit_solr_dataset_page(_response, dataset)
     visit solr_dataset_path(dataset.uuid, dataset.name)
   end
 

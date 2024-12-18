@@ -17,16 +17,6 @@ module Search
       query_param.empty? ? query_solr : query_solr_with_facets
     end
 
-    def self.get_by_uuid(uuid:)
-      solr_client = client
-
-      solr_client.get "select", params: {
-        q: "*:*",
-        fq: "id:#{uuid}",
-        fl: field_list,
-      }
-    end
-
     def self.build_term_query(query_param)
       return @query = "*:*" if query_param.blank?
 
