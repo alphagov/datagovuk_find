@@ -7,7 +7,7 @@ RSpec.feature "Solr Dataset page edge cases", type: :feature do
 
   scenario "User views a dataset page without datafiles" do
     given_a_dataset_without_datafiles_exists
-    when_i_visit_solr_dataset_page(@response_no_datafiles, @dataset_no_datafiles)
+    when_i_visit_solr_dataset_page(@dataset_no_datafiles)
 
     then_a_message_indicates_no_data_links_are_available
     and_a_not_released_label_is_displayed
@@ -48,9 +48,10 @@ RSpec.feature "Solr Dataset page edge cases", type: :feature do
   end
 
   def given_a_dataset_without_datafiles_exists
-    @response_no_datafiles = JSON.parse(File.read(Rails.root.join("spec/fixtures/solr_dataset_without_datafiles.json").to_s))
-    params = @response_no_datafiles["response"]["docs"].first
+    response_no_datafiles = JSON.parse(File.read(Rails.root.join("spec/fixtures/solr_dataset_without_datafiles.json").to_s))
+    params = response_no_datafiles["response"]["docs"].first
     @dataset_no_datafiles = SolrDataset.new(params)
+    allow(SolrDataset).to receive(:get_by_uuid).and_return(@dataset_no_datafiles)
   end
 
   def given_an_organisation_exists
@@ -58,15 +59,14 @@ RSpec.feature "Solr Dataset page edge cases", type: :feature do
     allow(Search::Solr).to receive(:get_organisation).and_return(org_response)
   end
 
-  def when_i_visit_solr_dataset_page(response, dataset)
-    allow(Search::Solr).to receive(:get_by_uuid).and_return(response)
+  def when_i_visit_solr_dataset_page(dataset)
     visit solr_dataset_path(dataset.uuid, dataset.name)
   end
 
   def given_a_dataset_exists_and_i_visit_the_page(modifed_json_fixture)
-    allow(Search::Solr).to receive(:get_by_uuid).and_return(modifed_json_fixture)
     params = modifed_json_fixture["response"]["docs"].first
     dataset = SolrDataset.new(params)
+    allow(SolrDataset).to receive(:get_by_uuid).and_return(dataset)
 
     visit solr_dataset_path(dataset.uuid, dataset.name)
   end

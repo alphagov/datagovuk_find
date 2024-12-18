@@ -37,6 +37,17 @@ class SolrDataset
     @harvested = @inspire_dataset.present? ? true : false
   end
 
+  def self.get_by_uuid(uuid:)
+    solr_client = Search::Solr.client
+
+    response = solr_client.get "select", params: {
+      q: "*:*",
+      fq: "id:#{uuid}",
+      fl: Search::Solr.field_list,
+    }
+    SolrDataset.new(response["response"]["docs"].first)
+  end
+
   def editable?
     harvested == false
   end
