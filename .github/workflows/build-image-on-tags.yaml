@@ -1,29 +1,19 @@
-name: Build and push images on tags
+name: Build and push DGU Find Image on tags
 
 on:
+  workflow_dispatch:
   push:
     tags:
       - 'v[0-9]+.[0-9]+.[0-9]+'
 
 jobs:
   build_and_push:
-    name: datagovuk_find
-    runs-on: ubuntu-latest
+    name: Build and push the DGU Find Image w/ tags
     permissions:
+      contents: read
       packages: write
-    steps:
-      - name: Login to GHCR
-        uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a  # v2.1.0
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-      - uses: actions/checkout@v4
-        with:
-          ref: ${{ inputs.gitRef }}
-      - name: Build and push images
-        env:
-          APP: datagovuk_find
-          ARCH: amd64
-          GH_REF: ${{ github.ref_name }}
-        run: ./docker/build-image.sh
+      id-token: write
+    uses: ./.github/workflows/build-image.yaml
+    with:
+      buildType: build_push_with_gittag
+      gitRef: ${{ github.ref_name }}
