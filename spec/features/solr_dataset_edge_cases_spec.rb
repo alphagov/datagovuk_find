@@ -13,6 +13,13 @@ RSpec.feature "Solr Dataset page edge cases", type: :feature do
     and_a_not_released_label_is_displayed
   end
 
+  scenario "User tries to visit a dataset page that doesn't exist" do
+    visit "/dataset/invalid-uuid/invalid-slug"
+
+    expect(page.status_code).to eq(404)
+    expect(page).to have_content("Page not found")
+  end
+
   feature "Licence information" do
     scenario "Link to licence for OGL-UK-3.0 dataset" do
       modifed_json_fixture = modified_dataset_validated_data_dict_json(

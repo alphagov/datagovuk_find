@@ -1,4 +1,6 @@
 class SolrDatasetsController < ApplicationController
+  rescue_from SolrDataset::NotFound, with: :render_not_found
+
   def show
     @dataset = SolrDataset.get_by_uuid(uuid: params[:uuid])
 
@@ -29,5 +31,9 @@ private
 
   def newest_solr_dataset_path
     solr_dataset_path(@dataset.uuid, @dataset.name)
+  end
+
+  def render_not_found
+    render 'errors/not_found', status: :not_found
   end
 end
