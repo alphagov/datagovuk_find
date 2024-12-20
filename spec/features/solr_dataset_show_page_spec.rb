@@ -32,6 +32,7 @@ RSpec.feature "Solr Dataset page", type: :feature do
     and_the_table_headers_are_correct
     and_the_list_of_data_files_is_displayed_with_count_of(12)
     and_the_file_details_are_correct
+    and_there_are_links_to_preview
 
     # Contact information
     then_enquiries_details_are_displayed
@@ -130,7 +131,7 @@ RSpec.feature "Solr Dataset page", type: :feature do
   end
 
   def and_the_list_of_data_files_is_displayed_with_count_of(count)
-    expect(page).to have_css(".dgu-datalinks td a", count:)
+    expect(page).to have_css(".dgu-datalinks td a", text: /Download/, count:)
   end
 
   alias_method :then_the_list_of_data_files_is_displayed_with_count_of, :and_the_list_of_data_files_is_displayed_with_count_of
@@ -139,6 +140,10 @@ RSpec.feature "Solr Dataset page", type: :feature do
     expect(page).to have_css("td a", text: "Non-consolidated performance related payments 2015-16 (XLS format)")
     expect(page).to have_css("td", text: "XLS")
     expect(page).to have_css("td", text: "30 June 2017")
+  end
+
+  def and_there_are_links_to_preview
+    expect(page).to have_css(".dgu-datalinks td a", text: "Preview", count: 6)
   end
 
   def and_show_more_and_show_less_functionality_is_working
