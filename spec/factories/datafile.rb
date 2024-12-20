@@ -16,4 +16,17 @@ FactoryBot.define do
 
     initialize_with { Datafile.new(attributes.stringify_keys) }
   end
+
+  factory :solr_datafile, class: SolrDataset do
+    id { 1 }
+    name { "Name" }
+    url { "http://example.com" }
+    format { "CSV" }
+
+    trait :raw do
+      initialize_with { attributes.stringify_keys }
+    end
+
+    initialize_with { Datafile.new(attributes.stringify_keys) }
+  end
 end

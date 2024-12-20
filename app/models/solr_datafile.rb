@@ -10,4 +10,14 @@ class SolrDatafile
     @format = hash["format"]&.strip&.delete_prefix(".")&.delete_suffix(".")&.upcase
     @uuid = hash["id"]
   end
+
+  def csv?
+    format == "CSV"
+  end
+
+  def preview
+    @preview ||= Preview.new(url:, format:)
+  end
+
+  class NotFound < StandardError; end
 end
