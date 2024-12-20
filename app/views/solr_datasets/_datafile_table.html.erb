@@ -37,7 +37,21 @@
             <span class="dgu-secondary-text">Not available</span>
           <% end %>
         </td>
-        <td>
+        <td class="govuk-table__cell">
+          <% if datafile.csv? %>
+            <%= link_to solr_datafile_preview_path(@dataset.uuid, @dataset.name, datafile.uuid),
+                :data => {
+                  'ga-event' => 'preview',
+                  'ga-format' => (datafile.format.presence || 'n/a').upcase,
+                  'ga-publisher' => @dataset.organisation.name
+                },
+                class: 'govuk-link' do %>
+                  Preview
+                  <span class='visually-hidden'> CSV '<%= datafile.name %>', Dataset: <%= @dataset.title %></span>
+                <% end %>
+          <% else %>
+            <span class="dgu-secondary-text"><%= t('.not_available') %></span>
+          <% end %>
         </td>
       </tr>
     <% end %>

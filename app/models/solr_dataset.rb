@@ -3,6 +3,11 @@ class SolrDataset
 
   attr_reader :uuid, :name, :title, :summary, :public_updated_at, :topic, :licence_title, :licence_url, :organisation, :datafiles, :contact_email, :contact_name, :foi_name, :foi_email, :foi_web, :docs, :licence_custom, :inspire_dataset, :harvested, :licence_code
 
+  ORGANOGRAM_SCHEMA_IDS = [
+    "538b857a-64ba-490e-8440-0e32094a28a7", # Local authority
+    "d3c0b23f-6979-45e4-88ed-d2ab59b005d0", # Departmental
+  ].freeze
+
   def initialize(dataset)
     @uuid = dataset["id"]
     @name = dataset["name"]
@@ -24,6 +29,7 @@ class SolrDataset
     dataset_dict["resources"].each do |datafile|
       datafile["resource-type"] == "supporting-document" ? @docs << datafile : @datafiles << SolrDatafile.new(datafile, dataset["metadata_created"])
     end
+    @schema_id = dataset_dict["schema-vocabulary"]
 
     @contact_email = dataset_dict["contact-email"]
     @contact_name = dataset_dict["contact-name"]
@@ -60,6 +66,13 @@ class SolrDataset
 
   def editable?
     harvested == false
+  end
+
+  def organogram?
+    return false unless @schema_id
+
+    schema_id = @schema_id.gsub(/\["|"\]/, "")
+    ORGANOGRAM_SCHEMA_IDS.include?(schema_id)
   end
 
   def additional_information(data)
