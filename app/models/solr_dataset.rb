@@ -1,8 +1,6 @@
 class SolrDataset
   include ActiveModel::Model
 
-  DatasetNotFound = Class.new(StandardError)
-
   attr_reader :uuid, :name, :title, :summary, :public_updated_at, :topic, :licence_title, :licence_url, :organisation, :datafiles, :contact_email, :contact_name, :foi_name, :foi_email, :foi_web, :docs, :licence_custom, :inspire_dataset, :harvested, :licence_code
 
   def initialize(dataset)
@@ -40,12 +38,22 @@ class SolrDataset
   def self.get_by_uuid(uuid:)
     solr_client = Search::Solr.client
 
-    response = solr_client.get "select", params: {
-      q: "*:*",
-      fq: "id:#{uuid}",
-      fl: Search::Solr.field_list,
-    }
-    SolrDataset.new(response["response"]["docs"].first)
+    response = begin
+      solr_client.get "select", params: {
+        q: "*:*",
+        fq: "id:#{uuid}",
+        fl: Search::Solr.field_list,
+      }
+    rescue RSolr::Error::Http => e
+      if e.response[:status] == 404
+        raise NotFound
+      else
+        raise e
+      end
+    end
+
+    dataset_attr = response["response"]["docs"].first
+    SolrDataset.new(dataset_attr)
   end
 
   def editable?
@@ -82,4 +90,6 @@ class SolrDataset
     query = Search::Solr.get_organisation(name)
     query["response"]["docs"].first
   end
+
+  class NotFound < StandardError; end
 end
