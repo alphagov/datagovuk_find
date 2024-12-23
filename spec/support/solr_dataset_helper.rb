@@ -39,4 +39,8 @@ def mock_solr_http_error(status:, body: "Error response")
   allow(response_double).to receive(:[]=).with(:body, body)
 
   allow(Search::Solr).to receive(:search).and_raise(RSolr::Error::Http.new("Bad Request", response_double))
+
+  solr_mock = double("SolrInstance")
+  allow(Search::Solr).to receive(:client).and_return(solr_mock)
+  allow(solr_mock).to receive(:get).and_raise(RSolr::Error::Http.new("Bad Request", response_double))
 end
