@@ -53,6 +53,8 @@ class SolrDataset
     end
 
     dataset_attr = response["response"]["docs"].first
+    raise NotFound if dataset_attr.nil?
+
     SolrDataset.new(dataset_attr)
   end
 

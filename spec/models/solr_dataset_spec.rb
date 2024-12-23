@@ -71,12 +71,24 @@ RSpec.describe SolrDataset do
       end
     end
 
-    context "Solr returns an error" do
-      it "raises an exeption if dataset doesn't exists" do
+    context "Dataset doesn't exist" do
+      it "raises an exeption if Solr returns 404 response" do
         mock_solr_http_error(status: 404)
 
         expect {
           described_class.get_by_uuid(uuid: "does-not-exist")
+        }.to raise_error(described_class::NotFound)
+      end
+
+      it "raises an exeption if Solr returns zero results" do
+        response = { "response" => {
+          "numFound" => 0,
+          "docs" => [],
+        } }
+        allow_any_instance_of(RSolr::Client).to receive(:get).and_return(response)
+
+        expect {
+          described_class.get_by_uuid(uuid: "f3850ff3-f049-154d-8f5c-d408d6b91fb2")
         }.to raise_error(described_class::NotFound)
       end
     end
