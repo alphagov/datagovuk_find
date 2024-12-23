@@ -54,9 +54,10 @@ RSpec.feature "Solr Dataset page", type: :feature do
   end
 
   def given_a_dataset_exists
-    @response = JSON.parse(File.read(Rails.root.join("spec/fixtures/solr_dataset.json").to_s))
-    params = @response["response"]["docs"].first
+    response = JSON.parse(File.read(Rails.root.join("spec/fixtures/solr_dataset.json").to_s))
+    params = response["response"]["docs"].first
     @dataset = SolrDataset.new(params)
+    allow(SolrDataset).to receive(:get_by_uuid).and_return(@dataset)
   end
 
   def given_an_organisation_exists
@@ -65,8 +66,7 @@ RSpec.feature "Solr Dataset page", type: :feature do
   end
 
   def when_i_visit_solr_dataset_page
-    allow(Search::Solr).to receive(:get_by_uuid).and_return(@response)
-    visit solr_dataset_path(@dataset.id, @dataset.name)
+    visit solr_dataset_path(@dataset.uuid, @dataset.name)
   end
 
   def then_the_meta_title_tag_is_correct

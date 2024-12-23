@@ -112,16 +112,5 @@ RSpec.describe SolrSearchController, type: :controller do
         expect { get :search, params: valid_params }.to raise_error(StandardError)
       end
     end
-
-    def mock_solr_http_error(status:, body: "Error response")
-      response_double = double("response")
-      allow(response_double).to receive(:[]).with(:status).and_return(status)
-      allow(response_double).to receive(:[]).with(:body).and_return(body)
-      allow(response_double).to receive(:[]).with(:headers).and_return("")
-      allow(response_double).to receive(:[]=).with(:status, status)
-      allow(response_double).to receive(:[]=).with(:body, body)
-
-      allow(Search::Solr).to receive(:search).and_raise(RSolr::Error::Http.new("Bad Request", response_double))
-    end
   end
 end
