@@ -54,6 +54,7 @@ Rails.application.routes.draw do
   get "search/solr", to: "solr_search#search"
   get "dataset/solr/:uuid", to: "solr_datasets#show", uuid: /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/
   get "dataset/solr/:uuid/:name", to: "solr_datasets#show", as: "solr_dataset"
+  get "dataset/solr/:dataset_uuid/:name/datafile/:datafile_uuid/preview", to: "solr_previews#show", as: "solr_datafile_preview"
 
   get "acknowledge", to: "messages#acknowledge"
 
