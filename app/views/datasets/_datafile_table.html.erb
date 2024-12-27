@@ -55,9 +55,6 @@
                   Preview
                   <span class='visually-hidden'> CSV '<%= datafile.name %>', Dataset: <%= @dataset.title %></span>
                 <% end %>
-          <% elsif datafile.wms? && @dataset.inspire_dataset.present? %>
-          <!-- leaving this section in place to make it easier to add map previews in the future -->
-            <span class="dgu-secondary-text"><%= t('.not_available') %></span>
           <% else %>
             <span class="dgu-secondary-text"><%= t('.not_available') %></span>
           <% end %>
