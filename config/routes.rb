@@ -40,8 +40,6 @@ Rails.application.routes.draw do
 
   get "search/", to: "search#search"
 
-  get "data/map-preview", to: "map_previews#show", as: "map_preview"
-
   defaults format: :xml do
     get "data/preview_proxy", to: "map_previews#proxy"
     get "data/preview_getinfo", to: "map_previews#getinfo"
