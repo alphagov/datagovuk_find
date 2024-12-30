@@ -33,6 +33,8 @@ gem "rsolr"
 gem "sass-rails"
 gem "secure_headers"
 gem "sentry-raven"
+gem "sentry-rails"
+gem "sentry-ruby"
 gem "uglifier"
 
 group :development, :test do
