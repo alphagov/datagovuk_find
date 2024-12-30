@@ -704,7 +704,8 @@ DEPENDENCIES
   rubocop-govuk
   sass-rails
   secure_headers
-  sentry-raven
+  sentry-rails
+  sentry-ruby
   simplecov (< 0.23)
   spring
   spring-commands-rspec
