@@ -40,8 +40,8 @@ class SolrDataset
 
     response = begin
       solr_client.get "select", params: {
-        q: "*:*",
-        fq: "id:#{uuid}",
+        q: "id:#{uuid}",
+        fq: "state:active",
         fl: Search::Solr.field_list,
       }
     rescue RSolr::Error::Http => e
