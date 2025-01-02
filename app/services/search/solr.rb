@@ -11,7 +11,7 @@ module Search
       get_organisations
 
       build_term_query(query_param)
-      @sort_query = "metadata_modified desc" if sort_param == "recent"
+      @sort_query = sort_param == "recent" ? "metadata_modified desc" : nil
       build_filter_query(params)
 
       query_param.empty? ? query_solr : query_solr_with_facets
