@@ -114,7 +114,7 @@ module Search
     def self.query_solr
       client.get "select", params: {
         q: @query,
-        # "q.op": "OR",
+        "q.op": "OR",
         sow: true,
         fq: @filter_query,
         start: @page,
@@ -128,7 +128,7 @@ module Search
       Rails.logger.debug @query
       client.get "select", params: {
         q: @query,
-        # "q.op": "OR",
+        "q.op": "OR",
         sow: true,
         fq: @filter_query,
         start: @page,
