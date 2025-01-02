@@ -11,6 +11,12 @@ RSpec.describe DatasetsHelper do
     end
   end
 
+  describe "to_markdown" do
+    it "returns 'Not provided' if the input is nil" do
+      expect(helper.to_markdown(nil)).to eq("Not provided")
+    end
+  end
+
   describe "#contact_email_is_email?" do
     it "returns true when email string is 'valid' (contains '@')" do
       dataset = build :dataset, contact_email: "foo@bar.com"
