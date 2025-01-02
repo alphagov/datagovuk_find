@@ -9,6 +9,8 @@ module DatasetsHelper
   }.freeze
 
   def to_markdown(content)
+    return "Not provided" if content.nil?
+
     markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: false)
     markdown.render(content).html_safe
   end
