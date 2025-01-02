@@ -1,10 +1,12 @@
-class DatasetsController < ApplicationController
-  rescue_from SolrDataset::NotFound, with: :render_not_found
+class OsDatasetsController < ApplicationController
+  include DatasetsHelper
 
   def show
-    @dataset = SolrDataset.get_by_uuid(uuid: params[:uuid])
-
+    @dataset = Dataset.get_by_uuid(uuid: params[:uuid])
+    @timeseries_datafiles = @dataset.timeseries_datafiles
+    @non_timeseries_datafiles = @dataset.non_timeseries_datafiles
     @referer_query = referer_query
+    @related_datasets = Dataset.related(@dataset.id)
 
     if request_to_outdated_url?
       redirect_to newest_dataset_path, status: :moved_permanently
@@ -30,10 +32,6 @@ private
   end
 
   def newest_dataset_path
-    dataset_path(@dataset.uuid, @dataset.name)
-  end
-
-  def render_not_found
-    render "errors/not_found", status: :not_found
+    os_dataset_path(@dataset.uuid, @dataset.name)
   end
 end

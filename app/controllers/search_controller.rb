@@ -1,27 +1,38 @@
 class SearchController < ApplicationController
-  before_action :search_for_dataset, only: [:search]
-
   def search
-    @query = params["q"] || ""
     @sort = params["sort"]
-    @organisation = params.dig(:filters, :publisher)
-    @location = params.dig(:filters, :location)
-    @format = params.dig(:filters, :format)
-    @topic = params.dig(:filters, :topic)
-    @licence_code = params.dig(:filters, :licence_code)
-    @datasets = @search.page(page_number)
+
+    @presenter = SearchPresenter.new(solr_search_response, params)
+
+    @num_results = solr_search_response["response"]["numFound"]
+    @datasets = Kaminari.paginate_array(
+      solr_search_response["response"]["docs"],
+      total_count: @num_results,
+    ).page(params[:page])
+     .per(Search::Solr::RESULTS_PER_PAGE)
   end
 
 private
 
-  def search_for_dataset
-    query = Search::Query.search(params)
-    @search = Dataset.search(query, track_total_hits: true)
-    @num_results = @search.results.total_count
+  def solr_search_response
+    @solr_search_response ||= begin
+      Search::Solr.search(params)
+    rescue Search::Solr::NoSearchTermsError
+      no_results_found
+    rescue RSolr::Error::Http => e
+      handle_solr_http_error(e)
+    end
   end
 
-  def page_number
-    page = params["page"]
-    page && page.to_i.positive? ? page.to_i : 1
+  def handle_solr_http_error(error)
+    if error.response[:status].to_s.start_with?("4")
+      no_results_found
+    else
+      raise error
+    end
+  end
+
+  def no_results_found
+    { "response" => { "numFound" => 0, "docs" => [] } }
   end
 end

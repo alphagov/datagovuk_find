@@ -3,6 +3,11 @@
     <h2 class="heading-medium">
       <%= t('.additional_info') %>
     </h2>
+    <% if dataset.description.present? %>
+      <p class="dgu-additional-info__notes">
+        <%= dataset.description %>
+      </p>
+    <% end %>
 
     <% if dataset.inspire_dataset.present? %>
       <% i = dataset.inspire_dataset %>
@@ -14,10 +19,11 @@
 
 
         <div class="panel panel-border-narrow">
+
           <dl class="dgu-deflist">
-            <% if i['metadata-date'] %>
+            <% if i['metadata_date'] %>
               <dt><%= t('.inspire_added') %></dt>
-              <dd><%= i['metadata-date'].to_date %></dd>
+              <dd><%= i['metadata_date'] %></dd>
             <% end %>
             <% if i['access_constraints'] %>
               <% ref = JSON.parse(i['access_constraints']) %>
@@ -28,37 +34,40 @@
               <dt><%= t('.inspire_guid') %></dt>
               <dd><%= i['guid'] %></dd>
             <% end %>
-            <% if i['bbox-east-long'] and i['bbox-west-long'] and i['bbox-north-lat'] and i['bbox-south-lat'] %>
+            <% if i['bbox_east_long'] and i['bbox_west_long'] and i['bbox_north_lat'] and i['bbox_south_lat'] %>
               <dt><%= t('.inspire_extent') %></dt>
-              <dd><%= t('.inspire_latitude') %>: <%= i['bbox-north-lat'] %>° <%= t('.inspire_to') %> <%= i['bbox_south_lat'] %>°</dd>
-              <dd><%= t('.inspire_longitude') %>: <%= i['bbox-west-long'] %>° <%= t('.inspire_to') %> <%= i['bbox-east-long'] %>°</dd>
+              <dd>
+                <%= t('.inspire_latitude') %>: <%= i['bbox_north_lat'] %>° <%= t('.inspire_to') %> <%= i['bbox_south_lat'] %>°</dd>
+              <dd>
+                <%= t('.inspire_longitude') %>: <%= i['bbox_west_long'] %>° <%= t('.inspire_to') %> <%= i['bbox_east_long'] %>°
+              </dd>
             <% end %>
-            <% if i['spatial-reference-system'] %>
+            <% if i['spatial_reference_system'] %>
               <dt><%= t('.inspire_spatial_ref_system') %></dt>
-              <dd><%= i['spatial-reference-system'] %></dd>
+              <dd><%= i['spatial_reference_system'] %></dd>
             <% end %>
-            <% if i['dataset-reference-date'] %>
-              <% ref = JSON.parse(i['dataset-reference-date']) %>
+            <% if i['dataset_reference_date'] %>
+              <% ref = JSON.parse(i['dataset_reference_date']) %>
               <dt><%= t('.inspire_dataset_ref_date') %></dt>
               <% ref.each do |date| %>
                 <dd><%= date['value'] %> (<%= date['type'] %>)</dd>
               <% end %>
             <% end %>
-            <% if i['frequency-of-update'] %>
+            <% if i['frequency_of_update'] %>
               <dt><%= t('.inspire_frequency') %></dt>
-              <dd><%= i['frequency-of-update'] %></dd>
+              <dd><%= i['frequency_of_update'] %></dd>
             <% end %>
-            <% if i['responsible-party'] %>
+            <% if i['responsible_party'] %>
               <dt><%= t('.inspire_responsible_party') %></dt>
-              <dd><%= i['responsible-party'] %></dd>
+              <dd><%= i['responsible_party'] %></dd>
             <% end %>
-            <% if i['resource-type'] %>
+            <% if i['resource_type'] %>
               <dt><%= t('.inspire_iso_resource') %></dt>
-              <dd><%= i['resource-type'] %></dd>
+              <dd><%= i['resource_type'] %></dd>
             <% end %>
-            <% if i['metadata-language'] %>
+            <% if i['metadata_language'] %>
               <dt><%= t('.inspire_metadata_lang') %></dt>
-              <dd><%= i['metadata-language'] %></dd>
+              <dd><%= i['metadata_language'] %></dd>
             <% end %>
             <% if i['harvest_object_id'] %>
               <dt><%= t('.inspire_gemini_record') %></dt>

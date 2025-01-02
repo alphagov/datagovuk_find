@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe PreviewsController, type: :controller do
+RSpec.describe OsPreviewsController, type: :controller do
   render_views
 
   let(:dataset) { build :dataset, :with_datafile }

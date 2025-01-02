@@ -14,7 +14,7 @@
           <%= link_to datafile.url,
               :data => {
                 'ga-event' => "download",
-                'ga-format' => format_of(datafile),
+                'ga-format' => "CSV",
                 'ga-publisher' => @dataset.organisation.name
               },
               class: 'govuk-link' do %>
@@ -23,13 +23,18 @@
                 <span class='visually-hidden'>, Format: <%= format_of(datafile) %>, Dataset: <%= @dataset.title %></span>
               <% end %>
         </td>
+        
         <td class="govuk-table__cell">
           <% if datafile.format.blank? %>
             <span class="dgu-secondary-text">N/A</span>
           <% else %>
             <%= datafile.format.upcase %>
+            <% if datafile.size %>
+              (<%= datafile.size.number_to_human_size %>)
+            <% end %>
           <% end %>
         </td>
+
         <td class="govuk-table__cell">
           <% if datafile.created_at.present? %>
               <%= format_timestamp(datafile.created_at) %>
@@ -37,9 +42,10 @@
             <span class="dgu-secondary-text">Not available</span>
           <% end %>
         </td>
+
         <td class="govuk-table__cell">
           <% if datafile.csv? %>
-            <%= link_to solr_datafile_preview_path(@dataset.uuid, @dataset.name, datafile.uuid),
+            <%= link_to os_datafile_preview_path(@dataset.uuid, @dataset.name, datafile.uuid),
                 :data => {
                   'ga-event' => 'preview',
                   'ga-format' => (datafile.format.presence || 'n/a').upcase,

@@ -36,7 +36,7 @@ RSpec.feature "Solr Search page" do
       "Ministry of Housing, Communities and Local Government" => "department-for-communities-and-local-government",
       "Academics" => "academics",
     })
-    visit "/search/solr"
+    visit search_path
   end
 
   def then_i_can_see_the_search_heading
@@ -114,7 +114,7 @@ RSpec.feature "Solr Search page" do
   end
 
   def and_i_can_see_the_remove_filters_link
-    expect(page).to have_link("Remove filters", href: "/search/solr?q=")
+    expect(page).to have_link("Remove filters", href: "/search?q=")
   end
 
   def when_i_sort_results_by_most_recent

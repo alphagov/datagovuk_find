@@ -12,7 +12,7 @@
               <% if @referer_query.nil? %>
                 <%= @dataset.organisation.title %>
               <% else %>
-                <%= link_to t('.search'), "/search/solr?#{@referrer}", class: 'govuk-link' %>
+                <%= link_to t('.search'), "/search?#{@referrer}", class: 'govuk-link' %>
               <% end %>
             </li>
             <li aria-current="page">

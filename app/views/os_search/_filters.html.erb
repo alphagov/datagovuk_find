@@ -1,0 +1,32 @@
+<h2 class="heading-medium"> <%= t(".filter_by") %></h2>
+
+<div class="govuk-form-group">
+  <%= label_tag "publisher", t(".filter_by_publisher"), class: "govuk-label" %>
+  <%= select_tag("filters[publisher]", options_for_select(dataset_publishers_for_select, selected_publisher), id: "publisher", class: "govuk-select dgu-filters__filter js-accessible-autocomplete", include_blank: true) %>
+</div>
+
+<div class="govuk-form-group">
+  <%= label_tag "topic", t(".filter_by_topic"), class: "govuk-label" %>
+  <%= select_tag("filters[topic]", options_for_select(dataset_topics_for_select, selected_topic), id: "topic", class: "govuk-select dgu-filters__filter js-accessible-autocomplete", include_blank: true) %>
+</div>
+
+<div class="govuk-form-group">
+  <%= label_tag "format", t(".filter_by_format"), class: "govuk-label" %>
+  <%= select_tag("filters[format]", options_for_select(datafile_formats_for_select, selected_format), id: "format", class: "govuk-select dgu-filters__filter js-accessible-autocomplete", include_blank: true) %>
+</div>
+
+<%= render "govuk_publishing_components/components/checkboxes", {
+  name: "filters[licence_code]",
+  items: [
+    {
+      label: t(".filter_by_ogl"),
+      value: "uk-ogl"
+    }
+  ]
+} %>
+
+<%= render "govuk_publishing_components/components/button", {
+  text: t(".accessibility.submit_button"),
+  margin_bottom: true
+} %>
+<p class="govuk-body"><%= link_to t(".remove_filters"), search_os_path(q: @query), class: "govuk-link" %></p>

@@ -2,11 +2,14 @@ require "rails_helper"
 
 RSpec.describe DatasetsController, type: :controller do
   render_views
-
-  let(:dataset) { build :dataset }
+  let(:results) { JSON.parse(File.read(Rails.root.join("spec/fixtures/solr_dataset.json").to_s)) }
+  let(:dataset) { SolrDataset.new(results["response"]["docs"].first) }
+  let(:org_response) { JSON.parse(File.read(Rails.root.join("spec/fixtures/solr_organisation.json").to_s)) }
+  let(:organisation) { org_response["response"]["docs"].first }
 
   before do
-    index(dataset)
+    allow(Search::Solr).to receive(:get_organisation).and_return(org_response)
+    allow(SolrDataset).to receive(:get_by_uuid).and_return(dataset)
   end
 
   describe "Breadcrumb" do
@@ -16,7 +19,7 @@ RSpec.describe DatasetsController, type: :controller do
         get :show, params: { uuid: dataset.uuid, name: dataset.name }
 
         expect(response.body).to have_css("div.breadcrumbs")
-        expect(response.body).to_not have_css("li", text: "Ministry of Defence")
+        expect(response.body).to_not have_css("li", text: "Ministry of Housing, Communities and Local Government")
         expect(response.body).to have_css("li", text: "Search")
       end
     end
@@ -27,7 +30,7 @@ RSpec.describe DatasetsController, type: :controller do
         get :show, params: { uuid: dataset.uuid, name: dataset.name }
 
         expect(response.body).to have_css("div.breadcrumbs")
-        expect(response.body).to have_css("li", text: "Ministry of Defence")
+        expect(response.body).to have_css("li", text: "Ministry of Housing, Communities and Local Government")
         expect(response.body).to_not have_css("li", text: "Search")
       end
     end

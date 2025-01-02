@@ -14,7 +14,8 @@ RSpec.feature "Solr Dataset page edge cases", type: :feature do
   end
 
   scenario "User tries to visit a dataset page that doesn't exist" do
-    visit "/dataset/invalid-uuid/invalid-slug"
+    mock_solr_http_error(status: 404)
+    visit dataset_path("invalid-uuid", "invalid-slug")
 
     expect(page.status_code).to eq(404)
     expect(page).to have_content("Page not found")
@@ -67,7 +68,7 @@ RSpec.feature "Solr Dataset page edge cases", type: :feature do
   end
 
   def when_i_visit_solr_dataset_page(dataset)
-    visit solr_dataset_path(dataset.uuid, dataset.name)
+    visit dataset_path(dataset.uuid, dataset.name)
   end
 
   def given_a_dataset_exists_and_i_visit_the_page(modifed_json_fixture)
@@ -75,7 +76,7 @@ RSpec.feature "Solr Dataset page edge cases", type: :feature do
     dataset = SolrDataset.new(params)
     allow(SolrDataset).to receive(:get_by_uuid).and_return(dataset)
 
-    visit solr_dataset_path(dataset.uuid, dataset.name)
+    visit dataset_path(dataset.uuid, dataset.name)
   end
 
   def then_a_message_indicates_no_data_links_are_available
