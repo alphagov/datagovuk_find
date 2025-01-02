@@ -42,26 +42,11 @@ class SolrDataset
   end
 
   def self.get_by_uuid(uuid:)
-    solr_client = Search::Solr.client
+    get_by_query(query: "id:#{uuid}")
+  end
 
-    response = begin
-      solr_client.get "select", params: {
-        q: "id:#{uuid}",
-        fq: "state:active",
-        fl: Search::Solr.field_list,
-      }
-    rescue RSolr::Error::Http => e
-      if e.response[:status] == 404
-        raise NotFound
-      else
-        raise e
-      end
-    end
-
-    dataset_attr = response["response"]["docs"].first
-    raise NotFound if dataset_attr.nil?
-
-    SolrDataset.new(dataset_attr)
+  def self.get_by_legacy_name(legacy_name:)
+    get_by_query(query: "name:#{legacy_name}")
   end
 
   def editable?
@@ -104,6 +89,29 @@ class SolrDataset
   def get_organisation(name)
     query = Search::Solr.get_organisation(name)
     query["response"]["docs"].first
+  end
+
+  def self.get_by_query(query:)
+    solr_client = Search::Solr.client
+
+    response = begin
+      solr_client.get "select", params: {
+        q: query,
+        fq: "state:active",
+        fl: Search::Solr.field_list,
+      }
+    rescue RSolr::Error::Http => e
+      if e.response[:status] == 404
+        raise NotFound
+      else
+        raise e
+      end
+    end
+
+    dataset_attr = response["response"]["docs"].first
+    raise NotFound if dataset_attr.nil?
+
+    SolrDataset.new(dataset_attr)
   end
 
   class NotFound < StandardError; end
