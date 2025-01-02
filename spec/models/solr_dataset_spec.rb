@@ -94,6 +94,47 @@ RSpec.describe SolrDataset do
     end
   end
 
+  describe ".get_by_legacy_name" do
+    context "dataset exists" do
+      let(:response) { JSON.parse(File.read(Rails.root.join("spec/fixtures/solr_dataset.json").to_s)) }
+      let(:dataset) { described_class.get_by_legacy_name(legacy_name: "a-very-interesting-dataset") }
+
+      before do
+        org_response = JSON.parse(File.read(Rails.root.join("spec/fixtures/solr_organisation.json").to_s))
+        allow(Search::Solr).to receive(:get_organisation).and_return(org_response)
+        allow_any_instance_of(RSolr::Client).to receive(:get).and_return(response)
+      end
+
+      it "returns correct dataset" do
+        expect(dataset.uuid).to eq("420932c7-e6f8-43ea-adc5-3141f757b5cb")
+        expect(dataset.name).to eq("a-very-interesting-dataset")
+        expect(dataset.title).to eq("A very interesting dataset")
+      end
+    end
+
+    context "Dataset doesn't exist" do
+      it "raises an exeption if Solr returns 404 response" do
+        mock_solr_http_error(status: 404)
+
+        expect {
+          described_class.get_by_legacy_name(legacy_name: "does-not-exist")
+        }.to raise_error(described_class::NotFound)
+      end
+
+      it "raises an exeption if Solr returns zero results" do
+        response = { "response" => {
+          "numFound" => 0,
+          "docs" => [],
+        } }
+        allow_any_instance_of(RSolr::Client).to receive(:get).and_return(response)
+
+        expect {
+          described_class.get_by_legacy_name(legacy_name: "exists-but-solr-is-unwell")
+        }.to raise_error(described_class::NotFound)
+      end
+    end
+  end
+
   describe "#organogram?" do
     before do
       org_response = JSON.parse(File.read(Rails.root.join("spec/fixtures/solr_organisation.json").to_s))

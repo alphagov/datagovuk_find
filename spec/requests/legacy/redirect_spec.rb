@@ -26,32 +26,37 @@ RSpec.describe "legacy", type: :request do
   end
 
   describe "dataset page" do
-    let(:dataset) { build :dataset, legacy_name: "a-legacy-name" }
+    let(:dataset) { double(name: "a-very-interesting-dataset", uuid: "123") }
 
     before do
-      index(dataset)
+      allow(SolrDataset).to receive(:get_by_legacy_name).and_return(dataset)
     end
 
     it "redirects to the latest slugged URL" do
-      get "/dataset/#{dataset.legacy_name}"
+      get "/dataset/#{dataset.name}"
       expect(response).to redirect_to(dataset_url(dataset.uuid, dataset.name))
       expect(response).to have_http_status(:moved_permanently)
     end
   end
 
   describe "datafile resources" do
-    let(:dataset) { build :dataset, :with_datafile, legacy_name: "legacy" }
+    let(:datafile) { double("non-existing-datafile", uuid: "456") }
+    let(:dataset) { double(name: "a-very-interesting-dataset", uuid: "123", datafiles: [double("datafile", uuid: "789")]) }
+
+    before do
+      allow(SolrDataset).to receive(:get_by_legacy_name).and_return(dataset)
+    end
 
     context "when the datafile can not be found" do
       it "returns a not found error page" do
-        get "/dataset/legacy/resource/#{dataset.datafiles.first.uuid}"
+        get "/dataset/legacy/resource/#{datafile.uuid}"
         expect(response).to have_http_status(:not_found)
       end
     end
 
     context "when the datafile exists" do
       before do
-        index(dataset)
+        allow(SolrDataset).to receive(:get_by_legacy_name).and_return(dataset)
       end
 
       it "redirects to the datefile preview page" do
