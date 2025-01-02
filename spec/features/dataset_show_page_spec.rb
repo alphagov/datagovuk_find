@@ -132,22 +132,6 @@ RSpec.feature "Dataset page", type: :feature, elasticsearch: true do
     end
   end
 
-  feature "Map preview links" do
-    # skipping map preview test as it is being deprecated
-    # test left in place for future reimplementation of map previews
-    scenario "WMS Resources have a link to map preview if we have inspire metadata", skip: true do
-      dataset = build :dataset, :inspire, inspire_metadata: {}
-      index_and_visit(dataset)
-      expect(page).to have_content("Preview on map")
-    end
-
-    scenario "WMS Resources have no link to map preview if we have no inspire metadata" do
-      dataset = build :dataset
-      index_and_visit(dataset)
-      expect(page).not_to have_content("Preview on map")
-    end
-  end
-
   feature "Meta data" do
     scenario "Display the topic if there is one" do
       dataset = build :dataset, :with_topic

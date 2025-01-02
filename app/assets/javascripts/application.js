@@ -19,7 +19,6 @@
 //= require_tree ./organograms/lib
 //= require_tree ./organograms
 //= require_tree .
-//= stub map-preview
 
 window.GOVUK.modules.start()
 window.GOVUK.analyticsInit()

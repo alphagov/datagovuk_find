@@ -93,4 +93,29 @@ RSpec.describe SolrDataset do
       end
     end
   end
+
+  describe "#organogram?" do
+    before do
+      org_response = JSON.parse(File.read(Rails.root.join("spec/fixtures/solr_organisation.json").to_s))
+      allow(Search::Solr).to receive(:get_organisation).and_return(org_response)
+    end
+
+    it "returns true if schema_id mateches those of organagram" do
+      response = modified_dataset_validated_data_dict_json(
+        "schema-vocabulary", "d3c0b23f-6979-45e4-88ed-d2ab59b005d0"
+      )
+      params = response["response"]["docs"].first
+      dataset = described_class.new(params)
+
+      expect(dataset.organogram?).to eq(true)
+    end
+
+    it "returns false if schema_id is not an organagrmam" do
+      response = JSON.parse(File.read(Rails.root.join("spec/fixtures/solr_dataset.json").to_s))
+      params = response["response"]["docs"].first
+      dataset = described_class.new(params)
+
+      expect(dataset.organogram?).to eq(false)
+    end
+  end
 end

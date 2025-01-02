@@ -148,3 +148,11 @@ en:
         inspire_gemini_record: "Source Metadata"
         xml: "XML"
         html: "HTML"
+  solr_previews:
+    show:
+      back_link: "Back to dataset"
+      preview_line: "You're previewing the first %{line_count} rows of this file."
+      view_full_organogram: "View the full organogram" 
+      download_file: "Download this file"
+      this_file: "this file."
+      no_preview_avail: "Currently there is no preview available for"
