@@ -3,8 +3,7 @@
 <main role="main" id="main-content" class="govuk-main-wrapper">
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
-    <%= link_to t('.back_link'), solr_dataset_path(@dataset.uuid, @dataset.name), class: 'link-back govuk-link' %>
+      <%= link_to t('.back_link'), os_dataset_path(@dataset.uuid, @dataset.name), class: 'link-back govuk-link' %>
 
       <%= render "govuk_publishing_components/components/heading", {
         text: sanitize("#{@dataset.title}<span class=\"govuk-caption-l gem-c-title__context\">#{@datafile.name}</span>"),

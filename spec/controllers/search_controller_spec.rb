@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe SolrSearchController, type: :controller do
+RSpec.describe SearchController, type: :controller do
   let(:valid_params) { { q: "test search", page: 1, sort: "asc" } }
   let(:solr_response_with_results) do
     {

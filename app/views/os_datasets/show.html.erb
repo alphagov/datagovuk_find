@@ -1,5 +1,9 @@
 <% content_for :page_title do %><%= @dataset.title %><% end %>
 
+<script type="application/ld+json">
+ <%= raw to_json_ld(@dataset) %>
+</script>
+
 <%= content_for :breadcrumb do %>
   <%= render 'breadcrumb' %>
 <% end%>
@@ -11,23 +15,37 @@
     <div class="grid-row">
       <div class="column-full">
         <section class="dgu-datalinks">
-          <h2 class="heading-medium"><%= t('.data_links')%></h2>
-
-          <% if @dataset.datafiles.present? %>
-            <%= render partial: 'datafile_table', locals: { datafiles: @dataset.datafiles } %>
-          <% else %>
-            <%= render partial: 'no_datafiles', locals: { dataset: @dataset } %>
+          <h2 class="heading-medium"><%= t('.data_links')%>
+          <% unless @timeseries_datafiles.empty? %>
+            <!-- accordions for time series datasets -->
+            <% if !browser.ie?(8) %>
+              <span class="showHide-open-all"><%= t('.open_all') %></span>
+            <% end %>
           <% end %>
+          </h2>
+
+          <% unless @timeseries_datafiles.empty? %>
+            <%= render partial: "timeseries_data", locals: { datafiles: @timeseries_datafiles } %>
+          <% end %>
+
+          <% unless @non_timeseries_datafiles.empty? %>
+            <%= render partial: "non_timeseries_data", locals: { datafiles: @non_timeseries_datafiles } %>
+          <% end %>
+
+          <% if @dataset.datafiles.empty? %>
+            <%= render partial: "no_datafiles", locals: { dataset: @dataset } %>
+          <% end %>
+
         </section>
       </div>
     </div>
 
-    <% if @dataset.inspire_dataset.present? %>
+    <% if @dataset.description.present? || @dataset.inspire_dataset.present? %>
       <%= render partial: "additional_info", locals: { dataset: @dataset } %>
     <% end %>
 
     <% unless @dataset.docs.empty? %>
-      <%= render partial: "supporting_docs", locals: { dataset: @dataset }  %>
+      <%= render partial: "supporting_docs", locals: { dataset: @dataset } %>
     <% end %>
 
     <% if contact_information_exists?(@dataset) %>
@@ -57,10 +75,11 @@
             <div role="note" aria-label="Publisher information" class="panel panel-border-narrow text">
               <p><%= t('datasets.publishers.information') %></p>
             </div>
-            <p><%= link_to t('datasets.publishers.button'), "/dataset/edit/#{@dataset.name}", role: 'button', class: 'govuk-button', rel: %w(nofollow) %></p>
+            <p><%= link_to t('datasets.publishers.button'), "/dataset/edit/#{@dataset.legacy_name}", role: 'button', class: 'govuk-button', rel: %w(nofollow) %></p>
           </div>
         </div>
       </section>
     <% end %>
+
   </div>
 </main>

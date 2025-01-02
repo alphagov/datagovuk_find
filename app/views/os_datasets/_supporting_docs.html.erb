@@ -15,10 +15,10 @@
     <% dataset.docs.each do |doc| %>
       <tr>
         <td class="title">
-          <a href="<%= doc["url"]%>" class="govuk-link"><% if doc["name"].empty? %> No name specified <% else %> <%=doc["name"]%><% end %></a>
+          <a href="<%= doc.url%>" class="govuk-link"><%= doc.name %></a>
         </td>
-        <td><%= doc["format"] or "N/A" %></td>
-        <td><%= format_timestamp(doc["metadata_modified"]) or "N/A" %></td>
+        <td><%= doc.format or "N/A" %></td>
+        <td><%= format_timestamp(doc.created_at) or "N/A" %></td>
       </tr>
     <% end %>
     </tbody>

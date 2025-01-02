@@ -42,7 +42,7 @@ RSpec.feature "Solr Inspire dataset", type: :feature do
   end
 
   def when_i_visit_solr_dataset_page(_response, dataset)
-    visit solr_dataset_path(dataset.uuid, dataset.name)
+    visit dataset_path(dataset.uuid, dataset.name)
   end
 
   def then_the_custom_licence_title_is_displayed
