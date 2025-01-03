@@ -1,0 +1,14 @@
+{
+  "response":{
+    "numFound":10,
+    "start":0,
+    "numFoundExact":true,
+    "docs":[
+      { "title":"Aberdeen City Council", "name":"aberdeen-city-council" },
+      { "title":"Aberdeenshire Council", "name":"aberdeenshire-council" },
+      { "title":"Academics", "name":"academics" },
+      { "title":"Active Travel England", "name":"active-travel-england" },
+      { "title":"Adur District Council", "name":"adur-district-council" }
+    ]
+  }
+}

@@ -148,7 +148,7 @@ GEM
     google-protobuf (3.25.5)
     googleapis-common-protos-types (1.12.0)
       google-protobuf (~> 3.18)
-    govuk_app_config (9.9.1)
+    govuk_app_config (9.8.2)
       logstasher (~> 2.1)
       opentelemetry-exporter-otlp (>= 0.25, < 0.27)
       opentelemetry-instrumentation-all (>= 0.39.1, < 0.57.0)
@@ -527,6 +527,9 @@ GEM
       netrc (~> 0.8)
     rexml (3.3.9)
     rouge (4.2.0)
+    rsolr (2.6.0)
+      builder (>= 2.1.2)
+      faraday (>= 0.9, < 3, != 2.0.0)
     rspec (3.13.0)
       rspec-core (~> 3.13.0)
       rspec-expectations (~> 3.13.0)
@@ -609,8 +612,6 @@ GEM
     sentry-rails (5.16.1)
       railties (>= 5.0)
       sentry-ruby (~> 5.16.1)
-    sentry-raven (3.1.2)
-      faraday (>= 1.0)
     sentry-ruby (5.16.1)
       concurrent-ruby (~> 1.0, >= 1.0.2)
     simplecov (0.22.0)
@@ -695,12 +696,14 @@ DEPENDENCIES
   rails (= 7.0.5.1)
   redcarpet
   rest-client
+  rsolr
   rspec
   rspec-rails
   rubocop-govuk
   sass-rails
   secure_headers
-  sentry-raven
+  sentry-rails
+  sentry-ruby
   simplecov (< 0.23)
   spring
   spring-commands-rspec

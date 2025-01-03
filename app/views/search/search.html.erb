@@ -1,11 +1,11 @@
 <% content_for :page_title do %><%= search_term.present? ?
-    t('.results_page_title', query: search_term) :
-    t('.search_results') %><% end %>
+  t('.results_page_title', query: search_term) :
+  t('.search_results') %>
+<% end %>
 
 <% content_for :head do %>
   <meta name="robots" content="noindex">
 <% end %>
-
 <form action="/search" method="GET">
   <main role="main" id="main-content" class="govuk-main-wrapper">
     <div class="govuk-width-container">
@@ -15,11 +15,11 @@
         heading_level: 1,
         font_size: "l",
       } %>
-
       <div class="govuk-grid-row">
-        <div class="govuk-grid-column-two-thirds" id="search-box"> 
+        <div class="govuk-grid-column-two-thirds" id="search-box">
           <%= render "govuk_publishing_components/components/search", {
             label_text: t('.search_data_gov_uk'),
+            value: @presenter.search_keywords,
           } %>
         </div>
       </div>
@@ -28,7 +28,6 @@
         <div class="govuk-grid-column-one-third">
           <%= render 'filters' %>
         </div>
-
         <div class="govuk-grid-column-two-thirds dgu-results">
           <%= render 'sort' if @num_results > 1 %>
           <span class="dgu-results__summary">
@@ -37,49 +36,24 @@
           </span>
 
           <% if @num_results.zero? %>
-            <div class="dgu-results__zero">
-              <%= render "govuk_publishing_components/components/heading", {
-                text: "#{t(".zero_result_tips.try")}:",
-                margin_bottom: 4,
-                heading_level: 2,
-                font_size: "m",
-              } %>
-              <ul class="govuk-list govuk-list--bullet">
-                <li><%= t('.zero_result_tips.different_words') %></li>
-                <li><%= t('.zero_result_tips.remove_filters') %></li>
-              </ul>
-              <%= render "govuk_publishing_components/components/heading", {
-                text: t('.zero_result_tips.older_content'),
-                margin_bottom: 4,
-                heading_level: 2,
-                font_size: "m",
-              } %>
-              <p class="govuk-body"><%= t('.zero_result_tips.we_can_help') %></p>
-              <p class="govuk-body"><%= t('.zero_result_tips.expand_your_search') %></p>
-            </div>
+            <%= render "no_results" %>
           <% else %>
             <% @datasets.each do |dataset| %>
               <div class="dgu-results__result">
                 <h2 class="govuk-heading-m">
-                  <%= link_to dataset.title, dataset_path(dataset.uuid, dataset.name), class: 'govuk-link' %>
+                  <%= link_to dataset["title"], dataset_path(dataset["id"], dataset["name"]), class: 'govuk-link' %>
                 </h2>
                 <dl class="dgu-metadata__box">
-                  <% unless dataset.released? %>
-                    <dt><%= t('.meta_data_box.availability') %>:</dt>
-                    <dd>
-                      <span class="dgu-highlight"><%= t('.meta_data_box.not_released') %></span>
-                    </dd>
-                  <% end %>
                   <dt><%= t('.meta_data_box.published_by') %>:</dt>
-                  <dd class="published_by"><%= dataset.organisation['title'] %></dd>
+                  <dd class="published_by"><%= JSON.parse(dataset["validated_data_dict"])["organization"]["title"] %></dd>
                   <dt><%= t('.meta_data_box.last_updated') %>:</dt>
-                  <% if dataset.public_updated_at.present? %>
-                    <dd><%= format_timestamp(dataset.public_updated_at) %></dd>
+                  <% if dataset["metadata_modified"].present? %>
+                    <dd><%= format_timestamp(dataset["metadata_modified"]) %></dd>
                   <% else %>
                     <dd class="dgu-secondary-text"> <%= t('.meta_data_box.not_applicable') %></dd>
                   <% end %>
                 </dl>
-                <p><%= truncate(strip_tags(dataset.summary), length: 200, separator: ' ') %></p>
+                <p><%= truncate(strip_tags(dataset["notes"]), length: 200, separator: ' ') %></p>
               </div>
             <% end %>
             <div class="dgu-pagination">

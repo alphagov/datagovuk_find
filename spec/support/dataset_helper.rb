@@ -13,7 +13,7 @@ end
 
 def index_and_visit(dataset)
   index(dataset)
-  visit dataset_path(dataset.uuid, dataset.name)
+  visit os_dataset_path(dataset.uuid, dataset.name)
 end
 
 def search_for(query)
@@ -25,7 +25,7 @@ def search_for(query)
 end
 
 def filtered_search_for(query, sort_method)
-  visit "/search"
+  visit search_os_path
   within "#main-content" do
     fill_in "q", with: query
     select sort_method, from: "Sort by"

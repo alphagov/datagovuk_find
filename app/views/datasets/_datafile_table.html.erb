@@ -14,7 +14,7 @@
           <%= link_to datafile.url,
               :data => {
                 'ga-event' => "download",
-                'ga-format' => "CSV",
+                'ga-format' => format_of(datafile),
                 'ga-publisher' => @dataset.organisation.name
               },
               class: 'govuk-link' do %>
@@ -23,18 +23,13 @@
                 <span class='visually-hidden'>, Format: <%= format_of(datafile) %>, Dataset: <%= @dataset.title %></span>
               <% end %>
         </td>
-        
         <td class="govuk-table__cell">
           <% if datafile.format.blank? %>
             <span class="dgu-secondary-text">N/A</span>
           <% else %>
             <%= datafile.format.upcase %>
-            <% if datafile.size %>
-              (<%= datafile.size.number_to_human_size %>)
-            <% end %>
           <% end %>
         </td>
-
         <td class="govuk-table__cell">
           <% if datafile.created_at.present? %>
               <%= format_timestamp(datafile.created_at) %>
@@ -42,7 +37,6 @@
             <span class="dgu-secondary-text">Not available</span>
           <% end %>
         </td>
-
         <td class="govuk-table__cell">
           <% if datafile.csv? %>
             <%= link_to datafile_preview_path(@dataset.uuid, @dataset.name, datafile.uuid),
@@ -55,9 +49,6 @@
                   Preview
                   <span class='visually-hidden'> CSV '<%= datafile.name %>', Dataset: <%= @dataset.title %></span>
                 <% end %>
-          <% elsif datafile.wms? && @dataset.inspire_dataset.present? %>
-          <!-- leaving this section in place to make it easier to add map previews in the future -->
-            <span class="dgu-secondary-text"><%= t('.not_available') %></span>
           <% else %>
             <span class="dgu-secondary-text"><%= t('.not_available') %></span>
           <% end %>

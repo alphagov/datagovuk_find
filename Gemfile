@@ -29,9 +29,11 @@ gem "plek", "~> 4.1" # TODO: unconstrain once govuk_pub_components up-to-date.
 gem "puma"
 gem "redcarpet"
 gem "rest-client"
+gem "rsolr"
 gem "sass-rails"
 gem "secure_headers"
-gem "sentry-raven"
+gem "sentry-rails"
+gem "sentry-ruby"
 gem "uglifier"
 
 group :development, :test do

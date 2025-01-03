@@ -1,9 +1,9 @@
 class Legacy::DatafilesController < ApplicationController
   def redirect
-    dataset = Dataset.get_by_legacy_name(legacy_name: params[:legacy_dataset_name])
+    dataset = SolrDataset.get_by_legacy_name(legacy_name: params[:legacy_dataset_name])
     datafile = dataset.datafiles.find { |f| f.uuid == params[:datafile_uuid] }
 
-    raise Datafile::DatafileNotFound if datafile.nil?
+    raise SolrDatafile::NotFound if datafile.nil?
 
     redirect_path = datafile_preview_path(dataset.uuid, dataset.name, datafile.uuid)
 

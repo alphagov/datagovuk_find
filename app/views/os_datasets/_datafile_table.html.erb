@@ -1,0 +1,69 @@
+<table class="govuk-table govuk-!-margin-bottom-4">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header"><%= t('.link_to_data') %></th>
+      <th scope="col" class="govuk-table__header"><%= t('.format') %></th>
+      <th scope="col" class="govuk-table__header"><%= t('.file_added') %></th>
+      <th scope="col" class="govuk-table__header"><%= t('.data_preview') %></th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <% sort_by_created_at(datafiles).each_with_index do |datafile, index| %>
+      <tr class="<%= show_more?(index) %> js-datafile-visible govuk-table__row">
+        <td class="govuk-table__cell">
+          <%= link_to datafile.url,
+              :data => {
+                'ga-event' => "download",
+                'ga-format' => "CSV",
+                'ga-publisher' => @dataset.organisation.name
+              },
+              class: 'govuk-link' do %>
+                <span class="visually-hidden">Download </span>
+                <%= (datafile.name ? datafile.name : 'Data') %>
+                <span class='visually-hidden'>, Format: <%= format_of(datafile) %>, Dataset: <%= @dataset.title %></span>
+              <% end %>
+        </td>
+        
+        <td class="govuk-table__cell">
+          <% if datafile.format.blank? %>
+            <span class="dgu-secondary-text">N/A</span>
+          <% else %>
+            <%= datafile.format.upcase %>
+            <% if datafile.size %>
+              (<%= datafile.size.number_to_human_size %>)
+            <% end %>
+          <% end %>
+        </td>
+
+        <td class="govuk-table__cell">
+          <% if datafile.created_at.present? %>
+              <%= format_timestamp(datafile.created_at) %>
+          <% else %>
+            <span class="dgu-secondary-text">Not available</span>
+          <% end %>
+        </td>
+
+        <td class="govuk-table__cell">
+          <% if datafile.csv? %>
+            <%= link_to os_datafile_preview_path(@dataset.uuid, @dataset.name, datafile.uuid),
+                :data => {
+                  'ga-event' => 'preview',
+                  'ga-format' => (datafile.format.presence || 'n/a').upcase,
+                  'ga-publisher' => @dataset.organisation.name
+                },
+                class: 'govuk-link' do %>
+                  Preview
+                  <span class='visually-hidden'> CSV '<%= datafile.name %>', Dataset: <%= @dataset.title %></span>
+                <% end %>
+          <% else %>
+            <span class="dgu-secondary-text"><%= t('.not_available') %></span>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% if datafiles.length > 5 && !browser.ie?(version: 8) %>
+  <button class="govuk-button govuk-button--secondary show-toggle" aria-label="Show more data links">Show more</button>
+<% end %>

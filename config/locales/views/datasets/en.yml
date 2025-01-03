@@ -1,5 +1,5 @@
 en:
-  previews:
+  os_previews:
     show:
       back_link: "Back to dataset"
       preview_line: "You're previewing the first %{line_count} rows of this file."
@@ -7,7 +7,7 @@ en:
       download_file: "Download this file"
       this_file: "this file."
       no_preview_avail: "Currently there is no preview available for"
-  datasets:
+  os_datasets:
     additional_info:
       additional_info: "Additional information"
       view_additional_metadata: "View additional metadata"
@@ -86,3 +86,83 @@ en:
       title: "Edit this dataset"
       information: "You must have an account for this publisher on data.gov.uk to make any changes to a dataset."
       button: "Sign in"
+  datasets:
+    meta_data:
+      published_by: "Published by"
+      last_updated: "Last updated"
+      summary: "Summary"
+      topic: "Topic"
+      topic_not_added: "Not added"
+      view_licence_information: "View licence information"
+      licence: "Licence"
+      no_licence: "None"
+      other_licence: "Other Licence"
+      uk_ogl: "Open Government Licence"
+      uk_ogl_url: "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+      publisher_datasets: "More from this publisher"
+      search_gov_data: "Search"
+      accessibility:
+        search_box_label: "Search"
+        search_box_button: "Find data"
+      availability: "Availability"
+    breadcrumb:
+      home: "Home"
+      search: "Search"
+    show:
+      data_links: "Data links"
+      not_released: "This data hasn’t been released by the publisher."
+      contact_the_publisher: "Contact the publisher for more information."
+      contact_the_team: "Contact the team on"
+      if_you_have_questions: "if you have any questions."
+      licence_information: "Licence information"
+    datafile_table:
+      link_to_data: "Link to the data"
+      format: "Format"
+      file_added: "File added"
+      data_preview: "Data preview"
+      data_link: "Data Link"
+      n_a: "N/A"
+      not_available: "Not available"
+    supporting_docs:
+      supporting_docs: "Supporting documents"
+      link_to_doc: "Link to the document"
+      date_added: "Date added"
+      format: "Format"
+    additional_info:
+      additional_info: "Additional information"
+      view_additional_metadata: "View additional metadata"
+      inspire_added: "Added to data.gov.uk"
+      inspire_guid: "Harvest GUID"
+      inspire_extent: "Extent"
+      inspire_latitude: "Latitude"
+      inspire_longitude: "Longitude"
+      inspire_to: "to"
+      inspire_spatial_ref_system: "Spatial reference system"
+      inspire_dataset_ref_date: "Dataset reference date"
+      inspire_frequency: "Frequency of update"
+      inspire_responsible_party: "Responsible party"
+      inspire_iso_resource: "ISO 19139 resource type"
+      inspire_metadata_lang: "Metadata language"
+      inspire_access_constraints: "Access contraints"
+      inspire_access_constraints_unspecified: "Not specified"
+      inspire_gemini_record: "Source Metadata"
+      xml: "XML"
+      html: "HTML"
+    publishers:
+      title: "Edit this dataset"
+      information: "You must have an account for this publisher on data.gov.uk to make any changes to a dataset."
+      button: "Sign in"
+    contact:
+      contact: "Contact"
+      default_message: "Contact %{title} regarding this dataset"
+      enquiries: "Enquiries"
+      foi_requests: "Freedom of Information (FOI) requests"
+      foi_message: "Freedom of information requests for this dataset"
+  previews:
+    show:
+      back_link: "Back to dataset"
+      preview_line: "You're previewing the first %{line_count} rows of this file."
+      view_full_organogram: "View the full organogram" 
+      download_file: "Download this file"
+      this_file: "this file."
+      no_preview_avail: "Currently there is no preview available for"

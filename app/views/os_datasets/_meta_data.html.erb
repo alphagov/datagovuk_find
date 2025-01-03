@@ -1,0 +1,115 @@
+<% content_for :head do %>
+  <%= tag.meta name: 'dc:title',   content: unescape(@dataset.title) %>
+  <%= tag.meta name: 'dc:creator', content: @dataset.organisation.title %>
+  <%= tag.meta name: 'dc:date',    content: Date.parse(@dataset.public_updated_at).to_formatted_s %>
+
+  <% if @dataset.licence_title.present? %>
+    <%= tag.meta name: 'dc:rights', content: @dataset.licence_title %>
+  <% end %>
+<% end %>
+
+<section class="meta-data">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <h1 class="heading-large" property="dc:title">
+        <%= unescape(@dataset.title) %>
+      </h1>
+    </div>
+  </div>
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <div class="dgu-metadata__box dgu-metadata__box--in-dataset">
+        <dl class="metadata">
+          <% unless @dataset.released %>
+            <dt><%= t('.availability') %>:</dt>
+            <dd>
+              <span class="dgu-highlight">Not released</span>
+            </dd>
+          <% end %>
+          <dt><%= t('.published_by') %>:</dt>
+
+          <dd property="dc:creator">
+            <%= @dataset.organisation.title %>
+          </dd>
+
+          <dt><%= t('.last_updated') %>:</dt>
+          <dd property="dc:date" content="<%= format_timestamp(@dataset.public_updated_at) %>">
+            <%= format_timestamp(@dataset.public_updated_at) %>
+          </dd>
+
+          <dt><%= t('.topic') %>:</dt>
+          <% if @dataset.topic %>
+            <dd><%= @dataset.topic['title'] %></dd>
+          <% else %>
+            <dd><%= t('.topic_not_added') %></dd>
+          <% end %>
+
+          <dt><%= t('.licence') %>:</dt>
+          <dd property="dc:rights">
+            <% if @dataset.licence_url.present? %>
+              <%= link_to @dataset.licence_title,
+                          @dataset.licence_url,
+                          rel: 'dc:rights',
+                          class: 'govuk-link' %>
+            <% elsif @dataset.licence_title.present? %>
+              <%= @dataset.licence_title %>
+            <% elsif @dataset.licence_custom.present? %>
+              <%= t('.other_licence') %>
+            <% else %>
+              <%= t('.no_licence') %>
+            <% end %>
+
+            <% if @dataset.licence_custom.present? %>
+              <br>
+              <%= link_to t('.view_licence_information'),
+                            '#licence-info',
+                            class: 'govuk-link' %>
+            <% end %>
+          </dd>
+        </dl>
+
+        <h3 class="heading-small">
+          <%= t('.summary') %>
+        </h3>
+        <div class="js-summary" style="line-height: 1.5em; overflow: hidden" property="dc:description">
+          <%= to_markdown(@dataset.summary) %>
+        </div>
+      </div>
+    </div>
+
+    <div class="column-one-third dgu-dataset-right">
+      <div class="dgu-dataset-right__sidebar__publisher_datasets">
+        <h3 class="heading-small"><%= t('.publisher_datasets') %></h3>
+        <%= link_to search_os_path(filters: { publisher: @dataset.organisation.title }), class: 'govuk-link' do %>
+          <%= "All datasets from #{@dataset.organisation.title}" %>
+        <% end %>
+      </div>
+
+      <% unless @related_datasets.empty? %>
+        <div class="dgu-dataset-right__sidebar">
+          <h3 class="heading-small"><%= t('.related_datasets') %></h3>
+          <ul>
+            <% @related_datasets.each do |dataset| %>
+              <li>
+                <%= link_to unescape(dataset.title), os_dataset_path(dataset.uuid, dataset.name), class: 'govuk-link' %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <h3 class="heading-small"><%= t('.search_gov_data') %></h3>
+      <form action="/search" method="GET" class="dgu-search-box">
+        <label for="q" class="visuallyhidden"><%= t('.accessibility.search_box_label') %></label>
+        <input id="q"
+               name="q"
+               type="text"
+               class="form-control dgu-search-box__input"/><button type="submit"
+                                                                   class="dgu-search-box__button">
+                                                            <%= t('.accessibility.search_box_button')%>
+                                                           </button>
+      </form>
+    </div>
+  </div>
+</section>
