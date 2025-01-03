@@ -80,6 +80,14 @@ RSpec.describe SolrDataset do
         }.to raise_error(described_class::NotFound)
       end
 
+      it "raises an exeption if Solr returns 400 response" do
+        mock_solr_http_error(status: 400)
+
+        expect {
+          described_class.get_by_uuid(uuid: "does-not-exist")
+        }.to raise_error(described_class::NotFound)
+      end
+
       it "raises an exeption if Solr returns zero results" do
         response = { "response" => {
           "numFound" => 0,

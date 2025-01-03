@@ -101,7 +101,7 @@ class SolrDataset
         fl: Search::Solr.field_list,
       }
     rescue RSolr::Error::Http => e
-      if e.response[:status] == 404
+      if e.response[:status] == 404 || e.response[:status] == 400
         raise NotFound
       else
         raise e
