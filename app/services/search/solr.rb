@@ -107,7 +107,7 @@ module Search
           "site_id:dgu_organisations",
           "name:#{name}",
         ],
-        fl: %w[title name],
+        fl: %w[title name extras_contact-email extras_foi-email extras_foi-web extras_foi-name],
       }
     end
 
