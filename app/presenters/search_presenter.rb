@@ -30,7 +30,8 @@ class SearchPresenter
       slugs = facet_values("organization")
 
       results_organisations = slugs.map do |slug|
-        Search::Solr.get_organisation(slug)["response"]["docs"].first["title"]
+        org = Search::Solr.get_organisation(slug)["response"]["docs"].first
+        org.present? ? org["title"] : slug
       end
 
       results_organisations.sort
