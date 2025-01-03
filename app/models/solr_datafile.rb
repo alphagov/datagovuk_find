@@ -3,7 +3,7 @@ class SolrDatafile
               :format, :uuid
 
   def initialize(hash, created_at)
-    @name = hash["name"] || hash["description"]
+    @name = hash["name"].presence || hash["description"]
     @url = hash["url"]
 
     @created_at = hash["created"] || created_at
