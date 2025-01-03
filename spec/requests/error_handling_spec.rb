@@ -31,4 +31,11 @@ RSpec.describe "Error handling", type: :request do
     get "/dataset/#{dataset.name}/resource/#{SecureRandom.uuid}"
     expect(response).to have_http_status(:not_found)
   end
+
+  it "handles JSON requests" do
+    mock_solr_http_error(status: 404)
+
+    get "/dataset/something.json"
+    expect(response).to have_http_status(:not_found)
+  end
 end
