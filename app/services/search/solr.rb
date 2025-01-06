@@ -3,7 +3,7 @@ module Search
     RESULTS_PER_PAGE = 20
 
     def self.search(params)
-      query_param = params.fetch("q", "").squish
+      query_param = (params["q"] || "").to_s.squish
       @page = params["page"]
       sort_param = params["sort"]
       @page && @page.to_i.positive? ? @page.to_i : 1
