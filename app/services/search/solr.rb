@@ -14,14 +14,14 @@ module Search
       @sort_query = sort_param == "recent" ? "metadata_modified desc" : nil
       build_filter_query(params)
 
-      query_param.empty? ? query_solr : query_solr_with_facets
+      query_param.blank? ? query_solr : query_solr_with_facets
     end
 
     def self.build_term_query(query_param)
       return @query = "*:*" if query_param.blank?
 
       processed_query = SearchHelper.process_query(query_param)
-      raise NoSearchTermsError, "Query string is empty after processing" if processed_query.empty?
+      raise NoSearchTermsError, "Query string is empty after processing" if processed_query.blank?
 
       @query = "(title:(#{processed_query})^2 OR notes:(#{processed_query})) AND NOT site_id:dgu_organisations"
     end
