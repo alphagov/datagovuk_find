@@ -35,7 +35,7 @@
             @datafile.preview.headers.each_with_index do |col, index|
               table_headings << {
                 text: col,
-                format: (table_rows.select {|row| row[index][:format] == "numeric"}).length > 0 ? "numeric" : false
+                format: (table_rows.select {|row| row[index].try(:[], :format) == "numeric" }).length > 0 ? "numeric" : false
               }
             end
           end
