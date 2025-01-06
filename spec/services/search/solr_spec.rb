@@ -309,6 +309,12 @@ RSpec.describe Search::Solr do
 
       expect(described_class.format_filter("Other")).to eq(query_string)
     end
+
+    it "returns solr query if format is not supported by the filter in the GUI" do
+      expect(described_class.format_filter("RDF")).to eq(
+        "res_format:\"RDF\"",
+      )
+    end
   end
 
   describe ".licence_filter" do
