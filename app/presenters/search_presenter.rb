@@ -24,7 +24,7 @@ class SearchPresenter
   end
 
   def organisations
-    if search_keywords.empty?
+    if search_keywords.blank?
       Search::Solr.get_organisations.keys
     else
       slugs = facet_values("organization")
@@ -39,7 +39,7 @@ class SearchPresenter
   end
 
   def topic_options
-    if search_keywords.empty?
+    if search_keywords.blank?
       TOPIC_MAPPINGS.keys
     else
       tokenized_topics = facet_values("extras_theme-primary")
@@ -49,7 +49,7 @@ class SearchPresenter
   end
 
   def format_options
-    if search_keywords.empty?
+    if search_keywords.blank?
       Search::Solr::FORMAT_MAPPINGS.keys << "Other"
     else
       raw_formats = facet_values("res_format")

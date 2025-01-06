@@ -26,6 +26,10 @@ RSpec.describe Search::Solr do
       allow_any_instance_of(RSolr::Client).to receive(:get).and_return(JSON.parse(response))
     end
 
+    it "returns a response if q param is missing" do
+      expect { described_class.search({}) }.not_to raise_error
+    end
+
     it "returns a JSON response" do
       expect(results).to be_a(Hash)
     end
