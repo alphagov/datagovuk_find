@@ -68,6 +68,8 @@ module Search
     def self.format_filter(format)
       return other_formats_filter_query if format == "Other"
 
+      return "res_format:\"#{format}\"" unless FORMAT_MAPPINGS.keys.include?(format)
+
       FORMAT_MAPPINGS[format].map { |f| "res_format:\"#{f}\"" }.join("OR")
     end
 
