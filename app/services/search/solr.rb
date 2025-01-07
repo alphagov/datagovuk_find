@@ -1,6 +1,7 @@
 module Search
   class Solr
     RESULTS_PER_PAGE = 20
+    ORGANISATIONS_LIMIT = 1600 # Arbitrary large number
 
     def self.search(params)
       query_param = (params["q"] || "").to_s.squish
@@ -91,7 +92,7 @@ module Search
           "site_id:dgu_organisations",
         ],
         fl: %w[title name],
-        rows: 1600,
+        rows: ORGANISATIONS_LIMIT,
       }
       query["response"]["docs"].each do |org|
         @organisations_list.store(org["title"], org["name"])
@@ -139,6 +140,7 @@ module Search
         sort: @sort_query,
         facet: "true",
         "facet.field": %w[organization extras_theme-primary res_format],
+        "f.organization.facet.limit": ORGANISATIONS_LIMIT,
         "facet.sort": "count",
         "facet.mincount": 1,
       }
