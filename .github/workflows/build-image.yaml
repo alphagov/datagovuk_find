@@ -64,10 +64,6 @@ jobs:
     permissions:
       packages: write
     steps:
-      - name: DEBUG - Check Build Config
-        run: |
-          echo "[DEBUG] app_metadata: ${{ fromJson(needs.configure_builds.outputs.app_metadata) }}"
-
       - name: Login to GHCR
         uses: docker/login-action@v3
         with:
