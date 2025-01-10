@@ -25,7 +25,7 @@ Rails.application.routes.draw do
     get "about"
     get "accessibility"
     get "cookies"
-    get "dashboard"
+    get "dashboard" # 410 Gone
     get "privacy"
     get "publishers"
     get "site-changes", to: :site_changes
