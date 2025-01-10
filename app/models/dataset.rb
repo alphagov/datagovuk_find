@@ -51,7 +51,7 @@ class Dataset
     @foi_web = hash["foi_web"]
     @inspire_dataset = hash["inspire_dataset"]
     @harvested = hash["harvested"]
-    @organisation = Organisation.new(hash["organisation"])
+    @organisation = Organisation.new(hash["organisation"], nil)
     @datafiles = hash["datafiles"].map { |file| Datafile.new(file) }
     @docs = hash["docs"].map { |file| Doc.new(file) }
     @schema_id = hash["schema_id"]
