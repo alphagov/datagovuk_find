@@ -22,7 +22,8 @@ class SolrDataset
     @licence_code = dataset_dict["license_id"]
     @licence_custom = dataset["extras_licence"].gsub(/"|\[|\]/, "") if dataset["extras_licence"].present?
 
-    @organisation = Organisation.new(get_organisation(dataset_dict["organization"]["name"]))
+    organisation_slug = dataset_dict["organization"]["name"]
+    @organisation = Organisation.new(get_organisation(organisation_slug), organisation_slug)
 
     @datafiles = []
     @docs = []

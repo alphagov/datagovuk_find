@@ -47,6 +47,6 @@ FactoryBot.define do
       initialize_with { attributes.stringify_keys }
     end
 
-    initialize_with { Organisation.new(attributes.stringify_keys) }
+    initialize_with { Organisation.new(attributes.stringify_keys, attributes[:name]) }
   end
 end
