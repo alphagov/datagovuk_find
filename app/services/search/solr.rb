@@ -1,7 +1,7 @@
 module Search
   class Solr
     RESULTS_PER_PAGE = 20
-    ORGANISATIONS_LIMIT = 1600 # Arbitrary large number
+    ORGANISATIONS_LIMIT = 3000 # Should match `rows` in https://github.com/alphagov/ckanext-datagovuk/blob/4cfb397/ckanext/datagovuk/lib/cli.py#L398
 
     def self.search(params)
       query_param = (params["q"] || "").to_s.squish
