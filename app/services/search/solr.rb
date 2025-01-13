@@ -128,7 +128,6 @@ module Search
     end
 
     def self.query_solr_with_facets
-      Rails.logger.debug @query
       client.get "select", params: {
         q: @query,
         "q.op": "OR",
