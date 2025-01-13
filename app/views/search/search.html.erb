@@ -1,5 +1,5 @@
-<% content_for :page_title do %><%= search_term.present? ?
-  t('.results_page_title', query: search_term) :
+<% content_for :page_title do %><%= @presenter.search_term.present? ?
+  t('.results_page_title', query: @presenter.search_term) :
   t('.search_results') %>
 <% end %>
 

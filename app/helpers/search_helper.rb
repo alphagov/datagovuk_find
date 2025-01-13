@@ -181,10 +181,6 @@ module SearchHelper
     params[:filters].except(:publisher).values.reject(&:blank?)
   end
 
-  def search_term
-    params[:q].presence || selected_topic.presence
-  end
-
 private
 
   def no_filters_selected?
