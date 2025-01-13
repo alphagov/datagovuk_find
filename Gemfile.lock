@@ -443,7 +443,6 @@ GEM
     parser (3.3.0.5)
       ast (~> 2.4.1)
       racc
-    parslet (2.0.0)
     pg (1.5.5)
     plek (4.1.0)
     prometheus_exporter (2.1.0)
@@ -668,7 +667,6 @@ DEPENDENCIES
   net-pop
   net-smtp
   nokogiri
-  parslet
   pg
   plek (~> 4.1)
   pry
