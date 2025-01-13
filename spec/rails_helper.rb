@@ -64,6 +64,8 @@ RSpec.configure do |config|
 end
 
 # Setup chrome headless driver
+GovukTest.configure
+
 Capybara.server = :puma, { Silent: true }
 
 Capybara.register_driver :chrome_headless do |app|
