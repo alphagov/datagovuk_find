@@ -40,11 +40,6 @@ Rails.application.routes.draw do
 
   get "search/", to: "search#search"
 
-  defaults format: :xml do
-    get "data/preview_proxy", to: "map_previews#proxy"
-    get "data/preview_getinfo", to: "map_previews#getinfo"
-  end
-
   get "dataset/:uuid/:name", to: "datasets#show", as: "dataset"
   get "dataset/:dataset_uuid/:name/datafile/:datafile_uuid/preview", to: "previews#show", as: "datafile_preview"
 
