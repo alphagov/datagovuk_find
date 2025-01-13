@@ -14,9 +14,6 @@ gem "kaminari"
 gem "lograge"
 gem "logstash-event"
 gem "mime-types"
-gem "net-imap", require: false
-gem "net-pop", require: false
-gem "net-smtp"
 gem "nokogiri"
 gem "plek", "~> 4.1" # TODO: unconstrain once govuk_pub_components up-to-date.
 gem "puma"

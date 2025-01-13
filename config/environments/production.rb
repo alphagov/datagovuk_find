@@ -58,14 +58,8 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "find_data_beta_production"
 
-  config.action_mailer.perform_caching = false
-
   # don't log rescued responses as it's creating unnecessary noise in the logs
   config.action_dispatch.log_rescued_responses = false
-
-  # Ignore bad email addresses and do not raise email delivery errors.
-  # Set this to true and configure the email server for immediate delivery to raise delivery errors.
-  # config.action_mailer.raise_delivery_errors = false
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).

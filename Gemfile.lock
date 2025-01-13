@@ -647,9 +647,6 @@ DEPENDENCIES
   lograge
   logstash-event
   mime-types
-  net-imap
-  net-pop
-  net-smtp
   nokogiri
   plek (~> 4.1)
   pry
