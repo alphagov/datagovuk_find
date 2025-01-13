@@ -48,12 +48,6 @@ Rails.application.routes.draw do
   get "dataset/:uuid/:name", to: "datasets#show", as: "dataset"
   get "dataset/:dataset_uuid/:name/datafile/:datafile_uuid/preview", to: "previews#show", as: "datafile_preview"
 
-  # Old OpenSearch routes
-  get "search/os", to: "os_search#search"
-  get "dataset/os/:uuid", to: "os_datasets#show", uuid: /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/
-  get "dataset/os/:uuid/:name", to: "os_datasets#show", as: "os_dataset"
-  get "dataset/os/:dataset_uuid/:name/datafile/:datafile_uuid/preview", to: "os_previews#show", as: "os_datafile_preview"
-
   get "acknowledge", to: "messages#acknowledge"
 
   # Route everything else to CKAN
