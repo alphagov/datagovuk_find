@@ -99,20 +99,6 @@ GEM
     debug_inspector (1.2.0)
     diff-lcs (1.5.1)
     docile (1.4.0)
-    domain_name (0.6.20240107)
-    elasticsearch (7.11.2)
-      elasticsearch-api (= 7.11.2)
-      elasticsearch-transport (= 7.11.2)
-    elasticsearch-api (7.11.2)
-      multi_json
-    elasticsearch-model (7.2.1)
-      activesupport (> 3)
-      elasticsearch (~> 7)
-      hashie
-    elasticsearch-rails (7.2.1)
-    elasticsearch-transport (7.11.2)
-      faraday (~> 1)
-      multi_json
     erubi (1.12.0)
     execjs (2.9.1)
     factory_bot (6.4.6)
@@ -184,16 +170,9 @@ GEM
       puma
       selenium-webdriver (>= 4.0)
     hashdiff (1.1.0)
-    hashie (5.0.0)
     htmlentities (4.3.4)
-    http-accept (1.7.0)
-    http-cookie (1.0.5)
-      domain_name (~> 0.5)
     i18n (1.14.4)
       concurrent-ruby (~> 1.0)
-    jbuilder (2.11.5)
-      actionview (>= 5.0.0)
-      activesupport (>= 5.0.0)
     jquery-rails (4.6.0)
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
@@ -244,7 +223,6 @@ GEM
     mini_portile2 (2.8.8)
     minitest (5.22.3)
     msgpack (1.7.2)
-    multi_json (1.15.0)
     multipart-post (2.4.0)
     net-imap (0.4.10)
       date
@@ -255,7 +233,6 @@ GEM
       timeout
     net-smtp (0.4.0.1)
       net-protocol
-    netrc (0.11.0)
     nio4r (2.7.0)
     nokogiri (1.16.8)
       mini_portile2 (~> 2.8.2)
@@ -458,8 +435,6 @@ GEM
     parser (3.3.0.5)
       ast (~> 2.4.1)
       racc
-    parslet (2.0.0)
-    pg (1.5.5)
     plek (4.1.0)
     prometheus_exporter (2.1.0)
       webrick
@@ -520,11 +495,6 @@ GEM
     regexp_parser (2.9.0)
     request_store (1.6.0)
       rack (>= 1.4)
-    rest-client (2.1.0)
-      http-accept (>= 1.7.0, < 2.0)
-      http-cookie (>= 1.0.2, < 2.0)
-      mime-types (>= 1.16, < 4.0)
-      netrc (~> 0.8)
     rexml (3.3.9)
     rouge (4.2.0)
     rsolr (2.6.0)
@@ -660,15 +630,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  addressable
   bootsnap
   brakeman
   browser
   byebug
   capybara
-  elasticsearch (~> 7.11.2)
-  elasticsearch-model
-  elasticsearch-rails (~> 7.2.1)
   factory_bot
   faraday
   faraday_middleware
@@ -676,18 +642,12 @@ DEPENDENCIES
   govuk_publishing_components (~> 28.7.1)
   govuk_test
   htmlentities
-  jbuilder
   jquery-rails
   kaminari
   lograge
   logstash-event
   mime-types
-  net-imap
-  net-pop
-  net-smtp
   nokogiri
-  parslet
-  pg
   plek (~> 4.1)
   pry
   pry-byebug
@@ -695,7 +655,6 @@ DEPENDENCIES
   puma
   rails (= 7.0.5.1)
   redcarpet
-  rest-client
   rsolr
   rspec
   rspec-rails

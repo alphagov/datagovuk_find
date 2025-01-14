@@ -17,6 +17,3 @@ inherit_mode:
 # See https://github.com/alphagov/rubocop-govuk/blob/main/CONTRIBUTING.md
 # **************************************************************
 
-Rails/SaveBang:
-  AllowedReceivers:
-    - Elasticsearch::Model.client.indices

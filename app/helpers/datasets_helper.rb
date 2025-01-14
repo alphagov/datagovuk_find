@@ -1,13 +1,6 @@
 require "uri"
 
 module DatasetsHelper
-  NO_MORE = {
-    "discontinued" => "Dataset no longer updated",
-    "never" => "No future updates",
-    "one off" => "No future updates",
-    "default" => "Not available",
-  }.freeze
-
   def to_markdown(content)
     return "Not provided" if content.nil?
 
@@ -21,74 +14,8 @@ module DatasetsHelper
     HTMLEntities.new.decode(str)
   end
 
-  def dataset_location(dataset)
-    locations(dataset).empty? ? NO_MORE["default"] : locations(dataset)
-  end
-
-  def expected_location_class_for(dataset)
-    "dgu-secondary-text" if locations(dataset).empty?
-  end
-
-  def input_box_class_for(ticket, field)
-    if ticket.errors[field].any?
-      "form-control form-control-2-3 form-control-error"
-    else
-      "form-control form-control-2-3"
-    end
-  end
-
   def shorten_title(title)
     title.truncate(70, separator: " ", omission: " ...")
-  end
-
-  def to_json_ld(dataset)
-    dataset_metadata = {
-      "@context": "http://schema.org",
-      "@type": "Dataset",
-      name: dataset.title,
-      url: "#{request.protocol}#{request.host_with_port}#{request.fullpath}",
-      includedInDataCatalog: {
-        "@type": "DataCatalog",
-        url: "#{request.protocol}#{request.host_with_port}",
-      },
-      creator: {
-        "@type": "Organization",
-        name: dataset.organisation.title,
-      },
-      description: dataset.summary,
-      license: {
-        "@type": "CreativeWork",
-        name: dataset.licence_title,
-        text: dataset.licence_custom,
-        url: licence_url(dataset),
-      },
-      dateModified: dataset.public_updated_at,
-    }
-    if dataset.topic
-      dataset_metadata[:keywords] = dataset.topic["title"]
-    end
-    files = metadata_files(dataset)
-    unless files.empty?
-      dataset_metadata[:distribution] = files
-    end
-    dataset_metadata.to_json
-  end
-
-  def metadata_files(dataset)
-    files = []
-    dataset.datafiles.each do |file|
-      files.push(
-        "@type": "DataDownload",
-        contentUrl: file.url,
-        fileFormat: file.format,
-        name: file.name,
-      )
-    end
-    files
-  end
-
-  def licence_url(dataset)
-    dataset.licence_url.presence || "#{request.protocol}#{request.host_with_port}#{request.fullpath}#licence-info"
   end
 
   def contact_information_exists?(dataset)
@@ -137,18 +64,5 @@ module DatasetsHelper
 
   def foi_web_address_for(dataset)
     (dataset.foi_web.presence || dataset.organisation.foi_web).to_s
-  end
-
-private
-
-  def locations(dataset)
-    %w[location1 location2 location3]
-        .map { |loc| dataset.send(loc) }
-        .join(" ")
-        .strip
-  end
-
-  def most_recent_datafile(dataset)
-    dataset.datafiles.max_by(&:created_at)
   end
 end

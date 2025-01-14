@@ -36,7 +36,6 @@ FactoryBot.find_definitions
 
 WebMock.disable_net_connect!(
   allow_localhost: true,
-  allow: Rails.configuration.elasticsearch["host"],
 )
 
 RSpec.configure do |config|
@@ -60,20 +59,13 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 
-  config.before(:each) do
-    delete_index
-    create_index
-  end
-
-  config.after(:each) do
-    delete_index
-  end
-
   config.include Capybara::DSL
   config.include FactoryBot::Syntax::Methods
 end
 
 # Setup chrome headless driver
+GovukTest.configure
+
 Capybara.server = :puma, { Silent: true }
 
 Capybara.register_driver :chrome_headless do |app|

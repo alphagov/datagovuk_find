@@ -1,47 +1,4 @@
 en:
-  os_search:
-    search:
-      results_page_title: 'Results for "%{query}"'
-      search_results: 'Search Results'
-      search_results_heading: "Search results"
-      search_data_gov_uk: "Search data.gov.uk"
-      accessibility:
-        search_box_label: "Search"
-        search_button_label: "Find data"
-      result: "result"
-      found: "found"
-      availability: "availability"
-      zero_result_tips:
-        try: "Please try"
-        different_words: "searching again using different words"
-        remove_filters: "removing your filters"
-        older_content: "Older content"
-        we_can_help: "If you’ve landed on this page from following a link or from searching on the site, we can help you."
-        expand_your_search: "We recommend you start a new search, add more search terms into the search box, or choose a publisher to filter by."
-      meta_data_box:
-        availability: "Availability"
-        published_by: "Published by"
-        last_updated: "Last updated"
-        geo_area: "Geographical area"
-        not_applicable: "Not applicable"
-        not_released: "Not released"
-    filters:
-      filter_by: "Filter by"
-      filter_by_geo: "Geographical area"
-      filter_by_format: "Format"
-      filter_by_topic: "Topic"
-      filter_by_publisher: "Publisher"
-      filter_by_ogl: "Open Government Licence (OGL) only"
-      accessibility:
-        submit_button: "Apply filters"
-        publisher_label: "publisher"
-      remove_filters: "Remove filters"
-    sort:
-      match: "Best match"
-      recent: "Most recent"
-      sort_by: "Sort by"
-      accessibility:
-        submit_button: "Apply sorting"
   search:
     search:
       results_page_title: 'Results for "%{query}"'

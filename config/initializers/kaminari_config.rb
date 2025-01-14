@@ -3,7 +3,6 @@ Kaminari.configure do |config|
 end
 
 Kaminari::Hooks.init if defined?(Kaminari::Hooks)
-Elasticsearch::Model::Response::Response.include Elasticsearch::Model::Response::Pagination::Kaminari
 
 # This is a workaround suggested by the Kaminari team to fix a security issue:
 #  https://github.com/kaminari/kaminari/security/advisories/GHSA-r5jw-62xg-j433

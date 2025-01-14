@@ -81,6 +81,10 @@ class SearchPresenter
     search_params&.dig(:filters, :licence_code)
   end
 
+  def search_term
+    search_keywords.presence || selected_topic.presence
+  end
+
 private
 
   def facet_values(facet_name)
