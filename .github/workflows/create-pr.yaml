@@ -3,7 +3,7 @@ name: Create charts PR
 on:
   workflow_dispatch:
   workflow_run:
-    workflows: [ "Build and push images" ]
+    workflows: [ "Build and push multi-arch images" ]
     types:
       - completed
     branches:
