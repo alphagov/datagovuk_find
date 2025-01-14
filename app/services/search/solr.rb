@@ -83,35 +83,39 @@ module Search
     end
 
     def self.get_organisations
-      solr_client = client
-      @organisations_list = {}
+      Rails.cache.fetch("organisations", expires_in: 10.minutes) do
+        solr_client = client
+        @organisations_list = {}
 
-      query = solr_client.get "select", params: {
-        q: "*:*",
-        fq: [
-          "site_id:dgu_organisations",
-        ],
-        fl: %w[title name],
-        rows: ORGANISATIONS_LIMIT,
-      }
-      query["response"]["docs"].each do |org|
-        @organisations_list.store(org["title"], org["name"])
+        query = solr_client.get "select", params: {
+          q: "*:*",
+          fq: [
+            "site_id:dgu_organisations",
+          ],
+          fl: %w[title name],
+          rows: ORGANISATIONS_LIMIT,
+        }
+        query["response"]["docs"].each do |org|
+          @organisations_list.store(org["title"], org["name"])
+        end
+
+        @organisations_list
       end
-
-      @organisations_list
     end
 
     def self.get_organisation(name)
-      solr_client = client
+      Rails.cache.fetch("organisation/#{name}", expires_in: 10.minutes) do
+        solr_client = client
 
-      solr_client.get "select", params: {
-        q: "*:*",
-        fq: [
-          "site_id:dgu_organisations",
-          "name:#{name}",
-        ],
-        fl: %w[title name extras_contact-email extras_foi-email extras_foi-web extras_foi-name],
-      }
+        solr_client.get "select", params: {
+          q: "*:*",
+          fq: [
+            "site_id:dgu_organisations",
+            "name:#{name}",
+          ],
+          fl: %w[title name extras_contact-email extras_foi-email extras_foi-web extras_foi-name],
+        }
+      end
     end
 
     def self.query_solr

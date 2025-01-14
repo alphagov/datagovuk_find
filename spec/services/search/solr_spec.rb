@@ -111,6 +111,38 @@ RSpec.describe Search::Solr do
         expect(organisation["extras_contact-email"]).to eq("http://forms.communities.gov.uk/")
       end
     end
+
+    context "when the cache is empty" do
+      it "queries Solr and stores the result in the cache" do
+        expect(Rails.cache).to receive(:fetch).with(
+          "organisation/department-for-communities-and-local-government",
+          expires_in: 10.minutes,
+        ).and_yield
+        expect(Search::Solr.client).to receive(:get).and_return(response)
+
+        organisation = Search::Solr.get_organisation("department-for-communities-and-local-government")
+
+        expect(organisation["response"]["docs"].first["title"]).to eq("Ministry of Housing, Communities and Local Government")
+      end
+    end
+
+    context "when the cache is already populated" do
+      it "does not query Solr again and returns the cached result" do
+        cached_organisation = {
+          "title" => "Ministry of Housing, Communities and Local Government",
+          "name" => "department-for-communities-and-local-government",
+        }
+        allow(Rails.cache).to receive(:fetch).with(
+          "organisation/department-for-communities-and-local-government",
+          expires_in: 10.minutes,
+        ).and_return(cached_organisation)
+        expect(Search::Solr.client).not_to receive(:get)
+
+        organisation = Search::Solr.get_organisation("department-for-communities-and-local-government")
+
+        expect(organisation).to eq(cached_organisation)
+      end
+    end
   end
 
   describe "get_organisations" do
@@ -125,6 +157,31 @@ RSpec.describe Search::Solr do
       expect(results.count).to eq(5)
       expect(results["Aberdeen City Council"]).to eq("aberdeen-city-council")
       expect(results["Aberdeenshire Council"]).to eq("aberdeenshire-council")
+    end
+
+    context "when the cache is empty" do
+      it "queries Solr and stores the result in the cache" do
+        expect(Rails.cache).to receive(:fetch).with("organisations", expires_in: 10.minutes).and_yield
+        expect(Search::Solr.client).to receive(:get).and_return(response)
+
+        organisations = Search::Solr.get_organisations
+
+        expect(organisations.count).to eq(5)
+        expect(organisations["Aberdeen City Council"]).to eq("aberdeen-city-council")
+      end
+    end
+
+    context "when the cache is already populated" do
+      it "does not query Solr again and returns the cached result" do
+        cached_organisations = { "Aberdeen City Council" => "aberdeen-city-council",
+                                 "Aberdeenshire Council" => "aberdeenshire-council" }
+        allow(Rails.cache).to receive(:fetch).with("organisations", expires_in: 10.minutes).and_return(cached_organisations)
+        expect(Search::Solr.client).not_to receive(:get)
+
+        organisations = Search::Solr.get_organisations
+
+        expect(organisations).to eq(cached_organisations)
+      end
     end
   end
 
