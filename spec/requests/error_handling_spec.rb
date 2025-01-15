@@ -38,4 +38,12 @@ RSpec.describe "Error handling", type: :request do
     get "/dataset/something.json"
     expect(response).to have_http_status(:not_found)
   end
+
+  it "handles Solr connection errors" do
+    request = { uri: URI("http://solr-example.data.gov.uk") }
+    allow(Search::Solr).to receive(:search).and_raise(RSolr::Error::ConnectionRefused.new(request))
+
+    get "/search"
+    expect(response).to have_http_status(:service_unavailable)
+  end
 end
