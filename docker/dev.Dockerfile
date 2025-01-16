@@ -1,4 +1,4 @@
-FROM ghcr.io/alphagov/datagovuk_find:v2.41.0
+FROM ghcr.io/alphagov/datagovuk_find:dc406f149d918c2b03e753e92917805ad9e7d9c1
 
 USER root
 ENV BUNDLE_WITHOUT=""

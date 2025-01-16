@@ -123,7 +123,7 @@ jobs:
         id: build-app-image
         uses: docker/build-push-action@v6
         with:
-          file: docker/Dockerfile
+          file: docker/dev.Dockerfile
           context: .
           platforms: "linux/${{ matrix.runs_on.arch }}"
           load: true
