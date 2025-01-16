@@ -33,6 +33,8 @@ module Search
       format_param = params.dig(:filters, :format)
       licence_param = params.dig(:filters, :licence_code)
 
+      puts "Building filter query"
+
       filter_query = ["state:active type:dataset"]
       filter_query << publisher_filter(publisher_param) if publisher_param.present?
       filter_query << topic_filter(topic_param) if topic_param.present?
