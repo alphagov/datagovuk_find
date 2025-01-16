@@ -341,7 +341,7 @@ RSpec.describe Search::Solr do
     it "includes active datasets filter" do
       filter_query = described_class.build_filter_query({ filters: {} })
 
-      expect(filter_query).to eq(["state:active type:dataset"])
+      expect(filter_query).to eq(["state:active"])
     end
   end
 
