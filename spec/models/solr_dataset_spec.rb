@@ -167,4 +167,53 @@ RSpec.describe SolrDataset do
       expect(dataset.organogram?).to eq(false)
     end
   end
+
+  describe "#additional_information" do
+    let(:response) { JSON.parse(File.read(Rails.root.join("spec/fixtures/solr_inspire_dataset.json").to_s)) }
+    let(:dataset) { build(:solr_dataset) }
+
+    it "returns a filtered hash with allowed keys when valid data with allowed keys is provided" do
+      data = [
+        { "key" => "licence", "value" => "Open Data" },
+        { "key" => "access_constraints", "value" => "[\"http://example.com\"]" },
+        { "key" => "guid", "value" => "12345" },
+      ]
+      expected = {
+        "licence" => "Open Data",
+        "access_constraints" => "[\"http://example.com\"]",
+        "guid" => "12345",
+      }
+
+      expect(dataset.additional_information(data)).to eq(expected)
+    end
+
+    it "returns a filtered hash excluding the extra keys when data contains extra keys not in the allowed list" do
+      data = [
+        { "key" => "licence", "value" => "Open Data" },
+        { "key" => "access_constraints", "value" => "[\"http://example.com\"]" },
+        { "key" => "extra_key", "value" => "extra_value" },
+      ]
+      expected = {
+        "licence" => "Open Data",
+        "access_constraints" => "[\"http://example.com\"]",
+      }
+
+      expect(dataset.additional_information(data)).to eq(expected)
+    end
+
+    it "returns nil when no valid keys are present in the data" do
+      data = [
+        { "key" => "extra_key", "value" => "extra_value" },
+        { "key" => "another_key", "value" => "another_value" },
+      ]
+
+      expect(dataset.additional_information(data)).to be_nil
+    end
+
+    it "returns nil when data is empty" do
+      data = []
+
+      expect(dataset.additional_information(data)).to be_nil
+    end
+  end
 end
