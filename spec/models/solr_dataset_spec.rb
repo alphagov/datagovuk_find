@@ -172,7 +172,7 @@ RSpec.describe SolrDataset do
     let(:response) { JSON.parse(File.read(Rails.root.join("spec/fixtures/solr_inspire_dataset.json").to_s)) }
     let(:dataset) { build(:solr_dataset) }
 
-    it "returns a filtered hash with allowed keys when valid data with allowed keys is provided" do
+    it "returns a filtered hash with relevant keys when valid data is provided" do
       data = [
         { "key" => "licence", "value" => "Open Data" },
         { "key" => "access_constraints", "value" => "[\"http://example.com\"]" },
@@ -187,7 +187,7 @@ RSpec.describe SolrDataset do
       expect(dataset.additional_information(data)).to eq(expected)
     end
 
-    it "returns a filtered hash excluding the extra keys when data contains extra keys not in the allowed list" do
+    it "returns a filtered hash excluding the extra keys when data contains extra keys" do
       data = [
         { "key" => "licence", "value" => "Open Data" },
         { "key" => "access_constraints", "value" => "[\"http://example.com\"]" },

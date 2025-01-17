@@ -61,28 +61,30 @@ class SolrDataset
   end
 
   def additional_information(data)
-    additional_info = {}
-    data.each do |item|
-      additional_info.store(item["key"], item["value"])
+    allowed_keys = %w[
+      licence
+      metadata-date
+      access_constraints
+      guid
+      bbox-east-long
+      bbox-west-long
+      bbox-north-lat
+      bbox-south-lat
+      spatial-reference-system
+      dataset-reference-date
+      frequency-of-update
+      responsible-party
+      resource-type
+      metadata-language
+      harvest_object_id
+    ]
+
+    additional_info = data.each_with_object({}) do |item, hash|
+      key = item["key"]
+      value = item["value"]
+      hash[key] = value if allowed_keys.include?(key)
     end
 
-    additional_info = additional_info&.slice(
-      "licence",
-      "metadata-date",
-      "access_constraints",
-      "guid",
-      "bbox-east-long",
-      "bbox-west-long",
-      "bbox-north-lat",
-      "bbox-south-lat",
-      "spatial-reference-system",
-      "dataset-reference-date",
-      "frequency-of-update",
-      "responsible-party",
-      "resource-type",
-      "metadata-language",
-      "harvest_object_id",
-    )
     additional_info.empty? ? nil : additional_info
   end
 
