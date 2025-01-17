@@ -205,7 +205,7 @@ RSpec.describe SolrDataset do
       ]
       expected = {
         "access_constraints" => ["http://example.com"],
-        "dataset-reference-date" => [{"type"=>"creation", "value"=>"2015-04-21"}],
+        "dataset-reference-date" => [{ "type" => "creation", "value" => "2015-04-21" }],
       }
 
       expect(dataset.additional_information(data)).to eq(expected)
@@ -224,6 +224,20 @@ RSpec.describe SolrDataset do
       data = []
 
       expect(dataset.additional_information(data)).to be_nil
+    end
+
+    it "returns the raw string for 'access_constraints' when the key has invalid JSON" do
+      data = [
+        { "key" => "licence", "value" => "Open Data" },
+        { "key" => "access_constraints", "value" => "None" },
+      ]
+
+      expected = {
+        "licence" => "Open Data",
+        "access_constraints" => "None",
+      }
+
+      expect(dataset.additional_information(data)).to eq(expected)
     end
   end
 end

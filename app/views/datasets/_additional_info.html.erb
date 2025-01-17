@@ -21,7 +21,9 @@
             <% end %>
             <% if i['access_constraints'] %>
               <dt><%= t('.inspire_access_constraints') %></dt>
-              <dd><%= i['access_constraints'].first || t('.inspire_access_constraints_unspecified') %></dd>
+              <% constraints = i['access_constraints'] %>
+              <% pp constraints %>
+              <dd><%= constraints.is_a?(String) ? constraints : constraints.first || t('.inspire_access_constraints_unspecified') %></dd>
             <% end %>
             <% if i['guid'] %>
               <dt><%= t('.inspire_guid') %></dt>

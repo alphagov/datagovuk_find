@@ -97,13 +97,6 @@ class SolrDataset
     Organisation.new(get_organisation(@organisation_slug), @organisation_slug)
   end
 
-  private
-
-  def get_organisation(name)
-    query = Search::Solr.get_organisation(name)
-    query["response"]["docs"].first
-  end
-
   def self.get_by_query(query:)
     solr_client = Search::Solr.client
 
@@ -127,8 +120,19 @@ class SolrDataset
     SolrDataset.new(dataset_attr)
   end
 
+  private_class_method :get_by_query
+
+private
+
+  def get_organisation(name)
+    query = Search::Solr.get_organisation(name)
+    query["response"]["docs"].first
+  end
+
   def parse_json_value(value)
     JSON.parse(value)
+  rescue JSON::ParserError
+    value
   end
 
   class NotFound < StandardError; end
