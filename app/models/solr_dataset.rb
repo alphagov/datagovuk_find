@@ -61,7 +61,7 @@ class SolrDataset
   end
 
   def additional_information(data)
-    allowed_keys = %w[
+    relevant_keys = %w[
       licence
       metadata-date
       access_constraints
@@ -78,11 +78,16 @@ class SolrDataset
       metadata-language
       harvest_object_id
     ]
+    json_value_keys = %w[access_constraints dataset-reference-date]
 
     additional_info = data.each_with_object({}) do |item, hash|
       key = item["key"]
       value = item["value"]
-      hash[key] = value if allowed_keys.include?(key)
+      if json_value_keys.include?(key)
+        hash[key] = parse_json_value(value)
+      elsif relevant_keys.include?(key)
+        hash[key] = value
+      end
     end
 
     additional_info.empty? ? nil : additional_info
@@ -120,6 +125,10 @@ class SolrDataset
     raise NotFound if dataset_attr.nil?
 
     SolrDataset.new(dataset_attr)
+  end
+
+  def parse_json_value(value)
+    JSON.parse(value)
   end
 
   class NotFound < StandardError; end

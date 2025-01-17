@@ -20,9 +20,8 @@
               <dd><%= i['metadata-date'].to_date %></dd>
             <% end %>
             <% if i['access_constraints'] %>
-              <% ref = JSON.parse(i['access_constraints']) %>
               <dt><%= t('.inspire_access_constraints') %></dt>
-              <dd><%= ref.first || t('.inspire_access_constraints_unspecified') %></dd>
+              <dd><%= i['access_constraints'].first || t('.inspire_access_constraints_unspecified') %></dd>
             <% end %>
             <% if i['guid'] %>
               <dt><%= t('.inspire_guid') %></dt>
@@ -38,9 +37,8 @@
               <dd><%= i['spatial-reference-system'] %></dd>
             <% end %>
             <% if i['dataset-reference-date'] %>
-              <% ref = JSON.parse(i['dataset-reference-date']) %>
               <dt><%= t('.inspire_dataset_ref_date') %></dt>
-              <% ref.each do |date| %>
+              <% i['dataset-reference-date'].each do |date| %>
                 <dd><%= date['value'] %> (<%= date['type'] %>)</dd>
               <% end %>
             <% end %>

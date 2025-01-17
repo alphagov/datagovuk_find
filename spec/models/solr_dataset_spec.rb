@@ -169,7 +169,6 @@ RSpec.describe SolrDataset do
   end
 
   describe "#additional_information" do
-    let(:response) { JSON.parse(File.read(Rails.root.join("spec/fixtures/solr_inspire_dataset.json").to_s)) }
     let(:dataset) { build(:solr_dataset) }
 
     it "returns a filtered hash with relevant keys when valid data is provided" do
@@ -180,7 +179,7 @@ RSpec.describe SolrDataset do
       ]
       expected = {
         "licence" => "Open Data",
-        "access_constraints" => "[\"http://example.com\"]",
+        "access_constraints" => ["http://example.com"],
         "guid" => "12345",
       }
 
@@ -190,12 +189,23 @@ RSpec.describe SolrDataset do
     it "returns a filtered hash excluding the extra keys when data contains extra keys" do
       data = [
         { "key" => "licence", "value" => "Open Data" },
-        { "key" => "access_constraints", "value" => "[\"http://example.com\"]" },
         { "key" => "extra_key", "value" => "extra_value" },
       ]
       expected = {
         "licence" => "Open Data",
-        "access_constraints" => "[\"http://example.com\"]",
+      }
+
+      expect(dataset.additional_information(data)).to eq(expected)
+    end
+
+    it "parses JSON for access_constraints and dataset-reference-date" do
+      data = [
+        { "key" => "access_constraints", "value" => "[\"http://example.com\"]" },
+        { "key" => "dataset-reference-date", "value" => "[{\"type\": \"creation\", \"value\": \"2015-04-21\"}]" },
+      ]
+      expected = {
+        "access_constraints" => ["http://example.com"],
+        "dataset-reference-date" => [{"type"=>"creation", "value"=>"2015-04-21"}],
       }
 
       expect(dataset.additional_information(data)).to eq(expected)
