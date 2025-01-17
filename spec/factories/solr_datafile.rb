@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :solr_datafile, class: SolrDataset do
+  factory :solr_datafile, class: SolrDatafile do
     id { 1 }
     name { "Name" }
     url { "http://example.com" }
