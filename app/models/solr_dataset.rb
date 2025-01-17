@@ -1,7 +1,7 @@
 class SolrDataset
   include ActiveModel::Model
 
-  attr_reader :uuid, :name, :title, :summary, :public_updated_at, :topic, :licence_title, :licence_url, :organisation, :datafiles, :contact_email, :contact_name, :foi_name, :foi_email, :foi_web, :docs, :licence_custom, :inspire_dataset, :harvested, :licence_code
+  attr_reader :uuid, :name, :title, :summary, :public_updated_at, :topic, :licence_title, :licence_url, :datafiles, :contact_email, :contact_name, :foi_name, :foi_email, :foi_web, :docs, :licence_custom, :inspire_dataset, :harvested, :licence_code
 
   ORGANOGRAM_SCHEMA_IDS = [
     "538b857a-64ba-490e-8440-0e32094a28a7", # Local authority
@@ -22,8 +22,7 @@ class SolrDataset
     @licence_code = dataset_dict["license_id"]
     @licence_custom = dataset["extras_licence"].gsub(/"|\[|\]/, "") if dataset["extras_licence"].present?
 
-    organisation_slug = dataset_dict["organization"]["name"]
-    @organisation = Organisation.new(get_organisation(organisation_slug), organisation_slug)
+    @organisation_slug = dataset_dict["organization"]["name"]
 
     @datafiles = []
     @docs = []
@@ -86,6 +85,12 @@ class SolrDataset
     )
     additional_info.empty? ? nil : additional_info
   end
+
+  def organisation
+    Organisation.new(get_organisation(@organisation_slug), @organisation_slug)
+  end
+
+  private
 
   def get_organisation(name)
     query = Search::Solr.get_organisation(name)
