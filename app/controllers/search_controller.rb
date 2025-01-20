@@ -1,14 +1,14 @@
 class SearchController < ApplicationController
   def search
-    @sort = params["sort"]
+    @sort = search_params[:sort]
 
-    @presenter = SearchPresenter.new(solr_search_response, params)
+    @presenter = SearchPresenter.new(solr_search_response, search_params)
 
     @num_results = solr_search_response["response"]["numFound"]
     @datasets = Kaminari.paginate_array(
       solr_search_response["response"]["docs"],
       total_count: @num_results,
-    ).page(params[:page])
+    ).page(search_params[:page])
      .per(Search::Solr::RESULTS_PER_PAGE)
   end
 
@@ -34,5 +34,14 @@ private
 
   def no_results_found
     { "response" => { "numFound" => 0, "docs" => [] } }
+  end
+
+  def search_params
+    params.permit(
+      :q,
+      :sort,
+      :page,
+      filters: %i[publisher topic format licence_code],
+    )
   end
 end
