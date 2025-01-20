@@ -435,7 +435,7 @@ GEM
     parser (3.3.0.5)
       ast (~> 2.4.1)
       racc
-    plek (4.1.0)
+    plek (5.2.0)
     prometheus_exporter (2.1.0)
       webrick
     pry (0.14.2)
@@ -648,7 +648,7 @@ DEPENDENCIES
   logstash-event
   mime-types
   nokogiri
-  plek (~> 4.1)
+  plek (~> 5.2)
   pry
   pry-byebug
   pry-stack_explorer
