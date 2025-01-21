@@ -1,7 +1,7 @@
 class SolrDataset
   include ActiveModel::Model
 
-  attr_reader :uuid, :name, :title, :summary, :public_updated_at, :topic, :licence_title, :licence_url, :organisation, :datafiles, :contact_email, :contact_name, :foi_name, :foi_email, :foi_web, :docs, :licence_custom, :inspire_dataset, :harvested, :licence_code
+  attr_reader :uuid, :name, :title, :summary, :public_updated_at, :topic, :licence_title, :licence_url, :datafiles, :contact_email, :contact_name, :foi_name, :foi_email, :foi_web, :docs, :licence_custom, :inspire_dataset, :harvested, :licence_code
 
   ORGANOGRAM_SCHEMA_IDS = [
     "538b857a-64ba-490e-8440-0e32094a28a7", # Local authority
@@ -22,8 +22,7 @@ class SolrDataset
     @licence_code = dataset_dict["license_id"]
     @licence_custom = dataset["extras_licence"].gsub(/"|\[|\]/, "") if dataset["extras_licence"].present?
 
-    organisation_slug = dataset_dict["organization"]["name"]
-    @organisation = Organisation.new(get_organisation(organisation_slug), organisation_slug)
+    @organisation_slug = dataset_dict["organization"]["name"]
 
     @datafiles = []
     @docs = []
@@ -62,34 +61,40 @@ class SolrDataset
   end
 
   def additional_information(data)
-    additional_info = {}
-    data.each do |item|
-      additional_info.store(item["key"], item["value"])
+    relevant_keys = %w[
+      licence
+      metadata-date
+      access_constraints
+      guid
+      bbox-east-long
+      bbox-west-long
+      bbox-north-lat
+      bbox-south-lat
+      spatial-reference-system
+      dataset-reference-date
+      frequency-of-update
+      responsible-party
+      resource-type
+      metadata-language
+      harvest_object_id
+    ]
+    json_value_keys = %w[access_constraints dataset-reference-date]
+
+    additional_info = data.each_with_object({}) do |item, hash|
+      key = item["key"]
+      value = item["value"]
+      if json_value_keys.include?(key)
+        hash[key] = parse_json_value(value)
+      elsif relevant_keys.include?(key)
+        hash[key] = value
+      end
     end
 
-    additional_info = additional_info&.slice(
-      "licence",
-      "metadata-date",
-      "access_constraints",
-      "guid",
-      "bbox-east-long",
-      "bbox-west-long",
-      "bbox-north-lat",
-      "bbox-south-lat",
-      "spatial-reference-system",
-      "dataset-reference-date",
-      "frequency-of-update",
-      "responsible-party",
-      "resource-type",
-      "metadata-language",
-      "harvest_object_id",
-    )
     additional_info.empty? ? nil : additional_info
   end
 
-  def get_organisation(name)
-    query = Search::Solr.get_organisation(name)
-    query["response"]["docs"].first
+  def organisation
+    Organisation.new(get_organisation(@organisation_slug), @organisation_slug)
   end
 
   def self.get_by_query(query:)
@@ -113,6 +118,21 @@ class SolrDataset
     raise NotFound if dataset_attr.nil?
 
     SolrDataset.new(dataset_attr)
+  end
+
+  private_class_method :get_by_query
+
+private
+
+  def get_organisation(name)
+    query = Search::Solr.get_organisation(name)
+    query["response"]["docs"].first
+  end
+
+  def parse_json_value(value)
+    JSON.parse(value)
+  rescue JSON::ParserError
+    value
   end
 
   class NotFound < StandardError; end

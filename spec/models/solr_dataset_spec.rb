@@ -167,4 +167,77 @@ RSpec.describe SolrDataset do
       expect(dataset.organogram?).to eq(false)
     end
   end
+
+  describe "#additional_information" do
+    let(:dataset) { build(:solr_dataset) }
+
+    it "returns a filtered hash with relevant keys when valid data is provided" do
+      data = [
+        { "key" => "licence", "value" => "Open Data" },
+        { "key" => "access_constraints", "value" => "[\"http://example.com\"]" },
+        { "key" => "guid", "value" => "12345" },
+      ]
+      expected = {
+        "licence" => "Open Data",
+        "access_constraints" => ["http://example.com"],
+        "guid" => "12345",
+      }
+
+      expect(dataset.additional_information(data)).to eq(expected)
+    end
+
+    it "returns a filtered hash excluding the extra keys when data contains extra keys" do
+      data = [
+        { "key" => "licence", "value" => "Open Data" },
+        { "key" => "extra_key", "value" => "extra_value" },
+      ]
+      expected = {
+        "licence" => "Open Data",
+      }
+
+      expect(dataset.additional_information(data)).to eq(expected)
+    end
+
+    it "parses JSON for access_constraints and dataset-reference-date" do
+      data = [
+        { "key" => "access_constraints", "value" => "[\"http://example.com\"]" },
+        { "key" => "dataset-reference-date", "value" => "[{\"type\": \"creation\", \"value\": \"2015-04-21\"}]" },
+      ]
+      expected = {
+        "access_constraints" => ["http://example.com"],
+        "dataset-reference-date" => [{ "type" => "creation", "value" => "2015-04-21" }],
+      }
+
+      expect(dataset.additional_information(data)).to eq(expected)
+    end
+
+    it "returns nil when no valid keys are present in the data" do
+      data = [
+        { "key" => "extra_key", "value" => "extra_value" },
+        { "key" => "another_key", "value" => "another_value" },
+      ]
+
+      expect(dataset.additional_information(data)).to be_nil
+    end
+
+    it "returns nil when data is empty" do
+      data = []
+
+      expect(dataset.additional_information(data)).to be_nil
+    end
+
+    it "returns the raw string for 'access_constraints' when the key has invalid JSON" do
+      data = [
+        { "key" => "licence", "value" => "Open Data" },
+        { "key" => "access_constraints", "value" => "None" },
+      ]
+
+      expected = {
+        "licence" => "Open Data",
+        "access_constraints" => "None",
+      }
+
+      expect(dataset.additional_information(data)).to eq(expected)
+    end
+  end
 end
