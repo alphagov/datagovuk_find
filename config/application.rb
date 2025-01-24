@@ -46,7 +46,6 @@ module FindDataBeta
     # https://github.com/alphagov/govuk-frontend/issues/1350
     config.assets.css_compressor = nil
 
-    config.analytics_tracking_id = ENV["GA_TRACKING_ID"]
     config.i18n.load_path += Dir[Rails.root.join("config/locales/**/**/*.{rb,yml}")]
 
     config.ssl_options = { hsts: { expires: 1.week } }
