@@ -669,6 +669,7 @@ DEPENDENCIES
   spring
   spring-commands-rspec
   spring-watcher-listen
+  sprockets-rails
   uglifier
   webmock
 
