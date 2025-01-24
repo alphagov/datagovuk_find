@@ -22,9 +22,6 @@ Rails.application.configure do
     "Cache-Control" => "public, max-age=#{1.hour.to_i}",
   }
 
-  # Trun off debug mode to speed up feature tests
-  config.assets.debug = false
-
   # Precompile assets to speed up feature tests
   config.assets.compress = true
 
