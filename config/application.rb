@@ -48,8 +48,6 @@ module FindDataBeta
 
     config.analytics_tracking_id = ENV["GA_TRACKING_ID"]
     config.i18n.load_path += Dir[Rails.root.join("config/locales/**/**/*.{rb,yml}")]
-    config.filter_parameters << :password
-    config.filter_parameters << :password_confirmation
 
     config.ssl_options = { hsts: { expires: 1.week } }
 
