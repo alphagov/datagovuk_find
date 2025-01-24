@@ -40,9 +40,6 @@ module FindDataBeta
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
 
-    # Make `form_with` generate non-remote forms.
-    config.action_view.form_with_generates_remote_forms = false
-
     # Using a sass css compressor causes a scss file to be processed twice
     # (once to build, once to compress) which breaks the usage of "unquote"
     # to use CSS that has same function names as SCSS such as max.
@@ -68,5 +65,12 @@ module FindDataBeta
       "X-Permitted-Cross-Domain-Policies" => "none",
       "Referrer-Policy" => %w[origin-when-cross-origin strict-origin-when-cross-origin],
     }
+    # Configuration for the application, engines, and railties goes here.
+    #
+    # These settings can be overridden in specific environments using the files
+    # in config/environments, which are processed later.
+    #
+    # config.time_zone = "Central Time (US & Canada)"
+    # config.eager_load_paths << Rails.root.join("extras")
   end
 end
