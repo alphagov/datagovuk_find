@@ -8,7 +8,7 @@ WORKDIR $APP_HOME
 COPY Gemfile* .ruby-version ./
 RUN bundle install
 COPY . ./
-RUN ES_HOST=x rails assets:precompile && rm -fr log
+RUN rails assets:precompile && rm -fr log
 
 
 FROM $base_image
