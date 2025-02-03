@@ -27,7 +27,7 @@ RSpec.describe "CKAN redirection", type: :request do
   end
 
   context "with an assets path" do
-    let(:path) { "/find-assets/application-#{SecureRandom.uuid}.js" }
+    let(:path) { "/find-assets/application.js" }
     include_examples "doesn't redirect to CKAN"
   end
 

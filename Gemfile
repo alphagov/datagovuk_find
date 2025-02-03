@@ -23,6 +23,7 @@ gem "sass-rails"
 gem "secure_headers"
 gem "sentry-rails"
 gem "sentry-ruby"
+gem "sprockets-rails"
 gem "uglifier"
 
 group :development, :test do
