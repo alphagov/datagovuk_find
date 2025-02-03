@@ -29,8 +29,10 @@ module FindDataBeta
     # to use CSS that has same function names as SCSS such as max.
     # https://github.com/alphagov/govuk-frontend/issues/1350
     config.assets.css_compressor = nil
-
-    config.i18n.load_path += Dir[Rails.root.join("config/locales/**/**/*.{rb,yml}")]
+    # Please, add to the `ignore` list any other `lib` subdirectories that do
+    # not contain `.rb` files, or that should not be reloaded or eager loaded.
+    # Common ones are `templates`, `generators`, or `middleware`, for example.
+    config.autoload_lib(ignore: %w(assets tasks))
 
     config.ssl_options = { hsts: { expires: 1.week } }
 
