@@ -28,7 +28,7 @@ Rails.application.routes.draw do
     get "dashboard" # 410 Gone
     get "privacy"
     get "publishers"
-    get "site-changes", to: :site_changes
+    get "site-changes"
     get "support"
     get "support/new", to: redirect("/support")
     get "terms"
