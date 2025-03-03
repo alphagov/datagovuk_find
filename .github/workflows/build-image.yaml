@@ -212,7 +212,7 @@ jobs:
             org.opencontainers.image.authors="GOV.UK Platform Engineering"
             org.opencontainers.image.description="Find image for data.gov.uk"
             org.opencontainers.image.source="https://github.com/alphagov/datagovuk_find"
-            org.opencontainers.image.version=${{ fromJson(needs.configure_builds.outputs.app_metadata.version) }}
+            org.opencontainers.image.version=${{ fromJson(needs.configure_builds.outputs.app_metadata).version }}
             org.opencontainers.image.created=${{ steps.calculate-image-tags.outputs.createdDate }}
             org.opencontainers.image.vendor=GDS
 
