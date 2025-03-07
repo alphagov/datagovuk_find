@@ -45,15 +45,15 @@ jobs:
           sudo sysctl -w fs.file-max=262144
           sudo sysctl -w vm.max_map_count=262144
 
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: ruby/setup-ruby@v1
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         with:
           path: vendor/bundle
           key: bundle-${{ hashFiles('**/Gemfile.lock') }}
           restore-keys: bundle
       - name: Check for cached node modules
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: node_modules
           key: yarn-${{ hashFiles('**/yarn.lock') }}

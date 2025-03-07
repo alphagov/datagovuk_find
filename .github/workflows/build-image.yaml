@@ -92,9 +92,9 @@ jobs:
           buildType="${{ env.BUILD_TYPE }}"
 
           if [ "$buildType" = "build_push_with_gittag" ]; then
-            echo "GH_TAG=${{ inputs.gitRef || github.ref }}" >> $GITHUB_ENV
+            echo "GH_TAG=${{ inputs.gitRef || github.ref }}" >> "$GITHUB_ENV"
           else
-            echo "GH_TAG=${{ github.sha }}" >> $GITHUB_ENV
+            echo "GH_TAG=${{ github.sha }}" >> "$GITHUB_ENV"
           fi
 
       - name: Generate App Image Metadata
@@ -182,9 +182,9 @@ jobs:
           buildType="${{ env.BUILD_TYPE }}"
 
           if [ "$buildType" = "build_push_with_gittag" ]; then
-            echo "GH_TAG=${{ inputs.gitRef || github.ref }}" >> $GITHUB_ENV
+            echo "GH_TAG=${{ inputs.gitRef || github.ref }}" >> "$GITHUB_ENV"
           else
-            echo "GH_TAG=${{ github.sha }}" >> $GITHUB_ENV
+            echo "GH_TAG=${{ github.sha }}" >> "$GITHUB_ENV"
           fi
 
       - name: Download Image Digests

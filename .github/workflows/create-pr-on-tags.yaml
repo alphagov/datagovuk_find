@@ -14,7 +14,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Set GH_REF
-        run: echo "GH_REF=`echo $(git fetch -t -q && git describe --tags $(git rev-list --tags --max-count=1))`" >> $GITHUB_ENV
+        run: |
+          git fetch -t -q
+          GH_REF=$(git describe --tags "$(git rev-list --tags --max-count=1)")
+          echo "GH_REF=$GH_REF" >> "$GITHUB_ENV"
       - run: bash ./docker/create-pr.sh
         env:
           GH_TOKEN: ${{ secrets.PR_GITHUB_TOKEN }}
