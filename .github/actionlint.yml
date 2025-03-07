@@ -1,0 +1,5 @@
+paths:
+  .github/workflows/build-image.yaml:
+    ignore:
+      # Ignore some false positives in ci.yml
+      - 'property "calculate-image-tags" is not defined in object type .+'
