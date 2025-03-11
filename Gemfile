@@ -15,7 +15,7 @@ gem "lograge"
 gem "logstash-event"
 gem "mime-types"
 gem "nokogiri"
-gem "plek", "~> 4.1" # TODO: unconstrain once govuk_pub_components up-to-date.
+gem "plek", "~> 5.2" # TODO: unconstrain once govuk_pub_components up-to-date.
 gem "puma"
 gem "redcarpet"
 gem "rsolr"
