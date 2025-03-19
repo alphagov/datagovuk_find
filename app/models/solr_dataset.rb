@@ -38,7 +38,7 @@ class SolrDataset
     @foi_web = dataset_dict["foi-web"]
 
     @inspire_dataset = additional_information(dataset_dict["extras"]) if dataset_dict["extras"].present?
-    @harvested = @inspire_dataset.present? ? true : false
+    @harvested = @inspire_dataset.present? || false
   end
 
   def self.get_by_uuid(uuid:)
@@ -107,7 +107,7 @@ class SolrDataset
         fl: Search::Solr.field_list,
       }
     rescue RSolr::Error::Http => e
-      if e.response[:status] == 404 || e.response[:status] == 400
+      if [404, 400].include?(e.response[:status])
         raise NotFound
       else
         raise e
