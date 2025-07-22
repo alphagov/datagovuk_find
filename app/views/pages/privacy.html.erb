@@ -7,7 +7,7 @@
         title: "Privacy"
       } %>
 
-      <p class="govuk-body">Last updated 23 May 2018</p>
+      <p class="govuk-body">Last updated 21 July 2025</p>
 
       <%= render "govuk_publishing_components/components/heading", {
         text: "Who we are",
@@ -18,20 +18,16 @@
       <p class="govuk-body">
         Find open data is a data service provided by the
         <%= link_to 'Government Digital Service', 'https://www.gov.uk/government/organisations/government-digital-service', class: 'govuk-link' %>
-        (GDS) which is part of the Cabinet Office. Our job is the digital
-        transformation of government.
+        (GDS), part of the Department for Science, Innovation & Technology (DSIT).
+      </p>
+
+      <p class="govuk-body">
+      DSIT and other government departments, agencies and organisations are joint controllers for pages that start ‘www.data.gov.uk’.
       </p>
 
       <p class="govuk-body">
         Data.gov.uk helps people to find and use open government data, and
         supports government publishers to maintain data.
-      </p>
-
-      <p class="govuk-body">
-        The data controller for GDS is the Cabinet Office — a data controller
-        determines how and why personal data is processed. For more
-        information read the Cabinet Office’s entry in the
-        <%= link_to 'Data Protection Public Register', 'https://ico.org.uk/ESDWebPages/Entry/Z7414053', class: 'govuk-link' %>.
       </p>
 
       <%= render "govuk_publishing_components/components/heading", {
@@ -210,13 +206,15 @@
       } %>
 
       <p class="govuk-body">
-        The data controller for your personal data is the Cabinet Office. Contact
-        the  GDS Privacy Team if you have any questions or think that
-        your personal data has been misused or mishandled.
+      GDS, as part of DSIT, acts as a joint controller for personal data published on data.gov.uk with other government departments, agencies and public bodies.
       </p>
 
       <p class="govuk-body">
-        Email: <%= mail_to 'gds-privacy-office@digital.cabinet-office.gov.uk', nil, class: 'govuk-link' %>
+      Contact the  GDS Privacy Team if you have any questions or think that your personal data has been misused or mishandled.
+      </p>
+
+      <p class="govuk-body">
+        Email: <%= mail_to 'gds.data.protection@dsit.gov.uk', nil, class: 'govuk-link' %>
       </p>
 
       <p class="govuk-body">
@@ -225,12 +223,14 @@
 
       <div class="contact">
         <p class="govuk-body">
-          Data Protection Officer<br />
-          <%= mail_to 'DPO@cabinetoffice.gov.uk', nil, class: 'govuk-link' %><br />
-          Cabinet Office<br />
-          70 Whitehall<br />
+          DSIT Data Protection Officer<br />
+          Department for Science, Innovation and Technology<br />
+          22-26 Whitehall<br />
           London <br />
-          SW1A 2AS
+          SW1A 2EG
+        </p>
+        <p class="govuk-body">
+        <%= mail_to 'dataprotection@dsit.gov.uk', nil, class: 'govuk-link' %>
         </p>
       </div>
 
