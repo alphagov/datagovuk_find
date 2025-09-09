@@ -7,7 +7,7 @@ gem "browser"
 gem "faraday"
 gem "faraday_middleware"
 gem "govuk_elements_rails"
-gem "govuk_publishing_components", "~> 28.7.1" # TODO: Revert https://github.com/alphagov/datagovuk_find/pull/1286 once 39.2.3+
+gem "govuk_publishing_components", "~> 60.2.1" # TODO: Revert https://github.com/alphagov/datagovuk_find/pull/1286 once 39.2.3+
 gem "htmlentities"
 gem "jquery-rails"
 gem "kaminari"
