@@ -7,7 +7,7 @@ module Search
       query_param = (params["q"] || "").to_s.squish
       @page = params["page"]
       sort_param = params["sort"]
-      @page && @page.to_i.positive? ? @page.to_i : 1
+      @page && @page.is_a?(String) && @page.to_i.positive? ? @page.to_i : 1
 
       get_organisations
 
@@ -43,6 +43,8 @@ module Search
     end
 
     def self.publisher_filter(organisation)
+      return "" if @organisations_list.nil?
+
       "organization:#{@organisations_list[organisation]}"
     end
 
