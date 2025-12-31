@@ -44,8 +44,10 @@
                   <%= link_to dataset["title"], dataset_path(dataset["id"], dataset["name"]), class: 'govuk-link' %>
                 </h2>
                 <dl class="dgu-metadata__box">
+                  <% if JSON.parse(dataset["validated_data_dict"])["organization"].present? %>
                   <dt><%= t('.meta_data_box.published_by') %>:</dt>
                   <dd class="published_by"><%= JSON.parse(dataset["validated_data_dict"])["organization"]["title"] %></dd>
+                  <% end %>
                   <dt><%= t('.meta_data_box.last_updated') %>:</dt>
                   <% if dataset["metadata_modified"].present? %>
                     <dd><%= format_timestamp(dataset["metadata_modified"]) %></dd>
