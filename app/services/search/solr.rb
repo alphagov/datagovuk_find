@@ -43,6 +43,8 @@ module Search
     end
 
     def self.publisher_filter(organisation)
+      return "" if @organisations_list.nil?
+
       "organization:#{@organisations_list[organisation]}"
     end
 
