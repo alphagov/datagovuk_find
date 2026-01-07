@@ -36,6 +36,7 @@ FactoryBot.find_definitions
 
 WebMock.disable_net_connect!(
   allow_localhost: true,
+  allow: ["http://solr:8983"],
 )
 
 RSpec.configure do |config|
