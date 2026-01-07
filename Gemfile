@@ -9,7 +9,7 @@ gem "faraday"
 gem "faraday_middleware"
 gem "front_matter_parser"
 gem "govuk_elements_rails"
-gem "govuk_publishing_components", "~> 28.7.1" # TODO: Revert https://github.com/alphagov/datagovuk_find/pull/1286 once 39.2.3+
+gem "govuk_publishing_components", "~> 39.2.3" # TODO: Upgrade versions incrementally
 gem "htmlentities"
 gem "jquery-rails"
 gem "kaminari"
@@ -17,7 +17,7 @@ gem "lograge"
 gem "logstash-event"
 gem "mime-types"
 gem "nokogiri"
-gem "plek", "~> 4.1" # TODO: unconstrain once govuk_pub_components up-to-date.
+gem "plek"
 gem "puma"
 gem "rack-attack"
 gem "redcarpet"
