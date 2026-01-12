@@ -6,6 +6,9 @@ require "spec_helper"
 ENV["RAILS_ENV"] ||= "test"
 ENV["CKAN_DOMAIN"] ||= "testdomain"
 ENV["SOLR_URL"] ||= "http://localhost:8983/solr"
+ENV["RATE_LIMIT_COUNT"] ||= "1"
+ENV["RATE_LIMIT_PERIOD"] ||= "60"
+
 require File.expand_path("../config/environment", __dir__)
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
