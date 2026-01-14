@@ -99,6 +99,61 @@ RSpec.describe SearchController, type: :controller do
       end
     end
 
+    context "when the query has Welsh letters" do
+      let(:welsh_characters) { "âêîôûŵŷäëïöüẅÿáéíóúẃýàèìòùẁỳ" }
+
+      it "returns a successful response" do
+        allow(Search::Solr).to receive(:search).and_return(solr_response_no_results)
+        get :search, params: { q: welsh_characters, page: 1, sort: "asc" }
+
+        expect(response).to be_successful
+      end
+    end
+
+    context "when the query has special characters" do
+      it "returns a successful response" do
+        allow(Search::Solr).to receive(:search).and_return(solr_response_no_results)
+        get :search, params: { q: "!@£$%^&*()-_=+\"'|\\`~/?,><.", page: 1, sort: "asc" }
+
+        expect(response).to be_successful
+      end
+    end
+
+    context "when the query is empty" do
+      it "returns a successful response" do
+        allow(Search::Solr).to receive(:search).and_return(solr_response_no_results)
+        get :search, params: { q: "", page: 1, sort: "asc" }
+
+        expect(response).to be_successful
+      end
+    end
+
+    context "when the query has invalid characters mixed in with valid characters" do
+      let(:invalid_queryies) { ["testБ", "Б^lklkj", "^%&ش"] }
+      it "redirects to the home page" do
+        allow(Search::Solr).to receive(:search).and_return(solr_response_no_results)
+
+        invalid_queryies.each do |invalid_query|
+          get :search, params: { q: invalid_query, page: 1, sort: "asc" }
+
+          expect(response).to redirect_to root_path
+        end
+      end
+    end
+
+    context "when the query has non English/Welsh letters" do
+      let(:non_latin_characters) { %w[Б 好 ش] }
+      it "redirects to the home page" do
+        allow(Search::Solr).to receive(:search).and_return(solr_response_no_results)
+
+        non_latin_characters.each do |non_latin_char|
+          get :search, params: { q: non_latin_char, page: 1, sort: "asc" }
+
+          expect(response).to redirect_to root_path
+        end
+      end
+    end
+
     context "when there is an unexpected error" do
       it "raises an error for an unexpected Solr error" do
         mock_solr_http_error(status: 500)

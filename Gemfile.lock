@@ -474,6 +474,8 @@ GEM
       nio4r (~> 2.0)
     racc (1.8.1)
     rack (2.2.20)
+    rack-attack (6.8.0)
+      rack (>= 1.0, < 4)
     rack-proxy (0.7.7)
       rack
     rack-session (1.0.2)
@@ -691,6 +693,8 @@ DEPENDENCIES
   pry-byebug
   pry-stack_explorer
   puma
+  rack-attack
+  rack-test
   rails (= 7.2.2.1)
   redcarpet
   rsolr
