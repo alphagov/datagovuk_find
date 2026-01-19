@@ -1,6 +1,7 @@
-<% content_for :page_title do %><%= t('.find_open_data') %><% end %>
 
+<% content_for :page_title do %><%= t('.find_open_data') %><% end %>
 <main role="main" id="main-content" class="govuk-main-wrapper">
+  <%= render 'notification_banner' %>
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <%= render "govuk_publishing_components/components/title", {
