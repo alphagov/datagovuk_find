@@ -53,6 +53,16 @@ RSpec.describe "rack-attack throttling", type: :request do
       end
     end
 
+    context "when there are no values in the rate env variables" do
+      it "does not return a failure http response" do
+        allow(ENV).to receive(:fetch).with("RATE_LIMIT_COUNT", nil).and_return("")
+        allow(ENV).to receive(:fetch).with("RATE_LIMIT_PERIOD", nil).and_return("")
+
+        get path, valid_params, headers
+        expect(last_response.status).to eq(200)
+      end
+    end
+
     context "when period exceeded" do
       it "allows a new request after the throttle period passes" do
         get path, valid_params, headers
