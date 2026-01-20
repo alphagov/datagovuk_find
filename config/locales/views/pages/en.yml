@@ -36,3 +36,5 @@ en:
     home:
       find_open_data: "Find open data"
       lede: "Find data published by central government, local authorities and public bodies to help you build products and services"
+      notification_banner_title: Important
+      notification_banner_content_html: We're planning improvements to this service. Help us learn what to change by <a class="govuk-notification-banner__link" href="https://surveys.publishing.service.gov.uk/s/OSC03D/">completing a short survey</a>.
