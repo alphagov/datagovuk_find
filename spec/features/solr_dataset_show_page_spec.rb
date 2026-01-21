@@ -199,4 +199,13 @@ RSpec.feature "Solr Dataset page", type: :feature do
     expect(page).to have_css("p", text: "You must have an account for this publisher on data.gov.uk to make any changes to a dataset.")
     expect(page).to have_link("Sign in", href: "/dataset/edit/a-very-interesting-dataset")
   end
+
+  def and_i_can_see_a_notification_banner
+    expect(page).to have_content(I18n.t("shared.notification_banner_title"))
+    expect(page).to have_css(".govuk-notification-banner", text: "We're planning improvements to this service. Help us learn what to change by completing a short survey.")
+  end
+
+  def and_the_notification_banner_has_a_link
+    expect(page).to have_link("completing a short survey", href: "https://forms.gle/9De6rHdmUyVRVTU2A", count: 1)
+  end
 end
