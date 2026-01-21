@@ -2,3 +2,5 @@ en:
   shared:
     breadcrumb:
       home: "Home"
+    notification_banner_title: Important
+    notification_banner_content_html: We're planning improvements to this service. Help us learn what to change by <a class="govuk-notification-banner__link" href="https://forms.gle/9De6rHdmUyVRVTU2A">completing a short survey</a>.

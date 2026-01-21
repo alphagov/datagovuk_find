@@ -1,5 +1,15 @@
 en:
   pages:
+    publishers:
+      title: "Publishers"
+      publish_your_data: "Publish your data"
+      requirements: "You must have a Data publisher account to publish data for your organisation. If you already have one, sign in to get started."
+      edit_dataset_info: "To make any changes to an existing dataset, publishers must go to the dataset they want to change, go to the bottom of the page in the Edit this dataset section, and then sign in."
+      become_a_publisher: "Become a publisher"
+      publish_dataset_info: "information about publishing datasets"
+      to_get_started: "To get started, take a look at the %{guidance_link}."
+      support_info: "ask us for help"
+      ask_for_help: "You can also %{support_link}"
     search:
       accessibility:
         search_button_label: "Search data.gov.uk"
@@ -36,5 +46,3 @@ en:
     home:
       find_open_data: "Find open data"
       lede: "Find data published by central government, local authorities and public bodies to help you build products and services"
-      notification_banner_title: Important
-      notification_banner_content_html: We're planning improvements to this service. Help us learn what to change by <a class="govuk-notification-banner__link" href="https://surveys.publishing.service.gov.uk/s/OSC03D/">completing a short survey</a>.
