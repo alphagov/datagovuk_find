@@ -8,6 +8,7 @@
 <% end %>
 <form action="/search" method="GET">
   <main role="main" id="main-content" class="govuk-main-wrapper">
+    <%= render 'shared/notification_banner' %>
     <div class="govuk-width-container">
       <%= render "govuk_publishing_components/components/heading", {
         text: t(".search_results_heading"),

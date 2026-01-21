@@ -1,18 +1,18 @@
-<% content_for :page_title do %>Publishers<% end %>
+<% content_for :page_title do %><%= t('.title') %><% end %>
 
 <%= content_for :breadcrumb do %>
   <%= render 'shared/breadcrumb' %>
 <% end%>
 
 <main role="main" id="content">
+  <%= render 'shared/notification_banner' %>
   <div class="text">
     <h1 class="heading-large">
-      Publish your data
+      <%= t('.publish_your_data') %>
     </h1>
 
     <p>
-      You must have a Data publisher account to publish data for your
-      organisation. If you already have one, sign in to get started.
+      <%= t('.requirements') %>
     </p>
 
     <p>
@@ -21,19 +21,17 @@
 
     <div role="note" aria-label="Publisher information" class="panel panel-border-narrow text">
       <p>
-        To make any changes to an existing dataset, publishers must go to the
-        dataset they want to change, go to the bottom of the page in the Edit
-        this dataset section, and then sign in.
+        <%= t('.edit_dataset_info') %>
       </p>
     </div>
 
     <h2 class="heading-medium">
-      Become a publisher
+      <%= t('.become_a_publisher') %>
     </h2>
 
     <p>
-      To get started, take a look at the <%= link_to 'information about publishing datasets', 'https://guidance.data.gov.uk/publish_and_manage_data/', target: '_blank', class: 'govuk-link' %>.
-      You can also <%= link_to 'ask us for help', support_path, class: 'govuk-link' %>.
+      <%= t('.to_get_started', guidance_link: link_to(t('.publish_dataset_info'), 'https://guidance.data.gov.uk/publish_and_manage_data/', target: '_blank', class: 'govuk-link')).html_safe %>
+      <%= t('.ask_for_help', support_link: link_to(t('.support_info'), support_path, class: 'govuk-link')).html_safe %>
     </p>
   </div>
 </main>
