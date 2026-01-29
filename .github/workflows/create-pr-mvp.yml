@@ -1,0 +1,25 @@
+name: Create charts PR for MVP
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: ["Build and push DGU Find Image - MVP Branch"]
+    types:
+      - completed
+    branches:
+      - main-mvp
+jobs:
+  create_pr:
+    name: Create charts PR for MVP
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout datagovuk_find repository
+        uses: actions/checkout@v4
+        with:
+          repository: alphagov/datagovuk_find
+      - name: Create PR using MVP-specific script
+        run: bash ./docker/create-pr-mvp.sh
+        env:
+          GH_TOKEN: ${{ secrets.PR_GITHUB_TOKEN }}
+          GH_REF: ${{ github.ref_name }}
+          IS_TAG: "false"
+          ENVS: "integration"

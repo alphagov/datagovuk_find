@@ -1,0 +1,19 @@
+name: Build and push DGU Find Image - MVP
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main-mvp
+
+jobs:
+  build_and_push:
+    name: Build and push the DGU Find Image for MVP
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+    uses: ./.github/workflows/build-image.yaml
+    with:
+      buildType: build_push_with_gittag
+      gitRef: ${{ github.ref_name }}
