@@ -27,7 +27,7 @@ on:
         type: string
   push:
     branches:
-      - main
+      - main-mvp
 
 env:
   BUILD_TYPE : ${{ inputs.buildType || 'build_push' }}

@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
-# Script to create PR in govuk-dgu-charts for main-mvp branch
-# This script updates the Find image SHA in the main-mvp branch of govuk-dgu-charts
+# DGUK-156: Script to update Find SHA in govuk-dgu-charts main-mvp branch
+# This script directly updates the main-mvp branch - ArgoCD watches it and deploys to Integration
 # Check required environment variables
 if [ -z "$GH_TOKEN" ]; then
   echo "Error: GH_TOKEN environment variable is required"
@@ -16,7 +16,7 @@ CHARTS_REPO="alphagov/govuk-dgu-charts"
 CHARTS_BRANCH="main-mvp"
 APP_NAME="datagovuk_find"
 WORKSPACE_DIR="/tmp/govuk-dgu-charts-mvp"
-echo "Configuration:"
+echo ":clipboard: Configuration:"
 echo "   Charts Repo: $CHARTS_REPO"
 echo "   Target Branch: $CHARTS_BRANCH"
 echo "   App Name: $APP_NAME"
@@ -40,15 +40,10 @@ git config user.email "actions@github.com"
 echo "Checking out $CHARTS_BRANCH branch..."
 git checkout "$CHARTS_BRANCH"
 git pull origin "$CHARTS_BRANCH"
-# Create a new branch for the PR
-PR_BRANCH="update-find-mvp-${IMAGE_SHA:0:8}"
-echo ":herb: Creating PR branch: $PR_BRANCH"
-git checkout -b "$PR_BRANCH"
 # Find and update the values file
 VALUES_FILE="charts/datagovuk/values.yaml"
 if [ ! -f "$VALUES_FILE" ]; then
   echo "Warning: $VALUES_FILE not found, searching for alternative locations..."
-  # Try alternative locations
   if [ -f "charts/datagovuk/find/values.yaml" ]; then
     VALUES_FILE="charts/datagovuk/find/values.yaml"
   elif [ -f "values.yaml" ]; then
@@ -60,15 +55,11 @@ if [ ! -f "$VALUES_FILE" ]; then
 fi
 echo "Updating image SHA in $VALUES_FILE"
 # Update the image tag/SHA for the Find application
-# This uses sed to find and replace the image tag
-# Adjust the pattern based on your actual values.yaml
 if grep -q "find:" "$VALUES_FILE"; then
-  # Update the tag under the find section
   sed -i.bak "s/\(find:.*tag:\s*\).*/\1${IMAGE_SHA}/" "$VALUES_FILE" || \
   sed -i.bak "/find:/,/tag:/ s/\(tag:\s*\).*/\1${IMAGE_SHA}/" "$VALUES_FILE"
 else
   echo "Warning: Could not find 'find:' section in values file"
-  # Fallback: try to update any 'tag:' field
   sed -i.bak "s/\(tag:\s*\).*/\1${IMAGE_SHA}/" "$VALUES_FILE"
 fi
 # Remove backup file
@@ -78,8 +69,10 @@ if git diff --quiet; then
   echo "No changes detected. The image SHA may already be up to date."
   exit 0
 fi
+# Show the changes
 echo "Changes made:"
 git diff "$VALUES_FILE"
+# Commit the changes
 COMMIT_MSG="Update Find image to ${IMAGE_SHA:0:8} for MVP
 Automated update from datagovuk_find main-mvp branch
 Commit: ${IMAGE_SHA}
@@ -89,32 +82,12 @@ DGUK-156"
 echo "Committing changes..."
 git add "$VALUES_FILE"
 git commit -m "$COMMIT_MSG"
-echo "Pushing branch to remote..."
-git push origin "$PR_BRANCH"
-echo "Creating pull request..."
-PR_TITLE="[MVP] Update Find image to ${IMAGE_SHA:0:8}"
-PR_BODY="## Automated Update for main-mvp Branch
-This updates the Find application image for the MVP branch.
-**Details:**
-- **Commit SHA:** \`${IMAGE_SHA}\`
-- **Short SHA:** \`${IMAGE_SHA:0:8}\`
-- **Source Branch:** \`${GH_REF}\`
-- **Target Environment:** Integration
-**Changes:**
-- Updated Find image tag in \`${VALUES_FILE}\`
-**Deployment:**
-This will deploy to the Integration environment once merged and synced by ArgoCD.
----
-*Automated by GitHub Actions*"
-gh pr create \
-  --repo "$CHARTS_REPO" \
-  --base "$CHARTS_BRANCH" \
-  --head "$PR_BRANCH" \
-  --title "$PR_TITLE" \
-  --body "$PR_BODY"
-PR_URL=$(gh pr view "$PR_BRANCH" --repo "$CHARTS_REPO" --json url --jq .url)
-echo "Pull request created successfully!"
-echo "PR URL: $PR_URL"
+# Push directly to main-mvp branch
+echo "Pushing changes directly to $CHARTS_BRANCH..."
+git push origin "$CHARTS_BRANCH"
+echo "Successfully updated Find SHA in $CHARTS_BRANCH branch"
+echo "ArgoCD will detect this change and deploy to Integration"
+# Clean up
 cd /
 rm -rf "$WORKSPACE_DIR"
 echo "Script completed successfully!"

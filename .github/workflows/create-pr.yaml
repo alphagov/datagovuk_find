@@ -1,4 +1,4 @@
-name: Create charts PR
+name: Update charts PR
 
 on:
   workflow_dispatch:
@@ -7,19 +7,19 @@ on:
     types:
       - completed
     branches:
-      - main
+      - main-mvp
 
 jobs:
-  create_pr:
-    name: Create charts PR
+  update_charts:
+    name: Update Find SHA in charts
     runs-on: ubuntu-latest
     steps:
       - name: Checkout datagovuk_find repository
         uses: actions/checkout@v4
         with:
           repository: alphagov/datagovuk_find
-      - name: Create PR
-        run: bash ./docker/create-pr.sh
+      - name: Update Find SHA in govuk-dgu-charts
+        run: bash ./docker/update-find-sha-mvp.sh
         env:
           GH_TOKEN: ${{ secrets.PR_GITHUB_TOKEN }}
           GH_REF: ${{ github.ref_name }}
