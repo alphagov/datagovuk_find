@@ -1,0 +1,8 @@
+en:
+  layouts:
+    version_2:
+      collection:
+        site_name: "Collections"
+      header:
+        data_manual: "Data manual"
+        legacy_site: "Legacy site"

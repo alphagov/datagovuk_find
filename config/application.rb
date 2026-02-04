@@ -37,7 +37,6 @@ module FindDataBeta
     config.x.markdown_location = "app/markdowns/*.md"
     config.x.markdown_output_location = "app/views/generated/collections"
     config.x.generated_collections_location = "app/views/generated/collections"
-    config.x.version_2_collections_enabled = false
 
     config.ssl_options = { hsts: { expires: 1.week } }
 

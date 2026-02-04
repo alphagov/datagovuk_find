@@ -2,7 +2,7 @@ class CollectionsController < ApplicationController
   def show
     @collections_service = CollectionsService.new(params[:collection], params[:topic])
 
-    unless @collections_service.valid_collection_topic? && FeatureFlag.enabled?(:version_2_collections)
+    unless @collections_service.valid_collection_topic?
       render_not_found && return
     end
 

@@ -25,7 +25,7 @@
   <% end %>
 
     <meta charset="utf-8">
-    <title><%= content_for?(:page_title) ? yield(:page_title) + " - " + t('.site_name') : t('.site_name') %></title>
+    <title><%= content_for?(:page_title) ? yield(:page_title) + " - " + local_assigns[:collection] : local_assigns[:collection] %></title>
 
     <%# the colour used for theme-color is the standard palette $black from
         https://github.com/alphagov/govuk_frontend_toolkit/blob/master/stylesheets/colours/_palette.scss %>

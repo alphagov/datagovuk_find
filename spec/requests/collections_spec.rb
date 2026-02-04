@@ -34,10 +34,6 @@ RSpec.describe "Collections", type: :request do
   end
 
   context "when version_2_collections feature flag is disabled" do
-    before do
-      allow(Rails.configuration.x).to receive(:version_2_collections_enabled).and_return(false)
-    end
-
     it "returns 404 for non-existent collection paths" do
       get "/collections/non-existent-collection/some-topic"
 
