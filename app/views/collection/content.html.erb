@@ -1,0 +1,4 @@
+<h2 class="govuk-heading-l"><%= @title %></h2>
+<p class="govuk-body"><%= @body %></p>
+<%= yield if block_given? %>
+<%= render partial: "layouts/version_2/get_data", locals: { page_last_updated: @page_last_updated, website: @website, api: @api } %>
