@@ -34,6 +34,11 @@ module FindDataBeta
     # Common ones are `templates`, `generators`, or `middleware`, for example.
     config.autoload_lib(ignore: %w[assets tasks])
 
+    config.x.markdown_location = "app/markdowns/*.md"
+    config.x.markdown_output_location = "app/views/generated/collections"
+    config.x.generated_collections_location = "app/views/generated/collections"
+    config.x.version_2_collections_enabled = false
+
     config.ssl_options = { hsts: { expires: 1.week } }
 
     config.action_dispatch.default_headers = {
