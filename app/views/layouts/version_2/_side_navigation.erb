@@ -1,0 +1,13 @@
+<nav class="dgu-side-navigation" aria-label="Side navigation">
+    <ul class="dgu-side-navigation__list">
+        <% locals[:side_navigations].to_enum.with_index(1).each do |side_navigation, idx| %>
+            <li class="dgu-side-navigation__item">
+                <a 
+                href=<%= "/collections/#{locals[:collection]}/#{side_navigation}" %> 
+                aria-current="location"
+                class="<%= "dgu-side-navigation__item--active" if locals[:current_topic] == side_navigation %>"
+                ><%= side_navigation.gsub("-", " ").humanize %></a>
+            </li>
+        <% end %>
+    </ul>
+</nav>
