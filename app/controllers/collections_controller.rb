@@ -6,11 +6,15 @@ class CollectionsController < ApplicationController
       render_not_found && return
     end
 
-    render "generated/collections/#{@collections_service.collection_name}/#{@collections_service.topic}", layout: "version_2/collection", locals: {
+    render collection_topic_path, layout: "version_2/collection", locals: {
       collections: @collections_service.collections_slugs,
       collection: @collections_service.collection_name,
       side_navigations: @collections_service.side_navigations,
       current_topic: @collections_service.topic,
     }
+  end
+
+  def collection_topic_path
+    "generated/collections/#{@collections_service.collection_name}/#{@collections_service.topic}"
   end
 end
