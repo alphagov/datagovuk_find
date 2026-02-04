@@ -1,0 +1,34 @@
+name: Build and push Find image MVP
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main-mvp
+jobs:
+  build_and_push:
+    name: Build and push the Find Image for MVP
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+    uses: ./.github/workflows/build-image.yaml
+    with:
+      buildType: build_push
+  
+  update_charts:
+    name: Update Find SHA in charts for MVP
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout datagovuk_find repository
+        uses: actions/checkout@v4
+        with:
+          repository: alphagov/datagovuk_find
+
+      - name: Update Find SHA in govuk-dgu-charts
+        run: bash ./docker/update-find-sha-mvp.sh
+        env:
+          GH_TOKEN: ${{ secrets.PR_GITHUB_TOKEN }}
+          GH_REF: ${{ github.ref_name }}
+          IS_TAG: "false"
+          ENVS: "integration"
