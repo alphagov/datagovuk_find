@@ -1,0 +1,132 @@
+<%= yield :top_of_page %>
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="lte-ie8" lang="<%= content_for?(:html_lang) ? yield(:html_lang) : "en" %>"><![endif]-->
+<!--[if gt IE 8]><!--><html lang="<%= content_for?(:html_lang) ? yield(:html_lang) : "en" %>"><!--<![endif]-->
+  <head>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload" %>
+
+  <% if ENV["GOOGLE_TAG_MANAGER_ID"] %>
+    <% 
+      gtm_auth = ENV["GOOGLE_TAG_MANAGER_AUTH"]
+      gtm_preview = ENV["GOOGLE_TAG_MANAGER_PREVIEW"]
+    
+      gtm_attributes = []
+        gtm_attributes << "gtm_auth=" + gtm_auth if gtm_auth
+        gtm_attributes << "gtm_preview=#{gtm_preview}&gtm_cookies_win=x" if gtm_preview
+      gtm_attributes = gtm_attributes.join('&')
+    %>
+    <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl+'&<%= raw gtm_attributes %>';f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','<%= ENV["GOOGLE_TAG_MANAGER_ID"] %>');
+    </script>
+  <% end %>
+
+    <meta charset="utf-8">
+    <title><%= content_for?(:page_title) ? yield(:page_title) + " - " + t('.site_name') : t('.site_name') %></title>
+
+    <%# the colour used for theme-color is the standard palette $black from
+        https://github.com/alphagov/govuk_frontend_toolkit/blob/master/stylesheets/colours/_palette.scss %>
+    <meta name="theme-color" content="#0b0c0c" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <%= stylesheet_link_tag 'application' %>
+    <%= stylesheet_link_tag 'overrides/main' %>
+    <%= csrf_meta_tags %>
+
+    <%= yield :head %>
+  </head>
+<body class="govuk-template__body">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+
+    <%= render "govuk_publishing_components/components/cookie_banner", {
+      text: sanitize("We use <a href='/cookies' class='govuk-link'>cookies to collect information</a> about how you use data.gov.uk. We use this information to make the website work as well as possible."),
+      cookie_preferences_href: "/cookies",
+    } %>
+
+    <%= render "govuk_publishing_components/components/skip_link", {} %>
+
+    <%= render "layouts/version_2/header", collections: local_assigns[:collections] %>
+
+    <div class="govuk-width-container title_box">
+        <div class="title_image">
+            <img src="/find-assets/abstract_stock_image_1.jpg" alt="abstract artwork image" />
+            <h2>COLLECTION</h2>
+        </div>
+    </div>
+    <div class="govuk-width-container">
+        <h1 class="dgu-collection-name govuk-heading-xl"><%= local_assigns[:collection].gsub("-", " ").humanize %></h1>
+
+        <main class="govuk-main-wrapper">
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-one-third">
+                    <%= render "layouts/version_2/side_navigation", locals: { collection: local_assigns[:collection], side_navigations: local_assigns[:side_navigations], current_topic: local_assigns[:current_topic] } %>
+                </div>
+                <div class="govuk-grid-column-two-thirds">
+                    <%= yield %>
+                </div>
+            </div>
+        </main>
+    </div>
+    <%= render "govuk_publishing_components/components/layout_footer", {
+      meta: {
+        items: [
+          {
+            href: "/about",
+            text: "About"
+          },
+          {
+            href: "/accessibility",
+            text: "Accessibility"
+          },
+          {
+            href: "/cookies",
+            text: "Cookies"
+          },
+          {
+            href: "/privacy",
+            text: "Privacy"
+          },
+          {
+            href: "/terms",
+            text: "Terms and conditions"
+          },
+          {
+            href: "/support",
+            text: "Support"
+          }
+        ]
+      }
+    } %>
+
+    <script>
+      const dropdownBtn = document.getElementById("btn");
+      const dropdownMenu = document.getElementById("dropdown");
+      const toggleArrow = document.getElementById("arrow");
+
+      // Toggle dropdown function
+      const toggleDropdown = function () {
+        dropdownMenu.classList.toggle("show");
+        toggleArrow.classList.toggle("arrow");
+      };
+
+      // Toggle dropdown open/close when dropdown button is clicked
+      if (dropdownBtn && dropdownMenu && toggleArrow) {
+        dropdownBtn.addEventListener("click", function (e) {
+          e.stopPropagation();
+          toggleDropdown();
+        });
+      }
+
+      // Close dropdown when dom element is clicked
+      document.documentElement.addEventListener("click", function () {
+        if (dropdownMenu.classList.contains("show")) {
+          toggleDropdown();
+        }
+      });
+    </script>
+</body>
+</html>

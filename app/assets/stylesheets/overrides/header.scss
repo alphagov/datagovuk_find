@@ -1,0 +1,135 @@
+.govuk-header__logo  {
+    color: black;
+    font-weight: 300;
+}
+
+.govuk-header__logo .govuk-header__link:visited {
+    color: black;
+    font-weight: 300;
+}
+
+.govuk-header__link--homepage {
+    color: rgb(102,102,102)
+}
+
+.govuk-header__link {
+    color: govuk-colour("blue");
+}
+
+.govuk-header__link {
+    color: rgb(102,102,102);
+        cursor: pointer;
+}
+
+
+.govuk-header__link:link, .govuk-header__link:visited {
+    color: rgb(102,102,102)
+}
+
+.govuk-header__link:hover {
+    cursor: pointer;
+}
+
+.dgu-govuk-header, .govuk-header {
+    background: white;
+    color: govuk-colour("blue");
+}
+
+.dgu-breadcrumb-row ol {
+    display: flex;
+    justify-content: center;
+}
+
+.dgu-section {
+    margin-top: 50px;
+}
+
+canvas {
+    background-color: rgb(250,244,247);
+    padding: 10px;
+    border-radius: 5%;
+}
+
+
+// ndl custom stuff
+.dgu-full-width-banner {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    padding-top: govuk-spacing(4);
+    padding-bottom: govuk-spacing(4);
+}
+
+.govuk-notification-banner__title {
+    background-color: transparent;
+    color: black;
+    // @include govuk-font-size($size: 19);
+}
+
+.govuk-notification-banner__header {
+    background-color: transparent;
+}
+
+.govuk-notification-banner__heading {
+    font-weight: 100;
+    width: 100%;
+    max-width: 80%;
+}
+
+.govuk-notification-banner {
+    // background: transparent;
+    background-color: rgb(243, 250, 241);
+    border-radius: 30px;
+    border-color: transparent;
+    padding-top: govuk-spacing(8);
+    padding-bottom: govuk-spacing(8);
+    padding-left: govuk-spacing(8);
+    padding-right: govuk-spacing(8);
+}
+.govuk-notification-banner__content {
+    background-color: rgb(243, 250, 241);
+}
+    // background: rgb(243, 250, 241);
+    // images
+.govuk-grid-column-one-quarter img {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+
+.govuk-grid-column-one-quarter img {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+
+.title_box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.title_image img {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+
+.title_image h2 {
+    padding: 1vw;
+    letter-spacing: 5px;
+}
+
+.dgu-collection-name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: 200;
+    letter-spacing: 4px;
+}
+
+.dgu-content li {
+    margin-bottom: 20px;
+}
