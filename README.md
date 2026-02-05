@@ -40,7 +40,7 @@ Developer creates PR → main-mvp
     PR Approved & Merged
          ↓
     Docker Image Built
-    (ghcr.io/alphagov/datagovuk_find:main-mvp-<SHA>)
+    (ghcr.io/alphagov/datagovuk_find:<SHA>)
          ↓
     Charts Updated
     (charts/datagovuk/images/integration/find.yaml)
