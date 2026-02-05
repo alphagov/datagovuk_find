@@ -1,0 +1,33 @@
+<header role="banner" class="govuk-header" data-module="govuk-header">
+  <div class="govuk-header__container govuk-width-container">
+    <div class="govuk-grid-row">
+      <div class="govuk-header__logo govuk-grid-column-full">
+        <a href="<%= root_path %>" class="govuk-header__link govuk-header__link--homepage">
+            data.gov.uk
+          </a>
+      </div>
+      <div class="govuk-grid-column-one-half govuk-header__navigation">
+        <li class="govuk-header__navigation-item dgu-nav-item--has-dropdown">
+          <button
+            class="govuk-header__link dgu-nav-dropdown__toggle"
+            aria-haspopup="true"
+            aria-expanded="false">
+            <%= t(".collections") %>
+            <span class="dgu-nav-dropdown__chevron" aria-hidden="true"></span>
+          </button>
+          <div class="dgu-nav-dropdown__menu">
+            <% local_assigns[:collections].each do |collection| %>
+              <a class="govuk-header__link" href="/collections/<%= collection.slug %>"><%= collection.title %></a>
+            <% end %>
+          </div>
+        </li>
+        <li class="govuk-header__navigation-item">
+          <a class="govuk-header__link" href="#data_manual"><%= t(".data_manual") %></a>
+        </li>
+        <li class="govuk-header__navigation-item">
+          <a class="govuk-header__link" href="#legacy"><%= t(".legacy_site") %></a>
+        </li>
+      </div>
+    </div>
+  </div>
+</header>

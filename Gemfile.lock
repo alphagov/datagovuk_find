@@ -138,6 +138,7 @@ GEM
     faraday_middleware (1.2.1)
       faraday (~> 1.0)
     ffi (1.16.3)
+    front_matter_parser (1.0.1)
     globalid (1.2.1)
       activesupport (>= 6.1)
     google-protobuf (3.25.5)
@@ -678,6 +679,7 @@ DEPENDENCIES
   factory_bot
   faraday
   faraday_middleware
+  front_matter_parser
   govuk_elements_rails
   govuk_publishing_components (~> 28.7.1)
   govuk_test

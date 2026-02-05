@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "pages#home"
 
+  get "collections/:collection", to: "collections#show", as: "collection"
+  get "collections/:collection/:topic", to: "collections#show", as: "collection_topic"
+
   get "healthz" => "rails/health#show", as: :rails_health_check
 
   get "/sites/default/files/*organogram_path", to: redirect("https://s3-eu-west-1.amazonaws.com/datagovuk-#{Rails.env}-ckan-organogram/legacy/%{organogram_path}"), format: false

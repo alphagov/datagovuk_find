@@ -1,0 +1,18 @@
+<section class="dgu-link dgu-section" aria-label="Get the data links">
+    <h2 class="govuk-heading-l">Get the data</h2>
+    <p><%= link_to "More information", local_assigns[:website] || "#", role: 'button', class: 'govuk-button', rel: %w(nofollow) %></p>
+    <ul class="dgu__list">
+        <% if local_assigns[:api] %>
+            <li class="dgu__item dgu__item--active">
+                <a href="<%= local_assigns[:api] %>" aria-current="location">API</a>
+            </li>
+        <% end %>
+        <li class="dgu__item dgu__item--active">
+            <a href="#1" aria-current="location">Datasets</a>
+        </li>
+    </ul>
+    <% if local_assigns[:page_last_updated] %>
+        <h2 class="govuk-heading-s">The page was last updated <%= local_assigns[:page_last_updated] %></h2>
+    <% end %>
+    <a href="#1" aria-current="location">Give feedback</a>
+</section>
