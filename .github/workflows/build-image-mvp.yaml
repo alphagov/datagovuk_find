@@ -19,6 +19,7 @@ jobs:
   update_charts:
     name: Update Find SHA in charts for MVP
     runs-on: ubuntu-latest
+    needs: build_and_push
     steps:
       - name: Checkout datagovuk_find repository
         uses: actions/checkout@v4
