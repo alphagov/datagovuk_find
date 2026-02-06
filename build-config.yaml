@@ -1,7 +1,6 @@
 apps:
   datagovuk_find:
     name: datagovuk_find
-    version: 2.47.0
 runs_on:
   - runner_type: ubuntu-latest
     arch: amd64

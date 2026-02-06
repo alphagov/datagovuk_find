@@ -107,7 +107,6 @@ jobs:
             ${{ env.REGISTRY_BASE }}/${{ fromJson(needs.configure_builds.outputs.app_metadata).name }}
           tags: |
             type=raw,value=${{ env.GH_TAG }}
-            type=raw,value=v${{ fromJson(needs.configure_builds.outputs.app_metadata).version }}
             type=sha,format=short
             type=sha,priority=100,format=long
           labels: |
@@ -115,7 +114,7 @@ jobs:
             org.opencontainers.image.authors="GOV.UK Platform Engineering"
             org.opencontainers.image.description="Find image for data.gov.uk"
             org.opencontainers.image.source="https://github.com/alphagov/datagovuk_find"
-            org.opencontainers.image.version=${{ fromJson(needs.configure_builds.outputs.app_metadata).version }}
+            org.opencontainers.image.version=${{ env.GH_TAG }}
             org.opencontainers.image.created=${{ steps.calculate-image-tags.outputs.createdDate }}
             org.opencontainers.image.vendor=GDS
 
@@ -204,7 +203,6 @@ jobs:
             ${{ env.REGISTRY_BASE }}/${{ fromJson(needs.configure_builds.outputs.app_metadata).name }}
           tags: |
             type=raw,value=${{ env.GH_TAG }}
-            type=raw,value=v${{ fromJson(needs.configure_builds.outputs.app_metadata).version }}
             type=sha,format=short
             type=sha,priority=100,format=long
           labels: |
@@ -212,7 +210,7 @@ jobs:
             org.opencontainers.image.authors="GOV.UK Platform Engineering"
             org.opencontainers.image.description="Find image for data.gov.uk"
             org.opencontainers.image.source="https://github.com/alphagov/datagovuk_find"
-            org.opencontainers.image.version=${{ fromJson(needs.configure_builds.outputs.app_metadata).version }}
+            org.opencontainers.image.version=${{ env.GH_TAG }}
             org.opencontainers.image.created=${{ steps.calculate-image-tags.outputs.createdDate }}
             org.opencontainers.image.vendor=GDS
 
@@ -228,6 +226,6 @@ jobs:
 
       - name: Inspect App Images
         env:
-          IMAGEREF: '${{ env.REGISTRY_BASE }}/${{ fromJson(needs.configure_builds.outputs.app_metadata).name }}:${{ steps.app-metadata.outputs.version }}'
+          IMAGEREF: '${{ env.REGISTRY_BASE }}/${{ fromJson(needs.configure_builds.outputs.app_metadata).name }}:${{ env.GH_TAG }}'
         run: |
           docker buildx imagetools inspect "$IMAGEREF"
