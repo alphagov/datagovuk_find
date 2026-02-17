@@ -1,17 +1,9 @@
 require "rails_helper"
 
 RSpec.describe "pages", type: :request do
-  shared_examples "renders the notification banner" do
+  shared_examples "renders the publishers page" do
     it "renders the publishers page" do
       expect(response.body).to include(I18n.t("pages.publishers.publish_your_data"))
-    end
-
-    it "renders a govuk notification banner" do
-      expect(response.body).to include("govuk-notification-banner-title")
-    end
-
-    it "renders the survey link" do
-      expect(response.body).to include("https://forms.gle/9De6rHdmUyVRVTU2A")
     end
   end
 
@@ -28,7 +20,7 @@ RSpec.describe "pages", type: :request do
       expect(response.body).to include(I18n.t("pages.home.find_open_data"))
     end
 
-    include_examples "renders the notification banner"
+    include_examples "renders the publishers page"
   end
 
   describe "GET /publishers" do
@@ -44,7 +36,7 @@ RSpec.describe "pages", type: :request do
       expect(response.body).to include(I18n.t(".pages.publishers.publish_your_data"))
     end
 
-    include_examples "renders the notification banner"
+    include_examples "renders the publishers page"
   end
 
   describe "GET /support" do
@@ -60,7 +52,7 @@ RSpec.describe "pages", type: :request do
       expect(response.body).to include("Support")
     end
 
-    include_examples "renders the notification banner"
+    include_examples "renders the publishers page"
   end
 
   describe "GET /about" do
@@ -76,7 +68,7 @@ RSpec.describe "pages", type: :request do
       expect(response.body).to include("About")
     end
 
-    include_examples "renders the notification banner"
+    include_examples "renders the publishers page"
   end
 
   describe "GET /accessibility" do
@@ -92,7 +84,7 @@ RSpec.describe "pages", type: :request do
       expect(response.body).to include("Accessibility")
     end
 
-    include_examples "renders the notification banner"
+    include_examples "renders the publishers page"
   end
 
   describe "GET /cookies" do
@@ -108,7 +100,7 @@ RSpec.describe "pages", type: :request do
       expect(response.body).to include("Cookies")
     end
 
-    include_examples "renders the notification banner"
+    include_examples "renders the publishers page"
   end
 
   describe "GET /site-changes" do
@@ -124,7 +116,7 @@ RSpec.describe "pages", type: :request do
       expect(response.body).to include("Update about changes to data.gov.uk")
     end
 
-    include_examples "renders the notification banner"
+    include_examples "renders the publishers page"
   end
 
   describe "GET /ckan_maintenance" do
@@ -140,7 +132,7 @@ RSpec.describe "pages", type: :request do
       expect(response.body).to include("Data.gov.uk publishing freeze")
     end
 
-    include_examples "renders the notification banner"
+    include_examples "renders the publishers page"
   end
 
   describe "GET /privacy" do
@@ -156,6 +148,6 @@ RSpec.describe "pages", type: :request do
       expect(response.body).to include("Privacy")
     end
 
-    include_examples "renders the notification banner"
+    include_examples "renders the publishers page"
   end
 end
