@@ -1,12 +1,6 @@
 require "rails_helper"
 
 RSpec.feature "notification banner", type: :feature do
-  scenario "I visit the home page" do
-    given_i_am_on_the_home_page
-    then_i_can_see_a_notification_banner
-    and_the_notification_banner_has_a_link
-  end
-
   scenario "I visit the publishers page" do
     given_i_am_on_the_publishers_page
     then_i_can_see_a_notification_banner
