@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template">
+ <head>
+    <meta charset="utf-8">
+    <title><%= yield(:page_title) %> - data.gov.uk</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#FFFFFF">
+
+    <link rel="stylesheet" href="/stylesheets/govuk-frontend-6.0.0.min.css" media="all">
+    <%= stylesheet_link_tag 'v2/application' %>
+
+    <%= csrf_meta_tags %>
+
+    <%= favicon_link_tag asset_path('v2/favicon.png') %>
+
+    <% if ENV["GOOGLE_TAG_MANAGER_ID"] %>
+      <% 
+        gtm_auth = ENV["GOOGLE_TAG_MANAGER_AUTH"]
+        gtm_preview = ENV["GOOGLE_TAG_MANAGER_PREVIEW"]
+      
+        gtm_attributes = []
+          gtm_attributes << "gtm_auth=" + gtm_auth if gtm_auth
+          gtm_attributes << "gtm_preview=#{gtm_preview}&gtm_cookies_win=x" if gtm_preview
+        gtm_attributes = gtm_attributes.join('&')
+      %>
+      <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl+'&<%= raw gtm_attributes %>';f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','<%= ENV["GOOGLE_TAG_MANAGER_ID"] %>');
+      </script>
+    <% end %>
+
+    <%= yield :head %>
+
+  </head>
+
+  <body class="govuk-template__body">
+    <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');</script>
+
+    <%= render "govuk_publishing_components/components/cookie_banner", {
+      text: sanitize("We use <a href='/cookies' class='govuk-link'>cookies to collect information</a> about how you use data.gov.uk. We use this information to make the website work as well as possible."),
+      cookie_preferences_href: "/cookies",
+    } %>
+
+    <a href="#main" class="govuk-skip-link" data-module="govuk-skip-link">Skip to main content</a>
+
+    <%= render "v2/header", collections: [] %>
+
+    <main id="main">
+      <%= yield %>
+    </main>
+
+    <%= render "v2/footer" %>
+
+    <%= javascript_include_tag 'v2/application' %>
+    <script type="module" src="/javascript/govuk-frontend-6.0.0.min.js"></script>
+    <script type="module">
+      import { initAll } from '/javascript/govuk-frontend-6.0.0.min.js'
+      initAll()
+    </script>
+</body>
+</html>
