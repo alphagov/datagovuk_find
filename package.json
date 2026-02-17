@@ -3,5 +3,8 @@
   "license": "UNLICENSED",
   "dependencies": {
     "accessible-autocomplete": "^2.0.2"
+  },
+  "devDependencies": {
+    "govuk-frontend": "^6.0.0"
   }
 }
