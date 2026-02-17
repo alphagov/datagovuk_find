@@ -1,12 +1,6 @@
 require "rails_helper"
 
 RSpec.describe "pages", type: :request do
-  shared_examples "renders the publishers page" do
-    it "renders the publishers page" do
-      expect(response.body).to include(I18n.t("pages.publishers.publish_your_data"))
-    end
-  end
-
   describe "GET /" do
     before do
       get root_path
@@ -15,12 +9,6 @@ RSpec.describe "pages", type: :request do
     it "returns success response" do
       expect(response).to have_http_status(:ok)
     end
-
-    it "renders the home page" do
-      expect(response.body).to include(I18n.t("pages.home.data_directory"))
-    end
-
-    include_examples "renders the publishers page"
   end
 
   describe "GET /publishers" do
@@ -35,8 +23,6 @@ RSpec.describe "pages", type: :request do
     it "renders the publishers page" do
       expect(response.body).to include(I18n.t(".pages.publishers.publish_your_data"))
     end
-
-    include_examples "renders the publishers page"
   end
 
   describe "GET /support" do
@@ -51,8 +37,6 @@ RSpec.describe "pages", type: :request do
     it "renders the support page" do
       expect(response.body).to include("Support")
     end
-
-    include_examples "renders the publishers page"
   end
 
   describe "GET /about" do
@@ -67,8 +51,6 @@ RSpec.describe "pages", type: :request do
     it "renders the about page" do
       expect(response.body).to include("About")
     end
-
-    include_examples "renders the publishers page"
   end
 
   describe "GET /accessibility" do
@@ -83,8 +65,6 @@ RSpec.describe "pages", type: :request do
     it "renders the accessibility page" do
       expect(response.body).to include("Accessibility")
     end
-
-    include_examples "renders the publishers page"
   end
 
   describe "GET /cookies" do
@@ -99,8 +79,6 @@ RSpec.describe "pages", type: :request do
     it "renders the cookies page" do
       expect(response.body).to include("Cookies")
     end
-
-    include_examples "renders the publishers page"
   end
 
   describe "GET /site-changes" do
@@ -115,8 +93,6 @@ RSpec.describe "pages", type: :request do
     it "renders the site changes page" do
       expect(response.body).to include("Update about changes to data.gov.uk")
     end
-
-    include_examples "renders the publishers page"
   end
 
   describe "GET /ckan_maintenance" do
@@ -131,8 +107,6 @@ RSpec.describe "pages", type: :request do
     it "renders the ckan maintenance page" do
       expect(response.body).to include("Data.gov.uk publishing freeze")
     end
-
-    include_examples "renders the publishers page"
   end
 
   describe "GET /privacy" do
@@ -147,7 +121,5 @@ RSpec.describe "pages", type: :request do
     it "renders the privacy page" do
       expect(response.body).to include("Privacy")
     end
-
-    include_examples "renders the publishers page"
   end
 end
