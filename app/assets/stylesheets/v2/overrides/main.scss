@@ -1,0 +1,73 @@
+@import 'footer';
+@import 'header';
+@import 'side_navigation';
+@import 'top_navigation';
+
+:root {
+  --datagovuk-black: #333333;
+  --datagovuk-dark-green: #00381E;
+}
+
+/* inter-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/inter-v20-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Libre Baskerville';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/libre-baskerville-v24-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+.datagovuk-body,
+.datagovuk-heading-m,
+.datagovuk-heading-l,
+.datagovuk-link,
+.datagovuk-button {
+  font-family: 'Inter', sans-serif;
+}
+
+.datagovuk-link:link,
+.datagovuk-link:visited {
+  color: var(--datagovuk-black);
+}
+
+.datagovuk-button {
+  background-color: var(--datagovuk-dark-green);
+  border-radius: 20px;
+  padding: 14px 18px;
+}
+
+.datagovuk-heading-xl {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 28px;
+}
+
+.datagovuk-heading-l {
+  font-size: 32px;
+}
+
+.datagovuk-heading-m {
+  font-size: 30px;
+}
+
+/* Desktop styling overrides */
+@media (min-width: 40.0625em) {
+  .datagovuk-heading-xl{
+    font-size: 42px;
+  }
+
+  .datagovuk-heading-l {
+    font-size: 42px;
+  }
+
+  .datagovuk-body {
+    font-size: 22px;
+  }
+}
