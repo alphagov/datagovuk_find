@@ -43,7 +43,7 @@ namespace :markdown do
       FileUtils.mkdir_p(output_path)
 
       html = ApplicationController.renderer.render(
-        template: "collection/content",
+        partial: "v2/collection/content",
         layout: false,
         assigns: assigns,
       )
