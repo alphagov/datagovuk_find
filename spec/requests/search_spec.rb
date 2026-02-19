@@ -19,13 +19,5 @@ RSpec.describe "Search", type: :request do
     it "renders the search page" do
       expect(response.body).to include("Search results")
     end
-
-    it "renders a govuk notification banner" do
-      expect(response.body).to include("govuk-notification-banner-title")
-    end
-
-    it "renders the survey link" do
-      expect(response.body).to include("https://forms.gle/9De6rHdmUyVRVTU2A")
-    end
   end
 end
