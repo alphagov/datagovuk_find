@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root to: "v2/home#home"
-
-  get "collections/:collection", to: "collections#show", as: "collection"
-  get "collections/:collection/:topic", to: "collections#show", as: "collection_topic"
+  root to: "v2/pages#home"
 
   get "healthz" => "rails/health#show", as: :rails_health_check
 
@@ -38,6 +35,12 @@ Rails.application.routes.draw do
     get "support/new", to: redirect("/support")
     get "terms"
     get "ckan_maintenance"
+  end
+
+  scope module: "v2" do
+    get "collections/:collection", to: "collection#show", as: "collection"
+    get "collections/:collection/:topic", to: "collection#show", as: "collection_topic"
+    get "components" => "pages#components"
   end
 
   match "404", to: "errors#not_found", via: :all

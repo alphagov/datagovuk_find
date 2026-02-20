@@ -16,7 +16,7 @@ RSpec.describe "Collections", type: :request do
     it "shows the collection title" do
       get collection_path
 
-      expect(response.body).to include("<h1 class=\"dgu-collection-name govuk-heading-xl\">Land and property</h1>")
+      expect(response.body).to include("Land and property</h1>")
     end
 
     it "shows the collection navigation links" do
