@@ -1,0 +1,111 @@
+.datagovuk-header__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    gap: 0 20px;
+}
+
+.datagovuk-header__logo {
+    flex-grow: 1;
+    padding: 17px 0;
+}
+
+.datagovuk-header__logo a{
+    display: block;
+    width: 165px;
+    text-decoration: none;
+}
+
+.datagovuk-header__logo img {
+    width: 100%;
+}
+
+.datagovuk-header__link,
+.datagovuk-header__button {
+    display: none;
+    color: $datagovuk-black;
+    font-family: Inter, sans-serif;
+    font-size: 20px;
+    background: none;
+    border: none;
+    text-decoration: none;
+    padding: 22px 0;
+}
+
+.datagovuk-header__link {
+    text-decoration: none;
+}
+
+.datagovuk-header__button:after {
+    transform: translateY(-35%) rotate(45deg) scale(1);
+    content: "";
+    display: inline-block;
+    height: 8px;
+    vertical-align: flex;
+    width: 8px;
+    border-bottom: 2px solid $datagovuk-black;
+    border-right: 2px solid $datagovuk-black;
+    margin: 0px 10px 0px 2px;
+}
+
+.datagovuk-header__button[aria-expanded="true"]:after {
+    transform: translateY(1px) rotate(225deg) scale(1);
+}
+
+#datagovuk-header-button-all {
+    display: block;
+}
+
+.js-enabled .datagovuk-menu {
+  display: none;
+}
+
+.js-enabled .datagovuk-menu:not([hidden]) {
+  display: block;
+}
+
+.datagovuk-menu {
+    order: 1;
+    width: 100%;
+    padding-bottom: 40px;
+}
+
+.datagovuk-menu__heading {
+    font-family: Inter, sans-serif;
+    font-size: 20px;
+    text-transform: uppercase;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: 8%;
+    color: $datagovuk-grey;
+}
+
+.datagovuk-menu__item-link {
+    display: block;
+    font-size: 20px;
+    text-decoration: none;
+    padding: 10px 0;
+}
+
+.datagovuk-menu__item-link:hover{
+    text-decoration: underline;
+}
+
+/* Desktop styling overrides */
+@media (min-width: 40.0625em) {
+
+    .datagovuk-header__link,
+    .datagovuk-header__button {
+        display: block;
+    }
+
+    #datagovuk-header-button-all {
+        display: none;
+    }
+
+    .datagovuk-menu__items {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 10px 30px;
+    }
+
+}
