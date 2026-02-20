@@ -31,17 +31,6 @@
   font-family: 'Inter', sans-serif;
 }
 
-.datagovuk-link:link,
-.datagovuk-link:visited {
-  color: var(--datagovuk-black);
-}
-
-.datagovuk-button {
-  background-color: var(--datagovuk-dark-green);
-  border-radius: 20px;
-  padding: 14px 18px;
-}
-
 .datagovuk-heading-xl {
   font-family: 'Libre Baskerville', serif;
   font-size: 28px;
@@ -53,6 +42,21 @@
 
 .datagovuk-heading-m {
   font-size: 30px;
+}
+
+.datagovuk-body {
+  font-size: 20px;
+}
+
+.datagovuk-link:link,
+.datagovuk-link:visited {
+  color: var(--datagovuk-black);
+}
+
+.datagovuk-button {
+  background-color: var(--datagovuk-dark-green);
+  border-radius: 20px;
+  padding: 14px 18px;
 }
 
 /* Desktop styling overrides */
