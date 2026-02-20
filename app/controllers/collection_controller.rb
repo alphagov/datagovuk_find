@@ -5,6 +5,7 @@ class CollectionController < ApplicationController
     end
 
     @collections = collections_service.collections_slugs
+    @data_manuals = []
     @collection = collections_service.collection
     @side_navigations = collections_service.side_navigations
     @current_topic = collections_service.topic
