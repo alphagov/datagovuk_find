@@ -1,0 +1,32 @@
+.datagovuk-feedback {
+  background-color: rgb(243, 250, 241);
+  border-left: 4px solid $datagovuk-light-green !important;
+  padding: 5px;
+  padding-left: 15px;
+}
+
+.star-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.datagovuk-feedback {
+  display: grid;
+  grid-template-columns: 1fr 0.5fr;
+}
+
+@media (max-width: 768px) {
+  .datagovuk-feedback {
+    grid-template-columns: 1fr;
+  }
+}
+
+.govuk-radios__label::after {
+    content: none !important;
+    display: none !important;
+}
+
+.govuk-radios__label::before {
+    content: none !important;
+    display: none !important;
+}

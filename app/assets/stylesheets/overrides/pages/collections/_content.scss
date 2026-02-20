@@ -1,0 +1,15 @@
+.datagovuk-more-info-btn {
+    border-radius: 15px;
+    background-color: $datagovuk-dark-green;
+}
+
+.datagovuk__item a {
+    color: $datagovuk-light-green;
+    text-decoration: underline;
+}
+
+.datagovuk__item a:hover {
+    color: $datagovuk-light-green;
+    opacity: 0.5;
+    text-decoration: none;
+}
