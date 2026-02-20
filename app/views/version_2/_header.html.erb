@@ -1,0 +1,31 @@
+<header role="banner" class="govuk-header" data-module="govuk-header">
+  <div class="govuk-header__container govuk-width-container">
+    <div class="govuk-grid-row datagovuk-header-row-one">
+      <div class="govuk-grid-column-full govuk-header__navigation">
+        <a href="<%= root_path %>">
+          <%= image_tag "logo-desktop", alt: "data.gov.uk logo" %>
+        </a>
+        <div class="datagovuk-header__navigation">
+          <li class="govuk-header__navigation-item datagovuk-nav-item--has-dropdown">
+            <a class="govuk-header__link datagovuk-nav-dropdown__toggle">
+              <%= t(".collections") %>  
+              <span class="datagovuk-nav-dropdown__chevron" aria-hidden="true"></span>
+            </a>
+          </li>
+          <li class="govuk-header__navigation-item">
+            <a class="govuk-header__link" href="#data_manual"><%= t(".data_manual") %></a>
+          </li>
+        </div>
+      </div>
+    </div>
+    <div class="govuk-grid-row collections-row">
+      <div class="collections-menu datagovuk-nav-dropdown__menu">
+          <% local_assigns[:collections].each do |collection| %>
+            <div class="datagovuk-nav-item">
+              <a class="govuk-header__link" href="/collections/<%= collection.slug %>"><%= collection.title %></a>
+            </div>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</header>
