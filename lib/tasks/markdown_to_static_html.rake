@@ -28,7 +28,7 @@ namespace :markdown do
         api: front_matter["api"],
         page_last_updated: front_matter["page-last-updated"],
         tags: front_matter["tags"],
-        visualisation_data: front_matter["visualisation_data"],
+        visualisation_data: front_matter["visualisation-data"],
         contact: front_matter["contact"],
         body: html_body.html_safe,
       }
@@ -43,7 +43,7 @@ namespace :markdown do
       FileUtils.mkdir_p(output_path)
 
       html = ApplicationController.renderer.render(
-        template: "collection/content",
+        template: "version_2/generated/collection",
         layout: false,
         assigns: assigns,
       )
