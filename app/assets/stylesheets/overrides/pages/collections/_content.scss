@@ -13,3 +13,42 @@
     opacity: 0.5;
     text-decoration: none;
 }
+
+.govuk-section-break {
+    margin-left: auto;
+    margin-right: auto;
+    width: 45%;
+}
+
+.datagovuk-collection-wrapper img {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+
+.datagovuk-collection-wrapper h2 {
+    padding: 1vw;
+    letter-spacing: 5px;
+    color: $datagovuk-grey;
+}
+
+.datagovuk-collection-name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: 200;
+    letter-spacing: 4px;
+    margin-bottom: 0;
+}
+
+.title_box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.datagovuk-section {
+    margin-top: 50px;
+}

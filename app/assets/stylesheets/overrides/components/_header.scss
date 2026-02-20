@@ -13,84 +13,26 @@
     color: govuk-colour("blue");
 }
 
-.datagovuk-section {
-    margin-top: 50px;
-}
+// Navigation
 
-.datagovuk-full-width-banner {
-    width: 100vw;
-    margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
-    padding-top: govuk-spacing(4);
-    padding-bottom: govuk-spacing(4);
-}
-
-.govuk-notification-banner__title {
-    background-color: transparent;
-    @include govuk-font(19);
-}
-
-.govuk-notification-banner__header {
-    background-color: transparent;
-}
-
-.govuk-notification-banner__heading {
-    font-weight: 100;
-    width: 100%;
-    max-width: 80%;
-}
-
-.title_box {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-.datagovuk-collection-wrapper img {
-    height: 100px;
-    width: 100px;
-    border-radius: 50%;
-}
-
-.datagovuk-collection-wrapper h2 {
-    padding: 1vw;
-    letter-spacing: 5px;
-    color: $datagovuk-grey;
-}
-
-.datagovuk-collection-name {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-weight: 200;
-    letter-spacing: 4px;
-    margin-bottom: 0;
-}
-
-.govuk-section-break {
-    margin-left: auto;
-    margin-right: auto;
-    width: 45%;
-}
-
-.datagovuk-content li {
-    margin-bottom: 20px;
-}
-
-.govuk-header__navigation img {
+.datagovuk__nav img {
     width: 50%;
-    height: 50%;
-    float: left; // Keep logo to the left. Otherwise, it'll shift to the right
+    object-fit: contain;
+    float: left;
 }
 
-// Navigation links
-
-.govuk-header__navigation {
+.datagovuk__nav {
     display: flex;
-    align-items: self-end;
+    align-items: center;
     justify-content: space-between;
 }
 
+.datagovuk__nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
 
+.datagovuk__nav .govuk-header__link {
+    font-size: 22px;
+}
