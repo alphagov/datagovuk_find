@@ -1,30 +1,53 @@
 <header role="banner" class="govuk-header" data-module="govuk-header">
   <div class="govuk-header__container govuk-width-container">
-    <div class="govuk-grid-row datagovuk-header-row-one">
-      <div class="govuk-grid-column-full govuk-header__navigation">
-        <a href="<%= root_path %>">
+    <div class="govuk-grid-row">
+      <nav class="govuk-grid-column-full datagovuk__nav" aria-label="Collections navigation">
+        <a href="<%= root_path %>" class="govuk-header__link datagovuk-logo">
           <%= image_tag "logo-desktop", alt: "data.gov.uk logo" %>
         </a>
-        <div class="datagovuk-header__navigation">
+        <ul class="govuk-header__navigation">          
           <li class="govuk-header__navigation-item datagovuk-nav-item--has-dropdown">
-            <a class="govuk-header__link datagovuk-nav-dropdown__toggle">
+            <button class="govuk-header__link datagovuk-nav-dropdown__toggle" aria-expanded="false" aria-controls="collections-menu">
               <%= t(".collections") %>  
               <span class="datagovuk-nav-dropdown__chevron" aria-hidden="true"></span>
-            </a>
+            </button>
           </li>
-          <li class="govuk-header__navigation-item">
-            <a class="govuk-header__link" href="#data_manual"><%= t(".data_manual") %></a>
+
+          <li class="govuk-header__navigation-item datagovuk-manual-nav-item--has-dropdown">
+            <button class="govuk-header__link datagovuk-manual-nav-dropdown__toggle" aria-expanded="false" aria-controls="data-manual-menu">
+              <%= t(".data_manual") %>  
+              <span class="datagovuk-manual-nav-dropdown__chevron" aria-hidden="true"></span>
+            </button>
           </li>
-        </div>
-      </div>
+        </ul>
+      </nav>
     </div>
-    <div class="govuk-grid-row collections-row">
-      <div class="collections-menu datagovuk-nav-dropdown__menu">
+
+    <div class="govuk-width-container collections-row">
+      <div id="collections-menu" class="collections-menu datagovuk-nav-dropdown__menu">
+        <% if local_assigns[:collections].present? %>
           <% local_assigns[:collections].each do |collection| %>
             <div class="datagovuk-nav-item">
-              <a class="govuk-header__link" href="/collections/<%= collection.slug %>"><%= collection.title %></a>
+              <a class="govuk-header__link" href="/collections/<%= collection.slug %>">
+                <%= collection.title %>
+              </a>
             </div>
           <% end %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="govuk-width-container manual-row">
+      <div id="data-manual-menu" class="data-manual-menu datagovuk-manual-nav-dropdown__menu">
+        <% if local_assigns[:data_manuals].present? %>
+          <% local_assigns[:data_manuals].each do |manual| %>
+            <div class="datagovuk-nav-item">
+              <a class="govuk-header__link" href="/collections/<%= manual.slug %>">
+                <%= manual.title %>
+              </a>
+            </div>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>
