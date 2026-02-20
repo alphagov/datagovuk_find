@@ -1,103 +1,88 @@
-.datagovuk-nav-dropdown__menu {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+.collections-row,
+.manual-row {
+  display: none;
+
+  &.is-open {
+    display: block;
+  }
 }
 
-.datagovuk-nav-dropdown__menu .govuk-header__link {
-  text-decoration: none;
-  cursor: pointer;
-  display: block;
-  margin: 0;
-  margin-top: 5px; // TODO: Why is it that it has to be more than 0px to fix drop down cursor pointer issue
-  padding-top: 20px;
-}
-
-.datagovuk-nav-item--has-dropdown:hover .datagovuk-nav-dropdown__chevron,
-.datagovuk-nav-item--has-dropdown:focus-within .datagovuk-nav-dropdown__chevron {
-  transform: rotate(-135deg);
-  // TODO: keep above transform when within the navigation box
-}
-
-
-.datagovuk-nav-dropdown__toggle {
+.datagovuk-nav-dropdown__toggle,
+.datagovuk-manual-nav-dropdown__toggle {
   background: none;
   border: 0;
+  padding: 0;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 6px;
   color: #666666;
   font-weight: 200;
+  text-decoration: none;
   @include govuk-font(19);
-  text-decoration: none;
+
+  &:hover {
+    color: rgb(102, 102, 102);
+  }
 }
 
-.datagovuk-nav-dropdown__toggle:hover {
-  color: rgb(102, 102, 102);
-  text-decoration: none;
-}
 
-.govuk-header__navigation-item:hover {
-  color: pointer;
-}
-
-// Drop down
-
-.datagovuk-nav-item--has-dropdown {
-  position: relative;
-}
-
-.datagovuk-nav-dropdown__chevron {
+.datagovuk-nav-dropdown__chevron, 
+.datagovuk-manual-nav-dropdown__chevron {
+  display: inline-block;
   width: 6px;
   height: 6px;
-  border-right: 2px solid currentColor;
-  border-bottom: 2px solid currentColor;
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  border-color: currentColor;
   transform: rotate(45deg);
-  transition: transform 0.15s ease;
+  transition: transform 0.2s ease-in-out;
+  pointer-events: none;
 }
 
-.datagovuk-nav-item:hover {
-  cursor: pointer;
-  text-decoration: underline;
+
+.datagovuk-nav-item--has-dropdown,
+.datagovuk-manual-nav-item--has-dropdown {
+  position: relative;
+  padding-bottom: 0;
+  margin-bottom: 0;
+
+  &:hover, &:focus-within {
+    .datagovuk-nav-dropdown__chevron,
+    .datagovuk-manual-nav-dropdown__chevron {
+      transform: rotate(-135deg);
+    }
+  }
 }
 
-.datagovuk-nav-item .govuk-header__link:hover {
-  cursor: pointer;
+
+.datagovuk-nav-dropdown__menu,
+.datagovuk-manual-nav-dropdown__menu {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding-top: 10px;
+
+  .govuk-header__link {
+    display: block;
+    padding: 15px 0;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 
-.collections-row {
-  display: none;
-}
-
-.is-open {
-  display: block;
+.datagovuk-header-row-onem,
+.govuk-header__navigation,
+.govuk-header__navigation-item,
+.govuk-header__logo,
+.govuk-width-container {
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 .is-closed {
-  display: none;
-}
-
-// get rid of padding between dropdown and dropdown contents
-.datagovuk-header-row-onem,
-.govuk-header__navigation,
-.datagovuk-nav-item--has-dropdown,
-.govuk-header__logo {
-  padding-bottom: 0;
-  margin-bottom: 0;
-}
-
-.govuk-header__navigation .govuk-header__navigation-item {
-  padding: 0;
-}
-
-.govuk-width-container {
-  padding-bottom: 0;
-}
-
-.datagovuk-nav-dropdown__toggle {
-  padding: 0;
-}
-
-.datagovuk-nav-dropdown__chevron {
-  cursor: pointer;
+  display: none !important;
 }
