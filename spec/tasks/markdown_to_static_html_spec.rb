@@ -33,6 +33,11 @@ RSpec.describe "Markdown to Static HTML Rake Task", type: :task do
     end
   end
 
+  context "when the body is empty" do
+    it "does some sort of validation" do
+    end
+  end
+
   after do
     FileUtils.rm_rf(Rails.root.join(Rails.configuration.x.markdown_output_location)) if Dir.exist?(Rails.root.join(Rails.configuration.x.markdown_output_location))
   end
