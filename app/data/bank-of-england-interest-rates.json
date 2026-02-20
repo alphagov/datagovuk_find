@@ -1,0 +1,1040 @@
+{
+  "title": "Bank of England interest rates",
+  "source": "https://www.bankofengland.co.uk/boeapps/database/Bank-Rate.asp",
+  "chart-type": "line-chart",
+  "publisher": "Bank of England",
+  "data": [
+    {
+      "Date Changed": "18 Dec 25",
+      "Rate": "3.75"
+    },
+    {
+      "Date Changed": "07 Aug 25",
+      "Rate": "4.00"
+    },
+    {
+      "Date Changed": "08 May 25",
+      "Rate": "4.25"
+    },
+    {
+      "Date Changed": "06 Feb 25",
+      "Rate": "4.50"
+    },
+    {
+      "Date Changed": "07 Nov 24",
+      "Rate": "4.75"
+    },
+    {
+      "Date Changed": "01 Aug 24",
+      "Rate": "5.00"
+    },
+    {
+      "Date Changed": "03 Aug 23",
+      "Rate": "5.25"
+    },
+    {
+      "Date Changed": "22 Jun 23",
+      "Rate": "5.00"
+    },
+    {
+      "Date Changed": "11 May 23",
+      "Rate": "4.50"
+    },
+    {
+      "Date Changed": "23 Mar 23",
+      "Rate": "4.25"
+    },
+    {
+      "Date Changed": "02 Feb 23",
+      "Rate": "4.00"
+    },
+    {
+      "Date Changed": "15 Dec 22",
+      "Rate": "3.50"
+    },
+    {
+      "Date Changed": "03 Nov 22",
+      "Rate": "3.00"
+    },
+    {
+      "Date Changed": "22 Sep 22",
+      "Rate": "2.25"
+    },
+    {
+      "Date Changed": "04 Aug 22",
+      "Rate": "1.75"
+    },
+    {
+      "Date Changed": "16 Jun 22",
+      "Rate": "1.25"
+    },
+    {
+      "Date Changed": "05 May 22",
+      "Rate": "1.00"
+    },
+    {
+      "Date Changed": "17 Mar 22",
+      "Rate": "0.75"
+    },
+    {
+      "Date Changed": "03 Feb 22",
+      "Rate": "0.50"
+    },
+    {
+      "Date Changed": "16 Dec 21",
+      "Rate": "0.25"
+    },
+    {
+      "Date Changed": "19 Mar 20",
+      "Rate": "0.10"
+    },
+    {
+      "Date Changed": "11 Mar 20",
+      "Rate": "0.25"
+    },
+    {
+      "Date Changed": "02 Aug 18",
+      "Rate": "0.75"
+    },
+    {
+      "Date Changed": "02 Nov 17",
+      "Rate": "0.50"
+    },
+    {
+      "Date Changed": "04 Aug 16",
+      "Rate": "0.25"
+    },
+    {
+      "Date Changed": "05 Mar 09",
+      "Rate": "0.50"
+    },
+    {
+      "Date Changed": "05 Feb 09",
+      "Rate": "1.00"
+    },
+    {
+      "Date Changed": "08 Jan 09",
+      "Rate": "1.50"
+    },
+    {
+      "Date Changed": "04 Dec 08",
+      "Rate": "2.00"
+    },
+    {
+      "Date Changed": "06 Nov 08",
+      "Rate": "3.00"
+    },
+    {
+      "Date Changed": "08 Oct 08",
+      "Rate": "4.50"
+    },
+    {
+      "Date Changed": "10 Apr 08",
+      "Rate": "5.00"
+    },
+    {
+      "Date Changed": "07 Feb 08",
+      "Rate": "5.25"
+    },
+    {
+      "Date Changed": "06 Dec 07",
+      "Rate": "5.50"
+    },
+    {
+      "Date Changed": "05 Jul 07",
+      "Rate": "5.75"
+    },
+    {
+      "Date Changed": "10 May 07",
+      "Rate": "5.50"
+    },
+    {
+      "Date Changed": "11 Jan 07",
+      "Rate": "5.25"
+    },
+    {
+      "Date Changed": "09 Nov 06",
+      "Rate": "5.00"
+    },
+    {
+      "Date Changed": "03 Aug 06",
+      "Rate": "4.75"
+    },
+    {
+      "Date Changed": "04 Aug 05",
+      "Rate": "4.50"
+    },
+    {
+      "Date Changed": "05 Aug 04",
+      "Rate": "4.75"
+    },
+    {
+      "Date Changed": "10 Jun 04",
+      "Rate": "4.50"
+    },
+    {
+      "Date Changed": "06 May 04",
+      "Rate": "4.25"
+    },
+    {
+      "Date Changed": "05 Feb 04",
+      "Rate": "4.00"
+    },
+    {
+      "Date Changed": "06 Nov 03",
+      "Rate": "3.75"
+    },
+    {
+      "Date Changed": "10 Jul 03",
+      "Rate": "3.50"
+    },
+    {
+      "Date Changed": "06 Feb 03",
+      "Rate": "3.75"
+    },
+    {
+      "Date Changed": "08 Nov 01",
+      "Rate": "4.00"
+    },
+    {
+      "Date Changed": "04 Oct 01",
+      "Rate": "4.50"
+    },
+    {
+      "Date Changed": "18 Sep 01",
+      "Rate": "4.75"
+    },
+    {
+      "Date Changed": "02 Aug 01",
+      "Rate": "5.00"
+    },
+    {
+      "Date Changed": "10 May 01",
+      "Rate": "5.25"
+    },
+    {
+      "Date Changed": "05 Apr 01",
+      "Rate": "5.50"
+    },
+    {
+      "Date Changed": "08 Feb 01",
+      "Rate": "5.75"
+    },
+    {
+      "Date Changed": "10 Feb 00",
+      "Rate": "6.00"
+    },
+    {
+      "Date Changed": "13 Jan 00",
+      "Rate": "5.75"
+    },
+    {
+      "Date Changed": "04 Nov 99",
+      "Rate": "5.50"
+    },
+    {
+      "Date Changed": "08 Sep 99",
+      "Rate": "5.25"
+    },
+    {
+      "Date Changed": "10 Jun 99",
+      "Rate": "5.00"
+    },
+    {
+      "Date Changed": "08 Apr 99",
+      "Rate": "5.25"
+    },
+    {
+      "Date Changed": "04 Feb 99",
+      "Rate": "5.50"
+    },
+    {
+      "Date Changed": "07 Jan 99",
+      "Rate": "6.00"
+    },
+    {
+      "Date Changed": "10 Dec 98",
+      "Rate": "6.25"
+    },
+    {
+      "Date Changed": "05 Nov 98",
+      "Rate": "6.75"
+    },
+    {
+      "Date Changed": "08 Oct 98",
+      "Rate": "7.25"
+    },
+    {
+      "Date Changed": "04 Jun 98",
+      "Rate": "7.50"
+    },
+    {
+      "Date Changed": "06 Nov 97",
+      "Rate": "7.25"
+    },
+    {
+      "Date Changed": "07 Aug 97",
+      "Rate": "7.00"
+    },
+    {
+      "Date Changed": "10 Jul 97",
+      "Rate": "6.75"
+    },
+    {
+      "Date Changed": "06 Jun 97",
+      "Rate": "6.50"
+    },
+    {
+      "Date Changed": "06 May 97",
+      "Rate": "6.25"
+    },
+    {
+      "Date Changed": "30 Oct 96",
+      "Rate": "5.94"
+    },
+    {
+      "Date Changed": "06 Jun 96",
+      "Rate": "5.69"
+    },
+    {
+      "Date Changed": "08 Mar 96",
+      "Rate": "5.94"
+    },
+    {
+      "Date Changed": "18 Jan 96",
+      "Rate": "6.13"
+    },
+    {
+      "Date Changed": "13 Dec 95",
+      "Rate": "6.38"
+    },
+    {
+      "Date Changed": "02 Feb 95",
+      "Rate": "6.63"
+    },
+    {
+      "Date Changed": "07 Dec 94",
+      "Rate": "6.13"
+    },
+    {
+      "Date Changed": "12 Sep 94",
+      "Rate": "5.63"
+    },
+    {
+      "Date Changed": "08 Feb 94",
+      "Rate": "5.13"
+    },
+    {
+      "Date Changed": "23 Nov 93",
+      "Rate": "5.38"
+    },
+    {
+      "Date Changed": "26 Jan 93",
+      "Rate": "5.88"
+    },
+    {
+      "Date Changed": "13 Nov 92",
+      "Rate": "6.88"
+    },
+    {
+      "Date Changed": "16 Oct 92",
+      "Rate": "7.88"
+    },
+    {
+      "Date Changed": "22 Sep 92",
+      "Rate": "8.88"
+    },
+    {
+      "Date Changed": "05 May 92",
+      "Rate": "9.88"
+    },
+    {
+      "Date Changed": "04 Sep 91",
+      "Rate": "10.38"
+    },
+    {
+      "Date Changed": "12 Jul 91",
+      "Rate": "10.88"
+    },
+    {
+      "Date Changed": "24 May 91",
+      "Rate": "11.38"
+    },
+    {
+      "Date Changed": "12 Apr 91",
+      "Rate": "11.88"
+    },
+    {
+      "Date Changed": "22 Mar 91",
+      "Rate": "12.38"
+    },
+    {
+      "Date Changed": "27 Feb 91",
+      "Rate": "12.88"
+    },
+    {
+      "Date Changed": "13 Feb 91",
+      "Rate": "13.38"
+    },
+    {
+      "Date Changed": "08 Oct 90",
+      "Rate": "13.88"
+    },
+    {
+      "Date Changed": "06 Oct 89",
+      "Rate": "14.88"
+    },
+    {
+      "Date Changed": "08 Sep 89",
+      "Rate": "13.75"
+    },
+    {
+      "Date Changed": "04 Sep 89",
+      "Rate": "13.88"
+    },
+    {
+      "Date Changed": "31 Aug 89",
+      "Rate": "13.84"
+    },
+    {
+      "Date Changed": "25 May 89",
+      "Rate": "13.75"
+    },
+    {
+      "Date Changed": "25 Nov 88",
+      "Rate": "12.88"
+    },
+    {
+      "Date Changed": "25 Aug 88",
+      "Rate": "11.88"
+    },
+    {
+      "Date Changed": "08 Aug 88",
+      "Rate": "10.88"
+    },
+    {
+      "Date Changed": "21 Jul 88",
+      "Rate": "10.38"
+    },
+    {
+      "Date Changed": "07 Jul 88",
+      "Rate": "9.88"
+    },
+    {
+      "Date Changed": "24 Jun 88",
+      "Rate": "8.88"
+    },
+    {
+      "Date Changed": "10 Jun 88",
+      "Rate": "8.38"
+    },
+    {
+      "Date Changed": "03 Jun 88",
+      "Rate": "7.88"
+    },
+    {
+      "Date Changed": "17 May 88",
+      "Rate": "7.38"
+    },
+    {
+      "Date Changed": "08 Apr 88",
+      "Rate": "7.88"
+    },
+    {
+      "Date Changed": "17 Mar 88",
+      "Rate": "8.38"
+    },
+    {
+      "Date Changed": "01 Feb 88",
+      "Rate": "8.88"
+    },
+    {
+      "Date Changed": "03 Dec 87",
+      "Rate": "8.38"
+    },
+    {
+      "Date Changed": "04 Nov 87",
+      "Rate": "8.88"
+    },
+    {
+      "Date Changed": "23 Oct 87",
+      "Rate": "9.38"
+    },
+    {
+      "Date Changed": "06 Aug 87",
+      "Rate": "9.88"
+    },
+    {
+      "Date Changed": "08 May 87",
+      "Rate": "8.88"
+    },
+    {
+      "Date Changed": "28 Apr 87",
+      "Rate": "9.38"
+    },
+    {
+      "Date Changed": "18 Mar 87",
+      "Rate": "9.88"
+    },
+    {
+      "Date Changed": "09 Mar 87",
+      "Rate": "10.38"
+    },
+    {
+      "Date Changed": "15 Oct 86",
+      "Rate": "10.88"
+    },
+    {
+      "Date Changed": "23 May 86",
+      "Rate": "9.88"
+    },
+    {
+      "Date Changed": "18 Apr 86",
+      "Rate": "10.38"
+    },
+    {
+      "Date Changed": "11 Apr 86",
+      "Rate": "10.88"
+    },
+    {
+      "Date Changed": "19 Mar 86",
+      "Rate": "11.38"
+    },
+    {
+      "Date Changed": "15 Jan 86",
+      "Rate": "12.38"
+    },
+    {
+      "Date Changed": "26 Jul 85",
+      "Rate": "11.38"
+    },
+    {
+      "Date Changed": "11 Jul 85",
+      "Rate": "11.88"
+    },
+    {
+      "Date Changed": "19 Apr 85",
+      "Rate": "12.38"
+    },
+    {
+      "Date Changed": "28 Mar 85",
+      "Rate": "12.88"
+    },
+    {
+      "Date Changed": "20 Mar 85",
+      "Rate": "13.38"
+    },
+    {
+      "Date Changed": "28 Jan 85",
+      "Rate": "13.88"
+    },
+    {
+      "Date Changed": "14 Jan 85",
+      "Rate": "11.88"
+    },
+    {
+      "Date Changed": "23 Nov 84",
+      "Rate": "9.50"
+    },
+    {
+      "Date Changed": "19 Nov 84",
+      "Rate": "9.75"
+    },
+    {
+      "Date Changed": "05 Nov 84",
+      "Rate": "10.00"
+    },
+    {
+      "Date Changed": "17 Aug 84",
+      "Rate": "10.50"
+    },
+    {
+      "Date Changed": "16 Aug 84",
+      "Rate": "10.75"
+    },
+    {
+      "Date Changed": "09 Aug 84",
+      "Rate": "11.00"
+    },
+    {
+      "Date Changed": "08 Aug 84",
+      "Rate": "11.50"
+    },
+    {
+      "Date Changed": "11 Jul 84",
+      "Rate": "12.00"
+    },
+    {
+      "Date Changed": "06 Jul 84",
+      "Rate": "10.00"
+    },
+    {
+      "Date Changed": "29 Jun 84",
+      "Rate": "8.88"
+    },
+    {
+      "Date Changed": "10 May 84",
+      "Rate": "9.06"
+    },
+    {
+      "Date Changed": "14 Mar 84",
+      "Rate": "8.56"
+    },
+    {
+      "Date Changed": "07 Mar 84",
+      "Rate": "8.81"
+    },
+    {
+      "Date Changed": "03 Oct 83",
+      "Rate": "9.06"
+    },
+    {
+      "Date Changed": "10 Aug 83",
+      "Rate": "9.56"
+    },
+    {
+      "Date Changed": "09 Aug 83",
+      "Rate": "9.44"
+    },
+    {
+      "Date Changed": "14 Jun 83",
+      "Rate": "9.56"
+    },
+    {
+      "Date Changed": "13 Jun 83",
+      "Rate": "9.81"
+    },
+    {
+      "Date Changed": "14 Apr 83",
+      "Rate": "10.06"
+    },
+    {
+      "Date Changed": "13 Apr 83",
+      "Rate": "10.31"
+    },
+    {
+      "Date Changed": "15 Mar 83",
+      "Rate": "10.56"
+    },
+    {
+      "Date Changed": "12 Jan 83",
+      "Rate": "11.00"
+    },
+    {
+      "Date Changed": "26 Nov 82",
+      "Rate": "10.00"
+    },
+    {
+      "Date Changed": "02 Nov 82",
+      "Rate": "9.13"
+    },
+    {
+      "Date Changed": "01 Nov 82",
+      "Rate": "9.38"
+    },
+    {
+      "Date Changed": "12 Oct 82",
+      "Rate": "9.63"
+    },
+    {
+      "Date Changed": "30 Sep 82",
+      "Rate": "10.13"
+    },
+    {
+      "Date Changed": "29 Sep 82",
+      "Rate": "10.25"
+    },
+    {
+      "Date Changed": "28 Sep 82",
+      "Rate": "10.38"
+    },
+    {
+      "Date Changed": "27 Sep 82",
+      "Rate": "10.50"
+    },
+    {
+      "Date Changed": "27 Aug 82",
+      "Rate": "10.63"
+    },
+    {
+      "Date Changed": "26 Aug 82",
+      "Rate": "10.88"
+    },
+    {
+      "Date Changed": "25 Aug 82",
+      "Rate": "11.00"
+    },
+    {
+      "Date Changed": "24 Aug 82",
+      "Rate": "11.13"
+    },
+    {
+      "Date Changed": "17 Aug 82",
+      "Rate": "11.25"
+    },
+    {
+      "Date Changed": "16 Aug 82",
+      "Rate": "11.38"
+    },
+    {
+      "Date Changed": "04 Aug 82",
+      "Rate": "11.50"
+    },
+    {
+      "Date Changed": "02 Aug 82",
+      "Rate": "11.56"
+    },
+    {
+      "Date Changed": "30 Jul 82",
+      "Rate": "11.63"
+    },
+    {
+      "Date Changed": "29 Jul 82",
+      "Rate": "11.75"
+    },
+    {
+      "Date Changed": "28 Jul 82",
+      "Rate": "11.81"
+    },
+    {
+      "Date Changed": "26 Jul 82",
+      "Rate": "11.94"
+    },
+    {
+      "Date Changed": "21 Jul 82",
+      "Rate": "12.06"
+    },
+    {
+      "Date Changed": "13 Jul 82",
+      "Rate": "12.13"
+    },
+    {
+      "Date Changed": "12 Jul 82",
+      "Rate": "12.25"
+    },
+    {
+      "Date Changed": "09 Jul 82",
+      "Rate": "12.50"
+    },
+    {
+      "Date Changed": "08 Jun 82",
+      "Rate": "12.63"
+    },
+    {
+      "Date Changed": "20 Apr 82",
+      "Rate": "13.13"
+    },
+    {
+      "Date Changed": "19 Apr 82",
+      "Rate": "13.00"
+    },
+    {
+      "Date Changed": "16 Apr 82",
+      "Rate": "13.13"
+    },
+    {
+      "Date Changed": "10 Mar 82",
+      "Rate": "13.25"
+    },
+    {
+      "Date Changed": "25 Feb 82",
+      "Rate": "13.63"
+    },
+    {
+      "Date Changed": "22 Feb 82",
+      "Rate": "13.81"
+    },
+    {
+      "Date Changed": "22 Jan 82",
+      "Rate": "13.88"
+    },
+    {
+      "Date Changed": "21 Jan 82",
+      "Rate": "14.00"
+    },
+    {
+      "Date Changed": "20 Jan 82",
+      "Rate": "14.13"
+    },
+    {
+      "Date Changed": "19 Jan 82",
+      "Rate": "14.25"
+    },
+    {
+      "Date Changed": "18 Jan 82",
+      "Rate": "14.31"
+    },
+    {
+      "Date Changed": "04 Dec 81",
+      "Rate": "14.38"
+    },
+    {
+      "Date Changed": "25 Nov 81",
+      "Rate": "14.56"
+    },
+    {
+      "Date Changed": "09 Nov 81",
+      "Rate": "14.63"
+    },
+    {
+      "Date Changed": "06 Nov 81",
+      "Rate": "15.06"
+    },
+    {
+      "Date Changed": "28 Oct 81",
+      "Rate": "15.13"
+    },
+    {
+      "Date Changed": "12 Oct 81",
+      "Rate": "15.00"
+    },
+    {
+      "Date Changed": "15 Sep 81",
+      "Rate": "14.00"
+    },
+    {
+      "Date Changed": "25 Aug 81",
+      "Rate": "12.69"
+    },
+    {
+      "Date Changed": "11 Mar 81",
+      "Rate": "12.00"
+    },
+    {
+      "Date Changed": "25 Nov 80",
+      "Rate": "14.00"
+    },
+    {
+      "Date Changed": "03 Jul 80",
+      "Rate": "16.00"
+    },
+    {
+      "Date Changed": "15 Nov 79",
+      "Rate": "17.00"
+    },
+    {
+      "Date Changed": "13 Jun 79",
+      "Rate": "14.00"
+    },
+    {
+      "Date Changed": "05 Apr 79",
+      "Rate": "12.00"
+    },
+    {
+      "Date Changed": "01 Mar 79",
+      "Rate": "13.00"
+    },
+    {
+      "Date Changed": "08 Feb 79",
+      "Rate": "14.00"
+    },
+    {
+      "Date Changed": "09 Nov 78",
+      "Rate": "12.50"
+    },
+    {
+      "Date Changed": "08 Jun 78",
+      "Rate": "10.00"
+    },
+    {
+      "Date Changed": "15 May 78",
+      "Rate": "9.00"
+    },
+    {
+      "Date Changed": "08 May 78",
+      "Rate": "8.75"
+    },
+    {
+      "Date Changed": "12 Apr 78",
+      "Rate": "7.50"
+    },
+    {
+      "Date Changed": "09 Jan 78",
+      "Rate": "6.50"
+    },
+    {
+      "Date Changed": "28 Nov 77",
+      "Rate": "7.00"
+    },
+    {
+      "Date Changed": "17 Oct 77",
+      "Rate": "5.00"
+    },
+    {
+      "Date Changed": "10 Oct 77",
+      "Rate": "5.50"
+    },
+    {
+      "Date Changed": "19 Sep 77",
+      "Rate": "6.00"
+    },
+    {
+      "Date Changed": "12 Sep 77",
+      "Rate": "6.50"
+    },
+    {
+      "Date Changed": "15 Aug 77",
+      "Rate": "7.00"
+    },
+    {
+      "Date Changed": "08 Aug 77",
+      "Rate": "7.50"
+    },
+    {
+      "Date Changed": "16 May 77",
+      "Rate": "8.00"
+    },
+    {
+      "Date Changed": "02 May 77",
+      "Rate": "8.25"
+    },
+    {
+      "Date Changed": "25 Apr 77",
+      "Rate": "8.75"
+    },
+    {
+      "Date Changed": "18 Apr 77",
+      "Rate": "9.00"
+    },
+    {
+      "Date Changed": "12 Apr 77",
+      "Rate": "9.25"
+    },
+    {
+      "Date Changed": "31 Mar 77",
+      "Rate": "9.50"
+    },
+    {
+      "Date Changed": "21 Mar 77",
+      "Rate": "10.50"
+    },
+    {
+      "Date Changed": "10 Mar 77",
+      "Rate": "11.00"
+    },
+    {
+      "Date Changed": "03 Feb 77",
+      "Rate": "12.00"
+    },
+    {
+      "Date Changed": "31 Jan 77",
+      "Rate": "12.25"
+    },
+    {
+      "Date Changed": "24 Jan 77",
+      "Rate": "13.25"
+    },
+    {
+      "Date Changed": "10 Jan 77",
+      "Rate": "14.00"
+    },
+    {
+      "Date Changed": "29 Dec 76",
+      "Rate": "14.25"
+    },
+    {
+      "Date Changed": "20 Dec 76",
+      "Rate": "14.50"
+    },
+    {
+      "Date Changed": "22 Nov 76",
+      "Rate": "14.75"
+    },
+    {
+      "Date Changed": "07 Oct 76",
+      "Rate": "15.00"
+    },
+    {
+      "Date Changed": "13 Sep 76",
+      "Rate": "13.00"
+    },
+    {
+      "Date Changed": "24 May 76",
+      "Rate": "11.50"
+    },
+    {
+      "Date Changed": "26 Apr 76",
+      "Rate": "10.50"
+    },
+    {
+      "Date Changed": "08 Mar 76",
+      "Rate": "9.00"
+    },
+    {
+      "Date Changed": "01 Mar 76",
+      "Rate": "9.25"
+    },
+    {
+      "Date Changed": "09 Feb 76",
+      "Rate": "9.50"
+    },
+    {
+      "Date Changed": "02 Feb 76",
+      "Rate": "10.00"
+    },
+    {
+      "Date Changed": "26 Jan 76",
+      "Rate": "10.50"
+    },
+    {
+      "Date Changed": "19 Jan 76",
+      "Rate": "10.75"
+    },
+    {
+      "Date Changed": "05 Jan 76",
+      "Rate": "11.00"
+    },
+    {
+      "Date Changed": "29 Dec 75",
+      "Rate": "11.25"
+    },
+    {
+      "Date Changed": "01 Dec 75",
+      "Rate": "11.50"
+    },
+    {
+      "Date Changed": "17 Nov 75",
+      "Rate": "11.75"
+    },
+    {
+      "Date Changed": "06 Oct 75",
+      "Rate": "12.00"
+    },
+    {
+      "Date Changed": "28 Jul 75",
+      "Rate": "11.00"
+    },
+    {
+      "Date Changed": "05 May 75",
+      "Rate": "10.00"
+    },
+    {
+      "Date Changed": "21 Apr 75",
+      "Rate": "9.75"
+    },
+    {
+      "Date Changed": "24 Mar 75",
+      "Rate": "10.00"
+    },
+    {
+      "Date Changed": "10 Mar 75",
+      "Rate": "10.25"
+    },
+    {
+      "Date Changed": "17 Feb 75",
+      "Rate": "10.50"
+    },
+    {
+      "Date Changed": "10 Feb 75",
+      "Rate": "10.75"
+    },
+    {
+      "Date Changed": "27 Jan 75",
+      "Rate": "11.00"
+    },
+    {
+      "Date Changed": "20 Jan 75",
+      "Rate": "11.25"
+    }
+  ]
+}
