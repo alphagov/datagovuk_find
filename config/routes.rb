@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "pages#home"
 
-  get "collections/:collection", to: "collections#show", as: "collection"
-  get "collections/:collection/:topic", to: "collections#show", as: "collection_topic"
+  get "collections/:collection", to: "collection#show", as: "collection"
+  get "collections/:collection/:topic", to: "collection#show", as: "collection_topic"
 
   get "healthz" => "rails/health#show", as: :rails_health_check
 
