@@ -1,0 +1,60 @@
+{
+  "publisher": "Companies House",
+  "title": "Company incorporations and dissolutions for last 8 quarters to Q3 2025",
+  "chart-type": "line-chart",
+  "source": "https://assets.publishing.service.gov.uk/media/6900d17ba6048928d3fc2b20/Incorporated_companies_in_the_UK_July_to_September_2025.csv",
+  "data": {
+    "incorporations": [
+      {
+        "Q4 2023": 214446
+      },
+      {
+        "Q1 2024": 244717
+      },
+      {
+        "Q2 2024": 217815
+      },
+      {
+        "Q3 2024": 191683
+      },
+      {
+        "Q4 2024": 181261
+      },
+      {
+        "Q1 2025": 211112
+      },
+      {
+        "Q2 2025": 209798
+      },
+      {
+        "Q3 2025": 215982
+      }
+    ],
+    "dissolutions": [
+      {
+        "Q4 2023": 163452
+      },
+      {
+        "Q1 2024": 160048
+      },
+      {
+        "Q2 2024": 162485
+      },
+      {
+        "Q3 2024": 170597
+      },
+      {
+        "Q4 2024": 203584
+      },
+      {
+        "Q1 2025": 190147
+      },
+      {
+        "Q2 2025": 185336
+      },
+      {
+        "Q3 2025": 234373
+      }
+    ]
+  }
+}

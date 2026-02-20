@@ -1,0 +1,173 @@
+{
+  "publisher": "Office for National Statistics",
+  "title": "Deaths registered in England and Wales by sex, 1992 to 2024",
+  "chart-type": "line-chart",
+  "source": "https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/bulletins/deathsregistrationsummarytables/2024",
+  "data": [
+    {
+      "Year of registration": "1992",
+      "Males": "271732",
+      "Females": "286581"
+    },
+    {
+      "Year of registration": "1993",
+      "Males": "279302",
+      "Females": "299210"
+    },
+    {
+      "Year of registration": "1994",
+      "Males": "266829",
+      "Females": "284951"
+    },
+    {
+      "Year of registration": "1995",
+      "Males": "272709",
+      "Females": "293193"
+    },
+    {
+      "Year of registration": "1996",
+      "Males": "269825",
+      "Females": "293182"
+    },
+    {
+      "Year of registration": "1997",
+      "Males": "266164",
+      "Females": "291888"
+    },
+    {
+      "Year of registration": "1998",
+      "Males": "264202",
+      "Females": "289233"
+    },
+    {
+      "Year of registration": "1999",
+      "Males": "263166",
+      "Females": "290366"
+    },
+    {
+      "Year of registration": "2000",
+      "Males": "256698",
+      "Females": "281179"
+    },
+    {
+      "Year of registration": "2001",
+      "Males": "253608",
+      "Females": "278890"
+    },
+    {
+      "Year of registration": "2002",
+      "Males": "254390",
+      "Females": "280966"
+    },
+    {
+      "Year of registration": "2003",
+      "Males": "254433",
+      "Females": "284718"
+    },
+    {
+      "Year of registration": "2004",
+      "Males": "245208",
+      "Females": "269042"
+    },
+    {
+      "Year of registration": "2005",
+      "Males": "243870",
+      "Females": "269123"
+    },
+    {
+      "Year of registration": "2006",
+      "Males": "240888",
+      "Females": "261711"
+    },
+    {
+      "Year of registration": "2007",
+      "Males": "240787",
+      "Females": "263265"
+    },
+    {
+      "Year of registration": "2008",
+      "Males": "243014",
+      "Females": "266076"
+    },
+    {
+      "Year of registration": "2009",
+      "Males": "238062",
+      "Females": "253286"
+    },
+    {
+      "Year of registration": "2010",
+      "Males": "237916",
+      "Females": "255326"
+    },
+    {
+      "Year of registration": "2011",
+      "Males": "234660",
+      "Females": "249707"
+    },
+    {
+      "Year of registration": "2012",
+      "Males": "240238",
+      "Females": "259093"
+    },
+    {
+      "Year of registration": "2013",
+      "Males": "245585",
+      "Females": "261205"
+    },
+    {
+      "Year of registration": "2014",
+      "Males": "245142",
+      "Females": "256282"
+    },
+    {
+      "Year of registration": "2015",
+      "Males": "257207",
+      "Females": "272448"
+    },
+    {
+      "Year of registration": "2016",
+      "Males": "257811",
+      "Females": "267237"
+    },
+    {
+      "Year of registration": "2017",
+      "Males": "262678",
+      "Females": "270575"
+    },
+    {
+      "Year of registration": "2018",
+      "Males": "267960",
+      "Females": "273629"
+    },
+    {
+      "Year of registration": "2019",
+      "Males": "265300",
+      "Females": "265541"
+    },
+    {
+      "Year of registration": "2020",
+      "Males": "308069",
+      "Females": "299853"
+    },
+    {
+      "Year of registration": "2021",
+      "Males": "297989",
+      "Females": "288345"
+    },
+    {
+      "Year of registration": "2022",
+      "Males": "292064",
+      "Females": "285096"
+    },
+    {
+      "Year of registration": "2023",
+      "Males": "295416",
+      "Females": "285947"
+    },
+    {
+      "Year of registration": "2024",
+      "Males": "289726",
+      "Females": "278887"
+    }
+  ]
+}

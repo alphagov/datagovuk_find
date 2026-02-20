@@ -1,0 +1,356 @@
+{
+  "publisher": "Office for National Statistics",
+  "title": "Total live birth counts England and Wales 1939 to 2024",
+  "chart-type": "line-chart",
+  "source": "https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths/bulletins/birthsummarytablesenglandandwales/2024refreshedpopulations",
+  "data": [
+    {
+      "Year": "1938",
+      "Number of Live Births": "621204"
+    },
+    {
+      "Year": "1939",
+      "Number of Live Births": "614479"
+    },
+    {
+      "Year": "1940",
+      "Number of Live Births": "590120"
+    },
+    {
+      "Year": "1941",
+      "Number of Live Births": "579091"
+    },
+    {
+      "Year": "1942",
+      "Number of Live Births": "651503"
+    },
+    {
+      "Year": "1943",
+      "Number of Live Births": "684334"
+    },
+    {
+      "Year": "1944",
+      "Number of Live Births": "751478"
+    },
+    {
+      "Year": "1945",
+      "Number of Live Births": "679937"
+    },
+    {
+      "Year": "1946",
+      "Number of Live Births": "820719"
+    },
+    {
+      "Year": "1947",
+      "Number of Live Births": "881026"
+    },
+    {
+      "Year": "1948",
+      "Number of Live Births": "775306"
+    },
+    {
+      "Year": "1949",
+      "Number of Live Births": "730518"
+    },
+    {
+      "Year": "1950",
+      "Number of Live Births": "697097"
+    },
+    {
+      "Year": "1951",
+      "Number of Live Births": "677529"
+    },
+    {
+      "Year": "1952",
+      "Number of Live Births": "673735"
+    },
+    {
+      "Year": "1953",
+      "Number of Live Births": "684372"
+    },
+    {
+      "Year": "1954",
+      "Number of Live Births": "673651"
+    },
+    {
+      "Year": "1955",
+      "Number of Live Births": "667811"
+    },
+    {
+      "Year": "1956",
+      "Number of Live Births": "700335"
+    },
+    {
+      "Year": "1957",
+      "Number of Live Births": "723381"
+    },
+    {
+      "Year": "1958",
+      "Number of Live Births": "740715"
+    },
+    {
+      "Year": "1959",
+      "Number of Live Births": "748501"
+    },
+    {
+      "Year": "1960",
+      "Number of Live Births": "785005"
+    },
+    {
+      "Year": "1961",
+      "Number of Live Births": "811281"
+    },
+    {
+      "Year": "1962",
+      "Number of Live Births": "838736"
+    },
+    {
+      "Year": "1963",
+      "Number of Live Births": "854055"
+    },
+    {
+      "Year": "1964",
+      "Number of Live Births": "875972"
+    },
+    {
+      "Year": "1965",
+      "Number of Live Births": "862725"
+    },
+    {
+      "Year": "1966",
+      "Number of Live Births": "849823"
+    },
+    {
+      "Year": "1967",
+      "Number of Live Births": "832164"
+    },
+    {
+      "Year": "1968",
+      "Number of Live Births": "819272"
+    },
+    {
+      "Year": "1969",
+      "Number of Live Births": "797538"
+    },
+    {
+      "Year": "1970",
+      "Number of Live Births": "784486"
+    },
+    {
+      "Year": "1971",
+      "Number of Live Births": "783155"
+    },
+    {
+      "Year": "1972",
+      "Number of Live Births": "725440"
+    },
+    {
+      "Year": "1973",
+      "Number of Live Births": "675953"
+    },
+    {
+      "Year": "1974",
+      "Number of Live Births": "639885"
+    },
+    {
+      "Year": "1975",
+      "Number of Live Births": "603445"
+    },
+    {
+      "Year": "1976",
+      "Number of Live Births": "584270"
+    },
+    {
+      "Year": "1977",
+      "Number of Live Births": "569259"
+    },
+    {
+      "Year": "1978",
+      "Number of Live Births": "596418"
+    },
+    {
+      "Year": "1979",
+      "Number of Live Births": "638028"
+    },
+    {
+      "Year": "1980",
+      "Number of Live Births": "656234"
+    },
+    {
+      "Year": "1981",
+      "Number of Live Births": "634492"
+    },
+    {
+      "Year": "1982",
+      "Number of Live Births": "625931"
+    },
+    {
+      "Year": "1983",
+      "Number of Live Births": "629134"
+    },
+    {
+      "Year": "1984",
+      "Number of Live Births": "636818"
+    },
+    {
+      "Year": "1985",
+      "Number of Live Births": "656417"
+    },
+    {
+      "Year": "1986",
+      "Number of Live Births": "661018"
+    },
+    {
+      "Year": "1987",
+      "Number of Live Births": "681511"
+    },
+    {
+      "Year": "1988",
+      "Number of Live Births": "693577"
+    },
+    {
+      "Year": "1989",
+      "Number of Live Births": "687725"
+    },
+    {
+      "Year": "1990",
+      "Number of Live Births": "706140"
+    },
+    {
+      "Year": "1991",
+      "Number of Live Births": "699217"
+    },
+    {
+      "Year": "1992",
+      "Number of Live Births": "689656"
+    },
+    {
+      "Year": "1993",
+      "Number of Live Births": "673467"
+    },
+    {
+      "Year": "1994",
+      "Number of Live Births": "664726"
+    },
+    {
+      "Year": "1995",
+      "Number of Live Births": "648138"
+    },
+    {
+      "Year": "1996",
+      "Number of Live Births": "649485"
+    },
+    {
+      "Year": "1997",
+      "Number of Live Births": "643095"
+    },
+    {
+      "Year": "1998",
+      "Number of Live Births": "635901"
+    },
+    {
+      "Year": "1999",
+      "Number of Live Births": "621872"
+    },
+    {
+      "Year": "2000",
+      "Number of Live Births": "604441"
+    },
+    {
+      "Year": "2001",
+      "Number of Live Births": "594634"
+    },
+    {
+      "Year": "2002",
+      "Number of Live Births": "596122"
+    },
+    {
+      "Year": "2003",
+      "Number of Live Births": "621469"
+    },
+    {
+      "Year": "2004",
+      "Number of Live Births": "639721"
+    },
+    {
+      "Year": "2005",
+      "Number of Live Births": "645835"
+    },
+    {
+      "Year": "2006",
+      "Number of Live Births": "669601"
+    },
+    {
+      "Year": "2007",
+      "Number of Live Births": "690013"
+    },
+    {
+      "Year": "2008",
+      "Number of Live Births": "708711"
+    },
+    {
+      "Year": "2009",
+      "Number of Live Births": "706248"
+    },
+    {
+      "Year": "2010",
+      "Number of Live Births": "723165"
+    },
+    {
+      "Year": "2011",
+      "Number of Live Births": "723913"
+    },
+    {
+      "Year": "2012",
+      "Number of Live Births": "729674"
+    },
+    {
+      "Year": "2013",
+      "Number of Live Births": "698512"
+    },
+    {
+      "Year": "2014",
+      "Number of Live Births": "695233"
+    },
+    {
+      "Year": "2015",
+      "Number of Live Births": "697852"
+    },
+    {
+      "Year": "2016",
+      "Number of Live Births": "696271"
+    },
+    {
+      "Year": "2017",
+      "Number of Live Births": "679106"
+    },
+    {
+      "Year": "2018",
+      "Number of Live Births": "657076"
+    },
+    {
+      "Year": "2019",
+      "Number of Live Births": "640370"
+    },
+    {
+      "Year": "2020",
+      "Number of Live Births": "613936"
+    },
+    {
+      "Year": "2021",
+      "Number of Live Births": "624828"
+    },
+    {
+      "Year": "2022",
+      "Number of Live Births": "605479"
+    },
+    {
+      "Year": "2023",
+      "Number of Live Births": "591072"
+    },
+    {
+      "Year": "2024",
+      "Number of Live Births": "594677"
+    }
+  ]
+}
