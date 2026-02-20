@@ -58,7 +58,7 @@ module Dgu
       # TODO: with_toc_data is add HTML anchors to each header in the output HTML, to allow linking to each section
       id_attribute = @options[:with_toc_data] ? " id=\"#{text.parameterize}\"" : ""
       <<~HTML
-        <h#{header_level}#{id_attribute} class="govuk-heading-#{header_size}">#{text}</h#{header_level}>
+        <h#{header_level}#{id_attribute} class="govuk-heading-#{header_size} datagovuk-heading-#{header_size}">#{text}</h#{header_level}>
       HTML
     end
 
