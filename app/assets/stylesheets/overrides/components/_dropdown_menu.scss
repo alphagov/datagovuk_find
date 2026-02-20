@@ -1,0 +1,103 @@
+.datagovuk-nav-dropdown__menu {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.datagovuk-nav-dropdown__menu .govuk-header__link {
+  text-decoration: none;
+  cursor: pointer;
+  display: block;
+  margin: 0;
+  margin-top: 5px; // TODO: Why is it that it has to be more than 0px to fix drop down cursor pointer issue
+  padding-top: 20px;
+}
+
+.datagovuk-nav-item--has-dropdown:hover .datagovuk-nav-dropdown__chevron,
+.datagovuk-nav-item--has-dropdown:focus-within .datagovuk-nav-dropdown__chevron {
+  transform: rotate(-135deg);
+  // TODO: keep above transform when within the navigation box
+}
+
+
+.datagovuk-nav-dropdown__toggle {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #666666;
+  font-weight: 200;
+  @include govuk-font(19);
+  text-decoration: none;
+}
+
+.datagovuk-nav-dropdown__toggle:hover {
+  color: rgb(102, 102, 102);
+  text-decoration: none;
+}
+
+.govuk-header__navigation-item:hover {
+  color: pointer;
+}
+
+// Drop down
+
+.datagovuk-nav-item--has-dropdown {
+  position: relative;
+}
+
+.datagovuk-nav-dropdown__chevron {
+  width: 6px;
+  height: 6px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 0.15s ease;
+}
+
+.datagovuk-nav-item:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.datagovuk-nav-item .govuk-header__link:hover {
+  cursor: pointer;
+}
+
+.collections-row {
+  display: none;
+}
+
+.is-open {
+  display: block;
+}
+
+.is-closed {
+  display: none;
+}
+
+// get rid of padding between dropdown and dropdown contents
+.datagovuk-header-row-onem,
+.govuk-header__navigation,
+.datagovuk-nav-item--has-dropdown,
+.govuk-header__logo {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.govuk-header__navigation .govuk-header__navigation-item {
+  padding: 0;
+}
+
+.govuk-width-container {
+  padding-bottom: 0;
+}
+
+.datagovuk-nav-dropdown__toggle {
+  padding: 0;
+}
+
+.datagovuk-nav-dropdown__chevron {
+  cursor: pointer;
+}

@@ -1,0 +1,16 @@
+.datagovuk-tag {
+  border-radius: 20px;
+  padding-right: 12px;
+  padding-left: 12px;
+  text-transform: none;
+  background-color: $datagovuk-light-pink;
+  opacity: 50%;
+}
+
+.govuk-tag.datagovuk-tag {
+  color: black;
+  opacity: 100%;
+  padding: 10px;
+  font-weight: 100;
+  font-family: "Inter", sans-serif;
+}
