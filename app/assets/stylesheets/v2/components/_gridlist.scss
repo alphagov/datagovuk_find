@@ -7,7 +7,7 @@
 }
 
 /* Desktop styling overrides */
-@media (min-width: 40.0625em) {
+@media (min-width: $desktop-breakpoint) {
   .datagovuk-gridlist {
     display: grid;
     grid-auto-flow: row;
