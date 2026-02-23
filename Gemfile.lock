@@ -683,7 +683,7 @@ DEPENDENCIES
   faraday_middleware
   front_matter_parser
   govuk_elements_rails
-  govuk_publishing_components
+  govuk_publishing_components (~> 28.7.1)
   govuk_test
   htmlentities
   jquery-rails
