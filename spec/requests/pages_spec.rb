@@ -17,7 +17,7 @@ RSpec.describe "pages", type: :request do
     end
 
     it "renders the home page" do
-      expect(response.body).to include(I18n.t("pages.home.find_open_data"))
+      expect(response.body).to include(I18n.t("pages.home.data_directory"))
     end
 
     include_examples "renders the publishers page"
