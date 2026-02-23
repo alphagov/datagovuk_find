@@ -5,9 +5,6 @@ website: https://electionresults.parliament.uk/
 api:
 dataset: https://electionresults.parliament.uk/elections
 page-last-updated: "2026-01-23"
-tags:
- - Website
- - Dataset
 visualisation-data: results-for-the-uk-general-election-on-2024-07-04.json
 contact:
 ---
