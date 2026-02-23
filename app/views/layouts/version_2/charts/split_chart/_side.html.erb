@@ -11,7 +11,7 @@ side_class: string
 %>
 
 <% is_up = (trend.to_sym == :up) %>
-<% trend_class = is_up ? "datagovuk-split-chart__delta--up" : "datagovuk-split-chart--down" %>
+<% trend_class = is_up ? "datagovuk-split-chart__change--up" : "datagovuk-split-chart__change--down" %>
 <% arrow = is_up ? "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><path fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' d='m17 14l-5-5l-5 5' stroke-width='1'/></svg>".html_safe : "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><path fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m7 10l5 5l5-5'/></svg>".html_safe %>
 
 <div class="govuk-grid-column-one-half datagovuk-split-chart__col <%= side_class %>">
@@ -34,9 +34,9 @@ side_class: string
         <% end %>
     </p>
 
-    <p class="datagovuk-split-chart__delta <%= trend_class %> govuk-!-margin-bottom-0">
+    <p class="datagovuk-split-chart__change <%= trend_class %> govuk-!-margin-bottom-0">
         <span class="datagovuk-split-chart__arrow" aria-hidden="true"><%= arrow %></span>
-        <span class="datagovuk-split-chart__delta-value"><%= value_change %></span>
-        <span class="datagovuk-split-chart__delta-value-prc">(<%= percent_change %>%)</span>
+        <span class="datagovuk-split-chart__change-value"><%= value_change %></span>
+        <span class="datagovuk-split-chart__change-value-prc">(<%= percent_change %>%)</span>
     </p>
 </div>
