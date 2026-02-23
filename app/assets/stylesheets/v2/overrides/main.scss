@@ -29,6 +29,7 @@ $desktop-breakpoint: 40.0625em;
 }
 
 .datagovuk-body,
+.datagovuk-heading-s,
 .datagovuk-heading-m,
 .datagovuk-heading-l,
 .datagovuk-link,
@@ -45,6 +46,10 @@ $desktop-breakpoint: 40.0625em;
   font-size: 32px;
 }
 
+.datagovuk-heading-s {
+  font-size: 22px;
+}
+
 .datagovuk-heading-m {
   font-size: 30px;
 }
@@ -56,6 +61,11 @@ $desktop-breakpoint: 40.0625em;
 .datagovuk-link:link,
 .datagovuk-link:visited {
   color: var(--datagovuk-black);
+}
+
+.datagovuk-link--secondary:link,
+.datagovuk-link--secondary:visited {
+  color: var(--datagovuk-green);
 }
 
 .datagovuk-button {
