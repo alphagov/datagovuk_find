@@ -1,0 +1,89 @@
+@import "govuk/base";
+
+.datagovuk-split-chart {
+    padding: govuk-spacing(3);
+    background-color: govuk-colour("black", $variant: "tint-95"); // TODO: Find exact colour
+}
+
+.datagovuk-split-chart__row {
+    position: relative;
+}
+
+.datagovuk-split-chart__col {
+    padding-top: govuk-spacing(2);
+    padding-bottom: govuk-spacing(2);
+}
+
+.datagovuk-split-chart__col--left {
+    border-right: 1px solid govuk-colour("mid-grey");
+    padding-right: govuk-spacing(6);
+}
+
+.datagovuk-split-chart__col--right {
+    padding-left: govuk-spacing(6);
+}
+
+.datagovuk-split-chart__col--right {
+    color: govuk-spacing(6);
+}
+
+.datagovuk-split-chart__subtitle {
+    color: govuk-colour("dark-grey");
+}
+
+.datagovuk-split-chart__value {
+    font-family: $govuk-font-family;
+    font-weight: 700;
+    line-height: 1;
+    margin: 0;
+    font-size: 56px;
+
+    @include govuk-media-query($from: tablet) {
+        font-size: 72px;
+    }
+}
+
+.datagovuk-split-chart__delta {
+    font-weight: 700;
+    font-size: 24px;
+    display: inline-flex;
+    align-items: baseline;
+    gap: govuk-spacing(1);
+}
+
+.datagovuk-split-chart__arrow {
+    font-size: 18px;
+    line-height: 1;
+    transform: translateY(-1px);
+}
+
+.datagovuk-split-chart__delta-value {
+    letter-spacing: 0.2px;
+}
+
+.datagovuk-split-chart__delta-pct {
+    font-weight: 400;
+    opacity: 0.75;
+}
+
+.datagovuk-split-chart__delta--up {
+    color: #00703c;
+}
+
+.datagovuk-split-chart__delta--down {
+    color: #d4351c;
+}
+
+@include govuk-media-query($until: tablet){
+    .datagovuk-split-chart__col--left {
+        border-right: none;
+        padding-right: govuk-spacing(3);
+        border-bottom: 1px solid govuk-colour("mid-grey");
+        margin-bottom: govuk-spacing(4);
+        padding-bottom: govuk-spacing(4);
+    }
+
+    .datagovuk-split-chart__col--right {
+        padding-left: govuk-spacing(3);
+    }
+}
