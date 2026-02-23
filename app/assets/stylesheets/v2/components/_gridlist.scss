@@ -1,0 +1,28 @@
+.datagovuk-gridlist {
+  list-style: none;
+  padding: 0;
+}
+
+.datagovuk-gridlist--icons {
+}
+
+/* Desktop styling overrides */
+@media (min-width: 40.0625em) {
+  .datagovuk-gridlist {
+    display: grid;
+    grid-auto-flow: row;
+    width: initial;
+    list-style: none;
+    padding: 0;
+    align-items: flex-start;
+  
+    .datagovuk-gridlist__item {
+      margin: 20px 40px;
+    }
+  
+  }
+
+  .datagovuk-gridlist--3-column {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
