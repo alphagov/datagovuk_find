@@ -1,0 +1,12 @@
+.datagovuk-feedback {
+  background-color: var(--datagovuk-light-green);
+  padding: 20px 40px;
+  border-left: 5px solid var(--datagovuk-green);
+}
+
+/* Desktop styling overrides */
+@media (min-width: $desktop-breakpoint) {
+  .datagovuk-feedback {
+    margin: 20px;
+  }
+}
