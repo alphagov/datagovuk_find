@@ -1,6 +1,6 @@
 <% content_for :page_title, "Component test" %>
 
-<%= render partial: "v2/hero", locals: {title: "Hero title", body: "Some hero body."} %>
+<%= render partial: "v2/components/hero", locals: {title: "Hero title", body: "Some hero body."} %>
 
 <div class="govuk-width-container">
   <h1 class="govuk-heading-xl datagovuk-heading-xl">Test heading-xl</h1>
@@ -16,4 +16,29 @@
   <div class="govuk-!-margin-top-5">
     <a href="#" class="govuk-button datagovuk-button">Test link button</a>
   </div>
+
+  <%= render partial: "v2/components/gridlist", locals: {
+    items: [
+      {
+        title: "3 column gridlist item 1",
+        url: "#",
+        body: "Item 1 body",
+      },
+      {
+        title: "3 column gridlist item 2",
+        url: "#",
+        body: "Item 2 body",
+      },
+      {
+        title: "3 column gridlist item 3",
+        url: "#",
+        body: "Item 3 body",
+      },
+      {
+        title: "3 column gridlist item 4",
+        url: "#",
+        body: "Item 4 body",
+      },
+    ]
+  } %>
 </div>
