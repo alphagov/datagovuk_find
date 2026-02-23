@@ -62,7 +62,7 @@
 }
 
 /* Desktop styling overrides */
-@media (min-width: 40.0625em) {
+@media (min-width: $desktop-breakpoint) {
   .datagovuk-heading-xl{
     font-size: 42px;
   }
