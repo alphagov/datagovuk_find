@@ -63,8 +63,8 @@
     <%= render 'layouts/integration_ribbon' if Rails.env.integration? %>
     <%= render 'layouts/staging_ribbon' if Rails.env.staging? %>
 
-    <div class="datagovuk-top-non-content">
-      <div class="datagovuk-top-non-content__inner">
+    <div class="dgu-top-non-content">
+      <div class="dgu-top-non-content__inner">
         <%= render 'layouts/feedback_survey_banner' %>
         <%= yield :breadcrumb %>
       </div>

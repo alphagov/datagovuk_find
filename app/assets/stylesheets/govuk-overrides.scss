@@ -41,6 +41,10 @@
   margin-bottom: 40px;
 }
 
+* {
+  font-family: $helvetica-regular !important;
+}
+
 details {
   margin-bottom: 30px;
   p:last-child {
