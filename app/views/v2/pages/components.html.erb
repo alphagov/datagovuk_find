@@ -44,4 +44,22 @@
 
   <%= render partial: "v2/components/feedback" %>
 
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-half">
+      <%= render partial: "v2/components/cta", locals: {
+        title: "Primary CTA box",
+        url: "#",
+        body: "Primary CTA body",
+      } %>
+    </div>
+    <div class="govuk-grid-column-one-half">
+      <%= render partial: "v2/components/cta", locals: {
+        title: "Secondary CTA box",
+        url: "#",
+        body: "Secondary CTA body",
+        classes: "datagovuk-cta--secondary",
+      } %>
+    </div>
+  </div>
+
 </div>
