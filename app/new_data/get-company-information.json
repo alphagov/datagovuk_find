@@ -1,0 +1,21 @@
+{
+    "chart_type": "split_panel",
+    "left": {
+        "title": "Company health",
+        "description_html": "Statistics showing company\nclosed per month",
+        "value": 581768,
+        "comparison_html": "In 2024, up to 0.7%\nfrom 2025",
+        "trend": "up",
+        "value_change": "25",
+        "percent_change": "5"
+    },
+    "right": {
+        "title": "Company health",
+        "description_html": "Statistics showing company\nclosed per month",
+        "value": 581768,
+        "comparison_html": "In 2024, up to 0.7%\nfrom 2025",
+        "trend": "down",
+        "value_change": "-23",
+        "percent_change": "5.4"
+    }
+}
