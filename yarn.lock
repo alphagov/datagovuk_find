@@ -9,6 +9,11 @@ accessible-autocomplete@^2.0.2:
   dependencies:
     preact "^8.3.1"
 
+govuk-frontend@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/govuk-frontend/-/govuk-frontend-6.0.0.tgz#5906601cc9249027796c233f537eca00a0add0db"
+  integrity sha512-n1DUbQD6coHL3UkQS0yTbd4ziIxLBzkWBODVCjXMclSY7FvOGeHcTg3c72z6u7DQECQb0tfZofhPjGxPUOIizA==
+
 preact@^8.3.1:
   version "8.4.2"
   resolved "https://registry.yarnpkg.com/preact/-/preact-8.4.2.tgz#1263b974a17d1ea80b66590e41ef786ced5d6a23"

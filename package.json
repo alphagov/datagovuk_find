@@ -2,6 +2,7 @@
   "name": "datagovuk_find",
   "license": "UNLICENSED",
   "dependencies": {
-    "accessible-autocomplete": "^2.0.2"
+    "accessible-autocomplete": "^2.0.2",
+    "govuk-frontend": "^6.0.0"
   }
 }
