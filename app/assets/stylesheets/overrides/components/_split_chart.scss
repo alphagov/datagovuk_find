@@ -2,8 +2,9 @@
 @import "govuk-frontend/dist/govuk/settings/index";
 
 .datagovuk-split-chart {
-    padding: govuk-spacing(3);
+    padding: govuk-spacing(5);
     background-color: govuk-colour("black", $variant: "tint-95"); // TODO: Find exact colour
+    border-radius: 5%;
 }
 
 .datagovuk-split-chart__row {
@@ -44,7 +45,7 @@
     }
 }
 
-.datagovuk-split-chart__delta {
+.datagovuk-split-chart__change {
     font-weight: 700;
     font-size: 24px;
     display: inline-flex;
@@ -58,21 +59,21 @@
     transform: translateY(-1px);
 }
 
-.datagovuk-split-chart__delta-value {
+.datagovuk-split-chart__change-value {
     letter-spacing: 0.2px;
 }
 
-.datagovuk-split-chart__delta-pct {
+.datagovuk-split-chart__change-pct {
     font-weight: 400;
     opacity: 0.75;
 }
 
-.datagovuk-split-chart__delta--up {
-    color: #00703c;
+.datagovuk-split-chart__change--up {
+    color: $datagovuk-light-green;
 }
 
-.datagovuk-split-chart__delta--down {
-    color: #d4351c;
+.datagovuk-split-chart__change--down {
+    color: $datagovuk-pink;
 }
 
 @include govuk-media-query($until: tablet){
