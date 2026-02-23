@@ -10,9 +10,6 @@ $desktop-breakpoint: 40.0625em;
 
 @import 'overrides/main';
 
-@import 'components/feedback';
-@import 'components/header';
-@import 'components/hero';
-@import 'components/gridlist';
+@import 'components/main';
 
 @import "pages/collections/content";
