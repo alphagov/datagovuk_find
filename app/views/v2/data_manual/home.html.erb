@@ -6,7 +6,7 @@
 } %>
 
 
-<section>
+<section class="datagovuk-data-manual-section">
   <div class="govuk-width-container">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
@@ -54,18 +54,39 @@
             },
           ]
         } %>
-
-
       </div>
     </div>
-
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-full">
-        <%= render partial: "v2/components/feedback" %>
-      </div>
-    </div>
-
   </div>
 </section>
 
+<section class="datagovuk-data-manual-section">
+  <div class="govuk-width-container">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <%= render partial: "v2/components/feedback" %>
+      </div>
+    </div>
+  </div>
+</section>
 
+<section class="datagovuk-data-manual-section">
+  <div class="govuk-width-container">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-half">
+        <%= render partial: "v2/components/cta", locals: {
+          title: "Get in touch",
+          url: "#",
+          body: "We’d love your feedback. Is this manual useful? Can we improve it?",
+        } %>
+      </div>
+      <div class="govuk-grid-column-one-half">
+        <%= render partial: "v2/components/cta", locals: {
+          title: "Join a data community",
+          url: "#",
+          body: "Find Slack channels, events and other ways to connect with data practitioners.",
+          classes: "datagovuk-cta--secondary",
+        } %>
+      </div>
+    </div>
+  </div>
+</section>
