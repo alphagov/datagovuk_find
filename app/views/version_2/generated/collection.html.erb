@@ -1,4 +1,31 @@
 <h2 class="govuk-heading-l datagovuk-heading-l"><%= @title %></h2>
-<p class="govuk-body"><%= @body %></p>
+<%= @body %>
+
 <%= yield if block_given? %>
+
+<% if @footnotes.present? %>
+    <details class="govuk-details" open>
+    <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+        Footnotes
+        </span>
+    </summary>
+    <div class="govuk-details__text">
+        <%= @footnotes %>
+    </div>
+    </details>
+<% end %>
+
+<section>
+    <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+            <div class="govuk-inset-text datagovuk-feedback">
+                <div>
+                 Is this data/dataset useful? Give us a feedback here.
+                <div>
+            </div>
+        </fieldset>
+    </div>
+</section>
+
 <%= render partial: "version_2/generated/get_data", locals: { page_last_updated: @page_last_updated, website: @website, api: @api } %>
