@@ -1,15 +1,15 @@
-.datagovuk-feedback {
+.datagovuk-feedback-inset-text {
   background-color: rgb(243, 250, 241);
   border-left: 4px solid $datagovuk-light-green !important;
   padding: 15px;
 }
 
-.datagovuk-feedback .datagovuk-link {
+.datagovuk-feedback-inset-text .datagovuk-link {
   color: $datagovuk-light-green;
 }
 
 @media (max-width: 768px) {
-  .datagovuk-feedback {
+  .datagovuk-feedback-inset-text {
     grid-template-columns: 1fr;
   }
 }

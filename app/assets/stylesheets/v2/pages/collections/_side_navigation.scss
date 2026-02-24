@@ -1,6 +1,3 @@
-$datagovuk-dark-green: #2b7a2d;
-$datagovuk-active-green: #00890b;
-
 .datagovuk-side-navigation {
   &__list {
     list-style: none;
@@ -17,8 +14,9 @@ $datagovuk-active-green: #00890b;
 
     a {
       @include govuk-font(24);
-      text-decoration: none;
+      text-decoration: none !important;
       font-weight: 400;
+      color: $datagovuk-light-green;
 
       &:hover {
         font-weight: 400;
@@ -27,17 +25,15 @@ $datagovuk-active-green: #00890b;
     }
 
     &:hover {
-      border-left: 5px solid $datagovuk-active-green;
+      border-left: 5px solid $datagovuk-light-green;
     }
 
     &--active {
-      border-left: 5px solid $datagovuk-active-green;
+      border-left: 5px solid $datagovuk-light-green;
     }
 
-    a {
-        color: $datagovuk-light-green;
-        font-weight: 400;
-        text-decoration: none !important;
+    &focus {
+        border-left: 5px solid $datagovuk-light-green;
     }
   }
 }

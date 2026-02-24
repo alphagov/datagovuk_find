@@ -1,0 +1,27 @@
+---
+title: UK House prices
+collection: Land and property
+website: https://landregistry.data.gov.uk/app/ukhpi/
+api:
+dataset: https://www.gov.uk/government/statistical-data-sets/uk-house-price-index-data-downloads-november-2025
+page-last-updated: "2026-02-12"
+visualisation-data:
+contact:
+status: for-dev
+---
+
+Search the UK house price index (HPI) to find house price trends in the UK, or download the full dataset as CSV. The HPI uses house sales data from HM Land Registry, Registers of Scotland and Land and Property Services Northern Ireland, and is calculated by the Office for National Statistics. The index is published monthly, with Northern Ireland figures updated quarterly. 
+
+
+There are also specific CSV files for: 
+
+  - average price
+  - average price by property type
+  - sales
+  - cash mortgage sales
+  - first time buyer and former owner occupier
+  - new build and existing resold property
+  - index
+  - index seasonally adjusted
+  - average price seasonally adjusted
+  - repossessions
