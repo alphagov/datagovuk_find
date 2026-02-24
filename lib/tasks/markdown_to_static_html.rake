@@ -28,7 +28,7 @@ namespace :markdown do
         api: front_matter["api"],
         page_last_updated: front_matter["page-last-updated"],
         tags: front_matter["tags"],
-        visualisation_data: front_matter["visualisation_data"],
+        visualisation_data: front_matter["visualisation-data"],
         contact: front_matter["contact"],
         body: html_body.html_safe,
       }
