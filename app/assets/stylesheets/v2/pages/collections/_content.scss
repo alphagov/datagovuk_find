@@ -35,7 +35,7 @@
     border-radius: 50%;
 }
 
-.datagovuk-collection-wrapper h2 {
+.datagovuk-collection-wrapper .datagovuk-body {
     padding-top: 1vw;
     letter-spacing: 5px;
     color: $datagovuk-grey;
@@ -46,8 +46,6 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    font-weight: 200;
-    letter-spacing: 4px;
     margin-bottom: 0;
 }
 

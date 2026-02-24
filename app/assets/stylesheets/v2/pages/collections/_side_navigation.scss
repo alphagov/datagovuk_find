@@ -13,13 +13,11 @@
     align-items: center;
 
     a {
-      @include govuk-font(24);
       text-decoration: none !important;
-      font-weight: 400;
+      font-size: 20px;
       color: $datagovuk-light-green;
 
       &:hover {
-        font-weight: 400;
         text-decoration: none !important;
       }
     }
