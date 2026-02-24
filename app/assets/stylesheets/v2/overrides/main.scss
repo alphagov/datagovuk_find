@@ -53,11 +53,12 @@
 .datagovuk-link:link,
 .datagovuk-link:visited {
   color: $datagovuk-black;
+  font-weight: 500;
 }
 
 .datagovuk-link--secondary:link,
 .datagovuk-link--secondary:visited {
-  color: var(--datagovuk-green);
+  color: $datagovuk-green;
 }
 
 .datagovuk-button {
