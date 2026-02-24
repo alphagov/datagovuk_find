@@ -1,0 +1,48 @@
+<div style="background-color: white; padding: 30px; border-radius: 15px;">
+  <%= area_chart [
+        { name: "Companies closed per month", data: @closed_data },
+        { name: "Companies opened per month", data: @opened_data }
+      ], 
+      library: {
+        plugins: {
+          legend: {
+            display: true,
+            position: 'bottom',
+            labels: {
+              usePointStyle: true,
+              boxWidth: 10,
+              padding: 20,
+              font: { family: "'Inter'", size: 14 }
+            }
+          }
+        },
+        datasets: [
+          {
+            label: "Companies closed per month",
+            borderColor: "#4A944F",
+            backgroundColor: "transparent", 
+            pointStyle: 'triangle',
+            pointRadius: @point_radii_closed,
+            pointBackgroundColor: "#4A944F"
+          },
+          {
+            label: "Companies opened per month",
+            borderColor: "#C27A9A",
+            backgroundColor: "#FBF4F7",
+            fill: true,
+            pointStyle: 'rect',
+            pointRadius: @point_radii_opened,
+            pointBackgroundColor: "#C27A9A"
+          }
+        ],
+        scales: {
+          y: { 
+            grid: { color: "#f0f0f0" },
+            ticks: { 
+              callback: "function(value) { return value + '%'; }"
+            }
+          },
+          x: { grid: { display: false } }
+        }
+      } %>
+</div>

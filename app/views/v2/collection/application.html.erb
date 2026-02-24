@@ -39,7 +39,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <%= stylesheet_link_tag 'application' %>
-    <%= stylesheet_link_tag 'overrides/main' %>
+    <%= stylesheet_link_tag 'v2/main' %>
     <%= csrf_meta_tags %>
 
     <%= yield :head %>
@@ -54,8 +54,6 @@
     } %>
 
     <%= render "govuk_publishing_components/components/skip_link", {} %>
-
-    <%= render partial: "version_2/header", locals: { collections: @collections, data_manuals: @data_manuals } %>
 
     <%= yield %>
 
