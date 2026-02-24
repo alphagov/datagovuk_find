@@ -23,3 +23,4 @@
 //= require_tree .
 
 window.GOVUK.modules.start()
+window.GOVUK.analyticsInit()
