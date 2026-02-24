@@ -31,7 +31,6 @@ namespace :markdown do
         visualisation_data: front_matter["visualisation-data"],
         contact: front_matter["contact"],
         body: html_body.html_safe,
-        # datasets: a list of dataset
       }
 
       if front_matter["collection"].nil?
