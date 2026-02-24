@@ -3,7 +3,13 @@
 @import 'govuk_publishing_components/component_support';
 @import 'govuk_publishing_components/components/_cookie-banner';
 
+@import "colors";
+
 @import 'overrides/main';
 
-@import 'components/side_navigation';
 @import 'components/dropdown_menu';
+@import 'components/feedback';
+@import 'components/split_chart';
+@import "pages/collections/content";
+@import "pages/collections/side_navigation";
+@import "pages/collections/charts";

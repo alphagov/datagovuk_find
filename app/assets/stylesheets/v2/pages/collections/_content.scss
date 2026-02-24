@@ -1,6 +1,15 @@
+.datagovuk__list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
 .datagovuk-more-info-btn {
     border-radius: 15px;
     background-color: $datagovuk-dark-green;
+}
+
+.datagovuk__item {
+    padding-bottom: 1vw;
 }
 
 .datagovuk__item a {
@@ -27,7 +36,7 @@
 }
 
 .datagovuk-collection-wrapper h2 {
-    padding: 1vw;
+    padding-top: 1vw;
     letter-spacing: 5px;
     color: $datagovuk-grey;
 }
@@ -51,10 +60,4 @@
 
 .datagovuk-section {
     margin-top: 50px;
-}
-
-//  Footnotes
-
-.datagovuk-footnotes {
-    margin-top: 20px;
 }

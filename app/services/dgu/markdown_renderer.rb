@@ -64,7 +64,7 @@ module Dgu
 
     def paragraph(text)
       <<~HTML
-        <p class="govuk-body-m">#{text}</p>
+        <p class="govuk-body-m datagovuk-body">#{text}</p>
       HTML
     end
 

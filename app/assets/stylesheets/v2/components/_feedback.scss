@@ -1,18 +1,11 @@
 .datagovuk-feedback {
   background-color: rgb(243, 250, 241);
   border-left: 4px solid $datagovuk-light-green !important;
-  padding: 5px;
-  padding-left: 15px;
+  padding: 15px;
 }
 
-.star-icon {
-  width: 20px;
-  height: 20px;
-}
-
-.datagovuk-feedback {
-  display: grid;
-  grid-template-columns: 1fr 0.5fr;
+.datagovuk-feedback .datagovuk-link {
+  color: $datagovuk-light-green;
 }
 
 @media (max-width: 768px) {

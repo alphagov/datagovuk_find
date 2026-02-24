@@ -1,13 +1,14 @@
-<nav class="dgu-side-navigation" aria-label="Side navigation">
-    <ul class="dgu-side-navigation__list">
-        <% local_assigns[:side_navigations].to_enum.with_index(1).each do |side_navigation, idx| %>
-            <li class="dgu-side-navigation__item">
-                <a 
-                href=<%= "/collections/#{local_assigns[:collection]}/#{side_navigation}" %> 
-                aria-current="location"
-                class="<%= "dgu-side-navigation__item--active" if local_assigns[:current_topic] == side_navigation %>"
-                ><%= side_navigation.gsub("-", " ").humanize %></a>
-            </li>
-        <% end %>
-    </ul>
+<nav class="datagovuk-side-navigation" aria-label="Side navigation">
+  <ul class="datagovuk-side-navigation__list">
+    <% local_assigns[:side_navigations].each do |side_navigation| %>
+      <% is_active = local_assigns[:current_topic] == side_navigation %>
+      
+      <li class="datagovuk-side-navigation__item <%= 'datagovuk-side-navigation__item--active' if is_active %>">
+        <a href="<%= "/collections/#{local_assigns[:collection]}/#{side_navigation}" %>" 
+           <%= 'aria-current="page"' if is_active %>>
+          <%= side_navigation.gsub("-", " ").humanize %>
+        </a>
+      </li>
+    <% end %>
+  </ul>
 </nav>

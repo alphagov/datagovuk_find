@@ -1,3 +1,21 @@
-<%= @title %>
+<h2 class="govuk-heading-l datagovuk-heading-l"><%= @title %></h2>
 <%= @body %>
+
 <%= yield if block_given? %>
+
+<% if @footnotes.present? %>
+    <details class="govuk-details" open>
+    <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+        Footnotes
+        </span>
+    </summary>
+    <div class="govuk-details__text">
+        <%= @footnotes %>
+    </div>
+    </details>
+<% end %>
+
+<%= render partial: "v2/collection/feedback" %>
+
+<%= render partial: "v2/collection/get_data", locals: { page_last_updated: @page_last_updated, website: @website, api: @api } %>
