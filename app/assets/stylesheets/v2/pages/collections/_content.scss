@@ -1,3 +1,27 @@
+.datagovuk-collection-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.datagovuk-collection-header__image {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    margin-bottom: 30px;
+}
+
+.datagovuk-collection-name {
+    margin-bottom: 30px;
+}
+
+.datagovuk-collection-header__underline {
+    margin-left: auto;
+    margin-right: auto;
+    width: 45%;
+    background-color: $datagovuk-grey;
+    height: 1px;
+}
+
 .datagovuk__list {
     list-style-type: none;
     padding-left: 0;
@@ -21,39 +45,6 @@
     color: $datagovuk-light-green;
     opacity: 0.5;
     text-decoration: none;
-}
-
-.govuk-section-break {
-    margin-left: auto;
-    margin-right: auto;
-    width: 45%;
-}
-
-.datagovuk-collection-wrapper img {
-    height: 100px;
-    width: 100px;
-    border-radius: 50%;
-}
-
-.datagovuk-collection-wrapper .datagovuk-body {
-    padding-top: 1vw;
-    letter-spacing: 5px;
-    color: $datagovuk-grey;
-}
-
-.datagovuk-collection-name {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin-bottom: 0;
-}
-
-.title_box {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
 }
 
 .datagovuk-section {
