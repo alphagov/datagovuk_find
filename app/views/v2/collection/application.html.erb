@@ -2,8 +2,9 @@
 <!DOCTYPE html>
 <!--[if lt IE 9]><html class="lte-ie8" lang="<%= content_for?(:html_lang) ? yield(:html_lang) : "en" %>"><![endif]-->
 <!--[if gt IE 8]><!--><html lang="<%= content_for?(:html_lang) ? yield(:html_lang) : "en" %>"><!--<![endif]-->
-<html class="govuk-template">
   <head>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload" %>
+
   <% if ENV["GOOGLE_TAG_MANAGER_ID"] %>
     <% 
       gtm_auth = ENV["GOOGLE_TAG_MANAGER_AUTH"]
@@ -23,63 +24,59 @@
     </script>
   <% end %>
 
-    <meta charset="utf-8">
-    <title><%= content_for?(:page_title) ? yield(:page_title) + " - " + t('.site_name') : t('.site_name') %></title>
+    <%# The below preconnect links save in performance costs %>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 
+    <meta charset="utf-8">
+    <title><%= content_for?(:page_title) ? yield(:page_title) + " - " + local_assigns[:collection] : local_assigns[:collection] %></title>
+
+    <%# the colour used for theme-color is the standard palette $black from
+        https://github.com/alphagov/govuk_frontend_toolkit/blob/master/stylesheets/colours/_palette.scss %>
     <meta name="theme-color" content="#0b0c0c" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <%= stylesheet_link_tag 'application' %>
+    <%= stylesheet_link_tag 'overrides/main' %>
     <%= csrf_meta_tags %>
 
     <%= yield :head %>
   </head>
-
-  <body class="govuk-template__body">
+<body class="govuk-template__body">
     <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
 
     <%= render "govuk_publishing_components/components/cookie_banner", {
+      title: t('.cookie_banner.title'),
       text: sanitize("We use <a href='/cookies' class='govuk-link'>cookies to collect information</a> about how you use data.gov.uk. We use this information to make the website work as well as possible."),
       cookie_preferences_href: "/cookies",
     } %>
 
     <%= render "govuk_publishing_components/components/skip_link", {} %>
 
-    <header role="banner" class="govuk-header" data-module="govuk-header">
-      <div class="govuk-header__container govuk-width-container">
-        <div class="govuk-grid-row">
-          <div class="govuk-header__logo govuk-grid-column-one-half">
-            <a href="<%= root_path %>" class="govuk-header__link govuk-header__link--homepage">
-                <%= t('.data_gov_uk')%> | <%= t('.find_open_data') %>
-              </a>
-          </div>
-          <div class="govuk-grid-column-one-half">
-            <%= render 'layouts/proposition_header' %>
-          </div>
-        </div>
-      </div>
-    </header>
+    <%= render partial: "version_2/header", locals: { collections: @collections } %>
 
-    <%= render 'layouts/integration_ribbon' if Rails.env.integration? %>
-    <%= render 'layouts/staging_ribbon' if Rails.env.staging? %>
-
-    <div class="datagovuk-top-non-content">
-      <div class="datagovuk-top-non-content__inner">
-        <%= render 'layouts/feedback_survey_banner' %>
-        <%= yield :breadcrumb %>
-      </div>
-    </div>
-
-    <div class="govuk-width-container">
-      <%= yield %>
-    </div>
+    <%= yield %>
 
     <%= render "govuk_publishing_components/components/layout_footer", {
       meta: {
         items: [
           {
-            href: "/about",
-            text: "About"
+            href: "/roadmap",
+            text: "Roadmap"
+          },
+          {
+            href: "/report-a-problem",
+            text: "Report a problem"
+          },
+          {
+            href: "/team",
+            text: "Team"
+          },
+          {
+            href: "/data-directory",
+            text: "Data directory"
           },
           {
             href: "/accessibility",
@@ -88,32 +85,9 @@
           {
             href: "/cookies",
             text: "Cookies"
-          },
-          {
-            href: "/privacy",
-            text: "Privacy"
-          },
-          {
-            href: "/terms",
-            text: "Terms and conditions"
-          },
-          {
-            href: "/support",
-            text: "Support"
-          },
-          {
-            href: "https://www.gov.uk/government/organisations/government-digital-service",
-            text: "Built by the Government Digital Service"
           }
         ]
       }
     } %>
-
-    <div id="global-app-error" class="app-error hidden"></div>
-
-    <%= javascript_include_tag 'application' %>
-
-    <%# if no GOVUK-namespaced module has loaded we can assume JS has failed and remove the class %>
-    <script>if (typeof window.GOVUK === 'undefined') document.body.className = document.body.className.replace('js-enabled', '');</script>
-  </body>
+</body>
 </html>
