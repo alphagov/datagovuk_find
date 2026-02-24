@@ -4,3 +4,10 @@
   background-color: var(--datagovuk-light-green);
   margin-bottom: 3em;
 }
+
+.datagovuk-hero--data-manual {
+  background-color: transparent;
+  background-image: url(/images/v2/hero_background_data_manual.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
