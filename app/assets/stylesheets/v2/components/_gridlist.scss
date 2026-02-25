@@ -3,7 +3,68 @@
   padding: 0;
 }
 
-.datagovuk-gridlist--icons {
+.datagovuk-gridlist.datagovuk-gridlist--icons {
+  margin-left: 40px;
+
+  .datagovuk-gridlist__item {
+  
+    .datagovuk-gridlist__item--icon {
+      position: relative;
+      display: inline-block;
+    }
+  
+    .datagovuk-gridlist__item--icon::before {
+      content: "";
+      position: absolute;
+      left: -35px; /* Move into the created margin */
+      top: 3px;
+      width: 24px;
+      height: 24px;
+      background-color: var(--datagovuk-green);
+      /* Use the SVG as a mask so it inherits the link text color */
+    }
+
+    .datagovuk-gridlist__item--icon-user::before {
+      -webkit-mask: url('/images/v2/icons/user.svg') no-repeat center;
+      mask: url('/images/v2/icons/user.svg') no-repeat center;
+    }
+
+    .datagovuk-gridlist__item--icon-database::before {
+      -webkit-mask: url('/images/v2/icons/database.svg') no-repeat center;
+      mask: url('/images/v2/icons/database.svg') no-repeat center;
+    }
+
+    .datagovuk-gridlist__item--icon-document::before {
+      -webkit-mask: url('/images/v2/icons/document.svg') no-repeat center;
+      mask: url('/images/v2/icons/document.svg') no-repeat center;
+    }
+
+    .datagovuk-gridlist__item--icon-padlock::before {
+      -webkit-mask: url('/images/v2/icons/padlock.svg') no-repeat center;
+      mask: url('/images/v2/icons/padlock.svg') no-repeat center;
+    }
+
+    .datagovuk-gridlist__item--icon-shield::before {
+      -webkit-mask: url('/images/v2/icons/shield.svg') no-repeat center;
+      mask: url('/images/v2/icons/shield.svg') no-repeat center;
+    }
+
+    .datagovuk-gridlist__item--icon-sharing::before {
+      -webkit-mask: url('/images/v2/icons/sharing.svg') no-repeat center;
+      mask: url('/images/v2/icons/sharing.svg') no-repeat center;
+    }
+
+    .datagovuk-gridlist__item--icon-stars::before {
+      -webkit-mask: url('/images/v2/icons/stars.svg') no-repeat center;
+      mask: url('/images/v2/icons/stars.svg') no-repeat center;
+    }
+
+    .datagovuk-gridlist__item--icon-open-book::before {
+      -webkit-mask: url('/images/v2/icons/open_book.svg') no-repeat center;
+      mask: url('/images/v2/icons/open_book.svg') no-repeat center;
+    }
+  
+  }
 }
 
 /* Desktop styling overrides */
@@ -20,6 +81,10 @@
       margin: 20px 40px;
     }
   
+  }
+
+  .datagovuk-gridlist .datagovuk-gridlist--icons {
+    margin-left: 0;
   }
 
   .datagovuk-gridlist--3-column {

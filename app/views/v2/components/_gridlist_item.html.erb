@@ -1,8 +1,6 @@
 <li class="datagovuk-gridlist__item">
-  <div>
-    <h2 class="govuk-heading-s datagovuk-heading-s">
-      <a class="govuk-link datagovuk-link datagovuk-link--secondary" href="<%= gridlist_item[:url] %>"><%= gridlist_item[:title] %></a>
-    </h2>
-    <p class="govuk-body datagovuk-body"><%= gridlist_item[:body] %></p>
-  </div>
+  <h2 class="govuk-heading-s datagovuk-heading-s datagovuk-gridlist__item--icon datagovuk-gridlist__item--icon-<%= gridlist_item[:icon] %>">
+    <a class="govuk-link datagovuk-link datagovuk-link--secondary" href="<%= gridlist_item[:url] %>"><%= gridlist_item[:title] %></a>
+  </h2>
+  <p class="govuk-body datagovuk-body"><%= gridlist_item[:body] %></p>
 </li>
