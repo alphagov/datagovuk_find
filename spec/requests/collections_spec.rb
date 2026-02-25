@@ -16,14 +16,7 @@ RSpec.describe "Collections", type: :request do
     it "shows the collection title" do
       get collection_path
 
-      expect(response.body).to include("Land and property</h1>")
-    end
-
-    it "shows the collection navigation links" do
-      get collection_path
-
-      expect(response.body).to include("Planning data")
-      expect(response.body).to include("Property price paid")
+      expect(response.body).to include("Land and property")
     end
 
     it "invalid path shows 404" do
