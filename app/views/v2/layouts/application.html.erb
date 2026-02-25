@@ -50,7 +50,7 @@
     <%= render "v2/header", collections: @collections %>
 
     <main id="main">
-      <%= yield %>
+      <%= content_for?(:main) ? yield(:main) : yield %>
     </main>
 
     <%= render "v2/footer" %>
