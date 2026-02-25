@@ -1,0 +1,25 @@
+.datagovuk-feedback-inset-text {
+  background-color: rgb(243, 250, 241);
+  border-left: 4px solid $datagovuk-green;
+  padding: 15px;
+}
+
+.datagovuk-feedback-inset-text .datagovuk-link {
+  color: $datagovuk-green;
+}
+
+@media (max-width: 768px) {
+  .datagovuk-feedback-inset-text {
+    grid-template-columns: 1fr;
+  }
+}
+
+.govuk-radios__label::after {
+    content: none !important;
+    display: none !important;
+}
+
+.govuk-radios__label::before {
+    content: none !important;
+    display: none !important;
+}
