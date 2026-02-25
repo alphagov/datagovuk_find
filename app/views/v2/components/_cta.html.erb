@@ -1,4 +1,7 @@
 <div class="datagovuk-cta <%= local_assigns.fetch(:classes, "") %>">
+  <% if local_assigns.fetch(:icon, false) %>
+    <img class="datagovuk-cta__icon" src="/images/v2/icons/<%= icon %>.svg" class="icon" alt="">
+  <% end %>
   <h3 class="govuk-heading-s datagovuk-heading-s">
     <a href="<%= url %>" class="govuk-link datagovuk-link"><%= title %></a>
   </h3>

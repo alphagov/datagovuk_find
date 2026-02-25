@@ -2,8 +2,12 @@
   background-color: $datagovuk-light-green;
   padding: 40px;
   border-radius: 10px;
-  min-height: 10em;
+  min-height: 12em;
   margin-bottom: 2em;
+  
+  .datagovuk-cta__icon {
+    margin-bottom: 1em;
+  }
 }
 
 .datagovuk-cta--secondary {
