@@ -1,21 +1,20 @@
-<div class="govuk-width-container title_box">
-    <div class="dgu-collection-wrapper">
-        <img src="/find-assets/abstract_stock_image_1.jpg" alt="abstract artwork image" />
-        <h2><%= t(".page_name").upcase %></h2>
-    </div>
+<div class="govuk-width-container datagovuk-collection-header">
+    <%= image_tag 'v2/abstract_stock_image_1.jpg', class: "datagovuk-collection-header__image" %>
+    <p class="govuk-body datagovuk-body datagovuk-body-uppercase">
+        <%= t(".page_name") %>
+    </p>
+    <h2 class="datagovuk-collection-name govuk-heading-xl datagovuk-heading-xl">
+        <%= @collection.gsub("-", " ").humanize %>
+    </h2>
+    <div class="datagovuk-collection-header__underline"></div>
 </div>
 <div class="govuk-width-container">
-    <h1 class="dgu-collection-name govuk-heading-xl dgu-collection-name--short-underline"><%= @collection.gsub("-", " ").humanize %></h1>
-    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-
-    <main class="govuk-main-wrapper">
-        <div class="govuk-grid-row">
-            <div class="govuk-grid-column-one-third">
-                <%= render partial: "v2/collection/side_navigation", locals: { collection: @collection, side_navigations: @side_navigations, current_topic: @current_topic } %>
-            </div>
-            <div class="govuk-grid-column-two-thirds">
-                <%= render template: @view_template, locals: { collections: @collections } %>
-            </div>
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-third">
+            Side navigation in progress
         </div>
-    </main>
+        <div class="govuk-grid-column-two-thirds">
+            <%= render template: @view_template, locals: { collections: @collections } %>
+        </div>
+    </div>
 </div>
