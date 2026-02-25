@@ -1,0 +1,33 @@
+.datagovuk-collection-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.datagovuk-collection-header__image {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    margin-bottom: 30px;
+}
+
+.datagovuk-collection-name {
+    margin-bottom: 30px;
+}
+
+.datagovuk-collection-header__underline {
+    margin-left: auto;
+    margin-right: auto;
+    width: 45%;
+    background-color: $datagovuk-grey;
+    height: 1px;
+}
+
+.datagovuk__item .datagovuk-link {
+    color: $datagovuk-green;
+    font-size: 22px;
+    text-decoration: underline;
+}
+
+.datagovuk-section {
+    margin-bottom: govuk-spacing(8);
+}

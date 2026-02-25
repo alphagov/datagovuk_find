@@ -1,11 +1,6 @@
 @import 'footer';
 @import 'header';
 
-:root {
-  --datagovuk-black: #333333;
-  --datagovuk-dark-green: #00381E;
-}
-
 /* inter-regular - latin */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
@@ -29,19 +24,24 @@
 .datagovuk-link,
 .datagovuk-button {
   font-family: 'Inter', sans-serif;
+  color: $datagovuk-black;
 }
 
 .datagovuk-heading-xl {
   font-family: 'Libre Baskerville', serif;
   font-size: 28px;
+  color: $datagovuk-black;
+  font-weight: normal;
 }
 
 .datagovuk-heading-l {
   font-size: 32px;
+  font-weight: normal;
 }
 
 .datagovuk-heading-m {
   font-size: 30px;
+  font-weight: normal;
 }
 
 .datagovuk-body {
@@ -50,13 +50,18 @@
 
 .datagovuk-link:link,
 .datagovuk-link:visited {
-  color: var(--datagovuk-black);
+  color: $datagovuk-black;
 }
 
 .datagovuk-button {
-  background-color: var(--datagovuk-dark-green);
+  background-color: $datagovuk-dark-green;
   border-radius: 20px;
   padding: 14px 18px;
+  font-size: 20px;
+}
+
+.datagovuk-list {
+  font-size: 20px;
 }
 
 /* Desktop styling overrides */
@@ -70,6 +75,14 @@
   }
 
   .datagovuk-body {
+    font-size: 22px;
+  }
+
+  .datagovuk-button {
+    font-size: 22px;
+  }
+
+  .datagovuk-list {
     font-size: 22px;
   }
 }
