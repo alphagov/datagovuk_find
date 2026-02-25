@@ -24,11 +24,11 @@ RSpec.describe Dgu::MarkdownRenderer do
       result = renderer.table(header, body)
 
       expected_html = <<~HTML
-        <table class='govuk-table datagovuk-table'>
-          <thead class='govuk-table__head datagovuk-table__head'>
+        <table class='govuk-table'>
+          <thead class='govuk-table__head'>
             #{header}
           </thead>
-          <tbody class='govuk-table__body datagovuk-table__body'>
+          <tbody class='govuk-table__body'>
             #{body}
           </tbody>
         </table>
@@ -45,7 +45,7 @@ RSpec.describe Dgu::MarkdownRenderer do
       result = renderer.table_row(content)
 
       expected_html = <<~HTML
-        <tr class='govuk-table__row datagovuk-table__row'>
+        <tr class='govuk-table__row'>
           #{content}
         </tr>
       HTML
@@ -60,7 +60,7 @@ RSpec.describe Dgu::MarkdownRenderer do
       result = renderer.table_row(content)
 
       expected_html = <<~HTML
-        <tr class='govuk-table__row datagovuk-table__row'>
+        <tr class='govuk-table__row'>
           #{content}
         </tr>
       HTML
@@ -75,7 +75,7 @@ RSpec.describe Dgu::MarkdownRenderer do
       result = renderer.table_row(content)
 
       expected_html = <<~HTML
-        <tr class='govuk-table__row datagovuk-table__row'>
+        <tr class='govuk-table__row'>
           #{content}
         </tr>
       HTML
@@ -90,7 +90,7 @@ RSpec.describe Dgu::MarkdownRenderer do
       result = renderer.table_row(content)
 
       expected_html = <<~HTML
-        <tr class='govuk-table__row datagovuk-table__row'>
+        <tr class='govuk-table__row'>
           #{content}
         </tr>
       HTML
@@ -106,7 +106,7 @@ RSpec.describe Dgu::MarkdownRenderer do
       result = renderer.table_cell(content, nil, header)
 
       expected_html = <<~HTML
-        <th class='govuk-table__header datagovuk-table__header' scope='col'>
+        <th class='govuk-table__header'>
           #{content}
         </th>
       HTML
