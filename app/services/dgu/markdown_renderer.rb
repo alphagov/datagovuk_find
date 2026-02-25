@@ -11,11 +11,11 @@ module Dgu
 
     def table(header, body)
       <<~HTML
-        <table class='govuk-table datagovuk-table'>
-          <thead class='govuk-table__head datagovuk-table__head'>
+        <table class='govuk-table'>
+          <thead class='govuk-table__head'>
             #{header}
           </thead>
-          <tbody class='govuk-table__body datagovuk-table__body'>
+          <tbody class='govuk-table__body'>
             #{body}
           </tbody>
         </table>
@@ -24,7 +24,7 @@ module Dgu
 
     def table_row(content)
       <<~HTML
-        <tr class='govuk-table__row datagovuk-table__row'>
+        <tr class='govuk-table__row'>
           #{content}
         </tr>
       HTML
@@ -33,13 +33,13 @@ module Dgu
     def table_cell(content, _alignment, header)
       if header
         <<~HTML
-          <th class='govuk-table__header datagovuk-table__header' scope='col'>
+          <th class='govuk-table__header'>
             #{content}
           </th>
         HTML
       else
         <<~HTML
-          <td class='govuk-table__cell datagovuk-table__cell'>
+          <td class='govuk-table__cell'>
             #{content}
           </td>
         HTML
