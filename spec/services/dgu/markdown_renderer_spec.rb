@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe Dgu::MarkdownRenderer do
-  let(:govuk_options) { { headings_start_with: "dgu-" } }
+  let(:govuk_options) { { headings_start_with: "datagovuk-" } }
   let(:markdown_options) { { strip_front_matter: true } }
   let(:renderer) { Dgu::MarkdownRenderer.new(govuk_options, markdown_options) }
 
@@ -11,7 +11,7 @@ RSpec.describe Dgu::MarkdownRenderer do
     end
 
     it "sets default values when options are not provided" do
-      expect(renderer.instance_variable_get(:@headings_start_with)).to eq("dgu-")
+      expect(renderer.instance_variable_get(:@headings_start_with)).to eq("datagovuk-")
       expect(renderer.instance_variable_get(:@strip_front_matter)).to eq(true)
     end
   end
