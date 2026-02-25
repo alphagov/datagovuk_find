@@ -11,11 +11,11 @@ module Dgu
 
     def table(header, body)
       <<~HTML
-        <table class='govuk-table'>
-          <thead class='govuk-table__head'>
+        <table class='govuk-table datagovuk-table'>
+          <thead class='govuk-table__head datagovuk-table__head'>
             #{header}
           </thead>
-          <tbody class='govuk-table__body'>
+          <tbody class='govuk-table__body datagovuk-table__body'>
             #{body}
           </tbody>
         </table>
@@ -24,7 +24,7 @@ module Dgu
 
     def table_row(content)
       <<~HTML
-        <tr class='govuk-table__row'>
+        <tr class='govuk-table__row datagovuk-table__row'>
           #{content}
         </tr>
       HTML
@@ -33,13 +33,13 @@ module Dgu
     def table_cell(content, _alignment, header)
       if header
         <<~HTML
-          <th class='govuk-table__header'>
+          <th class='govuk-table__header datagovuk-table__header' scope='col'>
             #{content}
           </th>
         HTML
       else
         <<~HTML
-          <td class='govuk-table__cell'>
+          <td class='govuk-table__cell datagovuk-table__cell'>
             #{content}
           </td>
         HTML
@@ -55,16 +55,14 @@ module Dgu
 
       header_size = valid_header_sizes[start_size_index + header_level - 1] || "s"
 
-      # TODO: with_toc_data is add HTML anchors to each header in the output HTML, to allow linking to each section
-      id_attribute = @options[:with_toc_data] ? " id=\"#{text.parameterize}\"" : ""
       <<~HTML
-        <h#{header_level}#{id_attribute} class="govuk-heading-#{header_size}">#{text}</h#{header_level}>
+        <h#{header_level} class="govuk-heading-#{header_size} datagovuk-heading-#{header_size}">#{text}</h#{header_level}>
       HTML
     end
 
     def paragraph(text)
       <<~HTML
-        <p class="govuk-body-m">#{text}</p>
+        <p class="govuk-body-m datagovuk-body">#{text}</p>
       HTML
     end
 
@@ -89,7 +87,7 @@ module Dgu
 
     def hrule
       <<~HTML
-        <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+        <hr class="datagovuk-collection-header__underline">
       HTML
     end
 
