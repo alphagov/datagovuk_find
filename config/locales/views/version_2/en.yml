@@ -1,9 +1,0 @@
-en:
-  version_2:
-    collection:
-      page_name: "Collection"
-    header:
-      collections: "Collections"
-      data_manual: "Data manual"
-    cookie_banner:
-      title: Cookies on data.gov.uk

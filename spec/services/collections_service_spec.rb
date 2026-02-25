@@ -7,7 +7,7 @@ RSpec.describe CollectionsService, type: :service do
 
   let(:collection) { "business-and-economy" }
   let(:topic) { "get-charity-information" }
-  let(:first_topic) { "agricultural-commodity-prices" }
+  let(:first_topic) { "food-hygiene-ratings" }
 
   describe "#initialize" do
     it "sets the collection and topic_name attributes" do
