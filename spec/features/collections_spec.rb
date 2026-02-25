@@ -37,8 +37,8 @@ RSpec.feature "collections", type: :feature do
   end
 
   def and_the_topic_is_highlighted_in_navigation(topic_name)
-    within(".dgu-side-navigation") do
-      expect(page).to have_css(".dgu-side-navigation__item--active", text: topic_name)
+    within(".datagovuk-side-navigation") do
+      expect(page).to have_css(".datagovuk-side-navigation__item--active", text: topic_name)
     end
   end
 
@@ -47,7 +47,7 @@ RSpec.feature "collections", type: :feature do
   end
 
   def and_top_navigation_has_drop_down_of_collections
-    within(".dgu-nav-dropdown__menu") do
+    within(".datagovuk-nav-dropdown__menu") do
       links = [
         "Business and economy",
         "Environment",
