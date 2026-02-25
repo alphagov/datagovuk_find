@@ -30,7 +30,7 @@
 }
 
 .datagovuk-split-chart__subtitle {
-    color: govuk-colour("dark-grey");
+    color: govuk-colour("black", $variant: "tint-25");
 }
 
 .datagovuk-split-chart__value {

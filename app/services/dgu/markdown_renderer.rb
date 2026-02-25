@@ -11,11 +11,11 @@ module Dgu
 
     def table(header, body)
       <<~HTML
-        <table class='govuk-table'>
-          <thead class='govuk-table__head'>
+        <table class='govuk-table datagovuk-table'>
+          <thead class='govuk-table__head datagovuk-table__head'>
             #{header}
           </thead>
-          <tbody class='govuk-table__body'>
+          <tbody class='govuk-table__body datagovuk-table__body'>
             #{body}
           </tbody>
         </table>
@@ -24,7 +24,7 @@ module Dgu
 
     def table_row(content)
       <<~HTML
-        <tr class='govuk-table__row'>
+        <tr class='govuk-table__row datagovuk-table__row'>
           #{content}
         </tr>
       HTML
@@ -33,13 +33,13 @@ module Dgu
     def table_cell(content, _alignment, header)
       if header
         <<~HTML
-          <th class='govuk-table__header'>
+          <th class='govuk-table__header datagovuk-table__header' scope='col'>
             #{content}
           </th>
         HTML
       else
         <<~HTML
-          <td class='govuk-table__cell'>
+          <td class='govuk-table__cell datagovuk-table__cell'>
             #{content}
           </td>
         HTML
@@ -55,10 +55,8 @@ module Dgu
 
       header_size = valid_header_sizes[start_size_index + header_level - 1] || "s"
 
-      # TODO: with_toc_data is add HTML anchors to each header in the output HTML, to allow linking to each section
-      id_attribute = @options[:with_toc_data] ? " id=\"#{text.parameterize}\"" : ""
       <<~HTML
-        <h#{header_level}#{id_attribute} class="govuk-heading-#{header_size} datagovuk-heading-#{header_size}">#{text}</h#{header_level}>
+        <h#{header_level} class="govuk-heading-#{header_size} datagovuk-heading-#{header_size}">#{text}</h#{header_level}>
       HTML
     end
 
@@ -72,13 +70,13 @@ module Dgu
       case list_type
       when :unordered
         <<~HTML
-          <ul class="govuk-list govuk-list--bullet">
+          <ul class="govuk-list datagovuk-list govuk-list--bullet datagovuk-list--bullet">
             #{contents}
           </ul>
         HTML
       when :ordered
         <<~HTML
-          <ol class="govuk-list govuk-list--number">
+          <ol class="govuk-list datagovuk-list govuk-list--number">
             #{contents}
           </ol>
         HTML
@@ -89,7 +87,7 @@ module Dgu
 
     def hrule
       <<~HTML
-        <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+        <hr class="datagovuk-collection-header__underline">
       HTML
     end
 

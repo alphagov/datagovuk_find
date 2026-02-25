@@ -5,7 +5,7 @@
       
       <li class="datagovuk-side-navigation__item <%= 'datagovuk-side-navigation__item--active' if is_active %>">
         <a href="<%= "/collections/#{local_assigns[:collection]}/#{side_navigation}" %>" 
-           <%= 'aria-current="page"' if is_active %>>
+          <%= 'aria-current="page"' if is_active %>>
           <%= side_navigation.gsub("-", " ").humanize %>
         </a>
       </li>

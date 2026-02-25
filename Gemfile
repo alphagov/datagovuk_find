@@ -4,7 +4,6 @@ gem "rails", "7.2.2.1"
 
 gem "bootsnap"
 gem "browser"
-gem "chartkick"
 gem "faraday"
 gem "faraday_middleware"
 gem "front_matter_parser"

@@ -1,37 +1,32 @@
-.datagovuk-side-navigation {
-  &__list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
+.datagovuk-side-navigation__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
-  &__item {
-    margin-bottom: 30px;
-    padding-left: 14px;
-    border-left: 4px solid transparent;
-    display: flex;
-    align-items: center;
+.datagovuk-side-navigation__item {
+  margin-bottom: 30px;
+  padding-left: 14px;
+  border-left: 4px solid transparent;
+  display: flex;
+  align-items: center;
+}
 
-    a {
-      text-decoration: none !important;
-      font-size: 20px;
-      color: $datagovuk-light-green;
+.datagovuk-side-navigation__item:hover,
+.datagovuk-side-navigation__item:focus-within {
+  border-left: 5px solid $datagovuk-green;
+}
 
-      &:hover {
-        text-decoration: none !important;
-      }
-    }
+.datagovuk-side-navigation__item--active {
+  border-left: 5px solid $datagovuk-green;
+}
 
-    &:hover {
-      border-left: 5px solid $datagovuk-light-green;
-    }
+.datagovuk-side-navigation__item a {
+  text-decoration: none !important;
+  font-size: 20px;
+  color: $datagovuk-green;
+}
 
-    &--active {
-      border-left: 5px solid $datagovuk-light-green;
-    }
-
-    &focus {
-        border-left: 5px solid $datagovuk-light-green;
-    }
-  }
+.datagovuk-side-navigation__item a:hover {
+  text-decoration: none !important;
 }

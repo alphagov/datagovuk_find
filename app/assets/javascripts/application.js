@@ -11,8 +11,6 @@
 // about supported directives.
 //
 //= require jquery
-//= require chartkick
-//= require Chart.bundle
 //= require cookie-settings
 //= require govuk_toolkit
 //= require accessible-autocomplete/dist/accessible-autocomplete.min
