@@ -10,8 +10,8 @@ RSpec.describe Dgu::Markdown do
       MD
 
       expected_html = <<~HTML
-        <h1 id="heading" class="govuk-heading-xl">Heading</h1>
-        <p class="govuk-body-m">This is <strong>bold</strong> text.</p>
+        <h1 class="govuk-heading-xl datagovuk-heading-xl">Heading</h1>
+        <p class="govuk-body-m datagovuk-body">This is <strong>bold</strong> text.</p>
       HTML
 
       rendered_html = Dgu::Markdown.render(markdown)
@@ -25,7 +25,7 @@ RSpec.describe Dgu::Markdown do
       MD
 
       expected_html = <<~HTML
-        <p class="govuk-body-m"><a href="https://www.test.com" class="govuk-link">Test</a></p>
+        <p class="govuk-body-m datagovuk-body"><a href="https://www.test.com" class="govuk-link">Test</a></p>
       HTML
 
       rendered_html = Dgu::Markdown.render(markdown).strip
@@ -61,7 +61,7 @@ RSpec.describe Dgu::Markdown do
 
       expected_html = <<~HTML
         <blockquote>
-        <p class="govuk-body-m">This is a blockquote.</p>
+        <p class="govuk-body-m datagovuk-body">This is a blockquote.</p>
         </blockquote>
       HTML
 
@@ -80,7 +80,7 @@ RSpec.describe Dgu::Markdown do
       MD
 
       expected_html = <<~HTML
-        <p class="govuk-body-m"><code>
+        <p class="govuk-body-m datagovuk-body"><code>
         def hello_world
           puts &#39;Hello, world!&#39;
         end

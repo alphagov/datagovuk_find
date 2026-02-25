@@ -7,7 +7,7 @@ RSpec.describe CollectionsService, type: :service do
 
   let(:collection) { "business-and-economy" }
   let(:topic) { "get-charity-information" }
-  let(:first_topic) { "food-hygiene-ratings" }
+  let(:first_topic) { "agricultural-commodity-prices" }
 
   describe "#initialize" do
     it "sets the collection and topic_name attributes" do
@@ -28,6 +28,13 @@ RSpec.describe CollectionsService, type: :service do
           title: "Business and economy",
         ),
       )
+    end
+  end
+
+  describe "#view_template" do
+    it "returns the view template path for the collection" do
+      service = CollectionsService.new(collection)
+      expect(service.view_template_path).to eq("generated/collections/#{collection}/#{first_topic}")
     end
   end
 
