@@ -3,12 +3,10 @@
 
     <section class="datagovuk-section">
         <ul class="datagovuk__list">
-            <% if local_assigns[:datasets] %>
-                <% local_assigns[:datasets].each do |dataset| %>
+            <% if local_assigns[:dataset] %>
                     <li class="datagovuk__item datagovuk__item--active">
-                        <a href="<%= dataset[:link] %>"><%= dataset[:name] %></a>
+                        <a class="govuk-link datagovuk-link" href="<%= local_assigns[:dataset] %>">Dataset</a>
                     </li>
-                <% end %>
             <% end %>
         </ul>
         <%= link_to local_assigns[:website] || "#", role: 'button', class: 'govuk-button datagovuk-more-info-btn', rel: %w(nofollow) do %>
@@ -17,12 +15,12 @@
         <ul class="datagovuk__list">
             <% if local_assigns[:api_link] %>
                 <li class="datagovuk__item datagovuk__item--active">
-                    <a href="<%= local_assigns[:api_link] %>">API documentation</a>
+                    <a class="govuk-link datagovuk-link"href="<%= local_assigns[:api_link] %>">API documentation</a>
                 </li>
             <% end %>
             <% if local_assigns[:datasets_download_link].present? %>
                 <li class="datagovuk__item datagovuk__item--active">
-                    <a href="<%= local_assigns[:datasets_download_link] %>">Download the datasets</a>
+                    <a class="govuk-link datagovuk-link"href="<%= local_assigns[:datasets_download_link] %>">Download the datasets</a>
                 </li>
             <% end %>
         </ul>

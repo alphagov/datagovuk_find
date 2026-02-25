@@ -21,12 +21,12 @@
   border-left: 5px solid $datagovuk-green;
 }
 
-.datagovuk-side-navigation__item a {
+.datagovuk-side-navigation__item .datagovuk-link {
   text-decoration: none !important;
   font-size: 20px;
   color: $datagovuk-green;
 }
 
-.datagovuk-side-navigation__item a:hover {
+.datagovuk-side-navigation__item .datagovuk-link:hover {
   text-decoration: none !important;
 }
