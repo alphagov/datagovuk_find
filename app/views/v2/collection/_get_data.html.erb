@@ -2,18 +2,29 @@
     <h3 class="govuk-heading-m datagovuk-heading-m">Get the data</h3>
 
     <section class="datagovuk-section">
+        <ul class="datagovuk__list">
+            <% if local_assigns[:datasets] %>
+                <% local_assigns[:datasets].each do |dataset| %>
+                    <li class="datagovuk__item datagovuk__item--active">
+                        <a href="<%= dataset[:link] %>"><%= dataset[:name] %></a>
+                    </li>
+                <% end %>
+            <% end %>
+        </ul>
         <%= link_to local_assigns[:website] || "#", role: 'button', class: 'govuk-button datagovuk-more-info-btn', rel: %w(nofollow) do %>
             More information <span class='datagovuk-right-arrow'>&#8594;</span>
         <% end %>
         <ul class="datagovuk__list">
-            <% if local_assigns[:api] %>
+            <% if local_assigns[:api_link] %>
                 <li class="datagovuk__item datagovuk__item--active">
-                    <a href="<%= local_assigns[:api] %>" aria-current="location">API documentation</a>
+                    <a href="<%= local_assigns[:api_link] %>">API documentation</a>
                 </li>
             <% end %>
-            <li class="datagovuk__item datagovuk__item--active">
-                <a href="#1" aria-current="location">Download the datasets</a>
-            </li>
+            <% if local_assigns[:datasets_download_link].present? %>
+                <li class="datagovuk__item datagovuk__item--active">
+                    <a href="<%= local_assigns[:datasets_download_link] %>">Download the datasets</a>
+                </li>
+            <% end %>
         </ul>
     </section>
 
