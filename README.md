@@ -182,3 +182,14 @@ See [the developer docs on data.gov.uk deployment](https://docs.publishing.servi
 - Dataset with publisher login: https://data.gov.uk/dataset/cf725d50-6535-4f8b-bc98-5ab01aa866a7/grants-to-voluntary-community-and-social-enterprise-organisations-local-government-transparency-code
 - Support page: https://data.gov.uk/support
 - Publisher login page: https://data.gov.uk/publishers
+
+## Markdown parser
+
+The markdown contents live in the `app/content` directory. The markdown parser rake task (`lib/tasks/markdown_to_static_html.rake`) will parse the markdown files, read the front matter, body and create or update the corresponding content in `app/views/generated/collections` directory. This allows us to manage content in markdown files while still being able to serve it dynamically.
+
+### How to run the markdown parser rake task locally
+
+```bash
+# Run the rake task
+bundle exec rake markdown:parse
+```
