@@ -647,8 +647,6 @@ GEM
     timeout (0.4.3)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
-    uglifier (4.2.1)
-      execjs (>= 0.3.0, < 3)
     unicode-display_width (3.1.4)
       unicode-emoji (~> 4.0, >= 4.0.4)
     unicode-emoji (4.0.4)
@@ -712,7 +710,6 @@ DEPENDENCIES
   spring-commands-rspec
   spring-watcher-listen
   sprockets-rails
-  uglifier
   webmock
 
 BUNDLED WITH
