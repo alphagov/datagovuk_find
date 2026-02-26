@@ -1,0 +1,13 @@
+.datagovuk-section-navigation .datagovuk-section-navigation__item {
+  padding: 10px;
+  margin-bottom: 1em;
+}
+
+.datagovuk-section-navigation .datagovuk-section-navigation__item.datagovuk-section-navigation__item--selected {
+  border-left: 4px solid var(--datagovuk-green);
+}
+
+.datagovuk-section-navigation .datagovuk-section-navigation__link {
+  text-decoration: none;
+  font-size: 22px;
+}
