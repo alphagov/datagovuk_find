@@ -47,7 +47,7 @@ RSpec.feature "collections", type: :feature do
   end
 
   def and_top_navigation_has_drop_down_of_collections
-    within(".dgu-nav-dropdown__menu") do
+    within("#datagovuk-menu-collections") do
       links = [
         "Business and economy",
         "Environment",
