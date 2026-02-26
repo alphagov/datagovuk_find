@@ -10,13 +10,13 @@
     padding: 17px 0;
 }
 
-.datagovuk-header__logo a{
+.datagovuk-header__logo-link {
     display: block;
     width: 165px;
     text-decoration: none;
 }
 
-.datagovuk-header__logo img {
+.datagovuk-header__logo-image {
     width: 100%;
 }
 
@@ -92,6 +92,14 @@
 
 /* Desktop styling overrides */
 @media (min-width: 40.0625em) {
+
+    .datagovuk-header {
+        padding: 15px 0;
+    }
+
+    .datagovuk-header__logo-link {
+        width: 235px;
+    }
 
     .datagovuk-header__link,
     .datagovuk-header__button {
