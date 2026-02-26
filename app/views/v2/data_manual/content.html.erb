@@ -1,3 +1,12 @@
 <% content_for :page_title, "Data manual" %>
 
-WOOOP
+<div class="govuk-width-container">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+      Side nav
+    </div>
+    <div class="govuk-grid-column-two-thirds">
+      <%= render partial: "v2/data_manual/content/#{params[:content_slug]}"  %>
+    </div>
+  </div>
+</div>
