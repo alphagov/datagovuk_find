@@ -26,6 +26,7 @@ gem "secure_headers"
 gem "sentry-rails"
 gem "sentry-ruby"
 gem "sprockets-rails"
+gem "terser"
 
 group :development, :test do
   gem "brakeman"
