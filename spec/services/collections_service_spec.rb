@@ -31,6 +31,13 @@ RSpec.describe CollectionsService, type: :service do
     end
   end
 
+  describe "#view_template" do
+    it "returns the view template path for the collection" do
+      service = CollectionsService.new(collection)
+      expect(service.view_template_path).to eq("generated/collections/#{collection}/#{first_topic}")
+    end
+  end
+
   describe "#valid_collection_topic?" do
     context "when both collection and topic exist" do
       it "returns true" do

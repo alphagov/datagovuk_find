@@ -5,13 +5,28 @@ RSpec.feature "collections", type: :feature do
     given_i_am_on_the_collection_page
     and_top_navigation_has_drop_down_of_collections
     then_i_can_see_the_collection_title("Land and property")
-    and_i_can_see_the_collection_navigation_links
-    and_the_topic_is_highlighted_in_navigation("Property price paid")
     then_i_can_see_the_topic_content("Property price paid")
-    when_i_click_on_a_different_topic("Planning data")
-    then_i_can_see_the_collection_title("Land and property")
-    and_the_topic_is_highlighted_in_navigation("Planning data")
-    then_i_can_see_the_topic_content("Planning data")
+    and_i_can_see_the_feedback_form
+    and_i_can_see_the_topic_data_links
+    and_i_can_see_the_collection_header_underline
+  end
+
+  def and_i_can_see_more_information_links
+    expect(page).to have_link("More information", href: "https://landregistry.data.gov.uk/app/ppd/")
+    expect(page).to have_link("API documentation", href: "https://use-land-property-data.service.gov.uk/api-information")
+  end
+
+  def and_i_can_see_the_collection_header_underline
+    expect(page).to have_css(".datagovuk-collection-header__underline")
+  end
+
+  def and_i_can_see_the_feedback_form
+    expect(page).to have_css(".govuk-inset-text.datagovuk-feedback-inset-text")
+    expect(page).to have_link("Give us feedback", href: "#feedback")
+  end
+
+  def and_i_can_see_the_topic_data_links
+    expect(page).to have_link("Dataset", href: "https://www.gov.uk/government/statistical-data-sets/price-paid-data-downloads")
   end
 
   def given_i_am_on_the_collection_page
@@ -22,28 +37,13 @@ RSpec.feature "collections", type: :feature do
     expect(page).to have_content(title)
   end
 
-  def and_i_can_see_the_collection_navigation_links
-    expect(page).to have_link("Planning data", href: "/collections/land-and-property/planning-data")
-    expect(page).to have_link("Property price paid", href: "/collections/land-and-property/property-price-paid")
-  end
-
   def then_i_can_see_the_topic_content(topic_name)
     case topic_name
     when "Property price paid"
-      expect(page).to have_content("Find property transactions through HM Land Registry by searching on address")
+      expect(page).to have_content(/Find property transactions through HM Land Registry/)
     when "Planning data"
       expect(page).to have_content("")
     end
-  end
-
-  def and_the_topic_is_highlighted_in_navigation(topic_name)
-    within(".dgu-side-navigation") do
-      expect(page).to have_css(".dgu-side-navigation__item--active", text: topic_name)
-    end
-  end
-
-  def when_i_click_on_a_different_topic(topic_name)
-    click_link topic_name
   end
 
   def and_top_navigation_has_drop_down_of_collections
@@ -54,7 +54,6 @@ RSpec.feature "collections", type: :feature do
         "Government",
         "Land and property",
         "People",
-        "Population",
         "Transport",
       ]
       links.each do |link_text|

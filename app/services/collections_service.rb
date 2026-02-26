@@ -34,6 +34,10 @@ class CollectionsService
     end
   end
 
+  def view_template_path
+    "generated/collections/#{collection}/#{topic}"
+  end
+
 private
 
   def topics

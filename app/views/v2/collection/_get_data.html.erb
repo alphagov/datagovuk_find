@@ -1,18 +1,34 @@
-<section class="dgu-link dgu-section" aria-label="Get the data links">
-    <h2 class="govuk-heading-l">Get the data</h2>
-    <p><%= link_to "More information", local_assigns[:website] || "#", role: 'button', class: 'govuk-button', rel: %w(nofollow) %></p>
-    <ul class="dgu__list">
-        <% if local_assigns[:api] %>
-            <li class="dgu__item dgu__item--active">
-                <a href="<%= local_assigns[:api] %>" aria-current="location">API</a>
-            </li>
+<section class="datagovuk-link datagovuk-section" aria-label="Get the data links">
+    <section class="datagovuk-section">
+        <h3 class="govuk-heading-m datagovuk-heading-m">Get the data</h3>
+
+        <ul class="govuk-list datagovuk-list">
+            <% if local_assigns[:dataset] %>
+                <li>
+                    <a class="govuk-link datagovuk-link" href="<%= local_assigns[:dataset] %>">Dataset</a>
+                </li>
+            <% end %>
+        </ul>
+        <%= link_to local_assigns[:website] || "#", role: 'button', class: 'govuk-button datagovuk-button', rel: %w(nofollow) do %>
+            More information <span class='datagovuk-right-arrow'>&#8594;</span>
         <% end %>
-        <li class="dgu__item dgu__item--active">
-            <a href="#1" aria-current="location">Datasets</a>
-        </li>
-    </ul>
-    <% if local_assigns[:page_last_updated] %>
-        <h2 class="govuk-heading-s">The page was last updated <%= local_assigns[:page_last_updated] %></h2>
-    <% end %>
-    <a href="#1" aria-current="location">Give feedback</a>
+        <ul class="govuk-list datagovuk-list">
+            <% if local_assigns[:api_link] %>
+                <li>
+                    <a class="govuk-link datagovuk-link"href="<%= local_assigns[:api_link] %>">API documentation</a>
+                </li>
+            <% end %>
+            <% if local_assigns[:datasets_download_link].present? %>
+                <li>
+                    <a class="govuk-link datagovuk-link"href="<%= local_assigns[:datasets_download_link] %>">Download the datasets</a>
+                </li>
+            <% end %>
+        </ul>
+    </section>
+
+    <section class="datagovuk-section">
+        <% if local_assigns[:page_last_updated] %>
+            <p class="govuk-body datagovuk-body">The page was last updated <%= local_assigns[:page_last_updated] %></p>
+        <% end %>
+    </section>
 </section>

@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe Dgu::MarkdownRenderer do
-  let(:govuk_options) { { headings_start_with: "dgu-" } }
+  let(:govuk_options) { { headings_start_with: "datagovuk-" } }
   let(:markdown_options) { { strip_front_matter: true } }
   let(:renderer) { Dgu::MarkdownRenderer.new(govuk_options, markdown_options) }
 
@@ -11,13 +11,13 @@ RSpec.describe Dgu::MarkdownRenderer do
     end
 
     it "sets default values when options are not provided" do
-      expect(renderer.instance_variable_get(:@headings_start_with)).to eq("dgu-")
+      expect(renderer.instance_variable_get(:@headings_start_with)).to eq("datagovuk-")
       expect(renderer.instance_variable_get(:@strip_front_matter)).to eq(true)
     end
   end
 
   describe "#table" do
-    it "renders a table with govuk-table class" do
+    it "renders a table with govuk-table and datagovuk-* classes" do
       header = "<tr><th>Header 1</th><th>Header 2</th></tr>"
       body = "<tr><td>Data 1</td><td>Data 2</td></tr>"
 
@@ -115,7 +115,7 @@ RSpec.describe Dgu::MarkdownRenderer do
     end
   end
   describe "#header" do
-    it "renders a header with govuk-heading class" do
+    it "renders a header with govuk-heading and datagovuk-heading classes" do
       renderer = Dgu::MarkdownRenderer.new({}, {})
       text = "Header Text"
       level = 2
@@ -123,21 +123,21 @@ RSpec.describe Dgu::MarkdownRenderer do
       result = renderer.header(text, level)
 
       expected_html = <<~HTML
-        <h2 class="govuk-heading-l">#{text}</h2>
+        <h2 class="govuk-heading-l datagovuk-heading-l">#{text}</h2>
       HTML
 
       expect(result).to eq(expected_html)
     end
   end
   describe "#paragraph" do
-    it "renders a paragraph with govuk-body class" do
+    it "renders a paragraph with govuk-body and datagovuk-body classes" do
       renderer = Dgu::MarkdownRenderer.new({}, {})
       text = "This is a paragraph."
 
       result = renderer.paragraph(text)
 
       expected_html = <<~HTML
-        <p class="govuk-body-m">#{text}</p>
+        <p class="govuk-body-m datagovuk-body">#{text}</p>
       HTML
 
       expect(result).to eq(expected_html)
@@ -186,13 +186,13 @@ RSpec.describe Dgu::MarkdownRenderer do
   end
 
   describe "#hrule" do
-    it "renders a horizontal rule with govuk-section-break class" do
+    it "renders a horizontal rule with datagovuk-collection-header__underline class" do
       renderer = Dgu::MarkdownRenderer.new({}, {})
 
       result = renderer.hrule
 
       expected_html = <<~HTML
-        <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+        <hr class="datagovuk-collection-header__underline">
       HTML
 
       expect(result).to eq(expected_html)
@@ -214,7 +214,7 @@ RSpec.describe Dgu::MarkdownRenderer do
 
       expected_html = <<~HTML
         <div class="govuk-inset-text">
-          <p class="govuk-body-m">This is an inset text.</p>
+          <p class="govuk-body-m datagovuk-body">This is an inset text.</p>
         </div>
 
 
