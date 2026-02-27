@@ -1,9 +1,11 @@
 ---
 title: MOT results
 collection: Transport
-website: https://www.gov.uk/government/statistical-data-sets/mot-testing-data-for-great-britain
-api:
-dataset:
+websites:
+  - url: https://www.gov.uk/government/statistical-data-sets/mot-testing-data-for-great-britain
+    link-text: MOT test results
+apis:
+datasets:
 page-last-updated:
 visualisation-data:
 contact:
@@ -17,4 +19,4 @@ A range of datasets about MOT testing in Great Britain, including results by veh
 - MOT test stations and testers (updated once a year)
 - action against MOT authorised examiners and MOT testers (updated once a year) 
 
-This dataset comes from data held by the Driver and Vehicle Standards Agency (DVSA). 
+This dataset comes from data held by the Driver and Vehicle Standards Agency (DVSA).

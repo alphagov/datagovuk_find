@@ -1,9 +1,13 @@
 ---
 title: Food hygiene ratings
 collection: Business and economy
-website: https://ratings.food.gov.uk/
-api: https://api.ratings.food.gov.uk/Help
-dataset: https://ratings.food.gov.uk/open-data
+websites:
+  - url: https://ratings.food.gov.uk/
+    link-text: Food hygiene ratings
+apis:
+  - url: https://api.ratings.food.gov.uk/Help
+    link-text: API documentation
+datasets:
 page-last-updated:
 visualisation-data:
 contact:

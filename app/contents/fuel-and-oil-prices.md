@@ -1,13 +1,15 @@
 ---
 title: Fuel and oil prices
 collection: Business and economy
-website: https://www.gov.uk/government/statistical-data-sets/oil-and-petroleum-products-monthly-statistics
-api:
-dataset: https://assets.publishing.service.gov.uk/media/6978dcbad6ab92f1d3a4d6d5/table_411_413__5_.xlsx
+websites:
+  - url: https://www.gov.uk/government/statistical-data-sets/oil-and-petroleum-products-monthly-statistics
+    link-text: Fuel and oil prices
+apis:
+datasets:
 page-last-updated:
 visualisation-data:
 contact:
 status: for-publication
 ---
 
-Monthly and annual prices of road fuels and fuels used for home heating, plus an index of crude oil prices. View the data online or download the spreadsheet. This dataset is owned by the Department for Energy Security and Net Zero. 
+Monthly and annual prices of road fuels and fuels used for home heating, plus an index of crude oil prices. View the data online or download the spreadsheet. This dataset is owned by the Department for Energy Security and Net Zero.

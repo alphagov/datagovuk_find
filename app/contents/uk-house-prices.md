@@ -1,9 +1,13 @@
 ---
 title: UK House prices
 collection: Land and property
-website: https://landregistry.data.gov.uk/app/ukhpi/
-api:
-dataset: https://www.gov.uk/government/statistical-data-sets/uk-house-price-index-data-downloads-november-2025
+websites:
+  - url: https://landregistry.data.gov.uk/app/ukhpi/
+    link-text: Search UK house price index
+apis:
+datasets:
+  - url: https://www.gov.uk/government/statistical-data-sets/uk-house-price-index-data-downloads-november-2025
+    link-text: Download UK house price index
 page-last-updated:
 visualisation-data:
 contact:

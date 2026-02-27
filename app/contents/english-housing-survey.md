@@ -1,9 +1,11 @@
 ---
 title: English Housing Survey
 collection: Land and property
-website: https://www.gov.uk/government/collections/english-housing-survey-live-tables
-api:
-dataset:
+websites:
+  - url: https://www.gov.uk/government/collections/english-housing-survey-live-tables
+    link-text: English Housing Survey data
+apis:
+datasets:
 page-last-updated:
 visualisation-data:
 contact:
@@ -22,4 +24,4 @@ A collection of detailed time series data tables on people’s housing circumsta
 - stock profile
 - tenure trends and cross tenure analysis 
 
-These datasets are owned by the Ministry of Housing, Communities and Local Government. 
+These datasets are owned by the Ministry of Housing, Communities and Local Government.

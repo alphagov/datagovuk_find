@@ -168,7 +168,14 @@ Most of these can be installed with Homebrew on a Mac.
 
 ### Getting Started
 
-First run `bin/setup` to bundle, etc. Then run `rails s`.
+First run `yarn`
+
+Then run `bin/setup` to bundle, etc
+
+Then run `rails s`.
+
+Or: `yarn | bundle exec rails s`
+
 
 ## Deployment
 
@@ -183,7 +190,7 @@ See [the developer docs on data.gov.uk deployment](https://docs.publishing.servi
 - Support page: https://data.gov.uk/support
 - Publisher login page: https://data.gov.uk/publishers
 
-## Markdown parser
+## Markdown rendering
 
 The markdown contents live in the `app/content` directory. The markdown parser rake task (`lib/tasks/markdown_to_static_html.rake`) will parse the markdown files, read the front matter, body and create or update the corresponding content in `app/views/generated/collections` directory. This allows us to manage content in markdown files while still being able to serve it dynamically.
 
@@ -191,5 +198,5 @@ The markdown contents live in the `app/content` directory. The markdown parser r
 
 ```bash
 # Run the rake task
-bundle exec rake markdown:parse
+bundle exec rake markdown:render
 ```
