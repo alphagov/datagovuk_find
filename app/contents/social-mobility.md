@@ -4,8 +4,8 @@ collection: People
 websites:
   - url: https://social-mobility.data.gov.uk/
     link-text: Social mobility data
-apis:
-datasets:
+api:
+dataset:
 page-last-updated:
 visualisation-data:
 contact:

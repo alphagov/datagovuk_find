@@ -4,8 +4,8 @@ collection: Land and property
 websites:
   - url: https://www.gov.uk/government/statistical-data-sets/fire-statistics-data-tables
     link-text: Fire statistics
-apis:
-datasets:
+api:
+dataset:
 page-last-updated:
 visualisation-data:
 contact:

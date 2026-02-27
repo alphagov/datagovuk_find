@@ -4,8 +4,8 @@ collection: Land and property
 websites:
   - url: https://www.gov.uk/government/statistical-data-sets/live-tables-on-dwelling-stock-including-vacants
     link-text: Dwelling stock data
-apis:
-datasets:
+api:
+dataset:
 page-last-updated:
 visualisation-data:
 contact:

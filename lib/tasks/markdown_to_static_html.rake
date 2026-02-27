@@ -24,9 +24,9 @@ namespace :markdown do
       assigns = {
         title: front_matter["title"],
         collection: front_matter["collection"],
-        datasets: front_matter["datasets"] || [],
         websites: front_matter["websites"] || [],
-        api_links: front_matter["apis"] || [],
+        api_link: front_matter["api"],
+        dataset: front_matter["dataset"],
         page_last_updated: front_matter["page-last-updated"],
         tags: front_matter["tags"],
         visualisation_data: front_matter["visualisation-data"],

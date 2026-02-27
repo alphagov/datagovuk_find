@@ -4,8 +4,8 @@ collection: Government
 websites:
   - url: https://electionresults.parliament.uk/
     link-text: Election results data
-apis:
-datasets: https://electionresults.parliament.uk/elections
+api:
+dataset:
 page-last-updated:
 visualisation-data:
 contact:

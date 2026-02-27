@@ -4,8 +4,8 @@ collection: Land and property
 websites:
   - url: https://www.gov.uk/government/collections/energy-performance-of-buildings-certificates
     link-text: Energy performance of buildings
-apis:
-datasets:
+api:
+dataset:
 page-last-updated:
 visualisation-data:
 contact:

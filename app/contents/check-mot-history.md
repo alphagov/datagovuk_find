@@ -4,8 +4,10 @@ collection: Transport
 websites:
   - url: https://www.gov.uk/check-mot-history
     link-text: Check MOT history
-apis: https://developer-portal.driver-vehicle-licensing.api.gov.uk/apis/vehicle-enquiry-service/vehicle-enquiry-service-description.html
-datasets:
+api:
+  url: https://developer-portal.driver-vehicle-licensing.api.gov.uk/apis/vehicle-enquiry-service/vehicle-enquiry-service-description.html
+  link-text: MOT history API
+dataset:
 page-last-updated:
 visualisation-data:
 contact:

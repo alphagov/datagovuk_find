@@ -4,8 +4,8 @@ collection: Business and economy
 websites: 
   - url: https://www.bankofengland.co.uk/boeapps/database/Bank-Rate.asp
     link-text:
-apis:
-datasets:
+api:
+dataset:
 page-last-updated:
 visualisation-data:
 contact:

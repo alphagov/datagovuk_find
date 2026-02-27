@@ -4,8 +4,8 @@ collection: Transport
 websites:
   - url: https://www.gov.uk/government/statistical-data-sets/road-safety-open-data
     link-text: Road safety data
-apis:
-datasets:
+api:
+dataset:
 page-last-updated:
 visualisation-data:
 contact:

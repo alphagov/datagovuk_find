@@ -4,8 +4,8 @@ collection: Land and property
 websites:
   - url: https://www.gov.uk/government/collections/english-housing-survey-live-tables
     link-text: English Housing Survey data
-apis:
-datasets:
+api:
+dataset:
 page-last-updated:
 visualisation-data:
 contact:

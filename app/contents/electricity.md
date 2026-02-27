@@ -4,8 +4,8 @@ collection: Business and economy
 websites:
   - url: https://www.gov.uk/government/collections/electricity-statistics
     link-text: Electricity statistics
-apis:
-datasets:
+api:
+dataset:
 page-last-updated:
 visualisation-data:
 contact:
