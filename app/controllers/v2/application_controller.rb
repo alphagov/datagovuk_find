@@ -7,7 +7,38 @@ module V2
   private
 
     def set_collections
-      @collections = CollectionsService.new(nil, nil).collections_slugs
+      @collections = [
+        {
+          title: "Business and economy",
+          slug: "business-and-economy",
+          description: "Company information, economic indicators, markets",
+        },
+        {
+          title: "Environment",
+          slug: "environment",
+          description: "Nature, conservation, climate, and sustainability",
+        },
+        {
+          title: "Government",
+          slug: "government",
+          description: "Political systems, policies, and public administration.",
+        },
+        {
+          title: "Land and property",
+          slug: "land-and-property",
+          description: "Housing, land use, and property rights.",
+        },
+        {
+          title: "People",
+          slug: "people",
+          description: "Population, immigration and emmigration, health",
+        },
+        {
+          title: "Transport",
+          slug: "transport",
+          description: "Public transport, cars, cycling and walking",
+        },
+      ]
     end
 
     def set_data_manual_pages
