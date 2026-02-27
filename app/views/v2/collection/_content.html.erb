@@ -4,6 +4,6 @@
 
 <%= yield if block_given? %>
 
-<%= render partial: "v2/collection/feedback" %>
+<%= render partial: "v2/components/feedback", locals: {dataset: true} %>
 
 <%= render partial: "v2/collection/get_data", locals: { page_last_updated: @page_last_updated, websites: @websites, api_link: @api_link, dataset: @dataset } %>
