@@ -7,7 +7,7 @@ RSpec.describe "Markdown to Static HTML Rake Task", type: :task do
     Rake::Task.define_task(:environment)
   end
 
-  let(:task) { Rake::Task["markdown:parse"] }
+  let(:task) { Rake::Task["markdown:render"] }
   let(:output_directory) { Rails.configuration.x.markdown_output_location }
 
   before do
@@ -26,7 +26,7 @@ RSpec.describe "Markdown to Static HTML Rake Task", type: :task do
     end
   end
 
-  context "when markdown files are missing the collection in the front matter" do
+  context "when markdown files are missing the status with value 'for-publication' in the front matter" do
     it "skips those markdown files" do
       task.reenable
       expect { task.invoke }.to output(/Skipping markdown file/).to_stdout

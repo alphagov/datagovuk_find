@@ -1,9 +1,11 @@
 ---
 title: Agricultural commodity prices
 collection: Business and economy
-website: https://www.gov.uk/government/collections/commodity-prices
-api:
-dataset:
+websites: 
+  - url: https://www.gov.uk/government/collections/commodity-prices
+    link-text: Agricultural commodity prices
+apis:
+datasets:
 page-last-updated:
 visualisation-data:
 contact:

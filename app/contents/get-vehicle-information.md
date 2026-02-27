@@ -1,9 +1,13 @@
 ---
 title: Get vehicle information
 collection: Transport
-website: https://www.gov.uk/get-vehicle-information-from-dvla
-api: https://developer-portal.driver-vehicle-licensing.api.gov.uk/apis/vehicle-enquiry-service/vehicle-enquiry-service-description.html
-dataset:
+websites:
+  - url: https://www.gov.uk/get-vehicle-information-from-dvla
+    link-text: Get vehicle information
+apis:
+  - url: https://developer-portal.driver-vehicle-licensing.api.gov.uk/apis/vehicle-enquiry-service/vehicle-enquiry-service-description.html
+    link-text: API documentation
+datasets:
 page-last-updated:
 visualisation-data:
 contact:

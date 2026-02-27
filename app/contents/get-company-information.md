@@ -1,9 +1,13 @@
 ---
 title: Get company information
 collection: Business and economy
-website: https://find-and-update.company-information.service.gov.uk/
-api: https://developer.company-information.service.gov.uk/
-dataset:
+websites:
+  - url: https://find-and-update.company-information.service.gov.uk/
+    link-text: Get company information
+apis:
+  - url: https://developer.company-information.service.gov.uk/
+    link-text: API documentation
+datasets:
 page-last-updated:
 visualisation-data:
 contact:

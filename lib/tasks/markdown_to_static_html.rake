@@ -2,7 +2,7 @@ require Rails.root.join("app/services/dgu/markdown")
 
 namespace :markdown do
   desc "Convert markdown to static html pages"
-  task parse: :environment do
+  task render: :environment do
     markdown_input_dir = Rails.configuration.x.markdown_location
     markdown_output_dir = Rails.configuration.x.markdown_output_location
 
@@ -24,9 +24,9 @@ namespace :markdown do
       assigns = {
         title: front_matter["title"],
         collection: front_matter["collection"],
-        dataset: front_matter["dataset"],
-        website: front_matter["website"],
-        api_link: front_matter["api"],
+        datasets: front_matter["datasets"] || [],
+        websites: front_matter["websites"] || [],
+        api_links: front_matter["apis"] || [],
         page_last_updated: front_matter["page-last-updated"],
         tags: front_matter["tags"],
         visualisation_data: front_matter["visualisation-data"],
@@ -34,8 +34,8 @@ namespace :markdown do
         body: html_body.html_safe,
       }
 
-      if front_matter["collection"].nil?
-        puts("Skipping markdown file #{markdown_file} as it does not have a collection in the front matter")
+      if front_matter["status"].nil? || front_matter["status"] != "for-publication"
+        puts("Skipping markdown file #{markdown_file} as 'status' is missing or not 'for-publication' ")
         next
       end
 
@@ -52,6 +52,6 @@ namespace :markdown do
       File.write(output_path.join(markdown_file.split("/").last.sub(".md", ".html.erb")), html)
     end
 
-    puts("Completed parsing markdown to html/erb files")
+    puts("Completed rendering markdown to html files")
   end
 end
