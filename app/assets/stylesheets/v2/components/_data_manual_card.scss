@@ -1,0 +1,20 @@
+.datagovuk-data-manual-card {
+  background-color: $datagovuk-light-green;
+  padding: 40px;
+  border-radius: 30px;
+  margin-bottom: 2em;
+  
+  .datagovuk-data-manual-card__icon {
+    margin-bottom: 1em;
+  }
+}
+
+.datagovuk-data-manual-card--secondary {
+  background-color: $datagovuk-light-pink;
+}
+
+@media (min-width: $desktop-breakpoint) {
+  .datagovuk-data-manual-card {
+    min-height: 12em;
+  }
+}
