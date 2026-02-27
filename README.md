@@ -174,7 +174,7 @@ Then run `bin/setup` to bundle, etc
 
 Then run `rails s`.
 
-Or: `yarn | bundle exec rails s`
+Or: `yarn && bundle exec rails s`
 
 
 ## Deployment
