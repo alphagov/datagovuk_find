@@ -25,12 +25,4 @@ RSpec.describe "Collections", type: :request do
       expect(response).to have_http_status(:not_found)
     end
   end
-
-  context "when version_2_collections feature flag is disabled" do
-    it "returns 404 for non-existent collection paths" do
-      get "/collections/non-existent-collection/some-topic"
-
-      expect(response).to have_http_status(:not_found)
-    end
-  end
 end
