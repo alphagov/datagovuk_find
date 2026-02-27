@@ -34,6 +34,13 @@ class CollectionsService
     end
   end
 
+  def collection_image_url
+    collection_image_name = collection.gsub("-", "_")
+    ActionController::Base.helpers.asset_path("v2/#{collection_image_name}.png")
+  rescue Sprockets::Rails::Helper::AssetNotFound
+    ActionController::Base.helpers.asset_path("v2/default_collection_image.jpg")
+  end
+
   def view_template_path
     "generated/collections/#{collection}/#{topic}"
   end

@@ -10,6 +10,7 @@ module V2
       @side_navigations = collections_service.side_navigations
       @current_topic = collections_service.topic
       @view_template = collections_service.view_template_path
+      @collection_image_url = collections_service.collection_image_url
 
       render template: "v2/collection/collection", layout: "v2/layouts/application"
     end
