@@ -7,16 +7,3 @@
 .datagovuk-feedback-inset-text .datagovuk-link {
   color: $datagovuk-green;
 }
-
-.datagovuk-feedback {
-  background-color: $datagovuk-light-green;
-  padding: 20px 40px;
-  border-left: 5px solid $datagovuk-green;
-}
-
-/* Desktop styling overrides */
-@media (min-width: $desktop-breakpoint) {
-  .datagovuk-feedback {
-    margin: 20px;
-  }
-}
