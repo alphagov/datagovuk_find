@@ -7,7 +7,7 @@ websites:
   - url: https://www.gov.scot/collections/scottish-index-of-multiple-deprivation-2020/
     link-text: Deprivation in Scotland
   - url: https://www.gov.wales/welsh-index-multiple-deprivation-2025-series
-    link-text:  Deprivation in Wales
+    link-text: Deprivation in Wales
   - url: https://www.nisra.gov.uk/statistics/people-and-communities/deprivation
     link-text: Deprivation in Northern Ireland
 api:
