@@ -25,7 +25,6 @@ RSpec.feature "collections", type: :feature do
     expect(page).to have_link("Give us feedback", href: "#feedback")
   end
 
-
   def given_i_am_on_a_collection_page
     visit "/collections/land-and-property/uk-house-prices"
   end
