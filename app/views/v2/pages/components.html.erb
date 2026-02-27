@@ -1,7 +1,5 @@
 <% content_for :page_title, "Component test" %>
 
-<%= render partial: "v2/components/hero", locals: {title: "Hero title", body: "Some hero body."} %>
-
 <div class="govuk-width-container">
   <h1 class="govuk-heading-xl datagovuk-heading-xl">Test heading-xl</h1>
   
@@ -17,53 +15,6 @@
     <a href="#" class="govuk-button datagovuk-button">Test link button</a>
   </div>
 
-  <%= render partial: "v2/components/gridlist_3column_icons", locals: {
-    items: [
-      {
-        title: "3 column gridlist item 1",
-        url: "#",
-        body: "Item 1 body",
-        icon: "user",
-      },
-      {
-        title: "3 column gridlist item 2",
-        url: "#",
-        body: "Item 2 body",
-        icon: "stars",
-      },
-      {
-        title: "3 column gridlist item 3",
-        url: "#",
-        body: "Item 3 body",
-        icon: "shield",
-      },
-      {
-        title: "3 column gridlist item 4",
-        url: "#",
-        body: "Item 4 body",
-        icon: "database",
-      },
-    ]
-  } %>
-
   <%= render partial: "v2/components/feedback" %>
-
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-one-half">
-      <%= render partial: "v2/components/cta", locals: {
-        title: "Primary CTA box",
-        url: "#",
-        body: "Primary CTA body",
-      } %>
-    </div>
-    <div class="govuk-grid-column-one-half">
-      <%= render partial: "v2/components/cta", locals: {
-        title: "Secondary CTA box",
-        url: "#",
-        body: "Secondary CTA body",
-        classes: "datagovuk-cta--secondary",
-      } %>
-    </div>
-  </div>
 
 </div>
