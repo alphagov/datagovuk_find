@@ -6,13 +6,14 @@ RSpec.feature "collections", type: :feature do
     and_top_navigation_has_drop_down_of_collections
     then_i_can_see_the_collection_title("Land and property")
     then_i_can_see_the_topic_content("UK House prices")
+    and_i_can_see_the_main_links
     and_i_can_see_the_feedback_form
     and_i_can_see_the_collection_header_underline
   end
 
   def and_i_can_see_the_main_links
-    expect(page).to have_link("Search UK house price index", href: "https://landregistry.data.gov.uk/app/ppd/")
-    expect(page).to have_link("Download UK house price index n", href: "https://www.gov.uk/government/statistical-data-sets/uk-house-price-index-data-downloads-november-2025")
+    expect(page).to have_link("Search UK house price index", href: "https://landregistry.data.gov.uk/app/ukhpi/")
+    expect(page).to have_link("Download UK house price index", href: "https://www.gov.uk/government/statistical-data-sets/uk-house-price-index-data-downloads-november-2025")
   end
 
   def and_i_can_see_the_collection_header_underline

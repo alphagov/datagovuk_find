@@ -4,10 +4,10 @@ collection: Business and economy
 websites:
   - url: https://ratings.food.gov.uk/
     link-text: Food hygiene ratings
-apis:
-  - url: https://api.ratings.food.gov.uk/Help
+api:
+    url: https://api.ratings.food.gov.uk/Help
     link-text: API documentation
-datasets:
+dataset:
 page-last-updated:
 visualisation-data:
 contact:

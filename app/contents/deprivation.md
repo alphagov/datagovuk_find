@@ -10,8 +10,8 @@ websites:
     link-text:  Deprivation in Wales
   - url: https://www.nisra.gov.uk/statistics/people-and-communities/deprivation
     link-text: Deprivation in Northern Ireland
-apis:
-datasets:
+api:
+dataset:
 page-last-updated:
 visualisation-data:
 contact:

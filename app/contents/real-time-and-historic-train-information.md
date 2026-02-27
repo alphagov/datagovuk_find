@@ -2,10 +2,10 @@
 title: Real-time and historic train information
 collection: Transport
 websites:
-apis: 
-  - url: https://www.nationalrail.co.uk/developers/darwin-data-feeds/
-    link-text: "Train information APIs"
-datasets:
+api: 
+  url: https://www.nationalrail.co.uk/developers/darwin-data-feeds/
+  link-text: "Train information API"
+dataset:
 page-last-updated:
 visualisation-data:
 contact:

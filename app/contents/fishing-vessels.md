@@ -4,8 +4,8 @@ collection: Transport
 websites:
   - url: https://www.gov.uk/government/collections/uk-vessel-lists
     link-text: Fishing vessel statistics
-apis:
-datasets:
+api:
+dataset:
 page-last-updated:
 visualisation-data:
 contact:

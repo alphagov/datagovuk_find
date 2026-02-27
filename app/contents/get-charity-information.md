@@ -4,10 +4,10 @@ collection: Business and economy
 websites:
   - url: https://register-of-charities.charitycommission.gov.uk/en/charity-search
     link-text: Get charity information
-apis:
-  - url: https://register-of-charities.charitycommission.gov.uk/en/documentation-on-the-api
-    link-text: API documentation
-datasets:
+api:
+  url: https://register-of-charities.charitycommission.gov.uk/en/documentation-on-the-api
+  link-text: API documentation
+dataset:
 page-last-updated:
 visualisation-data:
 contact:

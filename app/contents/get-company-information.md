@@ -4,10 +4,10 @@ collection: Business and economy
 websites:
   - url: https://find-and-update.company-information.service.gov.uk/
     link-text: Get company information
-apis:
-  - url: https://developer.company-information.service.gov.uk/
-    link-text: API documentation
-datasets:
+api:
+  url: https://developer.company-information.service.gov.uk/
+  link-text: API documentation
+dataset:
 page-last-updated:
 visualisation-data:
 contact:

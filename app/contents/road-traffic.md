@@ -4,12 +4,12 @@ collection: Transport
 websites:
   - url: https://www.gov.uk/government/collections/road-traffic-statistics
     link-text:
-apis:
-  - url: https://roadtraffic.dft.gov.uk/docs/index.html
-    link-text:
-datasets:
-  - url: https://roadtraffic.dft.gov.uk/
-    link-text:
+api:
+  url: https://roadtraffic.dft.gov.uk/docs/index.html
+  link-text:
+dataset:
+  url: https://roadtraffic.dft.gov.uk/
+  link-text:
 page-last-updated:
 visualisation-data:
 contact:

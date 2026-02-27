@@ -4,8 +4,8 @@ collection: Transport
 websites:
   - url: https://www.gov.uk/government/statistical-data-sets/bus-statistics-data-tables
     link-text: Bus statistics
-apis:
-datasets:
+api:
+dataset:
 page-last-updated:
 visualisation-data:
 contact:
