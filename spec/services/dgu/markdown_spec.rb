@@ -25,7 +25,10 @@ RSpec.describe Dgu::Markdown do
       MD
 
       expected_html = <<~HTML
-        <p class="govuk-body-m datagovuk-body"><a href="https://www.test.com" class="govuk-link">Test</a></p>
+        <p class="govuk-body-m datagovuk-body"><a href="https://www.test.com" class="govuk-link datagovuk-link datagovuk-link--secondary">
+          Test
+        </a>
+        </p>
       HTML
 
       rendered_html = Dgu::Markdown.render(markdown).strip
@@ -41,7 +44,7 @@ RSpec.describe Dgu::Markdown do
       MD
 
       expected_html = <<~HTML
-        <ul class="govuk-list govuk-list--bullet">
+        <ul class="govuk-list govuk-list--bullet datagovuk-list">
           <li>Item 1</li>
         <li>Item 2</li>
         <li>Item 3</li>

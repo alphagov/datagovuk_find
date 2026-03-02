@@ -3,7 +3,7 @@ require Rails.root.join("app/services/dgu/markdown")
 namespace :markdown do
   desc "Convert markdown to static html pages"
   task parse: :environment do
-    markdown_input_glob = Rails.configuration.x.markdown_collecitons_location_glob
+    markdown_input_glob = Rails.configuration.x.markdown_collections_location_glob
     markdown_output_dir = Rails.configuration.x.markdown_collections_output_location
 
     markdowns = Dir.glob(Rails.root.join(markdown_input_glob).to_s)
