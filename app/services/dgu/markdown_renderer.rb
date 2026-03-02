@@ -70,7 +70,7 @@ module Dgu
       case list_type
       when :unordered
         <<~HTML
-          <ul class="govuk-list govuk-list--bullet">
+          <ul class="govuk-body datagovuk-body govuk-list govuk-list--bullet">
             #{contents}
           </ul>
         HTML

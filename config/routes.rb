@@ -42,7 +42,7 @@ Rails.application.routes.draw do
     get "collections/:collection/:topic", to: "collection#show", as: "collection_topic"
     get "components" => "pages#components"
     get "data-manual", to: "data_manual#home", as: "data_manual_home"
-    get "data-manual/:content_slug", to: "data_manual#content", as: "data_manual_content"
+    get "data-manual/:slug", to: "data_manual#content", as: "data_manual_content", constraints: { slug: /[a-z0-9\-]+/ }
   end
 
   match "404", to: "errors#not_found", via: :all
