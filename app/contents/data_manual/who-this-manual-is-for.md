@@ -31,7 +31,7 @@ These include:
 - commercial and legal teams responsible for ensuring the safe handling of personal data is included in relevant contracts
 
 ## Why this manual is important
-Data and data-driven technologies have revolutionised every aspect of our society and the economy, including how the UK government and public sector organisations deliver services. The blueprint for modern digital government sets out a vision for public sector digital reform. Its priorities include harnessing the power of AI and strengthening our digital and data public infrastructure.
+Data and data-driven technologies have revolutionised every aspect of our society and the economy, including how the UK government and public sector organisations deliver services. The [blueprint for modern digital government](https://www.gov.uk/government/publications/a-blueprint-for-modern-digital-government/a-blueprint-for-modern-digital-government-html) sets out a vision for public sector digital reform. Its priorities include harnessing the power of AI and strengthening our digital and data public infrastructure.
 
 As the public sector uses and relies on data more, it’s vital that it does this responsibly and effectively to improve outcomes for citizens and the economy. This manual brings together the most important guidance to support public servants in doing this, while removing some of the pain points we know about.
 
