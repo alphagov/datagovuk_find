@@ -9,6 +9,14 @@ module Dgu
       super options
     end
 
+    def link(link, title, content)
+      <<~HTML
+        <a href="#{link}" class="govuk-link datagovuk-link">
+          #{content}
+        </a>
+      HTML
+    end
+      
     def table(header, body)
       <<~HTML
         <table class='govuk-table'>
