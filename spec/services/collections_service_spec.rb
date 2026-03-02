@@ -38,6 +38,21 @@ RSpec.describe CollectionsService, type: :service do
     end
   end
 
+  describe "#collection_image_url" do
+    let(:collection) { "business-and-economy" }
+    it "returns the collection image URL" do
+      service = CollectionsService.new(collection)
+      expect(service.collection_image_url).to eq(ActionController::Base.helpers.asset_path("v2/#{collection.gsub('-', '_')}.png"))
+    end
+
+    context "when collection image does not exist" do
+      it "returns the default collection image URL" do
+        service = CollectionsService.new("non-existing-collection")
+        expect(service.collection_image_url).to eq(ActionController::Base.helpers.asset_path("v2/default_collection_image.jpg"))
+      end
+    end
+  end
+
   describe "#valid_collection_topic?" do
     context "when both collection and topic exist" do
       it "returns true" do
