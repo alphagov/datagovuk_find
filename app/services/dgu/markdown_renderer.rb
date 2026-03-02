@@ -11,7 +11,7 @@ module Dgu
 
     def link(link, title, content)
       <<~HTML
-        <a href="#{link}" class="govuk-link datagovuk-link">
+        <a href="#{link}" class="govuk-link datagovuk-link datagovuk-link--secondary">
           #{content}
         </a>
       HTML
@@ -78,13 +78,13 @@ module Dgu
       case list_type
       when :unordered
         <<~HTML
-          <ul class="govuk-body datagovuk-body govuk-list govuk-list--bullet">
+          <ul class="govuk-list govuk-list--bullet datagovuk-list">
             #{contents}
           </ul>
         HTML
       when :ordered
         <<~HTML
-          <ol class="govuk-list govuk-list--number">
+          <ol class="govuk-list govuk-list--number datagovuk-list">
             #{contents}
           </ol>
         HTML
