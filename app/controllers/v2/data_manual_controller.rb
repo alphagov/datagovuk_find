@@ -1,3 +1,5 @@
+require Rails.root.join("app/services/dgu/markdown")
+
 module V2
   class DataManualController < ApplicationController
     def home
@@ -7,21 +9,25 @@ module V2
 
     def content
       expires_in 30.minutes, public: true
-      @collections = []
-      data_manual_content_slugs = [
-        "who-this-manual-is-for",
-        "data-management",
-        "data-standards",
-        "security",
-        "data-protection-and-privacy",
-        "data-sharing",
-        "ai-and-data-driven-technologies",
-        "general-guidance",
-      ]
-      unless data_manual_content_slugs.include? params[:content_slug]
+      data_manual_markdown_directory = Rails.configuration.x.markdown_data_manual_location
+      markdown_file = Rails.root.join(data_manual_markdown_directory, "#{params[:slug]}.md")
+      if File.exist?(markdown_file)
+        markdown = File.read(markdown_file)
+      else
         render_not_found && return
       end
-      render layout: "v2/layouts/data_manual"
+      rendered_content = Dgu::Markdown.render(markdown).html_safe
+      data_manual_pages = @data_manual_pages.deep_dup
+      data_manual_pages.each do |data_manual_item|
+        if data_manual_item[:slug] == params[:slug]
+          data_manual_item[:selected] = true
+        end
+      end
+
+      render layout: "v2/layouts/data_manual", locals: {
+        rendered_content: rendered_content,
+        data_manual_pages: data_manual_pages
+      }
     end
   end
 end
