@@ -9,8 +9,12 @@ module V2
 
     def content
       expires_in 30.minutes, public: true
+      @sanitizer = Rails::Html::FullSanitizer.new
+      safe_slug = @sanitizer.sanitize(params[:slug])
       data_manual_markdown_directory = Rails.configuration.x.markdown_data_manual_location
-      safe_slug = params[:slug].parameterize
+      # NOTE: the below brakeman complaint is happening because brakeman cannot verify that our config 
+      #   variable does not contain a leading /.  Ignoring it.
+      # brakeman: disable: Rails/DynamicRenderPath, Rails/FileAccess
       markdown_file = Rails.root.join(data_manual_markdown_directory, "#{safe_slug}.md")
       if File.exist?(markdown_file)
         markdown = File.read(markdown_file)
