@@ -13,6 +13,13 @@
   background-color: $datagovuk-light-pink;
 }
 
+.datagovuk-data-manual-card--borderless {
+  background-color: transparent;
+  padding: 10px;
+  border-radius: 0;
+  margin-bottom: 0;
+}
+
 @media (min-width: $desktop-breakpoint) {
   .datagovuk-data-manual-card {
     min-height: 12em;

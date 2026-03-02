@@ -2,10 +2,31 @@
 
 <div class="govuk-width-container govuk-!-margin-bottom-6">
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-one-third">
+    <div class="govuk-grid-column-one-third govuk-!-margin-bottom-6">
       <%= render partial: "v2/components/section_navigation", locals: {
         items: data_manual_pages
       } %>
+
+      <div class="datagovuk-data-manual-card datagovuk-data-manual-card--borderless">
+        <%= image_tag "v2/icons/phone", class: "datagovuk-data-manual-card__icon", alt: "" %>
+        <h2 class="govuk-body datagovuk-body">
+          <a href="#" class="govuk-link datagovuk-link datagovuk-!-colour-dark-green">Get in touch</a>
+        </h2>
+        <p class="govuk-body datagovuk-body govuk-!-margin-bottom-0 datagovuk-!-colour-dark-green">
+          We’d love your feedback. Is this manual useful? Can we improve it?
+        </p>
+      </div>
+
+      <div class="datagovuk-data-manual-card datagovuk-data-manual-card--secondary datagovuk-data-manual-card--borderless">
+        <%= image_tag "v2/icons/community", class: "datagovuk-data-manual-card__icon", alt: "" %>
+        <h2 class="govuk-body datagovuk-body">
+          <a href="#" class="govuk-link datagovuk-link datagovuk-!-colour-dark-pink">Join a data community</a>
+        </h2>
+        <p class="govuk-body datagovuk-body govuk-!-margin-bottom-0 datagovuk-!-colour-dark-pink">
+          Find Slack channels, events and other ways to connect with data practitioners.
+        </p>
+      </div>
+
     </div>
     <div class="govuk-grid-column-two-thirds">
       <%= rendered_content %>
