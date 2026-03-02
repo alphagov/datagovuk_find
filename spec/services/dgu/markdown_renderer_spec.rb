@@ -151,7 +151,7 @@ RSpec.describe Dgu::MarkdownRenderer do
         result = renderer.list(body, :unordered)
 
         expected_html = <<~HTML
-          <ul class="govuk-list govuk-list--bullet">
+          <ul class="govuk-list govuk-list--bullet datagovuk-list">
             #{body}
           </ul>
         HTML
@@ -166,7 +166,7 @@ RSpec.describe Dgu::MarkdownRenderer do
         result = renderer.list(body, :ordered)
 
         expected_html = <<~HTML
-          <ol class="govuk-list govuk-list--number">
+          <ol class="govuk-list govuk-list--number datagovuk-list">
             #{body}
           </ol>
         HTML
