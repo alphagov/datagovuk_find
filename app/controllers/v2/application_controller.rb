@@ -58,7 +58,7 @@ module V2
           title: "APIs and technical guidance",
           slug: "apis-and-technical-guidance",
           description: "How to build APIs in government and improve API standards.",
-          icon: "padlock",
+          icon: "api",
         },
         {
           title: "General guidance",
