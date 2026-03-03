@@ -1,7 +1,9 @@
 ---
 title: Dwelling stock (including vacancies)
 collection: Land and property
-website: https://www.gov.uk/government/statistical-data-sets/live-tables-on-dwelling-stock-including-vacants
+websites:
+  - url: https://www.gov.uk/government/statistical-data-sets/live-tables-on-dwelling-stock-including-vacants
+    link-text: Dwelling stock data
 api:
 dataset:
 page-last-updated:
@@ -20,4 +22,4 @@ Get the latest data tables including:
 There are also live tables on vacant stock: 
 
 - local authority vacant dwellings, England, from 1980
-- vacant dwellings by local authority district: England, from 2004 
+- vacant dwellings by local authority district: England, from 2004

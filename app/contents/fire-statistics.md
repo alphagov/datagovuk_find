@@ -1,7 +1,9 @@
 ---
-title: Energy performance of buildings
+title: Fire statistics
 collection: Land and property
-website: https://www.gov.uk/government/statistical-data-sets/fire-statistics-data-tables
+websites:
+  - url: https://www.gov.uk/government/statistical-data-sets/fire-statistics-data-tables
+    link-text: Fire statistics
 api:
 dataset:
 page-last-updated:

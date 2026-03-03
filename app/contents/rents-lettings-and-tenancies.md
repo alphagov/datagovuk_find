@@ -1,7 +1,9 @@
 ---
 title: Rents, lettings and tenancies
 collection: Land and property
-website: https://www.gov.uk/government/statistical-data-sets/live-tables-on-rents-lettings-and-tenancies
+websites:
+  - url: https://www.gov.uk/government/statistical-data-sets/live-tables-on-rents-lettings-and-tenancies
+    link-text: Rents, lettings and tenancies
 api:
 dataset:
 page-last-updated:
@@ -16,4 +18,4 @@ Get the latest data tables on:
  - local authority owned dwellings let by local authorities, England, from 1981-82 
  - evictions from local authority owned dwellings by reason, England, from 2010-11
 
-You can also view historical data on local authority dwelling stock and average weekly rents. 
+You can also view historical data on local authority dwelling stock and average weekly rents.

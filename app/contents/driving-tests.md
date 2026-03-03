@@ -1,7 +1,9 @@
 ---
 title: Driving tests
 collection: Transport
-website: https://www.gov.uk/government/collections/driving-tests-and-instructors-statistics
+websites:
+  - url: https://www.gov.uk/government/collections/driving-tests-and-instructors-statistics
+    link-text: Driving tests data
 api:
 dataset:
 page-last-updated:

@@ -1,34 +1,46 @@
+<% websites = local_assigns[:websites] || [] %>
+<% api = local_assigns[:api_link] %>
+<% dataset = local_assigns[:dataset] %>
+<% page_last_updated = local_assigns[:page_last_updated] %>
+
 <section class="datagovuk-link datagovuk-section" aria-label="Get the data links">
     <section class="datagovuk-section">
         <h3 class="govuk-heading-m datagovuk-heading-m">Get the data</h3>
-
+        <% if websites.length == 1 %>
+          <%= link_to websites.first["url"], role: 'button', class: 'govuk-button datagovuk-button', rel: %w(nofollow) do %>
+            <%= websites.first["link-text"] %> <span class="datagovuk-right-arrow">&#8594;</span>
+          <% end %>
+        <% elsif websites.length > 1 %>
         <ul class="govuk-list datagovuk-list">
-            <% if local_assigns[:dataset] %>
+            <% websites.each do |site| %>
                 <li>
-                    <a class="govuk-link datagovuk-link" href="<%= local_assigns[:dataset] %>">Dataset</a>
+                    <a class="govuk-link datagovuk-link" href="<%= site["url"] %>"><%= site["link-text"] %></a>
                 </li>
             <% end %>
         </ul>
-        <%= link_to local_assigns[:website] || "#", role: 'button', class: 'govuk-button datagovuk-button', rel: %w(nofollow) do %>
-            More information <span class='datagovuk-right-arrow'>&#8594;</span>
         <% end %>
-        <ul class="govuk-list datagovuk-list">
-            <% if local_assigns[:api_link] %>
-                <li>
-                    <a class="govuk-link datagovuk-link"href="<%= local_assigns[:api_link] %>">API documentation</a>
-                </li>
+        <% if api && websites.empty? && dataset.nil? %>
+            <%= link_to api["url"], role: 'button', class: 'govuk-button datagovuk-button', rel: %w(nofollow) do %>
+              <%= api["link-text"] %> <span class="datagovuk-right-arrow">&#8594;</span>
             <% end %>
-            <% if local_assigns[:datasets_download_link].present? %>
-                <li>
-                    <a class="govuk-link datagovuk-link"href="<%= local_assigns[:datasets_download_link] %>">Download the datasets</a>
-                </li>
-            <% end %>
-        </ul>
+        <% elsif api || dataset %>
+            <ul class="govuk-list datagovuk-list">
+                <% if api %>
+                    <li>
+                        <a class="govuk-link datagovuk-link" href="<%= api["url"] %>"><%= api["link-text"] %></a>
+                    </li>
+                <% end %>
+                <% if dataset %>
+                    <li>
+                        <a class="govuk-link datagovuk-link" href="<%= dataset["url"] %>"><%= dataset["link-text"] %></a>
+                    </li>
+                <% end %>
+            </ul>
+        <% end %>
     </section>
-
     <section class="datagovuk-section">
-        <% if local_assigns[:page_last_updated] %>
-            <p class="govuk-body datagovuk-body">The page was last updated <%= local_assigns[:page_last_updated] %></p>
+        <% if page_last_updated %>
+            <p class="govuk-body datagovuk-body">The page was last updated <%= page_last_updated %></p>
         <% end %>
     </section>
 </section>

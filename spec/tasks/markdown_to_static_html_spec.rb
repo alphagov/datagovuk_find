@@ -7,7 +7,7 @@ RSpec.describe "Markdown to Static HTML Rake Task", type: :task do
     Rake::Task.define_task(:environment)
   end
 
-  let(:task) { Rake::Task["markdown:parse"] }
+  let(:task) { Rake::Task["markdown:render"] }
   let(:output_directory) { Rails.configuration.x.markdown_output_location }
 
   before do
@@ -26,11 +26,40 @@ RSpec.describe "Markdown to Static HTML Rake Task", type: :task do
     end
   end
 
-  context "when markdown files are missing the collection in the front matter" do
+  context "when markdown files are missing the status with value 'for-publication' in the front matter" do
+    let(:markdown_input_dir) { Rails.configuration.x.markdown_location_directory }
+
     it "skips those markdown files" do
       task.reenable
       expect { task.invoke }.to output(/Skipping markdown file/).to_stdout
     end
+
+    it "skips files that are marked for publication with a different status" do
+      task.reenable
+      draft_markdown_path = create_markdown_file("notforpublication", "collection", "draft")
+      expect { task.invoke }.to output(/Skipping markdown file #{draft_markdown_path}/).to_stdout
+      FileUtils.rm_f(draft_markdown_path)
+    end
+
+    it "skips files that have no status" do
+      task.reenable
+      nostatus_markdown_path = create_markdown_file("nostatus", "collection", nil)
+      expect { task.invoke }.to output(/Skipping markdown file #{nostatus_markdown_path}/).to_stdout
+      FileUtils.rm_f(nostatus_markdown_path)
+    end
+  end
+
+  def create_markdown_file(title, collection, status = "for-publication")
+    markdown_path = Rails.root.join(markdown_input_dir, "#{title}.md")
+    markdown_path.write(<<~MARKDOWN)
+      ---
+      title: #{title}
+      collection: #{collection}
+      status: #{status}
+      ---
+      # Sample Markdown Content
+    MARKDOWN
+    markdown_path
   end
 
   after do

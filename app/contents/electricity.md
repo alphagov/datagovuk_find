@@ -1,7 +1,9 @@
 ---
 title: Electricity
 collection: Business and economy
-website: https://www.gov.uk/government/collections/electricity-statistics
+websites:
+  - url: https://www.gov.uk/government/collections/electricity-statistics
+    link-text: Electricity statistics
 api:
 dataset:
 page-last-updated:

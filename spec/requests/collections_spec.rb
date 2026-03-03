@@ -6,7 +6,7 @@ RSpec.describe "Collections", type: :request do
   end
 
   describe "visiting a collection path" do
-    let(:collection_path) { "/collections/land-and-property/property-price-paid" }
+    let(:collection_path) { "/collections/business-and-economy/bank-of-england-interest-rates" }
     it "returns success response" do
       get collection_path
 
@@ -16,11 +16,11 @@ RSpec.describe "Collections", type: :request do
     it "shows the collection title" do
       get collection_path
 
-      expect(response.body).to include("Land and property")
+      expect(response.body).to include("Bank of England interest rates")
     end
 
     it "invalid path shows 404" do
-      get "/collections/land-and-property/invalid-topic"
+      get "/collections/business-and-economy/invalid-topic"
 
       expect(response).to have_http_status(:not_found)
     end

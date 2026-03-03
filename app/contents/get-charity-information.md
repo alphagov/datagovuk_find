@@ -1,9 +1,13 @@
 ---
 title: Get charity information
 collection: Business and economy
-website: https://register-of-charities.charitycommission.gov.uk/en/charity-search
-api: https://register-of-charities.charitycommission.gov.uk/en/documentation-on-the-api
-dataset: https://register-of-charities.charitycommission.gov.uk/en/register/full-register-download
+websites:
+  - url: https://register-of-charities.charitycommission.gov.uk/en/charity-search
+    link-text: Get charity information
+api:
+  url: https://register-of-charities.charitycommission.gov.uk/en/documentation-on-the-api
+  link-text: API documentation
+dataset:
 page-last-updated:
 visualisation-data:
 contact:

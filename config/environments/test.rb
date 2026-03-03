@@ -19,6 +19,7 @@ Rails.application.configure do
 
   config.x.markdown_location = "spec/fixtures/markdown/*.md"
   config.x.markdown_output_location = "tmp/views/generated/collections"
+  config.x.markdown_location_directory = "spec/fixtures/markdown"
 
   # Configure public file server for tests with Cache-Control for performance.
   config.public_file_server.headers = { "Cache-Control" => "public, max-age=#{1.hour.to_i}" }
