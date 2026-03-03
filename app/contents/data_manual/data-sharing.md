@@ -40,7 +40,7 @@ A good example of how a central government department approaches
 data sharing. The Department for Education (DfE) sets out why it shares
 data, with whom and under what conditions.
 
-#### [How to request data from HMRC](https://datamarketplace.gov.uk/)
+#### [How to request data from HMRC](https://www.gov.uk/government/publications/requesting-hmrc-data-guidance-for-public-bodies/how-to-request-data-from-hmrc)
 A guide for UK government departments, devolved governments, public
 bodies and local authorities. Learn how to request data from HMRC for
 policy development, operations or analytical purposes.
