@@ -1,30 +1,49 @@
-<%= render "govuk_publishing_components/components/layout_footer", {
-    meta: {
-    items: [
-        {
-        href: "/about",
-        text: "About"
-        },
-        {
-        href: "/accessibility",
-        text: "Accessibility"
-        },
-        {
-        href: "/cookies",
-        text: "Cookies"
-        },
-        {
-        href: "/privacy",
-        text: "Privacy"
-        },
-        {
-        href: "/terms",
-        text: "Terms and conditions"
-        },
-        {
-        href: "/support",
-        text: "Support"
-        }
-    ]
-    }
-} %>
+<div class="govuk-footer datagovuk-footer">
+  <div class="govuk-width-container datagovuk-width-container">
+    <h2 class="govuk-visually-hidden">Support links</h2>
+    <ul class="govuk-footer__inline-list">
+      <li class="govuk-footer__inline-list-item">
+        <a href="/roadmap" class="govuk-footer__link datagovuk-footer__link datagovuk-link">
+          Roadmap
+        </a>
+      </li>
+      <li class="govuk-footer__inline-list-item">
+        <a href="/support" class="govuk-footer__link datagovuk-footer__link  datagovuk-link">
+          Report a problem
+        </a>
+      </li>
+      <li class="govuk-footer__inline-list-item">
+        <a href="/accessibility" class="govuk-footer__link datagovuk-footer__link  datagovuk-link">
+          Accessibility
+        </a>
+      </li>
+      <li class="govuk-footer__inline-list-item">
+        <a href="/cookies" class="govuk-footer__link datagovuk-footer__link datagovuk-link">
+          Cookies
+        </a>
+      </li>
+      <li class="govuk-footer__inline-list-item">
+        <a href="/terms" class="govuk-footer__link datagovuk-footer__link  datagovuk-link">
+          Terms and conditions
+        </a>
+      </li>
+    </ul>
+    <div class="govuk-!-margin-bottom-9">
+      Built by the <a href="/team" class="govuk-footer__link datagovuk-footer__link datagovuk-link">data.gov.uk team</a>
+    </div>
+    <div class="govuk-!-margin-bottom-6">
+      All content is available under the
+      <a
+        class="govuk-footer__link datagovuk-footer__link"
+        href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+        rel="license">Open Government Licence v3.0</a>, except where otherwise stated.
+    </div>
+    <div class="govuk-!-margin-bottom-6">
+      <a
+        class="govuk-footer__link datagovuk-footer__link govuk-footer__copyright-logo datagovuk-footer__copyright-logo"
+        href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/">
+        © Crown copyright
+      </a>
+    </div>
+  </div>
+</div>

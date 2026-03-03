@@ -1,0 +1,27 @@
+.datagovuk-footer {
+    border-top: none;
+    background: none;
+    font-family: Inter, sans-serif;
+    font-size: 20px;
+    color: $datagovuk-black;
+    text-align: center;
+}
+
+.datagovuk-footer__link:link,
+.datagovuk-footer__link:visited {
+    font-family: Inter, sans-serif;
+    color: $datagovuk-black;
+}
+
+.datagovuk-footer__copyright-logo:before {
+    background-image: image-url('v2/govuk-crest.svg');
+    -webkit-mask-image: image-url('v2/govuk-crest.svg');
+    mask-image: image-url('v2/govuk-crest.svg');
+}
+
+/* Desktop styling overrides */
+@media (min-width: $desktop-breakpoint) {
+    .datagovuk-footer {
+        font-size: 22px;
+    }
+}
