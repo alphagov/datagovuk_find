@@ -1,0 +1,81 @@
+.datagovuk-split-chart {
+    padding: 15px;
+    background-color: rgba(229, 230, 231, 0.2); // TODO: Find exact colour
+    border-radius: 30px;
+    font-family: Inter, sans-serif;
+}
+
+.datagovuk-split-chart__row {
+    position: relative;
+}
+
+.datagovuk-split-chart__col {
+    padding-top: govuk-spacing(2);
+    padding-bottom: govuk-spacing(2);
+}
+
+.datagovuk-split-chart__col--left {
+    padding-right: 20px;
+}
+
+.datagovuk-split-chart__col--right {
+    padding-left: 20px;
+}
+
+.datagovuk-split-chart__subtitle {
+    color: $datagovuk-light-grey;
+}
+
+.datagovuk-split-chart__value {
+    font-family: $govuk-font-family;
+    font-weight: 100;
+    line-height: 1;
+    margin: 0;
+    font-size: 56px;
+}
+
+.datagovuk-split-chart__change {
+    font-weight: 700;
+    font-size: 24px;
+    display: inline-flex;
+    align-items: baseline;
+    gap: govuk-spacing(1);
+}
+
+.datagovuk-split-chart__arrow {
+    font-size: 18px;
+    line-height: 1;
+    transform: translateY(-1px);
+}
+
+.datagovuk-split-chart__change-value {
+    letter-spacing: 0.2px;
+}
+
+.datagovuk-split-chart__change-pct {
+    font-weight: 400;
+    opacity: 0.75;
+}
+
+.datagovuk-split-chart__change--up {
+    color: $datagovuk-green;
+}
+
+.datagovuk-split-chart__change--down {
+    color: $datagovuk-pink;
+}
+
+@media (min-width: 40.0625em) {
+    .datagovuk-split-chart__col--left {
+        padding-right: 30px;
+        border-right: 1px solid #333333;
+    }
+
+    .datagovuk-split-chart__col--right {
+        padding-left: 30px;
+    }
+
+    .datagovuk-split-chart {
+        padding: 25px;
+    }
+}

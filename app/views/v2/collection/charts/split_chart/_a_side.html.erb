@@ -1,0 +1,38 @@
+<%# locals:
+subtitle: string,
+description_html: string
+value: string/number
+comparison_html: string
+trend: :up or :down
+value_change: string/number
+percent_change: string/number
+side_class: string
+%>
+
+<% is_trending_up = (trend.to_sym == :up) %>
+<% trend_class = is_trending_up ? "datagovuk-split-chart__change--up" : "datagovuk-split-chart__change--down" %>
+
+<div class="govuk-grid-column-one-half datagovuk-split-chart__col <%= side_class %>">
+    <h3 class="govuk-heading-m datagovuk-heading-m govuk-!-margin-bottom-2"><%= subtitle %>:</h3>
+    <p class="govuk-body datagovuk-body datagovuk-split-chart__subtitle govuk-!-margin-bottom-6">
+        <%= simple_format(description_html, {}, wrapper_tag: nil) %>
+    </p>
+    <p class="datagovuk-split-chart__value govuk-!-margin-bottom-2">
+        <%= number_with_delimiter(value) %>
+    </p>
+    <p class="govuk-body govuk-!-margin-bottom-6">
+        <%= simple_format(comparison_html, {}, wrapper_tag: nil) %>
+    </p>
+
+    <p class="datagovuk-split-chart__change <%= trend_class %> govuk-!-margin-bottom-0">
+        <span class="datagovuk-split-chart__arrow" aria-hidden="true">
+            <% if is_trending_up %>
+                <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><path fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' d='m17 14l-5-5l-5 5' stroke-width='1'/></svg>
+            <% else %>
+                <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><path fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m7 10l5 5l5-5'/></svg>
+            <% end %>
+        </span>
+        <span class="datagovuk-split-chart__change-value"><%= value_change %></span>
+        <span class="datagovuk-split-chart__change-value-prc">(<%= percent_change %>%)</span>
+    </p>
+</div>
