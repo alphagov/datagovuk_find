@@ -9,6 +9,14 @@
   background-size: 100% 100%;
 }
 
+.datagovuk-data-manual-content .datagovuk-heading-xl {
+  @extend .datagovuk-heading-l;
+}
+
+.datagovuk-data-manual-content .datagovuk-heading-l {
+  @extend .datagovuk-heading-s;
+}
+
 @media (min-width: $desktop-breakpoint) {
   .datagovuk-data-manual-hero {
     margin-bottom: 80px;
