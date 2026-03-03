@@ -23,7 +23,6 @@ RSpec.describe "header", type: :feature do
     within("#datagovuk-menu-collections") do
       links = [
         "Business and economy",
-        "Environment",
         "Government",
         "Land and property",
         "People",
