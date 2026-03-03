@@ -15,6 +15,14 @@
   src: url('/fonts/libre-baskerville-v24-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
+.datagovuk-main {
+  margin: 30px 0 80px 0;
+}
+
+.datagovuk-width-container {
+  max-width: 1100px;
+}
+
 .datagovuk-body,
 .datagovuk-heading-s,
 .datagovuk-heading-m,
@@ -30,6 +38,7 @@
   font-size: 28px;
   color: $datagovuk-black;
   font-weight: normal;
+  line-height: 140%;
 }
 
 .datagovuk-heading-l {

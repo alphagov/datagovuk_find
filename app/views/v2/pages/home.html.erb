@@ -1,5 +1,116 @@
 <% content_for :page_title, "Home" %>
 
-<div class="govuk-width-container">
-    <h1 class="govuk-heading-xl datagovuk-heading-xl">Test home</h1>
+<div class="govuk-width-container datagovuk-width-container">
+    <div class="datagovuk-home-hero">
+        <h1 class="govuk-heading-xl datagovuk-heading-xl datagovuk-home-hero__heading">
+            The home of UK data to inform decisions and build services
+        </h1>
+        <p class="govuk-body datagovuk-body">
+            <a href="#" class="govuk-link datagovuk-link datagovuk-home-hero__link">
+                Find out more about the new data.gov.uk
+            </a>
+        </p>
+    </div>
+
+    <div class="datagovuk-home-collections govuk-!-margin-bottom-9">
+
+        <h1 class="govuk-heading-l datagovuk-heading-l datagovuk-home-collections__heading">
+            Collections
+        </h1>
+
+        <p class="govuk-body datagovuk-body datagovuk-home-collections__description">
+            Curated collections of high quality accessible data
+        </p>
+
+        <div class="datagovuk-home-collections__items">
+            <% @collections.each do |collection| %>
+                <div class="datagovuk-home-collections__item">
+                    <%= image_tag "v2/collections/badge-"+collection[:slug] + ".png", size:"108x108", alt:"", class:"datagovuk-home-collections__item-image" %>
+                    <div class="datagovuk-home-collections__item-content">
+                        <h3 class="govuk-body datagovuk-body datagovuk-home-collections__item-heading">
+                            <a href="/collections/<%= collection[:slug] %>" class="govuk-link datagovuk-link">
+                                <%= collection[:title] %>
+                            </a>
+                        </h3>
+                        <p class="govuk-body datagovuk-body datagovuk-!-colour-grey">
+                            <%= collection[:description] %>
+                        </p>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+
+    </div>
+
+    <div class="datagovuk-home-cards">
+
+        <div class="datagovuk-home-card datagovuk-home-card--data-manual">
+        
+            <h2 class="govuk-heading-m datagovuk-heading-m datagovuk-home-card__heading">
+                Data manual
+            </h2>
+
+            <p class="govuk-body datagovuk-body datagovuk-home-card__description">
+                Manage, share and analyse data safely and effectively.
+            </p>
+
+            <a href="/data-manual" class="govuk-button datagovuk-button">
+                Data manual
+            </a>
+
+        </div>
+
+        <div class="datagovuk-home-card datagovuk-home-card--data-manual">
+        
+            <h2 class="govuk-heading-m datagovuk-heading-m datagovuk-home-card__heading">
+                Directory
+            </h2>
+
+            <p class="govuk-body datagovuk-body datagovuk-home-card__description">
+                You can still search the original open data directory, which we are working&nbsp;on.
+            </p>
+
+            <a href="/search" class="govuk-button datagovuk-button">
+                Directory
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="datagovuk-home-publications">
+
+        <h2 class="govuk-heading-l datagovuk-heading-l datagovuk-home-publications__heading">
+            Publications
+        </h2>
+
+        <div class="datagovuk-home-publications__items">
+            <div class="govuk-body datagovuk-body datagovuk-home-publications__item">
+                <a href="#" class="govuk-link datagovuk-link datagovuk-home-publications__link">
+                    National Data Library: progress update, January 2026
+                </a>
+                <p class="govuk-body datagovuk-body datagovuk-home-publications__date">
+                    12 January 2026
+                </p>
+            </div>
+            <div class="govuk-body datagovuk-body datagovuk-home-publications__item">
+                <a href="#" class="govuk-link datagovuk-link datagovuk-home-publications__link">
+                    Creating a smart data economy
+                </a>
+                <p class="govuk-body datagovuk-body datagovuk-home-publications__date">
+                    21 March 2025
+                </p>
+            </div>
+            <div class="govuk-body datagovuk-body datagovuk-home-publications__item">
+                <a href="#" class="govuk-link datagovuk-link datagovuk-home-publications__link">
+                    Business data use and productivity study
+                </a>
+                <p class="govuk-body datagovuk-body datagovuk-home-publications__date">
+                    31 October 2025
+                </p>
+            </div>
+        </div>
+
+    </div>
+
 </div>
