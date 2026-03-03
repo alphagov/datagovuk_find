@@ -25,7 +25,7 @@ module V2
 
       data_manual_pages = @data_manual_pages.deep_dup
       data_manual_pages.each do |data_manual_item|
-        if data_manual_item[:slug] == safe_slug
+        if data_manual_item[:url] == request.path
           data_manual_item[:selected] = true
         end
       end

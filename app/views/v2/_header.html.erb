@@ -28,7 +28,7 @@
       <h2 class="datagovuk-menu__heading">Data manual</h2>
       <div class="datagovuk-menu__items">
         <% @data_manual_menu_items.each do |page| %>
-          <a href="/data-manual/<%= page[:slug] %>" class="govuk-link datagovuk-link datagovuk-menu__item-link">
+          <a href="<%= page[:url] %>" class="govuk-link datagovuk-link datagovuk-menu__item-link">
             <%= page[:title] %>
           </a>
         <% end %>
