@@ -9,6 +9,9 @@ module V2
 
     def content
       expires_in 30.minutes, public: true
+      # The sanitizer is a double protection against attempts to render markdown files 
+      #   other than the ones in the data manual. The route also specifies the slug parameter 
+      #   as having the slug constraint
       @sanitizer = Rails::Html::FullSanitizer.new
       safe_slug = @sanitizer.sanitize(params[:slug])
       data_manual_markdown_directory = Rails.configuration.x.markdown_data_manual_location
