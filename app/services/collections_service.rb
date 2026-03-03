@@ -27,9 +27,9 @@ class CollectionsService
     .reject { |files|
       [".", ".."].include?(files)
     }.map do |collection|
-      OpenStruct.new(
-        slug: collection,
-        title: collection.gsub("-", " ").humanize,
+      Struct.new(:slug, :title).new(
+        collection,
+        collection.gsub("-", " ").humanize,
       )
     end
   end
