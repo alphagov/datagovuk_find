@@ -1,3 +1,5 @@
+$desktop-breakpoint: 40.0625em;
+
 // Components from govuk_publishing_components gem
 @import 'govuk_publishing_components/govuk_frontend_support';
 @import 'govuk_publishing_components/component_support';
@@ -8,7 +10,6 @@
 
 @import 'overrides/main';
 
-@import 'components/feedback';
-@import 'components/header';
+@import 'components/main';
 
-@import "pages/collections/content";
+@import 'pages/main';

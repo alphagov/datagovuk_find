@@ -22,7 +22,7 @@ RSpec.feature "collections", type: :feature do
 
   def and_i_can_see_the_feedback_form
     expect(page).to have_css(".govuk-inset-text.datagovuk-feedback-inset-text")
-    expect(page).to have_link("Give us feedback", href: "#feedback")
+    expect(page).to have_link("Give us feedback", href: "#")
   end
 
   def given_i_am_on_a_collection_page

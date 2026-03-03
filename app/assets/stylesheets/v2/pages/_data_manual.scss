@@ -1,0 +1,16 @@
+.datagovuk-data-manual-hero {
+  text-align: center;
+  padding: 120px 0;
+  background-color: $datagovuk-light-green;
+  margin-bottom: 60px;
+  background-color: transparent;
+  background-image: image-url("v2/hero_background_data_manual");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+@media (min-width: $desktop-breakpoint) {
+  .datagovuk-data-manual-hero {
+    margin-bottom: 80px;
+  }
+}

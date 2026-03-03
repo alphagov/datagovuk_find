@@ -41,6 +41,7 @@ Rails.application.routes.draw do
     get "collections/:collection", to: "collection#show", as: "collection"
     get "collections/:collection/:topic", to: "collection#show", as: "collection_topic"
     get "components" => "pages#components"
+    get "data-manual", to: "data_manual#home", as: "data_manual_home"
   end
 
   match "404", to: "errors#not_found", via: :all
