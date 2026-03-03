@@ -8,7 +8,7 @@ bodies. Explore the 4 areas of government security (cyber, personnel,
 physical and technical), get the latest news and events, and subscribe to
 the newsletter for updates.
 
-#### [Secure by Design](https://www.security.gov.uk/policy-and-guidance/secure-by-design/) (part of Government Security)
+#### [Secure by Design (part of Government Security)](https://www.security.gov.uk/policy-and-guidance/secure-by-design/)
 Find out how to incorporate effective cyber security practices when
 building digital services and technical infrastructure. All government
 delivery teams and security professionals should follow the Secure by
