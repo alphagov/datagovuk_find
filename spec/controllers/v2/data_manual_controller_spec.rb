@@ -1,9 +1,7 @@
 require "rails_helper"
 
 RSpec.describe "Posts", type: :request do
-
   describe "GET /data-manual/:slug" do
-    
     context "when the markdown content exists" do
       it "returns a 200 status code" do
         get "/data-manual/who-this-manual-is-for"
@@ -17,6 +15,5 @@ RSpec.describe "Posts", type: :request do
         expect(response).to have_http_status(:not_found)
       end
     end
-
   end
 end

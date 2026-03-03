@@ -9,13 +9,13 @@ module V2
 
     def content
       expires_in 30.minutes, public: true
-      # The sanitizer is a double protection against attempts to render markdown files 
-      #   other than the ones in the data manual. The route also specifies the slug parameter 
+      # The sanitizer is a double protection against attempts to render markdown files
+      #   other than the ones in the data manual. The route also specifies the slug parameter
       #   as having the slug constraint
       @sanitizer = Rails::Html::FullSanitizer.new
       safe_slug = @sanitizer.sanitize(params[:slug])
       data_manual_markdown_directory = Rails.configuration.x.markdown_data_manual_location
-      # NOTE: the below brakeman complaint is happening because brakeman cannot verify that our config 
+      # NOTE: the below brakeman complaint is happening because brakeman cannot verify that our config
       #   variable does not contain a leading /.  Ignoring it.
       # brakeman: disable: Rails/DynamicRenderPath, Rails/FileAccess
       markdown_file = Rails.root.join(data_manual_markdown_directory, "#{safe_slug}.md")
@@ -35,7 +35,7 @@ module V2
 
       render layout: "v2/layouts/data_manual", locals: {
         rendered_content: rendered_content,
-        data_manual_pages: data_manual_pages
+        data_manual_pages: data_manual_pages,
       }
     end
   end
