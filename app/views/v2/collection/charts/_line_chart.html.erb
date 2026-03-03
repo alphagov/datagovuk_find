@@ -1,0 +1,35 @@
+<%= line_chart { "2023-01-01" => 10, "2023-01-02" => 15 },
+  library: {
+    title: { text: "Line Chart Example", fontSize: 18 },
+    hAxis: { title: "Date" },
+    vAxis: { title: "Value" },
+    legend: { position: "none" },
+    colors: ["#1f77b4"],
+    pointSize: 5,
+    lineWidth: 2,
+    tooltip: { isHtml: true },
+    backgroundColor: "#f9f9f9",
+    chartArea: { left: 50, top: 50, width: "80%", height: "70%" },
+    animation: { duration: 1000, easing: "out", startup: true },
+    annotations: {
+        textStyle: {
+            fontSize: 12,
+            color: "#555",
+            auraColor: "none"
+        }
+    },
+    trendlines: {
+        0: {
+            type: "linear",
+            color: "#ff0000",
+            lineWidth: 2,
+            opacity: 0.7,
+            showR2: true,
+            visibleInLegend: true
+        }
+    },
+    series: {
+        0: { lineDashStyle: [4, 4] }
+    }
+  }
+%>
