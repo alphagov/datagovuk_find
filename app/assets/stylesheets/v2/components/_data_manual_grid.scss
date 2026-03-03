@@ -62,6 +62,11 @@
       -webkit-mask: image-url('v2/icons/open_book') no-repeat center;
       mask: image-url('v2/icons/open_book') no-repeat center;
     }
+
+    .datagovuk-gridlist__item--icon-api::before {
+      -webkit-mask: image-url('v2/icons/api') no-repeat center;
+      mask: image-url('v2/icons/api') no-repeat center;
+    }
   }
 }
 
