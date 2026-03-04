@@ -1,0 +1,12 @@
+<section class="govuk-section datagovuk-section govuk-!-margin-top-8">
+  <h2 class="govuk-heading-m datagovuk-heading-m govuk-!-margin-bottom-2"><%= title %></h2>
+
+  <div class="govuk-grid-row">
+    <div class="datagovuk-headline govuk-grid-column-full">
+      <div class="govuk-grid-row">
+        <%= render "v2/collection/charts/headline/column", **left, side_class: "datagovuk-headline__col--left" %>
+        <%= render "v2/collection/charts/headline/column", **right, side_class: "datagovuk-headline__col--right" %>
+      </div>
+    </div>
+  </div>
+</section>

@@ -2,29 +2,31 @@
 
 <p class="govuk-body-m datagovuk-body">Search the Companies House register of UK companies by company name, company number or officer name – or do an advanced search on other characteristics. Results include the company’s address, type and status, date of incorporation, accounting period, nature of business and previous names. You can also view the filing history, any registered charges and the company’s past and present registered officers.</p>
 
-<%= render partial: "v2/collection/charts/split_chart/split_chart", locals: {
-  title: "UK Statistics Showing Companies Closed vs Companies Open per Month in 2025",
+<%= render partial: "v2/collection/charts/headline/headline", locals: {
+  title: "UK Statistics Showing Companies started and closed",
   left: {
-    subtitle: "Get company information",
-    description_html: "Statistics showing companies closed this month",
+    subtitle: "Companies started",
+    description_html: "Statistics showing companies started this month",
     value: 581_768,
     comparison_html: "In 2023, up by 0.7% compared to 2022.",
-    trend: :up,
+    trend: "up",
     value_change: 100,
     percent_change: 10
   },
   right: {
-    subtitle: "Get company information",
+    subtitle: "Companies closed",
     description_html: "Statistics showing companies closed this month",
     value: 581_768,
     comparison_html: "In 2023, up by 0.7% compared to 2022.",
-    trend: :down,
+    trend: "down",
     value_change: 50,
     percent_change: 5
   }
 } %>
 
+<!--
 <%= render partial: "v2/collection/charts/footnotes", locals: { footnotes: [] } %>
+-->
 
 <div class="govuk-inset-text datagovuk-feedback-inset-text">
   <p class="govuk-body datagovuk-body">

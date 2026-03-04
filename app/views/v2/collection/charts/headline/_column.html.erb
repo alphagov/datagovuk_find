@@ -1,0 +1,39 @@
+<%# locals:
+subtitle: string,
+description_html: string
+value: string/number
+comparison_html: string
+trend: :up or :down
+value_change: string/number
+percent_change: string/number
+side_class: string
+%>
+
+<% is_trending_up = (trend == "up") %>
+
+<div class="govuk-grid-column-one-half datagovuk-headline__col <%= side_class %>">
+    <h2 class="govuk-heading-m datagovuk-heading-m"><%= subtitle %></h3>
+    <p class="govuk-body datagovuk-body datagovuk-!-colour-grey">
+        <%= simple_format(description_html, {}, wrapper_tag: nil) %>
+    </p>
+    <h2 class="govuk-heading-xl datagovuk-heading-xl datagovuk-headline__value">
+        <%= number_with_delimiter(value) %>
+    </h2>
+    <p class="govuk-body">
+        <%= simple_format(comparison_html, {}, wrapper_tag: nil) %>
+    </p>
+
+    <section class="datagovuk-headline__change">
+        <section class="govuk-section datagovuk-section <%= is_trending_up ? "datagovuk-trendup" : "datagovuk-trenddown" %>">
+            <span class="datagovuk-headline__arrow" aria-hidden="true">
+                <% if is_trending_up %>
+                    <%= image_tag("v2/up_arrow.svg") %>
+                <% else %>
+                    <%= image_tag("v2/down_arrow.svg") %>
+                <% end %>
+            </span>
+            <p class="datagovuk-headline__change-value govuk-body datagovuk-body"><%= is_trending_up ? "+" : "-" %><%= value_change %></p>
+            <p class="datagovuk-headline__change-value-prc govuk-body datagovuk-body">(<%= percent_change %>%)</p>
+        </section>
+    </section>
+</div>
