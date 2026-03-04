@@ -17,8 +17,8 @@ Rails.application.configure do
   # loading is working properly before deploying your code.
   config.eager_load = ENV["CI"].present?
 
-  config.x.markdown_location = "spec/fixtures/markdown/*.md"
-  config.x.markdown_output_location = "tmp/views/generated/collections"
+  config.x.markdown_collections_location_glob = "spec/fixtures/markdown/*.md"
+  config.x.markdown_collections_output_location = "tmp/views/generated/collections"
   config.x.markdown_location_directory = "spec/fixtures/markdown"
 
   # Configure public file server for tests with Cache-Control for performance.
