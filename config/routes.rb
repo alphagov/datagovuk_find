@@ -39,7 +39,7 @@ Rails.application.routes.draw do
 
   scope module: "v2" do
     get "collections/:collection", to: "collection#collection", as: "collection"
-    get "collections/:collection/:topic", to: "collection#collection_topic", as: "collection_topic"
+    get "collections/:collection/:page", to: "collection#collection_page", as: "collection_page"
     get "components" => "pages#components"
     get "data-manual", to: "data_manual#home", as: "data_manual_home"
     get "data-manual/:slug", to: "data_manual#content", as: "data_manual_content", constraints: { slug: /[a-z0-9-]+/ }
