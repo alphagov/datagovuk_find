@@ -8,7 +8,7 @@ RSpec.describe "Markdown to Static HTML Rake Task", type: :task do
   end
 
   let(:task) { Rake::Task["markdown:render"] }
-  let(:output_directory) { Rails.configuration.x.markdown_output_location }
+  let(:output_directory) { Rails.configuration.x.markdown_collections_output_location }
 
   before do
     FileUtils.mkdir_p(output_directory)
@@ -63,6 +63,6 @@ RSpec.describe "Markdown to Static HTML Rake Task", type: :task do
   end
 
   after do
-    FileUtils.rm_rf(Rails.root.join(Rails.configuration.x.markdown_output_location)) if Dir.exist?(Rails.root.join(Rails.configuration.x.markdown_output_location))
+    FileUtils.rm_rf(Rails.root.join(Rails.configuration.x.markdown_collections_output_location)) if Dir.exist?(Rails.root.join(Rails.configuration.x.markdown_collections_output_location))
   end
 end
