@@ -1,5 +1,15 @@
-<section class="datagovuk-section">
-  <h2 class="govuk-heading-m govuk-!-margin-bottom-2"><%= title %></h2>
+<section class="govuk-section datagovuk-section">
+  <div class="govuk-width-container">
+    <main class="govuk-main-wrapper">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+          <h2 class="govuk-heading-s datagovuk-heading-s govuk-!-margin-bottom-2"><%= title %></h2>
+        </div>
+      </div>
+    </main>
+  </div>
+
+
   <div class="govuk-grid-row datagovuk-split-chart__row datagovuk-split-chart">
     <%= render "v2/collection/charts/split_chart/a_side", **left, side_class: "datagovuk-split-chart__col--left" %>
     <%= render "v2/collection/charts/split_chart/a_side", **right, side_class: "datagovuk-split-chart__col--right" %>
