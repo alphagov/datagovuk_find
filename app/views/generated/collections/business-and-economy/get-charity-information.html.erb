@@ -8,7 +8,7 @@
     <main class="govuk-main-wrapper">
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-full">
-          <h2 class="govuk-heading-s datagovuk-heading-s govuk-!-margin-bottom-2"><%= title %></h2>
+          <h2 class="govuk-heading-s datagovuk-heading-s govuk-!-margin-bottom-2">Total number of charities per year</h2>
         </div>
       </div>
     </main>
@@ -19,112 +19,121 @@
 <%= line_chart [{
     name: "Charity Information",
     data: {
-    "Jan": 42,
-    "Feb": 38,
-    "Mar": 45,
-    "Apr": 55,
-    "May": 51,
-    "Jun": 42,
-    "Jul": 48,
-    "Aug": 41,
-    "Sep": 45,
-    "Oct": 49,
-    "Nov": 58,
-    "Dec": 47
-}, dataset: {
-    pointRadius: [0,0,0,0,0,0,0,0,0,0,0,5],
-    pointStyle: "rect",
-    pointHoverRadius: 7,
-    datalabels: {
-        anchor: 'end',
-        align: 'top',
-        color: '#000',
-        font: {
-            size: 10
-        },
-    }
-}
-}],
-colors: ["#C27A9A"],
-curve: true,
-legend: "bottom",
-suffix: "%",
-min: 10,
-max: 70,
-ytitle: "Percentage",
-library: {
-    elements: {
-        point: {
-            radius: 0,
-        }
+        "Jan": 42,
+        "Feb": 38,
+        "Mar": 45,
+        "Apr": 55,
+        "May": 51,
+        "Jun": 42,
+        "Jul": 48,
+        "Aug": 41,
+        "Sep": 45,
+        "Oct": 49,
+        "Nov": 58,
+        "Dec": 47
     },
-    scales: {
-        y: {
-            ticks: {
-                stepSize: 10,
-                maxTicksLimit: 7,
-                font: {
-                    size: 16
-                }
-            }
-        },
-        x: {
-            ticks: {
-                font: {
-                    size: 16
-                }
-            }
-        }
-    },
-    plugins: {
+    dataset: {
+        pointRadius: [0,0,0,0,0,0,0,0,0,0,0,5],
+        pointStyle: "rect",
+        pointHoverRadius: 7,
         datalabels: {
-            display: false
-        },
-      legend: {
-        labels: {
-          font: { size: 20 }
+            anchor: 'end',
+            align: 'top',
+            color: '#000',
+            font: {
+                size: 10
+            },
         }
-      }
     }
-}
+    }],
+    colors: ["#C27A9A"],
+    curve: true,
+    legend: "bottom",
+    suffix: "%",
+    min: 10,
+    max: 70,
+    ytitle: "Percentage",
+    library: {
+        elements: {
+            point: {
+                radius: 0,
+            }
+        },
+        scales: {
+            y: {
+                ticks: {
+                    stepSize: 10,
+                    maxTicksLimit: 7,
+                    font: {
+                        size: 16
+                    }
+                }
+            },
+            x: {
+                ticks: {
+                    font: {
+                        size: 16
+                    }
+                }
+            }
+        },
+        plugins: {
+            datalabels: {
+                display: false
+            },
+        legend: {
+            labels: {
+            font: { size: 20 }
+            }
+        }
+        }
+    }
 %>
   </div>
 </section>
 
 
 
-
-
-<br />
-<br />
-
-<%= bar_chart({
-        "Charities with income under £10,000": 25,
-        "Charities with income between £10,000 and £100,000": 40,
-        "Charities with income between £100,000 and £1 million": 20,
-        "Charities with income over £1 million": 15
-    },
-    colors: ["#000000"],
-    xtitle: "Income Bracket",
-    dataset: {
-        datalabels: {
-            anchor: 'end',
-            align: 'right',
-            color: '#000',
-            font: {
-                size: 10
+<section class="govuk-section datagovuk-section">
+  <div class="govuk-width-container">
+    <main class="govuk-main-wrapper">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+          <h2 class="govuk-heading-s datagovuk-heading-s govuk-!-margin-bottom-2">Charity Income Distribution</h2>
+        </div>
+      </div>
+    </main>
+  </div>
+  <div class="govuk-grid-row">
+    <%= bar_chart({
+            "Charities with income under £10,000": 25,
+            "Charities with income between £10,000 and £100,000": 40,
+            "Charities with income between £100,000 and £1 million": 20,
+            "Charities with income over £1 million": 15
+        },
+        colors: ["#C27A9A"],
+        xtitle: "Income Bracket",
+        dataset: {
+            datalabels: {
+                anchor: 'end',
+                align: 'right',
+                color: '#000',
+                font: {
+                    size: 10
+                },
             },
         },
-    },
-    library: {
-        scales: {
-            x: {
-                grace: '15%', # Prevents data labels from overflowing and not being seen
+        library: {
+            scales: {
+                x: {
+                    grace: '15%', # Prevents data labels from overflowing and not being seen
+                }
             }
         }
-    }
-)
-%>
+    )
+    %>
+  </div>
+</section>
 
 
 <div class="govuk-inset-text datagovuk-feedback-inset-text">
