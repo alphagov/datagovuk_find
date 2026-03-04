@@ -12,7 +12,7 @@ namespace :markdown do
     FileUtils.mkdir_p(output_directory)
 
     if markdowns.empty?
-      puts("Markdown files are not present")
+      puts("No markdown files were found")
     end
 
     markdowns.each do |markdown_file|
@@ -21,9 +21,13 @@ namespace :markdown do
       content = parsed_markdown.content
       html_body = Dgu::Markdown.render(content)
 
+      if html_body.strip.empty?
+        puts("Skipping markdown file #{markdown_file} no body content present")
+        next
+      end
+
       assigns = {
         title: front_matter["title"],
-        collection: front_matter["collection"],
         websites: front_matter["websites"] || [],
         api_link: front_matter["api"],
         dataset: front_matter["dataset"],
@@ -39,9 +43,14 @@ namespace :markdown do
         next
       end
 
-      output_path = output_directory.join(front_matter["collection"].parameterize)
+      path = Pathname.new(markdown_file)
+      collection = path.parent.basename.to_s
+      outfile_name = path.basename(".md").to_s
+      collection_dir = output_directory / collection
+      output_path = Pathname.new(collection_dir / "#{outfile_name}.html.erb")
+      FileUtils.mkdir_p(collection_dir)
 
-      FileUtils.mkdir_p(output_path)
+      puts("Render #{path.basename} to => #{output_path}")
 
       html = ApplicationController.renderer.render(
         partial: "v2/collection/content",
@@ -49,9 +58,10 @@ namespace :markdown do
         assigns: assigns,
       )
 
-      File.write(output_path.join(markdown_file.split("/").last.sub(".md", ".html.erb")), html)
-    rescue StandardError
+      File.write(output_path, html)
+    rescue StandardError => e
       puts("error processing #{markdown_file}")
+      puts e
     end
     puts("Completed rendering markdown to html files")
   end
