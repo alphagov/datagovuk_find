@@ -1,7 +1,13 @@
 require Rails.root.join("app/services/dgu/markdown")
 
 module V2
+  class DataManualContentNotFound < ActionController::ActionControllerError
+  end
+
   class DataManualController < ApplicationController
+
+    rescue_from DataManualContentNotFound, with: :render_not_found
+
     def home
       expires_in 30.minutes, public: true
       render layout: "v2/layouts/data_manual"
@@ -9,6 +15,16 @@ module V2
 
     def content
       expires_in 30.minutes, public: true
+
+      render layout: "v2/layouts/data_manual", locals: {
+        rendered_content: render_content,
+        data_manual_pages: data_manual_pages,
+      }
+    end
+
+    private
+
+    def render_content
       # The sanitizer is a double protection against attempts to render markdown files
       #   other than the ones in the data manual. The route also specifies the slug parameter
       #   as having the slug constraint
@@ -22,21 +38,20 @@ module V2
       if File.exist?(markdown_file)
         markdown = File.read(markdown_file)
       else
-        render_not_found && return
+        raise DataManualContentNotFound
       end
       rendered_content = Dgu::Markdown.render(markdown).html_safe
+      return rendered_content
+    end
 
+    def data_manual_pages
       data_manual_pages = @data_manual_pages.deep_dup
       data_manual_pages.each do |data_manual_item|
         if data_manual_item[:url] == request.path
           data_manual_item[:selected] = true
         end
       end
-
-      render layout: "v2/layouts/data_manual", locals: {
-        rendered_content: rendered_content,
-        data_manual_pages: data_manual_pages,
-      }
+      return data_manual_pages
     end
   end
 end
