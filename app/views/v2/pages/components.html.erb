@@ -17,4 +17,26 @@
 
   <%= render partial: "v2/components/feedback" %>
 
+  <%= render partial: "v2/collection/charts/headline/headline", locals: {
+    title: "Companies incorporated and dissolved (2024-25)",
+    left: {
+      subtitle: "Companies incorporated",
+      description: "Statistics showing companies incorporated this month",
+      value: 581_768,
+      analysis: "In 2023, up by 0.7% compared to 2022.",
+      trend: "up",
+      value_change: 100,
+      percent_change: 10
+    },
+    right: {
+      subtitle: "Companies dissolved",
+      description: "Statistics showing companies dissolved this month",
+      value: 200_210,
+      analysis: "In 2023, up by 0.7% compared to 2022.",
+      trend: "down",
+      value_change: 50,
+      percent_change: 5
+    }
+  } 
+  %>
 </div>

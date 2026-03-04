@@ -41,6 +41,11 @@
     margin: 0;
 }
 
+.datagovuk-headline__arrow {
+    display: flex;
+    align-items: center;
+}
+
 .datagovuk-trendup {
     background-color: $datagovuk-light-green;
 }

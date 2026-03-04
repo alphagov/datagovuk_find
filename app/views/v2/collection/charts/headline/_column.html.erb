@@ -1,8 +1,8 @@
 <%# locals:
 subtitle: string,
-description_html: string
+description: string
 value: string/number
-comparison_html: string
+analysis: string
 trend: :up or :down
 value_change: string/number
 percent_change: string/number
@@ -14,13 +14,13 @@ side_class: string
 <div class="govuk-grid-column-one-half datagovuk-headline__col <%= side_class %>">
     <h2 class="govuk-heading-m datagovuk-heading-m"><%= subtitle %></h3>
     <p class="govuk-body datagovuk-body datagovuk-!-colour-grey">
-        <%= simple_format(description_html, {}, wrapper_tag: nil) %>
+        <%= description %>
     </p>
-    <h2 class="govuk-heading-xl datagovuk-heading-xl datagovuk-headline__value">
+    <p class="govuk-heading-xl datagovuk-heading-xl govuk-!-margin-bottom-2">
         <%= number_with_delimiter(value) %>
-    </h2>
-    <p class="govuk-body">
-        <%= simple_format(comparison_html, {}, wrapper_tag: nil) %>
+    </p>
+    <p class="govuk-body datagovuk-body">
+        <%= analysis %>
     </p>
 
     <section class="datagovuk-headline__change">
