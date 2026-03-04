@@ -42,6 +42,10 @@ class CollectionsService
     "generated/collections/#{collection}/#{topic}"
   end
 
+  def first_topic
+    @first_topic ||= topics.first
+  end
+
 private
 
   def topics
@@ -58,10 +62,6 @@ private
     return true if topic.blank?
 
     Rails.root.join(COLLECTIONS_LOCATION, @collection, "#{topic}.html.erb").exist?
-  end
-
-  def first_topic
-    @first_topic ||= topics.first
   end
 
   def collection?(collection)
