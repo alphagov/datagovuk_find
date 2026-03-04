@@ -50,8 +50,9 @@ namespace :markdown do
       )
 
       File.write(output_path.join(markdown_file.split("/").last.sub(".md", ".html.erb")), html)
+    rescue StandardError
+      puts("error processing #{markdown_file}")
     end
-
     puts("Completed rendering markdown to html files")
   end
 end
