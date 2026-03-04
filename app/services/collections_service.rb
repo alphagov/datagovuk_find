@@ -16,9 +16,13 @@ class CollectionsService
     @topic_name.presence || first_topic
   end
 
-  def side_navigations
-    @side_navigations ||= topics.map do |side_navigation|
-      side_navigation.gsub(".html.erb", "")
+  def collection_topics
+    @collection_topics ||= topics.map do |topic_slug|
+      {
+        url: "/collections/#{@collection}/#{topic_slug}",
+        title: topic_slug.gsub("-", " ").capitalize,
+        selected: topic_slug == @topic_name,
+      }
     end
   end
 
@@ -45,6 +49,9 @@ private
     .reject do |entry|
       [".", ".."].include?(entry)
     end
+    .map do |topic_file_name|
+      topic_file_name.gsub(".html.erb", "")
+    end
   end
 
   def topic?(topic = nil)
@@ -54,7 +61,7 @@ private
   end
 
   def first_topic
-    @first_topic ||= topics.first.gsub(".html.erb", "")
+    @first_topic ||= topics.first
   end
 
   def collection?(collection)

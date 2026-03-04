@@ -7,7 +7,7 @@ module V2
 
       @collections = collections_service.collections_slugs
       @collection = collections_service.collection
-      @side_navigations = collections_service.side_navigations
+      @collection_topics = collections_service.collection_topics
       @current_topic = collections_service.topic
       @view_template = collections_service.view_template_path
 
