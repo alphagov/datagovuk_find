@@ -50,9 +50,9 @@ private
 
   def topics
     Dir.entries(Rails.root.join(COLLECTIONS_LOCATION, @collection)).sort
-    .reject do |entry|
+    .reject { |entry|
       [".", ".."].include?(entry)
-    end
+    }
     .map do |topic_file_name|
       topic_file_name.gsub(".html.erb", "")
     end
