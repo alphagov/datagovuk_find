@@ -48,7 +48,8 @@ class CollectionsService
       "government": "election-results-data",
       "land-and-property": "dwelling-stock",
       "people": "deprivation",
-      "transport": "driving-tests",
+      "transport": "bus-statistics",
+      "environment": "climate-projections",
     }.with_indifferent_access
     @priority_page ||= priority_pages.fetch(@collection, pages.first)
   end
