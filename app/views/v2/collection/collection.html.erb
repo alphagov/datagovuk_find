@@ -11,7 +11,10 @@
 <div class="govuk-width-container datagovuk-width-container">
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-one-third">
-            Side navigation in progress
+
+            <%= render partial: "v2/components/section_navigation", locals: {
+              items: @collection_topics
+            } %>
         </div>
         <div class="govuk-grid-column-two-thirds">
             <%= render template: @view_template, locals: { collections: @collections } %>
