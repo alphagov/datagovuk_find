@@ -1,6 +1,5 @@
 ---
 title: Council tax statistics
-collection: Government
 websites:
   - url: https://www.gov.uk/government/collections/council-tax-statistics
     link-text: Council tax statistics

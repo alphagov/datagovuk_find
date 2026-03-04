@@ -1,6 +1,5 @@
 ---
 title: Pupil attendance
-collection: People
 websites:
   - url: https://www.gov.uk/government/collections/statistics-pupil-absence
     link-text: Pupil attendance and absence

@@ -1,6 +1,5 @@
 ---
 title: Energy prices
-collection: Business and economy 
 websites:
   - url: https://www.gov.uk/government/collections/quarterly-energy-prices
     link-text: Energy prices

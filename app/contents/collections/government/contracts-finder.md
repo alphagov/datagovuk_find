@@ -1,6 +1,5 @@
 ---
 title: Contracts finder
-collection: Government
 websites:
   - url: https://www.contractsfinder.service.gov.uk/Search
     link-text: Contracts finder

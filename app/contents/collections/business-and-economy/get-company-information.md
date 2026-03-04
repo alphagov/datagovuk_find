@@ -1,6 +1,5 @@
 ---
 title: Get company information
-collection: Business and economy
 websites:
   - url: https://find-and-update.company-information.service.gov.uk/
     link-text: Get company information

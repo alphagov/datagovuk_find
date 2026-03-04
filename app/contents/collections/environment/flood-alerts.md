@@ -1,6 +1,5 @@
 ---
 title: Flood alerts
-collection: Environment
 websites:
   - url: https://check-for-flooding.service.gov.uk/alerts-and-warnings
     link-text: Flood alerts and warnings

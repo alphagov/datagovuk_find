@@ -1,6 +1,5 @@
 ---
 title: Road safety
-collection: Transport
 websites:
   - url: https://www.gov.uk/government/statistical-data-sets/road-safety-open-data
     link-text: Road safety data

@@ -1,6 +1,5 @@
 ---
 title: Get charity information
-collection: Business and economy
 websites:
   - url: https://register-of-charities.charitycommission.gov.uk/en/charity-search
     link-text: Get charity information

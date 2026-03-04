@@ -1,6 +1,5 @@
 ---
 title: Early years and childcare inspections and outcomes
-collection: People
 websites:
   - url: https://www.gov.uk/government/collections/early-years-and-childcare-statistics
     link-text: Childcare provider statistics

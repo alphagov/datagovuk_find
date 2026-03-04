@@ -1,6 +1,5 @@
 ---
 title: Fish and ecology
-collection: Environment
 websites:
   - url: https://environment.data.gov.uk/ecology/explorer/
     link-text: Fish and ecology data

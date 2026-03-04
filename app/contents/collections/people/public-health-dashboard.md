@@ -1,6 +1,5 @@
 ---
 title: Public health dashboard
-collection: People
 websites:
   - url: https://ukhsa-dashboard.data.gov.uk/
     link-text: UKHSA data dashboard

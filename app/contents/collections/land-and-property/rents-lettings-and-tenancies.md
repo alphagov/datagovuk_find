@@ -1,6 +1,5 @@
 ---
 title: Rents, lettings and tenancies
-collection: Land and property
 websites:
   - url: https://www.gov.uk/government/statistical-data-sets/live-tables-on-rents-lettings-and-tenancies
     link-text: Rents, lettings and tenancies

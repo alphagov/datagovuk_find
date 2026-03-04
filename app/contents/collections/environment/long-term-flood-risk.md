@@ -1,6 +1,5 @@
 ---
 title: Long term flood risk
-collection: Environment
 websites:
   - url: https://www.gov.uk/check-long-term-flood-risk
     link-text: Flood risk in England

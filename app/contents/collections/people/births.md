@@ -1,6 +1,5 @@
 ---
 title: Births
-collection: People
 websites:
   - url: https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths/bulletins/birthsummarytablesenglandandwales/2024refreshedpopulations
     link-text: Get birth data

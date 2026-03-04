@@ -1,6 +1,5 @@
 ---
 title: Public registers
-collection: Environment
 websites:
   - url: https://environment.data.gov.uk/public-register/view/index
     link-text: Public registers

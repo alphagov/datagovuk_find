@@ -1,6 +1,5 @@
 ---
 title: Deprivation
-collection: People
 websites:
   - url: https://deprivation.communities.gov.uk/
     link-text: Deprivation in England

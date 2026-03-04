@@ -1,6 +1,5 @@
 ---
 title: Food hygiene ratings
-collection: Business and economy
 websites:
   - url: https://ratings.food.gov.uk/
     link-text: Food hygiene ratings

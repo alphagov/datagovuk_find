@@ -1,6 +1,5 @@
 ---
 title: MOT results
-collection: Transport
 websites:
   - url: https://www.gov.uk/government/statistical-data-sets/mot-testing-data-for-great-britain
     link-text: MOT test results

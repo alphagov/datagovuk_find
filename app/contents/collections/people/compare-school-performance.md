@@ -1,6 +1,5 @@
 ---
 title: Compare school performance
-collection: People
 websites:
   - url: https://www.compare-school-performance.service.gov.uk/
     link-text: Compare school performance

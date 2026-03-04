@@ -1,6 +1,5 @@
 ---
 title: Local government finance
-collection: Government
 websites:
   - url: https://www.gov.uk/government/statistical-data-sets/live-tables-on-local-government-finance
     link-text: Local government finance

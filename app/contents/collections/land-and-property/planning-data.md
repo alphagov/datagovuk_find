@@ -1,6 +1,5 @@
 ---
 title: Planning data
-collection: Land and property
 websites:
   - url: https://www.planning.data.gov.uk
     link-text: Planning and housing data

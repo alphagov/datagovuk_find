@@ -1,6 +1,5 @@
 ---
 title: Trade tariffs
-collection: Business and economy
 websites:
   - url: https://www.gov.uk/trade-tariff
     link-text: Trade tariffs

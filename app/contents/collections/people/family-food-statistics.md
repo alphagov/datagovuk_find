@@ -1,6 +1,5 @@
 ---
 title: Family food statistics
-collection: People
 websites:
   - url: https://www.gov.uk/government/collections/family-food-statistics
     link-text: Family Food (2011 to present)
