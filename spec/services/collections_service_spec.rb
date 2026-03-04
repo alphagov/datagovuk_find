@@ -76,11 +76,15 @@ RSpec.describe CollectionsService, type: :service do
     end
   end
 
-  describe "#side_navigations" do
+  describe "#collection_topics" do
     it "returns side navigations for a collection" do
       service = CollectionsService.new(collection)
 
-      expect(service.side_navigations).to include(topic)
+      expect(service.collection_topics).to include({
+        url: "/collections/#{collection}/#{topic}",
+        title: "Get charity information",
+        selected: false,
+      })
     end
   end
 
