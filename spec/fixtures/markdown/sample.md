@@ -1,6 +1,5 @@
 ---
 title: Sample Title
-collection: Sample Collection
 websites:
   - url: https://example.com
     link-text: Example
@@ -11,8 +10,6 @@ dataset:
 page-last-updated: "2024-06-01"
 visualisation_data:
 contact:
-name: John Doe
-email: test@example.com
 status: for-publication
 ---
 ## Sample Heading
