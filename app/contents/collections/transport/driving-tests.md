@@ -1,6 +1,5 @@
 ---
 title: Driving tests
-collection: Transport
 websites:
   - url: https://www.gov.uk/government/collections/driving-tests-and-instructors-statistics
     link-text: Driving tests data

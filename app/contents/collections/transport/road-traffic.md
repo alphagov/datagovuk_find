@@ -1,6 +1,5 @@
 ---
 title: Road traffic
-collection: Transport
 websites:
   - url: https://www.gov.uk/government/collections/road-traffic-statistics
     link-text:

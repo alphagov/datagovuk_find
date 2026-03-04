@@ -1,6 +1,5 @@
 ---
 title: Museum and gallery visits
-collection: People
 websites:
   - url: https://www.gov.uk/government/statistical-data-sets/museums-and-galleries-monthly-visits
     link-text: Museum and gallery visits (monthly)

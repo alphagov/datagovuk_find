@@ -1,6 +1,5 @@
 ---
 title: Inflation
-collection: Business and economy
 websites:
   - url: https://www.ons.gov.uk/economy/inflationandpriceindices
     link-text: Inflation and price indices

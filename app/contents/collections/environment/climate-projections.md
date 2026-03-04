@@ -1,6 +1,5 @@
 ---
 title: Climate projections
-collection: Environment
 websites:
   - url: https://www.metoffice.gov.uk/research/approach/collaboration/ukcp
     link-text: Climate projections

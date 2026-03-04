@@ -1,6 +1,5 @@
 ---
 title: Deaths
-collection: People
 websites:
   - url: https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/bulletins/deathsregistrationsummarytables/2024
     link-text: Get deaths data

@@ -1,6 +1,5 @@
 ---
 title: Fire statistics
-collection: Land and property
 websites:
   - url: https://www.gov.uk/government/statistical-data-sets/fire-statistics-data-tables
     link-text: Fire statistics

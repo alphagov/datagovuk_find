@@ -1,6 +1,5 @@
 ---
 title: State-funded schools inspections and outcomes
-collection: People
 websites:
   - url: https://www.gov.uk/government/collections/maintained-schools-and-academies-inspections-and-outcomes-official-statistics
     link-text: Schools statistics

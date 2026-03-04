@@ -1,6 +1,5 @@
 ---
 title: Property price paid
-collection: Land and property
 websites:
   - url: https://landregistry.data.gov.uk/app/ppd
     link-text: Search the property price paid dataset

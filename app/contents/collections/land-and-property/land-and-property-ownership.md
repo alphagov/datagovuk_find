@@ -1,6 +1,5 @@
 ---
 title: Land and property ownership
-collection: Land and property
 websites:
   - url: https://www.gov.uk/search-property-information-land-registry
     link-text: HM Land Registry

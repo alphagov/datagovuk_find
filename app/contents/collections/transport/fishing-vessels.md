@@ -1,6 +1,5 @@
 ---
 title: Fishing vessels
-collection: Transport
 websites:
   - url: https://www.gov.uk/government/collections/uk-vessel-lists
     link-text: Fishing vessel statistics

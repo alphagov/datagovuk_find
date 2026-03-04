@@ -1,6 +1,5 @@
 ---
 title: Agricultural commodity prices
-collection: Business and economy
 websites: 
   - url: https://www.gov.uk/government/collections/commodity-prices
     link-text: Agricultural commodity prices

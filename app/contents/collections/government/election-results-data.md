@@ -1,6 +1,5 @@
 ---
 title: Election results data
-collection: Government
 websites:
   - url: https://electionresults.parliament.uk/
     link-text: Election results data

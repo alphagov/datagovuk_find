@@ -1,6 +1,5 @@
 ---
 title: Fuel and oil prices
-collection: Business and economy
 websites:
   - url: https://www.gov.uk/government/statistical-data-sets/oil-and-petroleum-products-monthly-statistics
     link-text: Fuel and oil prices

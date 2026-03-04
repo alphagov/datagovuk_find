@@ -1,6 +1,5 @@
 ---
 title: Social mobility
-collection: People
 websites:
   - url: https://social-mobility.data.gov.uk/
     link-text: Social mobility data

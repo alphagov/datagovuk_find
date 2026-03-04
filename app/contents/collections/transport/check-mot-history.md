@@ -1,6 +1,5 @@
 ---
 title: Check MOT history
-collection: Transport
 websites:
   - url: https://www.gov.uk/check-mot-history
     link-text: Check MOT history

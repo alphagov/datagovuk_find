@@ -1,6 +1,5 @@
 ---
 title: Transparency data
-collection: Government
 websites:
   - url: https://www.gov.uk/search/transparency-and-freedom-of-information-releases?content_store_document_type=transparency
     link-text: Transparency data

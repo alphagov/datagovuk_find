@@ -1,6 +1,5 @@
 ---
 title: Dwelling stock (including vacancies)
-collection: Land and property
 websites:
   - url: https://www.gov.uk/government/statistical-data-sets/live-tables-on-dwelling-stock-including-vacants
     link-text: Dwelling stock data

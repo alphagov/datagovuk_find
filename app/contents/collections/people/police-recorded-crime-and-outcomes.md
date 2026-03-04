@@ -1,6 +1,5 @@
 ---
 title: Police recorded crime and outcomes
-collection: People
 websites:
   - url: https://www.gov.uk/government/statistical-data-sets/police-recorded-crime-and-outcomes-open-data-tables
     link-text: 

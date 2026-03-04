@@ -1,6 +1,5 @@
 ---
 title: Courts management
-collection: People
 websites:
   - url: https://www.gov.uk/government/collections/hmcts-management-information
     link-text: Courts management information

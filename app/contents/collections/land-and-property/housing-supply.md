@@ -1,6 +1,5 @@
 ---
 title: Housing supply
-collection: Land and property
 websites:
   - url: https://www.gov.uk/government/statistical-data-sets/live-tables-on-house-building
     link-text: Housing supply data

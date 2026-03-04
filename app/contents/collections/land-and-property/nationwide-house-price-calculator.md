@@ -1,6 +1,5 @@
 ---
 title: Nationwide house price calculator
-collection: Land and property
 websites:
   - url: https://www.nationwide.co.uk/house-price-index/
     link-text: House price calculator

@@ -1,6 +1,5 @@
 ---
 title: Vocational qualifications
-collection: People
 websites:
   - url: https://www.gov.uk/government/collections/statistics-vocational-qualifications
     link-text: Vocational qualifications

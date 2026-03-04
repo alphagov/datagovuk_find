@@ -1,6 +1,5 @@
 ---
 title: Service assessment reports
-collection: Government
 websites:
   - url: https://www.gov.uk/service-standard-reports
     link-text: Service assessment reports

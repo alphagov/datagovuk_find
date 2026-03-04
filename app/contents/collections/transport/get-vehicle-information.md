@@ -1,6 +1,5 @@
 ---
 title: Get vehicle information
-collection: Transport
 websites:
   - url: https://www.gov.uk/get-vehicle-information-from-dvla
     link-text: Get vehicle information

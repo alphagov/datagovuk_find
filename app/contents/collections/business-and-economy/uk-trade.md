@@ -1,6 +1,5 @@
 ---
 title: UK trade
-collection: Business and economy
 websites:
   - url: https://www.gov.uk/government/statistics/uk-trade-in-numbers/uk-trade-in-numbers-web-version
     link-text: UK trade statistics

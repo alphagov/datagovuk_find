@@ -1,6 +1,5 @@
 ---
 title: Homelessness
-collection: People
 websites: 
   - url: https://www.gov.uk/government/statistical-data-sets/live-tables-on-homelessness
     link-text: Homelessness data
