@@ -6,15 +6,15 @@ RSpec.describe CollectionsService, type: :service do
   end
 
   let(:collection) { "business-and-economy" }
-  let(:topic) { "get-charity-information" }
-  let(:first_topic) { "agricultural-commodity-prices" }
+  let(:page) { "get-charity-information" }
+  let(:first_page) { "agricultural-commodity-prices" }
 
   describe "#initialize" do
-    it "sets the collection and topic_name attributes" do
-      service = CollectionsService.new(collection, topic)
+    it "sets the collection and page_name attributes" do
+      service = CollectionsService.new(collection, page)
 
       expect(service.collection).to eq(collection)
-      expect(service.topic_name).to eq(topic)
+      expect(service.page_name).to eq(page)
     end
   end
 
@@ -34,74 +34,74 @@ RSpec.describe CollectionsService, type: :service do
   describe "#view_template" do
     it "returns the view template path for the collection" do
       service = CollectionsService.new(collection)
-      expect(service.view_template_path).to eq("generated/collections/#{collection}/#{first_topic}")
+      expect(service.view_template_path).to eq("generated/collections/#{collection}/#{first_page}")
     end
   end
 
-  describe "#valid_collection_topic?" do
-    context "when both collection and topic exist" do
+  describe "#valid_collection_page?" do
+    context "when both collection and page exist" do
       it "returns true" do
-        service = CollectionsService.new(collection, topic)
-        expect(service.valid_collection_topic?).to be true
+        service = CollectionsService.new(collection, page)
+        expect(service.valid_collection_page?).to be true
       end
     end
 
-    context "when only collection exists and topic is nil" do
+    context "when only collection exists and page is nil" do
       it "returns true" do
         service = CollectionsService.new(collection)
-        expect(service.valid_collection_topic?).to be true
+        expect(service.valid_collection_page?).to be true
       end
     end
 
-    context "when only collection exists and topic is blank" do
+    context "when only collection exists and page is blank" do
       it "returns true" do
         service = CollectionsService.new(collection, "")
-        expect(service.valid_collection_topic?).to be true
+        expect(service.valid_collection_page?).to be true
       end
     end
 
     context "when collection does not exist" do
       it "returns false" do
-        service = CollectionsService.new("non-existing-collection", topic)
-        expect(service.valid_collection_topic?).to be false
+        service = CollectionsService.new("non-existing-collection", page)
+        expect(service.valid_collection_page?).to be false
       end
     end
 
-    context "when topic does not exist" do
+    context "when page does not exist" do
       it "returns false" do
-        service = CollectionsService.new(collection, "non-existing-topic")
+        service = CollectionsService.new(collection, "non-existing-page")
 
-        expect(service.valid_collection_topic?).to be false
+        expect(service.valid_collection_page?).to be false
       end
     end
   end
 
-  describe "#collection_topics" do
+  describe "#collection_pages" do
     it "returns side navigations for a collection" do
       service = CollectionsService.new(collection)
 
-      expect(service.collection_topics).to include({
-        url: "/collections/#{collection}/#{topic}",
+      expect(service.collection_pages).to include({
+        url: "/collections/#{collection}/#{page}",
         title: "Get charity information",
         selected: false,
       })
     end
   end
 
-  describe "#topic" do
-    context "when topic is provided" do
-      it "returns topic" do
-        service = CollectionsService.new(collection, topic)
+  describe "#page" do
+    context "when page is provided" do
+      it "returns page" do
+        service = CollectionsService.new(collection, page)
 
-        expect(service.topic).to eq(topic)
+        expect(service.page).to eq(page)
       end
     end
 
-    context "when topic is not provided" do
-      it "returns the first topic" do
+    context "when page is not provided" do
+      it "returns the first page" do
         service = CollectionsService.new(collection)
 
-        expect(service.topic).to eq(first_topic)
+        expect(service.page).to eq(first_page)
       end
     end
   end

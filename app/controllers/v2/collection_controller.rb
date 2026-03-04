@@ -1,31 +1,31 @@
 module V2
   class CollectionController < ApplicationController
-    def collection_topic
-      unless collections_service.valid_collection_topic?
+    def collection_page
+      unless collections_service.valid_collection_page?
         render_not_found && return
       end
 
       @collections = collections_service.collections_slugs
       @collection = collections_service.collection
-      @collection_topics = collections_service.collection_topics
-      @current_topic = collections_service.topic
+      @collection_pages = collections_service.collection_pages
+      @current_page = collections_service.page
       @view_template = collections_service.view_template_path
 
       render template: "v2/collection/collection", layout: "v2/layouts/application"
     end
 
     def collection
-      unless collections_service.valid_collection_topic?
+      unless collections_service.valid_collection_page?
         render_not_found && return
       end
 
-      redirect_to collection_topic_path(collection: params[:collection], topic: collections_service.priority_topic), status: :found and return
+      redirect_to collection_page_path(collection: params[:collection], page: collections_service.priority_page), status: :found and return
     end
 
   private
 
     def collections_service
-      @collections_service ||= CollectionsService.new(params[:collection], params[:topic])
+      @collections_service ||= CollectionsService.new(params[:collection], params[:page])
     end
   end
 end
