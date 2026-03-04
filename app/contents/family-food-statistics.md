@@ -8,8 +8,8 @@ websites:
     link-text: Family Food (2002 to 2010) National Archive
 api:
 dataset:
-  - url: https://www.gov.uk/government/statistics/family-food-open-data
-    link-text: Family Food (1974 to 2000) dataset
+  url: https://www.gov.uk/government/statistics/family-food-open-data
+  link-text: Family Food (1974 to 2000) dataset
 page-last-updated:
 visualisation-data:
 contact:
