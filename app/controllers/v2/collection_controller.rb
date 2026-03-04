@@ -5,7 +5,6 @@ module V2
         render_not_found && return
       end
 
-      @collections = collections_service.collections_slugs
       @collection = collections_service.collection
       @collection_pages = collections_service.collection_pages
       @current_page = collections_service.page
