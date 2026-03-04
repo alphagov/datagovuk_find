@@ -18,6 +18,7 @@ module V2
       unless collections_service.valid_collection_topic?
         render_not_found && return
       end
+
       redirect_to collection_topic_path(collection: params[:collection], topic: collections_service.first_topic), status: :found and return
     end
 
