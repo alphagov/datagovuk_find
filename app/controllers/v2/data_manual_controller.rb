@@ -5,7 +5,6 @@ module V2
   end
 
   class DataManualController < ApplicationController
-
     rescue_from DataManualContentNotFound, with: :render_not_found
 
     def home
@@ -22,7 +21,7 @@ module V2
       }
     end
 
-    private
+  private
 
     def render_content
       # The sanitizer is a double protection against attempts to render markdown files
@@ -40,8 +39,7 @@ module V2
       else
         raise DataManualContentNotFound
       end
-      rendered_content = Dgu::Markdown.render(markdown).html_safe
-      return rendered_content
+      Dgu::Markdown.render(markdown).html_safe
     end
 
     def data_manual_pages
@@ -51,7 +49,7 @@ module V2
           data_manual_item[:selected] = true
         end
       end
-      return data_manual_pages
+      data_manual_pages
     end
   end
 end
