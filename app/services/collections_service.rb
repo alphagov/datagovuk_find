@@ -13,7 +13,7 @@ class CollectionsService
   end
 
   def topic
-    @topic_name.presence || first_topic
+    @topic_name.presence || priority_topic
   end
 
   def collection_topics
@@ -42,8 +42,15 @@ class CollectionsService
     "generated/collections/#{collection}/#{topic}"
   end
 
-  def first_topic
-    @first_topic ||= topics.first
+  def priority_topic
+    priority_topics = {
+      "business-and-economy": "agricultural-commodity-prices",
+      "government": "election-results-data",
+      "land-and-property": "dwelling-stock",
+      "people": "deprivation",
+      "transport": "driving-tests",
+    }.with_indifferent_access
+    @priority_topic ||= priority_topics.fetch(@collection, topics.first)
   end
 
 private

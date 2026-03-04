@@ -19,7 +19,7 @@ module V2
         render_not_found && return
       end
 
-      redirect_to collection_topic_path(collection: params[:collection], topic: collections_service.first_topic), status: :found and return
+      redirect_to collection_topic_path(collection: params[:collection], topic: collections_service.priority_topic), status: :found and return
     end
 
   private
