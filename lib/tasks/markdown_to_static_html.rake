@@ -6,7 +6,8 @@ namespace :markdown do
     markdown_input_glob = Rails.configuration.x.markdown_collections_location_glob
     markdown_output_dir = Rails.configuration.x.markdown_collections_output_location
 
-    markdowns = Dir.glob(Rails.root.join(markdown_input_glob).to_s)
+    input_root = Pathname.new(Rails.root.join(markdown_input_dir.split("*").first)).cleanpath
+    markdowns = Dir.glob(Rails.root.join(markdown_input_dir).to_s)
 
     output_directory = Rails.root.join(markdown_output_dir)
     FileUtils.mkdir_p(output_directory)
@@ -44,11 +45,9 @@ namespace :markdown do
       end
 
       path = Pathname.new(markdown_file)
-      collection = path.parent.basename.to_s
-      outfile_name = path.basename(".md").to_s
-      collection_dir = output_directory / collection
-      output_path = Pathname.new(collection_dir / "#{outfile_name}.html.erb")
-      FileUtils.mkdir_p(collection_dir)
+      relative_path = path.relative_path_from(input_root).sub_ext(".html.erb")
+      output_path = output_directory / relative_path
+      FileUtils.mkdir_p(output_path.dirname)
 
       puts("Render #{path.basename} to => #{output_path}")
 
