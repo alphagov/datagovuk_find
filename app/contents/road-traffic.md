@@ -13,7 +13,7 @@ dataset:
 page-last-updated:
 visualisation-data:
 contact:
-status: draft
+status: for-publication
 ---
 
 The road traffic statistics provide estimates of the vehicle miles travelled each year in England, Scotland and Wales by vehicle type, road category and region. The Department for Transport (DfT) owns this data and publishes quarterly and annual estimates. 
