@@ -1,6 +1,6 @@
 <% content_for :page_title, "Data manual" %>
 
-<div class="govuk-width-container govuk-!-margin-bottom-6">
+<div class="govuk-width-container datagovuk-width-container govuk-!-margin-bottom-6">
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-one-third govuk-!-margin-bottom-6">
       <%= render partial: "v2/components/section_navigation", locals: {
@@ -28,8 +28,10 @@
       </div>
 
     </div>
-    <div class="govuk-grid-column-two-thirds datagovuk-data-manual-content">
-      <%= rendered_content %>
+    <div class="govuk-grid-column-two-thirds">
+      <div class="datagovuk-data-manual-content govuk-!-margin-bottom-9">
+        <%= rendered_content %>
+      </div>
       <%= render partial: "v2/components/feedback" %>
     </div>
   </div>
