@@ -25,9 +25,7 @@ RSpec.describe Dgu::Markdown do
       MD
 
       expected_html = <<~HTML
-        <p class="govuk-body-m datagovuk-body"><a href="https://www.test.com" class="govuk-link datagovuk-link datagovuk-link--secondary">
-          Test
-        </a>
+        <p class="govuk-body-m datagovuk-body"><a href="https://www.test.com" class="govuk-link datagovuk-link datagovuk-link--secondary">Test</a>
         </p>
       HTML
 
