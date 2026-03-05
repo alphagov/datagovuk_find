@@ -13,3 +13,8 @@
 //= require govuk_publishing_components/dependencies
 //= require govuk_publishing_components/all_components
 //= require v2/header
+//= require chartkick
+//= require Chart.bundle
+//= require chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels
+
+Chart.register(ChartDataLabels);

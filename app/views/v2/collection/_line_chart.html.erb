@@ -1,0 +1,77 @@
+<section class="govuk-section datagovuk-section">
+  <div class="govuk-width-container">
+    <main class="govuk-main-wrapper">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+          <h2 class="govuk-heading-s datagovuk-heading-s govuk-!-margin-bottom-2"><%= local_assigns[:title] %></h2>
+        </div>
+      </div>
+    </main>
+  </div>
+
+
+  <div class="govuk-grid-row">
+<%= line_chart [{
+    name: local_assigns[:subtitle],
+    data: local_assigns[:data],
+    dataset: {
+        pointRadius: local_assigns[:pointRadius],
+        pointStyle: "rect",
+        pointHoverRadius: local_assigns[:pointHoverRadius],
+        datalabels: {
+            anchor: 'end',
+            align: 'top',
+            color: '#000',
+            font: {
+                size: 10
+            },
+        }
+    }
+    }],
+    colors: ["#C27A9A"],
+    curve: true,
+    legend: "bottom",
+    prefix: local_assigns[:prefix],
+    suffix: local_assigns[:suffix],
+    min: local_assigns[:min],
+    max: local_assigns[:max],
+    xtitle: local_assigns[:xtitle],
+    ytitle: local_assigns[:ytitle],
+    library: {
+        elements: {
+            point: {
+                radius: local_assigns[:elements_point_radius],
+            }
+        },
+        scales: {
+            y: {
+                ticks: {
+                    stepSize: local_assigns[:stepSize],
+                    maxTicksLimit: local_assigns[:limit],
+                    font: {
+                        size: 16
+                    }
+                }
+            },
+            x: {
+                ticks: {
+                    font: {
+                        size: 16
+                    }
+                }
+            }
+        },
+        plugins: {
+            datalabels: {
+                display: false
+            },
+        legend: {
+            labels: {
+            font: { size: 20 }
+            }
+        }
+        }
+    }
+%>
+  </div>
+</section>

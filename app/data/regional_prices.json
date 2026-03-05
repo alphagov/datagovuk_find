@@ -1,0 +1,8321 @@
+[
+  {
+    "name": "England",
+    "data": [
+      {
+        "Date": "1968-04-01",
+        "Average_Price": 3218.0
+      },
+      {
+        "Date": "1968-05-01",
+        "Average_Price": 3218.0
+      },
+      {
+        "Date": "1968-06-01",
+        "Average_Price": 3218.0
+      },
+      {
+        "Date": "1968-07-01",
+        "Average_Price": 3327.0
+      },
+      {
+        "Date": "1968-08-01",
+        "Average_Price": 3327.0
+      },
+      {
+        "Date": "1968-09-01",
+        "Average_Price": 3327.0
+      },
+      {
+        "Date": "1968-10-01",
+        "Average_Price": 3309.0
+      },
+      {
+        "Date": "1968-11-01",
+        "Average_Price": 3309.0
+      },
+      {
+        "Date": "1968-12-01",
+        "Average_Price": 3309.0
+      },
+      {
+        "Date": "1969-01-01",
+        "Average_Price": 3364.0
+      },
+      {
+        "Date": "1969-02-01",
+        "Average_Price": 3364.0
+      },
+      {
+        "Date": "1969-03-01",
+        "Average_Price": 3364.0
+      },
+      {
+        "Date": "1969-04-01",
+        "Average_Price": 3419.0
+      },
+      {
+        "Date": "1969-05-01",
+        "Average_Price": 3419.0
+      },
+      {
+        "Date": "1969-06-01",
+        "Average_Price": 3419.0
+      },
+      {
+        "Date": "1969-07-01",
+        "Average_Price": 3474.0
+      },
+      {
+        "Date": "1969-08-01",
+        "Average_Price": 3474.0
+      },
+      {
+        "Date": "1969-09-01",
+        "Average_Price": 3474.0
+      },
+      {
+        "Date": "1969-10-01",
+        "Average_Price": 3492.0
+      },
+      {
+        "Date": "1969-11-01",
+        "Average_Price": 3492.0
+      },
+      {
+        "Date": "1969-12-01",
+        "Average_Price": 3492.0
+      },
+      {
+        "Date": "1970-01-01",
+        "Average_Price": 3510.0
+      },
+      {
+        "Date": "1970-02-01",
+        "Average_Price": 3510.0
+      },
+      {
+        "Date": "1970-03-01",
+        "Average_Price": 3510.0
+      },
+      {
+        "Date": "1970-04-01",
+        "Average_Price": 3565.0
+      },
+      {
+        "Date": "1970-05-01",
+        "Average_Price": 3565.0
+      },
+      {
+        "Date": "1970-06-01",
+        "Average_Price": 3565.0
+      },
+      {
+        "Date": "1970-07-01",
+        "Average_Price": 3730.0
+      },
+      {
+        "Date": "1970-08-01",
+        "Average_Price": 3730.0
+      },
+      {
+        "Date": "1970-09-01",
+        "Average_Price": 3730.0
+      },
+      {
+        "Date": "1970-10-01",
+        "Average_Price": 3730.0
+      },
+      {
+        "Date": "1970-11-01",
+        "Average_Price": 3730.0
+      },
+      {
+        "Date": "1970-12-01",
+        "Average_Price": 3730.0
+      },
+      {
+        "Date": "1971-01-01",
+        "Average_Price": 3839.0
+      },
+      {
+        "Date": "1971-02-01",
+        "Average_Price": 3839.0
+      },
+      {
+        "Date": "1971-03-01",
+        "Average_Price": 3839.0
+      },
+      {
+        "Date": "1971-04-01",
+        "Average_Price": 3949.0
+      },
+      {
+        "Date": "1971-05-01",
+        "Average_Price": 3949.0
+      },
+      {
+        "Date": "1971-06-01",
+        "Average_Price": 3949.0
+      },
+      {
+        "Date": "1971-07-01",
+        "Average_Price": 4168.0
+      },
+      {
+        "Date": "1971-08-01",
+        "Average_Price": 4168.0
+      },
+      {
+        "Date": "1971-09-01",
+        "Average_Price": 4168.0
+      },
+      {
+        "Date": "1971-10-01",
+        "Average_Price": 4388.0
+      },
+      {
+        "Date": "1971-11-01",
+        "Average_Price": 4388.0
+      },
+      {
+        "Date": "1971-12-01",
+        "Average_Price": 4388.0
+      },
+      {
+        "Date": "1972-01-01",
+        "Average_Price": 4644.0
+      },
+      {
+        "Date": "1972-02-01",
+        "Average_Price": 4644.0
+      },
+      {
+        "Date": "1972-03-01",
+        "Average_Price": 4644.0
+      },
+      {
+        "Date": "1972-04-01",
+        "Average_Price": 5119.0
+      },
+      {
+        "Date": "1972-05-01",
+        "Average_Price": 5119.0
+      },
+      {
+        "Date": "1972-06-01",
+        "Average_Price": 5119.0
+      },
+      {
+        "Date": "1972-07-01",
+        "Average_Price": 5905.0
+      },
+      {
+        "Date": "1972-08-01",
+        "Average_Price": 5905.0
+      },
+      {
+        "Date": "1972-09-01",
+        "Average_Price": 5905.0
+      },
+      {
+        "Date": "1972-10-01",
+        "Average_Price": 6563.0
+      },
+      {
+        "Date": "1972-11-01",
+        "Average_Price": 6563.0
+      },
+      {
+        "Date": "1972-12-01",
+        "Average_Price": 6563.0
+      },
+      {
+        "Date": "1973-01-01",
+        "Average_Price": 7075.0
+      },
+      {
+        "Date": "1973-02-01",
+        "Average_Price": 7075.0
+      },
+      {
+        "Date": "1973-03-01",
+        "Average_Price": 7075.0
+      },
+      {
+        "Date": "1973-04-01",
+        "Average_Price": 7423.0
+      },
+      {
+        "Date": "1973-05-01",
+        "Average_Price": 7423.0
+      },
+      {
+        "Date": "1973-06-01",
+        "Average_Price": 7423.0
+      },
+      {
+        "Date": "1973-07-01",
+        "Average_Price": 7898.0
+      },
+      {
+        "Date": "1973-08-01",
+        "Average_Price": 7898.0
+      },
+      {
+        "Date": "1973-09-01",
+        "Average_Price": 7898.0
+      },
+      {
+        "Date": "1973-10-01",
+        "Average_Price": 7971.0
+      },
+      {
+        "Date": "1973-11-01",
+        "Average_Price": 7971.0
+      },
+      {
+        "Date": "1973-12-01",
+        "Average_Price": 7971.0
+      },
+      {
+        "Date": "1974-01-01",
+        "Average_Price": 8081.0
+      },
+      {
+        "Date": "1974-02-01",
+        "Average_Price": 8081.0
+      },
+      {
+        "Date": "1974-03-01",
+        "Average_Price": 8081.0
+      },
+      {
+        "Date": "1974-04-01",
+        "Average_Price": 8081.0
+      },
+      {
+        "Date": "1974-05-01",
+        "Average_Price": 8081.0
+      },
+      {
+        "Date": "1974-06-01",
+        "Average_Price": 8081.0
+      },
+      {
+        "Date": "1974-07-01",
+        "Average_Price": 8136.0
+      },
+      {
+        "Date": "1974-08-01",
+        "Average_Price": 8136.0
+      },
+      {
+        "Date": "1974-09-01",
+        "Average_Price": 8136.0
+      },
+      {
+        "Date": "1974-10-01",
+        "Average_Price": 8245.0
+      },
+      {
+        "Date": "1974-11-01",
+        "Average_Price": 8245.0
+      },
+      {
+        "Date": "1974-12-01",
+        "Average_Price": 8245.0
+      },
+      {
+        "Date": "1975-01-01",
+        "Average_Price": 8264.0
+      },
+      {
+        "Date": "1975-02-01",
+        "Average_Price": 8264.0
+      },
+      {
+        "Date": "1975-03-01",
+        "Average_Price": 8264.0
+      },
+      {
+        "Date": "1975-04-01",
+        "Average_Price": 8501.0
+      },
+      {
+        "Date": "1975-05-01",
+        "Average_Price": 8501.0
+      },
+      {
+        "Date": "1975-06-01",
+        "Average_Price": 8501.0
+      },
+      {
+        "Date": "1975-07-01",
+        "Average_Price": 8702.0
+      },
+      {
+        "Date": "1975-08-01",
+        "Average_Price": 8702.0
+      },
+      {
+        "Date": "1975-09-01",
+        "Average_Price": 8702.0
+      },
+      {
+        "Date": "1975-10-01",
+        "Average_Price": 8812.0
+      },
+      {
+        "Date": "1975-11-01",
+        "Average_Price": 8812.0
+      },
+      {
+        "Date": "1975-12-01",
+        "Average_Price": 8812.0
+      },
+      {
+        "Date": "1976-01-01",
+        "Average_Price": 8958.0
+      },
+      {
+        "Date": "1976-02-01",
+        "Average_Price": 8958.0
+      },
+      {
+        "Date": "1976-03-01",
+        "Average_Price": 8958.0
+      },
+      {
+        "Date": "1976-04-01",
+        "Average_Price": 9178.0
+      },
+      {
+        "Date": "1976-05-01",
+        "Average_Price": 9178.0
+      },
+      {
+        "Date": "1976-06-01",
+        "Average_Price": 9178.0
+      },
+      {
+        "Date": "1976-07-01",
+        "Average_Price": 9379.0
+      },
+      {
+        "Date": "1976-08-01",
+        "Average_Price": 9379.0
+      },
+      {
+        "Date": "1976-09-01",
+        "Average_Price": 9379.0
+      },
+      {
+        "Date": "1976-10-01",
+        "Average_Price": 9543.0
+      },
+      {
+        "Date": "1976-11-01",
+        "Average_Price": 9543.0
+      },
+      {
+        "Date": "1976-12-01",
+        "Average_Price": 9543.0
+      },
+      {
+        "Date": "1977-01-01",
+        "Average_Price": 9617.0
+      },
+      {
+        "Date": "1977-02-01",
+        "Average_Price": 9617.0
+      },
+      {
+        "Date": "1977-03-01",
+        "Average_Price": 9617.0
+      },
+      {
+        "Date": "1977-04-01",
+        "Average_Price": 9745.0
+      },
+      {
+        "Date": "1977-05-01",
+        "Average_Price": 9745.0
+      },
+      {
+        "Date": "1977-06-01",
+        "Average_Price": 9745.0
+      },
+      {
+        "Date": "1977-07-01",
+        "Average_Price": 10037.0
+      },
+      {
+        "Date": "1977-08-01",
+        "Average_Price": 10037.0
+      },
+      {
+        "Date": "1977-09-01",
+        "Average_Price": 10037.0
+      },
+      {
+        "Date": "1977-10-01",
+        "Average_Price": 10348.0
+      },
+      {
+        "Date": "1977-11-01",
+        "Average_Price": 10348.0
+      },
+      {
+        "Date": "1977-12-01",
+        "Average_Price": 10348.0
+      },
+      {
+        "Date": "1978-01-01",
+        "Average_Price": 10567.0
+      },
+      {
+        "Date": "1978-02-01",
+        "Average_Price": 10567.0
+      },
+      {
+        "Date": "1978-03-01",
+        "Average_Price": 10567.0
+      },
+      {
+        "Date": "1978-04-01",
+        "Average_Price": 11097.0
+      },
+      {
+        "Date": "1978-05-01",
+        "Average_Price": 11097.0
+      },
+      {
+        "Date": "1978-06-01",
+        "Average_Price": 11097.0
+      },
+      {
+        "Date": "1978-07-01",
+        "Average_Price": 11884.0
+      },
+      {
+        "Date": "1978-08-01",
+        "Average_Price": 11884.0
+      },
+      {
+        "Date": "1978-09-01",
+        "Average_Price": 11884.0
+      },
+      {
+        "Date": "1978-10-01",
+        "Average_Price": 12743.0
+      },
+      {
+        "Date": "1978-11-01",
+        "Average_Price": 12743.0
+      },
+      {
+        "Date": "1978-12-01",
+        "Average_Price": 12743.0
+      },
+      {
+        "Date": "1979-01-01",
+        "Average_Price": 13419.0
+      },
+      {
+        "Date": "1979-02-01",
+        "Average_Price": 13419.0
+      },
+      {
+        "Date": "1979-03-01",
+        "Average_Price": 13419.0
+      },
+      {
+        "Date": "1979-04-01",
+        "Average_Price": 14480.0
+      },
+      {
+        "Date": "1979-05-01",
+        "Average_Price": 14480.0
+      },
+      {
+        "Date": "1979-06-01",
+        "Average_Price": 14480.0
+      },
+      {
+        "Date": "1979-07-01",
+        "Average_Price": 15540.0
+      },
+      {
+        "Date": "1979-08-01",
+        "Average_Price": 15540.0
+      },
+      {
+        "Date": "1979-09-01",
+        "Average_Price": 15540.0
+      },
+      {
+        "Date": "1979-10-01",
+        "Average_Price": 16655.0
+      },
+      {
+        "Date": "1979-11-01",
+        "Average_Price": 16655.0
+      },
+      {
+        "Date": "1979-12-01",
+        "Average_Price": 16655.0
+      },
+      {
+        "Date": "1980-01-01",
+        "Average_Price": 17350.0
+      },
+      {
+        "Date": "1980-02-01",
+        "Average_Price": 17350.0
+      },
+      {
+        "Date": "1980-03-01",
+        "Average_Price": 17350.0
+      },
+      {
+        "Date": "1980-04-01",
+        "Average_Price": 18063.0
+      },
+      {
+        "Date": "1980-05-01",
+        "Average_Price": 18063.0
+      },
+      {
+        "Date": "1980-06-01",
+        "Average_Price": 18063.0
+      },
+      {
+        "Date": "1980-07-01",
+        "Average_Price": 18630.0
+      },
+      {
+        "Date": "1980-08-01",
+        "Average_Price": 18630.0
+      },
+      {
+        "Date": "1980-09-01",
+        "Average_Price": 18630.0
+      },
+      {
+        "Date": "1980-10-01",
+        "Average_Price": 18813.0
+      },
+      {
+        "Date": "1980-11-01",
+        "Average_Price": 18813.0
+      },
+      {
+        "Date": "1980-12-01",
+        "Average_Price": 18813.0
+      },
+      {
+        "Date": "1981-01-01",
+        "Average_Price": 18849.0
+      },
+      {
+        "Date": "1981-02-01",
+        "Average_Price": 18849.0
+      },
+      {
+        "Date": "1981-03-01",
+        "Average_Price": 18849.0
+      },
+      {
+        "Date": "1981-04-01",
+        "Average_Price": 19343.0
+      },
+      {
+        "Date": "1981-05-01",
+        "Average_Price": 19343.0
+      },
+      {
+        "Date": "1981-06-01",
+        "Average_Price": 19343.0
+      },
+      {
+        "Date": "1981-07-01",
+        "Average_Price": 19599.0
+      },
+      {
+        "Date": "1981-08-01",
+        "Average_Price": 19599.0
+      },
+      {
+        "Date": "1981-09-01",
+        "Average_Price": 19599.0
+      },
+      {
+        "Date": "1981-10-01",
+        "Average_Price": 19270.0
+      },
+      {
+        "Date": "1981-11-01",
+        "Average_Price": 19270.0
+      },
+      {
+        "Date": "1981-12-01",
+        "Average_Price": 19270.0
+      },
+      {
+        "Date": "1982-01-01",
+        "Average_Price": 18740.0
+      },
+      {
+        "Date": "1982-02-01",
+        "Average_Price": 18740.0
+      },
+      {
+        "Date": "1982-03-01",
+        "Average_Price": 18740.0
+      },
+      {
+        "Date": "1982-04-01",
+        "Average_Price": 19526.0
+      },
+      {
+        "Date": "1982-05-01",
+        "Average_Price": 19526.0
+      },
+      {
+        "Date": "1982-06-01",
+        "Average_Price": 19526.0
+      },
+      {
+        "Date": "1982-07-01",
+        "Average_Price": 20038.0
+      },
+      {
+        "Date": "1982-08-01",
+        "Average_Price": 20038.0
+      },
+      {
+        "Date": "1982-09-01",
+        "Average_Price": 20038.0
+      },
+      {
+        "Date": "1982-10-01",
+        "Average_Price": 20312.0
+      },
+      {
+        "Date": "1982-11-01",
+        "Average_Price": 20312.0
+      },
+      {
+        "Date": "1982-12-01",
+        "Average_Price": 20312.0
+      },
+      {
+        "Date": "1983-01-01",
+        "Average_Price": 21025.0
+      },
+      {
+        "Date": "1983-02-01",
+        "Average_Price": 21025.0
+      },
+      {
+        "Date": "1983-03-01",
+        "Average_Price": 21025.0
+      },
+      {
+        "Date": "1983-04-01",
+        "Average_Price": 21573.0
+      },
+      {
+        "Date": "1983-05-01",
+        "Average_Price": 21573.0
+      },
+      {
+        "Date": "1983-06-01",
+        "Average_Price": 21573.0
+      },
+      {
+        "Date": "1983-07-01",
+        "Average_Price": 22487.0
+      },
+      {
+        "Date": "1983-08-01",
+        "Average_Price": 22487.0
+      },
+      {
+        "Date": "1983-09-01",
+        "Average_Price": 22487.0
+      },
+      {
+        "Date": "1983-10-01",
+        "Average_Price": 22670.0
+      },
+      {
+        "Date": "1983-11-01",
+        "Average_Price": 22670.0
+      },
+      {
+        "Date": "1983-12-01",
+        "Average_Price": 22670.0
+      },
+      {
+        "Date": "1984-01-01",
+        "Average_Price": 23036.0
+      },
+      {
+        "Date": "1984-02-01",
+        "Average_Price": 23036.0
+      },
+      {
+        "Date": "1984-03-01",
+        "Average_Price": 23036.0
+      },
+      {
+        "Date": "1984-04-01",
+        "Average_Price": 23767.0
+      },
+      {
+        "Date": "1984-05-01",
+        "Average_Price": 23767.0
+      },
+      {
+        "Date": "1984-06-01",
+        "Average_Price": 23767.0
+      },
+      {
+        "Date": "1984-07-01",
+        "Average_Price": 24681.0
+      },
+      {
+        "Date": "1984-08-01",
+        "Average_Price": 24681.0
+      },
+      {
+        "Date": "1984-09-01",
+        "Average_Price": 24681.0
+      },
+      {
+        "Date": "1984-10-01",
+        "Average_Price": 25047.0
+      },
+      {
+        "Date": "1984-11-01",
+        "Average_Price": 25047.0
+      },
+      {
+        "Date": "1984-12-01",
+        "Average_Price": 25047.0
+      },
+      {
+        "Date": "1985-01-01",
+        "Average_Price": 25047.0
+      },
+      {
+        "Date": "1985-02-01",
+        "Average_Price": 25047.0
+      },
+      {
+        "Date": "1985-03-01",
+        "Average_Price": 25047.0
+      },
+      {
+        "Date": "1985-04-01",
+        "Average_Price": 25961.0
+      },
+      {
+        "Date": "1985-05-01",
+        "Average_Price": 25961.0
+      },
+      {
+        "Date": "1985-06-01",
+        "Average_Price": 25961.0
+      },
+      {
+        "Date": "1985-07-01",
+        "Average_Price": 26692.0
+      },
+      {
+        "Date": "1985-08-01",
+        "Average_Price": 26692.0
+      },
+      {
+        "Date": "1985-09-01",
+        "Average_Price": 26692.0
+      },
+      {
+        "Date": "1985-10-01",
+        "Average_Price": 27424.0
+      },
+      {
+        "Date": "1985-11-01",
+        "Average_Price": 27424.0
+      },
+      {
+        "Date": "1985-12-01",
+        "Average_Price": 27424.0
+      },
+      {
+        "Date": "1986-01-01",
+        "Average_Price": 28155.0
+      },
+      {
+        "Date": "1986-02-01",
+        "Average_Price": 28155.0
+      },
+      {
+        "Date": "1986-03-01",
+        "Average_Price": 28155.0
+      },
+      {
+        "Date": "1986-04-01",
+        "Average_Price": 29435.0
+      },
+      {
+        "Date": "1986-05-01",
+        "Average_Price": 29435.0
+      },
+      {
+        "Date": "1986-06-01",
+        "Average_Price": 29435.0
+      },
+      {
+        "Date": "1986-07-01",
+        "Average_Price": 30897.0
+      },
+      {
+        "Date": "1986-08-01",
+        "Average_Price": 30897.0
+      },
+      {
+        "Date": "1986-09-01",
+        "Average_Price": 30897.0
+      },
+      {
+        "Date": "1986-10-01",
+        "Average_Price": 31994.0
+      },
+      {
+        "Date": "1986-11-01",
+        "Average_Price": 31994.0
+      },
+      {
+        "Date": "1986-12-01",
+        "Average_Price": 31994.0
+      },
+      {
+        "Date": "1987-01-01",
+        "Average_Price": 32908.0
+      },
+      {
+        "Date": "1987-02-01",
+        "Average_Price": 32908.0
+      },
+      {
+        "Date": "1987-03-01",
+        "Average_Price": 32908.0
+      },
+      {
+        "Date": "1987-04-01",
+        "Average_Price": 34554.0
+      },
+      {
+        "Date": "1987-05-01",
+        "Average_Price": 34554.0
+      },
+      {
+        "Date": "1987-06-01",
+        "Average_Price": 34554.0
+      },
+      {
+        "Date": "1987-07-01",
+        "Average_Price": 36199.0
+      },
+      {
+        "Date": "1987-08-01",
+        "Average_Price": 36199.0
+      },
+      {
+        "Date": "1987-09-01",
+        "Average_Price": 36199.0
+      },
+      {
+        "Date": "1987-10-01",
+        "Average_Price": 38489.0
+      },
+      {
+        "Date": "1987-11-01",
+        "Average_Price": 38489.0
+      },
+      {
+        "Date": "1987-12-01",
+        "Average_Price": 38489.0
+      },
+      {
+        "Date": "1988-01-01",
+        "Average_Price": 40335.0
+      },
+      {
+        "Date": "1988-02-01",
+        "Average_Price": 40335.0
+      },
+      {
+        "Date": "1988-03-01",
+        "Average_Price": 40335.0
+      },
+      {
+        "Date": "1988-04-01",
+        "Average_Price": 42707.0
+      },
+      {
+        "Date": "1988-05-01",
+        "Average_Price": 42707.0
+      },
+      {
+        "Date": "1988-06-01",
+        "Average_Price": 42707.0
+      },
+      {
+        "Date": "1988-07-01",
+        "Average_Price": 48771.0
+      },
+      {
+        "Date": "1988-08-01",
+        "Average_Price": 48771.0
+      },
+      {
+        "Date": "1988-09-01",
+        "Average_Price": 48771.0
+      },
+      {
+        "Date": "1988-10-01",
+        "Average_Price": 51671.0
+      },
+      {
+        "Date": "1988-11-01",
+        "Average_Price": 51671.0
+      },
+      {
+        "Date": "1988-12-01",
+        "Average_Price": 51671.0
+      },
+      {
+        "Date": "1989-01-01",
+        "Average_Price": 52725.0
+      },
+      {
+        "Date": "1989-02-01",
+        "Average_Price": 52725.0
+      },
+      {
+        "Date": "1989-03-01",
+        "Average_Price": 52725.0
+      },
+      {
+        "Date": "1989-04-01",
+        "Average_Price": 54307.0
+      },
+      {
+        "Date": "1989-05-01",
+        "Average_Price": 54307.0
+      },
+      {
+        "Date": "1989-06-01",
+        "Average_Price": 54307.0
+      },
+      {
+        "Date": "1989-07-01",
+        "Average_Price": 56416.0
+      },
+      {
+        "Date": "1989-08-01",
+        "Average_Price": 56416.0
+      },
+      {
+        "Date": "1989-09-01",
+        "Average_Price": 56416.0
+      },
+      {
+        "Date": "1989-10-01",
+        "Average_Price": 55098.0
+      },
+      {
+        "Date": "1989-11-01",
+        "Average_Price": 55098.0
+      },
+      {
+        "Date": "1989-12-01",
+        "Average_Price": 55098.0
+      },
+      {
+        "Date": "1990-01-01",
+        "Average_Price": 53894.0
+      },
+      {
+        "Date": "1990-02-01",
+        "Average_Price": 53894.0
+      },
+      {
+        "Date": "1990-03-01",
+        "Average_Price": 53894.0
+      },
+      {
+        "Date": "1990-04-01",
+        "Average_Price": 53358.0
+      },
+      {
+        "Date": "1990-05-01",
+        "Average_Price": 53358.0
+      },
+      {
+        "Date": "1990-06-01",
+        "Average_Price": 53358.0
+      },
+      {
+        "Date": "1990-07-01",
+        "Average_Price": 54109.0
+      },
+      {
+        "Date": "1990-08-01",
+        "Average_Price": 54109.0
+      },
+      {
+        "Date": "1990-09-01",
+        "Average_Price": 54109.0
+      },
+      {
+        "Date": "1990-10-01",
+        "Average_Price": 53090.0
+      },
+      {
+        "Date": "1990-11-01",
+        "Average_Price": 53090.0
+      },
+      {
+        "Date": "1990-12-01",
+        "Average_Price": 53090.0
+      },
+      {
+        "Date": "1991-01-01",
+        "Average_Price": 52125.0
+      },
+      {
+        "Date": "1991-02-01",
+        "Average_Price": 52125.0
+      },
+      {
+        "Date": "1991-03-01",
+        "Average_Price": 52125.0
+      },
+      {
+        "Date": "1991-04-01",
+        "Average_Price": 52178.0
+      },
+      {
+        "Date": "1991-05-01",
+        "Average_Price": 52178.0
+      },
+      {
+        "Date": "1991-06-01",
+        "Average_Price": 52178.0
+      },
+      {
+        "Date": "1991-07-01",
+        "Average_Price": 53197.0
+      },
+      {
+        "Date": "1991-08-01",
+        "Average_Price": 53197.0
+      },
+      {
+        "Date": "1991-09-01",
+        "Average_Price": 53197.0
+      },
+      {
+        "Date": "1991-10-01",
+        "Average_Price": 52339.0
+      },
+      {
+        "Date": "1991-11-01",
+        "Average_Price": 52339.0
+      },
+      {
+        "Date": "1991-12-01",
+        "Average_Price": 52339.0
+      },
+      {
+        "Date": "1992-01-01",
+        "Average_Price": 51374.0
+      },
+      {
+        "Date": "1992-02-01",
+        "Average_Price": 51374.0
+      },
+      {
+        "Date": "1992-03-01",
+        "Average_Price": 51374.0
+      },
+      {
+        "Date": "1992-04-01",
+        "Average_Price": 50033.0
+      },
+      {
+        "Date": "1992-05-01",
+        "Average_Price": 50033.0
+      },
+      {
+        "Date": "1992-06-01",
+        "Average_Price": 50033.0
+      },
+      {
+        "Date": "1992-07-01",
+        "Average_Price": 50180.0
+      },
+      {
+        "Date": "1992-08-01",
+        "Average_Price": 50180.0
+      },
+      {
+        "Date": "1992-09-01",
+        "Average_Price": 50180.0
+      },
+      {
+        "Date": "1992-10-01",
+        "Average_Price": 47975.0
+      },
+      {
+        "Date": "1992-11-01",
+        "Average_Price": 47975.0
+      },
+      {
+        "Date": "1992-12-01",
+        "Average_Price": 47975.0
+      },
+      {
+        "Date": "1993-01-01",
+        "Average_Price": 48465.0
+      },
+      {
+        "Date": "1993-02-01",
+        "Average_Price": 48465.0
+      },
+      {
+        "Date": "1993-03-01",
+        "Average_Price": 48465.0
+      },
+      {
+        "Date": "1993-04-01",
+        "Average_Price": 48612.0
+      },
+      {
+        "Date": "1993-05-01",
+        "Average_Price": 48612.0
+      },
+      {
+        "Date": "1993-06-01",
+        "Average_Price": 48612.0
+      },
+      {
+        "Date": "1993-07-01",
+        "Average_Price": 49641.0
+      },
+      {
+        "Date": "1993-08-01",
+        "Average_Price": 49641.0
+      },
+      {
+        "Date": "1993-09-01",
+        "Average_Price": 49641.0
+      },
+      {
+        "Date": "1993-10-01",
+        "Average_Price": 48906.0
+      },
+      {
+        "Date": "1993-11-01",
+        "Average_Price": 48906.0
+      },
+      {
+        "Date": "1993-12-01",
+        "Average_Price": 48906.0
+      },
+      {
+        "Date": "1994-01-01",
+        "Average_Price": 49543.0
+      },
+      {
+        "Date": "1994-02-01",
+        "Average_Price": 49543.0
+      },
+      {
+        "Date": "1994-03-01",
+        "Average_Price": 49543.0
+      },
+      {
+        "Date": "1994-04-01",
+        "Average_Price": 50082.0
+      },
+      {
+        "Date": "1994-05-01",
+        "Average_Price": 50082.0
+      },
+      {
+        "Date": "1994-06-01",
+        "Average_Price": 50082.0
+      },
+      {
+        "Date": "1994-07-01",
+        "Average_Price": 50719.0
+      },
+      {
+        "Date": "1994-08-01",
+        "Average_Price": 50719.0
+      },
+      {
+        "Date": "1994-09-01",
+        "Average_Price": 50719.0
+      },
+      {
+        "Date": "1994-10-01",
+        "Average_Price": 50670.0
+      },
+      {
+        "Date": "1994-11-01",
+        "Average_Price": 50670.0
+      },
+      {
+        "Date": "1994-12-01",
+        "Average_Price": 50670.0
+      },
+      {
+        "Date": "1995-01-01",
+        "Average_Price": 50231.0
+      },
+      {
+        "Date": "1995-02-01",
+        "Average_Price": 50130.0
+      },
+      {
+        "Date": "1995-03-01",
+        "Average_Price": 50229.0
+      },
+      {
+        "Date": "1995-04-01",
+        "Average_Price": 50597.0
+      },
+      {
+        "Date": "1995-05-01",
+        "Average_Price": 50679.0
+      },
+      {
+        "Date": "1995-06-01",
+        "Average_Price": 50733.0
+      },
+      {
+        "Date": "1995-07-01",
+        "Average_Price": 50889.0
+      },
+      {
+        "Date": "1995-08-01",
+        "Average_Price": 50606.0
+      },
+      {
+        "Date": "1995-09-01",
+        "Average_Price": 50331.0
+      },
+      {
+        "Date": "1995-10-01",
+        "Average_Price": 49892.0
+      },
+      {
+        "Date": "1995-11-01",
+        "Average_Price": 49839.0
+      },
+      {
+        "Date": "1995-12-01",
+        "Average_Price": 49965.0
+      },
+      {
+        "Date": "1996-01-01",
+        "Average_Price": 49410.0
+      },
+      {
+        "Date": "1996-02-01",
+        "Average_Price": 49601.0
+      },
+      {
+        "Date": "1996-03-01",
+        "Average_Price": 49739.0
+      },
+      {
+        "Date": "1996-04-01",
+        "Average_Price": 50352.0
+      },
+      {
+        "Date": "1996-05-01",
+        "Average_Price": 50815.0
+      },
+      {
+        "Date": "1996-06-01",
+        "Average_Price": 51071.0
+      },
+      {
+        "Date": "1996-07-01",
+        "Average_Price": 51648.0
+      },
+      {
+        "Date": "1996-08-01",
+        "Average_Price": 52028.0
+      },
+      {
+        "Date": "1996-09-01",
+        "Average_Price": 51952.0
+      },
+      {
+        "Date": "1996-10-01",
+        "Average_Price": 51862.0
+      },
+      {
+        "Date": "1996-11-01",
+        "Average_Price": 52396.0
+      },
+      {
+        "Date": "1996-12-01",
+        "Average_Price": 52640.0
+      },
+      {
+        "Date": "1997-01-01",
+        "Average_Price": 52672.0
+      },
+      {
+        "Date": "1997-02-01",
+        "Average_Price": 53060.0
+      },
+      {
+        "Date": "1997-03-01",
+        "Average_Price": 53612.0
+      },
+      {
+        "Date": "1997-04-01",
+        "Average_Price": 54361.0
+      },
+      {
+        "Date": "1997-05-01",
+        "Average_Price": 55230.0
+      },
+      {
+        "Date": "1997-06-01",
+        "Average_Price": 55836.0
+      },
+      {
+        "Date": "1997-07-01",
+        "Average_Price": 56732.0
+      },
+      {
+        "Date": "1997-08-01",
+        "Average_Price": 57356.0
+      },
+      {
+        "Date": "1997-09-01",
+        "Average_Price": 57584.0
+      },
+      {
+        "Date": "1997-10-01",
+        "Average_Price": 57637.0
+      },
+      {
+        "Date": "1997-11-01",
+        "Average_Price": 58063.0
+      },
+      {
+        "Date": "1997-12-01",
+        "Average_Price": 58125.0
+      },
+      {
+        "Date": "1998-01-01",
+        "Average_Price": 58444.0
+      },
+      {
+        "Date": "1998-02-01",
+        "Average_Price": 58214.0
+      },
+      {
+        "Date": "1998-03-01",
+        "Average_Price": 58775.0
+      },
+      {
+        "Date": "1998-04-01",
+        "Average_Price": 60109.0
+      },
+      {
+        "Date": "1998-05-01",
+        "Average_Price": 60687.0
+      },
+      {
+        "Date": "1998-06-01",
+        "Average_Price": 61026.0
+      },
+      {
+        "Date": "1998-07-01",
+        "Average_Price": 61817.0
+      },
+      {
+        "Date": "1998-08-01",
+        "Average_Price": 62071.0
+      },
+      {
+        "Date": "1998-09-01",
+        "Average_Price": 61941.0
+      },
+      {
+        "Date": "1998-10-01",
+        "Average_Price": 61805.0
+      },
+      {
+        "Date": "1998-11-01",
+        "Average_Price": 61713.0
+      },
+      {
+        "Date": "1998-12-01",
+        "Average_Price": 61912.0
+      },
+      {
+        "Date": "1999-01-01",
+        "Average_Price": 62092.0
+      },
+      {
+        "Date": "1999-02-01",
+        "Average_Price": 61861.0
+      },
+      {
+        "Date": "1999-03-01",
+        "Average_Price": 62669.0
+      },
+      {
+        "Date": "1999-04-01",
+        "Average_Price": 63869.0
+      },
+      {
+        "Date": "1999-05-01",
+        "Average_Price": 64580.0
+      },
+      {
+        "Date": "1999-06-01",
+        "Average_Price": 65550.0
+      },
+      {
+        "Date": "1999-07-01",
+        "Average_Price": 66668.0
+      },
+      {
+        "Date": "1999-08-01",
+        "Average_Price": 67694.0
+      },
+      {
+        "Date": "1999-09-01",
+        "Average_Price": 68748.0
+      },
+      {
+        "Date": "1999-10-01",
+        "Average_Price": 69179.0
+      },
+      {
+        "Date": "1999-11-01",
+        "Average_Price": 70087.0
+      },
+      {
+        "Date": "1999-12-01",
+        "Average_Price": 70878.0
+      },
+      {
+        "Date": "2000-01-01",
+        "Average_Price": 71017.0
+      },
+      {
+        "Date": "2000-02-01",
+        "Average_Price": 71405.0
+      },
+      {
+        "Date": "2000-03-01",
+        "Average_Price": 72713.0
+      },
+      {
+        "Date": "2000-04-01",
+        "Average_Price": 75186.0
+      },
+      {
+        "Date": "2000-05-01",
+        "Average_Price": 75859.0
+      },
+      {
+        "Date": "2000-06-01",
+        "Average_Price": 76729.0
+      },
+      {
+        "Date": "2000-07-01",
+        "Average_Price": 77950.0
+      },
+      {
+        "Date": "2000-08-01",
+        "Average_Price": 78839.0
+      },
+      {
+        "Date": "2000-09-01",
+        "Average_Price": 78920.0
+      },
+      {
+        "Date": "2000-10-01",
+        "Average_Price": 78609.0
+      },
+      {
+        "Date": "2000-11-01",
+        "Average_Price": 78879.0
+      },
+      {
+        "Date": "2000-12-01",
+        "Average_Price": 79487.0
+      },
+      {
+        "Date": "2001-01-01",
+        "Average_Price": 79663.0
+      },
+      {
+        "Date": "2001-02-01",
+        "Average_Price": 79539.0
+      },
+      {
+        "Date": "2001-03-01",
+        "Average_Price": 80480.0
+      },
+      {
+        "Date": "2001-04-01",
+        "Average_Price": 82554.0
+      },
+      {
+        "Date": "2001-05-01",
+        "Average_Price": 83763.0
+      },
+      {
+        "Date": "2001-06-01",
+        "Average_Price": 84953.0
+      },
+      {
+        "Date": "2001-07-01",
+        "Average_Price": 86323.0
+      },
+      {
+        "Date": "2001-08-01",
+        "Average_Price": 88117.0
+      },
+      {
+        "Date": "2001-09-01",
+        "Average_Price": 88448.0
+      },
+      {
+        "Date": "2001-10-01",
+        "Average_Price": 88901.0
+      },
+      {
+        "Date": "2001-11-01",
+        "Average_Price": 89771.0
+      },
+      {
+        "Date": "2001-12-01",
+        "Average_Price": 90629.0
+      },
+      {
+        "Date": "2002-01-01",
+        "Average_Price": 90840.0
+      },
+      {
+        "Date": "2002-02-01",
+        "Average_Price": 91276.0
+      },
+      {
+        "Date": "2002-03-01",
+        "Average_Price": 93433.0
+      },
+      {
+        "Date": "2002-04-01",
+        "Average_Price": 95692.0
+      },
+      {
+        "Date": "2002-05-01",
+        "Average_Price": 98623.0
+      },
+      {
+        "Date": "2002-06-01",
+        "Average_Price": 100844.0
+      },
+      {
+        "Date": "2002-07-01",
+        "Average_Price": 103856.0
+      },
+      {
+        "Date": "2002-08-01",
+        "Average_Price": 106529.0
+      },
+      {
+        "Date": "2002-09-01",
+        "Average_Price": 107551.0
+      },
+      {
+        "Date": "2002-10-01",
+        "Average_Price": 109405.0
+      },
+      {
+        "Date": "2002-11-01",
+        "Average_Price": 112062.0
+      },
+      {
+        "Date": "2002-12-01",
+        "Average_Price": 113279.0
+      },
+      {
+        "Date": "2003-01-01",
+        "Average_Price": 114816.0
+      },
+      {
+        "Date": "2003-02-01",
+        "Average_Price": 114952.0
+      },
+      {
+        "Date": "2003-03-01",
+        "Average_Price": 116372.0
+      },
+      {
+        "Date": "2003-04-01",
+        "Average_Price": 119186.0
+      },
+      {
+        "Date": "2003-05-01",
+        "Average_Price": 121131.0
+      },
+      {
+        "Date": "2003-06-01",
+        "Average_Price": 122126.0
+      },
+      {
+        "Date": "2003-07-01",
+        "Average_Price": 124926.0
+      },
+      {
+        "Date": "2003-08-01",
+        "Average_Price": 126416.0
+      },
+      {
+        "Date": "2003-09-01",
+        "Average_Price": 126371.0
+      },
+      {
+        "Date": "2003-10-01",
+        "Average_Price": 128294.0
+      },
+      {
+        "Date": "2003-11-01",
+        "Average_Price": 129514.0
+      },
+      {
+        "Date": "2003-12-01",
+        "Average_Price": 131221.0
+      },
+      {
+        "Date": "2004-01-01",
+        "Average_Price": 131914.0
+      },
+      {
+        "Date": "2004-02-01",
+        "Average_Price": 132447.0
+      },
+      {
+        "Date": "2004-03-01",
+        "Average_Price": 134606.0
+      },
+      {
+        "Date": "2004-04-01",
+        "Average_Price": 139024.0
+      },
+      {
+        "Date": "2004-05-01",
+        "Average_Price": 141728.0
+      },
+      {
+        "Date": "2004-06-01",
+        "Average_Price": 144951.0
+      },
+      {
+        "Date": "2004-07-01",
+        "Average_Price": 147974.0
+      },
+      {
+        "Date": "2004-08-01",
+        "Average_Price": 149891.0
+      },
+      {
+        "Date": "2004-09-01",
+        "Average_Price": 150347.0
+      },
+      {
+        "Date": "2004-10-01",
+        "Average_Price": 150455.0
+      },
+      {
+        "Date": "2004-11-01",
+        "Average_Price": 151373.0
+      },
+      {
+        "Date": "2004-12-01",
+        "Average_Price": 150954.0
+      },
+      {
+        "Date": "2005-01-01",
+        "Average_Price": 149713.0
+      },
+      {
+        "Date": "2005-02-01",
+        "Average_Price": 149748.0
+      },
+      {
+        "Date": "2005-03-01",
+        "Average_Price": 150724.0
+      },
+      {
+        "Date": "2005-04-01",
+        "Average_Price": 152323.0
+      },
+      {
+        "Date": "2005-05-01",
+        "Average_Price": 153954.0
+      },
+      {
+        "Date": "2005-06-01",
+        "Average_Price": 154903.0
+      },
+      {
+        "Date": "2005-07-01",
+        "Average_Price": 156496.0
+      },
+      {
+        "Date": "2005-08-01",
+        "Average_Price": 157142.0
+      },
+      {
+        "Date": "2005-09-01",
+        "Average_Price": 156885.0
+      },
+      {
+        "Date": "2005-10-01",
+        "Average_Price": 156384.0
+      },
+      {
+        "Date": "2005-11-01",
+        "Average_Price": 157012.0
+      },
+      {
+        "Date": "2005-12-01",
+        "Average_Price": 157901.0
+      },
+      {
+        "Date": "2006-01-01",
+        "Average_Price": 157240.0
+      },
+      {
+        "Date": "2006-02-01",
+        "Average_Price": 157572.0
+      },
+      {
+        "Date": "2006-03-01",
+        "Average_Price": 158616.0
+      },
+      {
+        "Date": "2006-04-01",
+        "Average_Price": 161569.0
+      },
+      {
+        "Date": "2006-05-01",
+        "Average_Price": 163051.0
+      },
+      {
+        "Date": "2006-06-01",
+        "Average_Price": 164498.0
+      },
+      {
+        "Date": "2006-07-01",
+        "Average_Price": 166323.0
+      },
+      {
+        "Date": "2006-08-01",
+        "Average_Price": 167681.0
+      },
+      {
+        "Date": "2006-09-01",
+        "Average_Price": 168315.0
+      },
+      {
+        "Date": "2006-10-01",
+        "Average_Price": 168931.0
+      },
+      {
+        "Date": "2006-11-01",
+        "Average_Price": 169678.0
+      },
+      {
+        "Date": "2006-12-01",
+        "Average_Price": 171862.0
+      },
+      {
+        "Date": "2007-01-01",
+        "Average_Price": 171666.0
+      },
+      {
+        "Date": "2007-02-01",
+        "Average_Price": 172207.0
+      },
+      {
+        "Date": "2007-03-01",
+        "Average_Price": 173449.0
+      },
+      {
+        "Date": "2007-04-01",
+        "Average_Price": 176281.0
+      },
+      {
+        "Date": "2007-05-01",
+        "Average_Price": 178266.0
+      },
+      {
+        "Date": "2007-06-01",
+        "Average_Price": 180161.0
+      },
+      {
+        "Date": "2007-07-01",
+        "Average_Price": 182558.0
+      },
+      {
+        "Date": "2007-08-01",
+        "Average_Price": 183472.0
+      },
+      {
+        "Date": "2007-09-01",
+        "Average_Price": 183883.0
+      },
+      {
+        "Date": "2007-10-01",
+        "Average_Price": 183823.0
+      },
+      {
+        "Date": "2007-11-01",
+        "Average_Price": 183636.0
+      },
+      {
+        "Date": "2007-12-01",
+        "Average_Price": 183515.0
+      },
+      {
+        "Date": "2008-01-01",
+        "Average_Price": 181037.0
+      },
+      {
+        "Date": "2008-02-01",
+        "Average_Price": 179448.0
+      },
+      {
+        "Date": "2008-03-01",
+        "Average_Price": 178118.0
+      },
+      {
+        "Date": "2008-04-01",
+        "Average_Price": 178550.0
+      },
+      {
+        "Date": "2008-05-01",
+        "Average_Price": 179175.0
+      },
+      {
+        "Date": "2008-06-01",
+        "Average_Price": 176883.0
+      },
+      {
+        "Date": "2008-07-01",
+        "Average_Price": 175462.0
+      },
+      {
+        "Date": "2008-08-01",
+        "Average_Price": 171355.0
+      },
+      {
+        "Date": "2008-09-01",
+        "Average_Price": 167330.0
+      },
+      {
+        "Date": "2008-10-01",
+        "Average_Price": 163571.0
+      },
+      {
+        "Date": "2008-11-01",
+        "Average_Price": 158831.0
+      },
+      {
+        "Date": "2008-12-01",
+        "Average_Price": 156533.0
+      },
+      {
+        "Date": "2009-01-01",
+        "Average_Price": 153585.0
+      },
+      {
+        "Date": "2009-02-01",
+        "Average_Price": 151964.0
+      },
+      {
+        "Date": "2009-03-01",
+        "Average_Price": 150438.0
+      },
+      {
+        "Date": "2009-04-01",
+        "Average_Price": 151724.0
+      },
+      {
+        "Date": "2009-05-01",
+        "Average_Price": 153648.0
+      },
+      {
+        "Date": "2009-06-01",
+        "Average_Price": 155344.0
+      },
+      {
+        "Date": "2009-07-01",
+        "Average_Price": 158306.0
+      },
+      {
+        "Date": "2009-08-01",
+        "Average_Price": 160128.0
+      },
+      {
+        "Date": "2009-09-01",
+        "Average_Price": 161649.0
+      },
+      {
+        "Date": "2009-10-01",
+        "Average_Price": 162688.0
+      },
+      {
+        "Date": "2009-11-01",
+        "Average_Price": 163163.0
+      },
+      {
+        "Date": "2009-12-01",
+        "Average_Price": 164408.0
+      },
+      {
+        "Date": "2010-01-01",
+        "Average_Price": 164711.0
+      },
+      {
+        "Date": "2010-02-01",
+        "Average_Price": 165457.0
+      },
+      {
+        "Date": "2010-03-01",
+        "Average_Price": 165002.0
+      },
+      {
+        "Date": "2010-04-01",
+        "Average_Price": 166919.0
+      },
+      {
+        "Date": "2010-05-01",
+        "Average_Price": 167823.0
+      },
+      {
+        "Date": "2010-06-01",
+        "Average_Price": 168675.0
+      },
+      {
+        "Date": "2010-07-01",
+        "Average_Price": 170434.0
+      },
+      {
+        "Date": "2010-08-01",
+        "Average_Price": 170706.0
+      },
+      {
+        "Date": "2010-09-01",
+        "Average_Price": 170162.0
+      },
+      {
+        "Date": "2010-10-01",
+        "Average_Price": 168152.0
+      },
+      {
+        "Date": "2010-11-01",
+        "Average_Price": 166452.0
+      },
+      {
+        "Date": "2010-12-01",
+        "Average_Price": 166202.0
+      },
+      {
+        "Date": "2011-01-01",
+        "Average_Price": 164697.0
+      },
+      {
+        "Date": "2011-02-01",
+        "Average_Price": 164101.0
+      },
+      {
+        "Date": "2011-03-01",
+        "Average_Price": 163378.0
+      },
+      {
+        "Date": "2011-04-01",
+        "Average_Price": 165687.0
+      },
+      {
+        "Date": "2011-05-01",
+        "Average_Price": 164910.0
+      },
+      {
+        "Date": "2011-06-01",
+        "Average_Price": 165071.0
+      },
+      {
+        "Date": "2011-07-01",
+        "Average_Price": 167266.0
+      },
+      {
+        "Date": "2011-08-01",
+        "Average_Price": 167428.0
+      },
+      {
+        "Date": "2011-09-01",
+        "Average_Price": 166907.0
+      },
+      {
+        "Date": "2011-10-01",
+        "Average_Price": 165385.0
+      },
+      {
+        "Date": "2011-11-01",
+        "Average_Price": 165412.0
+      },
+      {
+        "Date": "2011-12-01",
+        "Average_Price": 165046.0
+      },
+      {
+        "Date": "2012-01-01",
+        "Average_Price": 164449.0
+      },
+      {
+        "Date": "2012-02-01",
+        "Average_Price": 164432.0
+      },
+      {
+        "Date": "2012-03-01",
+        "Average_Price": 164584.0
+      },
+      {
+        "Date": "2012-04-01",
+        "Average_Price": 166680.0
+      },
+      {
+        "Date": "2012-05-01",
+        "Average_Price": 167136.0
+      },
+      {
+        "Date": "2012-06-01",
+        "Average_Price": 168713.0
+      },
+      {
+        "Date": "2012-07-01",
+        "Average_Price": 169714.0
+      },
+      {
+        "Date": "2012-08-01",
+        "Average_Price": 170066.0
+      },
+      {
+        "Date": "2012-09-01",
+        "Average_Price": 169532.0
+      },
+      {
+        "Date": "2012-10-01",
+        "Average_Price": 168445.0
+      },
+      {
+        "Date": "2012-11-01",
+        "Average_Price": 168681.0
+      },
+      {
+        "Date": "2012-12-01",
+        "Average_Price": 168440.0
+      },
+      {
+        "Date": "2013-01-01",
+        "Average_Price": 166938.0
+      },
+      {
+        "Date": "2013-02-01",
+        "Average_Price": 167304.0
+      },
+      {
+        "Date": "2013-03-01",
+        "Average_Price": 168234.0
+      },
+      {
+        "Date": "2013-04-01",
+        "Average_Price": 169850.0
+      },
+      {
+        "Date": "2013-05-01",
+        "Average_Price": 170531.0
+      },
+      {
+        "Date": "2013-06-01",
+        "Average_Price": 171916.0
+      },
+      {
+        "Date": "2013-07-01",
+        "Average_Price": 173979.0
+      },
+      {
+        "Date": "2013-08-01",
+        "Average_Price": 175271.0
+      },
+      {
+        "Date": "2013-09-01",
+        "Average_Price": 175686.0
+      },
+      {
+        "Date": "2013-10-01",
+        "Average_Price": 175003.0
+      },
+      {
+        "Date": "2013-11-01",
+        "Average_Price": 175855.0
+      },
+      {
+        "Date": "2013-12-01",
+        "Average_Price": 178011.0
+      },
+      {
+        "Date": "2014-01-01",
+        "Average_Price": 177748.0
+      },
+      {
+        "Date": "2014-02-01",
+        "Average_Price": 178769.0
+      },
+      {
+        "Date": "2014-03-01",
+        "Average_Price": 179421.0
+      },
+      {
+        "Date": "2014-04-01",
+        "Average_Price": 183399.0
+      },
+      {
+        "Date": "2014-05-01",
+        "Average_Price": 185212.0
+      },
+      {
+        "Date": "2014-06-01",
+        "Average_Price": 186892.0
+      },
+      {
+        "Date": "2014-07-01",
+        "Average_Price": 189606.0
+      },
+      {
+        "Date": "2014-08-01",
+        "Average_Price": 192042.0
+      },
+      {
+        "Date": "2014-09-01",
+        "Average_Price": 192263.0
+      },
+      {
+        "Date": "2014-10-01",
+        "Average_Price": 191952.0
+      },
+      {
+        "Date": "2014-11-01",
+        "Average_Price": 191380.0
+      },
+      {
+        "Date": "2014-12-01",
+        "Average_Price": 191986.0
+      },
+      {
+        "Date": "2015-01-01",
+        "Average_Price": 191523.0
+      },
+      {
+        "Date": "2015-02-01",
+        "Average_Price": 192060.0
+      },
+      {
+        "Date": "2015-03-01",
+        "Average_Price": 191999.0
+      },
+      {
+        "Date": "2015-04-01",
+        "Average_Price": 194432.0
+      },
+      {
+        "Date": "2015-05-01",
+        "Average_Price": 196630.0
+      },
+      {
+        "Date": "2015-06-01",
+        "Average_Price": 198149.0
+      },
+      {
+        "Date": "2015-07-01",
+        "Average_Price": 201590.0
+      },
+      {
+        "Date": "2015-08-01",
+        "Average_Price": 203703.0
+      },
+      {
+        "Date": "2015-09-01",
+        "Average_Price": 204263.0
+      },
+      {
+        "Date": "2015-10-01",
+        "Average_Price": 204572.0
+      },
+      {
+        "Date": "2015-11-01",
+        "Average_Price": 206293.0
+      },
+      {
+        "Date": "2015-12-01",
+        "Average_Price": 207315.0
+      },
+      {
+        "Date": "2016-01-01",
+        "Average_Price": 208050.0
+      },
+      {
+        "Date": "2016-02-01",
+        "Average_Price": 208301.0
+      },
+      {
+        "Date": "2016-03-01",
+        "Average_Price": 210224.0
+      },
+      {
+        "Date": "2016-04-01",
+        "Average_Price": 211282.0
+      },
+      {
+        "Date": "2016-05-01",
+        "Average_Price": 213723.0
+      },
+      {
+        "Date": "2016-06-01",
+        "Average_Price": 215668.0
+      },
+      {
+        "Date": "2016-07-01",
+        "Average_Price": 217970.0
+      },
+      {
+        "Date": "2016-08-01",
+        "Average_Price": 218261.0
+      },
+      {
+        "Date": "2016-09-01",
+        "Average_Price": 217952.0
+      },
+      {
+        "Date": "2016-10-01",
+        "Average_Price": 217098.0
+      },
+      {
+        "Date": "2016-11-01",
+        "Average_Price": 218146.0
+      },
+      {
+        "Date": "2016-12-01",
+        "Average_Price": 218965.0
+      },
+      {
+        "Date": "2017-01-01",
+        "Average_Price": 218655.0
+      },
+      {
+        "Date": "2017-02-01",
+        "Average_Price": 219696.0
+      },
+      {
+        "Date": "2017-03-01",
+        "Average_Price": 218812.0
+      },
+      {
+        "Date": "2017-04-01",
+        "Average_Price": 221891.0
+      },
+      {
+        "Date": "2017-05-01",
+        "Average_Price": 223502.0
+      },
+      {
+        "Date": "2017-06-01",
+        "Average_Price": 225265.0
+      },
+      {
+        "Date": "2017-07-01",
+        "Average_Price": 227919.0
+      },
+      {
+        "Date": "2017-08-01",
+        "Average_Price": 229074.0
+      },
+      {
+        "Date": "2017-09-01",
+        "Average_Price": 228519.0
+      },
+      {
+        "Date": "2017-10-01",
+        "Average_Price": 228484.0
+      },
+      {
+        "Date": "2017-11-01",
+        "Average_Price": 227618.0
+      },
+      {
+        "Date": "2017-12-01",
+        "Average_Price": 228837.0
+      },
+      {
+        "Date": "2018-01-01",
+        "Average_Price": 227594.0
+      },
+      {
+        "Date": "2018-02-01",
+        "Average_Price": 228471.0
+      },
+      {
+        "Date": "2018-03-01",
+        "Average_Price": 226996.0
+      },
+      {
+        "Date": "2018-04-01",
+        "Average_Price": 228855.0
+      },
+      {
+        "Date": "2018-05-01",
+        "Average_Price": 229845.0
+      },
+      {
+        "Date": "2018-06-01",
+        "Average_Price": 231277.0
+      },
+      {
+        "Date": "2018-07-01",
+        "Average_Price": 234127.0
+      },
+      {
+        "Date": "2018-08-01",
+        "Average_Price": 234731.0
+      },
+      {
+        "Date": "2018-09-01",
+        "Average_Price": 234380.0
+      },
+      {
+        "Date": "2018-10-01",
+        "Average_Price": 233916.0
+      },
+      {
+        "Date": "2018-11-01",
+        "Average_Price": 233144.0
+      },
+      {
+        "Date": "2018-12-01",
+        "Average_Price": 232616.0
+      },
+      {
+        "Date": "2019-01-01",
+        "Average_Price": 230974.0
+      },
+      {
+        "Date": "2019-02-01",
+        "Average_Price": 230772.0
+      },
+      {
+        "Date": "2019-03-01",
+        "Average_Price": 229408.0
+      },
+      {
+        "Date": "2019-04-01",
+        "Average_Price": 230994.0
+      },
+      {
+        "Date": "2019-05-01",
+        "Average_Price": 231245.0
+      },
+      {
+        "Date": "2019-06-01",
+        "Average_Price": 232112.0
+      },
+      {
+        "Date": "2019-07-01",
+        "Average_Price": 234587.0
+      },
+      {
+        "Date": "2019-08-01",
+        "Average_Price": 235298.0
+      },
+      {
+        "Date": "2019-09-01",
+        "Average_Price": 235691.0
+      },
+      {
+        "Date": "2019-10-01",
+        "Average_Price": 234940.0
+      },
+      {
+        "Date": "2019-11-01",
+        "Average_Price": 234020.0
+      },
+      {
+        "Date": "2019-12-01",
+        "Average_Price": 234237.0
+      },
+      {
+        "Date": "2020-01-01",
+        "Average_Price": 234049.0
+      },
+      {
+        "Date": "2020-02-01",
+        "Average_Price": 232955.0
+      },
+      {
+        "Date": "2020-03-01",
+        "Average_Price": 235204.0
+      },
+      {
+        "Date": "2020-04-01",
+        "Average_Price": 232657.0
+      },
+      {
+        "Date": "2020-05-01",
+        "Average_Price": 233673.0
+      },
+      {
+        "Date": "2020-06-01",
+        "Average_Price": 236731.0
+      },
+      {
+        "Date": "2020-07-01",
+        "Average_Price": 239080.0
+      },
+      {
+        "Date": "2020-08-01",
+        "Average_Price": 241511.0
+      },
+      {
+        "Date": "2020-09-01",
+        "Average_Price": 243733.0
+      },
+      {
+        "Date": "2020-10-01",
+        "Average_Price": 245090.0
+      },
+      {
+        "Date": "2020-11-01",
+        "Average_Price": 247749.0
+      },
+      {
+        "Date": "2020-12-01",
+        "Average_Price": 250168.0
+      },
+      {
+        "Date": "2021-01-01",
+        "Average_Price": 249890.0
+      },
+      {
+        "Date": "2021-02-01",
+        "Average_Price": 251309.0
+      },
+      {
+        "Date": "2021-03-01",
+        "Average_Price": 254407.0
+      },
+      {
+        "Date": "2021-04-01",
+        "Average_Price": 250703.0
+      },
+      {
+        "Date": "2021-05-01",
+        "Average_Price": 251203.0
+      },
+      {
+        "Date": "2021-06-01",
+        "Average_Price": 266129.0
+      },
+      {
+        "Date": "2021-07-01",
+        "Average_Price": 250545.0
+      },
+      {
+        "Date": "2021-08-01",
+        "Average_Price": 259193.0
+      },
+      {
+        "Date": "2021-09-01",
+        "Average_Price": 268041.0
+      },
+      {
+        "Date": "2021-10-01",
+        "Average_Price": 259748.0
+      },
+      {
+        "Date": "2021-11-01",
+        "Average_Price": 265662.0
+      },
+      {
+        "Date": "2021-12-01",
+        "Average_Price": 267793.0
+      },
+      {
+        "Date": "2022-01-01",
+        "Average_Price": 270231.0
+      },
+      {
+        "Date": "2022-02-01",
+        "Average_Price": 271265.0
+      },
+      {
+        "Date": "2022-03-01",
+        "Average_Price": 272225.0
+      },
+      {
+        "Date": "2022-04-01",
+        "Average_Price": 274812.0
+      },
+      {
+        "Date": "2022-05-01",
+        "Average_Price": 278084.0
+      },
+      {
+        "Date": "2022-06-01",
+        "Average_Price": 281116.0
+      },
+      {
+        "Date": "2022-07-01",
+        "Average_Price": 286526.0
+      },
+      {
+        "Date": "2022-08-01",
+        "Average_Price": 289294.0
+      },
+      {
+        "Date": "2022-09-01",
+        "Average_Price": 290185.0
+      },
+      {
+        "Date": "2022-10-01",
+        "Average_Price": 289993.0
+      },
+      {
+        "Date": "2022-11-01",
+        "Average_Price": 290003.0
+      },
+      {
+        "Date": "2022-12-01",
+        "Average_Price": 288198.0
+      },
+      {
+        "Date": "2023-01-01",
+        "Average_Price": 285817.0
+      },
+      {
+        "Date": "2023-02-01",
+        "Average_Price": 283907.0
+      },
+      {
+        "Date": "2023-03-01",
+        "Average_Price": 279592.0
+      },
+      {
+        "Date": "2023-04-01",
+        "Average_Price": 280054.0
+      },
+      {
+        "Date": "2023-05-01",
+        "Average_Price": 279846.0
+      },
+      {
+        "Date": "2023-06-01",
+        "Average_Price": 281585.0
+      },
+      {
+        "Date": "2023-07-01",
+        "Average_Price": 284246.0
+      },
+      {
+        "Date": "2023-08-01",
+        "Average_Price": 285690.0
+      },
+      {
+        "Date": "2023-09-01",
+        "Average_Price": 284428.0
+      },
+      {
+        "Date": "2023-10-01",
+        "Average_Price": 283147.0
+      },
+      {
+        "Date": "2023-11-01",
+        "Average_Price": 281026.0
+      },
+      {
+        "Date": "2023-12-01",
+        "Average_Price": 278664.0
+      },
+      {
+        "Date": "2024-01-01",
+        "Average_Price": 278060.0
+      },
+      {
+        "Date": "2024-02-01",
+        "Average_Price": 276935.0
+      },
+      {
+        "Date": "2024-03-01",
+        "Average_Price": 276971.0
+      },
+      {
+        "Date": "2024-04-01",
+        "Average_Price": 277945.0
+      },
+      {
+        "Date": "2024-05-01",
+        "Average_Price": 280824.0
+      },
+      {
+        "Date": "2024-06-01",
+        "Average_Price": 281611.0
+      },
+      {
+        "Date": "2024-07-01",
+        "Average_Price": 284105.0
+      },
+      {
+        "Date": "2024-08-01",
+        "Average_Price": 287343.0
+      },
+      {
+        "Date": "2024-09-01",
+        "Average_Price": 287576.0
+      },
+      {
+        "Date": "2024-10-01",
+        "Average_Price": 287595.0
+      },
+      {
+        "Date": "2024-11-01",
+        "Average_Price": 286814.0
+      },
+      {
+        "Date": "2024-12-01",
+        "Average_Price": 287129.0
+      },
+      {
+        "Date": "2025-01-01",
+        "Average_Price": 287299.0
+      },
+      {
+        "Date": "2025-02-01",
+        "Average_Price": 288066.0
+      },
+      {
+        "Date": "2025-03-01",
+        "Average_Price": 292746.0
+      },
+      {
+        "Date": "2025-04-01",
+        "Average_Price": 282094.0
+      },
+      {
+        "Date": "2025-05-01",
+        "Average_Price": 286901.0
+      },
+      {
+        "Date": "2025-06-01",
+        "Average_Price": 290082.0
+      },
+      {
+        "Date": "2025-07-01",
+        "Average_Price": 292489.0
+      },
+      {
+        "Date": "2025-08-01",
+        "Average_Price": 293768.0
+      },
+      {
+        "Date": "2025-09-01",
+        "Average_Price": 291752.0
+      },
+      {
+        "Date": "2025-10-01",
+        "Average_Price": 291993.0
+      },
+      {
+        "Date": "2025-11-01",
+        "Average_Price": 293131.0
+      }
+    ]
+  },
+  {
+    "name": "Wales",
+    "data": [
+      {
+        "Date": "1968-04-01",
+        "Average_Price": 2732.0
+      },
+      {
+        "Date": "1968-05-01",
+        "Average_Price": 2732.0
+      },
+      {
+        "Date": "1968-06-01",
+        "Average_Price": 2732.0
+      },
+      {
+        "Date": "1968-07-01",
+        "Average_Price": 2864.0
+      },
+      {
+        "Date": "1968-08-01",
+        "Average_Price": 2864.0
+      },
+      {
+        "Date": "1968-09-01",
+        "Average_Price": 2864.0
+      },
+      {
+        "Date": "1968-10-01",
+        "Average_Price": 2878.0
+      },
+      {
+        "Date": "1968-11-01",
+        "Average_Price": 2878.0
+      },
+      {
+        "Date": "1968-12-01",
+        "Average_Price": 2878.0
+      },
+      {
+        "Date": "1969-01-01",
+        "Average_Price": 2878.0
+      },
+      {
+        "Date": "1969-02-01",
+        "Average_Price": 2878.0
+      },
+      {
+        "Date": "1969-03-01",
+        "Average_Price": 2878.0
+      },
+      {
+        "Date": "1969-04-01",
+        "Average_Price": 2805.0
+      },
+      {
+        "Date": "1969-05-01",
+        "Average_Price": 2805.0
+      },
+      {
+        "Date": "1969-06-01",
+        "Average_Price": 2805.0
+      },
+      {
+        "Date": "1969-07-01",
+        "Average_Price": 2893.0
+      },
+      {
+        "Date": "1969-08-01",
+        "Average_Price": 2893.0
+      },
+      {
+        "Date": "1969-09-01",
+        "Average_Price": 2893.0
+      },
+      {
+        "Date": "1969-10-01",
+        "Average_Price": 3127.0
+      },
+      {
+        "Date": "1969-11-01",
+        "Average_Price": 3127.0
+      },
+      {
+        "Date": "1969-12-01",
+        "Average_Price": 3127.0
+      },
+      {
+        "Date": "1970-01-01",
+        "Average_Price": 3010.0
+      },
+      {
+        "Date": "1970-02-01",
+        "Average_Price": 3010.0
+      },
+      {
+        "Date": "1970-03-01",
+        "Average_Price": 3010.0
+      },
+      {
+        "Date": "1970-04-01",
+        "Average_Price": 3127.0
+      },
+      {
+        "Date": "1970-05-01",
+        "Average_Price": 3127.0
+      },
+      {
+        "Date": "1970-06-01",
+        "Average_Price": 3127.0
+      },
+      {
+        "Date": "1970-07-01",
+        "Average_Price": 3273.0
+      },
+      {
+        "Date": "1970-08-01",
+        "Average_Price": 3273.0
+      },
+      {
+        "Date": "1970-09-01",
+        "Average_Price": 3273.0
+      },
+      {
+        "Date": "1970-10-01",
+        "Average_Price": 3214.0
+      },
+      {
+        "Date": "1970-11-01",
+        "Average_Price": 3214.0
+      },
+      {
+        "Date": "1970-12-01",
+        "Average_Price": 3214.0
+      },
+      {
+        "Date": "1971-01-01",
+        "Average_Price": 3156.0
+      },
+      {
+        "Date": "1971-02-01",
+        "Average_Price": 3156.0
+      },
+      {
+        "Date": "1971-03-01",
+        "Average_Price": 3156.0
+      },
+      {
+        "Date": "1971-04-01",
+        "Average_Price": 3360.0
+      },
+      {
+        "Date": "1971-05-01",
+        "Average_Price": 3360.0
+      },
+      {
+        "Date": "1971-06-01",
+        "Average_Price": 3360.0
+      },
+      {
+        "Date": "1971-07-01",
+        "Average_Price": 3521.0
+      },
+      {
+        "Date": "1971-08-01",
+        "Average_Price": 3521.0
+      },
+      {
+        "Date": "1971-09-01",
+        "Average_Price": 3521.0
+      },
+      {
+        "Date": "1971-10-01",
+        "Average_Price": 3506.0
+      },
+      {
+        "Date": "1971-11-01",
+        "Average_Price": 3506.0
+      },
+      {
+        "Date": "1971-12-01",
+        "Average_Price": 3506.0
+      },
+      {
+        "Date": "1972-01-01",
+        "Average_Price": 3813.0
+      },
+      {
+        "Date": "1972-02-01",
+        "Average_Price": 3813.0
+      },
+      {
+        "Date": "1972-03-01",
+        "Average_Price": 3813.0
+      },
+      {
+        "Date": "1972-04-01",
+        "Average_Price": 3959.0
+      },
+      {
+        "Date": "1972-05-01",
+        "Average_Price": 3959.0
+      },
+      {
+        "Date": "1972-06-01",
+        "Average_Price": 3959.0
+      },
+      {
+        "Date": "1972-07-01",
+        "Average_Price": 4412.0
+      },
+      {
+        "Date": "1972-08-01",
+        "Average_Price": 4412.0
+      },
+      {
+        "Date": "1972-09-01",
+        "Average_Price": 4412.0
+      },
+      {
+        "Date": "1972-10-01",
+        "Average_Price": 4953.0
+      },
+      {
+        "Date": "1972-11-01",
+        "Average_Price": 4953.0
+      },
+      {
+        "Date": "1972-12-01",
+        "Average_Price": 4953.0
+      },
+      {
+        "Date": "1973-01-01",
+        "Average_Price": 5347.0
+      },
+      {
+        "Date": "1973-02-01",
+        "Average_Price": 5347.0
+      },
+      {
+        "Date": "1973-03-01",
+        "Average_Price": 5347.0
+      },
+      {
+        "Date": "1973-04-01",
+        "Average_Price": 5625.0
+      },
+      {
+        "Date": "1973-05-01",
+        "Average_Price": 5625.0
+      },
+      {
+        "Date": "1973-06-01",
+        "Average_Price": 5625.0
+      },
+      {
+        "Date": "1973-07-01",
+        "Average_Price": 6268.0
+      },
+      {
+        "Date": "1973-08-01",
+        "Average_Price": 6268.0
+      },
+      {
+        "Date": "1973-09-01",
+        "Average_Price": 6268.0
+      },
+      {
+        "Date": "1973-10-01",
+        "Average_Price": 6560.0
+      },
+      {
+        "Date": "1973-11-01",
+        "Average_Price": 6560.0
+      },
+      {
+        "Date": "1973-12-01",
+        "Average_Price": 6560.0
+      },
+      {
+        "Date": "1974-01-01",
+        "Average_Price": 6297.0
+      },
+      {
+        "Date": "1974-02-01",
+        "Average_Price": 6297.0
+      },
+      {
+        "Date": "1974-03-01",
+        "Average_Price": 6297.0
+      },
+      {
+        "Date": "1974-04-01",
+        "Average_Price": 6385.0
+      },
+      {
+        "Date": "1974-05-01",
+        "Average_Price": 6385.0
+      },
+      {
+        "Date": "1974-06-01",
+        "Average_Price": 6385.0
+      },
+      {
+        "Date": "1974-07-01",
+        "Average_Price": 6618.0
+      },
+      {
+        "Date": "1974-08-01",
+        "Average_Price": 6618.0
+      },
+      {
+        "Date": "1974-09-01",
+        "Average_Price": 6618.0
+      },
+      {
+        "Date": "1974-10-01",
+        "Average_Price": 6984.0
+      },
+      {
+        "Date": "1974-11-01",
+        "Average_Price": 6984.0
+      },
+      {
+        "Date": "1974-12-01",
+        "Average_Price": 6984.0
+      },
+      {
+        "Date": "1975-01-01",
+        "Average_Price": 6823.0
+      },
+      {
+        "Date": "1975-02-01",
+        "Average_Price": 6823.0
+      },
+      {
+        "Date": "1975-03-01",
+        "Average_Price": 6823.0
+      },
+      {
+        "Date": "1975-04-01",
+        "Average_Price": 6984.0
+      },
+      {
+        "Date": "1975-05-01",
+        "Average_Price": 6984.0
+      },
+      {
+        "Date": "1975-06-01",
+        "Average_Price": 6984.0
+      },
+      {
+        "Date": "1975-07-01",
+        "Average_Price": 7422.0
+      },
+      {
+        "Date": "1975-08-01",
+        "Average_Price": 7422.0
+      },
+      {
+        "Date": "1975-09-01",
+        "Average_Price": 7422.0
+      },
+      {
+        "Date": "1975-10-01",
+        "Average_Price": 7276.0
+      },
+      {
+        "Date": "1975-11-01",
+        "Average_Price": 7276.0
+      },
+      {
+        "Date": "1975-12-01",
+        "Average_Price": 7276.0
+      },
+      {
+        "Date": "1976-01-01",
+        "Average_Price": 7670.0
+      },
+      {
+        "Date": "1976-02-01",
+        "Average_Price": 7670.0
+      },
+      {
+        "Date": "1976-03-01",
+        "Average_Price": 7670.0
+      },
+      {
+        "Date": "1976-04-01",
+        "Average_Price": 7699.0
+      },
+      {
+        "Date": "1976-05-01",
+        "Average_Price": 7699.0
+      },
+      {
+        "Date": "1976-06-01",
+        "Average_Price": 7699.0
+      },
+      {
+        "Date": "1976-07-01",
+        "Average_Price": 7919.0
+      },
+      {
+        "Date": "1976-08-01",
+        "Average_Price": 7919.0
+      },
+      {
+        "Date": "1976-09-01",
+        "Average_Price": 7919.0
+      },
+      {
+        "Date": "1976-10-01",
+        "Average_Price": 8109.0
+      },
+      {
+        "Date": "1976-11-01",
+        "Average_Price": 8109.0
+      },
+      {
+        "Date": "1976-12-01",
+        "Average_Price": 8109.0
+      },
+      {
+        "Date": "1977-01-01",
+        "Average_Price": 7933.0
+      },
+      {
+        "Date": "1977-02-01",
+        "Average_Price": 7933.0
+      },
+      {
+        "Date": "1977-03-01",
+        "Average_Price": 7933.0
+      },
+      {
+        "Date": "1977-04-01",
+        "Average_Price": 8269.0
+      },
+      {
+        "Date": "1977-05-01",
+        "Average_Price": 8269.0
+      },
+      {
+        "Date": "1977-06-01",
+        "Average_Price": 8269.0
+      },
+      {
+        "Date": "1977-07-01",
+        "Average_Price": 8313.0
+      },
+      {
+        "Date": "1977-08-01",
+        "Average_Price": 8313.0
+      },
+      {
+        "Date": "1977-09-01",
+        "Average_Price": 8313.0
+      },
+      {
+        "Date": "1977-10-01",
+        "Average_Price": 8561.0
+      },
+      {
+        "Date": "1977-11-01",
+        "Average_Price": 8561.0
+      },
+      {
+        "Date": "1977-12-01",
+        "Average_Price": 8561.0
+      },
+      {
+        "Date": "1978-01-01",
+        "Average_Price": 9117.0
+      },
+      {
+        "Date": "1978-02-01",
+        "Average_Price": 9117.0
+      },
+      {
+        "Date": "1978-03-01",
+        "Average_Price": 9117.0
+      },
+      {
+        "Date": "1978-04-01",
+        "Average_Price": 9219.0
+      },
+      {
+        "Date": "1978-05-01",
+        "Average_Price": 9219.0
+      },
+      {
+        "Date": "1978-06-01",
+        "Average_Price": 9219.0
+      },
+      {
+        "Date": "1978-07-01",
+        "Average_Price": 9803.0
+      },
+      {
+        "Date": "1978-08-01",
+        "Average_Price": 9803.0
+      },
+      {
+        "Date": "1978-09-01",
+        "Average_Price": 9803.0
+      },
+      {
+        "Date": "1978-10-01",
+        "Average_Price": 10315.0
+      },
+      {
+        "Date": "1978-11-01",
+        "Average_Price": 10315.0
+      },
+      {
+        "Date": "1978-12-01",
+        "Average_Price": 10315.0
+      },
+      {
+        "Date": "1979-01-01",
+        "Average_Price": 10680.0
+      },
+      {
+        "Date": "1979-02-01",
+        "Average_Price": 10680.0
+      },
+      {
+        "Date": "1979-03-01",
+        "Average_Price": 10680.0
+      },
+      {
+        "Date": "1979-04-01",
+        "Average_Price": 11790.0
+      },
+      {
+        "Date": "1979-05-01",
+        "Average_Price": 11790.0
+      },
+      {
+        "Date": "1979-06-01",
+        "Average_Price": 11790.0
+      },
+      {
+        "Date": "1979-07-01",
+        "Average_Price": 12784.0
+      },
+      {
+        "Date": "1979-08-01",
+        "Average_Price": 12784.0
+      },
+      {
+        "Date": "1979-09-01",
+        "Average_Price": 12784.0
+      },
+      {
+        "Date": "1979-10-01",
+        "Average_Price": 13602.0
+      },
+      {
+        "Date": "1979-11-01",
+        "Average_Price": 13602.0
+      },
+      {
+        "Date": "1979-12-01",
+        "Average_Price": 13602.0
+      },
+      {
+        "Date": "1980-01-01",
+        "Average_Price": 13719.0
+      },
+      {
+        "Date": "1980-02-01",
+        "Average_Price": 13719.0
+      },
+      {
+        "Date": "1980-03-01",
+        "Average_Price": 13719.0
+      },
+      {
+        "Date": "1980-04-01",
+        "Average_Price": 14435.0
+      },
+      {
+        "Date": "1980-05-01",
+        "Average_Price": 14435.0
+      },
+      {
+        "Date": "1980-06-01",
+        "Average_Price": 14435.0
+      },
+      {
+        "Date": "1980-07-01",
+        "Average_Price": 14844.0
+      },
+      {
+        "Date": "1980-08-01",
+        "Average_Price": 14844.0
+      },
+      {
+        "Date": "1980-09-01",
+        "Average_Price": 14844.0
+      },
+      {
+        "Date": "1980-10-01",
+        "Average_Price": 15574.0
+      },
+      {
+        "Date": "1980-11-01",
+        "Average_Price": 15574.0
+      },
+      {
+        "Date": "1980-12-01",
+        "Average_Price": 15574.0
+      },
+      {
+        "Date": "1981-01-01",
+        "Average_Price": 15034.0
+      },
+      {
+        "Date": "1981-02-01",
+        "Average_Price": 15034.0
+      },
+      {
+        "Date": "1981-03-01",
+        "Average_Price": 15034.0
+      },
+      {
+        "Date": "1981-04-01",
+        "Average_Price": 15823.0
+      },
+      {
+        "Date": "1981-05-01",
+        "Average_Price": 15823.0
+      },
+      {
+        "Date": "1981-06-01",
+        "Average_Price": 15823.0
+      },
+      {
+        "Date": "1981-07-01",
+        "Average_Price": 17167.0
+      },
+      {
+        "Date": "1981-08-01",
+        "Average_Price": 17167.0
+      },
+      {
+        "Date": "1981-09-01",
+        "Average_Price": 17167.0
+      },
+      {
+        "Date": "1981-10-01",
+        "Average_Price": 15384.0
+      },
+      {
+        "Date": "1981-11-01",
+        "Average_Price": 15384.0
+      },
+      {
+        "Date": "1981-12-01",
+        "Average_Price": 15384.0
+      },
+      {
+        "Date": "1982-01-01",
+        "Average_Price": 15472.0
+      },
+      {
+        "Date": "1982-02-01",
+        "Average_Price": 15472.0
+      },
+      {
+        "Date": "1982-03-01",
+        "Average_Price": 15472.0
+      },
+      {
+        "Date": "1982-04-01",
+        "Average_Price": 16801.0
+      },
+      {
+        "Date": "1982-05-01",
+        "Average_Price": 16801.0
+      },
+      {
+        "Date": "1982-06-01",
+        "Average_Price": 16801.0
+      },
+      {
+        "Date": "1982-07-01",
+        "Average_Price": 17181.0
+      },
+      {
+        "Date": "1982-08-01",
+        "Average_Price": 17181.0
+      },
+      {
+        "Date": "1982-09-01",
+        "Average_Price": 17181.0
+      },
+      {
+        "Date": "1982-10-01",
+        "Average_Price": 17254.0
+      },
+      {
+        "Date": "1982-11-01",
+        "Average_Price": 17254.0
+      },
+      {
+        "Date": "1982-12-01",
+        "Average_Price": 17254.0
+      },
+      {
+        "Date": "1983-01-01",
+        "Average_Price": 17094.0
+      },
+      {
+        "Date": "1983-02-01",
+        "Average_Price": 17094.0
+      },
+      {
+        "Date": "1983-03-01",
+        "Average_Price": 17094.0
+      },
+      {
+        "Date": "1983-04-01",
+        "Average_Price": 17824.0
+      },
+      {
+        "Date": "1983-05-01",
+        "Average_Price": 17824.0
+      },
+      {
+        "Date": "1983-06-01",
+        "Average_Price": 17824.0
+      },
+      {
+        "Date": "1983-07-01",
+        "Average_Price": 18993.0
+      },
+      {
+        "Date": "1983-08-01",
+        "Average_Price": 18993.0
+      },
+      {
+        "Date": "1983-09-01",
+        "Average_Price": 18993.0
+      },
+      {
+        "Date": "1983-10-01",
+        "Average_Price": 19285.0
+      },
+      {
+        "Date": "1983-11-01",
+        "Average_Price": 19285.0
+      },
+      {
+        "Date": "1983-12-01",
+        "Average_Price": 19285.0
+      },
+      {
+        "Date": "1984-01-01",
+        "Average_Price": 18555.0
+      },
+      {
+        "Date": "1984-02-01",
+        "Average_Price": 18555.0
+      },
+      {
+        "Date": "1984-03-01",
+        "Average_Price": 18555.0
+      },
+      {
+        "Date": "1984-04-01",
+        "Average_Price": 18701.0
+      },
+      {
+        "Date": "1984-05-01",
+        "Average_Price": 18701.0
+      },
+      {
+        "Date": "1984-06-01",
+        "Average_Price": 18701.0
+      },
+      {
+        "Date": "1984-07-01",
+        "Average_Price": 19285.0
+      },
+      {
+        "Date": "1984-08-01",
+        "Average_Price": 19285.0
+      },
+      {
+        "Date": "1984-09-01",
+        "Average_Price": 19285.0
+      },
+      {
+        "Date": "1984-10-01",
+        "Average_Price": 19577.0
+      },
+      {
+        "Date": "1984-11-01",
+        "Average_Price": 19577.0
+      },
+      {
+        "Date": "1984-12-01",
+        "Average_Price": 19577.0
+      },
+      {
+        "Date": "1985-01-01",
+        "Average_Price": 20308.0
+      },
+      {
+        "Date": "1985-02-01",
+        "Average_Price": 20308.0
+      },
+      {
+        "Date": "1985-03-01",
+        "Average_Price": 20308.0
+      },
+      {
+        "Date": "1985-04-01",
+        "Average_Price": 20162.0
+      },
+      {
+        "Date": "1985-05-01",
+        "Average_Price": 20162.0
+      },
+      {
+        "Date": "1985-06-01",
+        "Average_Price": 20162.0
+      },
+      {
+        "Date": "1985-07-01",
+        "Average_Price": 20746.0
+      },
+      {
+        "Date": "1985-08-01",
+        "Average_Price": 20746.0
+      },
+      {
+        "Date": "1985-09-01",
+        "Average_Price": 20746.0
+      },
+      {
+        "Date": "1985-10-01",
+        "Average_Price": 20746.0
+      },
+      {
+        "Date": "1985-11-01",
+        "Average_Price": 20746.0
+      },
+      {
+        "Date": "1985-12-01",
+        "Average_Price": 20746.0
+      },
+      {
+        "Date": "1986-01-01",
+        "Average_Price": 20892.0
+      },
+      {
+        "Date": "1986-02-01",
+        "Average_Price": 20892.0
+      },
+      {
+        "Date": "1986-03-01",
+        "Average_Price": 20892.0
+      },
+      {
+        "Date": "1986-04-01",
+        "Average_Price": 21038.0
+      },
+      {
+        "Date": "1986-05-01",
+        "Average_Price": 21038.0
+      },
+      {
+        "Date": "1986-06-01",
+        "Average_Price": 21038.0
+      },
+      {
+        "Date": "1986-07-01",
+        "Average_Price": 22938.0
+      },
+      {
+        "Date": "1986-08-01",
+        "Average_Price": 22938.0
+      },
+      {
+        "Date": "1986-09-01",
+        "Average_Price": 22938.0
+      },
+      {
+        "Date": "1986-10-01",
+        "Average_Price": 22645.0
+      },
+      {
+        "Date": "1986-11-01",
+        "Average_Price": 22645.0
+      },
+      {
+        "Date": "1986-12-01",
+        "Average_Price": 22645.0
+      },
+      {
+        "Date": "1987-01-01",
+        "Average_Price": 23376.0
+      },
+      {
+        "Date": "1987-02-01",
+        "Average_Price": 23376.0
+      },
+      {
+        "Date": "1987-03-01",
+        "Average_Price": 23376.0
+      },
+      {
+        "Date": "1987-04-01",
+        "Average_Price": 23522.0
+      },
+      {
+        "Date": "1987-05-01",
+        "Average_Price": 23522.0
+      },
+      {
+        "Date": "1987-06-01",
+        "Average_Price": 23522.0
+      },
+      {
+        "Date": "1987-07-01",
+        "Average_Price": 24545.0
+      },
+      {
+        "Date": "1987-08-01",
+        "Average_Price": 24545.0
+      },
+      {
+        "Date": "1987-09-01",
+        "Average_Price": 24545.0
+      },
+      {
+        "Date": "1987-10-01",
+        "Average_Price": 25545.0
+      },
+      {
+        "Date": "1987-11-01",
+        "Average_Price": 25545.0
+      },
+      {
+        "Date": "1987-12-01",
+        "Average_Price": 25545.0
+      },
+      {
+        "Date": "1988-01-01",
+        "Average_Price": 25545.0
+      },
+      {
+        "Date": "1988-02-01",
+        "Average_Price": 25545.0
+      },
+      {
+        "Date": "1988-03-01",
+        "Average_Price": 25545.0
+      },
+      {
+        "Date": "1988-04-01",
+        "Average_Price": 27193.0
+      },
+      {
+        "Date": "1988-05-01",
+        "Average_Price": 27193.0
+      },
+      {
+        "Date": "1988-06-01",
+        "Average_Price": 27193.0
+      },
+      {
+        "Date": "1988-07-01",
+        "Average_Price": 31313.0
+      },
+      {
+        "Date": "1988-08-01",
+        "Average_Price": 31313.0
+      },
+      {
+        "Date": "1988-09-01",
+        "Average_Price": 31313.0
+      },
+      {
+        "Date": "1988-10-01",
+        "Average_Price": 32137.0
+      },
+      {
+        "Date": "1988-11-01",
+        "Average_Price": 32137.0
+      },
+      {
+        "Date": "1988-12-01",
+        "Average_Price": 32137.0
+      },
+      {
+        "Date": "1989-01-01",
+        "Average_Price": 36463.0
+      },
+      {
+        "Date": "1989-02-01",
+        "Average_Price": 36463.0
+      },
+      {
+        "Date": "1989-03-01",
+        "Average_Price": 36463.0
+      },
+      {
+        "Date": "1989-04-01",
+        "Average_Price": 40583.0
+      },
+      {
+        "Date": "1989-05-01",
+        "Average_Price": 40583.0
+      },
+      {
+        "Date": "1989-06-01",
+        "Average_Price": 40583.0
+      },
+      {
+        "Date": "1989-07-01",
+        "Average_Price": 41613.0
+      },
+      {
+        "Date": "1989-08-01",
+        "Average_Price": 41613.0
+      },
+      {
+        "Date": "1989-09-01",
+        "Average_Price": 41613.0
+      },
+      {
+        "Date": "1989-10-01",
+        "Average_Price": 39965.0
+      },
+      {
+        "Date": "1989-11-01",
+        "Average_Price": 39965.0
+      },
+      {
+        "Date": "1989-12-01",
+        "Average_Price": 39965.0
+      },
+      {
+        "Date": "1990-01-01",
+        "Average_Price": 40372.0
+      },
+      {
+        "Date": "1990-02-01",
+        "Average_Price": 40372.0
+      },
+      {
+        "Date": "1990-03-01",
+        "Average_Price": 40372.0
+      },
+      {
+        "Date": "1990-04-01",
+        "Average_Price": 38963.0
+      },
+      {
+        "Date": "1990-05-01",
+        "Average_Price": 38963.0
+      },
+      {
+        "Date": "1990-06-01",
+        "Average_Price": 38963.0
+      },
+      {
+        "Date": "1990-07-01",
+        "Average_Price": 43813.0
+      },
+      {
+        "Date": "1990-08-01",
+        "Average_Price": 43813.0
+      },
+      {
+        "Date": "1990-09-01",
+        "Average_Price": 43813.0
+      },
+      {
+        "Date": "1990-10-01",
+        "Average_Price": 41864.0
+      },
+      {
+        "Date": "1990-11-01",
+        "Average_Price": 41864.0
+      },
+      {
+        "Date": "1990-12-01",
+        "Average_Price": 41864.0
+      },
+      {
+        "Date": "1991-01-01",
+        "Average_Price": 39419.0
+      },
+      {
+        "Date": "1991-02-01",
+        "Average_Price": 39419.0
+      },
+      {
+        "Date": "1991-03-01",
+        "Average_Price": 39419.0
+      },
+      {
+        "Date": "1991-04-01",
+        "Average_Price": 38880.0
+      },
+      {
+        "Date": "1991-05-01",
+        "Average_Price": 38880.0
+      },
+      {
+        "Date": "1991-06-01",
+        "Average_Price": 38880.0
+      },
+      {
+        "Date": "1991-07-01",
+        "Average_Price": 41243.0
+      },
+      {
+        "Date": "1991-08-01",
+        "Average_Price": 41243.0
+      },
+      {
+        "Date": "1991-09-01",
+        "Average_Price": 41243.0
+      },
+      {
+        "Date": "1991-10-01",
+        "Average_Price": 43357.0
+      },
+      {
+        "Date": "1991-11-01",
+        "Average_Price": 43357.0
+      },
+      {
+        "Date": "1991-12-01",
+        "Average_Price": 43357.0
+      },
+      {
+        "Date": "1992-01-01",
+        "Average_Price": 42693.0
+      },
+      {
+        "Date": "1992-02-01",
+        "Average_Price": 42693.0
+      },
+      {
+        "Date": "1992-03-01",
+        "Average_Price": 42693.0
+      },
+      {
+        "Date": "1992-04-01",
+        "Average_Price": 40041.0
+      },
+      {
+        "Date": "1992-05-01",
+        "Average_Price": 40041.0
+      },
+      {
+        "Date": "1992-06-01",
+        "Average_Price": 40041.0
+      },
+      {
+        "Date": "1992-07-01",
+        "Average_Price": 38998.0
+      },
+      {
+        "Date": "1992-08-01",
+        "Average_Price": 38998.0
+      },
+      {
+        "Date": "1992-09-01",
+        "Average_Price": 38998.0
+      },
+      {
+        "Date": "1992-10-01",
+        "Average_Price": 39318.0
+      },
+      {
+        "Date": "1992-11-01",
+        "Average_Price": 39318.0
+      },
+      {
+        "Date": "1992-12-01",
+        "Average_Price": 39318.0
+      },
+      {
+        "Date": "1993-01-01",
+        "Average_Price": 39800.0
+      },
+      {
+        "Date": "1993-02-01",
+        "Average_Price": 39800.0
+      },
+      {
+        "Date": "1993-03-01",
+        "Average_Price": 39800.0
+      },
+      {
+        "Date": "1993-04-01",
+        "Average_Price": 39880.0
+      },
+      {
+        "Date": "1993-05-01",
+        "Average_Price": 39880.0
+      },
+      {
+        "Date": "1993-06-01",
+        "Average_Price": 39880.0
+      },
+      {
+        "Date": "1993-07-01",
+        "Average_Price": 40281.0
+      },
+      {
+        "Date": "1993-08-01",
+        "Average_Price": 40281.0
+      },
+      {
+        "Date": "1993-09-01",
+        "Average_Price": 40281.0
+      },
+      {
+        "Date": "1993-10-01",
+        "Average_Price": 39960.0
+      },
+      {
+        "Date": "1993-11-01",
+        "Average_Price": 39960.0
+      },
+      {
+        "Date": "1993-12-01",
+        "Average_Price": 39960.0
+      },
+      {
+        "Date": "1994-01-01",
+        "Average_Price": 38476.0
+      },
+      {
+        "Date": "1994-02-01",
+        "Average_Price": 38476.0
+      },
+      {
+        "Date": "1994-03-01",
+        "Average_Price": 38476.0
+      },
+      {
+        "Date": "1994-04-01",
+        "Average_Price": 41605.0
+      },
+      {
+        "Date": "1994-05-01",
+        "Average_Price": 41605.0
+      },
+      {
+        "Date": "1994-06-01",
+        "Average_Price": 41605.0
+      },
+      {
+        "Date": "1994-07-01",
+        "Average_Price": 42969.0
+      },
+      {
+        "Date": "1994-08-01",
+        "Average_Price": 42969.0
+      },
+      {
+        "Date": "1994-09-01",
+        "Average_Price": 42969.0
+      },
+      {
+        "Date": "1994-10-01",
+        "Average_Price": 38396.0
+      },
+      {
+        "Date": "1994-11-01",
+        "Average_Price": 38396.0
+      },
+      {
+        "Date": "1994-12-01",
+        "Average_Price": 38396.0
+      },
+      {
+        "Date": "1995-01-01",
+        "Average_Price": 40870.0
+      },
+      {
+        "Date": "1995-02-01",
+        "Average_Price": 40168.0
+      },
+      {
+        "Date": "1995-03-01",
+        "Average_Price": 39559.0
+      },
+      {
+        "Date": "1995-04-01",
+        "Average_Price": 40199.0
+      },
+      {
+        "Date": "1995-05-01",
+        "Average_Price": 40172.0
+      },
+      {
+        "Date": "1995-06-01",
+        "Average_Price": 41223.0
+      },
+      {
+        "Date": "1995-07-01",
+        "Average_Price": 41271.0
+      },
+      {
+        "Date": "1995-08-01",
+        "Average_Price": 40870.0
+      },
+      {
+        "Date": "1995-09-01",
+        "Average_Price": 40870.0
+      },
+      {
+        "Date": "1995-10-01",
+        "Average_Price": 40193.0
+      },
+      {
+        "Date": "1995-11-01",
+        "Average_Price": 40346.0
+      },
+      {
+        "Date": "1995-12-01",
+        "Average_Price": 39715.0
+      },
+      {
+        "Date": "1996-01-01",
+        "Average_Price": 40283.0
+      },
+      {
+        "Date": "1996-02-01",
+        "Average_Price": 39692.0
+      },
+      {
+        "Date": "1996-03-01",
+        "Average_Price": 39362.0
+      },
+      {
+        "Date": "1996-04-01",
+        "Average_Price": 41006.0
+      },
+      {
+        "Date": "1996-05-01",
+        "Average_Price": 40703.0
+      },
+      {
+        "Date": "1996-06-01",
+        "Average_Price": 41003.0
+      },
+      {
+        "Date": "1996-07-01",
+        "Average_Price": 41206.0
+      },
+      {
+        "Date": "1996-08-01",
+        "Average_Price": 41283.0
+      },
+      {
+        "Date": "1996-09-01",
+        "Average_Price": 40852.0
+      },
+      {
+        "Date": "1996-10-01",
+        "Average_Price": 41454.0
+      },
+      {
+        "Date": "1996-11-01",
+        "Average_Price": 41029.0
+      },
+      {
+        "Date": "1996-12-01",
+        "Average_Price": 41550.0
+      },
+      {
+        "Date": "1997-01-01",
+        "Average_Price": 41212.0
+      },
+      {
+        "Date": "1997-02-01",
+        "Average_Price": 42260.0
+      },
+      {
+        "Date": "1997-03-01",
+        "Average_Price": 42183.0
+      },
+      {
+        "Date": "1997-04-01",
+        "Average_Price": 41863.0
+      },
+      {
+        "Date": "1997-05-01",
+        "Average_Price": 43029.0
+      },
+      {
+        "Date": "1997-06-01",
+        "Average_Price": 43829.0
+      },
+      {
+        "Date": "1997-07-01",
+        "Average_Price": 43327.0
+      },
+      {
+        "Date": "1997-08-01",
+        "Average_Price": 44007.0
+      },
+      {
+        "Date": "1997-09-01",
+        "Average_Price": 43819.0
+      },
+      {
+        "Date": "1997-10-01",
+        "Average_Price": 43806.0
+      },
+      {
+        "Date": "1997-11-01",
+        "Average_Price": 43700.0
+      },
+      {
+        "Date": "1997-12-01",
+        "Average_Price": 43814.0
+      },
+      {
+        "Date": "1998-01-01",
+        "Average_Price": 44055.0
+      },
+      {
+        "Date": "1998-02-01",
+        "Average_Price": 43501.0
+      },
+      {
+        "Date": "1998-03-01",
+        "Average_Price": 44132.0
+      },
+      {
+        "Date": "1998-04-01",
+        "Average_Price": 45389.0
+      },
+      {
+        "Date": "1998-05-01",
+        "Average_Price": 45211.0
+      },
+      {
+        "Date": "1998-06-01",
+        "Average_Price": 45333.0
+      },
+      {
+        "Date": "1998-07-01",
+        "Average_Price": 45705.0
+      },
+      {
+        "Date": "1998-08-01",
+        "Average_Price": 45727.0
+      },
+      {
+        "Date": "1998-09-01",
+        "Average_Price": 45692.0
+      },
+      {
+        "Date": "1998-10-01",
+        "Average_Price": 45449.0
+      },
+      {
+        "Date": "1998-11-01",
+        "Average_Price": 44984.0
+      },
+      {
+        "Date": "1998-12-01",
+        "Average_Price": 45767.0
+      },
+      {
+        "Date": "1999-01-01",
+        "Average_Price": 46581.0
+      },
+      {
+        "Date": "1999-02-01",
+        "Average_Price": 45880.0
+      },
+      {
+        "Date": "1999-03-01",
+        "Average_Price": 45446.0
+      },
+      {
+        "Date": "1999-04-01",
+        "Average_Price": 46877.0
+      },
+      {
+        "Date": "1999-05-01",
+        "Average_Price": 46484.0
+      },
+      {
+        "Date": "1999-06-01",
+        "Average_Price": 46975.0
+      },
+      {
+        "Date": "1999-07-01",
+        "Average_Price": 48092.0
+      },
+      {
+        "Date": "1999-08-01",
+        "Average_Price": 47489.0
+      },
+      {
+        "Date": "1999-09-01",
+        "Average_Price": 48716.0
+      },
+      {
+        "Date": "1999-10-01",
+        "Average_Price": 48593.0
+      },
+      {
+        "Date": "1999-11-01",
+        "Average_Price": 49410.0
+      },
+      {
+        "Date": "1999-12-01",
+        "Average_Price": 48995.0
+      },
+      {
+        "Date": "2000-01-01",
+        "Average_Price": 49286.0
+      },
+      {
+        "Date": "2000-02-01",
+        "Average_Price": 49533.0
+      },
+      {
+        "Date": "2000-03-01",
+        "Average_Price": 49570.0
+      },
+      {
+        "Date": "2000-04-01",
+        "Average_Price": 50618.0
+      },
+      {
+        "Date": "2000-05-01",
+        "Average_Price": 50753.0
+      },
+      {
+        "Date": "2000-06-01",
+        "Average_Price": 50597.0
+      },
+      {
+        "Date": "2000-07-01",
+        "Average_Price": 51806.0
+      },
+      {
+        "Date": "2000-08-01",
+        "Average_Price": 51784.0
+      },
+      {
+        "Date": "2000-09-01",
+        "Average_Price": 52500.0
+      },
+      {
+        "Date": "2000-10-01",
+        "Average_Price": 51966.0
+      },
+      {
+        "Date": "2000-11-01",
+        "Average_Price": 52544.0
+      },
+      {
+        "Date": "2000-12-01",
+        "Average_Price": 52479.0
+      },
+      {
+        "Date": "2001-01-01",
+        "Average_Price": 51586.0
+      },
+      {
+        "Date": "2001-02-01",
+        "Average_Price": 52492.0
+      },
+      {
+        "Date": "2001-03-01",
+        "Average_Price": 53099.0
+      },
+      {
+        "Date": "2001-04-01",
+        "Average_Price": 53840.0
+      },
+      {
+        "Date": "2001-05-01",
+        "Average_Price": 55074.0
+      },
+      {
+        "Date": "2001-06-01",
+        "Average_Price": 55635.0
+      },
+      {
+        "Date": "2001-07-01",
+        "Average_Price": 56822.0
+      },
+      {
+        "Date": "2001-08-01",
+        "Average_Price": 57271.0
+      },
+      {
+        "Date": "2001-09-01",
+        "Average_Price": 57382.0
+      },
+      {
+        "Date": "2001-10-01",
+        "Average_Price": 56748.0
+      },
+      {
+        "Date": "2001-11-01",
+        "Average_Price": 58396.0
+      },
+      {
+        "Date": "2001-12-01",
+        "Average_Price": 58150.0
+      },
+      {
+        "Date": "2002-01-01",
+        "Average_Price": 58447.0
+      },
+      {
+        "Date": "2002-02-01",
+        "Average_Price": 58515.0
+      },
+      {
+        "Date": "2002-03-01",
+        "Average_Price": 59032.0
+      },
+      {
+        "Date": "2002-04-01",
+        "Average_Price": 61316.0
+      },
+      {
+        "Date": "2002-05-01",
+        "Average_Price": 62603.0
+      },
+      {
+        "Date": "2002-06-01",
+        "Average_Price": 65727.0
+      },
+      {
+        "Date": "2002-07-01",
+        "Average_Price": 66158.0
+      },
+      {
+        "Date": "2002-08-01",
+        "Average_Price": 68112.0
+      },
+      {
+        "Date": "2002-09-01",
+        "Average_Price": 68009.0
+      },
+      {
+        "Date": "2002-10-01",
+        "Average_Price": 69058.0
+      },
+      {
+        "Date": "2002-11-01",
+        "Average_Price": 71435.0
+      },
+      {
+        "Date": "2002-12-01",
+        "Average_Price": 71307.0
+      },
+      {
+        "Date": "2003-01-01",
+        "Average_Price": 73663.0
+      },
+      {
+        "Date": "2003-02-01",
+        "Average_Price": 74376.0
+      },
+      {
+        "Date": "2003-03-01",
+        "Average_Price": 75059.0
+      },
+      {
+        "Date": "2003-04-01",
+        "Average_Price": 78253.0
+      },
+      {
+        "Date": "2003-05-01",
+        "Average_Price": 79452.0
+      },
+      {
+        "Date": "2003-06-01",
+        "Average_Price": 80978.0
+      },
+      {
+        "Date": "2003-07-01",
+        "Average_Price": 83398.0
+      },
+      {
+        "Date": "2003-08-01",
+        "Average_Price": 86323.0
+      },
+      {
+        "Date": "2003-09-01",
+        "Average_Price": 87053.0
+      },
+      {
+        "Date": "2003-10-01",
+        "Average_Price": 87778.0
+      },
+      {
+        "Date": "2003-11-01",
+        "Average_Price": 89440.0
+      },
+      {
+        "Date": "2003-12-01",
+        "Average_Price": 92527.0
+      },
+      {
+        "Date": "2004-01-01",
+        "Average_Price": 93655.0
+      },
+      {
+        "Date": "2004-02-01",
+        "Average_Price": 94779.0
+      },
+      {
+        "Date": "2004-03-01",
+        "Average_Price": 95626.0
+      },
+      {
+        "Date": "2004-04-01",
+        "Average_Price": 101714.0
+      },
+      {
+        "Date": "2004-05-01",
+        "Average_Price": 102295.0
+      },
+      {
+        "Date": "2004-06-01",
+        "Average_Price": 107651.0
+      },
+      {
+        "Date": "2004-07-01",
+        "Average_Price": 111212.0
+      },
+      {
+        "Date": "2004-08-01",
+        "Average_Price": 114414.0
+      },
+      {
+        "Date": "2004-09-01",
+        "Average_Price": 113047.0
+      },
+      {
+        "Date": "2004-10-01",
+        "Average_Price": 114182.0
+      },
+      {
+        "Date": "2004-11-01",
+        "Average_Price": 116354.0
+      },
+      {
+        "Date": "2004-12-01",
+        "Average_Price": 115521.0
+      },
+      {
+        "Date": "2005-01-01",
+        "Average_Price": 117235.0
+      },
+      {
+        "Date": "2005-02-01",
+        "Average_Price": 114635.0
+      },
+      {
+        "Date": "2005-03-01",
+        "Average_Price": 116512.0
+      },
+      {
+        "Date": "2005-04-01",
+        "Average_Price": 117494.0
+      },
+      {
+        "Date": "2005-05-01",
+        "Average_Price": 119816.0
+      },
+      {
+        "Date": "2005-06-01",
+        "Average_Price": 120702.0
+      },
+      {
+        "Date": "2005-07-01",
+        "Average_Price": 123592.0
+      },
+      {
+        "Date": "2005-08-01",
+        "Average_Price": 124865.0
+      },
+      {
+        "Date": "2005-09-01",
+        "Average_Price": 124329.0
+      },
+      {
+        "Date": "2005-10-01",
+        "Average_Price": 124521.0
+      },
+      {
+        "Date": "2005-11-01",
+        "Average_Price": 123873.0
+      },
+      {
+        "Date": "2005-12-01",
+        "Average_Price": 122782.0
+      },
+      {
+        "Date": "2006-01-01",
+        "Average_Price": 123010.0
+      },
+      {
+        "Date": "2006-02-01",
+        "Average_Price": 125191.0
+      },
+      {
+        "Date": "2006-03-01",
+        "Average_Price": 126482.0
+      },
+      {
+        "Date": "2006-04-01",
+        "Average_Price": 126895.0
+      },
+      {
+        "Date": "2006-05-01",
+        "Average_Price": 127866.0
+      },
+      {
+        "Date": "2006-06-01",
+        "Average_Price": 131176.0
+      },
+      {
+        "Date": "2006-07-01",
+        "Average_Price": 131002.0
+      },
+      {
+        "Date": "2006-08-01",
+        "Average_Price": 132775.0
+      },
+      {
+        "Date": "2006-09-01",
+        "Average_Price": 132730.0
+      },
+      {
+        "Date": "2006-10-01",
+        "Average_Price": 132371.0
+      },
+      {
+        "Date": "2006-11-01",
+        "Average_Price": 134030.0
+      },
+      {
+        "Date": "2006-12-01",
+        "Average_Price": 134947.0
+      },
+      {
+        "Date": "2007-01-01",
+        "Average_Price": 132332.0
+      },
+      {
+        "Date": "2007-02-01",
+        "Average_Price": 135831.0
+      },
+      {
+        "Date": "2007-03-01",
+        "Average_Price": 133935.0
+      },
+      {
+        "Date": "2007-04-01",
+        "Average_Price": 137146.0
+      },
+      {
+        "Date": "2007-05-01",
+        "Average_Price": 138195.0
+      },
+      {
+        "Date": "2007-06-01",
+        "Average_Price": 139568.0
+      },
+      {
+        "Date": "2007-07-01",
+        "Average_Price": 139419.0
+      },
+      {
+        "Date": "2007-08-01",
+        "Average_Price": 142328.0
+      },
+      {
+        "Date": "2007-09-01",
+        "Average_Price": 141237.0
+      },
+      {
+        "Date": "2007-10-01",
+        "Average_Price": 141862.0
+      },
+      {
+        "Date": "2007-11-01",
+        "Average_Price": 140616.0
+      },
+      {
+        "Date": "2007-12-01",
+        "Average_Price": 139530.0
+      },
+      {
+        "Date": "2008-01-01",
+        "Average_Price": 138585.0
+      },
+      {
+        "Date": "2008-02-01",
+        "Average_Price": 136949.0
+      },
+      {
+        "Date": "2008-03-01",
+        "Average_Price": 133982.0
+      },
+      {
+        "Date": "2008-04-01",
+        "Average_Price": 134268.0
+      },
+      {
+        "Date": "2008-05-01",
+        "Average_Price": 135162.0
+      },
+      {
+        "Date": "2008-06-01",
+        "Average_Price": 134336.0
+      },
+      {
+        "Date": "2008-07-01",
+        "Average_Price": 130572.0
+      },
+      {
+        "Date": "2008-08-01",
+        "Average_Price": 132238.0
+      },
+      {
+        "Date": "2008-09-01",
+        "Average_Price": 125576.0
+      },
+      {
+        "Date": "2008-10-01",
+        "Average_Price": 126870.0
+      },
+      {
+        "Date": "2008-11-01",
+        "Average_Price": 124325.0
+      },
+      {
+        "Date": "2008-12-01",
+        "Average_Price": 122526.0
+      },
+      {
+        "Date": "2009-01-01",
+        "Average_Price": 118377.0
+      },
+      {
+        "Date": "2009-02-01",
+        "Average_Price": 117437.0
+      },
+      {
+        "Date": "2009-03-01",
+        "Average_Price": 116562.0
+      },
+      {
+        "Date": "2009-04-01",
+        "Average_Price": 118693.0
+      },
+      {
+        "Date": "2009-05-01",
+        "Average_Price": 120582.0
+      },
+      {
+        "Date": "2009-06-01",
+        "Average_Price": 119254.0
+      },
+      {
+        "Date": "2009-07-01",
+        "Average_Price": 121462.0
+      },
+      {
+        "Date": "2009-08-01",
+        "Average_Price": 121924.0
+      },
+      {
+        "Date": "2009-09-01",
+        "Average_Price": 122364.0
+      },
+      {
+        "Date": "2009-10-01",
+        "Average_Price": 123750.0
+      },
+      {
+        "Date": "2009-11-01",
+        "Average_Price": 124162.0
+      },
+      {
+        "Date": "2009-12-01",
+        "Average_Price": 125911.0
+      },
+      {
+        "Date": "2010-01-01",
+        "Average_Price": 120944.0
+      },
+      {
+        "Date": "2010-02-01",
+        "Average_Price": 121157.0
+      },
+      {
+        "Date": "2010-03-01",
+        "Average_Price": 123732.0
+      },
+      {
+        "Date": "2010-04-01",
+        "Average_Price": 124745.0
+      },
+      {
+        "Date": "2010-05-01",
+        "Average_Price": 125442.0
+      },
+      {
+        "Date": "2010-06-01",
+        "Average_Price": 124868.0
+      },
+      {
+        "Date": "2010-07-01",
+        "Average_Price": 126912.0
+      },
+      {
+        "Date": "2010-08-01",
+        "Average_Price": 125413.0
+      },
+      {
+        "Date": "2010-09-01",
+        "Average_Price": 126090.0
+      },
+      {
+        "Date": "2010-10-01",
+        "Average_Price": 126064.0
+      },
+      {
+        "Date": "2010-11-01",
+        "Average_Price": 120670.0
+      },
+      {
+        "Date": "2010-12-01",
+        "Average_Price": 122109.0
+      },
+      {
+        "Date": "2011-01-01",
+        "Average_Price": 120980.0
+      },
+      {
+        "Date": "2011-02-01",
+        "Average_Price": 121161.0
+      },
+      {
+        "Date": "2011-03-01",
+        "Average_Price": 118483.0
+      },
+      {
+        "Date": "2011-04-01",
+        "Average_Price": 122354.0
+      },
+      {
+        "Date": "2011-05-01",
+        "Average_Price": 121278.0
+      },
+      {
+        "Date": "2011-06-01",
+        "Average_Price": 121453.0
+      },
+      {
+        "Date": "2011-07-01",
+        "Average_Price": 121731.0
+      },
+      {
+        "Date": "2011-08-01",
+        "Average_Price": 122518.0
+      },
+      {
+        "Date": "2011-09-01",
+        "Average_Price": 124054.0
+      },
+      {
+        "Date": "2011-10-01",
+        "Average_Price": 120911.0
+      },
+      {
+        "Date": "2011-11-01",
+        "Average_Price": 123484.0
+      },
+      {
+        "Date": "2011-12-01",
+        "Average_Price": 120627.0
+      },
+      {
+        "Date": "2012-01-01",
+        "Average_Price": 120342.0
+      },
+      {
+        "Date": "2012-02-01",
+        "Average_Price": 119610.0
+      },
+      {
+        "Date": "2012-03-01",
+        "Average_Price": 119522.0
+      },
+      {
+        "Date": "2012-04-01",
+        "Average_Price": 121352.0
+      },
+      {
+        "Date": "2012-05-01",
+        "Average_Price": 121528.0
+      },
+      {
+        "Date": "2012-06-01",
+        "Average_Price": 123077.0
+      },
+      {
+        "Date": "2012-07-01",
+        "Average_Price": 122468.0
+      },
+      {
+        "Date": "2012-08-01",
+        "Average_Price": 122012.0
+      },
+      {
+        "Date": "2012-09-01",
+        "Average_Price": 121152.0
+      },
+      {
+        "Date": "2012-10-01",
+        "Average_Price": 120138.0
+      },
+      {
+        "Date": "2012-11-01",
+        "Average_Price": 121625.0
+      },
+      {
+        "Date": "2012-12-01",
+        "Average_Price": 120386.0
+      },
+      {
+        "Date": "2013-01-01",
+        "Average_Price": 120804.0
+      },
+      {
+        "Date": "2013-02-01",
+        "Average_Price": 119021.0
+      },
+      {
+        "Date": "2013-03-01",
+        "Average_Price": 120226.0
+      },
+      {
+        "Date": "2013-04-01",
+        "Average_Price": 119939.0
+      },
+      {
+        "Date": "2013-05-01",
+        "Average_Price": 121804.0
+      },
+      {
+        "Date": "2013-06-01",
+        "Average_Price": 122504.0
+      },
+      {
+        "Date": "2013-07-01",
+        "Average_Price": 121672.0
+      },
+      {
+        "Date": "2013-08-01",
+        "Average_Price": 123888.0
+      },
+      {
+        "Date": "2013-09-01",
+        "Average_Price": 123171.0
+      },
+      {
+        "Date": "2013-10-01",
+        "Average_Price": 121282.0
+      },
+      {
+        "Date": "2013-11-01",
+        "Average_Price": 123119.0
+      },
+      {
+        "Date": "2013-12-01",
+        "Average_Price": 121748.0
+      },
+      {
+        "Date": "2014-01-01",
+        "Average_Price": 124609.0
+      },
+      {
+        "Date": "2014-02-01",
+        "Average_Price": 125315.0
+      },
+      {
+        "Date": "2014-03-01",
+        "Average_Price": 123531.0
+      },
+      {
+        "Date": "2014-04-01",
+        "Average_Price": 125605.0
+      },
+      {
+        "Date": "2014-05-01",
+        "Average_Price": 128324.0
+      },
+      {
+        "Date": "2014-06-01",
+        "Average_Price": 127844.0
+      },
+      {
+        "Date": "2014-07-01",
+        "Average_Price": 128366.0
+      },
+      {
+        "Date": "2014-08-01",
+        "Average_Price": 129444.0
+      },
+      {
+        "Date": "2014-09-01",
+        "Average_Price": 130873.0
+      },
+      {
+        "Date": "2014-10-01",
+        "Average_Price": 129368.0
+      },
+      {
+        "Date": "2014-11-01",
+        "Average_Price": 129622.0
+      },
+      {
+        "Date": "2014-12-01",
+        "Average_Price": 129628.0
+      },
+      {
+        "Date": "2015-01-01",
+        "Average_Price": 128912.0
+      },
+      {
+        "Date": "2015-02-01",
+        "Average_Price": 128403.0
+      },
+      {
+        "Date": "2015-03-01",
+        "Average_Price": 128044.0
+      },
+      {
+        "Date": "2015-04-01",
+        "Average_Price": 129756.0
+      },
+      {
+        "Date": "2015-05-01",
+        "Average_Price": 130243.0
+      },
+      {
+        "Date": "2015-06-01",
+        "Average_Price": 131119.0
+      },
+      {
+        "Date": "2015-07-01",
+        "Average_Price": 131815.0
+      },
+      {
+        "Date": "2015-08-01",
+        "Average_Price": 133176.0
+      },
+      {
+        "Date": "2015-09-01",
+        "Average_Price": 132795.0
+      },
+      {
+        "Date": "2015-10-01",
+        "Average_Price": 133423.0
+      },
+      {
+        "Date": "2015-11-01",
+        "Average_Price": 133482.0
+      },
+      {
+        "Date": "2015-12-01",
+        "Average_Price": 133999.0
+      },
+      {
+        "Date": "2016-01-01",
+        "Average_Price": 132574.0
+      },
+      {
+        "Date": "2016-02-01",
+        "Average_Price": 135127.0
+      },
+      {
+        "Date": "2016-03-01",
+        "Average_Price": 134091.0
+      },
+      {
+        "Date": "2016-04-01",
+        "Average_Price": 134382.0
+      },
+      {
+        "Date": "2016-05-01",
+        "Average_Price": 136627.0
+      },
+      {
+        "Date": "2016-06-01",
+        "Average_Price": 138664.0
+      },
+      {
+        "Date": "2016-07-01",
+        "Average_Price": 138575.0
+      },
+      {
+        "Date": "2016-08-01",
+        "Average_Price": 137657.0
+      },
+      {
+        "Date": "2016-09-01",
+        "Average_Price": 137271.0
+      },
+      {
+        "Date": "2016-10-01",
+        "Average_Price": 138864.0
+      },
+      {
+        "Date": "2016-11-01",
+        "Average_Price": 138504.0
+      },
+      {
+        "Date": "2016-12-01",
+        "Average_Price": 138659.0
+      },
+      {
+        "Date": "2017-01-01",
+        "Average_Price": 138614.0
+      },
+      {
+        "Date": "2017-02-01",
+        "Average_Price": 138086.0
+      },
+      {
+        "Date": "2017-03-01",
+        "Average_Price": 139940.0
+      },
+      {
+        "Date": "2017-04-01",
+        "Average_Price": 141933.0
+      },
+      {
+        "Date": "2017-05-01",
+        "Average_Price": 139592.0
+      },
+      {
+        "Date": "2017-06-01",
+        "Average_Price": 142401.0
+      },
+      {
+        "Date": "2017-07-01",
+        "Average_Price": 143002.0
+      },
+      {
+        "Date": "2017-08-01",
+        "Average_Price": 144735.0
+      },
+      {
+        "Date": "2017-09-01",
+        "Average_Price": 145083.0
+      },
+      {
+        "Date": "2017-10-01",
+        "Average_Price": 146794.0
+      },
+      {
+        "Date": "2017-11-01",
+        "Average_Price": 144972.0
+      },
+      {
+        "Date": "2017-12-01",
+        "Average_Price": 145617.0
+      },
+      {
+        "Date": "2018-01-01",
+        "Average_Price": 144990.0
+      },
+      {
+        "Date": "2018-02-01",
+        "Average_Price": 145068.0
+      },
+      {
+        "Date": "2018-03-01",
+        "Average_Price": 145837.0
+      },
+      {
+        "Date": "2018-04-01",
+        "Average_Price": 145412.0
+      },
+      {
+        "Date": "2018-05-01",
+        "Average_Price": 146531.0
+      },
+      {
+        "Date": "2018-06-01",
+        "Average_Price": 148527.0
+      },
+      {
+        "Date": "2018-07-01",
+        "Average_Price": 150195.0
+      },
+      {
+        "Date": "2018-08-01",
+        "Average_Price": 152466.0
+      },
+      {
+        "Date": "2018-09-01",
+        "Average_Price": 151747.0
+      },
+      {
+        "Date": "2018-10-01",
+        "Average_Price": 152401.0
+      },
+      {
+        "Date": "2018-11-01",
+        "Average_Price": 151646.0
+      },
+      {
+        "Date": "2018-12-01",
+        "Average_Price": 153612.0
+      },
+      {
+        "Date": "2019-01-01",
+        "Average_Price": 150122.0
+      },
+      {
+        "Date": "2019-02-01",
+        "Average_Price": 150566.0
+      },
+      {
+        "Date": "2019-03-01",
+        "Average_Price": 151406.0
+      },
+      {
+        "Date": "2019-04-01",
+        "Average_Price": 152875.0
+      },
+      {
+        "Date": "2019-05-01",
+        "Average_Price": 153038.0
+      },
+      {
+        "Date": "2019-06-01",
+        "Average_Price": 154250.0
+      },
+      {
+        "Date": "2019-07-01",
+        "Average_Price": 155700.0
+      },
+      {
+        "Date": "2019-08-01",
+        "Average_Price": 159275.0
+      },
+      {
+        "Date": "2019-09-01",
+        "Average_Price": 155676.0
+      },
+      {
+        "Date": "2019-10-01",
+        "Average_Price": 157444.0
+      },
+      {
+        "Date": "2019-11-01",
+        "Average_Price": 159560.0
+      },
+      {
+        "Date": "2019-12-01",
+        "Average_Price": 157588.0
+      },
+      {
+        "Date": "2020-01-01",
+        "Average_Price": 154532.0
+      },
+      {
+        "Date": "2020-02-01",
+        "Average_Price": 157134.0
+      },
+      {
+        "Date": "2020-03-01",
+        "Average_Price": 158163.0
+      },
+      {
+        "Date": "2020-04-01",
+        "Average_Price": 151534.0
+      },
+      {
+        "Date": "2020-05-01",
+        "Average_Price": 154054.0
+      },
+      {
+        "Date": "2020-06-01",
+        "Average_Price": 158488.0
+      },
+      {
+        "Date": "2020-07-01",
+        "Average_Price": 159465.0
+      },
+      {
+        "Date": "2020-08-01",
+        "Average_Price": 163805.0
+      },
+      {
+        "Date": "2020-09-01",
+        "Average_Price": 160994.0
+      },
+      {
+        "Date": "2020-10-01",
+        "Average_Price": 166597.0
+      },
+      {
+        "Date": "2020-11-01",
+        "Average_Price": 168781.0
+      },
+      {
+        "Date": "2020-12-01",
+        "Average_Price": 171640.0
+      },
+      {
+        "Date": "2021-01-01",
+        "Average_Price": 169842.0
+      },
+      {
+        "Date": "2021-02-01",
+        "Average_Price": 168438.0
+      },
+      {
+        "Date": "2021-03-01",
+        "Average_Price": 173661.0
+      },
+      {
+        "Date": "2021-04-01",
+        "Average_Price": 171658.0
+      },
+      {
+        "Date": "2021-05-01",
+        "Average_Price": 174016.0
+      },
+      {
+        "Date": "2021-06-01",
+        "Average_Price": 184345.0
+      },
+      {
+        "Date": "2021-07-01",
+        "Average_Price": 176129.0
+      },
+      {
+        "Date": "2021-08-01",
+        "Average_Price": 180281.0
+      },
+      {
+        "Date": "2021-09-01",
+        "Average_Price": 185561.0
+      },
+      {
+        "Date": "2021-10-01",
+        "Average_Price": 186951.0
+      },
+      {
+        "Date": "2021-11-01",
+        "Average_Price": 186520.0
+      },
+      {
+        "Date": "2021-12-01",
+        "Average_Price": 189741.0
+      },
+      {
+        "Date": "2022-01-01",
+        "Average_Price": 191552.0
+      },
+      {
+        "Date": "2022-02-01",
+        "Average_Price": 189656.0
+      },
+      {
+        "Date": "2022-03-01",
+        "Average_Price": 191471.0
+      },
+      {
+        "Date": "2022-04-01",
+        "Average_Price": 195875.0
+      },
+      {
+        "Date": "2022-05-01",
+        "Average_Price": 196682.0
+      },
+      {
+        "Date": "2022-06-01",
+        "Average_Price": 200277.0
+      },
+      {
+        "Date": "2022-07-01",
+        "Average_Price": 203313.0
+      },
+      {
+        "Date": "2022-08-01",
+        "Average_Price": 204218.0
+      },
+      {
+        "Date": "2022-09-01",
+        "Average_Price": 207696.0
+      },
+      {
+        "Date": "2022-10-01",
+        "Average_Price": 208209.0
+      },
+      {
+        "Date": "2022-11-01",
+        "Average_Price": 205941.0
+      },
+      {
+        "Date": "2022-12-01",
+        "Average_Price": 206563.0
+      },
+      {
+        "Date": "2023-01-01",
+        "Average_Price": 201853.0
+      },
+      {
+        "Date": "2023-02-01",
+        "Average_Price": 200870.0
+      },
+      {
+        "Date": "2023-03-01",
+        "Average_Price": 199167.0
+      },
+      {
+        "Date": "2023-04-01",
+        "Average_Price": 195717.0
+      },
+      {
+        "Date": "2023-05-01",
+        "Average_Price": 199616.0
+      },
+      {
+        "Date": "2023-06-01",
+        "Average_Price": 200183.0
+      },
+      {
+        "Date": "2023-07-01",
+        "Average_Price": 202620.0
+      },
+      {
+        "Date": "2023-08-01",
+        "Average_Price": 203852.0
+      },
+      {
+        "Date": "2023-09-01",
+        "Average_Price": 204460.0
+      },
+      {
+        "Date": "2023-10-01",
+        "Average_Price": 202477.0
+      },
+      {
+        "Date": "2023-11-01",
+        "Average_Price": 201778.0
+      },
+      {
+        "Date": "2023-12-01",
+        "Average_Price": 202077.0
+      },
+      {
+        "Date": "2024-01-01",
+        "Average_Price": 197808.0
+      },
+      {
+        "Date": "2024-02-01",
+        "Average_Price": 199272.0
+      },
+      {
+        "Date": "2024-03-01",
+        "Average_Price": 200795.0
+      },
+      {
+        "Date": "2024-04-01",
+        "Average_Price": 199545.0
+      },
+      {
+        "Date": "2024-05-01",
+        "Average_Price": 199330.0
+      },
+      {
+        "Date": "2024-06-01",
+        "Average_Price": 204368.0
+      },
+      {
+        "Date": "2024-07-01",
+        "Average_Price": 204982.0
+      },
+      {
+        "Date": "2024-08-01",
+        "Average_Price": 207156.0
+      },
+      {
+        "Date": "2024-09-01",
+        "Average_Price": 203822.0
+      },
+      {
+        "Date": "2024-10-01",
+        "Average_Price": 207454.0
+      },
+      {
+        "Date": "2024-11-01",
+        "Average_Price": 207435.0
+      },
+      {
+        "Date": "2024-12-01",
+        "Average_Price": 204481.0
+      },
+      {
+        "Date": "2025-01-01",
+        "Average_Price": 206039.0
+      },
+      {
+        "Date": "2025-02-01",
+        "Average_Price": 205804.0
+      },
+      {
+        "Date": "2025-03-01",
+        "Average_Price": 206272.0
+      },
+      {
+        "Date": "2025-04-01",
+        "Average_Price": 207610.0
+      },
+      {
+        "Date": "2025-05-01",
+        "Average_Price": 207842.0
+      },
+      {
+        "Date": "2025-06-01",
+        "Average_Price": 209571.0
+      },
+      {
+        "Date": "2025-07-01",
+        "Average_Price": 210006.0
+      },
+      {
+        "Date": "2025-08-01",
+        "Average_Price": 210287.0
+      },
+      {
+        "Date": "2025-09-01",
+        "Average_Price": 208837.0
+      },
+      {
+        "Date": "2025-10-01",
+        "Average_Price": 210258.0
+      },
+      {
+        "Date": "2025-11-01",
+        "Average_Price": 208935.0
+      }
+    ]
+  },
+  {
+    "name": "Scotland",
+    "data": [
+      {
+        "Date": "1968-04-01",
+        "Average_Price": 2738.0
+      },
+      {
+        "Date": "1968-05-01",
+        "Average_Price": 2738.0
+      },
+      {
+        "Date": "1968-06-01",
+        "Average_Price": 2738.0
+      },
+      {
+        "Date": "1968-07-01",
+        "Average_Price": 3001.0
+      },
+      {
+        "Date": "1968-08-01",
+        "Average_Price": 3001.0
+      },
+      {
+        "Date": "1968-09-01",
+        "Average_Price": 3001.0
+      },
+      {
+        "Date": "1968-10-01",
+        "Average_Price": 2811.0
+      },
+      {
+        "Date": "1968-11-01",
+        "Average_Price": 2811.0
+      },
+      {
+        "Date": "1968-12-01",
+        "Average_Price": 2811.0
+      },
+      {
+        "Date": "1969-01-01",
+        "Average_Price": 3031.0
+      },
+      {
+        "Date": "1969-02-01",
+        "Average_Price": 3031.0
+      },
+      {
+        "Date": "1969-03-01",
+        "Average_Price": 3031.0
+      },
+      {
+        "Date": "1969-04-01",
+        "Average_Price": 3060.0
+      },
+      {
+        "Date": "1969-05-01",
+        "Average_Price": 3060.0
+      },
+      {
+        "Date": "1969-06-01",
+        "Average_Price": 3060.0
+      },
+      {
+        "Date": "1969-07-01",
+        "Average_Price": 3031.0
+      },
+      {
+        "Date": "1969-08-01",
+        "Average_Price": 3031.0
+      },
+      {
+        "Date": "1969-09-01",
+        "Average_Price": 3031.0
+      },
+      {
+        "Date": "1969-10-01",
+        "Average_Price": 3001.0
+      },
+      {
+        "Date": "1969-11-01",
+        "Average_Price": 3001.0
+      },
+      {
+        "Date": "1969-12-01",
+        "Average_Price": 3001.0
+      },
+      {
+        "Date": "1970-01-01",
+        "Average_Price": 3104.0
+      },
+      {
+        "Date": "1970-02-01",
+        "Average_Price": 3104.0
+      },
+      {
+        "Date": "1970-03-01",
+        "Average_Price": 3104.0
+      },
+      {
+        "Date": "1970-04-01",
+        "Average_Price": 3294.0
+      },
+      {
+        "Date": "1970-05-01",
+        "Average_Price": 3294.0
+      },
+      {
+        "Date": "1970-06-01",
+        "Average_Price": 3294.0
+      },
+      {
+        "Date": "1970-07-01",
+        "Average_Price": 3236.0
+      },
+      {
+        "Date": "1970-08-01",
+        "Average_Price": 3236.0
+      },
+      {
+        "Date": "1970-09-01",
+        "Average_Price": 3236.0
+      },
+      {
+        "Date": "1970-10-01",
+        "Average_Price": 3353.0
+      },
+      {
+        "Date": "1970-11-01",
+        "Average_Price": 3353.0
+      },
+      {
+        "Date": "1970-12-01",
+        "Average_Price": 3353.0
+      },
+      {
+        "Date": "1971-01-01",
+        "Average_Price": 3294.0
+      },
+      {
+        "Date": "1971-02-01",
+        "Average_Price": 3294.0
+      },
+      {
+        "Date": "1971-03-01",
+        "Average_Price": 3294.0
+      },
+      {
+        "Date": "1971-04-01",
+        "Average_Price": 3353.0
+      },
+      {
+        "Date": "1971-05-01",
+        "Average_Price": 3353.0
+      },
+      {
+        "Date": "1971-06-01",
+        "Average_Price": 3353.0
+      },
+      {
+        "Date": "1971-07-01",
+        "Average_Price": 3719.0
+      },
+      {
+        "Date": "1971-08-01",
+        "Average_Price": 3719.0
+      },
+      {
+        "Date": "1971-09-01",
+        "Average_Price": 3719.0
+      },
+      {
+        "Date": "1971-10-01",
+        "Average_Price": 3558.0
+      },
+      {
+        "Date": "1971-11-01",
+        "Average_Price": 3558.0
+      },
+      {
+        "Date": "1971-12-01",
+        "Average_Price": 3558.0
+      },
+      {
+        "Date": "1972-01-01",
+        "Average_Price": 3733.0
+      },
+      {
+        "Date": "1972-02-01",
+        "Average_Price": 3733.0
+      },
+      {
+        "Date": "1972-03-01",
+        "Average_Price": 3733.0
+      },
+      {
+        "Date": "1972-04-01",
+        "Average_Price": 4114.0
+      },
+      {
+        "Date": "1972-05-01",
+        "Average_Price": 4114.0
+      },
+      {
+        "Date": "1972-06-01",
+        "Average_Price": 4114.0
+      },
+      {
+        "Date": "1972-07-01",
+        "Average_Price": 4363.0
+      },
+      {
+        "Date": "1972-08-01",
+        "Average_Price": 4363.0
+      },
+      {
+        "Date": "1972-09-01",
+        "Average_Price": 4363.0
+      },
+      {
+        "Date": "1972-10-01",
+        "Average_Price": 4392.0
+      },
+      {
+        "Date": "1972-11-01",
+        "Average_Price": 4392.0
+      },
+      {
+        "Date": "1972-12-01",
+        "Average_Price": 4392.0
+      },
+      {
+        "Date": "1973-01-01",
+        "Average_Price": 5066.0
+      },
+      {
+        "Date": "1973-02-01",
+        "Average_Price": 5066.0
+      },
+      {
+        "Date": "1973-03-01",
+        "Average_Price": 5066.0
+      },
+      {
+        "Date": "1973-04-01",
+        "Average_Price": 5256.0
+      },
+      {
+        "Date": "1973-05-01",
+        "Average_Price": 5256.0
+      },
+      {
+        "Date": "1973-06-01",
+        "Average_Price": 5256.0
+      },
+      {
+        "Date": "1973-07-01",
+        "Average_Price": 6120.0
+      },
+      {
+        "Date": "1973-08-01",
+        "Average_Price": 6120.0
+      },
+      {
+        "Date": "1973-09-01",
+        "Average_Price": 6120.0
+      },
+      {
+        "Date": "1973-10-01",
+        "Average_Price": 6046.0
+      },
+      {
+        "Date": "1973-11-01",
+        "Average_Price": 6046.0
+      },
+      {
+        "Date": "1973-12-01",
+        "Average_Price": 6046.0
+      },
+      {
+        "Date": "1974-01-01",
+        "Average_Price": 6237.0
+      },
+      {
+        "Date": "1974-02-01",
+        "Average_Price": 6237.0
+      },
+      {
+        "Date": "1974-03-01",
+        "Average_Price": 6237.0
+      },
+      {
+        "Date": "1974-04-01",
+        "Average_Price": 6398.0
+      },
+      {
+        "Date": "1974-05-01",
+        "Average_Price": 6398.0
+      },
+      {
+        "Date": "1974-06-01",
+        "Average_Price": 6398.0
+      },
+      {
+        "Date": "1974-07-01",
+        "Average_Price": 6456.0
+      },
+      {
+        "Date": "1974-08-01",
+        "Average_Price": 6456.0
+      },
+      {
+        "Date": "1974-09-01",
+        "Average_Price": 6456.0
+      },
+      {
+        "Date": "1974-10-01",
+        "Average_Price": 6442.0
+      },
+      {
+        "Date": "1974-11-01",
+        "Average_Price": 6442.0
+      },
+      {
+        "Date": "1974-12-01",
+        "Average_Price": 6442.0
+      },
+      {
+        "Date": "1975-01-01",
+        "Average_Price": 6691.0
+      },
+      {
+        "Date": "1975-02-01",
+        "Average_Price": 6691.0
+      },
+      {
+        "Date": "1975-03-01",
+        "Average_Price": 6691.0
+      },
+      {
+        "Date": "1975-04-01",
+        "Average_Price": 6983.0
+      },
+      {
+        "Date": "1975-05-01",
+        "Average_Price": 6983.0
+      },
+      {
+        "Date": "1975-06-01",
+        "Average_Price": 6983.0
+      },
+      {
+        "Date": "1975-07-01",
+        "Average_Price": 7525.0
+      },
+      {
+        "Date": "1975-08-01",
+        "Average_Price": 7525.0
+      },
+      {
+        "Date": "1975-09-01",
+        "Average_Price": 7525.0
+      },
+      {
+        "Date": "1975-10-01",
+        "Average_Price": 7657.0
+      },
+      {
+        "Date": "1975-11-01",
+        "Average_Price": 7657.0
+      },
+      {
+        "Date": "1975-12-01",
+        "Average_Price": 7657.0
+      },
+      {
+        "Date": "1976-01-01",
+        "Average_Price": 8096.0
+      },
+      {
+        "Date": "1976-02-01",
+        "Average_Price": 8096.0
+      },
+      {
+        "Date": "1976-03-01",
+        "Average_Price": 8096.0
+      },
+      {
+        "Date": "1976-04-01",
+        "Average_Price": 8579.0
+      },
+      {
+        "Date": "1976-05-01",
+        "Average_Price": 8579.0
+      },
+      {
+        "Date": "1976-06-01",
+        "Average_Price": 8579.0
+      },
+      {
+        "Date": "1976-07-01",
+        "Average_Price": 8887.0
+      },
+      {
+        "Date": "1976-08-01",
+        "Average_Price": 8887.0
+      },
+      {
+        "Date": "1976-09-01",
+        "Average_Price": 8887.0
+      },
+      {
+        "Date": "1976-10-01",
+        "Average_Price": 8901.0
+      },
+      {
+        "Date": "1976-11-01",
+        "Average_Price": 8901.0
+      },
+      {
+        "Date": "1976-12-01",
+        "Average_Price": 8901.0
+      },
+      {
+        "Date": "1977-01-01",
+        "Average_Price": 9018.0
+      },
+      {
+        "Date": "1977-02-01",
+        "Average_Price": 9018.0
+      },
+      {
+        "Date": "1977-03-01",
+        "Average_Price": 9018.0
+      },
+      {
+        "Date": "1977-04-01",
+        "Average_Price": 9180.0
+      },
+      {
+        "Date": "1977-05-01",
+        "Average_Price": 9180.0
+      },
+      {
+        "Date": "1977-06-01",
+        "Average_Price": 9180.0
+      },
+      {
+        "Date": "1977-07-01",
+        "Average_Price": 9619.0
+      },
+      {
+        "Date": "1977-08-01",
+        "Average_Price": 9619.0
+      },
+      {
+        "Date": "1977-09-01",
+        "Average_Price": 9619.0
+      },
+      {
+        "Date": "1977-10-01",
+        "Average_Price": 9853.0
+      },
+      {
+        "Date": "1977-11-01",
+        "Average_Price": 9853.0
+      },
+      {
+        "Date": "1977-12-01",
+        "Average_Price": 9853.0
+      },
+      {
+        "Date": "1978-01-01",
+        "Average_Price": 9765.0
+      },
+      {
+        "Date": "1978-02-01",
+        "Average_Price": 9765.0
+      },
+      {
+        "Date": "1978-03-01",
+        "Average_Price": 9765.0
+      },
+      {
+        "Date": "1978-04-01",
+        "Average_Price": 10278.0
+      },
+      {
+        "Date": "1978-05-01",
+        "Average_Price": 10278.0
+      },
+      {
+        "Date": "1978-06-01",
+        "Average_Price": 10278.0
+      },
+      {
+        "Date": "1978-07-01",
+        "Average_Price": 10980.0
+      },
+      {
+        "Date": "1978-08-01",
+        "Average_Price": 10980.0
+      },
+      {
+        "Date": "1978-09-01",
+        "Average_Price": 10980.0
+      },
+      {
+        "Date": "1978-10-01",
+        "Average_Price": 11522.0
+      },
+      {
+        "Date": "1978-11-01",
+        "Average_Price": 11522.0
+      },
+      {
+        "Date": "1978-12-01",
+        "Average_Price": 11522.0
+      },
+      {
+        "Date": "1979-01-01",
+        "Average_Price": 11815.0
+      },
+      {
+        "Date": "1979-02-01",
+        "Average_Price": 11815.0
+      },
+      {
+        "Date": "1979-03-01",
+        "Average_Price": 11815.0
+      },
+      {
+        "Date": "1979-04-01",
+        "Average_Price": 12313.0
+      },
+      {
+        "Date": "1979-05-01",
+        "Average_Price": 12313.0
+      },
+      {
+        "Date": "1979-06-01",
+        "Average_Price": 12313.0
+      },
+      {
+        "Date": "1979-07-01",
+        "Average_Price": 13425.0
+      },
+      {
+        "Date": "1979-08-01",
+        "Average_Price": 13425.0
+      },
+      {
+        "Date": "1979-09-01",
+        "Average_Price": 13425.0
+      },
+      {
+        "Date": "1979-10-01",
+        "Average_Price": 13396.0
+      },
+      {
+        "Date": "1979-11-01",
+        "Average_Price": 13396.0
+      },
+      {
+        "Date": "1979-12-01",
+        "Average_Price": 13396.0
+      },
+      {
+        "Date": "1980-01-01",
+        "Average_Price": 14040.0
+      },
+      {
+        "Date": "1980-02-01",
+        "Average_Price": 14040.0
+      },
+      {
+        "Date": "1980-03-01",
+        "Average_Price": 14040.0
+      },
+      {
+        "Date": "1980-04-01",
+        "Average_Price": 14157.0
+      },
+      {
+        "Date": "1980-05-01",
+        "Average_Price": 14157.0
+      },
+      {
+        "Date": "1980-06-01",
+        "Average_Price": 14157.0
+      },
+      {
+        "Date": "1980-07-01",
+        "Average_Price": 15167.0
+      },
+      {
+        "Date": "1980-08-01",
+        "Average_Price": 15167.0
+      },
+      {
+        "Date": "1980-09-01",
+        "Average_Price": 15167.0
+      },
+      {
+        "Date": "1980-10-01",
+        "Average_Price": 14933.0
+      },
+      {
+        "Date": "1980-11-01",
+        "Average_Price": 14933.0
+      },
+      {
+        "Date": "1980-12-01",
+        "Average_Price": 14933.0
+      },
+      {
+        "Date": "1981-01-01",
+        "Average_Price": 15358.0
+      },
+      {
+        "Date": "1981-02-01",
+        "Average_Price": 15358.0
+      },
+      {
+        "Date": "1981-03-01",
+        "Average_Price": 15358.0
+      },
+      {
+        "Date": "1981-04-01",
+        "Average_Price": 16134.0
+      },
+      {
+        "Date": "1981-05-01",
+        "Average_Price": 16134.0
+      },
+      {
+        "Date": "1981-06-01",
+        "Average_Price": 16134.0
+      },
+      {
+        "Date": "1981-07-01",
+        "Average_Price": 16295.0
+      },
+      {
+        "Date": "1981-08-01",
+        "Average_Price": 16295.0
+      },
+      {
+        "Date": "1981-09-01",
+        "Average_Price": 16295.0
+      },
+      {
+        "Date": "1981-10-01",
+        "Average_Price": 16368.0
+      },
+      {
+        "Date": "1981-11-01",
+        "Average_Price": 16368.0
+      },
+      {
+        "Date": "1981-12-01",
+        "Average_Price": 16368.0
+      },
+      {
+        "Date": "1982-01-01",
+        "Average_Price": 16295.0
+      },
+      {
+        "Date": "1982-02-01",
+        "Average_Price": 16295.0
+      },
+      {
+        "Date": "1982-03-01",
+        "Average_Price": 16295.0
+      },
+      {
+        "Date": "1982-04-01",
+        "Average_Price": 17027.0
+      },
+      {
+        "Date": "1982-05-01",
+        "Average_Price": 17027.0
+      },
+      {
+        "Date": "1982-06-01",
+        "Average_Price": 17027.0
+      },
+      {
+        "Date": "1982-07-01",
+        "Average_Price": 17173.0
+      },
+      {
+        "Date": "1982-08-01",
+        "Average_Price": 17173.0
+      },
+      {
+        "Date": "1982-09-01",
+        "Average_Price": 17173.0
+      },
+      {
+        "Date": "1982-10-01",
+        "Average_Price": 17729.0
+      },
+      {
+        "Date": "1982-11-01",
+        "Average_Price": 17729.0
+      },
+      {
+        "Date": "1982-12-01",
+        "Average_Price": 17729.0
+      },
+      {
+        "Date": "1983-01-01",
+        "Average_Price": 18154.0
+      },
+      {
+        "Date": "1983-02-01",
+        "Average_Price": 18154.0
+      },
+      {
+        "Date": "1983-03-01",
+        "Average_Price": 18154.0
+      },
+      {
+        "Date": "1983-04-01",
+        "Average_Price": 19472.0
+      },
+      {
+        "Date": "1983-05-01",
+        "Average_Price": 19472.0
+      },
+      {
+        "Date": "1983-06-01",
+        "Average_Price": 19472.0
+      },
+      {
+        "Date": "1983-07-01",
+        "Average_Price": 19032.0
+      },
+      {
+        "Date": "1983-08-01",
+        "Average_Price": 19032.0
+      },
+      {
+        "Date": "1983-09-01",
+        "Average_Price": 19032.0
+      },
+      {
+        "Date": "1983-10-01",
+        "Average_Price": 19911.0
+      },
+      {
+        "Date": "1983-11-01",
+        "Average_Price": 19911.0
+      },
+      {
+        "Date": "1983-12-01",
+        "Average_Price": 19911.0
+      },
+      {
+        "Date": "1984-01-01",
+        "Average_Price": 19325.0
+      },
+      {
+        "Date": "1984-02-01",
+        "Average_Price": 19325.0
+      },
+      {
+        "Date": "1984-03-01",
+        "Average_Price": 19325.0
+      },
+      {
+        "Date": "1984-04-01",
+        "Average_Price": 20204.0
+      },
+      {
+        "Date": "1984-05-01",
+        "Average_Price": 20204.0
+      },
+      {
+        "Date": "1984-06-01",
+        "Average_Price": 20204.0
+      },
+      {
+        "Date": "1984-07-01",
+        "Average_Price": 20936.0
+      },
+      {
+        "Date": "1984-08-01",
+        "Average_Price": 20936.0
+      },
+      {
+        "Date": "1984-09-01",
+        "Average_Price": 20936.0
+      },
+      {
+        "Date": "1984-10-01",
+        "Average_Price": 20789.0
+      },
+      {
+        "Date": "1984-11-01",
+        "Average_Price": 20789.0
+      },
+      {
+        "Date": "1984-12-01",
+        "Average_Price": 20789.0
+      },
+      {
+        "Date": "1985-01-01",
+        "Average_Price": 20643.0
+      },
+      {
+        "Date": "1985-02-01",
+        "Average_Price": 20643.0
+      },
+      {
+        "Date": "1985-03-01",
+        "Average_Price": 20643.0
+      },
+      {
+        "Date": "1985-04-01",
+        "Average_Price": 21668.0
+      },
+      {
+        "Date": "1985-05-01",
+        "Average_Price": 21668.0
+      },
+      {
+        "Date": "1985-06-01",
+        "Average_Price": 21668.0
+      },
+      {
+        "Date": "1985-07-01",
+        "Average_Price": 21521.0
+      },
+      {
+        "Date": "1985-08-01",
+        "Average_Price": 21521.0
+      },
+      {
+        "Date": "1985-09-01",
+        "Average_Price": 21521.0
+      },
+      {
+        "Date": "1985-10-01",
+        "Average_Price": 21961.0
+      },
+      {
+        "Date": "1985-11-01",
+        "Average_Price": 21961.0
+      },
+      {
+        "Date": "1985-12-01",
+        "Average_Price": 21961.0
+      },
+      {
+        "Date": "1986-01-01",
+        "Average_Price": 22107.0
+      },
+      {
+        "Date": "1986-02-01",
+        "Average_Price": 22107.0
+      },
+      {
+        "Date": "1986-03-01",
+        "Average_Price": 22107.0
+      },
+      {
+        "Date": "1986-04-01",
+        "Average_Price": 22693.0
+      },
+      {
+        "Date": "1986-05-01",
+        "Average_Price": 22693.0
+      },
+      {
+        "Date": "1986-06-01",
+        "Average_Price": 22693.0
+      },
+      {
+        "Date": "1986-07-01",
+        "Average_Price": 22693.0
+      },
+      {
+        "Date": "1986-08-01",
+        "Average_Price": 22693.0
+      },
+      {
+        "Date": "1986-09-01",
+        "Average_Price": 22693.0
+      },
+      {
+        "Date": "1986-10-01",
+        "Average_Price": 23132.0
+      },
+      {
+        "Date": "1986-11-01",
+        "Average_Price": 23132.0
+      },
+      {
+        "Date": "1986-12-01",
+        "Average_Price": 23132.0
+      },
+      {
+        "Date": "1987-01-01",
+        "Average_Price": 23571.0
+      },
+      {
+        "Date": "1987-02-01",
+        "Average_Price": 23571.0
+      },
+      {
+        "Date": "1987-03-01",
+        "Average_Price": 23571.0
+      },
+      {
+        "Date": "1987-04-01",
+        "Average_Price": 24303.0
+      },
+      {
+        "Date": "1987-05-01",
+        "Average_Price": 24303.0
+      },
+      {
+        "Date": "1987-06-01",
+        "Average_Price": 24303.0
+      },
+      {
+        "Date": "1987-07-01",
+        "Average_Price": 24010.0
+      },
+      {
+        "Date": "1987-08-01",
+        "Average_Price": 24010.0
+      },
+      {
+        "Date": "1987-09-01",
+        "Average_Price": 24010.0
+      },
+      {
+        "Date": "1987-10-01",
+        "Average_Price": 24964.0
+      },
+      {
+        "Date": "1987-11-01",
+        "Average_Price": 24964.0
+      },
+      {
+        "Date": "1987-12-01",
+        "Average_Price": 24964.0
+      },
+      {
+        "Date": "1988-01-01",
+        "Average_Price": 23888.0
+      },
+      {
+        "Date": "1988-02-01",
+        "Average_Price": 23888.0
+      },
+      {
+        "Date": "1988-03-01",
+        "Average_Price": 23888.0
+      },
+      {
+        "Date": "1988-04-01",
+        "Average_Price": 25609.0
+      },
+      {
+        "Date": "1988-05-01",
+        "Average_Price": 25609.0
+      },
+      {
+        "Date": "1988-06-01",
+        "Average_Price": 25609.0
+      },
+      {
+        "Date": "1988-07-01",
+        "Average_Price": 27116.0
+      },
+      {
+        "Date": "1988-08-01",
+        "Average_Price": 27116.0
+      },
+      {
+        "Date": "1988-09-01",
+        "Average_Price": 27116.0
+      },
+      {
+        "Date": "1988-10-01",
+        "Average_Price": 27977.0
+      },
+      {
+        "Date": "1988-11-01",
+        "Average_Price": 27977.0
+      },
+      {
+        "Date": "1988-12-01",
+        "Average_Price": 27977.0
+      },
+      {
+        "Date": "1989-01-01",
+        "Average_Price": 28407.0
+      },
+      {
+        "Date": "1989-02-01",
+        "Average_Price": 28407.0
+      },
+      {
+        "Date": "1989-03-01",
+        "Average_Price": 28407.0
+      },
+      {
+        "Date": "1989-04-01",
+        "Average_Price": 30129.0
+      },
+      {
+        "Date": "1989-05-01",
+        "Average_Price": 30129.0
+      },
+      {
+        "Date": "1989-06-01",
+        "Average_Price": 30129.0
+      },
+      {
+        "Date": "1989-07-01",
+        "Average_Price": 31205.0
+      },
+      {
+        "Date": "1989-08-01",
+        "Average_Price": 31205.0
+      },
+      {
+        "Date": "1989-09-01",
+        "Average_Price": 31205.0
+      },
+      {
+        "Date": "1989-10-01",
+        "Average_Price": 33357.0
+      },
+      {
+        "Date": "1989-11-01",
+        "Average_Price": 33357.0
+      },
+      {
+        "Date": "1989-12-01",
+        "Average_Price": 33357.0
+      },
+      {
+        "Date": "1990-01-01",
+        "Average_Price": 32588.0
+      },
+      {
+        "Date": "1990-02-01",
+        "Average_Price": 32588.0
+      },
+      {
+        "Date": "1990-03-01",
+        "Average_Price": 32588.0
+      },
+      {
+        "Date": "1990-04-01",
+        "Average_Price": 33624.0
+      },
+      {
+        "Date": "1990-05-01",
+        "Average_Price": 33624.0
+      },
+      {
+        "Date": "1990-06-01",
+        "Average_Price": 33624.0
+      },
+      {
+        "Date": "1990-07-01",
+        "Average_Price": 34797.0
+      },
+      {
+        "Date": "1990-08-01",
+        "Average_Price": 34797.0
+      },
+      {
+        "Date": "1990-09-01",
+        "Average_Price": 34797.0
+      },
+      {
+        "Date": "1990-10-01",
+        "Average_Price": 36351.0
+      },
+      {
+        "Date": "1990-11-01",
+        "Average_Price": 36351.0
+      },
+      {
+        "Date": "1990-12-01",
+        "Average_Price": 36351.0
+      },
+      {
+        "Date": "1991-01-01",
+        "Average_Price": 38491.0
+      },
+      {
+        "Date": "1991-02-01",
+        "Average_Price": 38491.0
+      },
+      {
+        "Date": "1991-03-01",
+        "Average_Price": 38491.0
+      },
+      {
+        "Date": "1991-04-01",
+        "Average_Price": 36558.0
+      },
+      {
+        "Date": "1991-05-01",
+        "Average_Price": 36558.0
+      },
+      {
+        "Date": "1991-06-01",
+        "Average_Price": 36558.0
+      },
+      {
+        "Date": "1991-07-01",
+        "Average_Price": 36316.0
+      },
+      {
+        "Date": "1991-08-01",
+        "Average_Price": 36316.0
+      },
+      {
+        "Date": "1991-09-01",
+        "Average_Price": 36316.0
+      },
+      {
+        "Date": "1991-10-01",
+        "Average_Price": 37973.0
+      },
+      {
+        "Date": "1991-11-01",
+        "Average_Price": 37973.0
+      },
+      {
+        "Date": "1991-12-01",
+        "Average_Price": 37973.0
+      },
+      {
+        "Date": "1992-01-01",
+        "Average_Price": 38733.0
+      },
+      {
+        "Date": "1992-02-01",
+        "Average_Price": 38733.0
+      },
+      {
+        "Date": "1992-03-01",
+        "Average_Price": 38733.0
+      },
+      {
+        "Date": "1992-04-01",
+        "Average_Price": 38802.0
+      },
+      {
+        "Date": "1992-05-01",
+        "Average_Price": 38802.0
+      },
+      {
+        "Date": "1992-06-01",
+        "Average_Price": 38802.0
+      },
+      {
+        "Date": "1992-07-01",
+        "Average_Price": 39522.0
+      },
+      {
+        "Date": "1992-08-01",
+        "Average_Price": 39522.0
+      },
+      {
+        "Date": "1992-09-01",
+        "Average_Price": 39522.0
+      },
+      {
+        "Date": "1992-10-01",
+        "Average_Price": 39962.0
+      },
+      {
+        "Date": "1992-11-01",
+        "Average_Price": 39962.0
+      },
+      {
+        "Date": "1992-12-01",
+        "Average_Price": 39962.0
+      },
+      {
+        "Date": "1993-01-01",
+        "Average_Price": 37882.0
+      },
+      {
+        "Date": "1993-02-01",
+        "Average_Price": 37882.0
+      },
+      {
+        "Date": "1993-03-01",
+        "Average_Price": 37882.0
+      },
+      {
+        "Date": "1993-04-01",
+        "Average_Price": 41002.0
+      },
+      {
+        "Date": "1993-05-01",
+        "Average_Price": 41002.0
+      },
+      {
+        "Date": "1993-06-01",
+        "Average_Price": 41002.0
+      },
+      {
+        "Date": "1993-07-01",
+        "Average_Price": 41082.0
+      },
+      {
+        "Date": "1993-08-01",
+        "Average_Price": 41082.0
+      },
+      {
+        "Date": "1993-09-01",
+        "Average_Price": 41082.0
+      },
+      {
+        "Date": "1993-10-01",
+        "Average_Price": 39162.0
+      },
+      {
+        "Date": "1993-11-01",
+        "Average_Price": 39162.0
+      },
+      {
+        "Date": "1993-12-01",
+        "Average_Price": 39162.0
+      },
+      {
+        "Date": "1994-01-01",
+        "Average_Price": 39042.0
+      },
+      {
+        "Date": "1994-02-01",
+        "Average_Price": 39042.0
+      },
+      {
+        "Date": "1994-03-01",
+        "Average_Price": 39042.0
+      },
+      {
+        "Date": "1994-04-01",
+        "Average_Price": 40602.0
+      },
+      {
+        "Date": "1994-05-01",
+        "Average_Price": 40602.0
+      },
+      {
+        "Date": "1994-06-01",
+        "Average_Price": 40602.0
+      },
+      {
+        "Date": "1994-07-01",
+        "Average_Price": 41522.0
+      },
+      {
+        "Date": "1994-08-01",
+        "Average_Price": 41522.0
+      },
+      {
+        "Date": "1994-09-01",
+        "Average_Price": 41522.0
+      },
+      {
+        "Date": "1994-10-01",
+        "Average_Price": 40482.0
+      },
+      {
+        "Date": "1994-11-01",
+        "Average_Price": 40482.0
+      },
+      {
+        "Date": "1994-12-01",
+        "Average_Price": 40482.0
+      },
+      {
+        "Date": "1995-01-01",
+        "Average_Price": 38802.0
+      },
+      {
+        "Date": "1995-02-01",
+        "Average_Price": 38802.0
+      },
+      {
+        "Date": "1995-03-01",
+        "Average_Price": 38802.0
+      },
+      {
+        "Date": "1995-04-01",
+        "Average_Price": 39442.0
+      },
+      {
+        "Date": "1995-05-01",
+        "Average_Price": 39442.0
+      },
+      {
+        "Date": "1995-06-01",
+        "Average_Price": 39442.0
+      },
+      {
+        "Date": "1995-07-01",
+        "Average_Price": 42242.0
+      },
+      {
+        "Date": "1995-08-01",
+        "Average_Price": 42242.0
+      },
+      {
+        "Date": "1995-09-01",
+        "Average_Price": 42242.0
+      },
+      {
+        "Date": "1995-10-01",
+        "Average_Price": 41442.0
+      },
+      {
+        "Date": "1995-11-01",
+        "Average_Price": 41442.0
+      },
+      {
+        "Date": "1995-12-01",
+        "Average_Price": 41442.0
+      },
+      {
+        "Date": "1996-01-01",
+        "Average_Price": 43242.0
+      },
+      {
+        "Date": "1996-02-01",
+        "Average_Price": 43242.0
+      },
+      {
+        "Date": "1996-03-01",
+        "Average_Price": 43242.0
+      },
+      {
+        "Date": "1996-04-01",
+        "Average_Price": 40642.0
+      },
+      {
+        "Date": "1996-05-01",
+        "Average_Price": 40642.0
+      },
+      {
+        "Date": "1996-06-01",
+        "Average_Price": 40642.0
+      },
+      {
+        "Date": "1996-07-01",
+        "Average_Price": 42322.0
+      },
+      {
+        "Date": "1996-08-01",
+        "Average_Price": 42322.0
+      },
+      {
+        "Date": "1996-09-01",
+        "Average_Price": 42322.0
+      },
+      {
+        "Date": "1996-10-01",
+        "Average_Price": 42602.0
+      },
+      {
+        "Date": "1996-11-01",
+        "Average_Price": 42602.0
+      },
+      {
+        "Date": "1996-12-01",
+        "Average_Price": 42602.0
+      },
+      {
+        "Date": "1997-01-01",
+        "Average_Price": 41802.0
+      },
+      {
+        "Date": "1997-02-01",
+        "Average_Price": 41802.0
+      },
+      {
+        "Date": "1997-03-01",
+        "Average_Price": 41802.0
+      },
+      {
+        "Date": "1997-04-01",
+        "Average_Price": 44242.0
+      },
+      {
+        "Date": "1997-05-01",
+        "Average_Price": 44242.0
+      },
+      {
+        "Date": "1997-06-01",
+        "Average_Price": 44242.0
+      },
+      {
+        "Date": "1997-07-01",
+        "Average_Price": 45442.0
+      },
+      {
+        "Date": "1997-08-01",
+        "Average_Price": 45442.0
+      },
+      {
+        "Date": "1997-09-01",
+        "Average_Price": 45442.0
+      },
+      {
+        "Date": "1997-10-01",
+        "Average_Price": 45522.0
+      },
+      {
+        "Date": "1997-11-01",
+        "Average_Price": 45522.0
+      },
+      {
+        "Date": "1997-12-01",
+        "Average_Price": 45522.0
+      },
+      {
+        "Date": "1998-01-01",
+        "Average_Price": 44642.0
+      },
+      {
+        "Date": "1998-02-01",
+        "Average_Price": 44642.0
+      },
+      {
+        "Date": "1998-03-01",
+        "Average_Price": 44642.0
+      },
+      {
+        "Date": "1998-04-01",
+        "Average_Price": 46282.0
+      },
+      {
+        "Date": "1998-05-01",
+        "Average_Price": 46282.0
+      },
+      {
+        "Date": "1998-06-01",
+        "Average_Price": 46282.0
+      },
+      {
+        "Date": "1998-07-01",
+        "Average_Price": 48562.0
+      },
+      {
+        "Date": "1998-08-01",
+        "Average_Price": 48562.0
+      },
+      {
+        "Date": "1998-09-01",
+        "Average_Price": 48562.0
+      },
+      {
+        "Date": "1998-10-01",
+        "Average_Price": 46682.0
+      },
+      {
+        "Date": "1998-11-01",
+        "Average_Price": 46682.0
+      },
+      {
+        "Date": "1998-12-01",
+        "Average_Price": 46682.0
+      },
+      {
+        "Date": "1999-01-01",
+        "Average_Price": 44962.0
+      },
+      {
+        "Date": "1999-02-01",
+        "Average_Price": 44962.0
+      },
+      {
+        "Date": "1999-03-01",
+        "Average_Price": 44962.0
+      },
+      {
+        "Date": "1999-04-01",
+        "Average_Price": 47362.0
+      },
+      {
+        "Date": "1999-05-01",
+        "Average_Price": 47362.0
+      },
+      {
+        "Date": "1999-06-01",
+        "Average_Price": 47362.0
+      },
+      {
+        "Date": "1999-07-01",
+        "Average_Price": 49922.0
+      },
+      {
+        "Date": "1999-08-01",
+        "Average_Price": 49922.0
+      },
+      {
+        "Date": "1999-09-01",
+        "Average_Price": 49922.0
+      },
+      {
+        "Date": "1999-10-01",
+        "Average_Price": 49922.0
+      },
+      {
+        "Date": "1999-11-01",
+        "Average_Price": 49922.0
+      },
+      {
+        "Date": "1999-12-01",
+        "Average_Price": 49922.0
+      },
+      {
+        "Date": "2000-01-01",
+        "Average_Price": 49682.0
+      },
+      {
+        "Date": "2000-02-01",
+        "Average_Price": 49682.0
+      },
+      {
+        "Date": "2000-03-01",
+        "Average_Price": 49682.0
+      },
+      {
+        "Date": "2000-04-01",
+        "Average_Price": 49442.0
+      },
+      {
+        "Date": "2000-05-01",
+        "Average_Price": 49442.0
+      },
+      {
+        "Date": "2000-06-01",
+        "Average_Price": 49442.0
+      },
+      {
+        "Date": "2000-07-01",
+        "Average_Price": 49762.0
+      },
+      {
+        "Date": "2000-08-01",
+        "Average_Price": 49762.0
+      },
+      {
+        "Date": "2000-09-01",
+        "Average_Price": 49762.0
+      },
+      {
+        "Date": "2000-10-01",
+        "Average_Price": 49682.0
+      },
+      {
+        "Date": "2000-11-01",
+        "Average_Price": 49682.0
+      },
+      {
+        "Date": "2000-12-01",
+        "Average_Price": 49682.0
+      },
+      {
+        "Date": "2001-01-01",
+        "Average_Price": 52082.0
+      },
+      {
+        "Date": "2001-02-01",
+        "Average_Price": 52082.0
+      },
+      {
+        "Date": "2001-03-01",
+        "Average_Price": 52082.0
+      },
+      {
+        "Date": "2001-04-01",
+        "Average_Price": 50762.0
+      },
+      {
+        "Date": "2001-05-01",
+        "Average_Price": 50762.0
+      },
+      {
+        "Date": "2001-06-01",
+        "Average_Price": 50762.0
+      },
+      {
+        "Date": "2001-07-01",
+        "Average_Price": 52202.0
+      },
+      {
+        "Date": "2001-08-01",
+        "Average_Price": 52202.0
+      },
+      {
+        "Date": "2001-09-01",
+        "Average_Price": 52202.0
+      },
+      {
+        "Date": "2001-10-01",
+        "Average_Price": 52602.0
+      },
+      {
+        "Date": "2001-11-01",
+        "Average_Price": 52602.0
+      },
+      {
+        "Date": "2001-12-01",
+        "Average_Price": 52602.0
+      },
+      {
+        "Date": "2002-01-01",
+        "Average_Price": 51627.0
+      },
+      {
+        "Date": "2002-02-01",
+        "Average_Price": 53722.0
+      },
+      {
+        "Date": "2002-03-01",
+        "Average_Price": 55818.0
+      },
+      {
+        "Date": "2002-04-01",
+        "Average_Price": 56623.0
+      },
+      {
+        "Date": "2002-05-01",
+        "Average_Price": 58181.0
+      },
+      {
+        "Date": "2002-06-01",
+        "Average_Price": 60491.0
+      },
+      {
+        "Date": "2002-07-01",
+        "Average_Price": 60653.0
+      },
+      {
+        "Date": "2002-08-01",
+        "Average_Price": 60814.0
+      },
+      {
+        "Date": "2002-09-01",
+        "Average_Price": 62103.0
+      },
+      {
+        "Date": "2002-10-01",
+        "Average_Price": 61512.0
+      },
+      {
+        "Date": "2002-11-01",
+        "Average_Price": 61996.0
+      },
+      {
+        "Date": "2002-12-01",
+        "Average_Price": 64252.0
+      },
+      {
+        "Date": "2003-01-01",
+        "Average_Price": 62210.0
+      },
+      {
+        "Date": "2003-02-01",
+        "Average_Price": 57913.0
+      },
+      {
+        "Date": "2003-03-01",
+        "Average_Price": 61297.0
+      },
+      {
+        "Date": "2003-04-01",
+        "Average_Price": 64950.0
+      },
+      {
+        "Date": "2003-05-01",
+        "Average_Price": 65004.0
+      },
+      {
+        "Date": "2003-06-01",
+        "Average_Price": 66025.0
+      },
+      {
+        "Date": "2003-07-01",
+        "Average_Price": 68389.0
+      },
+      {
+        "Date": "2003-08-01",
+        "Average_Price": 70323.0
+      },
+      {
+        "Date": "2003-09-01",
+        "Average_Price": 70108.0
+      },
+      {
+        "Date": "2003-10-01",
+        "Average_Price": 72955.0
+      },
+      {
+        "Date": "2003-11-01",
+        "Average_Price": 71988.0
+      },
+      {
+        "Date": "2003-12-01",
+        "Average_Price": 74191.0
+      },
+      {
+        "Date": "2004-01-01",
+        "Average_Price": 76662.0
+      },
+      {
+        "Date": "2004-02-01",
+        "Average_Price": 75645.0
+      },
+      {
+        "Date": "2004-03-01",
+        "Average_Price": 78418.0
+      },
+      {
+        "Date": "2004-04-01",
+        "Average_Price": 83623.0
+      },
+      {
+        "Date": "2004-05-01",
+        "Average_Price": 85015.0
+      },
+      {
+        "Date": "2004-06-01",
+        "Average_Price": 89148.0
+      },
+      {
+        "Date": "2004-07-01",
+        "Average_Price": 91287.0
+      },
+      {
+        "Date": "2004-08-01",
+        "Average_Price": 91270.0
+      },
+      {
+        "Date": "2004-09-01",
+        "Average_Price": 89835.0
+      },
+      {
+        "Date": "2004-10-01",
+        "Average_Price": 91511.0
+      },
+      {
+        "Date": "2004-11-01",
+        "Average_Price": 91130.0
+      },
+      {
+        "Date": "2004-12-01",
+        "Average_Price": 93321.0
+      },
+      {
+        "Date": "2005-01-01",
+        "Average_Price": 90440.0
+      },
+      {
+        "Date": "2005-02-01",
+        "Average_Price": 90028.0
+      },
+      {
+        "Date": "2005-03-01",
+        "Average_Price": 92995.0
+      },
+      {
+        "Date": "2005-04-01",
+        "Average_Price": 98866.0
+      },
+      {
+        "Date": "2005-05-01",
+        "Average_Price": 99902.0
+      },
+      {
+        "Date": "2005-06-01",
+        "Average_Price": 103919.0
+      },
+      {
+        "Date": "2005-07-01",
+        "Average_Price": 105856.0
+      },
+      {
+        "Date": "2005-08-01",
+        "Average_Price": 105951.0
+      },
+      {
+        "Date": "2005-09-01",
+        "Average_Price": 106034.0
+      },
+      {
+        "Date": "2005-10-01",
+        "Average_Price": 105467.0
+      },
+      {
+        "Date": "2005-11-01",
+        "Average_Price": 104885.0
+      },
+      {
+        "Date": "2005-12-01",
+        "Average_Price": 106541.0
+      },
+      {
+        "Date": "2006-01-01",
+        "Average_Price": 105257.0
+      },
+      {
+        "Date": "2006-02-01",
+        "Average_Price": 103309.0
+      },
+      {
+        "Date": "2006-03-01",
+        "Average_Price": 107282.0
+      },
+      {
+        "Date": "2006-04-01",
+        "Average_Price": 111829.0
+      },
+      {
+        "Date": "2006-05-01",
+        "Average_Price": 114395.0
+      },
+      {
+        "Date": "2006-06-01",
+        "Average_Price": 115914.0
+      },
+      {
+        "Date": "2006-07-01",
+        "Average_Price": 118077.0
+      },
+      {
+        "Date": "2006-08-01",
+        "Average_Price": 119737.0
+      },
+      {
+        "Date": "2006-09-01",
+        "Average_Price": 121628.0
+      },
+      {
+        "Date": "2006-10-01",
+        "Average_Price": 118828.0
+      },
+      {
+        "Date": "2006-11-01",
+        "Average_Price": 120670.0
+      },
+      {
+        "Date": "2006-12-01",
+        "Average_Price": 122894.0
+      },
+      {
+        "Date": "2007-01-01",
+        "Average_Price": 121923.0
+      },
+      {
+        "Date": "2007-02-01",
+        "Average_Price": 119596.0
+      },
+      {
+        "Date": "2007-03-01",
+        "Average_Price": 124226.0
+      },
+      {
+        "Date": "2007-04-01",
+        "Average_Price": 130471.0
+      },
+      {
+        "Date": "2007-05-01",
+        "Average_Price": 133535.0
+      },
+      {
+        "Date": "2007-06-01",
+        "Average_Price": 136549.0
+      },
+      {
+        "Date": "2007-07-01",
+        "Average_Price": 136470.0
+      },
+      {
+        "Date": "2007-08-01",
+        "Average_Price": 137886.0
+      },
+      {
+        "Date": "2007-09-01",
+        "Average_Price": 136930.0
+      },
+      {
+        "Date": "2007-10-01",
+        "Average_Price": 134287.0
+      },
+      {
+        "Date": "2007-11-01",
+        "Average_Price": 136189.0
+      },
+      {
+        "Date": "2007-12-01",
+        "Average_Price": 134469.0
+      },
+      {
+        "Date": "2008-01-01",
+        "Average_Price": 133172.0
+      },
+      {
+        "Date": "2008-02-01",
+        "Average_Price": 132325.0
+      },
+      {
+        "Date": "2008-03-01",
+        "Average_Price": 132653.0
+      },
+      {
+        "Date": "2008-04-01",
+        "Average_Price": 134077.0
+      },
+      {
+        "Date": "2008-05-01",
+        "Average_Price": 140152.0
+      },
+      {
+        "Date": "2008-06-01",
+        "Average_Price": 136219.0
+      },
+      {
+        "Date": "2008-07-01",
+        "Average_Price": 134444.0
+      },
+      {
+        "Date": "2008-08-01",
+        "Average_Price": 132590.0
+      },
+      {
+        "Date": "2008-09-01",
+        "Average_Price": 127429.0
+      },
+      {
+        "Date": "2008-10-01",
+        "Average_Price": 128794.0
+      },
+      {
+        "Date": "2008-11-01",
+        "Average_Price": 124927.0
+      },
+      {
+        "Date": "2008-12-01",
+        "Average_Price": 121026.0
+      },
+      {
+        "Date": "2009-01-01",
+        "Average_Price": 119792.0
+      },
+      {
+        "Date": "2009-02-01",
+        "Average_Price": 116433.0
+      },
+      {
+        "Date": "2009-03-01",
+        "Average_Price": 120988.0
+      },
+      {
+        "Date": "2009-04-01",
+        "Average_Price": 122189.0
+      },
+      {
+        "Date": "2009-05-01",
+        "Average_Price": 125773.0
+      },
+      {
+        "Date": "2009-06-01",
+        "Average_Price": 127072.0
+      },
+      {
+        "Date": "2009-07-01",
+        "Average_Price": 128109.0
+      },
+      {
+        "Date": "2009-08-01",
+        "Average_Price": 127658.0
+      },
+      {
+        "Date": "2009-09-01",
+        "Average_Price": 126761.0
+      },
+      {
+        "Date": "2009-10-01",
+        "Average_Price": 127904.0
+      },
+      {
+        "Date": "2009-11-01",
+        "Average_Price": 129125.0
+      },
+      {
+        "Date": "2009-12-01",
+        "Average_Price": 128022.0
+      },
+      {
+        "Date": "2010-01-01",
+        "Average_Price": 124112.0
+      },
+      {
+        "Date": "2010-02-01",
+        "Average_Price": 121755.0
+      },
+      {
+        "Date": "2010-03-01",
+        "Average_Price": 124038.0
+      },
+      {
+        "Date": "2010-04-01",
+        "Average_Price": 128143.0
+      },
+      {
+        "Date": "2010-05-01",
+        "Average_Price": 127965.0
+      },
+      {
+        "Date": "2010-06-01",
+        "Average_Price": 129189.0
+      },
+      {
+        "Date": "2010-07-01",
+        "Average_Price": 130339.0
+      },
+      {
+        "Date": "2010-08-01",
+        "Average_Price": 128781.0
+      },
+      {
+        "Date": "2010-09-01",
+        "Average_Price": 128715.0
+      },
+      {
+        "Date": "2010-10-01",
+        "Average_Price": 128708.0
+      },
+      {
+        "Date": "2010-11-01",
+        "Average_Price": 126552.0
+      },
+      {
+        "Date": "2010-12-01",
+        "Average_Price": 124867.0
+      },
+      {
+        "Date": "2011-01-01",
+        "Average_Price": 124856.0
+      },
+      {
+        "Date": "2011-02-01",
+        "Average_Price": 121170.0
+      },
+      {
+        "Date": "2011-03-01",
+        "Average_Price": 121416.0
+      },
+      {
+        "Date": "2011-04-01",
+        "Average_Price": 124954.0
+      },
+      {
+        "Date": "2011-05-01",
+        "Average_Price": 124938.0
+      },
+      {
+        "Date": "2011-06-01",
+        "Average_Price": 126264.0
+      },
+      {
+        "Date": "2011-07-01",
+        "Average_Price": 128400.0
+      },
+      {
+        "Date": "2011-08-01",
+        "Average_Price": 127523.0
+      },
+      {
+        "Date": "2011-09-01",
+        "Average_Price": 126976.0
+      },
+      {
+        "Date": "2011-10-01",
+        "Average_Price": 124255.0
+      },
+      {
+        "Date": "2011-11-01",
+        "Average_Price": 123373.0
+      },
+      {
+        "Date": "2011-12-01",
+        "Average_Price": 121178.0
+      },
+      {
+        "Date": "2012-01-01",
+        "Average_Price": 120989.0
+      },
+      {
+        "Date": "2012-02-01",
+        "Average_Price": 117292.0
+      },
+      {
+        "Date": "2012-03-01",
+        "Average_Price": 120685.0
+      },
+      {
+        "Date": "2012-04-01",
+        "Average_Price": 120417.0
+      },
+      {
+        "Date": "2012-05-01",
+        "Average_Price": 121688.0
+      },
+      {
+        "Date": "2012-06-01",
+        "Average_Price": 123523.0
+      },
+      {
+        "Date": "2012-07-01",
+        "Average_Price": 122685.0
+      },
+      {
+        "Date": "2012-08-01",
+        "Average_Price": 121958.0
+      },
+      {
+        "Date": "2012-09-01",
+        "Average_Price": 121080.0
+      },
+      {
+        "Date": "2012-10-01",
+        "Average_Price": 119920.0
+      },
+      {
+        "Date": "2012-11-01",
+        "Average_Price": 118524.0
+      },
+      {
+        "Date": "2012-12-01",
+        "Average_Price": 117574.0
+      },
+      {
+        "Date": "2013-01-01",
+        "Average_Price": 117973.0
+      },
+      {
+        "Date": "2013-02-01",
+        "Average_Price": 115650.0
+      },
+      {
+        "Date": "2013-03-01",
+        "Average_Price": 116783.0
+      },
+      {
+        "Date": "2013-04-01",
+        "Average_Price": 118758.0
+      },
+      {
+        "Date": "2013-05-01",
+        "Average_Price": 120633.0
+      },
+      {
+        "Date": "2013-06-01",
+        "Average_Price": 122327.0
+      },
+      {
+        "Date": "2013-07-01",
+        "Average_Price": 123580.0
+      },
+      {
+        "Date": "2013-08-01",
+        "Average_Price": 124889.0
+      },
+      {
+        "Date": "2013-09-01",
+        "Average_Price": 122961.0
+      },
+      {
+        "Date": "2013-10-01",
+        "Average_Price": 122611.0
+      },
+      {
+        "Date": "2013-11-01",
+        "Average_Price": 123781.0
+      },
+      {
+        "Date": "2013-12-01",
+        "Average_Price": 122231.0
+      },
+      {
+        "Date": "2014-01-01",
+        "Average_Price": 122220.0
+      },
+      {
+        "Date": "2014-02-01",
+        "Average_Price": 120322.0
+      },
+      {
+        "Date": "2014-03-01",
+        "Average_Price": 121877.0
+      },
+      {
+        "Date": "2014-04-01",
+        "Average_Price": 124711.0
+      },
+      {
+        "Date": "2014-05-01",
+        "Average_Price": 126714.0
+      },
+      {
+        "Date": "2014-06-01",
+        "Average_Price": 128414.0
+      },
+      {
+        "Date": "2014-07-01",
+        "Average_Price": 130067.0
+      },
+      {
+        "Date": "2014-08-01",
+        "Average_Price": 130465.0
+      },
+      {
+        "Date": "2014-09-01",
+        "Average_Price": 129726.0
+      },
+      {
+        "Date": "2014-10-01",
+        "Average_Price": 129927.0
+      },
+      {
+        "Date": "2014-11-01",
+        "Average_Price": 128308.0
+      },
+      {
+        "Date": "2014-12-01",
+        "Average_Price": 127668.0
+      },
+      {
+        "Date": "2015-01-01",
+        "Average_Price": 129869.0
+      },
+      {
+        "Date": "2015-02-01",
+        "Average_Price": 127575.0
+      },
+      {
+        "Date": "2015-03-01",
+        "Average_Price": 134523.0
+      },
+      {
+        "Date": "2015-04-01",
+        "Average_Price": 128978.0
+      },
+      {
+        "Date": "2015-05-01",
+        "Average_Price": 130564.0
+      },
+      {
+        "Date": "2015-06-01",
+        "Average_Price": 131762.0
+      },
+      {
+        "Date": "2015-07-01",
+        "Average_Price": 133810.0
+      },
+      {
+        "Date": "2015-08-01",
+        "Average_Price": 133341.0
+      },
+      {
+        "Date": "2015-09-01",
+        "Average_Price": 133035.0
+      },
+      {
+        "Date": "2015-10-01",
+        "Average_Price": 132471.0
+      },
+      {
+        "Date": "2015-11-01",
+        "Average_Price": 133255.0
+      },
+      {
+        "Date": "2015-12-01",
+        "Average_Price": 131549.0
+      },
+      {
+        "Date": "2016-01-01",
+        "Average_Price": 131634.0
+      },
+      {
+        "Date": "2016-02-01",
+        "Average_Price": 129551.0
+      },
+      {
+        "Date": "2016-03-01",
+        "Average_Price": 131107.0
+      },
+      {
+        "Date": "2016-04-01",
+        "Average_Price": 131303.0
+      },
+      {
+        "Date": "2016-05-01",
+        "Average_Price": 133044.0
+      },
+      {
+        "Date": "2016-06-01",
+        "Average_Price": 134949.0
+      },
+      {
+        "Date": "2016-07-01",
+        "Average_Price": 136931.0
+      },
+      {
+        "Date": "2016-08-01",
+        "Average_Price": 135571.0
+      },
+      {
+        "Date": "2016-09-01",
+        "Average_Price": 135236.0
+      },
+      {
+        "Date": "2016-10-01",
+        "Average_Price": 134368.0
+      },
+      {
+        "Date": "2016-11-01",
+        "Average_Price": 135543.0
+      },
+      {
+        "Date": "2016-12-01",
+        "Average_Price": 132996.0
+      },
+      {
+        "Date": "2017-01-01",
+        "Average_Price": 133141.0
+      },
+      {
+        "Date": "2017-02-01",
+        "Average_Price": 130885.0
+      },
+      {
+        "Date": "2017-03-01",
+        "Average_Price": 131731.0
+      },
+      {
+        "Date": "2017-04-01",
+        "Average_Price": 135773.0
+      },
+      {
+        "Date": "2017-05-01",
+        "Average_Price": 136715.0
+      },
+      {
+        "Date": "2017-06-01",
+        "Average_Price": 138220.0
+      },
+      {
+        "Date": "2017-07-01",
+        "Average_Price": 142004.0
+      },
+      {
+        "Date": "2017-08-01",
+        "Average_Price": 141685.0
+      },
+      {
+        "Date": "2017-09-01",
+        "Average_Price": 139082.0
+      },
+      {
+        "Date": "2017-10-01",
+        "Average_Price": 139591.0
+      },
+      {
+        "Date": "2017-11-01",
+        "Average_Price": 140834.0
+      },
+      {
+        "Date": "2017-12-01",
+        "Average_Price": 139761.0
+      },
+      {
+        "Date": "2018-01-01",
+        "Average_Price": 141353.0
+      },
+      {
+        "Date": "2018-02-01",
+        "Average_Price": 140480.0
+      },
+      {
+        "Date": "2018-03-01",
+        "Average_Price": 139202.0
+      },
+      {
+        "Date": "2018-04-01",
+        "Average_Price": 142832.0
+      },
+      {
+        "Date": "2018-05-01",
+        "Average_Price": 143019.0
+      },
+      {
+        "Date": "2018-06-01",
+        "Average_Price": 144308.0
+      },
+      {
+        "Date": "2018-07-01",
+        "Average_Price": 146056.0
+      },
+      {
+        "Date": "2018-08-01",
+        "Average_Price": 146404.0
+      },
+      {
+        "Date": "2018-09-01",
+        "Average_Price": 145738.0
+      },
+      {
+        "Date": "2018-10-01",
+        "Average_Price": 145816.0
+      },
+      {
+        "Date": "2018-11-01",
+        "Average_Price": 143919.0
+      },
+      {
+        "Date": "2018-12-01",
+        "Average_Price": 142681.0
+      },
+      {
+        "Date": "2019-01-01",
+        "Average_Price": 144124.0
+      },
+      {
+        "Date": "2019-02-01",
+        "Average_Price": 141355.0
+      },
+      {
+        "Date": "2019-03-01",
+        "Average_Price": 143985.0
+      },
+      {
+        "Date": "2019-04-01",
+        "Average_Price": 145110.0
+      },
+      {
+        "Date": "2019-05-01",
+        "Average_Price": 145709.0
+      },
+      {
+        "Date": "2019-06-01",
+        "Average_Price": 146925.0
+      },
+      {
+        "Date": "2019-07-01",
+        "Average_Price": 148942.0
+      },
+      {
+        "Date": "2019-08-01",
+        "Average_Price": 148383.0
+      },
+      {
+        "Date": "2019-09-01",
+        "Average_Price": 149037.0
+      },
+      {
+        "Date": "2019-10-01",
+        "Average_Price": 148150.0
+      },
+      {
+        "Date": "2019-11-01",
+        "Average_Price": 146779.0
+      },
+      {
+        "Date": "2019-12-01",
+        "Average_Price": 144623.0
+      },
+      {
+        "Date": "2020-01-01",
+        "Average_Price": 147731.0
+      },
+      {
+        "Date": "2020-02-01",
+        "Average_Price": 143944.0
+      },
+      {
+        "Date": "2020-03-01",
+        "Average_Price": 144948.0
+      },
+      {
+        "Date": "2020-04-01",
+        "Average_Price": 146059.0
+      },
+      {
+        "Date": "2020-05-01",
+        "Average_Price": 147150.0
+      },
+      {
+        "Date": "2020-06-01",
+        "Average_Price": 149474.0
+      },
+      {
+        "Date": "2020-07-01",
+        "Average_Price": 148755.0
+      },
+      {
+        "Date": "2020-08-01",
+        "Average_Price": 148875.0
+      },
+      {
+        "Date": "2020-09-01",
+        "Average_Price": 154532.0
+      },
+      {
+        "Date": "2020-10-01",
+        "Average_Price": 156874.0
+      },
+      {
+        "Date": "2020-11-01",
+        "Average_Price": 157849.0
+      },
+      {
+        "Date": "2020-12-01",
+        "Average_Price": 156254.0
+      },
+      {
+        "Date": "2021-01-01",
+        "Average_Price": 157866.0
+      },
+      {
+        "Date": "2021-02-01",
+        "Average_Price": 155612.0
+      },
+      {
+        "Date": "2021-03-01",
+        "Average_Price": 160963.0
+      },
+      {
+        "Date": "2021-04-01",
+        "Average_Price": 154719.0
+      },
+      {
+        "Date": "2021-05-01",
+        "Average_Price": 161935.0
+      },
+      {
+        "Date": "2021-06-01",
+        "Average_Price": 165261.0
+      },
+      {
+        "Date": "2021-07-01",
+        "Average_Price": 168799.0
+      },
+      {
+        "Date": "2021-08-01",
+        "Average_Price": 170669.0
+      },
+      {
+        "Date": "2021-09-01",
+        "Average_Price": 170829.0
+      },
+      {
+        "Date": "2021-10-01",
+        "Average_Price": 170955.0
+      },
+      {
+        "Date": "2021-11-01",
+        "Average_Price": 172873.0
+      },
+      {
+        "Date": "2021-12-01",
+        "Average_Price": 169213.0
+      },
+      {
+        "Date": "2022-01-01",
+        "Average_Price": 173589.0
+      },
+      {
+        "Date": "2022-02-01",
+        "Average_Price": 170905.0
+      },
+      {
+        "Date": "2022-03-01",
+        "Average_Price": 171510.0
+      },
+      {
+        "Date": "2022-04-01",
+        "Average_Price": 175109.0
+      },
+      {
+        "Date": "2022-05-01",
+        "Average_Price": 177326.0
+      },
+      {
+        "Date": "2022-06-01",
+        "Average_Price": 181120.0
+      },
+      {
+        "Date": "2022-07-01",
+        "Average_Price": 182979.0
+      },
+      {
+        "Date": "2022-08-01",
+        "Average_Price": 183378.0
+      },
+      {
+        "Date": "2022-09-01",
+        "Average_Price": 181639.0
+      },
+      {
+        "Date": "2022-10-01",
+        "Average_Price": 182341.0
+      },
+      {
+        "Date": "2022-11-01",
+        "Average_Price": 180523.0
+      },
+      {
+        "Date": "2022-12-01",
+        "Average_Price": 175560.0
+      },
+      {
+        "Date": "2023-01-01",
+        "Average_Price": 175092.0
+      },
+      {
+        "Date": "2023-02-01",
+        "Average_Price": 171282.0
+      },
+      {
+        "Date": "2023-03-01",
+        "Average_Price": 173352.0
+      },
+      {
+        "Date": "2023-04-01",
+        "Average_Price": 175512.0
+      },
+      {
+        "Date": "2023-05-01",
+        "Average_Price": 179854.0
+      },
+      {
+        "Date": "2023-06-01",
+        "Average_Price": 177705.0
+      },
+      {
+        "Date": "2023-07-01",
+        "Average_Price": 181013.0
+      },
+      {
+        "Date": "2023-08-01",
+        "Average_Price": 182593.0
+      },
+      {
+        "Date": "2023-09-01",
+        "Average_Price": 180364.0
+      },
+      {
+        "Date": "2023-10-01",
+        "Average_Price": 180051.0
+      },
+      {
+        "Date": "2023-11-01",
+        "Average_Price": 179184.0
+      },
+      {
+        "Date": "2023-12-01",
+        "Average_Price": 176538.0
+      },
+      {
+        "Date": "2024-01-01",
+        "Average_Price": 179248.0
+      },
+      {
+        "Date": "2024-02-01",
+        "Average_Price": 175883.0
+      },
+      {
+        "Date": "2024-03-01",
+        "Average_Price": 177778.0
+      },
+      {
+        "Date": "2024-04-01",
+        "Average_Price": 180647.0
+      },
+      {
+        "Date": "2024-05-01",
+        "Average_Price": 180418.0
+      },
+      {
+        "Date": "2024-06-01",
+        "Average_Price": 181219.0
+      },
+      {
+        "Date": "2024-07-01",
+        "Average_Price": 185882.0
+      },
+      {
+        "Date": "2024-08-01",
+        "Average_Price": 186285.0
+      },
+      {
+        "Date": "2024-09-01",
+        "Average_Price": 184496.0
+      },
+      {
+        "Date": "2024-10-01",
+        "Average_Price": 185664.0
+      },
+      {
+        "Date": "2024-11-01",
+        "Average_Price": 184775.0
+      },
+      {
+        "Date": "2024-12-01",
+        "Average_Price": 181899.0
+      },
+      {
+        "Date": "2025-01-01",
+        "Average_Price": 185467.0
+      },
+      {
+        "Date": "2025-02-01",
+        "Average_Price": 182249.0
+      },
+      {
+        "Date": "2025-03-01",
+        "Average_Price": 183543.0
+      },
+      {
+        "Date": "2025-04-01",
+        "Average_Price": 186805.0
+      },
+      {
+        "Date": "2025-05-01",
+        "Average_Price": 186762.0
+      },
+      {
+        "Date": "2025-06-01",
+        "Average_Price": 190353.0
+      },
+      {
+        "Date": "2025-07-01",
+        "Average_Price": 191874.0
+      },
+      {
+        "Date": "2025-08-01",
+        "Average_Price": 191873.0
+      },
+      {
+        "Date": "2025-09-01",
+        "Average_Price": 192525.0
+      },
+      {
+        "Date": "2025-10-01",
+        "Average_Price": 192631.0
+      },
+      {
+        "Date": "2025-11-01",
+        "Average_Price": 193114.0
+      }
+    ]
+  }
+]
