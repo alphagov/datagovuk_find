@@ -1,24 +1,28 @@
 class CollectionsService
-  attr_reader :collection, :topic_name
+  attr_reader :collection, :page_name
 
   COLLECTIONS_LOCATION = Rails.configuration.x.generated_collections_location
 
-  def initialize(collection, topic_name = nil)
+  def initialize(collection, page_name = nil)
     @collection = collection
-    @topic_name = topic_name
+    @page_name = page_name
   end
 
-  def valid_collection_topic?
-    collection?(collection) && topic?(topic)
+  def valid_collection_page?
+    collection?(collection) && page?(page)
   end
 
-  def topic
-    @topic_name.presence || first_topic
+  def page
+    @page_name.presence || priority_page
   end
 
-  def side_navigations
-    @side_navigations ||= topics.map do |side_navigation|
-      side_navigation.gsub(".html.erb", "")
+  def collection_pages
+    @collection_pages ||= pages.map do |page_slug|
+      {
+        url: "/collections/#{@collection}/#{page_slug}",
+        title: page_slug.gsub("-", " ").capitalize,
+        selected: page_slug == @page_name,
+      }
     end
   end
 
@@ -35,26 +39,37 @@ class CollectionsService
   end
 
   def view_template_path
-    "generated/collections/#{collection}/#{topic}"
+    "generated/collections/#{collection}/#{page}"
+  end
+
+  def priority_page
+    priority_pages = {
+      "business-and-economy": "agricultural-commodity-prices",
+      "government": "election-results-data",
+      "land-and-property": "dwelling-stock",
+      "people": "deprivation",
+      "transport": "bus-statistics",
+      "environment": "climate-projections",
+    }.with_indifferent_access
+    @priority_page ||= priority_pages.fetch(@collection, pages.first)
   end
 
 private
 
-  def topics
+  def pages
     Dir.entries(Rails.root.join(COLLECTIONS_LOCATION, @collection)).sort
-    .reject do |entry|
+    .reject { |entry|
       [".", ".."].include?(entry)
+    }
+    .map do |page_file_name|
+      page_file_name.gsub(".html.erb", "")
     end
   end
 
-  def topic?(topic = nil)
-    return true if topic.blank?
+  def page?(page = nil)
+    return true if page.blank?
 
-    Rails.root.join(COLLECTIONS_LOCATION, @collection, "#{topic}.html.erb").exist?
-  end
-
-  def first_topic
-    @first_topic ||= topics.first.gsub(".html.erb", "")
+    Rails.root.join(COLLECTIONS_LOCATION, @collection, "#{page}.html.erb").exist?
   end
 
   def collection?(collection)
