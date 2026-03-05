@@ -11,6 +11,7 @@
 
 
   <div class="govuk-grid-row">
+    <% puts local_assigns[:data].inspect %>
 <%= line_chart [{
     name: local_assigns[:subtitle],
     data: local_assigns[:data],
@@ -27,51 +28,7 @@
             },
         }
     }
-    }],
-    colors: ["#C27A9A"],
-    curve: true,
-    legend: "bottom",
-    prefix: local_assigns[:prefix],
-    suffix: local_assigns[:suffix],
-    min: local_assigns[:min],
-    max: local_assigns[:max],
-    xtitle: local_assigns[:xtitle],
-    ytitle: local_assigns[:ytitle],
-    library: {
-        elements: {
-            point: {
-                radius: local_assigns[:elements_point_radius],
-            }
-        },
-        scales: {
-            y: {
-                ticks: {
-                    stepSize: local_assigns[:stepSize],
-                    maxTicksLimit: local_assigns[:limit],
-                    font: {
-                        size: 16
-                    }
-                }
-            },
-            x: {
-                ticks: {
-                    font: {
-                        size: 16
-                    }
-                }
-            }
-        },
-        plugins: {
-            datalabels: {
-                display: false
-            },
-        legend: {
-            labels: {
-            font: { size: 20 }
-            }
-        }
-        }
-    }
+    }]
 %>
   </div>
 </section>

@@ -10,10 +10,10 @@ def convert_csv_to_regional_json(input_file, output_file)
     date_obj = Date.parse(row['Date'])
     formatted_date = date_obj.strftime('%Y-%m-%d')
 
-    record = {
-      'Date' => formatted_date,
-      'Average_Price' => row['Average_Price'].to_f
-    }
+    record = [
+      formatted_date,
+      row['Average_Price'].to_f
+    ]
 
     grouped_data[row['Region_Name']] << record
   end
