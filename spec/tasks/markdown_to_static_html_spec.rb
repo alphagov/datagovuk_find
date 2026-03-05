@@ -19,6 +19,7 @@ RSpec.describe "Markdown to Static HTML Rake Task", type: :task do
     task.invoke
     generated_files = Dir.glob(File.join(output_directory, "**/*.html.erb"))
 
+
     expect(generated_files).not_to be_empty
 
     generated_files.each do |file|
@@ -34,6 +35,7 @@ RSpec.describe "Markdown to Static HTML Rake Task", type: :task do
       task.reenable
       expect { task.invoke }.to output(/Skipping markdown file/).to_stdout
     end
+
 
     it "skips files that are marked for publication with a different status" do
       task.reenable
