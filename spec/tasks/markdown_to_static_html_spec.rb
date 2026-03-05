@@ -27,6 +27,17 @@ RSpec.describe "Markdown to Static HTML Rake Task", type: :task do
     end
   end
 
+  context "generated files maintain markdown content directory structure" do
+    it "outputs generated view into a duplicated collections directory structure" do
+      task.reenable
+      task.invoke
+      expect(Dir.glob(File.join(output_directory, "**/*.html.erb"))).to include(
+        File.join(output_directory, "sample.html.erb"),
+        File.join(output_directory, "nested-collection/sample-nested.html.erb"),
+      )
+    end
+  end
+
   context "when markdown files are missing the status with value 'for-publication' in the front matter" do
     let(:markdown_input_dir) { Rails.configuration.x.markdown_location_directory }
 
