@@ -1,24 +1,28 @@
 .datagovuk-headline {
-    background-color: $datagovuk-light-grey;
-    border-radius: 30px;
     font-family: Inter, sans-serif;
 }
 
-.datagovuk-headline__col {
-    padding-top: 10px;
-    padding-bottom: 10px;
+.datagovuk-headline__columns {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    background-color: $datagovuk-light-grey;
+    border-radius: 30px;
+    padding: 30px;
 }
 
-.datagovuk-headline__col--left {
-    padding-right: 20px;
-}
-
-.datagovuk-headline__col--right {
-    padding-left: 20px;
+.datagovuk-headline__column {
+    flex: 1;
 }
 
 .datagovuk-headline__subtitle {
     color: $datagovuk-light-grey;
+}
+
+.datagovuk-headline__number {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 42px;
+    margin-bottom: 20px;
 }
 
 .datagovuk-headline__change {
@@ -26,18 +30,13 @@
     align-items: center;
     gap: 10px;
     font-size: 28px;
-}
-
-.datagovuk-headline__change .datagovuk-section {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 10px;
-    width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
 }
 
 .datagovuk-headline__change-value, 
-.datagovuk-headline__change-value-prc {
+.datagovuk-headline__change-value-percent {
     margin: 0;
 }
 
@@ -46,25 +45,18 @@
     align-items: center;
 }
 
-.datagovuk-trendup {
+.datagovuk-headline__trendup {
     background-color: $datagovuk-light-green;
 }
 
-.datagovuk-trenddown {
+.datagovuk-headline__trenddown {
     background-color: $datagovuk-light-pink;
 }
 
 @media (min-width: 40.0625em) {
-    .datagovuk-headline__col--left {
-        padding-right: 30px;
-        border-right: 1px solid #333333;
+
+    .datagovuk-headline__columns {
+        flex-direction: row;
     }
 
-    .datagovuk-headline__col--right {
-        padding-left: 30px;
-    }
-
-    .datagovuk-headline {
-        padding: 25px;
-    }
 }
