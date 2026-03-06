@@ -3,7 +3,7 @@ name: CI Pipeline - MVP branch
 on:
   push:
     branches:
-      - main-mvp
+      - main-mvp-rebase
   pull_request:
     branches:
       - main-mvp
