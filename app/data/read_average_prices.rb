@@ -1,6 +1,7 @@
 require "csv"
 require "json"
 require "date"
+require "fileutils"
 
 def convert_csv_to_regional_json(input_file, output_file)
   temp_grouped = Hash.new { |hash, key| hash[key] = {} }
@@ -12,12 +13,15 @@ def convert_csv_to_regional_json(input_file, output_file)
     temp_grouped[row["Region_Name"]][formatted_date] = row["Average_Price"].to_f
   end
 
+  number_base = 10_000
+
   final_data = temp_grouped.map do |region, dates|
+    average_house_prices = dates.values.compact
+
     {
       name: region,
-      size: dates.values.compact.size,
-      maxValueRoundedUp: (dates.values.compact.max.ceil / 10_000.0).ceil * 10_000,
-      minValueRoundedDown: (dates.values.compact.min.floor / 10_000.0).floor * 10_000,
+      size: average_house_prices.size,
+      base: number_base,
       data: dates.transform_values { |price| price / 1000 },
     }
   end
@@ -27,4 +31,4 @@ def convert_csv_to_regional_json(input_file, output_file)
   end
 end
 
-convert_csv_to_regional_json("/Users/ObsiyeA/Documents/ndl/datagovuk_find/app/data/Average-prices-68to25.csv", "regional_prices.json")
+convert_csv_to_regional_json(File.expand_path("./app/data/Average-prices-68to25.csv"), File.expand_path("./app/data/regional_prices.json"))
