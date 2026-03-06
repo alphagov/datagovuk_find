@@ -6,11 +6,7 @@
 %>
 
 <section class="govuk-section datagovuk-section">
-  <div class="govuk-width-container">
-    <h2 class="govuk-heading-m datagovuk-heading-m govuk-!-margin-bottom-2"><%= local_assigns[:title] %></h2>
-  </div>
-
-<%# TODO: TOASK: should each data point with the highest value always have precedence on fill, background color? %>
+  <h2 class="govuk-heading-m datagovuk-heading-m"><%= local_assigns[:title] %></h2>
 
   <div class="govuk-grid-row line-chart">
     <%= line_chart data_series,
