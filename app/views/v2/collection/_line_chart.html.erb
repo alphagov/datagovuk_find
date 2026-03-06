@@ -1,6 +1,6 @@
 <%
   data_series = local_assigns[:data_series]
-  max_value = local_assigns[:max_value]
+  max_value = local_assigns[:max_value] || 0
   y_title = local_assigns[:y_title]
   empty_description = local_assigns[:empty_description]
   number_base = local_assigns[:number_base]
@@ -8,13 +8,7 @@
 
 <section class="govuk-section datagovuk-section">
   <div class="govuk-width-container">
-    <main class="govuk-main-wrapper">
-      <div class="govuk-grid-row">
-        <div class="govuk-grid-column-full">
-          <h2 class="govuk-heading-s datagovuk-heading-s govuk-!-margin-bottom-2"><%= local_assigns[:title] %></h2>
-        </div>
-      </div>
-    </main>
+    <h2 class="govuk-heading-s datagovuk-heading-s govuk-!-margin-bottom-2"><%= local_assigns[:title] %></h2>
   </div>
 
 <%# TODO: TOASK: should each data point with the highest value always have precedence on fill, background color? %>
@@ -66,7 +60,7 @@
             dash: [5, 5],
           },
           ticks: {
-            stepSize: (max_value * 0.25) / number_base,
+            stepSize: (max_value.ceil.to_f * 0.25) / number_base,
             maxTicksLimit: 10,
             autoSkip: false,
           },

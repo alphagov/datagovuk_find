@@ -24,26 +24,38 @@ def convert_csv_to_regional_json(input_file, output_file)
 
   point_styles = %w[circle triangle rect rectRot]
 
-  final_data = dataset.map do |region_name, data|
+  average_house_prices = {
+    number_base: number_base.to_i,
+    max_value: 0,
+    y_title: "Average house price (£#{number_base.to_i})",
+    data: [],
+  }
+
+  formatted_dataset = dataset.map do |region_name, data|
     data_count = data.keys.size
-    size = data.values.max
+    max_value = data.values.max / number_base
+
+    if max_value > average_house_prices[:max_value]
+      average_house_prices[:max_value] = max_value
+    end
+
     point_style_icon = point_styles.pop
     point_radius = Array.new(data_count - 1, 0) << 4
     point_style  = Array.new(data_count - 1, point_style_icon) << point_style_icon
 
     {
       name: region_name,
-      color: region_colors[region_name] || "#CCCCCC",
+      color: region_colors[region_name] || "#4D303D",
       dataset: {
         pointRadius: point_radius,
         pointStyle: point_style,
       },
-      number_base: number_base.to_i,
-      size: size,
       data: data.sort.to_h,
     }
   end
 
-  File.write(output_file, JSON.pretty_generate(final_data))
+  average_house_prices[:data] = formatted_dataset
+
+  File.write(output_file, JSON.pretty_generate(average_house_prices))
 end
-convert_csv_to_regional_json(File.expand_path("./app/data/Average-prices-68to25.csv"), File.expand_path("./app/data/regional_prices.json"))
+convert_csv_to_regional_json(File.expand_path("./app/data/average_house_prices/Average-prices-68to25.csv"), File.expand_path("./app/data/average_house_prices/regional_prices.json"))

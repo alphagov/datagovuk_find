@@ -18,11 +18,11 @@
   <%= render partial: "v2/components/feedback" %>
 
   <%= render partial: "v2/collection/line_chart", locals: { 
-    max_value: 300_000,
+    max_value: @average_house_prices["max_value"],
     y_title: "Average house price (£#{1000})",
     empty_description: "No data available",
     number_base: 1000,
-    data_series: @data
+    data_series: @average_house_prices["data"]
   } %>
 
 </div>
