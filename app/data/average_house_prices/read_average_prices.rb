@@ -19,7 +19,7 @@ def convert_csv_to_regional_json(input_file, output_file)
   region_colors = {
     "England" => "#4D303D",
     "Wales" => "#00890B",
-    "Scotland" => "rgb(82, 90, 144)",
+    "Scotland" => "#525a90",
   }
 
   point_styles = %w[circle triangle rect rectRot]

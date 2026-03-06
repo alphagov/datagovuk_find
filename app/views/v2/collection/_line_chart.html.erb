@@ -15,6 +15,7 @@
       empty: empty_description, # TODO: What should be this message
       tension: 0.5,
       pointRadius: 0,
+      pointHoverRadius: 10
     },
     library: {
       plugins: { 
@@ -58,7 +59,6 @@
       },
       scales: {
         y: {
-          bounds: 'ticks',
           min: 0,
           grid: {
             display: true,
@@ -76,12 +76,10 @@
           },
         },
         x: {
-          # bounds: 'ticks',
           border: {
             display: true,
           },
           ticks: {
-            # source: 'data', # This with bounds: true shows the last data value as the last tick on the x axis
             font: {
               size: 20
             }
@@ -92,4 +90,5 @@
     legend: "bottom"
     %>
   </div>
+  <p class="govuk-body datagovuk-body"><a href="#" class="govuk-link datagovuk-link">Download the chart</a></p>
 </section>
