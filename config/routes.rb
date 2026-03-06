@@ -26,11 +26,9 @@ Rails.application.routes.draw do
   scope module: "pages" do
     get "cookies"
     get "dashboard" # 410 Gone
-    get "privacy"
     get "publishers"
     get "site-changes"
     get "support/new", to: redirect("/support")
-    get "terms"
     get "ckan_maintenance"
   end
 
@@ -45,6 +43,7 @@ Rails.application.routes.draw do
     get "support" => "pages#content_page", defaults: { slug: "support", title: "Support" }
     get "team" => "pages#content_page", defaults: { slug: "team", title: "Team" }
     get "roadmap" => "pages#content_page", defaults: { slug: "roadmap", title: "Roadmap" }
+    get "terms" => "pages#content_page", defaults: { slug: "terms", title: "Terms & conditions and privacy" }
   end
 
   match "404", to: "errors#not_found", via: :all

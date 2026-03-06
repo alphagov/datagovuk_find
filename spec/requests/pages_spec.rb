@@ -109,9 +109,9 @@ RSpec.describe "pages", type: :request do
     end
   end
 
-  describe "GET /privacy" do
+  describe "GET /terms" do
     before do
-      get privacy_path
+      get terms_path
     end
 
     it "returns success response" do
@@ -119,6 +119,7 @@ RSpec.describe "pages", type: :request do
     end
 
     it "renders the privacy page" do
+      expect(response.body).to include("Terms and conditions")
       expect(response.body).to include("Privacy")
     end
   end
