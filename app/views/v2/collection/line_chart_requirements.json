@@ -1,6 +1,16 @@
 {
     "chart_type": "line",
     "series": "Dataset 1",
+    "scaleType": ["Linear", "Category"],
+    "scales": {
+        "y": {
+            "min": 0,
+            "max": 100,
+            "ticks": {
+                "stepSize": 10
+            }
+        }
+    },
     "data": {
         "Jan": 42,
         "Feb": 38,
@@ -15,7 +25,14 @@
         "Nov": 58,
         "Dec": 60
     },
+    "length": {
+        "data": 12
+    },
     "dataset": {
+        "fill": false,
+        "borderColor": "rgb(75, 192, 192)", // line colour
+        "tension": 0.1, // curve of the line
+        "backgroundColor": "rgba(75, 192, 192, 0.2)", // area colour
         "pointRadius": [
             0,
             0,
@@ -29,7 +46,7 @@
             0,
             0,
             5
-        ]
+        ] // maybe from length of data
     },
     "suffix": "%",
     "min": 10,

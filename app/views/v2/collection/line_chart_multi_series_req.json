@@ -1,0 +1,83 @@
+{
+    "data": [
+      {
+        "name": "England",
+        "color": "rgb(155, 77, 61)",
+        "dataset": {
+          "pointStyle": {
+            "radius": "circle",
+            "hover": "triangle"
+          }
+        },
+        "size": "data.size",
+        "data": {
+            "1968-04-01": 3.218,
+            "1968-05-01": 3.218
+        }
+      },
+      {
+        "name": "Wales",
+        "color": "rgb(84, 193, 69)",
+        "data": {
+            "1968-04-01": 2.732,
+          "1968-05-01": 2.732
+        }
+      },
+      {
+        "name": "Scotland",
+        "color": "rgb(82, 90, 144)",
+        "data": {
+            "1968-04-01": 2.738,
+            "1968-05-01": 2.738
+        }
+      }
+    ],
+    "points": false,
+    "ytitle": "Average House Price (£1000)",
+    "dataset": {
+      "tension": 0.1
+    },
+    "library": {
+      "plugins": { 
+        "datalabels": {
+          "display": false
+        },
+        "legend": {
+          "display": true,
+          "labels": {
+            "color": "#5D5D5D",
+            "font": {
+              "size": 12,
+              "family": "Inter, sans-serif",
+              "weight": "bold"
+            },
+            "pointStyle": "triangle",
+            "usePointStyle": true
+          }
+        }
+      },
+      "scales": {
+        "y": {
+          "min": 0,
+          "max": "300000 / 1000",
+          "grid": {
+            "display": true
+          },
+          "border": {
+            "dash": [5, 5]
+          },
+          "ticks": {
+            "stepSize": "75000 / 1000",
+            "maxTicksLimit": 10,
+            "autoSkip": false
+          }
+        },
+        "x": {
+          "border": {
+            "display": true
+          }
+        }
+      }
+    },
+    "legend": "bottom"
+}
