@@ -44,6 +44,7 @@ Rails.application.routes.draw do
     get "accessibility" => "pages#content_page", defaults: { slug: "accessibility", title: "Accessibility"}
     get "support" => "pages#content_page", defaults: { slug: "support", title: "Support" }
     get "team" => "pages#content_page", defaults: { slug: "team", title: "Team" }
+    get "roadmap" => "pages#content_page", defaults: { slug: "roadmap", title: "Roadmap" }
   end
 
   match "404", to: "errors#not_found", via: :all
