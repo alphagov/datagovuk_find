@@ -1,11 +1,9 @@
 require Rails.root.join("app/services/dgu/markdown")
 
 module V2
-  class DataManualContentNotFound < ActionController::ActionControllerError
-  end
 
   class DataManualController < ApplicationController
-    rescue_from DataManualContentNotFound, with: :render_not_found
+    rescue_from Dgu::MarkdownContentNotFound, with: :render_not_found
 
     def home
       expires_in 30.minutes, public: true
@@ -29,17 +27,10 @@ module V2
       #   as having the slug constraint
       @sanitizer = Rails::Html::FullSanitizer.new
       safe_slug = @sanitizer.sanitize(params[:slug])
-      data_manual_markdown_directory = Rails.configuration.x.markdown_data_manual_location
-      # NOTE: the below brakeman complaint is happening because brakeman cannot verify that our config
-      #   variable does not contain a leading /.  Ignoring it.
-      # brakeman: disable: Rails/DynamicRenderPath, Rails/FileAccess
-      markdown_file = Rails.root.join(data_manual_markdown_directory, "#{safe_slug}.md")
-      if File.exist?(markdown_file)
-        markdown = File.read(markdown_file)
-      else
-        raise DataManualContentNotFound
-      end
-      Dgu::Markdown.render(markdown).html_safe
+      Dgu::Markdown.render_from_file(
+        Rails.configuration.x.markdown_data_manual_location,
+        safe_slug,
+      )
     end
 
     def data_manual_pages
