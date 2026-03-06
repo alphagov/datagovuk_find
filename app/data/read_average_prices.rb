@@ -22,12 +22,14 @@ def convert_csv_to_regional_json(input_file, output_file)
     "Scotland" => "rgb(82, 90, 144)",
   }
 
+  point_styles = %w[circle triangle rect rectRot]
+
   final_data = dataset.map do |region_name, data|
     data_count = data.keys.size
     size = data.values.max
-
+    point_style_icon = point_styles.pop
     point_radius = Array.new(data_count - 1, 0) << 4
-    point_style  = Array.new(data_count, "triangle")
+    point_style  = Array.new(data_count - 1, point_style_icon) << point_style_icon
 
     {
       name: region_name,
