@@ -10,7 +10,7 @@ module Dgu
     end
 
     def link(link, _title, content)
-      <<~HTML
+      <<~HTML.strip
         <a href="#{link}" class="govuk-link datagovuk-link datagovuk-link--secondary">#{content}</a>
       HTML
     end
