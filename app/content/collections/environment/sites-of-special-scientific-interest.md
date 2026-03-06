@@ -3,10 +3,10 @@ title: Sites of Special Scientific Interest
 websites:
   - url: https://naturalengland-defra.opendata.arcgis.com/datasets/Defra::sites-of-special-scientific-interest-england/about
     link-text: Sites of Specific Scientific Interest (England)
-  - url: https://naturalengland-defra.opendata.arcgis.com/datasets/Defra::sites-of-special-scientific-interest-england/explore
-    link-text: "Sites of Specific Scientific Interest (England): map"
 api:
 dataset:
+  url: https://naturalengland-defra.opendata.arcgis.com/datasets/Defra::sites-of-special-scientific-interest-england/explore
+  link-text: "Sites of Specific Scientific Interest (England): map"
 page-last-updated:
 visualisation-data:
 contact:
