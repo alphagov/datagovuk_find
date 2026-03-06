@@ -6,13 +6,14 @@ namespace :markdown do
     markdown_input_glob = Rails.configuration.x.markdown_collections_location_glob
     markdown_output_dir = Rails.configuration.x.markdown_collections_output_location
 
+    input_root = Pathname.new(Rails.root.join(markdown_input_glob.split("*").first)).cleanpath
     markdowns = Dir.glob(Rails.root.join(markdown_input_glob).to_s)
 
     output_directory = Rails.root.join(markdown_output_dir)
     FileUtils.mkdir_p(output_directory)
 
     if markdowns.empty?
-      puts("Markdown files are not present")
+      puts("No markdown files were found")
     end
 
     markdowns.each do |markdown_file|
@@ -21,9 +22,13 @@ namespace :markdown do
       content = parsed_markdown.content
       html_body = Dgu::Markdown.render(content)
 
+      if html_body.strip.empty?
+        puts("Skipping markdown file #{markdown_file} no body content present")
+        next
+      end
+
       assigns = {
         title: front_matter["title"],
-        collection: front_matter["collection"],
         websites: front_matter["websites"] || [],
         api_link: front_matter["api"],
         dataset: front_matter["dataset"],
@@ -39,9 +44,12 @@ namespace :markdown do
         next
       end
 
-      output_path = output_directory.join(front_matter["collection"].parameterize)
+      path = Pathname.new(markdown_file)
+      relative_path = path.relative_path_from(input_root).sub_ext(".html.erb")
+      output_path = output_directory / relative_path
+      FileUtils.mkdir_p(output_path.dirname)
 
-      FileUtils.mkdir_p(output_path)
+      puts("Render #{path.basename} to => #{output_path}")
 
       html = ApplicationController.renderer.render(
         partial: "v2/collection/content",
@@ -49,9 +57,10 @@ namespace :markdown do
         assigns: assigns,
       )
 
-      File.write(output_path.join(markdown_file.split("/").last.sub(".md", ".html.erb")), html)
-    rescue StandardError
+      File.write(output_path, html)
+    rescue StandardError => e
       puts("error processing #{markdown_file}")
+      puts e
     end
     puts("Completed rendering markdown to html files")
   end

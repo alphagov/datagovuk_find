@@ -17,12 +17,24 @@ RSpec.describe "Markdown to Static HTML Rake Task", type: :task do
   it "parses markdown files and generates HTML/ERB files" do
     task.reenable
     task.invoke
-    generated_files = Dir.glob(File.join(output_directory, "sample-collection", "*.html.erb"))
+    generated_files = Dir.glob(File.join(output_directory, "**/*.html.erb"))
+
     expect(generated_files).not_to be_empty
 
     generated_files.each do |file|
       content = File.read(file)
       expect(content).to include("<h2")
+    end
+  end
+
+  context "generated files maintain markdown content directory structure" do
+    it "outputs generated view into a duplicated collections directory structure" do
+      task.reenable
+      task.invoke
+      expect(Dir.glob(File.join(output_directory, "**/*.html.erb"))).to include(
+        File.join(output_directory, "sample.html.erb"),
+        File.join(output_directory, "nested-collection/sample-nested.html.erb"),
+      )
     end
   end
 
@@ -36,25 +48,24 @@ RSpec.describe "Markdown to Static HTML Rake Task", type: :task do
 
     it "skips files that are marked for publication with a different status" do
       task.reenable
-      draft_markdown_path = create_markdown_file("notforpublication", "collection", "draft")
+      draft_markdown_path = create_markdown_file("notforpublication", "draft")
       expect { task.invoke }.to output(/Skipping markdown file #{draft_markdown_path}/).to_stdout
       FileUtils.rm_f(draft_markdown_path)
     end
 
     it "skips files that have no status" do
       task.reenable
-      nostatus_markdown_path = create_markdown_file("nostatus", "collection", nil)
+      nostatus_markdown_path = create_markdown_file("nostatus", nil)
       expect { task.invoke }.to output(/Skipping markdown file #{nostatus_markdown_path}/).to_stdout
       FileUtils.rm_f(nostatus_markdown_path)
     end
   end
 
-  def create_markdown_file(title, collection, status = "for-publication")
+  def create_markdown_file(title, status = "for-publication")
     markdown_path = Rails.root.join(markdown_input_dir, "#{title}.md")
     markdown_path.write(<<~MARKDOWN)
       ---
       title: #{title}
-      collection: #{collection}
       status: #{status}
       ---
       # Sample Markdown Content
