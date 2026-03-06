@@ -30,7 +30,6 @@ Rails.application.routes.draw do
     get "privacy"
     get "publishers"
     get "site-changes"
-    get "support"
     get "support/new", to: redirect("/support")
     get "terms"
     get "ckan_maintenance"
@@ -43,6 +42,7 @@ Rails.application.routes.draw do
     get "data-manual", to: "data_manual#home", as: "data_manual_home"
     get "data-manual/:slug", to: "data_manual#content", as: "data_manual_content", constraints: { slug: /[a-z0-9-]+/ }
     get "accessibility" => "pages#content_page", defaults: { slug: "accessibility" }
+    get "support" => "pages#content_page", defaults: { slug: "support" }
   end
 
   match "404", to: "errors#not_found", via: :all
