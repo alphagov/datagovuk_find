@@ -1,0 +1,62 @@
+.datagovuk-headline {
+    font-family: Inter, sans-serif;
+}
+
+.datagovuk-headline__columns {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    background-color: $datagovuk-light-grey;
+    border-radius: 30px;
+    padding: 30px;
+}
+
+.datagovuk-headline__column {
+    flex: 1;
+}
+
+.datagovuk-headline__subtitle {
+    color: $datagovuk-light-grey;
+}
+
+.datagovuk-headline__number {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 42px;
+    margin-bottom: 20px;
+}
+
+.datagovuk-headline__change {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 28px;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.datagovuk-headline__change-value, 
+.datagovuk-headline__change-value-percent {
+    margin: 0;
+}
+
+.datagovuk-headline__arrow {
+    display: flex;
+    align-items: center;
+}
+
+.datagovuk-headline__trendup {
+    background-color: $datagovuk-light-green;
+}
+
+.datagovuk-headline__trenddown {
+    background-color: $datagovuk-light-pink;
+}
+
+@media (min-width: 40.0625em) {
+
+    .datagovuk-headline__columns {
+        flex-direction: row;
+    }
+
+}
