@@ -18,23 +18,11 @@
   <%= render partial: "v2/components/feedback" %>
 
   <%= render partial: "v2/collection/line_chart", locals: { 
-    elements_point_radius: 0,
-    pointRadius: 5,
-    pointHoverRadius: 7,
-    elements_point_radius: 0,
-    title: "Comparing the nations",
-    subtitle: "Average house prices in England, Wales and Scotland",
-    data: [
-        {name: "Workout", data: {"2025-01-01": 3, "2025-01-02": 4}}
-    ],
-    prefix: "£",
-    suffix: "",
-    ytitle: "Average house prices in England, Wales and Scotland",
-    xtitle: "Date",
-    min: 50000,
-    max: 200000,
-    stepSize: 100_000,
-    limit: 10
+    max_value: 300_000,
+    y_title: "Average house price (£#{1000})",
+    empty_description: "No data available",
+    number_base: 1000,
+    data_series: @data
   } %>
 
 </div>

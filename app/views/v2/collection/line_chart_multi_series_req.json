@@ -4,6 +4,7 @@
         "name": "England",
         "color": "rgb(155, 77, 61)",
         "dataset": {
+          "pointRadius": new Array(692 - 1, 0) + 4
           "pointStyle": {
             "radius": "circle",
             "hover": "triangle"

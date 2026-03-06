@@ -6,6 +6,7 @@ module V2
     end
 
     def components
+      @data = JSON.parse(File.read(Rails.root.join("app/data/regional_prices.json")))
       render layout: "v2/layouts/application"
     end
   end
