@@ -24,7 +24,6 @@ Rails.application.routes.draw do
   end
 
   scope module: "pages" do
-    get "about"
     get "cookies"
     get "dashboard" # 410 Gone
     get "privacy"
@@ -41,6 +40,7 @@ Rails.application.routes.draw do
     get "components" => "pages#components"
     get "data-manual", to: "data_manual#home", as: "data_manual_home"
     get "data-manual/:slug", to: "data_manual#content", as: "data_manual_content", constraints: { slug: /[a-z0-9-]+/ }
+    get "about" => "pages#content_page", defaults: { slug: "about", title: "About"}
     get "accessibility" => "pages#content_page", defaults: { slug: "accessibility", title: "Accessibility"}
     get "support" => "pages#content_page", defaults: { slug: "support", title: "Support" }
     get "team" => "pages#content_page", defaults: { slug: "team", title: "Team" }
