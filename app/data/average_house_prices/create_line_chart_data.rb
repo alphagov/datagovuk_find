@@ -7,7 +7,7 @@ OUTPUT_PATH = "./app/data/average_house_prices/regional_prices.json".freeze
 
 def convert_csv_to_line_chart_data(input_file, output_file)
   dataset = Hash.new { |hash, key| hash[key] = {} }
-  number_base = 1000.0
+  number_base = 1000
 
   CSV.foreach(input_file, headers: true) do |row|
     next unless row["Date"] && row["Region_Name"]
