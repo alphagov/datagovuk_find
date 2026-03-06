@@ -2,7 +2,10 @@ require "csv"
 require "json"
 require "date"
 
-def convert_csv_to_regional_json(input_file, output_file)
+CSV_PATH = "./app/data/average_house_prices/Average-prices-68to25.csv".freeze
+OUTPUT_PATH = "./app/data/average_house_prices/regional_prices.json".freeze
+
+def convert_csv_to_line_chart_data(input_file, output_file)
   dataset = Hash.new { |hash, key| hash[key] = {} }
   number_base = 1000.0
 
@@ -16,6 +19,10 @@ def convert_csv_to_regional_json(input_file, output_file)
     dataset[row["Region_Name"]][formatted_date] = average_price / number_base
   end
 
+  generate_line_chart_json(dataset, output_file, number_base)
+end
+
+def generate_line_chart_json(dataset, output_file, number_base)
   region_colors = {
     "England" => "#4D303D",
     "Wales" => "#00890B",
@@ -27,7 +34,6 @@ def convert_csv_to_regional_json(input_file, output_file)
   average_house_prices = {
     number_base: number_base.to_i,
     max_value: 0,
-    y_title: "Average house price (£#{number_base.to_i})",
     data: [],
   }
 
@@ -40,8 +46,7 @@ def convert_csv_to_regional_json(input_file, output_file)
     end
 
     point_style_icon = point_styles.pop
-    size_of_point = 10
-    point_radius = Array.new(data_count - 1, 0) << size_of_point
+    point_radius = get_last_data_point(data_count, 10)
     point_style  = Array.new(data_count - 1, point_style_icon) << point_style_icon
 
     {
@@ -59,4 +64,10 @@ def convert_csv_to_regional_json(input_file, output_file)
 
   File.write(output_file, JSON.pretty_generate(average_house_prices))
 end
-convert_csv_to_regional_json(File.expand_path("./app/data/average_house_prices/Average-prices-68to25.csv"), File.expand_path("./app/data/average_house_prices/regional_prices.json"))
+
+def get_last_data_point(data_count, size_of_point)
+  # This adds a point radiius to the last data value
+  Array.new(data_count - 1, 0) << size_of_point
+end
+
+convert_csv_to_line_chart_data(File.expand_path(CSV_PATH), File.expand_path(OUTPUT_PATH))

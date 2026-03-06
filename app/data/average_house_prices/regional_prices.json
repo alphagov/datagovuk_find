@@ -1,7 +1,6 @@
 {
   "number_base": 1000,
   "max_value": 0.293768,
-  "y_title": "Average house price (£1000)",
   "data": [
     {
       "name": "England",
@@ -4181,7 +4180,7 @@
     },
     {
       "name": "Scotland",
-      "color": "rgb(82, 90, 144)",
+      "color": "#525a90",
       "dataset": {
         "pointRadius": [
           0,
