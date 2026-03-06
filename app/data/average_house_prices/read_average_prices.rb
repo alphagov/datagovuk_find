@@ -40,7 +40,8 @@ def convert_csv_to_regional_json(input_file, output_file)
     end
 
     point_style_icon = point_styles.pop
-    point_radius = Array.new(data_count - 1, 0) << 4
+    size_of_point = 10
+    point_radius = Array.new(data_count - 1, 0) << size_of_point
     point_style  = Array.new(data_count - 1, point_style_icon) << point_style_icon
 
     {

@@ -1,14 +1,13 @@
 <%
   data_series = local_assigns[:data_series]
   max_value = local_assigns[:max_value] || 0
-  y_title = local_assigns[:y_title]
   empty_description = local_assigns[:empty_description]
   number_base = local_assigns[:number_base]
 %>
 
 <section class="govuk-section datagovuk-section">
   <div class="govuk-width-container">
-    <h2 class="govuk-heading-s datagovuk-heading-s govuk-!-margin-bottom-2"><%= local_assigns[:title] %></h2>
+    <h2 class="govuk-heading-m datagovuk-heading-m govuk-!-margin-bottom-2"><%= local_assigns[:title] %></h2>
   </div>
 
 <%# TODO: TOASK: should each data point with the highest value always have precedence on fill, background color? %>
@@ -16,7 +15,6 @@
   <div class="govuk-grid-row line-chart">
     <%= line_chart data_series,
     points: true,
-    ytitle: y_title,
     dataset: {
       empty: empty_description, # TODO: What should be this message
       tension: 0.5,
@@ -32,13 +30,26 @@
           labels: {
             color: "#5D5D5D",
             font: {
-              size: 12,
+              size: 20,
               family: "Inter, sans-serif",
               weight: "bold"
             },
+            padding: 30,
             usePointStyle: true
           }
         },
+        tooltip: {
+          bodyFont: {
+            size: 20,
+            family: "Inter, sans-serif",
+            weight: "bold"
+          },
+          titleFont: {
+            size: 20,
+            family: "Inter, sans-serif",
+            weight: "bold"
+          }
+        }
       },
       responsive: true,
       layout: {
@@ -63,15 +74,21 @@
             stepSize: (max_value.ceil.to_f * 0.25) / number_base,
             maxTicksLimit: 10,
             autoSkip: false,
+            font: {
+              size: 20
+            }
           },
         },
         x: {
-          bounds: 'ticks',
+          # bounds: 'ticks',
           border: {
             display: true,
           },
           ticks: {
-            source: 'data' # This with bounds: true shows the last data value as the last tick on the x axis
+            # source: 'data', # This with bounds: true shows the last data value as the last tick on the x axis
+            font: {
+              size: 20
+            }
           }
         },
       },

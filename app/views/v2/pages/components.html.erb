@@ -19,9 +19,9 @@
 
   <%= render partial: "v2/collection/line_chart", locals: { 
     max_value: @average_house_prices["max_value"],
-    y_title: "Average house price (£#{1000})",
+    title: "Average house price (£#{@average_house_prices["number_base"]})",
     empty_description: "No data available",
-    number_base: 1000,
+    number_base: @average_house_prices["number_base"],
     data_series: @average_house_prices["data"]
   } %>
 
