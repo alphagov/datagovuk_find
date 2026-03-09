@@ -12,7 +12,7 @@ module V2
     def content_page
       rendered_content = Dgu::Markdown.render_from_file(
         Rails.configuration.x.markdown_content_pages_location,
-        params[:slug]
+        params[:slug],
       )
       render layout: "v2/layouts/application", locals: {
         rendered_content: rendered_content,

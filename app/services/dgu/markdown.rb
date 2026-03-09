@@ -26,6 +26,5 @@ module Dgu
       end
       Dgu::Markdown.render(markdown).html_safe
     end
-      
   end
 end

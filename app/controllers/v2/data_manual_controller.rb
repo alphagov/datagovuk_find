@@ -1,7 +1,6 @@
 require Rails.root.join("app/services/dgu/markdown")
 
 module V2
-
   class DataManualController < ApplicationController
     rescue_from Dgu::MarkdownContentNotFound, with: :render_not_found
 
