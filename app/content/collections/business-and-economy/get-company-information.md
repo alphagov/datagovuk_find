@@ -8,7 +8,7 @@ api:
   link-text: API documentation
 dataset:
 page-last-updated:
-visualisation-data:
+visualisation-data: get-company-information/companies-house-register-headlines.json
 contact:
 status: for-publication
 ---
