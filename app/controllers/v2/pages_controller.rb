@@ -15,6 +15,9 @@ module V2
         params[:slug],
       )
       template = params.fetch("template", "v2/pages/content_page")
+      # NOTE: the below brakeman complaint is happening because brakeman is assuming the parameter is part of the URL.
+      #   In this case, the parameter is specified in a single URL as a default value - so not dynamically settable by users.
+      # brakeman: ignore: Dynamic Render Path (reason: template is fetched from a constant defined as a default parameter in routes.rb)
       render layout: "v2/layouts/application", template: template, locals: {
         rendered_content: rendered_content,
         title: params[:title],

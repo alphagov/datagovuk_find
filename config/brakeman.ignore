@@ -1,5 +1,28 @@
 {
-  "ignored_warnings": [],
-  "updated": "2025-02-26 16:12:53 +0100",
-  "brakeman_version": "6.1.2"
+  "ignored_warnings": [
+    {
+      "warning_type": "Dynamic Render Path",
+      "warning_code": 15,
+      "fingerprint": "e3a731812a56863737faff6663d3fd194fb43cce6f00fbb488f3f08a9d6df1c1",
+      "check_name": "Render",
+      "message": "Render path contains parameter value",
+      "file": "app/controllers/v2/pages_controller.rb",
+      "line": 21,
+      "link": "https://brakemanscanner.org/docs/warning_types/dynamic_render_path/",
+      "code": "render(template => params.fetch(\"template\", \"v2/pages/content_page\"), { :layout => \"v2/layouts/application\", :locals => ({ :rendered_content => Dgu::Markdown.render_from_file(Rails.configuration.x.markdown_content_pages_location, params[:slug]), :title => params[:title] }) })",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "V2::PagesController",
+        "method": "content_page"
+      },
+      "user_input": "params.fetch(\"template\", \"v2/pages/content_page\")",
+      "confidence": "High",
+      "cwe_id": [
+        22
+      ],
+      "note": "template is fetched from a constant defined as a default parameter in routes.rb"
+    }
+  ],
+  "brakeman_version": "7.0.0"
 }
