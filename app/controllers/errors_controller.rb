@@ -1,6 +1,6 @@
 class ErrorsController < ApplicationController
   def not_found
-    render(status: :not_found)
+    render status: :not_found, layout: "v2/layouts/application"
   end
 
   def internal_server_error
