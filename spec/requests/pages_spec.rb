@@ -109,9 +109,9 @@ RSpec.describe "pages", type: :request do
     end
   end
 
-  describe "GET /privacy" do
+  describe "GET /terms" do
     before do
-      get privacy_path
+      get terms_path
     end
 
     it "returns success response" do
@@ -119,7 +119,36 @@ RSpec.describe "pages", type: :request do
     end
 
     it "renders the privacy page" do
+      expect(response.body).to include("Terms and conditions")
       expect(response.body).to include("Privacy")
+    end
+  end
+
+  describe "GET /roadmap" do
+    before do
+      get roadmap_path
+    end
+
+    it "returns success response" do
+      expect(response).to have_http_status(:ok)
+    end
+
+    it "renders the roadmap page" do
+      expect(response.body).to include("data.gov.uk roadmap")
+    end
+  end
+
+  describe "GET /team" do
+    before do
+      get team_path
+    end
+
+    it "returns success response" do
+      expect(response).to have_http_status(:ok)
+    end
+
+    it "renders the team page" do
+      expect(response.body).to include("data.gov.uk team")
     end
   end
 end

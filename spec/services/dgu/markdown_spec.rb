@@ -24,9 +24,8 @@ RSpec.describe Dgu::Markdown do
         [Test](https://www.test.com)
       MD
 
-      expected_html = <<~HTML
-        <p class="govuk-body-m datagovuk-body"><a href="https://www.test.com" class="govuk-link datagovuk-link datagovuk-link--secondary">Test</a>
-        </p>
+      expected_html = <<~HTML.strip
+        <p class="govuk-body-m datagovuk-body"><a href="https://www.test.com" class="govuk-link datagovuk-link datagovuk-link--secondary">Test</a></p>
       HTML
 
       rendered_html = Dgu::Markdown.render(markdown).strip

@@ -24,16 +24,11 @@ Rails.application.routes.draw do
   end
 
   scope module: "pages" do
-    get "about"
-    get "accessibility"
     get "cookies"
     get "dashboard" # 410 Gone
-    get "privacy"
     get "publishers"
     get "site-changes"
-    get "support"
     get "support/new", to: redirect("/support")
-    get "terms"
     get "ckan_maintenance"
   end
 
@@ -43,6 +38,12 @@ Rails.application.routes.draw do
     get "components" => "pages#components"
     get "data-manual", to: "data_manual#home", as: "data_manual_home"
     get "data-manual/:slug", to: "data_manual#content", as: "data_manual_content", constraints: { slug: /[a-z0-9-]+/ }
+    get "about" => "pages#content_page", defaults: { slug: "about", title: "About" }
+    get "accessibility" => "pages#content_page", defaults: { slug: "accessibility", title: "Accessibility" }
+    get "support" => "pages#content_page", defaults: { slug: "support", title: "Support" }
+    get "team" => "pages#content_page", defaults: { slug: "team", title: "Team" }
+    get "roadmap" => "pages#content_page", defaults: { slug: "roadmap", title: "Roadmap" }
+    get "terms" => "pages#content_page", defaults: { slug: "terms", title: "Terms & conditions and privacy" }
   end
 
   match "404", to: "errors#not_found", via: :all
