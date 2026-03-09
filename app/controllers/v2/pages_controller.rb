@@ -14,7 +14,8 @@ module V2
         Rails.configuration.x.markdown_content_pages_location,
         params[:slug],
       )
-      render layout: "v2/layouts/application", locals: {
+      template = params.fetch("template", "v2/pages/content_page")
+      render layout: "v2/layouts/application", template: template, locals: {
         rendered_content: rendered_content,
         title: params[:title],
       }

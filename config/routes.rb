@@ -44,6 +44,7 @@ Rails.application.routes.draw do
     get "team" => "pages#content_page", defaults: { slug: "team", title: "Team" }
     get "roadmap" => "pages#content_page", defaults: { slug: "roadmap", title: "Roadmap" }
     get "terms" => "pages#content_page", defaults: { slug: "terms", title: "Terms & conditions and privacy" }
+    get "plan" => "pages#content_page", defaults: { slug: "plan", title: "Our plan for data.gov.uk", template: "v2/pages/plan" }
   end
 
   match "404", to: "errors#not_found", via: :all
