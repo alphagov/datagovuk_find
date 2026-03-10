@@ -2,7 +2,8 @@
   "name": "datagovuk_find",
   "license": "UNLICENSED",
   "dependencies": {
-    "accessible-autocomplete": "^2.0.2"
+    "accessible-autocomplete": "^2.0.2",
+    "chartjs-plugin-datalabels": "^2.2.0"
   },
   "devDependencies": {
     "govuk-frontend": "^6.0.0"
