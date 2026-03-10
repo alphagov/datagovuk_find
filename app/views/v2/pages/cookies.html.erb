@@ -1,0 +1,172 @@
+<% content_for :page_title, "Cookies on data.gov.uk" %>
+
+<div class="govuk-width-container datagovuk-width-container govuk-!-margin-top-9">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="cookie-settings__confirmation" data-cookie-confirmation="true">
+        <section class="govuk-notification-banner gem-c-notice govuk-!-margin-bottom-8" aria-label="Notice" aria-live="polite" role="region">
+          <div>
+            <h2 class="govuk-heading-l datagovuk-heading-l govuk-notification-banner__heading">
+              Cookies on data.gov.uk
+            </h2>
+            <p class="govuk-body datagovuk-body">Your cookie settings were saved</p>
+            <a class="govuk-link datagovuk-link cookie-settings__prev-page" href="#">
+              Go back to the page you were looking at
+            </a>
+          </div>
+        </section>
+      </div>
+
+      <h1 class="govuk-heading-xl datagovuk-heading-xl">Cookies on data.gov.uk</h1>
+
+      <p class="govuk-body datagovuk-body">
+        Cookies are files saved on your phone, tablet or computer when you visit a website.
+      </p>
+      <p class="govuk-body datagovuk-body">
+        We use cookies to store information about how you use the data.gov.uk website, such as the pages you visit.
+      </p>
+
+      <h2 class="govuk-heading-l datagovuk-heading-l">
+        Cookie settings
+      </h2>
+
+      <noscript>
+        <p class="govuk-body datagovuk-body">
+          We use Javascript to set most of our cookies. Unfortunately Javascript is not running on your browser, so you cannot change your settings. You can try:
+        </p>
+        <ul class="govuk-list datagovuk-list">
+          <li>reloading the page</li>
+          <li>turning on Javascript in your browser</li>
+        </ul>
+      </noscript>
+
+      <div class="cookie-settings__form-wrapper">
+        <p class="govuk-body datagovuk-body">
+          We use 4 types of cookie. You can choose which cookies you're happy for us to use.
+        </p>
+
+        <form data-module="cookie-settings">
+
+
+          <h3 class="govuk-heading-m datagovuk-heading-m">
+            Cookies that measure website use
+          </h3>
+          <p class="govuk-body datagovuk-body">
+            We use Google Analytics to measure how you use the website so we can improve it based on user needs. Google Analytics sets cookies that store anonymised information about:
+          </p>
+          <ul class="govuk-list datagovuk-list govuk-list--bullet cookie-settings__list">
+            <li>how you got to the site</li>
+            <li>the pages you visit on data.gov.uk, and how long you spend on each page</li>
+            <li>what you click on while you're visiting the site</li>
+          </ul>
+          <p class="govuk-body datagovuk-body">
+            We do not allow Google to use or share the data about how you use this site.
+          </p>
+
+          <div class="table-wrapper">
+            <table class="govuk-table">
+              <caption class="govuk-table__caption govuk-table__caption--m govuk-body datagovuk-body">These are the Google Analytics cookies we’ll use</caption>
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th scope="col" class="govuk-table__header">Name</th>
+                  <th scope="col" class="govuk-table__header">Purpose</th>
+                  <th scope="col" class="govuk-table__header">Expires</th>
+                </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">_ga, _gid</th>
+                  <td class="govuk-table__cell">
+                    These help us count how many people visit data.gov.uk by tracking if you’ve visited before
+                  </td>
+                  <td class="govuk-table__cell">
+                    _ga 2 years<br/>
+                    _gid 24 hours
+                  </td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">_gat</th>
+                  <td class="govuk-table__cell">Used to manage the rate at which page view requests are made</td>
+                  <td class="govuk-table__cell">10 minutes</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <%= render "govuk_publishing_components/components/radio", {
+            name: "cookies-usage",
+            inline: false,
+            hint: "",
+            items: [
+              {
+                value: "on",
+                text: "Use cookies that measure my website use"
+              },
+              {
+                value: "off",
+                text: "Do not use cookies that measure my website use"
+              }
+            ]
+          } %>
+
+          <h3 class="govuk-heading-m datagovuk-heading-m">
+            Cookies that help with our communications and marketing
+          </h3>
+          <p class="govuk-body datagovuk-body">
+            These cookies may be set by third party websites. We don't currently use any cookies in this category.
+          </p>
+
+          <%= render "govuk_publishing_components/components/radio", {
+            name: "cookies-campaigns",
+            inline: false,
+            items: [
+              {
+                value: "on",
+                text: "Use cookies that help with communications and marketing"
+              },
+              {
+                value: "off",
+                text: "Do not use cookies that help with communications and marketing"
+              }
+            ]
+          } %>
+
+          <h3 class="govuk-heading-m datagovuk-heading-m">
+            Cookies that remember your settings
+          </h3>
+          <p class="govuk-body datagovuk-body">
+            These cookies do things like remember your preferences and the choices you make, to personalise your experience of using the site.
+          </p>
+          <%= render "govuk_publishing_components/components/radio", {
+            name: "cookies-settings",
+            inline: false,
+            items: [
+              {
+                value: "on",
+                text: "Use cookies that remember my settings on the site"
+              },
+              {
+                value: "off",
+                text: "Do not use cookies that remember my settings on the site"
+              }
+            ]
+          } %>
+
+
+          <h3 class="govuk-heading-m datagovuk-heading-m">
+            Strictly necessary cookies
+          </h3>
+          <p class="govuk-body datagovuk-body">
+            These essential cookies do things like remember your cookie preferences, so we don't ask for them again.
+          </p>
+          <p class="govuk-body datagovuk-body">
+            They always need to be on.
+          </p>
+
+          <button class="govuk-button datagovuk-button" type="submit">Save changes</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
