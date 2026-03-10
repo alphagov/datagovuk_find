@@ -6,6 +6,9 @@ module V2
     end
 
     def components
+      base_visualisations_path = Rails.root.join("app/content/data/")
+      @average_house_prices = JSON.parse(File.read(base_visualisations_path.join("average_house_prices/average_house_prices.json")))
+      @fuel_and_oil_prices = JSON.parse(File.read(base_visualisations_path.join("fuel_and_oil_prices/fuel_and_oil_prices.json")))
       render layout: "v2/layouts/application"
     end
 
