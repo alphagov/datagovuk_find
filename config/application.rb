@@ -23,7 +23,7 @@ module FindDataBeta
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.1
-    config.exceptions_app = self.routes
+    config.exceptions_app = routes
 
     # Using a sass css compressor causes a scss file to be processed twice
     # (once to build, once to compress) which breaks the usage of "unquote"
