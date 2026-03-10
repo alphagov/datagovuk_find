@@ -9,6 +9,15 @@
   display: none;
 }
 
+
+.cookie-settings__form-wrapper {
+  display: none;
+}
+
+.js-enabled .cookie-settings__form-wrapper {
+  display: block;
+}
+
 .govuk-table {
   @extend .datagovuk-body;
 }
