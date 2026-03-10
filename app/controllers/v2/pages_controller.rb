@@ -9,6 +9,10 @@ module V2
       render layout: "v2/layouts/application"
     end
 
+    def cookies
+      render layout: "v2/layouts/application"
+    end
+
     def content_page
       rendered_content = Dgu::Markdown.render_from_file(
         Rails.configuration.x.markdown_content_pages_location,
