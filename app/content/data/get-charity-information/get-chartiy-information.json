@@ -1,0 +1,53 @@
+{
+    "chart_type": "line",
+    "title": "Total number of charities per year",
+    "series": "Charity information",
+    "visualisation-type": "headline",
+    "data": {
+        "Jan": 42,
+        "Feb": 38,
+        "Mar": 45,
+        "Apr": 55,
+        "May": 51,
+        "Jun": 42,
+        "Jul": 48,
+        "Aug": 41,
+        "Sep": 45,
+        "Oct": 49,
+        "Nov": 58,
+        "Dec": 60
+    },
+    "dataset": {
+        "pointRadius": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5
+        ]
+    },
+    "suffix": "%",
+    "min": 10,
+    "max": 70,
+    "ytitle": "Percentage",
+    "xtitle": "Month",
+    "library": {
+        "scales": {
+            "y": [
+                {
+                    "ticks": {
+                        "stepSize": 10,
+                        "maxTicksLimit": 7
+                    }
+                }
+            ]
+        }
+    }
+}

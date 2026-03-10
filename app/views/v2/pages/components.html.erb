@@ -39,4 +39,21 @@
     }]
   } 
   %>
+
+  <%= render partial: "v2/collection/line_chart", locals: { 
+    max_value: @average_house_prices["max_value"],
+    title: @average_house_prices["title"],
+    empty_description: "No data available",
+    number_base: @average_house_prices["number_base"],
+    data_series: @average_house_prices["data"]
+  } %>
+
+  <%= render partial: "v2/collection/line_chart", locals: { 
+    max_value: @fuel_and_oil_prices["max_value"],
+    title: @fuel_and_oil_prices["title"],
+    empty_description: "No data available",
+    number_base: nil,
+    data_series: @fuel_and_oil_prices["data"]
+  } %>
+
 </div>
