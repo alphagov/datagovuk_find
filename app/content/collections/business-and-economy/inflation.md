@@ -6,7 +6,7 @@ websites:
 api:
 dataset:
 page-last-updated:
-visualisation-data:
+visualisation-data: inflation/inflation.json
 contact:
 status: for-publication
 ---

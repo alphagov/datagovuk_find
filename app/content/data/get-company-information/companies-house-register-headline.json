@@ -1,0 +1,28 @@
+  {
+    "title": "Companies incorporated and dissolved (2024-25)",
+    "visualisation_type": "headline",
+    "source": "https://www.gov.uk/government/statistics/companies-register-activities-statistical-release-april-2024-to-march-2025",
+    "publisher": "Companies house",
+    "data": {
+      "items": [
+        {
+          "subtitle": "Company formations",
+          "description": "New companies incorporated 2024/2025",
+          "value": 801864,
+          "analysis": "In 2024/2025 compared to 2023/2024.",
+          "trend": "down",
+          "value_change": 88820,
+          "percent_change": 9.7
+        },
+        {
+          "subtitle": "Company dissolutions",
+          "description": "Companies removed from the register 2024/2025",
+          "value": 726735,
+          "analysis": "In 2024/2025 compared to 2023/2024.",
+          "trend": "up",
+          "value_change": 63568,
+          "percent_change": 9.6
+        }
+      ]
+    }
+  }
