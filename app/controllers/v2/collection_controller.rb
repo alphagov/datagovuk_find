@@ -1,5 +1,9 @@
+require Rails.root.join("app/services/dgu/collections_service")
+
 module V2
   class CollectionController < ApplicationController
+    rescue_from Dgu::CollectionNotFound, with: :render_not_found
+
     def collection_page
       unless collections_service.valid_collection_page?
         render_not_found && return
@@ -14,17 +18,13 @@ module V2
     end
 
     def collection
-      unless collections_service.valid_collection_page?
-        render_not_found && return
-      end
-
-      redirect_to collection_page_path(collection: params[:collection], page: collections_service.priority_page), status: :found and return
+      redirect_to collections_service.priority_page
     end
 
   private
 
     def collections_service
-      @collections_service ||= CollectionsService.new(params[:collection], params[:page])
+      @collections_service ||= Dgu::CollectionsService.new(params[:collection], params[:page])
     end
   end
 end
