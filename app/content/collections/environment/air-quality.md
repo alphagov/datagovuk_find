@@ -6,7 +6,7 @@ websites:
 api:
 dataset:
 page-last-updated:
-visualisation-data:
+visualisation-data: air-quality/air-quality.json
 contact:
 status: for-publication
 ---

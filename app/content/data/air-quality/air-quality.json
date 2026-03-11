@@ -1,0 +1,28 @@
+{
+  "title": "Mean number of days per urban site when air pollution was ‘Moderate’ or higher in the UK, 2010 to 2024",
+  "visualisation_type": "line",
+  "source": "https://www.gov.uk/csv-preview/685bb9e341d77db4f68eb18e/fig17_urban_days_above_moderate.csv",
+  "publisher": "Department for Environment, Food & Rural Affairs",
+  "series": [
+    {
+      "color": "#C27A9A",
+      "data ": {
+        "2010": 15.58181818,
+        "2011": 23.55357143,
+        "2012": 18.19642857,
+        "2013": 15.25,
+        "2014": 12.92727273,
+        "2015": 10.21052632,
+        "2016": 8.786885246,
+        "2017": 7.609375,
+        "2018": 8.850746269,
+        "2019": 12.1375,
+        "2020": 9.94047619,
+        "2021": 4.4,
+        "2022": 9.308510638,
+        "2023": 8.571428571,
+        "2024": 6.201923077
+      }
+    }
+  ]
+}
