@@ -1,0 +1,21 @@
+/* 
+  Breaking out of our BEM conventions for cookie banner overrides as 
+  the banner was taken from govuk-publishing-components and depends on 
+  certain classes for javascript to work.
+*/
+#global-cookie-message {
+  background-color: $datagovuk-light-grey;
+  margin: 20px 0;
+}
+
+.datagovuk-cookie-banner {
+  background-color: $datagovuk-light-grey;
+}
+
+#global-cookie-message .gem-c-button {
+  display: none;
+}
+
+.govuk-button-group .govuk-link.datagovuk-link {
+  @extend .datagovuk-body;
+}

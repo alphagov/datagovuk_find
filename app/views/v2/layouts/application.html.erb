@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="govuk-template">
+<html lang="en" class="govuk-template datagovuk-template">
  <head>
     <meta charset="utf-8">
     <title><%= yield(:page_title) %> - data.gov.uk</title>
@@ -40,10 +40,38 @@
   <body class="govuk-template__body">
     <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');</script>
 
-    <%= render "govuk_publishing_components/components/cookie_banner", {
-      text: sanitize("We use <a href='/cookies' class='govuk-link'>cookies to collect information</a> about how you use data.gov.uk. We use this information to make the website work as well as possible."),
-      cookie_preferences_href: "/cookies",
-    } %>
+    <div id="global-cookie-message" data-module="cookie-banner" role="region" aria-label="cookie banner" data-nosnippet="" style="display: block;">
+      <div class="govuk-cookie-banner datagovuk-cookie-banner js-banner-wrapper" role="region" aria-label="Cookies on data.gov.uk">
+        <div class="govuk-cookie-banner__message govuk-width-container datagovuk-width-container">
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+              <h2 class="govuk-cookie-banner__heading govuk-heading-m datagovuk-heading-m">Cookies on data.gov.uk</h2>
+              <div class="govuk-cookie-banner__content">
+                <p class="govuk-body datagovuk-body">
+                  We use <a href="/cookies" class="govuk-link datagovuk-link">cookies to collect information</a> about how you use data.gov.uk. We use this information to make the website work as well as possible.</p>
+              </div>
+            </div>
+          </div>
+          <div class="govuk-button-group">
+            <button class="govuk-button datagovuk-button" type="submit" data-accept-cookies="true" data-track-category="cookieBanner" data-track-action="Cookie banner accepted" data-cookie-types="all">
+              Accept additional cookies
+            </button>
+            <button class="govuk-button datagovuk-button" type="submit" data-reject-cookies="true" data-track-category="cookieBanner" data-track-action="Cookie banner rejected">
+              Reject additional cookies
+            </button>
+            <a class="govuk-body datagovuk-body govuk-link datagovuk-link" href="/cookies">View cookies</a>
+          </div>
+        </div>
+      </div>
+      <div class="gem-c-cookie-banner__confirmation govuk-width-container datagovuk-width-container" tabindex="-1" hidden="">
+        <p class="gem-c-cookie-banner__confirmation-message govuk-body datagovuk-body" role="alert">
+          You can <a class="govuk-link datagovuk-link" data-track-category="cookieBanner" data-track-action="Cookie banner settings clicked from confirmation" href="/cookies">change your cookie settings</a> at any time.
+        </p>
+        <div class="govuk-button-group">
+          <button class="govuk-button datagovuk-button" data-hide-cookie-banner="true" data-module="gem-track-click" data-track-category="cookieBanner" data-track-action="Hide cookie banner">Hide this message</button>
+        </div>
+      </div>
+    </div>
 
     <a href="#main" class="govuk-skip-link" data-module="govuk-skip-link">Skip to main content</a>
 
