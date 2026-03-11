@@ -4,7 +4,7 @@
   </h2>
   <div class="datagovuk-headline__columns">
     <% items.each do |item|  %>
-      <%= render partial: "v2/collection/charts/headline/column", locals: item %>
+      <%= render partial: "v2/collection/charts/headline/column", locals: item.symbolize_keys %>
     <% end %>
   </div>
 </section>

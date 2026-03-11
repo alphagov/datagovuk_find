@@ -1,45 +1,43 @@
-<%# locals:
-subtitle: string,
-description: string
-value: string/number
-analysis: string
-trend: string
-value_change: string/number
-percent_change: string/number
-side_class: string
-%>
+<%# locals: (
+  subtitle: "",
+  description: "",
+  value: 0,
+  analysis: "",
+  trend: "up",
+  value_change: 0,
+  percent_change: 0
+) %>
 
 <% is_trending_up = (trend == "up") %>
 
 <div class="datagovuk-headline__column">
-    <h3 class="govuk-heading-m datagovuk-heading-m">
-        <%= subtitle %>
-    </h3>
-    <p class="govuk-body datagovuk-body datagovuk-!-colour-grey">
-        <%= description %>
-    </p>
-    <div class="datagovuk-headline__number">
-        <%= number_with_delimiter(value) %>
-    </div>
+  <h3 class="govuk-heading-m datagovuk-heading-m">
+    <%= subtitle %>
+  </h3>
+  <p class="govuk-body datagovuk-body datagovuk-!-colour-grey">
+    <%= description %>
+  </p>
+  <div class="datagovuk-headline__number">
+    <%= number_with_delimiter(value) %>
+  </div>
 
-    <div class="datagovuk-headline__change <%= is_trending_up ? "datagovuk-headline__trendup" : "datagovuk-headline__trenddown" %>">
-        <span class="datagovuk-headline__arrow" aria-hidden="true">
-            <% if is_trending_up %>
-                <%= image_tag("v2/up_arrow.svg") %>
-            <% else %>
-                <%= image_tag("v2/down_arrow.svg") %>
-            <% end %>
-        </span>
-        <span class="datagovuk-headline__change-value govuk-body datagovuk-body">
-            <%= is_trending_up ? "+" : "-" %><%= value_change %>
-        </span>
-        <span class="datagovuk-headline__change-value-percent govuk-body datagovuk-body">
-            (<%= percent_change %>%)
-        </span>
-    </div>
+  <div class="datagovuk-headline__change <%= is_trending_up ? "datagovuk-headline__trendup" : "datagovuk-headline__trenddown" %>">
+    <span class="datagovuk-headline__arrow" aria-hidden="true">
+      <% if is_trending_up %>
+        <%= image_tag("v2/up_arrow.svg") %>
+      <% else %>
+        <%= image_tag("v2/down_arrow.svg") %>
+      <% end %>
+    </span>
+    <span class="datagovuk-headline__change-value govuk-body datagovuk-body">
+      <%= is_trending_up ? "+" : "-" %><%= value_change %>
+    </span>
+    <span class="datagovuk-headline__change-value-percent govuk-body datagovuk-body">
+      (<%= percent_change %>%)
+    </span>
+  </div>
 
-    <p class="govuk-body datagovuk-body">
-        <%= analysis %>
-    </p>
-
+  <p class="govuk-body datagovuk-body">
+    <%= analysis %>
+  </p>
 </div>

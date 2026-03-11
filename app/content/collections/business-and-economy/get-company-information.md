@@ -8,7 +8,7 @@ api:
   link-text: API documentation
 dataset:
 page-last-updated:
-visualisation-data:
+visualisation-data: get-company-information/get-company-information.json
 contact:
 status: for-publication
 ---
