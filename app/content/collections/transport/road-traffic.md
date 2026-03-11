@@ -8,7 +8,7 @@ api:
   link-text:
 dataset:
   url: https://roadtraffic.dft.gov.uk/
-  link-text:
+  link-text: Get road traffic data
 page-last-updated:
 visualisation-data:
 contact:
