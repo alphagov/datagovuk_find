@@ -8,7 +8,7 @@ api:
   link-text: Planning Data API
 dataset:
   url: https://www.planning.data.gov.uk/dataset/
-  link-text: Plannign data datasets
+  link-text: Planning data datasets
 page-last-updated:
 visualisation-data:
 contact:

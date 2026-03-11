@@ -6,6 +6,8 @@ module V2
     end
 
     def components
+      @average_house_prices = average_house_prices
+      @fuel_and_oil_prices = fuel_and_oil_prices
       render layout: "v2/layouts/application"
     end
 
@@ -26,6 +28,32 @@ module V2
         rendered_content: rendered_content,
         title: params[:title],
       }
+    end
+
+  private
+
+    def average_house_prices
+      average_house_prices = JSON.parse(File.read(Rails.root.join("app/content/data/average_house_prices/average_house_prices.json")))
+
+      average_house_prices["series"].each do |data|
+        data["dataset"] = {
+          "pointRadius" => Array.new(data["data"].keys.size - 1, 0) << 4,
+          "pointStyle" => Array.new(data["data"].keys.size, "circle"),
+        }
+      end
+      average_house_prices
+    end
+
+    def fuel_and_oil_prices
+      fuel_and_oil_prices = JSON.parse(File.read(Rails.root.join("app/content/data/fuel_and_oil_prices/fuel_and_oil_prices.json")))
+
+      fuel_and_oil_prices["series"].each do |data|
+        data["dataset"] = {
+          "pointRadius" => Array.new(data["data"].keys.size - 1, 0) << 4,
+          "pointStyle" => Array.new(data["data"].keys.size, "circle"),
+        }
+      end
+      fuel_and_oil_prices
     end
   end
 end

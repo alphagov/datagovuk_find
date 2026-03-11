@@ -8,7 +8,7 @@ dataset:
   url: https://www.gov.uk/government/statistical-data-sets/uk-house-price-index-data-downloads-november-2025
   link-text: Download UK house price index
 page-last-updated:
-visualisation-data:
+visualisation-data: average_house_prices/average_house_prices.json
 contact:
 status: for-publication
 ---

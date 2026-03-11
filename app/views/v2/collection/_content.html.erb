@@ -1,9 +1,49 @@
+<%
+  chart_data = @chart_data || {}
+%>
+
 <h1 class="govuk-heading-l datagovuk-heading-l"><%= @title %></h1>
 
-<%= @body %>
+<section class="govuk-section datagovuk-section">
+    <%= @body %>
+</section>
 
-<%= yield if block_given? %>
+<% if chart_data["visualisation_type"] == "line" %>
+    <section class="govuk-section datagovuk-section">
+      <%= render partial: "v2/collection/charts/line_chart", locals: {
+          max_value: chart_data["max_value"],
+          title: chart_data["title"],
+          empty_description: "No data available",
+          number_base: chart_data["number_base"],
+          data_series: chart_data["series"],
+          source: chart_data["source"]
+      } %>
+    </section>
+<% elsif chart_data["visualisation_type"] == "headline" %>
+  <%= render partial: "v2/collection/charts/headline/headline", locals: {
+    title: chart_data["title"],
+    items: [{
+      subtitle: chart_data["series"][0]["subtitle"],
+      description: chart_data["series"][0]["description"],
+      value: chart_data["series"][0]["value"],
+      analysis: chart_data["series"][0]["analysis"],
+      trend: chart_data["series"][0]["trend"],
+      value_change: chart_data["series"][0]["value_change"],
+      percent_change: chart_data["series"][0]["percent_change"]
+    },
+    {
+      subtitle: chart_data["series"][1]["subtitle"],
+      description: chart_data["series"][1]["description"],
+      value: chart_data["series"][1]["value"],
+      analysis: chart_data["series"][1]["analysis"],
+      trend: chart_data["series"][1]["trend"],
+      value_change: chart_data["series"][1]["value_change"],
+      percent_change: chart_data["series"][1]["percent_change"]
+    }]
+  } 
+  %>
+<% end %>
 
-<%= render partial: "v2/components/feedback", locals: {dataset: true} %>
+<%= render partial: "v2/components/feedback", locals: { dataset: true } %>
 
 <%= render partial: "v2/collection/get_data", locals: { page_last_updated: @page_last_updated, websites: @websites, api_link: @api_link, dataset: @dataset } %>

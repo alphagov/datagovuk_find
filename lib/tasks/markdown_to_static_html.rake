@@ -27,6 +27,23 @@ namespace :markdown do
         next
       end
 
+      if front_matter["visualisation-data"]
+        chart_data = File.read(Rails.root.join("app/content/data/#{front_matter['visualisation-data']}")) if front_matter["visualisation-data"]
+        chart_json = JSON.parse(chart_data)
+
+        if chart_json["visualisation_type"] == "line"
+          point_shapes = %w[circle triangle rect rectRot]
+
+          chart_json["series"].map! do |series|
+            series["dataset"] = {
+              pointRadius: Array.new(series["data"].keys.size - 1, 0) << 4,
+              pointStyle: Array.new(series["data"].keys.size, point_shapes.pop || "circle"),
+            }
+            series
+          end
+        end
+      end
+
       assigns = {
         title: front_matter["title"],
         websites: front_matter["websites"] || [],
@@ -37,6 +54,7 @@ namespace :markdown do
         visualisation_data: front_matter["visualisation-data"],
         contact: front_matter["contact"],
         body: html_body.html_safe,
+        chart_data: chart_json || nil,
       }
 
       if front_matter["status"].nil? || front_matter["status"] != "for-publication"
