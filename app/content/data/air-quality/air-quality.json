@@ -3,66 +3,27 @@
     "visualisation_type": "line",
     "source": "https://www.gov.uk/csv-preview/685bb9e341d77db4f68eb18e/fig17_urban_days_above_moderate.csv",
     "publisher": "Department for Environment, Food & Rural Affairs",
-    "data": [
+    "series ": [
       {
-        "year": 2011,
-        "days": 23.55357143
-      },
-      {
-        "year": 2012,
-        "days": 18.19642857
-      },
-      {
-        "year": 2013,
-        "days": 15.25
-      },
-      {
-        "year": 2010,
-        "days": 15.58181818
-      },
-      {
-        "year": 2014,
-        "days": 12.92727273
-      },
-      {
-        "year": 2015,
-        "days": 10.21052632
-      },
-      {
-        "year": 2016,
-        "days": 8.786885246
-      },
-      {
-        "year": 2017,
-        "days": 7.609375
-      },
-      {
-        "year": 2018,
-        "days": 8.850746269
-      },
-      {
-        "year": 2019,
-        "days": 12.1375
-      },
-      {
-        "year": 2020,
-        "days": 9.94047619
-      },
-      {
-        "year": 2021,
-        "days": 4.4
-      },
-      {
-        "year": 2022,
-        "days": 9.308510638
-      },
-      {
-        "year": 2023,
-        "days": 8.571428571
-      },
-      {
-        "year": 2024,
-        "days": 6.201923077
+        "name": "Mean number of days per urban site when air pollution was ‘Moderate’ or higher in the UK, 2010 to 2024",
+        "color": "#C27A9A",
+        "data ": {
+          "2010": 15.58181818,
+          "2011": 23.55357143,
+          "2012": 18.19642857,
+          "2013": 15.25,
+          "2014": 12.92727273,
+          "2015": 10.21052632,
+          "2016": 8.786885246,
+          "2017": 7.609375,
+          "2018": 8.850746269,
+          "2019": 12.1375,
+          "2020": 9.94047619,
+          "2021": 4.4,
+          "2022": 9.308510638,
+          "2023": 8.571428571,
+          "2024": 6.201923077
+        }
       }
     ]
   }
