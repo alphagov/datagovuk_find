@@ -39,7 +39,6 @@ namespace :markdown do
           }
           series
         end
-        File.write(Rails.root.join("app/content/data/#{front_matter['visualisation-data']}"), JSON.pretty_generate(chart_json))
       end
 
       assigns = {
