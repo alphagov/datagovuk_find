@@ -1,6 +1,5 @@
 {
   "max_value": 8.0,
-  "unit": "%",
   "title": "Rate of inflation (%)",
   "publisher": "Office for National Statistics (ONS)",
   "source": "https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/l55o/mm23",
