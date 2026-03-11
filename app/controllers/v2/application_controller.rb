@@ -110,7 +110,7 @@ module V2
         },
         {
           title: "Join a data community",
-          url: "/join-a-data-community",
+          url: "/data-manual/join-a-data-community",
           description: "Find Slack channels, events and other ways to connect with data practitioners. Learn more.",
         },
       ]

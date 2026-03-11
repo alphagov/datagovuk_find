@@ -151,4 +151,18 @@ RSpec.describe "pages", type: :request do
       expect(response.body).to include("data.gov.uk team")
     end
   end
+
+  describe "GET /plan" do
+    before do
+      get plan_path
+    end
+
+    it "returns success response" do
+      expect(response).to have_http_status(:ok)
+    end
+
+    it "renders the plan page" do
+      expect(response.body).to include("Our plan for data.gov.uk")
+    end
+  end
 end
