@@ -31,6 +31,16 @@ namespace :markdown do
       if front_matter["visualisation-data"]
         chart_data = File.read(Rails.root.join("app/content/data/#{front_matter['visualisation-data']}")) if front_matter["visualisation-data"]
         chart_json = JSON.parse(chart_data)
+        point_shapes = %w[circle triangle rect rectRot]
+
+        chart_json["series"].map! do |series|
+          series["dataset"] = {
+            pointRadius: Array.new(series["data"].keys.size - 1, 0) << 4,
+            pointStyle: Array.new(series["data"].keys.size, point_shapes.pop || "circle"),
+          }
+          series
+        end
+        File.write(Rails.root.join("app/content/data/#{front_matter['visualisation-data']}"), JSON.pretty_generate(chart_json))
       end
 
       assigns = {
