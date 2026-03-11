@@ -1,31 +1,32 @@
 <%
-  chart_data = @chart_data || {}
+  chart_data = @chart_data
 %>
 
 <h1 class="govuk-heading-l datagovuk-heading-l"><%= @title %></h1>
 
 <section class="govuk-section datagovuk-section">
-    <%= @body %>
+  <%= @body %>
 </section>
 
-<section class="govuk-section datagovuk-section">
-  <% if chart_data["visualisation_type"] == "line" %>
-        <%= render partial: "v2/collection/charts/line_chart", locals: {
-            max_value: chart_data["max_value"],
-            title: chart_data["title"],
-            empty_description: "No data available",
-            number_base: chart_data["number_base"],
-            data_series: chart_data["series"],
-            source: chart_data["source"]
-        } %>
-  <% elsif chart_data["visualisation_type"] == "headline" %>
-  <%= render partial: "v2/collection/charts/headline/headline", locals: {
-      title: chart_data["title"],
-      items: chart_data["items"]
-    } 
-    %>
-  <% end %>
-</section>
+<% if chart_data.present? %>
+  <section class="govuk-section datagovuk-section">
+    <% if chart_data["visualisation_type"] == "line" %>
+      <%= render partial: "v2/collection/charts/line_chart", locals: {
+          max_value: chart_data["max_value"],
+          title: chart_data["title"],
+          empty_description: "No data available",
+          number_base: chart_data["number_base"],
+          data_series: chart_data["series"],
+          source: chart_data["source"]
+      } %>
+    <% elsif chart_data["visualisation_type"] == "headline" %>
+      <%= render partial: "v2/collection/charts/headline/headline", locals: {
+          title: chart_data["title"],
+          items: chart_data["items"]
+      } %>
+    <% end %>
+  </section>
+<% end %>
 
 <%= render partial: "v2/components/feedback", locals: { dataset: true } %>
 
