@@ -10,7 +10,7 @@
 
 <% if chart_data["visualisation_type"] == "line" %>
     <section class="govuk-section datagovuk-section">
-      <%= render partial: "v2/collection/line_chart", locals: {
+      <%= render partial: "v2/collection/charts/line_chart", locals: {
           max_value: chart_data["max_value"],
           title: chart_data["title"],
           empty_description: "No data available",

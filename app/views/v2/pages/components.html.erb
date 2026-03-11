@@ -40,7 +40,7 @@
   } 
   %>
 
-  <%= render partial: "v2/collection/line_chart", locals: { 
+  <%= render partial: "v2/collection/charts/line_chart", locals: { 
     max_value: @average_house_prices["max_value"],
     title: @average_house_prices["title"],
     empty_description: "No data available",
@@ -48,7 +48,7 @@
     data_series: @average_house_prices["series"]
   } %>
 
-  <%= render partial: "v2/collection/line_chart", locals: { 
+  <%= render partial: "v2/collection/charts/line_chart", locals: { 
     max_value: @fuel_and_oil_prices["max_value"],
     title: @fuel_and_oil_prices["title"],
     empty_description: "No data available",
