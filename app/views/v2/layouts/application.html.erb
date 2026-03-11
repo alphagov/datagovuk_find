@@ -40,26 +40,27 @@
   <body class="govuk-template__body">
     <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');</script>
 
-    <div id="global-cookie-message" data-module="cookie-banner" role="region" aria-label="cookie banner" data-nosnippet="" style="display: block;">
+    <div id="global-cookie-message" data-module="cookie-banner" role="region" aria-label="cookie banner" data-nosnippet="">
       <div class="govuk-cookie-banner datagovuk-cookie-banner js-banner-wrapper" role="region" aria-label="Cookies on data.gov.uk">
         <div class="govuk-cookie-banner__message govuk-width-container datagovuk-width-container">
           <div class="govuk-grid-row">
-            <div class="govuk-grid-column-two-thirds">
+            <div class="govuk-grid-column-three-quarters">
               <h2 class="govuk-cookie-banner__heading govuk-heading-m datagovuk-heading-m">Cookies on data.gov.uk</h2>
               <div class="govuk-cookie-banner__content">
                 <p class="govuk-body datagovuk-body">
-                  We use <a href="/cookies" class="govuk-link datagovuk-link">cookies to collect information</a> about how you use data.gov.uk. We use this information to make the website work as well as possible.</p>
+                  We use some essential cookies to make this website work. We’d like to set <a href="/cookies" class="govuk-link datagovuk-link">additional cookies</a> to understand how you use data.gov.uk and improve the service.
+              </div>
+              
+              <div class="govuk-button-group">
+                <button class="govuk-button datagovuk-button" type="submit" data-accept-cookies="true" data-track-category="cookieBanner" data-track-action="Cookie banner accepted" data-cookie-types="all">
+                  Accept additional cookies
+                </button>
+                <button class="govuk-button datagovuk-button" type="submit" data-reject-cookies="true" data-track-category="cookieBanner" data-track-action="Cookie banner rejected">
+                  Reject additional cookies
+                </button>
+                <a class="govuk-body datagovuk-body govuk-link datagovuk-link" href="/cookies">View cookies</a>
               </div>
             </div>
-          </div>
-          <div class="govuk-button-group">
-            <button class="govuk-button datagovuk-button" type="submit" data-accept-cookies="true" data-track-category="cookieBanner" data-track-action="Cookie banner accepted" data-cookie-types="all">
-              Accept additional cookies
-            </button>
-            <button class="govuk-button datagovuk-button" type="submit" data-reject-cookies="true" data-track-category="cookieBanner" data-track-action="Cookie banner rejected">
-              Reject additional cookies
-            </button>
-            <a class="govuk-body datagovuk-body govuk-link datagovuk-link" href="/cookies">View cookies</a>
           </div>
         </div>
       </div>
