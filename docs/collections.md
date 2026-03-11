@@ -28,8 +28,8 @@ If we drop an item from the list, then it can be removed from this doc.
 
 ## Environment 
 
-- Weather 
-- Air quality 
+- Air quality
+- Weather  
 - Long-term flood risk 
 - Flood alerts 
 - Water quality 
@@ -51,7 +51,6 @@ If we drop an item from the list, then it can be removed from this doc.
 
 ## Government 
 
-- Upcoming election data
 - Election results data
 - Service assessment reports
 - Local government finance
@@ -62,8 +61,8 @@ If we drop an item from the list, then it can be removed from this doc.
 
 ## Land and property
 
-- Property price paid
 - UK house prices
+- Property price paid
 - Land and property ownership
 - Planning data
 - Addresses
@@ -71,7 +70,6 @@ If we drop an item from the list, then it can be removed from this doc.
 - Rents, lettings and tenancies
 - English Housing Survey 
 - Housing supply 
-- Nationwide house price calculator 
 - Energy performance of buildings 
 - Fire statistics 
 
@@ -98,17 +96,14 @@ If we drop an item from the list, then it can be removed from this doc.
 
 ## Transport 
 
-- Get vehicle information 
-- Check MOT history 
-- MOT test results 
-- Driving tests
 - Road traffic
 - Road safety
 - Road conditions
 - Real-time and historic train information
 - Bus statistics 
+- MOT test results 
+- Driving tests
 - Fishing vessels 
 - National Travel Survey 
-- Journey times to be excluded 
 - Transport connectivity 
 - Maritime and shipping
