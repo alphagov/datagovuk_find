@@ -6,7 +6,7 @@ websites:
 api:
 dataset:
 page-last-updated:
-visualisation-data: fuel_and_oil_prices/fuel_and_oil_prices.json
+visualisation-data: fuel-and-oil-prices/fuel-and-oil-prices.json
 contact:
 status: for-publication
 ---
