@@ -80,7 +80,7 @@
   color: #fff;
 }
 
-.datagovuk-list, .datagovuk-list__item {
+.datagovuk-list {
   font-size: 20px;
   font-family: 'Inter', sans-serif;
 }
@@ -104,10 +104,6 @@
   }
 
   .datagovuk-list {
-    font-size: 22px;
-  }
-
-  .datagovuk-list .datagovuk-list__item {
     font-size: 22px;
   }
 }
