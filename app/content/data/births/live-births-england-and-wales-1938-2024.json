@@ -5,7 +5,6 @@
   "publisher": "Office for National Statistics",
   "series": [
     {
-      "name": "Total live birth counts, England and Wales, 1938 to 2024",
       "color": "#C27A9A",
       "data ": {
         "1938": 621204,
