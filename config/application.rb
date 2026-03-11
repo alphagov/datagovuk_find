@@ -37,7 +37,8 @@ module FindDataBeta
     config.autoload_lib(ignore: %w[assets tasks])
 
     config.x.markdown_output_location = "app/views/generated/collections"
-    config.x.markdown_collections_location_glob = "app/content/collections/**/*.md"
+    config.x.markdown_collections_location = "app/content/collections"
+    config.x.markdown_collections_location_glob = Rails.root.join(config.x.markdown_collections_location, "**/*.md")
     config.x.markdown_collections_output_location = "app/views/generated/collections"
     config.x.generated_collections_location = "app/views/generated/collections"
     config.x.markdown_data_manual_location = "app/content/data-manual"

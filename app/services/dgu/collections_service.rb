@@ -49,7 +49,6 @@ module Dgu
     end
 
     def priority_page
-      Rails.logger.debug @collection_pages[0][:url]
       @priority_page ||= @collection_pages[0][:url]
     end
 

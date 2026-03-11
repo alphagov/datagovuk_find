@@ -18,6 +18,19 @@ RSpec.describe Dgu::CollectionsService, type: :service do
     end
   end
 
+  describe "collections config" do
+    it "sets the collection_pages attribute to a valid value" do
+      markdown_collection_location = Rails.configuration.x.markdown_collections_location
+      collection_pages = Rails.configuration.x.collection_pages
+      collection_pages.each do |collection, collection_items|
+        collection_items.each do |collection_item|
+          expected_markdown_file = Rails.root.join(markdown_collection_location, collection, "#{collection_item[:slug]}.md")
+          expect(File.file?(expected_markdown_file)).to eq(true), "Missing markdown file #{expected_markdown_file} which was present in collections_pages config"
+        end
+      end
+    end
+  end
+
   describe "#collections_slugs" do
     it "returns the collection slugs" do
       service = Dgu::CollectionsService.new(collection)

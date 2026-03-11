@@ -47,7 +47,7 @@ module Collections
       { "title": "Property price paid", "slug": "property-price-paid" },
       { "title": "Land and property ownership", "slug": "land-and-property-ownership" },
       { "title": "Planning data", "slug": "planning-data" },
-      { "title": "Addresses", "slug": "addresses" },
+      # TODO: { "title": "Addresses", "slug": "addresses" },
       { "title": "Dwelling stock (including vacancies)", "slug": "dwelling-stock" },
       { "title": "Rents, lettings and tenancies", "slug": "rents-lettings-and-tenancies" },
       { "title": "English Housing Survey", "slug": "english-housing-survey" },
