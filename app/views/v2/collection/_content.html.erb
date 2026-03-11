@@ -8,7 +8,7 @@
     <%= @body %>
 </section>
 
-<% if chart_data["visualisation-type"] == "line" %>
+<% if chart_data["visualisation_type"] == "line" %>
     <section class="govuk-section datagovuk-section">
       <%= render partial: "v2/collection/line_chart", locals: {
           max_value: chart_data["max_value"],
@@ -19,7 +19,7 @@
           source: chart_data["source"]
       } %>
     </section>
-<% elsif chart_data["visualisation-type"] == "headline" %>
+<% elsif chart_data["visualisation_type"] == "headline" %>
   <%= render partial: "v2/collection/charts/headline/headline", locals: {
     title: chart_data["title"],
     items: [{
