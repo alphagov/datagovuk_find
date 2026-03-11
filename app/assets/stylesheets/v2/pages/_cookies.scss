@@ -1,0 +1,28 @@
+.govuk-notification-banner {
+  background-color: $datagovuk-light-green;
+  border-color: transparent;
+  border-radius: 20px;
+  padding: 40px;
+}
+
+.cookie-settings__confirmation {
+  display: none;
+}
+
+
+.cookie-settings__form-wrapper {
+  display: none;
+}
+
+.js-enabled .cookie-settings__form-wrapper {
+  display: block;
+}
+
+.govuk-table {
+  @extend .datagovuk-body;
+}
+
+.govuk-radios__label {
+  @extend .govuk-body;
+  @extend .datagovuk-body;
+}

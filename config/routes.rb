@@ -24,7 +24,6 @@ Rails.application.routes.draw do
   end
 
   scope module: "pages" do
-    get "cookies"
     get "dashboard" # 410 Gone
     get "publishers"
     get "site-changes"
@@ -45,6 +44,7 @@ Rails.application.routes.draw do
     get "roadmap" => "pages#content_page", defaults: { slug: "roadmap", title: "Roadmap" }
     get "terms" => "pages#content_page", defaults: { slug: "terms", title: "Terms & conditions and privacy" }
     get "plan" => "pages#content_page", defaults: { slug: "plan", title: "Our plan for data.gov.uk", template: "v2/pages/plan" }
+    get "cookies" => "pages#cookies"
     match "404", to: "errors#not_found", via: :all
     match "500", to: "errors#internal_server_error", via: :all
   end
