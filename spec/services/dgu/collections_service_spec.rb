@@ -25,7 +25,7 @@ RSpec.describe Dgu::CollectionsService, type: :service do
       collection_pages.each do |collection, collection_items|
         collection_items.each do |collection_item|
           expected_markdown_file = Rails.root.join(markdown_collection_location, collection, "#{collection_item[:slug]}.md")
-          expect(File.file?(expected_markdown_file)).to eq(true)
+          expect(File.file?(expected_markdown_file)).to eq(true), "Missing markdown file #{expected_markdown_file} which was present in collections_pages config"
         end
       end
     end
