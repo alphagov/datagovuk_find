@@ -8,7 +8,7 @@ api:
   link-text: The API
 dataset:
 page-last-updated: "2024-06-01"
-visualisation_data:
+visualisation-data: 
 contact:
 status: for-publication
 ---

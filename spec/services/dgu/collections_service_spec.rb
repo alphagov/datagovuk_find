@@ -20,7 +20,7 @@ RSpec.describe Dgu::CollectionsService, type: :service do
 
   describe "collections config" do
     it "sets the collection_pages attribute to a valid value" do
-      markdown_collection_location = Rails.configuration.x.markdown_collections_location
+      markdown_collection_location = "app/content/collections"
       collection_pages = Rails.configuration.x.collection_pages
       collection_pages.each do |collection, collection_items|
         collection_items.each do |collection_item|
