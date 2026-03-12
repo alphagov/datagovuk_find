@@ -23,6 +23,12 @@ best practice and experiences, and build capability and skills.
 
 [Government data quality community](https://www.gov.uk/government/news/introducing-the-government-data-quality-community)
 
+## Data Sharing Network of Experts (DSNE) 
+
+DSNE is a cross‑government group that provides impartial advice to unblock data sharing issues across government. The network brings together specialists in data protection, governance, privacy and policy. It promotes good practice, identifies barriers in complex cases and contributes to data sharing guidance and frameworks.
+
+For help with a data sharing matter, to find out more or to attend a future meeting, please email: [DSNE@dsit.gov.uk](mailto:DSNE@dsit.gov.uk). 
+
 ## Data science community
 A place for data scientists to improve data science capability across
 government, and to help digital and other analytical teams work
