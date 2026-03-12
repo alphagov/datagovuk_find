@@ -33,7 +33,7 @@ module V2
   private
 
     def average_house_prices
-      average_house_prices = JSON.parse(File.read(Rails.root.join("app/content/data/average_house_prices/average_house_prices.json")))
+      average_house_prices = JSON.parse(File.read(Rails.root.join("app/content/data/average-house-prices/average-house-prices.json")))
 
       average_house_prices["series"].each do |data|
         data["dataset"] = {
@@ -45,7 +45,7 @@ module V2
     end
 
     def fuel_and_oil_prices
-      fuel_and_oil_prices = JSON.parse(File.read(Rails.root.join("app/content/data/fuel_and_oil_prices/fuel_and_oil_prices.json")))
+      fuel_and_oil_prices = JSON.parse(File.read(Rails.root.join("app/content/data/fuel-and-oil-prices/fuel-and-oil-prices.json")))
 
       fuel_and_oil_prices["series"].each do |data|
         data["dataset"] = {
