@@ -23,6 +23,7 @@
 <% elsif chart_data["visualisation_type"] == "headline" %>
   <%= render partial: "v2/collection/charts/headline/headline", locals: {
     title: chart_data["title"],
+    source: chart_data["source"],
     items: [{
       subtitle: chart_data["items"][0]["subtitle"],
       description: chart_data["items"][0]["description"],
