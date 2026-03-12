@@ -1,6 +1,11 @@
 $desktop-breakpoint: 40.0625em;
 $datagovuk-max-width: 1100px;
 
+:root {
+  // Make desktop breakpoint easily readable by our header javascript
+  --datagovuk-desktop-breakpoint: #{$desktop-breakpoint};
+}
+
 // Components from govuk_publishing_components gem
 @import 'govuk_publishing_components/govuk_frontend_support';
 @import 'govuk_publishing_components/component_support';

@@ -20,6 +20,7 @@ class DatagovukHeader {
   
     this.$mobileButton.setAttribute('aria-expanded', 'false')
     this.$mobileButton.addEventListener('click', () => this.toggleMobile())
+    this.watchMediaQueryChange();
 
     this.$desktopButtons.forEach($button => {
       $button.setAttribute('aria-expanded', 'false')
@@ -27,11 +28,21 @@ class DatagovukHeader {
     })
 
     document.addEventListener('keydown', (event) => this.handleKeydown(event))
-    window.addEventListener('resize', () => this.closeAll())
     this.$header.addEventListener('focusout', (event) => {
       // events bubble up so we need to check that focus has left header entirely
       if (this.$header.contains(event.relatedTarget) === false) this.closeAll()
     })
+  }
+
+  watchMediaQueryChange() {
+    const style = getComputedStyle(document.documentElement)
+    const desktopBreakpoint = style.getPropertyValue('--datagovuk-desktop-breakpoint').trim()
+    const mediaQuery = window.matchMedia('(max-width: ' + desktopBreakpoint + ')')
+    mediaQuery.addEventListener('change', (event) => this.handleMediaQueryChange(event))
+  }
+  
+  handleMediaQueryChange(event) {
+    this.closeAll()
   }
 
   getMenuFor($button) {
