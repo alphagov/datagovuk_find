@@ -4,7 +4,7 @@ module Dgu
 
   class CollectionsService
     COLLECTIONS_LOCATION = Rails.configuration.x.generated_collections_location
-    COLLECTION_PAGES = Rails.configuration.x.collection_pages
+    COLLECTION_PAGES = Rails.configuration.x.collection_pages.deep_dup
 
     def initialize(collection, page_name = nil)
       unless collection?(collection)
@@ -12,7 +12,7 @@ module Dgu
       end
 
       @collection = collection
-      @collection_pages = COLLECTION_PAGES[collection].deep_dup.map do |collection_page|
+      @collection_pages = COLLECTION_PAGES[collection].map do |collection_page|
         {
           url: "/collections/#{@collection}/#{collection_page[:slug]}",
           title: collection_page[:title],
