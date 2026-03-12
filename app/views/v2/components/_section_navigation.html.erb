@@ -1,11 +1,22 @@
+<% 
+  items = local_assigns[:items]
+  extra_section_nav = local_assigns.fetch(:extra_section_nav, "")
+%>
+
 <nav id="datagovuk-section-navigation" class="datagovuk-section-navigation govuk-!-margin-bottom-8">
   <button type="button" class="datagovuk-section-navigation__button govuk-heading-l datagovuk-heading-l govuk-!-padding-top-0" id="datagovuk-section-navigation-button-all" aria-controls="datagovuk-section-navigation">
     Pages
   </button>
-  <ul class="govuk-list datagovuk-section-navigation__items-mobile">
-    <%= render partial: "v2/components/section_navigation_item", collection: items %>
-  </ul>
-  <ul class="govuk-list datagovuk-section-navigation__items-desktop">
-    <%= render partial: "v2/components/section_navigation_item", collection: items %>
-  </ul>
+  <div class="datagovuk-section-navigation__items-mobile">
+    <ul class="govuk-list">
+      <%= render partial: "v2/components/section_navigation_item", collection: items %>
+    </ul>
+    <%= extra_section_nav %>
+  </div>
+  <div class="datagovuk-section-navigation__items-desktop">
+    <ul class="govuk-list">
+      <%= render partial: "v2/components/section_navigation_item", collection: items %>
+    </ul>
+    <%= extra_section_nav %>
+  </div>
 </nav>
