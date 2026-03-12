@@ -17,3 +17,52 @@
 .datagovuk-section-navigation .datagovuk-section-navigation__link:hover {
   text-decoration: underline;
 }
+
+.datagovuk-section-navigation__button {
+    display: none;
+    background: none;
+    border: none;
+    text-decoration: underline;
+    padding: 22px 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.js-enabled .datagovuk-section-navigation__button {
+  display: block;
+}
+
+.datagovuk-section-navigation__button:after {
+    transform: translateY(-35%) rotate(45deg) scale(1);
+    content: "";
+    display: inline-block;
+    height: 8px;
+    vertical-align: flex;
+    width: 8px;
+    border-bottom: 2px solid $datagovuk-black;
+    border-right: 2px solid $datagovuk-black;
+    margin: 0px 10px 0px 2px;
+}
+
+.datagovuk-section-navigation__button[aria-expanded="true"]:after {
+    transform: translateY(1px) rotate(225deg) scale(1);
+}
+
+.datagovuk-section-navigation .datagovuk-section-navigation__items-desktop {
+  display: none;
+}
+
+/* Desktop styling overrides */
+@media (min-width: $desktop-breakpoint) {
+  .js-enabled .datagovuk-section-navigation__button {
+    display: none;
+  }
+
+  .js-enabled .datagovuk-section-navigation {
+    display: block;
+  }
+
+  .datagovuk-section-navigation .datagovuk-section-navigation__items-desktop {
+    display: block;
+  }
+}
