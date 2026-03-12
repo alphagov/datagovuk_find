@@ -91,7 +91,7 @@
 }
 
 /* Desktop styling overrides */
-@media (min-width: 40.0625em) {
+@media (min-width: $desktop-breakpoint) {
 
     .datagovuk-header {
         padding-top: 20px;
