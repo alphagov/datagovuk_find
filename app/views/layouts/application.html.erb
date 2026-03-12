@@ -63,12 +63,25 @@
       </div>
     </header>
 
+    <div class="datagovuk-v2-banner govuk-!-margin-top-2">
+      <div class="govuk-width-container">
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full">
+            <p class="govuk-body govuk-!-margin-top-3 govuk-!-margin-bottom-3"> 
+              data.gov.uk is changing and you may experience some issues with the data in this directory. <br/>
+              <a class="govuk-link" href="/roadmap">Find out more about our plans.</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <%= render 'layouts/integration_ribbon' if Rails.env.integration? %>
     <%= render 'layouts/staging_ribbon' if Rails.env.staging? %>
 
     <div class="dgu-top-non-content">
       <div class="dgu-top-non-content__inner">
-        <%= render 'layouts/feedback_survey_banner' %>
+
         <%= yield :breadcrumb %>
       </div>
     </div>
