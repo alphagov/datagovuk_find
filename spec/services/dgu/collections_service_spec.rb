@@ -1,26 +1,39 @@
 require "rails_helper"
 
-RSpec.describe CollectionsService, type: :service do
+RSpec.describe Dgu::CollectionsService, type: :service do
   before do
     allow(Rails.configuration.x).to receive(:generated_collections_location).and_return("app/views/generated/collections")
   end
 
   let(:collection) { "business-and-economy" }
   let(:page) { "get-charity-information" }
-  let(:first_page) { "agricultural-commodity-prices" }
+  let(:first_page) { "get-company-information" }
 
   describe "#initialize" do
     it "sets the collection and page_name attributes" do
-      service = CollectionsService.new(collection, page)
+      service = Dgu::CollectionsService.new(collection, page)
 
       expect(service.collection).to eq(collection)
       expect(service.page_name).to eq(page)
     end
   end
 
+  describe "collections config" do
+    it "sets the collection_pages attribute to a valid value" do
+      markdown_collection_location = Rails.configuration.x.markdown_collections_location
+      collection_pages = Rails.configuration.x.collection_pages
+      collection_pages.each do |collection, collection_items|
+        collection_items.each do |collection_item|
+          expected_markdown_file = Rails.root.join(markdown_collection_location, collection, "#{collection_item[:slug]}.md")
+          expect(File.file?(expected_markdown_file)).to eq(true), "Missing markdown file #{expected_markdown_file} which was present in collections_pages config"
+        end
+      end
+    end
+  end
+
   describe "#collections_slugs" do
     it "returns the collection slugs" do
-      service = CollectionsService.new(collection)
+      service = Dgu::CollectionsService.new(collection)
 
       expect(service.collections_slugs).to include(
         have_attributes(
@@ -33,7 +46,7 @@ RSpec.describe CollectionsService, type: :service do
 
   describe "#view_template" do
     it "returns the view template path for the collection" do
-      service = CollectionsService.new(collection)
+      service = Dgu::CollectionsService.new(collection, first_page)
       expect(service.view_template_path).to eq("generated/collections/#{collection}/#{first_page}")
     end
   end
@@ -41,35 +54,34 @@ RSpec.describe CollectionsService, type: :service do
   describe "#valid_collection_page?" do
     context "when both collection and page exist" do
       it "returns true" do
-        service = CollectionsService.new(collection, page)
+        service = Dgu::CollectionsService.new(collection, page)
         expect(service.valid_collection_page?).to be true
       end
     end
 
     context "when only collection exists and page is nil" do
       it "returns true" do
-        service = CollectionsService.new(collection)
+        service = Dgu::CollectionsService.new(collection)
         expect(service.valid_collection_page?).to be true
       end
     end
 
     context "when only collection exists and page is blank" do
       it "returns true" do
-        service = CollectionsService.new(collection, "")
+        service = Dgu::CollectionsService.new(collection, "")
         expect(service.valid_collection_page?).to be true
       end
     end
 
     context "when collection does not exist" do
       it "returns false" do
-        service = CollectionsService.new("non-existing-collection", page)
-        expect(service.valid_collection_page?).to be false
+        expect { Dgu::CollectionsService.new("non-existing-collection", page) }.to raise_error(Dgu::CollectionNotFound)
       end
     end
 
     context "when page does not exist" do
       it "returns false" do
-        service = CollectionsService.new(collection, "non-existing-page")
+        service = Dgu::CollectionsService.new(collection, "non-existing-page")
 
         expect(service.valid_collection_page?).to be false
       end
@@ -78,7 +90,7 @@ RSpec.describe CollectionsService, type: :service do
 
   describe "#collection_pages" do
     it "returns side navigations for a collection" do
-      service = CollectionsService.new(collection)
+      service = Dgu::CollectionsService.new(collection)
 
       expect(service.collection_pages).to include({
         url: "/collections/#{collection}/#{page}",
@@ -91,17 +103,9 @@ RSpec.describe CollectionsService, type: :service do
   describe "#page" do
     context "when page is provided" do
       it "returns page" do
-        service = CollectionsService.new(collection, page)
+        service = Dgu::CollectionsService.new(collection, page)
 
         expect(service.page).to eq(page)
-      end
-    end
-
-    context "when page is not provided" do
-      it "returns the first page" do
-        service = CollectionsService.new(collection)
-
-        expect(service.page).to eq(first_page)
       end
     end
   end

@@ -39,7 +39,7 @@ RSpec.describe "Collections", type: :request do
     it "returns redirect response" do
       get collection_root_path
 
-      expect(response).to redirect_to("/collections/business-and-economy/agricultural-commodity-prices")
+      expect(response).to redirect_to("/collections/business-and-economy/get-company-information")
     end
 
     it "invalid path shows 404" do
