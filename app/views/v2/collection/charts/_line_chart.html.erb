@@ -5,6 +5,7 @@
   number_base = local_assigns[:number_base] || 1
   source = local_assigns[:source] || "#"
   suffix = local_assigns[:suffix]
+  min = local_assigns[:min] || 0
 %>
 
 <section class="govuk-section datagovuk-section">
@@ -61,7 +62,7 @@
       },
       scales: {
         y: {
-          min: 0,
+          min: min,
           grid: {
             display: true,
           },

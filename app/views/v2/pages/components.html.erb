@@ -47,7 +47,8 @@
     number_base: @average_house_prices["number_base"],
     data_series: @average_house_prices["series"],
     source:  @average_house_prices["source"],
-    suffix: @average_house_prices["visualisation_suffix"]
+    suffix: @average_house_prices["visualisation_suffix"],
+    min: @average_house_prices["min_value"]
   } %>
 
   <%= render partial: "v2/collection/charts/line_chart", locals: { 
