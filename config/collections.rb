@@ -85,7 +85,7 @@ module Collections
       { "title": "Fishing vessels", "slug": "fishing-vessels" },
       # TODO: { "title": "National Travel Survey", "slug": "national-travel-survey" },
       # TODO: { "title": "Transport connectivity", "slug": "transport-connectivity" },
-      # TODO: { "title": "Maritime and shipping", "slug": "maritime-and-shipping" }
+      { "title": "Maritime and shipping", "slug": "maritime-and-shipping" }
     ],
   }.freeze
 end
