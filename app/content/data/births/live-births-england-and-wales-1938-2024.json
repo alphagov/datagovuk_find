@@ -2,6 +2,7 @@
   "title": "Total live birth counts, England and Wales, 1938 to 2024",
   "visualisation_type": "line",
   "source": "https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths/bulletins/birthsummarytablesenglandandwales/2024refreshedpopulations",
+  "download": "live-births-england-and-wales-1938-2024.csv",
   "publisher": "Office for National Statistics",
   "series": [
     {
