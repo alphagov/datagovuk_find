@@ -2,16 +2,16 @@
   font-weight: normal;
 }
 
-/* Row Layout */
+/* Row Layout: Full width on mobile */
 .mc-chart.mc-chart--bar .mc-tr {
   display: flex !important;
   align-items: center;
-  width: 50%;
+  width: 100%;
   margin-bottom: 15px;
   box-sizing: border-box;
 }
 
-/* Left Column - Labels (40% width) */
+/* Labels: Using a flexible percentage that works on small screens */
 .mc-chart.mc-chart--bar .mc-key-cell {
   flex: 0 0 40% !important;
   width: 40% !important;
@@ -23,9 +23,10 @@
   display: block !important;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-size: 14px; /* Slightly smaller for mobile if needed */
 }
 
-/* Bar Container (remaining 60%) */
+/* Bar Container */
 .mc-chart.mc-chart--bar .mc-td.mc-bar-cell {
   flex: 1 !important;
   display: flex !important;
@@ -50,13 +51,22 @@
 
 /* Data Numbers */
 .mc-chart.mc-chart--bar .mc-bar-cell span {
-  padding-left: 12px !important;
+  padding-left: 8px !important;
   padding-right: 0 !important;
   color: $datagovuk-black !important;
+  font-size: 14px;
 }
 
-/* Desktop Overrides */
+/* Hide Toggle Button */
+.mc-chart.mc-chart--bar .mc-toggle-button {
+  display: none !important;
+}
+
 @media (min-width: $desktop-breakpoint) {
+  .mc-chart.mc-chart--bar .mc-tr {
+    width: 50% !important;
+  }
+
   .govuk-govspeak .datagovuk-heading-xl {
     font-size: 42px;
   }
@@ -64,10 +74,11 @@
   .mc-chart.mc-chart--bar .mc-key-cell {
     padding-right: 15px !important;
     line-height: 1.2;
+    font-size: 15px;
   }
-}
 
-/* Hide Toggle Button */
-.mc-chart.mc-chart--bar .mc-toggle-button {
-  display: none !important;
+  .mc-chart.mc-chart--bar .mc-bar-cell span {
+    padding-left: 12px !important;
+    font-size: 15px;
+  }
 }
