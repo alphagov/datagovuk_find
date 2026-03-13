@@ -1,6 +1,9 @@
 @import 'data_manual_grid';
 @import 'data_manual_card';
+@import 'bar_chart';
 @import 'line_chart';
 @import 'section_navigation';
 @import 'feedback';
 @import 'header';
+@import "govuk_publishing_components/components/govspeak";
+@import "govuk_publishing_components/components/govspeak/charts";

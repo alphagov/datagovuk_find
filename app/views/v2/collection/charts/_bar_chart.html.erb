@@ -1,0 +1,24 @@
+<%
+  data = local_assigns[:data] || {}
+%>
+
+<%= render "govuk_publishing_components/components/govspeak", {
+} do %>
+  <div data-module="govspeak">
+    <div class="gem-c-govspeak govuk-govspeak">      
+      <div class="mc-chart mc-chart--bar">
+              <h2 class="govuk-headingml datagovuk-heading-m">Share of Vote (%)</h3>
+        <table class="js-barchart-table mc-auto-outdent">
+          <tbody>
+            <% data.each do |party, vote_share| %>
+              <tr>
+                <th scope="row" class="govuk-body-m datagovuk-body"><%= party %></th>
+                <td><%= vote_share %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+<% end %>
