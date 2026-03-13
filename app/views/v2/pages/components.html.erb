@@ -56,4 +56,11 @@
     data_series: @fuel_and_oil_prices["series"]
   } %>
 
+  <%= render partial: "v2/collection/charts/bar_chart", locals: {
+    subtitle: @bar_chart["subtitle"],
+    title: @bar_chart["title"],
+    bar_chart: @bar_chart,
+    classes: "datagovuk-charts--desktop",
+    size: 15
+  } %>
 </div>
