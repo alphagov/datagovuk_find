@@ -1,0 +1,20 @@
+{
+    "title": "2024 Vote share by party (%)",
+    "subtitle": "Percentage of votes cast for each party that won at least one seat",
+    "visualisation_type": "bar",
+    "data": {
+        "Labour": 33.7,
+        "Conservative": 23.7,
+        "Liberal Democrat": 12.22,
+        "SNP": 2.52,
+        "Sinn Féin": 0.73,
+        "Reform UK": 14.29,
+        "DUP": 0.6,
+        "Green Party": 6.4,
+        "Plaid Cymru": 0.68,
+        "SDLP": 0.3,
+        "Alliance": 0.41,
+        "UUP": 0.33,
+        "TUV": 0.17
+    }
+}
