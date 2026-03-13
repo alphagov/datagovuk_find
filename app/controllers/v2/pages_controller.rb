@@ -8,6 +8,7 @@ module V2
     def components
       @average_house_prices = average_house_prices
       @fuel_and_oil_prices = fuel_and_oil_prices
+      @bar_chart = JSON.parse(File.read(Rails.root.join("app/content/data/vote-share/vote-share.json")))
       render layout: "v2/layouts/application"
     end
 

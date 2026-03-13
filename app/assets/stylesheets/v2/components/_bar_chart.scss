@@ -1,0 +1,70 @@
+/* Container and Toggle Button */
+.mc-chart.mc-chart--bar .mc-toggle-button {
+  display: none !important;
+}
+
+/* Row Layout */
+.mc-chart.mc-chart--bar .mc-tr {
+  display: flex !important;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+}
+
+/* Left Column - Party Labels */
+.mc-chart.mc-chart--bar .mc-key-cell {
+  flex: 0 0 120px !important;
+  width: 120px !important;
+  text-align: left !important;
+  padding-right: 15px !important;
+  padding-left: 0 !important;
+  margin: 0 !important;
+  line-height: 1.2;
+  word-wrap: break-word;
+  display: block !important;
+}
+
+/* Responsive adjustment for Labels */
+@media (min-width: 640px) {
+  .mc-chart.mc-chart--bar .mc-key-cell {
+    flex: 0 0 160px !important;
+    width: 160px !important;
+  }
+}
+
+/* Bar Container */
+.mc-chart.mc-chart--bar .mc-td.mc-bar-cell {
+  flex: 1 !important;
+  display: flex !important;
+  align-items: center;
+  background-color: transparent !important;
+  position: relative;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  overflow: visible;
+}
+
+/* The Actual Pink Bar */
+.mc-chart.mc-chart--bar .mc-td.mc-bar-cell::before {
+  content: "";
+  display: block;
+  height: 40px;
+  width: inherit; /* Pulls percentage width from JS inline style */
+  background-color: #C27A9A !important;
+  flex-shrink: 0;
+}
+
+/* The Data Numbers (33.7, etc.) */
+.mc-chart.mc-chart--bar .mc-bar-cell span {
+  position: static !important; /* Kept static to stay inside container on mobile */
+  padding-left: 12px !important;
+  padding-right: 0 !important;
+  margin: 0 !important;
+  color: #0b0c0c !important;
+  white-space: nowrap;
+  line-height: 48px;
+  display: inline-block !important;
+  flex-shrink: 1;
+}
