@@ -6,14 +6,14 @@
 } do %>
   <div data-module="govspeak">
     <div class="gem-c-govspeak govuk-govspeak">
-      <h2 class="govuk-heading-xl datagovuk-heading-xl">Share of Vote (%)</h3>
+      <h2 class="govuk-headingml datagovuk-heading-m">Share of Vote (%)</h3>
       
       <div class="mc-chart mc-chart--bar">
         <table class="js-barchart-table mc-auto-outdent">
           <tbody>
             <% data.each do |party, vote_share| %>
               <tr>
-                <th scope="row"><%= party %></th>
+                <th scope="row" class="govuk-body-m datagovuk-body"><%= party %></th>
                 <td><%= vote_share %></td>
               </tr>
             <% end %>

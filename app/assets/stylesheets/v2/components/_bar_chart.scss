@@ -1,39 +1,31 @@
-/* Container and Toggle Button */
-.mc-chart.mc-chart--bar .mc-toggle-button {
-  display: none !important;
+.govuk-govspeak .datagovuk-heading-m {
+  font-weight: normal;
 }
 
 /* Row Layout */
 .mc-chart.mc-chart--bar .mc-tr {
   display: flex !important;
   align-items: center;
-  width: 100%;
-  margin-bottom: 16px;
+  width: 50%;
+  margin-bottom: 15px;
   box-sizing: border-box;
 }
 
-/* Left Column - Party Labels */
+/* Left Column - Labels (40% width) */
 .mc-chart.mc-chart--bar .mc-key-cell {
-  flex: 0 0 120px !important;
-  width: 120px !important;
+  flex: 0 0 40% !important;
+  width: 40% !important;
+  white-space: nowrap;
   text-align: left !important;
-  padding-right: 15px !important;
+  padding-right: 10px !important;
   padding-left: 0 !important;
   margin: 0 !important;
-  line-height: 1.2;
-  word-wrap: break-word;
   display: block !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-/* Responsive adjustment for Labels */
-@media (min-width: 640px) {
-  .mc-chart.mc-chart--bar .mc-key-cell {
-    flex: 0 0 160px !important;
-    width: 160px !important;
-  }
-}
-
-/* Bar Container */
+/* Bar Container (remaining 60%) */
 .mc-chart.mc-chart--bar .mc-td.mc-bar-cell {
   flex: 1 !important;
   display: flex !important;
@@ -46,29 +38,36 @@
   overflow: visible;
 }
 
-/* The Actual Pink Bar */
+/* Bar */
 .mc-chart.mc-chart--bar .mc-td.mc-bar-cell::before {
   content: "";
   display: block;
   height: 40px;
-  width: inherit; /* Pulls percentage width from JS inline style */
-  background-color: #C27A9A !important;
+  width: inherit;
+  background-color: $datagovuk-pink !important;
   flex-shrink: 0;
 }
 
-/* The Data Numbers (33.7, etc.) */
+/* Data Numbers */
 .mc-chart.mc-chart--bar .mc-bar-cell span {
-  position: static !important; /* Kept static to stay inside container on mobile */
   padding-left: 12px !important;
   padding-right: 0 !important;
-  margin: 0 !important;
-  color: #0b0c0c !important;
-  white-space: nowrap;
-  line-height: 48px;
-  display: inline-block !important;
-  flex-shrink: 1;
+  color: $datagovuk-black !important;
 }
 
-.govuk-govspeak .datagovuk-heading-xl {
-    font-weight: normal;
+/* Desktop Overrides */
+@media (min-width: $desktop-breakpoint) {
+  .govuk-govspeak .datagovuk-heading-xl {
+    font-size: 42px;
+  }
+
+  .mc-chart.mc-chart--bar .mc-key-cell {
+    padding-right: 15px !important;
+    line-height: 1.2;
+  }
+}
+
+/* Hide Toggle Button */
+.mc-chart.mc-chart--bar .mc-toggle-button {
+  display: none !important;
 }
