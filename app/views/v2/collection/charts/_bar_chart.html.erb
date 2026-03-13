@@ -1,4 +1,4 @@
-<section class="govuk-section datagovuk-section <%= local_assigns[:classes] %>">
+<section class="govuk-section datagovuk-section">
   <h2 class="govuk-heading-m datagovuk-heading-m"><%= local_assigns[:title] %></h2>
   <div class="govuk-grid-row bar-chart">
     <%= bar_chart local_assigns[:bar_chart]["data"], 
@@ -69,5 +69,5 @@
     }
     %>
   </div>
-  <p class="govuk-body datagovuk-body"><a href="#" class="govuk-link datagovuk-link">Download the chart data</a></p>
+  <p class="govuk-body datagovuk-body"><a href="<%= local_assigns[:bar_chart]["source"] || '#' %>" class="govuk-link datagovuk-link">Download the chart data</a></p>
 </section>
