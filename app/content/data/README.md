@@ -3,7 +3,10 @@
 This document records where the visualisation data for each item in data directory was collected from and what, if 
 any processing (manual) that was done to that data.
 
-## Air quality
+
+## Line and bar charts
+
+### Air quality
 
 The source webpage for the data is [https://www.gov.uk/government/statistics/air-quality-statistics/days-with-moderate-or-higher-air-pollution-includes-sulphur-dioxide](https://www.gov.uk/government/statistics/air-quality-statistics/days-with-moderate-or-higher-air-pollution-includes-sulphur-dioxide)
 
@@ -14,7 +17,7 @@ And the "Location column" was removed to create [air-quality/air-quality.csv](ai
 The file [air-quality/air-quality.json](air-quality/air-quality.json) uses the data from the csv file as it's `series.data` object
 
 
-## Average house prices
+### Average house prices
 
 The source webpage for the data is [https://www.gov.uk/government/statistical-data-sets/uk-house-price-index-data-downloads-november-2025](https://www.gov.uk/government/statistical-data-sets/uk-house-price-index-data-downloads-november-2025)
 
@@ -24,7 +27,7 @@ The download contains records for all UK regions and local authorities. Only the
 
 The file [average-house-prices/average-house-prices.json](average-house-prices/average-house-prices.json) uses the data from the csv file as its `series.data` objects, with `Average_Price` divided by 1000 (`number_base`). Average_Price was used rather than Average_Price_SA (seasonally adjusted) because the SA data only starts from 1995 and over this long a time frame the difference is negligible.
 
-## Births
+### Births
 
 The source webpage for the data is [https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths/bulletins/birthsummarytablesenglandandwales/2024refreshedpopulations](https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths/bulletins/birthsummarytablesenglandandwales/2024refreshedpopulations)
 
@@ -34,7 +37,7 @@ The Year and Number of Live Births columns were extracted from the xlsx to creat
 
 The file [births/live-births-england-and-wales-1938-2024.json](births/live-births-england-and-wales-1938-2024.json) uses the data from the csv file as its `series.data` object.
 
-## Fuel and oil prices
+### Fuel and oil prices
 
 The source webpage for the data is [https://www.gov.uk/government/statistical-data-sets/oil-and-petroleum-products-monthly-statistics](https://www.gov.uk/government/statistical-data-sets/oil-and-petroleum-products-monthly-statistics)
 
@@ -44,9 +47,8 @@ Table 4.1.2 was extracted from the xlsx. The metadata pre-header rows were remov
 
 The file [fuel-and-oil-prices/fuel-and-oil-prices.json](fuel-and-oil-prices/fuel-and-oil-prices.json) uses the data from the csv file as its `series.data` objects.
 
-## Get company information
 
-## Inflation
+### Inflation
 
 The source webpage for the data is [https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/l55o/mm23](https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/l55o/mm23)
 
@@ -55,6 +57,32 @@ The visualisation data was generated via [https://www.ons.gov.uk/generator?forma
 The resulting CSV contains metadata header rows and three time series (annual, quarterly, and monthly rates). Only the annual rates were extracted to create [inflation/inflation-1989-2025.csv](inflation/inflation-1989-2025.csv)
 
 The file [inflation/inflation.json](inflation/inflation.json) uses the data from the csv file as its `series.data` object.
+
+
+***
+
+
+## Headline figures
+
+## Get company information
+
+The source webpage for the data is [https://www.gov.uk/government/statistics/companies-register-activities-statistical-release-april-2024-to-march-2025](https://www.gov.uk/government/statistics/companies-register-activities-statistical-release-april-2024-to-march-2025)
+
+
+The actual data file used to create the headlines figures was: [https://assets.publishing.service.gov.uk/media/687f74b128f29c99778a744a/Companies_register_activities_April_2024_to_March_2025.xlsx](https://assets.publishing.service.gov.uk/media/687f74b128f29c99778a744a/Companies_register_activities_April_2024_to_March_2025.xlsx)
+
+From that the following was extracted from table A8 of the spreadsheet: []()
+
+Note that the original table has the columns:
+
+`Year ending, Total register, Effective register, Incorporations, Dissolved, Liquidations notified2, Insolvencies notified3`
+
+but for our purposes we only used `Incorporations` and `Dissolved`.
+
+The resulting csv used is here: [get-company-information/companies-register-activities-april-2024-to-march-2025.csv](get-company-information/companies-register-activities-april-2024-to-march-2025.csv)
+
+The file [get-company-information/companies-house-register-headlines.json](get-company-information/companies-house-register-headlines.json) uses the data from the csv file as its `items` object. Note % change was calculated using the figures in csv.
+
 
 ## Road traffic
 
