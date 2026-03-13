@@ -3,7 +3,7 @@
   <div class="govuk-grid-row bar-chart">
     <%= bar_chart local_assigns[:bar_chart]["data"], 
     colors: ["#C27A9A"],
-    height: "400px",
+    height: "600px",
     aspectRatio: 2,
     library: {
       indexAxis: 'y',
@@ -27,7 +27,7 @@
           color: '#5D5D5D',
           font: {
             family: "Inter, sans-serif",
-            size: size,
+            size: 15,
             weight: 'bold'
           }
         },
@@ -35,8 +35,8 @@
           display: false,
         },
         tooltip: {
-          bodyFont: { size: size, family: "Inter, sans-serif", weight: "bold" },
-          titleFont: { size: size, family: "Inter, sans-serif", weight: "bold" }
+          bodyFont: { size: 15, family: "Inter, sans-serif", weight: "bold" },
+          titleFont: { size: 15, family: "Inter, sans-serif", weight: "bold" }
         }
       },
       scales: {
@@ -49,14 +49,14 @@
           },
           ticks: { 
             font: { 
-              size: size,
+              size: 15,
               family: "Inter, sans-serif"
             }
           },
         },
         y: {
           ticks: {
-            font: { size: size, family: "Inter, sans-serif" } 
+            font: { size: 15, family: "Inter, sans-serif" } 
           },
         }
       }
