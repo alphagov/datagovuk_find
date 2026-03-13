@@ -10,7 +10,7 @@ dataset:
   url: https://roadtraffic.dft.gov.uk/
   link-text: Get road traffic data
 page-last-updated:
-visualisation-data:
+visualisation-data: road-traffic/road-traffic-headline.json
 contact:
 status: for-publication
 ---

@@ -1,13 +1,4 @@
-<%# locals:
-subtitle: string,
-description: string
-value: string/number
-analysis: string
-trend: string
-value_change: string/number
-percent_change: string/number
-side_class: string
-%>
+<%# locals: subtitle: "", description: "", value: 0, analysis: "", trend: "", value_change: 0, percent_change: 0, side_class: "" %>
 
 <% is_trending_up = (trend == "up") %>
 
@@ -30,11 +21,17 @@ side_class: string
                 <%= image_tag("v2/down_arrow.svg") %>
             <% end %>
         </span>
-        <span class="datagovuk-headline__change-value govuk-body datagovuk-body">
-            <%= is_trending_up ? "+" : "-" %><%= value_change %>
-        </span>
+        <% if value_change.present? %>
+            <span class="datagovuk-headline__change-value govuk-body datagovuk-body">
+                <%= is_trending_up ? "+" : "-" %><%= value_change %>
+            </span>
+        <% end %>
         <span class="datagovuk-headline__change-value-percent govuk-body datagovuk-body">
-            (<%= percent_change %>%)
+            <% if value_change.present? %>
+                (<%= percent_change %>%) 
+            <% else %>
+                <%= is_trending_up ? "+" : "-" %><%= percent_change %>%
+            <% end %>
         </span>
     </div>
 

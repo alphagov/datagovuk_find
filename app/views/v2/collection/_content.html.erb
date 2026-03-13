@@ -22,23 +22,24 @@
 <% elsif chart_data["visualisation_type"] == "headline" %>
   <%= render partial: "v2/collection/charts/headline/headline", locals: {
     title: chart_data["title"],
+    source: chart_data["source"],
     items: [{
-      subtitle: chart_data["series"][0]["subtitle"],
-      description: chart_data["series"][0]["description"],
-      value: chart_data["series"][0]["value"],
-      analysis: chart_data["series"][0]["analysis"],
-      trend: chart_data["series"][0]["trend"],
-      value_change: chart_data["series"][0]["value_change"],
-      percent_change: chart_data["series"][0]["percent_change"]
+      subtitle: chart_data["items"][0]["subtitle"],
+      description: chart_data["items"][0]["description"],
+      value: chart_data["items"][0]["value"],
+      analysis: chart_data["items"][0]["analysis"],
+      trend: chart_data["items"][0]["trend"],
+      value_change: chart_data["items"][0]["value_change"],
+      percent_change: chart_data["items"][0]["percent_change"]
     },
     {
-      subtitle: chart_data["series"][1]["subtitle"],
-      description: chart_data["series"][1]["description"],
-      value: chart_data["series"][1]["value"],
-      analysis: chart_data["series"][1]["analysis"],
-      trend: chart_data["series"][1]["trend"],
-      value_change: chart_data["series"][1]["value_change"],
-      percent_change: chart_data["series"][1]["percent_change"]
+      subtitle: chart_data["items"][1]["subtitle"],
+      description: chart_data["items"][1]["description"],
+      value: chart_data["items"][1]["value"],
+      analysis: chart_data["items"][1]["analysis"],
+      trend: chart_data["items"][1]["trend"],
+      value_change: chart_data["items"][1]["value_change"],
+      percent_change: chart_data["items"][1]["percent_change"]
     }]
   } 
   %>

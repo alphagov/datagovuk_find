@@ -2,9 +2,10 @@
   <h2 class="govuk-body datagovuk-body govuk-!-margin-bottom-2">
     <%= title %>
   </h2>
-  <div class="datagovuk-headline__columns">
+  <div class="datagovuk-headline__columns govuk-!-margin-bottom-2">
     <% items.each do |item|  %>
       <%= render partial: "v2/collection/charts/headline/column", locals: item %>
     <% end %>
   </div>
+  <p class="govuk-body datagovuk-body"><a href="<%= source %>" class="govuk-link datagovuk-link">Download the chart</a></p>
 </section>
