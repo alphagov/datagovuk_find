@@ -43,6 +43,11 @@
     }]
   } 
   %>
+<% elsif @bar_chart["visualisation_type"] == "bar" %>
+  <%= render partial: "v2/collection/charts/bar_chart", locals: {
+    title: @bar_chart["title"],
+    data: @bar_chart
+  } %>
 <% end %>
 
 <%= render partial: "v2/components/feedback", locals: { dataset: true } %>
