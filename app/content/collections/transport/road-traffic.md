@@ -5,7 +5,7 @@ websites:
     link-text:
 api:
   url: https://roadtraffic.dft.gov.uk/docs/index.html
-  link-text:
+  link-text: Get road traffic data
 dataset:
   url: https://roadtraffic.dft.gov.uk/
   link-text: Get road traffic data
