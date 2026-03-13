@@ -45,7 +45,10 @@
     title: @average_house_prices["title"],
     empty_description: "No data available",
     number_base: @average_house_prices["number_base"],
-    data_series: @average_house_prices["series"]
+    data_series: @average_house_prices["series"],
+    source:  @average_house_prices["source"],
+    suffix: @average_house_prices["visualisation_suffix"],
+    min: @average_house_prices["min_value"]
   } %>
 
   <%= render partial: "v2/collection/charts/line_chart", locals: { 
@@ -53,7 +56,8 @@
     title: @fuel_and_oil_prices["title"],
     empty_description: "No data available",
     number_base: nil,
-    data_series: @fuel_and_oil_prices["series"]
+    data_series: @fuel_and_oil_prices["series"],
+    source:  @fuel_and_oil_prices["source"],
   } %>
 
 </div>
