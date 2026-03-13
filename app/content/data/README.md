@@ -86,3 +86,10 @@ The file [get-company-information/companies-house-register-headlines.json](get-c
 
 ## Road traffic
 
+The source webpage for the data is [https://roadtraffic.dft.gov.uk/downloads](https://roadtraffic.dft.gov.uk/downloads)
+
+The visualisation data was downloaded from here [https://storage.googleapis.com/dft-statistics/road-traffic/downloads/data-gov-uk/region_traffic_by_vehicle_type.csv](https://storage.googleapis.com/dft-statistics/road-traffic/downloads/data-gov-uk/region_traffic_by_vehicle_type.csv)
+
+The download contains traffic data for all UK regions and multiple vehicle types. Only the `cars_and_taxis` and `buses_and_coaches` columns were kept, and only the "All" region rows (which sum all regions) were retained to create [road-traffic/road-traffic-2023-2024.csv](road-traffic/road-traffic-2023-2024.csv)
+
+The file [road-traffic/road-traffic-headline.json](road-traffic/road-traffic-headline.json) uses the data from the csv file as its `items` object. Values are expressed in billion vehicle miles (raw figures divided by 1,000,000,000). Percent change was calculated using the figures in the csv.
