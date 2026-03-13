@@ -1,7 +1,8 @@
 {
   "number_base": 1000,
   "max_value": 293.768,
-  "title": "Average house price (£1000)",
+  "title": "Average house price",
+  "suffix": "k",
   "publisher": "HM Land Registry",
   "source": "https://publicdata.landregistry.gov.uk/market-trend-data/house-price-index-data/Average-prices-2025-11.csv",
   "visualisation_type": "line",

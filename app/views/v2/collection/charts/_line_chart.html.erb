@@ -4,13 +4,14 @@
   empty_description = local_assigns[:empty_description]
   number_base = local_assigns[:number_base] || 1
   source = local_assigns[:source] || "#"
+  suffix = local_assigns[:suffix]
 %>
 
 <section class="govuk-section datagovuk-section">
   <h2 class="govuk-heading-m datagovuk-heading-m"><%= local_assigns[:title] %></h2>
 
   <div class="govuk-grid-row line-chart">
-    <%= line_chart data_series,
+    <%= line_chart data_series, suffix: suffix,
     points: true,
     dataset: {
       empty: empty_description,
