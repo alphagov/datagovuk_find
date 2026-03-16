@@ -41,9 +41,8 @@ Rails.application.routes.draw do
     get "accessibility" => "pages#content_page", defaults: { slug: "accessibility", title: "Accessibility" }
     get "support" => "pages#content_page", defaults: { slug: "support", title: "Support" }
     get "team" => "pages#content_page", defaults: { slug: "team", title: "Team" }
-    get "roadmap" => "pages#content_page", defaults: { slug: "roadmap", title: "Roadmap" }
+    get "roadmap" => "pages#content_page", defaults: { slug: "roadmap", title: "Our plan for data.gov.uk", template: "v2/pages/roadmap" }
     get "terms" => "pages#content_page", defaults: { slug: "terms", title: "Terms & conditions and privacy" }
-    get "plan" => "pages#content_page", defaults: { slug: "plan", title: "Our plan for data.gov.uk", template: "v2/pages/plan" }
     get "cookies" => "pages#cookies"
     match "404", to: "errors#not_found", via: :all
     match "500", to: "errors#internal_server_error", via: :all
