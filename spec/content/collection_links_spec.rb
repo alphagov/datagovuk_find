@@ -60,14 +60,14 @@ rescue StandardError => e
   e
 end
 
+# Sites behind bot detection e.g. Cloudflare seem to reject non-browser HTTP
+# clients (TLS fingerprinting, etc.) but work fine in any real browser.
+SITES_BLOCKING_AUTOMATED_CLIENTS = %w[
+  www.ros.gov.uk
+].freeze
+
 RSpec.describe "Collection frontmatter links" do
   collections_path = Pathname.new(File.expand_path("../../app/content/collections", __dir__))
-
-  # Sites behind bot detection e.g. Cloudflare seem to reject non-browser HTTP
-  # clients (TLS fingerprinting, etc.) but work fine in any real browser.
-  SITES_BLOCKING_AUTOMATED_CLIENTS = %w[
-    www.ros.gov.uk
-  ].freeze
 
   markdown_files = Dir.glob(collections_path.join("**/*.md")).sort
 
@@ -83,17 +83,17 @@ RSpec.describe "Collection frontmatter links" do
         response = check_url(url)
 
         expect(response).not_to be_a(StandardError),
-          "Request to #{url} failed with error: #{response.message}"
+                                "Request to #{url} failed with error: #{response.message}"
         acceptable = [200, 302]
         acceptable.push(403, 404) if SITES_BLOCKING_AUTOMATED_CLIENTS.include?(URI.parse(url).host)
 
         expect(acceptable).to include(response.code.to_i),
-          "Expected #{acceptable.join('/')} from #{url}, got #{response.code}"
+                              "Expected #{acceptable.join('/')} from #{url}, got #{response.code}"
       end
 
       it "#{relative_path}: #{url} has non-empty link-text" do
-        expect(entry["link-text"]).to be_a(String).and(satisfy("be non-empty") { |s| s.strip.length > 0 }),
-          "Expected non-empty link-text for #{url}"
+        expect(entry["link-text"]).to be_a(String).and(satisfy("be non-empty") { |s| !s.strip.empty? }),
+                                      "Expected non-empty link-text for #{url}"
       end
     end
   end
