@@ -2,7 +2,8 @@
   "max_value": 177.66,
   "title": "Fuel price in pence per litre",
   "publisher": "Department for Energy Security and Net Zero",
-  "source": "https://assets.publishing.service.gov.uk/media/6978dcbad6ab92f1d3a4d6d5/table_411_413__5_.xlsx",
+  "source": "https://www.gov.uk/government/statistical-data-sets/oil-and-petroleum-products-monthly-statistics",
+  "download": "fuel-and-oil-prices.csv",
   "visualisation_type": "line",
   "series": [
     {
