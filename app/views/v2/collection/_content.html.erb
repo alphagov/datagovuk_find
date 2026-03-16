@@ -1,6 +1,5 @@
 <%
   chart_data = @chart_data || {}
-  barchart = @bar_chart || {}
 %>
 
 <h1 class="govuk-heading-l datagovuk-heading-l"><%= @title %></h1>
@@ -10,18 +9,16 @@
 </section>
 
 <% if chart_data["visualisation_type"] == "line" %>
-    <section class="govuk-section datagovuk-section">
-      <%= render partial: "v2/collection/charts/line_chart", locals: {
-          max_value: chart_data["max_value"],
-          title: chart_data["title"],
-          empty_description: "No data available",
-          number_base: chart_data["number_base"],
-          suffix: chart_data["visualisation_suffix"],
-          min: chart_data["min_value"],
-          data_series: chart_data["series"],
-          download: chart_data["download"]
-      } %>
-    </section>
+  <%= render partial: "v2/collection/charts/line_chart", locals: {
+      max_value: chart_data["max_value"],
+      title: chart_data["title"],
+      empty_description: "No data available",
+      number_base: chart_data["number_base"],
+      suffix: chart_data["visualisation_suffix"],
+      min: chart_data["min_value"],
+      data_series: chart_data["series"],
+      download: chart_data["download"]
+  } %>
 <% elsif chart_data["visualisation_type"] == "headline" %>
   <%= render partial: "v2/collection/charts/headline/headline", locals: {
     title: chart_data["title"],
@@ -46,10 +43,12 @@
     }]
   } 
   %>
-<% elsif barchart["visualisation_type"] == "bar" %>
+<% elsif chart_data["visualisation_type"] == "bar" %>
   <%= render partial: "v2/collection/charts/bar_chart", locals: {
-    title: barchart["title"],
-    data: barchart
+    title: chart_data["title"],
+    data: chart_data["data"],
+    download: chart_data["download"],
+    size: 15
   } %>
 <% end %>
 
