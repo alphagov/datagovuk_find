@@ -4,8 +4,6 @@ websites:
   - url: https://www.gov.uk/trade-tariff
     link-text: Trade tariffs
 api:
-  url: https://api.trade-tariff.service.gov.uk
-  link-text: Trade tariff API
 dataset:
 page-last-updated:
 visualisation-data:

@@ -2,7 +2,7 @@
 title: Police recorded crime and outcomes
 websites:
   - url: https://www.gov.uk/government/statistical-data-sets/police-recorded-crime-and-outcomes-open-data-tables
-    link-text: 
+    link-text: Crime and outcomes data
 api:
 dataset:
 page-last-updated:
