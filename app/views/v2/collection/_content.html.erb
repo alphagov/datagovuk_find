@@ -1,5 +1,6 @@
 <%
   chart_data = @chart_data || {}
+  barchart = @bar_chart || {}
 %>
 
 <h1 class="govuk-heading-l datagovuk-heading-l"><%= @title %></h1>
@@ -43,6 +44,11 @@
     }]
   } 
   %>
+<% elsif barchart["visualisation_type"] == "bar" %>
+  <%= render partial: "v2/collection/charts/bar_chart", locals: {
+    title: barchart["title"],
+    data: barchart
+  } %>
 <% end %>
 
 <%= render partial: "v2/components/feedback", locals: { dataset: true } %>

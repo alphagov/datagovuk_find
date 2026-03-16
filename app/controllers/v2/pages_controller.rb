@@ -8,6 +8,9 @@ module V2
     def components
       @average_house_prices = average_house_prices
       @fuel_and_oil_prices = fuel_and_oil_prices
+      bar_chart = JSON.parse(File.read(Rails.root.join("app/content/data/vote-share/vote-share.json")))
+
+      @bar_chart = bar_chart
       render layout: "v2/layouts/application"
     end
 
@@ -35,6 +38,7 @@ module V2
     def average_house_prices
       average_house_prices = JSON.parse(File.read(Rails.root.join("app/content/data/average-house-prices/average-house-prices.json")))
 
+      average_house_prices["suffix"] = "k"
       average_house_prices["series"].each do |data|
         data["dataset"] = {
           "pointRadius" => Array.new(data["data"].keys.size - 1, 0) << 4,

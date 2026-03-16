@@ -60,4 +60,9 @@
     source:  @fuel_and_oil_prices["source"],
   } %>
 
+  <%= render partial: "v2/collection/charts/bar_chart", locals: {
+    title: @bar_chart["title"],
+    bar_chart: @bar_chart,
+    size: 15
+  } %>
 </div>

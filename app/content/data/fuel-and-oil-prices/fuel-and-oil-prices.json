@@ -6,7 +6,7 @@
   "visualisation_type": "line",
   "series": [
     {
-      "name": "Motor spirit: Premium unleaded / ULSP (Pence per litre)",
+      "name": "Premium unleaded / ULSP (Pence per litre)",
       "title": "Fuel price in pence per litre",
       "color": "#C27A9A",
       "data": {
@@ -62,7 +62,7 @@
       }
     },
     {
-      "name": "Derv: Diesel / ULSD (Pence per litre)",
+      "name": "Diesel / ULSD (Pence per litre)",
       "title": "Fuel price in pence per litre",
       "color": "#00890B",
       "data": {
