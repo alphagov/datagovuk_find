@@ -1,14 +1,14 @@
 ---
 title: Road traffic
 websites:
-  - url: https://www.gov.uk/government/collections/road-traffic-statistics
-    link-text:
+  - url: https://roadtraffic.dft.gov.uk
+    link-text: Road traffic statistics
 api:
   url: https://roadtraffic.dft.gov.uk/docs/index.html
-  link-text: Get road traffic data
+  link-text: Road traffic API
 dataset:
-  url: https://roadtraffic.dft.gov.uk/
-  link-text: Get road traffic data
+  url: https://roadtraffic.dft.gov.uk/downloads
+  link-text: Road traffic datasets
 page-last-updated:
 visualisation-data: road-traffic/road-traffic-headline.json
 contact:
