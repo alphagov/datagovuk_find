@@ -32,8 +32,8 @@ RSpec.describe "Markdown to Static HTML Rake Task", type: :task do
       task.reenable
       task.invoke
       expect(Dir.glob(File.join(output_directory, "**/*.html.erb"))).to include(
-        File.join(output_directory, "sample.html.erb"),
-        File.join(output_directory, "nested-collection/sample-nested.html.erb"),
+        File.join(output_directory, "collections/sample.html.erb"),
+        File.join(output_directory, "collections/nested-collection/sample-nested.html.erb"),
       )
     end
   end
