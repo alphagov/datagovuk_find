@@ -36,6 +36,7 @@ module FindDataBeta
     # Common ones are `templates`, `generators`, or `middleware`, for example.
     config.autoload_lib(ignore: %w[assets tasks])
 
+    config.x.visualisations_data_location = "app/content/data"
     config.x.markdown_collections_location = "app/content/collections"
     config.x.markdown_collections_location_glob = "app/content/collections/**/*.md"
     config.x.markdown_collections_output_location = "app/views/generated/collections"
