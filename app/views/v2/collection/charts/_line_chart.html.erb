@@ -3,9 +3,10 @@
   max_value = local_assigns[:max_value] || 0
   empty_description = local_assigns[:empty_description]
   number_base = local_assigns[:number_base] || 1
-  source = local_assigns[:source] || "#"
   suffix = local_assigns[:suffix]
   min = local_assigns[:min] || 0
+  download = local_assigns[:download]
+  display_legend = local_assigns[:data_series].size > 1 ? true : false
 %>
 
 <section class="govuk-section datagovuk-section">
@@ -26,7 +27,7 @@
           display: false
         },
         legend: {
-          display: true,
+          display: display_legend,
           labels: {
             color: "#5D5D5D",
             font: {
@@ -93,5 +94,7 @@
     legend: "bottom"
     %>
   </div>
-  <p class="govuk-body datagovuk-body"><a href="<%= source %>" class="govuk-link datagovuk-link">Download the chart data</a></p>
+  <% if download.present? %>
+    <p class="govuk-body datagovuk-body"><a href="/charts/<%= download %>/download" class="govuk-link datagovuk-link">Download the chart data</a></p>
+  <% end %>
 </section>
