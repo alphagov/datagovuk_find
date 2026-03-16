@@ -1,13 +1,13 @@
 {
-  "title": "Mean number of days per urban site when air pollution was ‘Moderate’ or higher in the UK, 2010 to 2024",
+  "title": "Test collection",
   "visualisation_type": "line",
-  "source": "https://www.gov.uk/government/statistics/air-quality-statistics/days-with-moderate-or-higher-air-pollution-includes-sulphur-dioxide",
-  "download": "air-quality/air-quality",
-  "publisher": "Department for Environment, Food and Rural Affairs",
+  "source": "",
+  "download": "test-collection/test-collection",
+  "publisher": "Publisher",
   "series": [
     {
       "color": "#C27A9A",
-      "data": {
+      "data ": {
         "2010": 15.58181818,
         "2011": 23.55357143,
         "2012": 18.19642857,

@@ -52,6 +52,7 @@ namespace :markdown do
         page_last_updated: front_matter["page-last-updated"],
         tags: front_matter["tags"],
         visualisation_data: front_matter["visualisation-data"],
+        visualisation_suffix: front_matter["visualisation-suffix"],
         contact: front_matter["contact"],
         body: html_body.html_safe,
         chart_data: chart_json || nil,

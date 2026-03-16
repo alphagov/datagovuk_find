@@ -16,8 +16,9 @@
           title: chart_data["title"],
           empty_description: "No data available",
           number_base: chart_data["number_base"],
+          suffix: chart_data["visualisation_suffix"],
           data_series: chart_data["series"],
-          source: chart_data["source"]
+          download: chart_data["download"]
       } %>
     </section>
 <% elsif chart_data["visualisation_type"] == "headline" %>

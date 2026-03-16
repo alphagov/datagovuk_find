@@ -2,6 +2,7 @@
     "title": "2024 Vote share by party (%)",
     "subtitle": "Percentage of votes cast for each party that won at least one seat",
     "visualisation_type": "bar",
+    "download": "vote-share/vote-share-at-least-1-seat-won",
     "data": {
         "Labour": 33.7,
         "Conservative": 23.7,
