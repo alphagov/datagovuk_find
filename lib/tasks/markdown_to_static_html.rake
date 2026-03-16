@@ -54,6 +54,7 @@ namespace :markdown do
         tags: front_matter["tags"],
         visualisation_data: front_matter["visualisation-data"],
         visualisation_suffix: front_matter["visualisation-suffix"],
+        min: front_matter["min_value"],
         contact: front_matter["contact"],
         body: html_body.html_safe,
         chart_data: chart_json || nil,

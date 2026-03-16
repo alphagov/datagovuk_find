@@ -5,6 +5,7 @@
   "download": "live-births-england-and-wales-1938-2024.csv",
   "publisher": "Office for National Statistics",
   "visualisation_suffix": "k",
+  "min_value": 1,
   "series": [
     {
       "color": "#C27A9A",
