@@ -62,13 +62,13 @@ The file [inflation/inflation.json](inflation/inflation.json) uses the data from
 ### Storm overflows
 
 > [!WARNING]
-> The number of overflows being monitored increased dramatically over this period (from 862 in 2016 to 14,182 in 2024 — a 16x increase). The apparent rise in total spill events is substantially influenced by this expanded monitoring coverage, not solely by an increase in spill frequency. This context is not currently reflected in the visualisation.
+> The number of overflows being monitored increased dramatically over this period (from 862 in 2016 to 14,182 in 2024). The apparent rise in total spill events will be influenced by this expanded monitoring coverage, and not solely by an increase in spill frequency. This context isn't clear from visualisation data alone.
 
 The source webpage for the data is [https://environment.data.gov.uk/dataset/21e15f12-0df8-4bfc-b763-45226c16a8ac](https://environment.data.gov.uk/dataset/21e15f12-0df8-4bfc-b763-45226c16a8ac)
 
 The visualisation data was downloaded from that dataset. The `Total monitored spill events (thousands)` and `Overflows monitored` columns were kept for years 2016 to 2024 to create [storm-overflows/storm-overflows.csv](storm-overflows/storm-overflows.csv)
 
-The file [storm-overflows/storm-overflows.json](storm-overflows/storm-overflows.json) uses the data from the csv file as its `series.data` object. Only the `Total monitored spill events (thousands)` column is used in the visualisation; the `Overflows monitored` column is retained in the CSV for context.
+The file [storm-overflows/storm-overflows.json](storm-overflows/storm-overflows.json) uses the data from the csv file as its `series.data` object. Only the `Total monitored spill events (thousands)` column is used in the visualisation. The `Overflows monitored` column is retained in the CSV for context.
 
 
 ### UK mean temperature
@@ -83,13 +83,13 @@ The file [weather/uk-mean-temperature.json](weather/uk-mean-temperature.json) us
 
 #### Alternative: UK monthly max temperature at 25-year intervals
 
-An alternative multi-series visualisation is also available, using monthly maximum temperature (Tmax) data instead of annual mean.
+An alternative multi-series visualisation is also available, using monthly maximum temperature data instead of annual mean.
 
 The data was downloaded from [https://www.metoffice.gov.uk/pub/data/weather/uk/climate/datasets/Tmax/date/UK.txt](https://www.metoffice.gov.uk/pub/data/weather/uk/climate/datasets/Tmax/date/UK.txt)
 
 The monthly Tmax values (Jan–Dec) were extracted for the years 1900, 1925, 1950, 1975, 2000, and 2025 to create [weather/uk-monthly-max-temperature.csv](weather/uk-monthly-max-temperature.csv)
 
-The file [weather/uk-monthly-max-temperature.json](weather/uk-monthly-max-temperature.json) uses the data from the csv file, with each year as a separate series. This shows how the seasonal temperature profile has shifted over 125 years — the warming is particularly visible in spring and autumn months.
+The file [weather/uk-monthly-max-temperature.json](weather/uk-monthly-max-temperature.json) uses the data from the csv file, with each year as a separate series. This shows how the seasonal temperature profile has shifted over 125 years (the warming is particularly visible in spring and autumn months).
 
 **Note:** Individual years can be anomalous, so a more robust approach would be to use decade averages (e.g. 1900s, 1920s, 1940s, etc.) rather than single-year snapshots. Worth exploring if there's interest.
 
@@ -100,7 +100,9 @@ The source webpage for the data is [https://www.forestresearch.gov.uk/tools-and-
 
 The visualisation data was downloaded from there (woodland area statistics).
 
-The `Year` and `UK total (thousand hectares)` columns were extracted for years 2005 to 2025 to create [forest-and-woodlands/woodland-area.csv](forest-and-woodlands/woodland-area.csv). Values represent the cumulative total woodland area in the UK at each year, not new woodland planted that year.
+The `Year` and `UK total (thousand hectares)` columns were extracted for years 2005 to 2025 to create [forest-and-woodlands/woodland-area.csv](forest-and-woodlands/woodland-area.csv). 
+
+Values represent the cumulative total woodland area in the UK at each year, **not new** woodland planted that year.
 
 The file [forest-and-woodlands/woodland-area.json](forest-and-woodlands/woodland-area.json) uses the data from the csv file as its `series.data` object.
 
