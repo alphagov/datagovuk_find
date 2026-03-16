@@ -1,3 +1,7 @@
+<%
+  size = local_assigns[:size] || 20
+%>
+
 <section class="govuk-section datagovuk-section">
   <h2 class="govuk-heading-m datagovuk-heading-m"><%= local_assigns[:title] %></h2>
   <div class="govuk-grid-row bar-chart">
@@ -27,7 +31,7 @@
           color: '#5D5D5D',
           font: {
             family: "Inter, sans-serif",
-            size: 15,
+            size: size,
             weight: 'bold'
           }
         },
@@ -35,8 +39,8 @@
           display: false,
         },
         tooltip: {
-          bodyFont: { size: 15, family: "Inter, sans-serif", weight: "bold" },
-          titleFont: { size: 15, family: "Inter, sans-serif", weight: "bold" }
+          bodyFont: { size: 20, family: "Inter, sans-serif", weight: "bold" },
+          titleFont: { size: 20, family: "Inter, sans-serif", weight: "bold" }
         }
       },
       scales: {
@@ -59,7 +63,7 @@
             color: "#5D5D5D"
           },
           ticks: {
-            font: { size: 15, family: "Inter, sans-serif" } 
+            font: { size: size, family: "Inter, sans-serif" } 
           },
         }
       }
