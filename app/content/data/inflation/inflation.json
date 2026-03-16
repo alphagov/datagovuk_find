@@ -3,7 +3,7 @@
   "title": "Rate of inflation (%)",
   "publisher": "Office for National Statistics (ONS)",
   "source": "https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/l55o/mm23",
-  "download": "inflation-1989-2025.csv",
+  "download": "inflation/inflation-1989-2025",
   "visualisation_type": "line",
   "series": [
     {
