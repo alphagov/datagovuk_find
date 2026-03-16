@@ -429,6 +429,7 @@ span.showHide-open-all {
 }
 
 .datagovuk-v2-banner .govuk-body, .datagovuk-v2-banner .govuk-link {
+  // !important necessary to override * styling in govuk-overrides
   font-family: 'Inter', sans-serif !important;
   color: #333;
 }
