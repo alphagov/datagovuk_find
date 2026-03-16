@@ -1,4 +1,5 @@
 require Rails.root.join("app/services/dgu/markdown")
+require "pry"
 
 namespace :markdown do
   desc "Convert markdown to static html pages"
