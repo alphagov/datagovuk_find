@@ -1,0 +1,8 @@
+@media (min-width: $desktop-breakpoint) {
+  .datagovuk-roadmap__plan {
+    display: flex;
+    align-items: center;
+    gap: 8em;
+    margin-bottom: 10em;
+  }
+}
