@@ -1,0 +1,25 @@
+.datagovuk-collection-pagination__card {
+  background-color: $datagovuk-light-green;
+  padding: 40px;
+  border-radius: 30px;
+  margin-bottom: 2em;
+  margin-right: 1em;
+}
+
+.datagovuk-collection-pagination__link {
+  text-decoration: none;
+}
+
+.datagovuk-collection-pagination__link:hover {
+  text-decoration: underline;
+}
+
+.datagovuk-collection-pagination {
+  display: flex;
+  align-items: stretch;
+}
+
+.datagovuk-collection-pagination .govuk-grid-column-one-half {
+  padding: 0;
+  padding-right: 15px;
+}

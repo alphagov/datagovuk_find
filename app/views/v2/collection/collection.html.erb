@@ -17,6 +17,33 @@
         </div>
         <div class="govuk-grid-column-two-thirds">
             <%= render template: @view_template, locals: { collections: @collections } %>
+
+            <nav class="datagovuk-collection-pagination">
+              <div class="govuk-grid-column-one-half">
+                <a class="datagovuk-collection-pagination__link" href="<%= @previous_page[:url] %>">
+                  <div class="datagovuk-collection-pagination__card">
+                    <p class="govuk-body datagovuk-body">
+                      &larr;
+                    </p>
+                    <p class="govuk-body datagovuk-body">
+                      <%= @previous_page[:title] %>
+                    </p>
+                  </div>
+                </a>
+              </div>
+              <div class="govuk-grid-column-one-half">
+                <a class="datagovuk-collection-pagination__link" href="<%= @next_page[:url] %>">
+                  <div class="datagovuk-collection-pagination__card">
+                    <p class="govuk-body datagovuk-body">
+                      &rarr;
+                    </p>
+                    <p class="govuk-body datagovuk-body">
+                      <%= @next_page[:title] %>
+                    </p>
+                  </div>
+                </a>
+              </div>
+            </nav>
         </div>
     </div>
 </div>
