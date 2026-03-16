@@ -104,8 +104,8 @@ module V2
       @data_manual_menu_items = [
         *@data_manual_pages,
         {
-          title: "Get in touch",
-          url: "/get-in-touch",
+          title: "Tell us what you think",
+          url: "https://forms.office.com/e/9V26PNFQaR",
           description: "We’d love your feedback. Is this manual useful? Can we improve it? Complete a feedback form.",
         },
         {
