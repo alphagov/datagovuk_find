@@ -1,6 +1,7 @@
 <%
   size = local_assigns[:size] || 20
-  download = local_assigns[:download]
+  collection_topic_path = local_assigns[:collection_topic_path] || ""
+  file_name = local_assigns[:file_name] || ""
 %>
 
 <section class="govuk-section datagovuk-section">
@@ -78,7 +79,7 @@
     }
     %>
   </div>
-  <% if download.present? %>
-    <p class="govuk-body datagovuk-body"><a href="/charts/<%= download %>/download" class="govuk-link datagovuk-link">Download the chart data</a></p>
+  <% if file_name.present? %>
+    <%= render partial: "v2/collection/charts/download_chart_data", locals: { file_name: file_name, collection_topic_path: collection_topic_path } %>
   <% end %>
 </section>

@@ -44,6 +44,9 @@ namespace :markdown do
         end
       end
 
+      collection_topic_file_path = markdown_file.split("content").last
+      collection_topic_path = collection_topic_file_path.gsub(".md", "")
+
       assigns = {
         title: front_matter["title"],
         websites: front_matter["websites"] || [],
@@ -56,6 +59,7 @@ namespace :markdown do
         min: front_matter["min_value"],
         contact: front_matter["contact"],
         body: html_body.html_safe,
+        collection_topic_path: collection_topic_path,
         chart_data: chart_json || nil,
       }
 

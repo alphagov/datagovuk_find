@@ -1,10 +1,11 @@
 require "rails_helper"
 
 RSpec.describe "chart download", type: :request do
-  describe "GET /charts/:chart/download" do
-    let(:chart) { "test-collection" }
+  describe "GET /collections/:collection/:topic/charts/:chart" do
+    let(:chart) { "test-chart" }
     let(:collection) { "test-collection" }
-    let(:subject) { get chart_download_path(chart: chart, collection: collection) }
+    let(:topic) { "test-topic" }
+    let(:subject) { get chart_download_path(chart: chart, collection: collection, topic: topic) }
 
     before do
       allow(Rails.configuration.x).to receive(:visualisations_data_location).and_return("spec/fixtures/content/data")
@@ -17,7 +18,7 @@ RSpec.describe "chart download", type: :request do
     end
 
     it "returns the correct CSV file" do
-      expect(response.body).to eq(File.read(Rails.root.join("spec/fixtures/content/data/test-collection/test-collection.csv")))
+      expect(response.body).to eq(File.read(Rails.root.join("spec/fixtures/content/data/test-topic/test-chart.csv")))
     end
 
     context "chart does not exist" do

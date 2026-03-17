@@ -44,7 +44,7 @@ Rails.application.routes.draw do
     get "roadmap" => "pages#content_page", defaults: { slug: "roadmap", title: "Our plan for data.gov.uk", template: "v2/pages/roadmap" }
     get "terms" => "pages#content_page", defaults: { slug: "terms", title: "Terms & conditions and privacy" }
     get "cookies" => "pages#cookies"
-    get "charts/:collection/:chart/download", to: "charts#download", as: "chart_download", constraints: { chart: /[a-zA-Z0-9\-_]+/, collection: /[a-zA-Z0-9\-_]+/ }
+    get "collections/:collection/:topic/charts/:chart", to: "charts#download", as: "chart_download"
     match "404", to: "errors#not_found", via: :all
     match "500", to: "errors#internal_server_error", via: :all
   end

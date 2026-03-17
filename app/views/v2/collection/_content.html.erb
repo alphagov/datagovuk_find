@@ -1,5 +1,7 @@
 <%
   chart_data = @chart_data || {}
+  collection = @collection || ""
+  collection_topic_path = @collection_topic_path || ""
 %>
 
 <h1 class="govuk-heading-l datagovuk-heading-l"><%= @title %></h1>
@@ -17,7 +19,8 @@
       suffix: chart_data["visualisation_suffix"],
       min: chart_data["min_value"],
       data_series: chart_data["series"],
-      download: chart_data["download"]
+      file_name: chart_data["download"],
+      collection_topic_path: collection_topic_path
   } %>
 <% elsif chart_data["visualisation_type"] == "headline" %>
   <%= render partial: "v2/collection/charts/headline/headline", locals: {
@@ -47,7 +50,8 @@
   <%= render partial: "v2/collection/charts/bar_chart", locals: {
     title: chart_data["title"],
     data: chart_data["data"],
-    download: chart_data["download"],
+    file_name: chart_data["download"],
+    collection_topic_path: collection_topic_path,
     size: 15
   } %>
 <% end %>

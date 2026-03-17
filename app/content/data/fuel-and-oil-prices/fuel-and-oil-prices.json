@@ -3,7 +3,7 @@
   "title": "Fuel price in pence per litre",
   "publisher": "Department for Energy Security and Net Zero",
   "source": "https://www.gov.uk/government/statistical-data-sets/oil-and-petroleum-products-monthly-statistics",
-  "download": "fuel-and-oil-prices/fuel-and-oil-prices",
+  "download": "fuel-and-oil-prices.csv",
   "visualisation_type": "line",
   "series": [
     {
