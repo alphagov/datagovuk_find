@@ -1,16 +1,3 @@
-/* Desktop styling overrides */
-@media (min-width: $desktop-breakpoint) {
-  .datagovuk-collection-pagination {
-    display: flex;
-    align-items: stretch;
-    gap: 3em;
-  }
-  
-  .datagovuk-collection-pagination .govuk-grid-column-one-half {
-    padding: 0;
-  }
-}
-
 .datagovuk-collection-pagination__card {
   background-color: $datagovuk-light-green;
   border-radius: 30px;
@@ -22,6 +9,7 @@
 
 .datagovuk-collection-pagination__card:hover {
   text-decoration: underline;
+  color: $datagovuk-black;
 }
 
 .datagovuk-collection-pagination__card:active {
@@ -29,9 +17,8 @@
 }
 
 .datagovuk-collection-pagination__card-inner {
-  margin: 3em 2em;
+  margin: 2em 1em;
 }
-
 
 .datagovuk-collection-pagination__arrow {
   margin-bottom: 2em;
@@ -40,3 +27,21 @@
 .datagovuk-collection-pagination__arrow--next {
   rotate: 180deg;
 }
+
+/* Desktop styling overrides */
+@media (min-width: $desktop-breakpoint) {
+  .datagovuk-collection-pagination {
+    display: flex;
+    align-items: stretch;
+    gap: 3em;
+  }
+  
+  .datagovuk-collection-pagination .govuk-grid-column-one-half {
+    padding: 0;
+  }
+
+  .datagovuk-collection-pagination__card-inner {
+    margin: 2em 2em;
+  }
+}
+
