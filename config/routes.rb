@@ -47,6 +47,7 @@ Rails.application.routes.draw do
     get "charts/:collection/:chart/download", to: "charts#download", as: "chart_download", constraints: { chart: /[a-zA-Z0-9\-_]+/, collection: /[a-zA-Z0-9\-_]+/ }
     match "404", to: "errors#not_found", via: :all
     match "500", to: "errors#internal_server_error", via: :all
+    match "500-test", to: "errors#internal_server_error_test", via: :all
   end
 
   get "search/", to: "search#search"
