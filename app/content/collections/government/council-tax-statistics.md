@@ -2,7 +2,7 @@
 title: Council tax statistics
 websites:
   - url: https://www.gov.uk/government/collections/council-tax-statistics
-    link-text: Council tax statistics
+    link-text: Council Tax statistics
 api:
 dataset:
 page-last-updated:
@@ -11,14 +11,4 @@ contact:
 status: for-publication
 ---
 
-Get statistics on:
-
-- Council Tax rates levels set by English local authorities since 2011
-- Council Tax and national non-domestic rates collection rates since 2009
-- Council Tax precepts for town and parish councils in England since 2010 
-
-You can also view and download live tables providing:
-
-- Band D Council Tax figures
-- average Council Tax per dwelling
-- Council Tax statistics for parish and town councils
+Explore a collection of annual Council Tax statistics provided by the Ministry of Housing, Communities and Local Government. The data includes Council Tax levels set by local authorities (from 2011-12), collection rates for Council Tax and non-domestic rates (from 2009-10), and Council Tax statistics for town and parish councils (from 2010-11). For each year, you can download the statistics in a combination of PDF, ODS and Excel formats. There are also datasets for Band D Council Tax figures and average Council Tax per dwelling – each going back to 1993. 
