@@ -29,14 +29,16 @@
                   </div>
                 </a>
               <% end %>
-              <a class="govuk-grid-column-one-half datagovuk-collection-pagination__card" href="<%= @next_page[:url] %>">
-                <div class="datagovuk-collection-pagination__card-inner">
-                  <%= image_tag "v2/icons/arrow.svg", class: "datagovuk-collection-pagination__arrow datagovuk-collection-pagination__arrow--next", alt: "" %>
-                  <p class="govuk-body datagovuk-body">
-                    <%= @next_page[:title] %>
-                  </p>
-                </div>
-              </a>
+              <% if @next_page %>
+                <a class="govuk-grid-column-one-half datagovuk-collection-pagination__card" href="<%= @next_page[:url] %>">
+                  <div class="datagovuk-collection-pagination__card-inner">
+                    <%= image_tag "v2/icons/arrow.svg", class: "datagovuk-collection-pagination__arrow datagovuk-collection-pagination__arrow--next", alt: "" %>
+                    <p class="govuk-body datagovuk-body">
+                      <%= @next_page[:title] %>
+                    </p>
+                  </div>
+                </a>
+              <% end %>
               </div>
             </nav>
         </div>

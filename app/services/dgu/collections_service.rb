@@ -54,16 +54,15 @@ module Dgu
     end
 
     def next_page
-      @next_page ||= @collection_pages[current_page_index + 1] or @collection_pages[0]
+      return if current_page_index == @collection_pages.length - 1
+
+      @next_page ||= @collection_pages[current_page_index + 1]
     end
 
     def previous_page
-      previous_page_index = current_page_index - 1
-      @previous_page ||= if previous_page_index.negative?
-                           nil
-                         else
-                           @collection_pages[current_page_index - 1]
-                         end
+     return if current_page_index <= 0
+    
+     @previous_page ||= @collection_pages[current_page_index - 1]
     end
 
   private

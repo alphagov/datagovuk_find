@@ -125,16 +125,9 @@ RSpec.describe Dgu::CollectionsService, type: :service do
       )
     end
 
-    it "returns the first page when on the last page" do
+    it "returns nil when on the last page" do
       service = Dgu::CollectionsService.new(collection, last_page)
-      expect(service.next_page).to eq(
-        {
-          selected: false,
-          slug: "get-company-information",
-          title: "Get company information",
-          url: "/collections/business-and-economy/get-company-information",
-        },
-      )
+      expect(service.next_page).to eq(nil)
     end
   end
 
