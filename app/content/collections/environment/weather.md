@@ -10,7 +10,7 @@ dataset:
   url: https://climate-themetoffice.hub.arcgis.com
   link-text: Met Office Climate Data Portal
 page-last-updated:
-visualisation-data: weather/uk-monthly-max-temperature.json
+visualisation-data: weather/uk-mean-temperature.json
 contact:
 status: for-publication
 ---
