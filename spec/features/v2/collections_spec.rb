@@ -13,7 +13,7 @@ RSpec.feature "collections", type: :feature do
   end
 
   def and_the_download_chart_data_link_exists
-    expect(page).to have_link("Download the chart data", href: "/charts/inflation/inflation-1989-2025/download")
+    expect(page).to have_link("Download the chart data", href: "/collections/business-and-economy/inflation/charts/inflation-1989-2025.csv")
   end
 
   def and_i_can_see_the_main_links
