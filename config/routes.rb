@@ -61,6 +61,6 @@ Rails.application.routes.draw do
     match "*path",
           to: redirect(domain: ENV["CKAN_DOMAIN"], subdomain: "", path: "/%{path}"),
           via: :all,
-          constraints: { path: /(?!#{Regexp.quote(Rails.application.config.assets.prefix[1..])}).+/ }
+          constraints: { path: /(?!#{Regexp.quote(Rails.application.config.assets.prefix[1..])})(publish|dataset\/edit|user\/login).*/ }
   end
 end

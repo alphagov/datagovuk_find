@@ -101,5 +101,12 @@ RSpec.describe "CKANRouter" do
 
       expect(response).to redirect_to(location)
     end
+
+    it "routes GET /user/login to CKAN domain" do
+      get "/user/login"
+      location = "http://testdomain/user/login"
+
+      expect(response).to redirect_to(location)
+    end
   end
 end
