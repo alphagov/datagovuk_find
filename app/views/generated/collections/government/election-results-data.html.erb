@@ -6,6 +6,28 @@
 <p class="govuk-body-m datagovuk-body">There are dedicated tables for members, parties and constituencies. These allow you to view the candidacies of former and current MPs, compare each party&rsquo;s historical performance at general elections and by-elections, and view any constituency’s results at each election.</p>
 </section>
 
+  
+<section class="govuk-section datagovuk-section">
+  <h2 class="govuk-heading-m datagovuk-heading-m">2024 Vote share by party (%)</h2>
+  <div class="govuk-grid-row bar-chart">
+    <div id="chart-1" style="height: 600px; width: 100%; text-align: center; color: #999; line-height: 600px; font-size: 14px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;">Loading...</div>
+<script nonce="CgliNhVSNHWOXDBvYP9HNIvb3BH1CaHZFC8cCeTEnIA=">
+  (function() {
+    if (document.documentElement.hasAttribute("data-turbolinks-preview")) return;
+    if (document.documentElement.hasAttribute("data-turbo-preview")) return;
+
+    var createChart = function() { new Chartkick["BarChart"]("chart-1", [["Labour",33.7],["Conservative",23.7],["Liberal Democrat",12.22],["SNP",2.52],["Sinn Féin",0.73],["Reform UK",14.29],["DUP",0.6],["Green Party",6.4],["Plaid Cymru",0.68],["SDLP",0.3],["Alliance",0.41],["UUP",0.33],["TUV",0.17]], {"colors":["#C27A9A"],"aspectRatio":2,"library":{"indexAxis":"y","responsive":true,"maintainAspectRatio":false,"layout":{"padding":{"left":20,"right":20,"top":20,"bottom":20}},"plugins":{"datalabels":{"display":true,"anchor":"end","align":"right","offset":3,"clip":false,"color":"#5D5D5D","font":{"family":"Inter, sans-serif","size":15,"weight":"bold"}},"legend":{"display":false},"tooltip":{"bodyFont":{"size":20,"family":"Inter, sans-serif","weight":"bold"},"titleFont":{"size":20,"family":"Inter, sans-serif","weight":"bold"}}},"scales":{"x":{"grid":{"display":true,"drawTicks":false},"border":{"width":1,"color":"#5D5D5D","dash":[5,5]},"ticks":{"display":false}},"y":{"border":{"width":1,"color":"#5D5D5D"},"ticks":{"font":{"size":15,"family":"Inter, sans-serif"}}}}},"dataset":{"hoverBackgroundColor":"#C27A9A","backgroundColor":"#C27A9A","hoverBorderColor":"#C27A9A","borderWidth":0}}); };
+    if ("Chartkick" in window) {
+      createChart();
+    } else {
+      window.addEventListener("chartkick:load", createChart, true);
+    }
+  })();
+</script>
+
+  </div>
+    <p class="govuk-body datagovuk-body"><a href="/charts/vote-share/vote-share-at-least-1-seat-won/download" class="govuk-link datagovuk-link">Download the chart data</a></p>
+</section>
 
 <div class="govuk-inset-text datagovuk-feedback-inset-text">
   <p class="govuk-body datagovuk-body">
@@ -19,9 +41,8 @@
 <section class="datagovuk-link datagovuk-section" aria-label="Get the data links">
     <section class="datagovuk-section">
         <h3 class="govuk-heading-m datagovuk-heading-m">Get the data</h3>
-          <a role="button" class="govuk-button datagovuk-button" rel="nofollow" href="https://electionresults.parliament.uk/">
-            Election results data <span class="datagovuk-right-arrow">&#8594;</span>
-</a>    </section>
+          <a role="button" class="govuk-button datagovuk-button" rel="nofollow" href="https://electionresults.parliament.uk/">Election results data <span class="datagovuk-right-arrow">&#8594;</span></a>
+    </section>
     <section class="datagovuk-section">
     </section>
 </section>

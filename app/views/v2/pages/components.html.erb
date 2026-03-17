@@ -62,7 +62,7 @@
 
   <%= render partial: "v2/collection/charts/bar_chart", locals: {
     title: @bar_chart["title"],
-    bar_chart: @bar_chart,
+    data: @bar_chart["data"],
     download: @bar_chart["download"],
     size: 15
   } %>
