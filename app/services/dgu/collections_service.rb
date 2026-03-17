@@ -58,7 +58,12 @@ module Dgu
     end
 
     def previous_page
-      @previous_page ||= @collection_pages[current_page_index - 1]
+      previous_page_index = current_page_index - 1
+      if previous_page_index < 0
+        @previous_page ||= nil
+      else
+        @previous_page ||= @collection_pages[current_page_index - 1]
+      end
     end
 
   private

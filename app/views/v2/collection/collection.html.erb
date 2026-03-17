@@ -19,14 +19,16 @@
             <%= render template: @view_template, locals: { collections: @collections } %>
 
             <nav class="datagovuk-collection-pagination">
-              <a class="govuk-grid-column-one-half datagovuk-collection-pagination__card" href="<%= @previous_page[:url] %>">
-                <div class="datagovuk-collection-pagination__card-inner">
-                  <%= image_tag "v2/icons/arrow.svg", class: "datagovuk-collection-pagination__arrow datagovuk-collection-pagination__arrow--previous", alt: "" %>
-                  <p class="govuk-body datagovuk-body">
-                    <%= @previous_page[:title] %>
-                  </p>
-                </div>
-              </a>
+              <% if @previous_page %>
+                <a class="govuk-grid-column-one-half datagovuk-collection-pagination__card" href="<%= @previous_page[:url] %>">
+                  <div class="datagovuk-collection-pagination__card-inner">
+                    <%= image_tag "v2/icons/arrow.svg", class: "datagovuk-collection-pagination__arrow datagovuk-collection-pagination__arrow--previous", alt: "" %>
+                    <p class="govuk-body datagovuk-body">
+                      <%= @previous_page[:title] %>
+                    </p>
+                  </div>
+                </a>
+              <% end %>
               <a class="govuk-grid-column-one-half datagovuk-collection-pagination__card" href="<%= @next_page[:url] %>">
                 <div class="datagovuk-collection-pagination__card-inner">
                   <%= image_tag "v2/icons/arrow.svg", class: "datagovuk-collection-pagination__arrow datagovuk-collection-pagination__arrow--next", alt: "" %>
