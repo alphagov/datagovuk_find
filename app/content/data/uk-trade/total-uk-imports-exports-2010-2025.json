@@ -1,0 +1,53 @@
+{
+  "title": "Total UK exports and imports in goods and services 2010 to 2025",
+  "visualisation_type": "line",
+  "source": "https://www.gov.uk/government/statistics/uk-trade-in-numbers/uk-trade-in-numbers-web-version",
+  "download": "uk-trade/total-uk-imports-exports",
+  "publisher": "Department for Business and Trade",
+  "series": [
+    {
+      "name": "Value of exports in £ millions",
+      "color": "#C27A9A",
+      "data": {
+        "2010": "464495",
+        "2011": "522107",
+        "2012": "525113",
+        "2013": "540436",
+        "2014": "534994",
+        "2015": "537513",
+        "2016": "582613",
+        "2017": "649590",
+        "2018": "691740",
+        "2019": "718759",
+        "2020": "636325",
+        "2021": "680291",
+        "2022": "879121",
+        "2023": "878278",
+        "2024": "897916",
+        "2025": "925541"
+       }
+    },
+    {
+      "name": "Value of imports in £ millions",
+      "color": "#00890B",
+      "data": {
+        "2010":"",
+        "2011":"",
+        "2012":"",
+        "2013":"",
+        "2014":"",
+        "2015":"",
+        "2016":"",
+        "2017":"",
+        "2018":"",
+        "2019":"",
+        "2020":"",
+        "2021":"",
+        "2022":"",
+        "2023":"",
+        "2024":"",
+        "2025":""
+       }
+    }
+  ]
+}

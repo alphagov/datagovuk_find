@@ -6,7 +6,7 @@ websites:
 api:
 dataset:
 page-last-updated:
-visualisation-data:
+visualisation-data: uk-trade/total-uk-imports-exports-2010-2025.json
 contact:
 status: for-publication
 ---

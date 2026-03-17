@@ -107,6 +107,22 @@ Values represent the cumulative total woodland area in the UK at each year, **no
 The file [forest-and-woodlands/woodland-area.json](forest-and-woodlands/woodland-area.json) uses the data from the csv file as its `series.data` object.
 
 
+### UK Trade
+
+The source webpage for the data is [https://www.gov.uk/government/statistics/uk-trade-in-numbers/uk-trade-in-numbers-web-version](https://www.gov.uk/government/statistics/uk-trade-in-numbers/uk-trade-in-numbers-web-version)
+
+The visualisation data was extracted from an .ods download file on ONS date from that page.
+
+[https://assets.publishing.service.gov.uk/media/698eec9975466636847f6ab9/uk-exports-and-imports-seasonally-adjusted-current-prices.ods](https://assets.publishing.service.gov.uk/media/698eec9975466636847f6ab9/uk-exports-and-imports-seasonally-adjusted-current-prices.ods)
+ 
+The data was save here as a csv file:
+
+[uk-trade/total-uk-imports-exports.csv](uk-trade/total-uk-imports-exports.csv)
+
+
+The file [uk-trade/total-uk-imports-exports-2010-2025.json](uk-trade/total-uk-imports-exports-2010-2025.json) uses the data from the csv file as its two `series` objects.
+
+
 ***
 
 
