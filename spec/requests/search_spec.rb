@@ -19,5 +19,16 @@ RSpec.describe "Search", type: :request do
     it "renders the search page" do
       expect(response.body).to include("Search results")
     end
+
+    context "when there are no search results" do
+      before do
+        allow(Search::Solr).to receive(:search).and_return({ "response" => { "numFound" => 0, "docs" => [] } })
+        get search_path
+      end
+
+      it "does not display any search results" do
+        expect(response.body).to match(/<span class="govuk-body-s govuk-!-font-weight-bold">0<\/span>\s+results found/)
+      end
+    end
   end
 end

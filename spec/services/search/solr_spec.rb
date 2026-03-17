@@ -20,10 +20,17 @@ RSpec.describe Search::Solr do
 
   describe "#search" do
     let(:response) { File.read(Rails.root.join("spec/fixtures/solr_response.json").to_s) }
-    let(:results) { described_class.search("q" => "") }
+    let(:results) { described_class.search("q" => "interesting dataset") }
 
     before do
       allow_any_instance_of(RSolr::Client).to receive(:get).and_return(JSON.parse(response))
+    end
+
+    context "when the q param is empty" do
+      let(:results) { described_class.search("q" => "") }
+      it "returns a response with no search terms" do
+        expect(results["response"]["numFound"]).to eq(0)
+      end
     end
 
     it "returns a response if q param is missing" do
@@ -187,7 +194,7 @@ RSpec.describe Search::Solr do
 
   describe "#query_solr" do
     let(:response) { File.read(Rails.root.join("spec/fixtures/solr_response.json").to_s) }
-    let(:results) { described_class.search("q" => "") }
+    let(:results) { described_class.search("q" => "interesting dataset") }
     let(:requested_fields) { %w[id name title organization notes metadata_modified extras_theme-primary validated_data_dict] }
 
     before do
@@ -211,6 +218,14 @@ RSpec.describe Search::Solr do
       dataset = results["response"]["docs"].first
       requested_fields.each do |field|
         expect(dataset[field]).not_to be_empty
+      end
+    end
+
+    context "when there are no search terms" do
+      let(:results) { described_class.search("q" => "") }
+
+      it "returns a response with no search terms" do
+        expect(results["response"]["numFound"]).to eq(0)
       end
     end
   end
@@ -270,12 +285,23 @@ RSpec.describe Search::Solr do
   end
 
   describe ".build_term_query" do
-    it "returns special syntax that requests all documents in the index, if q param is missing" do
-      term_query = described_class.build_term_query(
-        "",
-      )
+    context "when the query is empty" do
+      it "returns an empty string" do
+        term_query = described_class.build_term_query(
+          "",
+        )
 
-      expect(term_query).to eq("*:*")
+        expect(term_query).to eq("")
+      end
+    end
+
+    it "returns a solr query for a single search term" do
+      term_query = described_class.build_term_query(
+        "dataset",
+      )
+      expect(term_query).to eq(
+        "(title:(dataset)^2 OR notes:(dataset)) AND NOT site_id:dgu_organisations",
+      )
     end
 
     it "returns a solr query for multiple search terms" do

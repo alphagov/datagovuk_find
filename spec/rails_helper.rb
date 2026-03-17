@@ -6,6 +6,7 @@ require "spec_helper"
 ENV["RAILS_ENV"] ||= "test"
 ENV["CKAN_DOMAIN"] ||= "testdomain"
 ENV["SOLR_URL"] ||= "http://localhost:8983/solr"
+# ENV["SOLR_URL"] ||= "http://localhost:8983/solr/ckan" when running with docker compose stack ckan-next
 ENV["RATE_LIMIT_COUNT"] ||= "1"
 ENV["RATE_LIMIT_PERIOD"] ||= "60"
 
