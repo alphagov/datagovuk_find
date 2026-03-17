@@ -1,25 +1,42 @@
+/* Desktop styling overrides */
+@media (min-width: $desktop-breakpoint) {
+  .datagovuk-collection-pagination {
+    display: flex;
+    align-items: stretch;
+    gap: 3em;
+  }
+  
+  .datagovuk-collection-pagination .govuk-grid-column-one-half {
+    padding: 0;
+  }
+}
+
 .datagovuk-collection-pagination__card {
   background-color: $datagovuk-light-green;
-  padding: 40px;
   border-radius: 30px;
+  padding-right: 0;
   margin-bottom: 2em;
-  margin-right: 1em;
-}
-
-.datagovuk-collection-pagination__link {
   text-decoration: none;
+  display: inline-block;
 }
 
-.datagovuk-collection-pagination__link:hover {
+.datagovuk-collection-pagination__card:hover {
   text-decoration: underline;
 }
 
-.datagovuk-collection-pagination {
-  display: flex;
-  align-items: stretch;
+.datagovuk-collection-pagination__card:active {
+  color: $datagovuk-black;
 }
 
-.datagovuk-collection-pagination .govuk-grid-column-one-half {
-  padding: 0;
-  padding-right: 15px;
+.datagovuk-collection-pagination__card-inner {
+  margin: 3em 2em;
+}
+
+
+.datagovuk-collection-pagination__arrow {
+  margin-bottom: 2em;
+}
+
+.datagovuk-collection-pagination__arrow--next {
+  rotate: 180deg;
 }
