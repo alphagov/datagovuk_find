@@ -8,6 +8,7 @@ RSpec.describe Dgu::CollectionsService, type: :service do
   let(:collection) { "business-and-economy" }
   let(:page) { "get-charity-information" }
   let(:first_page) { "get-company-information" }
+  let(:last_page) { "inflation" }
 
   describe "#initialize" do
     it "sets the collection and page_name attributes" do
@@ -95,6 +96,7 @@ RSpec.describe Dgu::CollectionsService, type: :service do
       expect(service.collection_pages).to include({
         url: "/collections/#{collection}/#{page}",
         title: "Get charity information",
+        slug: "get-charity-information",
         selected: false,
       })
     end
@@ -107,6 +109,51 @@ RSpec.describe Dgu::CollectionsService, type: :service do
 
         expect(service.page).to eq(page)
       end
+    end
+  end
+
+  describe "#next_page" do
+    it "returns the next page when on the first page" do
+      service = Dgu::CollectionsService.new(collection, first_page)
+      expect(service.next_page).to eq(
+        {
+          :selected=>false,
+          :slug=>"get-charity-information",
+          :title=>"Get charity information",
+          :url=>"/collections/business-and-economy/get-charity-information"
+        }
+      )
+    end
+
+    it "returns the first page when on the last page" do
+      service = Dgu::CollectionsService.new(collection, last_page)
+      expect(service.next_page).to eq(
+        {
+          :selected=>false,
+          :slug=>"get-company-information",
+          :title=>"Get company information",
+          :url=>"/collections/business-and-economy/get-company-information"
+        }
+      )
+    end
+  end
+
+  describe "#previous_page" do
+    it "returns nil when on the first page" do
+      service = Dgu::CollectionsService.new(collection, first_page)
+      expect(service.previous_page).to eq(nil)
+    end
+
+    it "returns the previous page when on the last page" do
+      service = Dgu::CollectionsService.new(collection, last_page)
+      expect(service.previous_page).to eq(
+        {
+          :selected=>false,
+          :slug=>"bank-of-england-interest-rates",
+          :title=>"Bank of England interest rates",
+          :url=>"/collections/business-and-economy/bank-of-england-interest-rates"
+        }
+      )
     end
   end
 end
