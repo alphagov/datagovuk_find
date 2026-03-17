@@ -11,4 +11,4 @@ contact:
 status: for-publication
 ---
 
-Search GOV.UK for transparency data by entering a keyword or filtering by topic, public sector organisation, world location or date of update. The data includes over 21,000 releases, the earliest going back to 1998. You can filter results by date or most viewed.
+Search GOV.UK for transparency data by entering a keyword or filtering by topic, public sector organisation, world location or date of update. The data includes over 21,000 releases, the earliest going back to 1998. You can filter results by date or most viewed. Data transparency is the practice of making information about data collection, usage, storage and sharing clear, accessible and understandable.
