@@ -117,11 +117,11 @@ RSpec.describe Dgu::CollectionsService, type: :service do
       service = Dgu::CollectionsService.new(collection, first_page)
       expect(service.next_page).to eq(
         {
-          :selected=>false,
-          :slug=>"get-charity-information",
-          :title=>"Get charity information",
-          :url=>"/collections/business-and-economy/get-charity-information"
-        }
+          selected: false,
+          slug: "get-charity-information",
+          title: "Get charity information",
+          url: "/collections/business-and-economy/get-charity-information",
+        },
       )
     end
 
@@ -129,11 +129,11 @@ RSpec.describe Dgu::CollectionsService, type: :service do
       service = Dgu::CollectionsService.new(collection, last_page)
       expect(service.next_page).to eq(
         {
-          :selected=>false,
-          :slug=>"get-company-information",
-          :title=>"Get company information",
-          :url=>"/collections/business-and-economy/get-company-information"
-        }
+          selected: false,
+          slug: "get-company-information",
+          title: "Get company information",
+          url: "/collections/business-and-economy/get-company-information",
+        },
       )
     end
   end
@@ -148,11 +148,11 @@ RSpec.describe Dgu::CollectionsService, type: :service do
       service = Dgu::CollectionsService.new(collection, last_page)
       expect(service.previous_page).to eq(
         {
-          :selected=>false,
-          :slug=>"bank-of-england-interest-rates",
-          :title=>"Bank of England interest rates",
-          :url=>"/collections/business-and-economy/bank-of-england-interest-rates"
-        }
+          selected: false,
+          slug: "bank-of-england-interest-rates",
+          title: "Bank of England interest rates",
+          url: "/collections/business-and-economy/bank-of-england-interest-rates",
+        },
       )
     end
   end
