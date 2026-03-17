@@ -60,9 +60,9 @@ module Dgu
     end
 
     def previous_page
-     return if current_page_index <= 0
-    
-     @previous_page ||= @collection_pages[current_page_index - 1]
+      return if current_page_index <= 0
+
+      @previous_page ||= @collection_pages[current_page_index - 1]
     end
 
   private
