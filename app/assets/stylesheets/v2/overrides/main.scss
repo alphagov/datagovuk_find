@@ -90,7 +90,23 @@
   font-family: 'Inter', sans-serif;
 }
 
+/* 
+  Necessary to override this media query provided by govuk styling; 
+  ensure margins until we hit 1160px where we use auto/auto 
+*/
+@media (min-width: 1020px) {
+  .datagovuk-width-container {
+    margin-right: 30px;
+    margin-left: 30px;
+  }
+}
 
+@media (min-width: 1160px) {
+  .datagovuk-width-container {
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
 
 /* Desktop styling overrides */
 @media (min-width: $desktop-breakpoint) {
