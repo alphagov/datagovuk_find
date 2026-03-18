@@ -4,6 +4,7 @@ This manual is mainly for people who work with data in government, arm’s lengt
 It links to current data guidance and resources on GOV.UK and other trusted bodies like the Information Commissioner’s Office and National Cyber Security Centre.
 
 You’ll find these links helpful if:
+
 - you want to know more about data in government – including how it should be managed, used, protected and shared
 - you’re developing a system or service that processes or shares data
 - you're working on a project that’s about data or driven by data – for example, if it involves AI or algorithmic tools
