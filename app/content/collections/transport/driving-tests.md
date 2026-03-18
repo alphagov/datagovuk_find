@@ -20,4 +20,4 @@ Explore a data collection about the number of theory and driving tests taken in 
 - approved driving instructor (ADI) qualifying test data 
 - driving instructor and motorcycle instructor register data 
 
-This data is published by the Driver and Vehicle Standards Agency. 
+This data is published by the Driver and Vehicle Standards Agency (DVLA). 

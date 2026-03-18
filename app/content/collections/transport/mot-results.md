@@ -1,5 +1,5 @@
 ---
-title: MOT results
+title: MOT test results
 websites:
   - url: https://www.gov.uk/government/statistical-data-sets/mot-testing-data-for-great-britain
     link-text: MOT test results
@@ -11,7 +11,7 @@ contact:
 status: for-publication
 ---
 
-A range of datasets about MOT testing in Great Britain, including results by vehicle type, failures by type of defect, and MOT test stations and testers. Datasets include: 
+Access a range of aggregated datasets about MOT testing in Great Britain, including results by vehicle type, failures by type of defect, and MOT test stations and testers. Datasets include: 
 
 - MOT results by class of vehicle (updated every 3 months)
 - initial failures by defect category (updated every 3 months)
