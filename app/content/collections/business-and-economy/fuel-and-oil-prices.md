@@ -11,4 +11,4 @@ contact:
 status: for-publication
 ---
 
-Monthly and annual prices of road fuels and fuels used for home heating, plus an index of crude oil prices. View the data online or download the spreadsheet. This dataset is owned by the Department for Energy Security and Net Zero.
+Explore monthly and annual prices of road fuels and fuels used for home heating, plus an index of crude oil prices. Monthly data is available back to 1989 and annual data back to 1977. View the data online or download it as an XLSX file. This dataset is owned by the Department for Energy Security and Net Zero.
