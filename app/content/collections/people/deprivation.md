@@ -17,7 +17,7 @@ contact:
 status: for-publication
 ---
 
-Get statistics on deprivation in England. Deprivation refers to people’s unmet needs, a lack of access to opportunities and resources which we might expect in our society. Search by postcode or use an interactive map to explore deprivation patterns and compare areas, including by local authority district or smaller neighbourhoods. You can customise your view by selecting the overall measure of deprivation (known as the Index of Multiple Deprivation) or a specific type of deprivation: 
+Get statistics on deprivation in England. Deprivation refers to people’s unmet needs, a lack of access to opportunities and resources which we might expect in our society. Enter a postcode or use an interactive map to explore deprivation patterns and compare areas, including by local authority district or smaller neighbourhoods. You can customise your view to see the overall measure of deprivation (known as the Index of Multiple Deprivation) or a specific type of deprivation:
 
 - income
 - employment
@@ -29,4 +29,4 @@ Get statistics on deprivation in England. Deprivation refers to people’s unmet
 - income deprivation affecting children
 - income deprivation affecting old people 
 
-You can download the data in Excel, CSV or JSON format. There are separate pages with the indices of deprivation for the other UK nations.
+You can download the data in XLSX, CSV or JSON format. There are separate pages with the indices of deprivation for the other UK nations. 

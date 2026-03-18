@@ -24,8 +24,6 @@ Use this service to find out:
 - the possible causes of flooding
 - how to manage flood risk 
 
-Search a postcode to learn the flood risk of the land in that area (excluding buildings). Results include the chance of flooding from surface water, river and the sea, groundwater and reservoirs. Projections are both yearly and longer term – typically looking 2 to 4 decades ahead – with the risk based on very low, low, medium and high chance. 
+Enter a postcode to learn the flood risk of the land in that area (excluding buildings). Results include the chance of flooding from surface water, river and the sea, groundwater and reservoirs. Projections are both yearly and longer term (2 to 4 decades ahead) with the risk based on very low, low, medium and high chance. 
 
-There are separate searches for Scotland and Wales, based on postcode, or for Northern Ireland view an interactive map of areas prone to flooding. 
-
-There’s also a service to get flood risk information for planning applications in England. You can use the service to find out if you need a flood risk assessment, download a flood map and request flood risk data.
+There are separate searches for Scotland and Wales, based on postcode, or for Northern Ireland view an interactive map of areas prone to flooding. There’s also a service to get flood risk information for planning applications in England. You can use the service to find out if you need a flood risk assessment, download a flood map and request flood risk data.

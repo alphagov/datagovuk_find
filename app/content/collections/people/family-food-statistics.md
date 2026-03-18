@@ -15,9 +15,11 @@ contact:
 status: for-publication
 ---
 
-Get annual statistics about food and drink purchases in the UK. The statistics come from ‘Family Food’, an annual publication by the Department for Environment, Food and Rural Affairs that uses data collected from a sample of UK households. The datasets for each year since 2011 include detailed information on purchased quantities and expenditure derived from both household and eating out food and drink. 
+Get annual statistics about food and drink purchases in the UK, including detailed information on purchased quantities, expenditure and nutrient intakes since 2011. The data covers both household and eating out food and drink. The statistics come from ‘Family Food’, an annual publication by the Department for Environment, Food and Rural Affairs that uses data collected from a sample of UK households. 
 
-For older data, you can:
+For older data, you can: 
 
 - view the Family Food publications for 2002 to 2010 on the National Archive
-- download a dataset with data from the National Food Survey from 1974 to 2000
+- download a dataset with data from the National Food Survey from 1974 to 2000 
+
+These datasets are available in various formats including HTML, PDF, CSV, XLS and ODS. 

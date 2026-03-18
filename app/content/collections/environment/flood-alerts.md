@@ -2,7 +2,7 @@
 title: Flood alerts
 websites:
   - url: https://check-for-flooding.service.gov.uk/alerts-and-warnings
-    link-text: Flood alerts and warnings
+    link-text: Flood alerts
 api:
 dataset:
 page-last-updated:
