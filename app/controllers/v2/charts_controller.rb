@@ -3,6 +3,7 @@ module V2
     ALLOWED_EXTENSIONS = %w[.csv .xlsx .xls].freeze
 
     def download
+      expires_in 30.minutes, public: true
       if chart_files.any?
         file_path = chart_files.first
         file_extension = File.extname(file_path).delete(".")

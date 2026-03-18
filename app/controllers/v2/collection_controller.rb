@@ -5,6 +5,7 @@ module V2
     rescue_from Dgu::CollectionNotFound, with: :render_not_found
 
     def collection_page
+      expires_in 30.minutes, public: true
       unless collections_service.valid_collection_page?
         render_not_found && return
       end
@@ -20,6 +21,7 @@ module V2
     end
 
     def collection
+      expires_in 30.minutes, public: true
       redirect_to collections_service.priority_page
     end
 
