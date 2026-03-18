@@ -33,11 +33,11 @@ RSpec.describe "CKAN redirection", type: :request do
 
   context "with an unknown path" do
     let(:path) { "/an/unknown/path" }
-    include_examples "does redirect to CKAN"
+    include_examples "doesn't redirect to CKAN"
   end
 
   context "with an unknown path that includes 'find-assets'" do
     let(:path) { "/an/unknown/path/find-assets/application" }
-    include_examples "does redirect to CKAN"
+    include_examples "doesn't redirect to CKAN"
   end
 end

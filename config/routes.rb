@@ -51,6 +51,7 @@ Rails.application.routes.draw do
     }
     match "404", to: "errors#not_found", via: :all
     match "500", to: "errors#internal_server_error", via: :all
+    match "500-test", to: "errors#internal_server_error_test", via: :all
   end
 
   get "search/", to: "search#search"
@@ -60,11 +61,11 @@ Rails.application.routes.draw do
 
   get "acknowledge", to: "messages#acknowledge"
 
-  # Route everything else to CKAN
+  # Route an allow list of base paths to CKAN
   if ENV["CKAN_DOMAIN"].present?
     match "*path",
           to: redirect(domain: ENV["CKAN_DOMAIN"], subdomain: "", path: "/%{path}"),
           via: :all,
-          constraints: { path: /(?!#{Regexp.quote(Rails.application.config.assets.prefix[1..])}).+/ }
+          constraints: { path: /(?!#{Regexp.quote(Rails.application.config.assets.prefix[1..])})(dataset\/edit|user|api|harvest).*/ }
   end
 end
