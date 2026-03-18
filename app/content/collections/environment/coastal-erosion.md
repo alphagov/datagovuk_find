@@ -11,12 +11,12 @@ contact:
 status: for-publication
 ---
 
-The National Coastal Erosion Risk Map shows projected areas at risk from erosion. The erosion risk zones are created by splitting the coastline into ‘frontages’ – lengths of coast with consistent characteristics based on location, cliff behaviour characteristics and defence characteristics. 
+View the National Coastal Erosion Risk Map which shows projected areas in the UK at risk from erosion. The erosion risk zones are created by splitting the coastline into ‘frontages’ – lengths of coast with consistent characteristics based on location, cliff behaviour characteristics and defence characteristics.
 
 This dataset is intended to be an up-to-date and reliable benchmark that shows erosion risk extents for:
 
 - the medium term (up to 2055) and long term (up to 2105)
-- 2 management scenarios – with shoreline management plans delivered and no future intervention
+- 2 management scenarios – with shoreline management plans delivered, and with no future intervention
 - 3 climate scenarios – Present Day, Higher Central and Upper End 
 
-The data is owned by the Department for Environment, Food and Rural Affairs (DEFRA) and available under the Open Government Licence (OGL).
+The data is owned by the Department for Environment, Food and Rural Affairs.

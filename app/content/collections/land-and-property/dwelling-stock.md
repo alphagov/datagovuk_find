@@ -2,7 +2,7 @@
 title: Dwelling stock (including vacancies)
 websites:
   - url: https://www.gov.uk/government/statistical-data-sets/live-tables-on-dwelling-stock-including-vacants
-    link-text: Dwelling stock data
+    link-text: Dwelling stock
 api:
 dataset:
 page-last-updated:
@@ -11,14 +11,4 @@ contact:
 status: for-publication
 ---
 
-Get the latest data tables including: 
-
- - the number of dwellings by tenure and district, England 
- - by tenure and region, from 1991
- - Private Registered Provider stock, by district, from 1997 
- - local authority dwelling stock, by district, England, from 1979 
-
-There are also live tables on vacant stock: 
-
-- local authority vacant dwellings, England, from 1980
-- vacant dwellings by local authority district: England, from 2004
+Dwelling stock represents the total number of residential properties in a given area. The Ministry of Housing, Communities and Local Government publishes various data for England in ODS format. The data includes the number of dwellings by tenure and district in England since 2009, and local authority dwelling stock by English district from 1979. You can also explore the data for local authority vacant dwellings in England from 1980, and access discontinued tables with data that includes the other UK nations.

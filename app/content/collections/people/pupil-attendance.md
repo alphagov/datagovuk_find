@@ -15,16 +15,6 @@ contact:
 status: for-publication
 ---
 
-A collection of statistics on pupil attendance and pupil absence in state-funded primary, secondary and special schools in England. For the latest pupil attendance data, the Department of Education (DfE) publishes a fortnightly release. There are also yearly statistics for:
+Explore a collection of statistics on pupil attendance and pupil absence in state-funded primary, secondary and special schools in England. For the latest pupil attendance data, the Department of Education (DfE) publishes a fortnightly release. There are also yearly statistics for the autumn term, autumn and spring term combined, and full year since 2009-10. Each release has information on the levels of overall, authorised and unauthorised absence in state-funded schools. This includes the reasons for absence, absence by pupil characteristic and rates of persistent and severe absence. 
 
-- pupil absence autumn term release – since 2009
-- pupil absence autumn and spring term combined release – since 2009-10
-- pupil absence full year release – since 2009-10 
-
-Each release has information on the levels of overall, authorised and unauthorised absence in state-funded schools. It includes:
-
-- reasons for absence
-- absence by pupil characteristic
-- rates of persistent and severe absence 
-
-The data since 2020 is available on the DfE’s education statistics explorer. Here you can get statistical summaries, create your own data tables, browse a data catalogue and download all the data as a zip file.
+For data since 2020, you can also use the DfE’s education statistics explorer to get statistical summaries, browse a data catalogue and download all the data as a ZIP file.
