@@ -33,6 +33,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <%= stylesheet_link_tag 'application' %>
+    <%= stylesheet_link_tag 'v2/application' %>
     <%= csrf_meta_tags %>
 
     <%= yield :head %>
@@ -48,12 +49,16 @@
 
     <%= render "govuk_publishing_components/components/skip_link", {} %>
 
+    <div class="datagovuk-directory-header">
+      <%= render partial: "v2/header", locals: {collections: @collections, data_manual_pages: @data_manual_pages} %>
+    </div>
+
     <header role="banner" class="govuk-header" data-module="govuk-header">
       <div class="govuk-header__container govuk-width-container">
         <div class="govuk-grid-row">
           <div class="govuk-header__logo govuk-grid-column-one-half">
             <a href="<%= root_path %>" class="govuk-header__link govuk-header__link--homepage">
-                <%= t('.data_gov_uk')%> <%= t('.directory') %>
+                Directory
               </a>
           </div>
           <div class="govuk-grid-column-one-half">
