@@ -23,4 +23,4 @@ Get the latest immigration statistics published by the Home Office for every qua
 - how many people are granted settlement or citizenship
 - how many people are detained in the UK and returned from the UK 
 
-There’s a separate page with all the data tables that make up the immigration system statistics.
+There’s a separate page with all the data tables that make up the immigration system statistics. You can download the data in CSV or XLSX format.
