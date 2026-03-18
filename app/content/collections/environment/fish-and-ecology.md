@@ -11,4 +11,4 @@ contact:
 status: for-publication
 ---
 
-Use the Ecology & Fish Data Explorer to search, filter and download the Environment Agency's fish and ecology open data. Select from 7 datasets, specify a date range and define the area of interest. You can then refine the results and download them as a zip file containing CSV files for each of the datasets.
+Use the Ecology and Fish Data Explorer to search, filter and download the Environment Agency's fish and ecology open data. Select from 7 datasets, specify a date range and define the area of interest. You can then refine the results and download them as a ZIP file containing CSV files for each of the datasets.
