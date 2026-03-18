@@ -11,92 +11,90 @@
   file_name = local_assigns[:file_name] || ""
 %>
 
-<section class="govuk-section datagovuk-section">
-  <h2 class="govuk-heading-m datagovuk-heading-m"><%= local_assigns[:title] %></h2>
+<h2 class="govuk-heading-m datagovuk-heading-m"><%= local_assigns[:title] %></h2>
 
-  <div class="govuk-grid-row line-chart">
-    <%= line_chart data_series, suffix: suffix,
-    points: true,
-    dataset: {
-      empty: empty_description,
-      tension: 0.5,
-      pointRadius: 0,
-      pointHoverRadius: 10
-    },
-    library: {
-      plugins: { 
-        datalabels: {
-          display: false
-        },
-        legend: {
-          display: display_legend,
-          labels: {
-            color: "#5D5D5D",
-            font: {
-              size: 20,
-              family: "Inter, sans-serif",
-              weight: "bold"
-            },
-            padding: 30,
-            usePointStyle: true
-          }
-        },
-        tooltip: {
-          bodyFont: {
+<div class="govuk-grid-row line-chart">
+  <%= line_chart data_series, suffix: suffix,
+  points: true,
+  dataset: {
+    empty: empty_description,
+    tension: 0.5,
+    pointRadius: 0,
+    pointHoverRadius: 10
+  },
+  library: {
+    plugins: { 
+      datalabels: {
+        display: false
+      },
+      legend: {
+        display: display_legend,
+        labels: {
+          color: "#5D5D5D",
+          font: {
             size: 20,
             family: "Inter, sans-serif",
             weight: "bold"
           },
-          titleFont: {
-            size: 20,
-            family: "Inter, sans-serif",
-            weight: "bold"
-          }
+          padding: 30,
+          usePointStyle: true
         }
       },
-      responsive: true,
-      layout: {
-        padding: {
-          top: 20,
-          bottom: 20,
-          left: 20,
-          right: 20
-        }
-      },
-      scales: {
-        y: {
-          min: min,
-          grid: {
-            display: true,
-          },
-          border: {
-            dash: [5, 5],
-          },
-          ticks: {
-            stepSize: ((max_value.ceil.to_f * 0.25) / number_base).ceil,
-            maxTicksLimit: 10,
-            autoSkip: false,
-            font: {
-              size: 20
-            }
-          },
+      tooltip: {
+        bodyFont: {
+          size: 20,
+          family: "Inter, sans-serif",
+          weight: "bold"
         },
-        x: {
-          border: {
-            display: true,
-          },
-          ticks: {
-            font: {
-              size: 20
-            }
+        titleFont: {
+          size: 20,
+          family: "Inter, sans-serif",
+          weight: "bold"
+        }
+      }
+    },
+    responsive: true,
+    layout: {
+      padding: {
+        top: 20,
+        bottom: 20,
+        left: 20,
+        right: 20
+      }
+    },
+    scales: {
+      y: {
+        min: min,
+        grid: {
+          display: true,
+        },
+        border: {
+          dash: [5, 5],
+        },
+        ticks: {
+          stepSize: ((max_value.ceil.to_f * 0.25) / number_base).ceil,
+          maxTicksLimit: 10,
+          autoSkip: false,
+          font: {
+            size: 20
           }
         },
+      },
+      x: {
+        border: {
+          display: true,
+        },
+        ticks: {
+          font: {
+            size: 20
+          }
+        }
       },
     },
-    legend: "bottom"
-    %>
-  </div>
-  <% if file_name.present? %>
-    <%= render partial: "v2/collection/charts/download_chart_data", locals: { file_name: file_name, collection_topic_path: collection_topic_path } %>
-  <% end %>
-</section>
+  },
+  legend: "bottom"
+  %>
+</div>
+<% if file_name.present? %>
+  <%= render partial: "v2/collection/charts/download_chart_data", locals: { file_name: file_name, collection_topic_path: collection_topic_path } %>
+<% end %>
