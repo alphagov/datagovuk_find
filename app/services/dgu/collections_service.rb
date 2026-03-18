@@ -65,6 +65,10 @@ module Dgu
       @previous_page ||= @collection_pages[current_page_index - 1]
     end
 
+    def title
+      @collection_pages[current_page_index][:title]
+    end
+
   private
 
     def pages
