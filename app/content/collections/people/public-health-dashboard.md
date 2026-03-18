@@ -13,7 +13,7 @@ contact:
 status: for-publication
 ---
 
-Browse the UKHSA dashboard for the latest data on:
+Browse the UK Health Security Agency (UKHSA) dashboard for the latest data on: 
 
 - outbreaks
 - respiratory viruses
@@ -29,4 +29,4 @@ Browse the UKHSA dashboard for the latest data on:
 - vaccine-preventable diseases
 - environmental hazards 
 
-Some of the data applies only to England, some is UK wide. You can view the data in chart or tabular form, and download it in CSV or JSON format.
+The data covers various time periods. Some of the data applies only to England, some is UK wide. You can view the data in chart or tabular form, and download it in CSV or JSON format.
