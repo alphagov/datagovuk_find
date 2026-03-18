@@ -11,7 +11,7 @@ contact:
 status: for-publication
 ---
 
-These open data tables are published by the Home Office and have many uses. The data relates to crime in England and Wales and includes:
+Explore a range of datasets published by the Home Office that relate to crime in England and Wales, including: 
 
 - police force area tables
 - Community Safety Partnership tables
@@ -25,4 +25,4 @@ These open data tables are published by the Home Office and have many uses. The 
 - supplementary crime outcomes metrics
 - fraud offences 
 
-The datasets cover various time periods, in some cases going back to 2003, and are available in ODS or MS Excel format.
+The datasets cover various time periods, in some cases going back to 2003, and are available in ODS or XLSX format.
