@@ -15,6 +15,7 @@ module Dgu
       @collection_pages = COLLECTION_PAGES[collection].map do |collection_page|
         {
           url: "/collections/#{@collection}/#{collection_page[:slug]}",
+          slug: collection_page[:slug],
           title: collection_page[:title],
           selected: collection_page[:slug] == page_name,
         }
@@ -52,6 +53,18 @@ module Dgu
       @priority_page ||= @collection_pages[0][:url]
     end
 
+    def next_page
+      return if current_page_index == @collection_pages.length - 1
+
+      @next_page ||= @collection_pages[current_page_index + 1]
+    end
+
+    def previous_page
+      return if current_page_index <= 0
+
+      @previous_page ||= @collection_pages[current_page_index - 1]
+    end
+
   private
 
     def pages
@@ -72,6 +85,10 @@ module Dgu
 
     def collection?(collection)
       Rails.root.join(COLLECTIONS_LOCATION, collection).exist?
+    end
+
+    def current_page_index
+      @collection_pages.index { |page| page[:slug] == @page_name }
     end
   end
 end

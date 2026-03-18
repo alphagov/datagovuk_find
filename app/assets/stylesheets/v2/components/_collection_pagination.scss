@@ -1,0 +1,44 @@
+.datagovuk-collection-pagination__card {
+  background-color: $datagovuk-light-green;
+  border-radius: 30px;
+  padding: 30px 30px;
+  margin-bottom: 40px;
+  text-decoration: none;
+  display: block;
+}
+
+.datagovuk-collection-pagination__card:hover {
+  text-decoration: underline;
+  color: $datagovuk-black;
+}
+
+.datagovuk-collection-pagination__card:active {
+  color: $datagovuk-black;
+}
+
+.datagovuk-collection-pagination__card .datagovuk-body {
+  margin-bottom: 0;
+}
+
+.datagovuk-collection-pagination__arrow {
+  margin-bottom: 30px;
+}
+
+.datagovuk-collection-pagination__arrow--next {
+  rotate: 180deg;
+}
+
+/* Desktop styling overrides */
+@media (min-width: $desktop-breakpoint) {
+  .datagovuk-collection-pagination {
+    display: flex;
+    align-items: stretch;
+    gap: 50px;
+  }
+  
+  .datagovuk-collection-pagination__card {
+    width: 50%;
+    padding: 30px 30px;
+  }
+}
+
