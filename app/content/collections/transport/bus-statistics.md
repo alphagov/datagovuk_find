@@ -11,7 +11,7 @@ contact:
 status: for-publication
 ---
 
-Data and statistics about the local bus sector in England, Scotland and Wales. The data tables include: 
+Get data and statistics about the local bus sector in England, Scotland and Wales. The data includes:
 
 - quarterly bus fares statistics
 - local bus passenger journeys
@@ -27,4 +27,4 @@ Data and statistics about the local bus sector in England, Scotland and Wales. T
 - discontinued bus statistics 
 
 
-This data is owned by the Department for Transport.
+This data is owned by the Department for Transport. The datasets cover various time periods, and you can download them in ODS or XLS format. 
