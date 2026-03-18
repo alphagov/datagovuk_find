@@ -13,6 +13,6 @@ contact:
 status: for-publication
 ---
 
-This dataset covers vocational qualifications from 2012 to the present for England. The data is owned by the Office of Qualifications and Examinations Regulation (Ofqual) and updated quarterly. The data includes certificates issued for vocational and other qualifications. (This excludes GCSEs, AS and A levels, Advanced Extension Awards, apprenticeship end-point assessments, Extended Project Qualifications and T Level Technical Qualifications.) 
+Get data on vocational qualifications from 2012 to the present for England. The data is owned by the Office of Qualifications and Examinations Regulation (Ofqual) and updated quarterly. The data includes certificates issued for vocational and other qualifications. This excludes GCSEs, AS and A levels, Advanced Extension Awards, apprenticeship end-point assessments, Extended Project Qualifications and T Level Technical Qualifications. 
 
-As well as downloading the entire dataset as a CSV, you can view and download quarterly releases for every year since 2014. Each release includes a commentary with some of the findings and trends for the quarter.
+As well as downloading the entire dataset as a CSV, you can view and download quarterly releases for every year since 2014. Each release includes a commentary with some of the findings and trends for the quarter. 
