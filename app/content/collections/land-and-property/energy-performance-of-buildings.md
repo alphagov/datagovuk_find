@@ -11,4 +11,4 @@ contact:
 status: for-publication
 ---
 
-Learn about the energy efficiency of domestic and non-domestic buildings in England and Wales that have been constructed, sold or let since 2008. The data is based on information and publications from certificates held on the Energy Performance of Buildings Register. Publications are quarterly and go back to 2014. The data is aggregated and does not comment on individual buildings.
+Get aggregated data about the energy efficiency of domestic and non-domestic buildings in England and Wales that have been constructed, sold or let since 2008. The data is based on certificates held in the Energy Performance of Buildings Register, and available in HTML or PDF format. Publications are quarterly and go back to 2014. This data is provided by the Ministry of Housing, Communities and Local Government. 
