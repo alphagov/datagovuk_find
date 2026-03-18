@@ -15,6 +15,4 @@ contact:
 status: for-publication
 ---
 
-The road traffic statistics provide estimates of the vehicle miles travelled each year in England, Scotland and Wales by vehicle type, road category and region. The Department for Transport (DfT) owns this data and publishes quarterly and annual estimates. 
-
-The DfT also has a geographical website with estimated traffic flows on every link of the ‘A’ road and motorway network in Great Britain. The interactive map provides a mapped background to identify traffic flows in specific areas of the country.
+Get road traffic statistics for England, Scotland and Wales. The data includes road traffic by vehicle type, road type and country, measured in billion vehicle miles (bvm). The data is provided by the Department for Transport and updated annually going back to 1993. On the separate datasets page, you can download traffic figures for all regions, all local authorities and all count point locations in CSV or Shapefile format. 
