@@ -57,11 +57,11 @@ Rails.application.routes.draw do
 
   get "acknowledge", to: "messages#acknowledge"
 
-  # Route everything else to CKAN
+  # Route an allow list of base paths to CKAN
   if ENV["CKAN_DOMAIN"].present?
     match "*path",
           to: redirect(domain: ENV["CKAN_DOMAIN"], subdomain: "", path: "/%{path}"),
           via: :all,
-          constraints: { path: /(?!#{Regexp.quote(Rails.application.config.assets.prefix[1..])})(publish|dataset\/edit|user\/login).*/ }
+          constraints: { path: /(?!#{Regexp.quote(Rails.application.config.assets.prefix[1..])})(dataset\/edit|user|api|harvest).*/ }
   end
 end

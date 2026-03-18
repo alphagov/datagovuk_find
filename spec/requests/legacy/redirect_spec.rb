@@ -81,20 +81,6 @@ end
 
 RSpec.describe "CKANRouter" do
   describe "routing" do
-    it "routes GET /publish to CKAN domain" do
-      get "/publish"
-      location = "http://testdomain/publish"
-
-      expect(response).to redirect_to(location)
-    end
-
-    it "routes GET /publish?id=123 to CKAN domain and retains query string" do
-      get "/publish?id=123"
-      location = "http://testdomain/publish?id=123"
-
-      expect(response).to redirect_to(location)
-    end
-
     it "routes GET /dataset/edit/:legacy_name to CKAN domain" do
       get "/dataset/edit/some_dataset"
       location = "http://testdomain/dataset/edit/some_dataset"
