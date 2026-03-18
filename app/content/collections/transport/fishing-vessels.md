@@ -11,7 +11,7 @@ contact:
 status: for-publication
 ---
 
-Details of registered and licensed fishing vessels over 10 metres and 10 metres and under. The spreadsheets list the UK fishing vessels including: 
+Get details of registered and licensed fishing vessels in the UK. There are annual datasets from 2015 onwards for vessels over 10 metres and vessels 10 metres and under. You can download the spreadsheets in ODS or XLSX format. Each fishing vessel list includes: 
 
 - administrative port
 - home port
