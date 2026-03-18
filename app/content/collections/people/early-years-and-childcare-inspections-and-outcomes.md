@@ -11,12 +11,11 @@ contact:
 status: for-publication
 ---
 
-Get Ofsted’s official statistics on the inspections and outcomes of childcare providers in England. The statistics are published twice a year and include:
+Get Ofsted’s official statistics on the inspections and outcomes of childcare providers in England since 2019. The statistics are published twice a year and include:
 
 - the main findings
-- summary tables and charts in Excel and ODS format
+- summary tables and charts in XLSX and ODS format
 - individual provider-level and inspection-level data in ODS format
 - a methodology and quality report
-- a pre-release access list 
 
 There are also datasets for inspections management information, transparency data, Five-Year Ofsted Inspection Data, and for data before September 2019, as well as statistical commentaries.
