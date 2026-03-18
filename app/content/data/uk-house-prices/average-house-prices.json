@@ -5,7 +5,7 @@
   "suffix": "k",
   "publisher": "HM Land Registry",
   "source": "https://www.gov.uk/government/statistical-data-sets/uk-house-price-index-data-downloads-november-2025",
-  "download": "average-house-prices/average-house-prices",
+  "download": "average-house-prices.csv",
   "visualisation_type": "line",
   "visualisation_suffix": "k",
   "min_value": 1,

@@ -2,7 +2,7 @@
   "title": "Woodland area in the UK (thousand hectares), 2005 to 2025",
   "visualisation_type": "line",
   "source": "https://www.forestresearch.gov.uk/tools-and-resources/statistics/data-downloads/",
-  "download": "forest-and-woodlands/woodland-area.csv",
+  "download": "woodland-area.csv",
   "publisher": "Forest Research",
   "series": [
     {

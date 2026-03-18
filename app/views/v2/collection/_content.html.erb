@@ -1,55 +1,65 @@
 <%
   chart_data = @chart_data || {}
+  collection = @collection || ""
+  collection_topic_path = @collection_topic_path || ""
 %>
 
 <h1 class="govuk-heading-l datagovuk-heading-l"><%= @title %></h1>
 
 <section class="govuk-section datagovuk-section">
-    <%= @body %>
+  <%= @body %>
 </section>
 
-<% if chart_data["visualisation_type"] == "line" %>
-  <%= render partial: "v2/collection/charts/line_chart", locals: {
-      max_value: chart_data["max_value"],
-      title: chart_data["title"],
-      empty_description: "No data available",
-      number_base: chart_data["number_base"],
-      suffix: chart_data["visualisation_suffix"],
-      min: chart_data["min_value"],
-      data_series: chart_data["series"],
-      download: chart_data["download"]
-  } %>
-<% elsif chart_data["visualisation_type"] == "headline" %>
-  <%= render partial: "v2/collection/charts/headline/headline", locals: {
-    title: chart_data["title"],
-    source: chart_data["source"],
-    items: [{
-      subtitle: chart_data["items"][0]["subtitle"],
-      description: chart_data["items"][0]["description"],
-      value: chart_data["items"][0]["value"],
-      analysis: chart_data["items"][0]["analysis"],
-      trend: chart_data["items"][0]["trend"],
-      value_change: chart_data["items"][0]["value_change"],
-      percent_change: chart_data["items"][0]["percent_change"]
-    },
-    {
-      subtitle: chart_data["items"][1]["subtitle"],
-      description: chart_data["items"][1]["description"],
-      value: chart_data["items"][1]["value"],
-      analysis: chart_data["items"][1]["analysis"],
-      trend: chart_data["items"][1]["trend"],
-      value_change: chart_data["items"][1]["value_change"],
-      percent_change: chart_data["items"][1]["percent_change"]
-    }]
-  } 
-  %>
-<% elsif chart_data["visualisation_type"] == "bar" %>
-  <%= render partial: "v2/collection/charts/bar_chart", locals: {
-    title: chart_data["title"],
-    data: chart_data["data"],
-    download: chart_data["download"],
-    size: 15
-  } %>
+<% if chart_data["visualisation_type"].present? %>
+  <section class="datagovuk-headline govuk-section datagovuk-section govuk-!-margin-top-8">
+    <% if chart_data["visualisation_type"] == "line" %>
+      <%= render partial: "v2/collection/charts/line_chart", locals: {
+          max_value: chart_data["max_value"],
+          title: chart_data["title"],
+          empty_description: "No data available",
+          number_base: chart_data["number_base"],
+          suffix: chart_data["visualisation_suffix"],
+          min: chart_data["min_value"],
+          data_series: chart_data["series"]
+      } %>
+    <% elsif chart_data["visualisation_type"] == "headline" %>
+      <%= render partial: "v2/collection/charts/headline/headline", locals: {
+        title: chart_data["title"],
+        source: chart_data["source"],
+        items: [{
+          subtitle: chart_data["items"][0]["subtitle"],
+          description: chart_data["items"][0]["description"],
+          value: chart_data["items"][0]["value"],
+          analysis: chart_data["items"][0]["analysis"],
+          trend: chart_data["items"][0]["trend"],
+          value_change: chart_data["items"][0]["value_change"],
+          percent_change: chart_data["items"][0]["percent_change"]
+        },
+        {
+          subtitle: chart_data["items"][1]["subtitle"],
+          description: chart_data["items"][1]["description"],
+          value: chart_data["items"][1]["value"],
+          analysis: chart_data["items"][1]["analysis"],
+          trend: chart_data["items"][1]["trend"],
+          value_change: chart_data["items"][1]["value_change"],
+          percent_change: chart_data["items"][1]["percent_change"]
+        }]
+      } 
+      %>
+    <% elsif chart_data["visualisation_type"] == "bar" %>
+      <%= render partial: "v2/collection/charts/bar_chart", locals: {
+        title: chart_data["title"],
+        data: chart_data["data"],
+        size: 15
+      } %>
+    <% end %>
+
+    <% if chart_data["download"].present? %>
+      <p class="govuk-body datagovuk-body govuk-!-margin-top-4">
+        <a href="<%= collection_topic_path %>/charts/<%= chart_data["download"] %>" class="govuk-link datagovuk-link">Download the chart data</a>
+      </p>
+    <% end %>
+  </section>
 <% end %>
 
 <%= render partial: "v2/components/feedback", locals: { dataset: true } %>
