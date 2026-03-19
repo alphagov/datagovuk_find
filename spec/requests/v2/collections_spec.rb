@@ -11,6 +11,7 @@ RSpec.describe "Collections", type: :request do
       get collection_path
 
       expect(response).to have_http_status(:ok)
+      expect(response.body).to include("<title>Bank of England interest rates - Collection - data.gov.uk</title>")
     end
 
     it "shows the collection title" do

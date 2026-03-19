@@ -6,6 +6,7 @@ RSpec.describe "Posts", type: :request do
       it "returns a 200 status code" do
         get "/data-manual/who-this-manual-is-for"
         expect(response).to have_http_status(:ok)
+        expect(response.body).to include("<title>Who this manual is for - Data manual - data.gov.uk</title>")
       end
     end
 

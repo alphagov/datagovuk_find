@@ -14,6 +14,7 @@ module V2
       render layout: "v2/layouts/data_manual", locals: {
         rendered_content: render_content,
         data_manual_pages: data_manual_pages,
+        title: title,
       }
     end
 
@@ -39,6 +40,18 @@ module V2
         end
       end
       data_manual_pages
+    end
+
+    def title
+      # This could be more efficient by making the data structure a hashmap, but it's
+      # not going to wildly slow us down right now..
+      selected_title = nil
+      @data_manual_menu_items.each do |data_manual_item|
+        if data_manual_item[:url] == request.path
+          selected_title = data_manual_item[:title]
+        end
+      end
+      selected_title
     end
   end
 end

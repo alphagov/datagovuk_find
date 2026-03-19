@@ -16,6 +16,7 @@ module V2
       @view_template = collections_service.view_template_path
       @next_page = collections_service.next_page
       @previous_page = collections_service.previous_page
+      @title = collections_service.title
 
       render template: "v2/collection/collection", layout: "v2/layouts/application"
     end
