@@ -9,7 +9,5 @@ code. This guidance explains how to design, build and operate APIs in a
 consistent way.
 
 ## [api.gov.uk](http://api.gov.uk/)
-Search a catalogue of APIs published by public sector organisations.
-
-The catalogue helps users across government find and access inter-
+Search a catalogue of APIs published by public sector organisations. The catalogue helps users across government find and access inter-
 departmental data exchanges and share best practice in API development.
