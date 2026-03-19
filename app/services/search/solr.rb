@@ -15,11 +15,11 @@ module Search
       @sort_query = sort_param == "recent" ? "metadata_modified desc" : nil
       build_filter_query(params)
 
-      query_param.blank? ? empty_result : query_solr_with_facets
+      query_param.blank? ? query_solr : query_solr_with_facets
     end
 
     def self.build_term_query(query_param)
-      return @query = "" if query_param.blank?
+      return @query = "*:*" if query_param.blank?
 
       processed_query = SearchHelper.process_query(query_param)
       raise NoSearchTermsError, "Query string is empty after processing" if processed_query.blank?
@@ -122,6 +122,19 @@ module Search
 
     def self.empty_result
       { "response" => { "numFound" => 0, "docs" => [] } }
+    end
+
+    def self.query_solr
+      client.get "select", params: {
+        q: @query,
+        "q.op": "OR",
+        sow: true,
+        fq: @filter_query,
+        start: @page,
+        rows: RESULTS_PER_PAGE,
+        fl: field_list,
+        sort: @sort_query,
+      }
     end
 
     def self.query_solr_with_facets
