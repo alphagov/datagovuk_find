@@ -69,7 +69,7 @@ RSpec.feature "Solr Search page" do
   end
 
   def then_i_can_see_the_search_heading
-    expect(page).to have_css("h1", text: "Search results")
+    expect(page).to have_css("h1", text: "Search directory")
   end
 
   def and_i_can_see_the_search_box

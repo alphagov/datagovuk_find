@@ -17,7 +17,7 @@ RSpec.describe "Search", type: :request do
     end
 
     it "renders the search page" do
-      expect(response.body).to include("Search results")
+      expect(response.body).to include("Search directory")
     end
 
     it "returns no results section" do

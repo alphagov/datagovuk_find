@@ -3,7 +3,7 @@ en:
     search:
       results_page_title: 'Results for "%{query}"'
       search_results: 'Search Results'
-      search_results_heading: "Search results"
+      search_results_heading: "Search directory"
       search_data_gov_uk: "Search directory"
       accessibility:
         search_box_label: "Search"

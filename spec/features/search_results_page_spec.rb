@@ -18,7 +18,7 @@ RSpec.feature "Search results page", type: :feature do
   end
 
   def then_i_can_see_the_title
-    expect(page).to have_content("Search results")
+    expect(page).to have_content("Search directory")
   end
 
   def and_i_can_see_a_notification_banner
