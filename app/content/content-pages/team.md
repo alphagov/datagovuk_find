@@ -24,4 +24,4 @@ Ken Tsang – Lead Developer
 
 Samuel Akintunde – Interaction Designer
 
-Serkan Bay – Senior User Researcher
+Serkan Bay – User Researcher
