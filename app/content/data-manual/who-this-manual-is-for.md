@@ -36,7 +36,7 @@ Data and data-driven technologies have revolutionised every aspect of our societ
 
 As the public sector uses and relies on data more, it’s vital that it does this responsibly and effectively to improve outcomes for citizens and the economy. This manual brings together the most important guidance to support public servants in doing this, while removing some of the pain points we know about.
 
-Other people that might find the manual useful
+## Other people that might find the manual useful
 The manual might be of interest to anyone with an interest in data. It covers broad themes including data ethics, data protection and AI-driven technologies.
 
 While much of the guidance was designed for specialist audiences (typically people who work with data), some of the links provide a good introduction to the topic.
