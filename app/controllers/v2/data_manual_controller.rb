@@ -11,7 +11,6 @@ module V2
 
     def content
       expires_in 30.minutes, public: true
-
       render layout: "v2/layouts/data_manual", locals: {
         rendered_content: render_content,
         data_manual_pages: data_manual_pages,
