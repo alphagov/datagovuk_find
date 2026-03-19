@@ -14,11 +14,11 @@
     </div>
 
     <div class="datagovuk-headline__change <%= is_trending_up ? "datagovuk-headline__trendup" : "datagovuk-headline__trenddown" %>">
-        <span class="datagovuk-headline__arrow" aria-hidden="true">
+        <span class="datagovuk-headline__arrow">
             <% if is_trending_up %>
-                <%= image_tag("v2/up_arrow.svg") %>
+                <%= image_tag("v2/up_arrow.svg", alt: "Trending up") %>
             <% else %>
-                <%= image_tag("v2/down_arrow.svg") %>
+                <%= image_tag("v2/down_arrow.svg", alt: "Trending down") %>
             <% end %>
         </span>
         <% if value_change.present? %>
