@@ -7,7 +7,7 @@ RSpec.feature "Search directory page", type: :feature do
     and_i_can_see_a_notification_banner
   end
 
-  def given_i_am_on_the_search_results_page
+  def given_i_am_on_the_search_directory_page
     allow(Search::Solr).to receive(:search).and_return(JSON.parse(File.read(Rails.root.join("spec/fixtures/solr_response.json").to_s)))
     allow(Search::Solr).to receive(:get_organisations).and_return({
       "Aberdeen City Council" => "aberdeen-city-council",
