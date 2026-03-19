@@ -1,8 +1,8 @@
 require "rails_helper"
 
-RSpec.feature "Search results page", type: :feature do
-  scenario "User visits the search results page" do
-    given_i_am_on_the_search_results_page
+RSpec.feature "Search directory page", type: :feature do
+  scenario "User visits the search directory page" do
+    given_i_am_on_the_search_directory_page
     then_i_can_see_the_title
     and_i_can_see_a_notification_banner
   end
