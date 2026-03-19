@@ -7,7 +7,7 @@ module Search
       query_param = (params["q"] || "").to_s.squish
       @page = params["page"]
       sort_param = params["sort"]
-      @page && @page.is_a?(String) && @page.to_i.positive? ? @page.to_i : 1
+      @page = @page && @page.is_a?(String) && @page.to_i.positive? ? @page.to_i : 1
 
       get_organisations
 
@@ -125,12 +125,16 @@ module Search
     end
 
     def self.query_solr_with_facets
+      start_offset = 0
+      if @page > 1
+        start_offset = (@page - 1) * RESULTS_PER_PAGE
+      end
       client.get "select", params: {
         q: @query,
         "q.op": "OR",
         sow: true,
         fq: @filter_query,
-        start: @page,
+        start: start_offset,
         rows: RESULTS_PER_PAGE,
         fl: field_list,
         sort: @sort_query,
