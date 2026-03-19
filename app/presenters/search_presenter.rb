@@ -66,7 +66,7 @@ class SearchPresenter
   end
 
   def filters_applied?
-    [search_keywords, selected_publisher, selected_topic, selected_format, selected_licence].any?(&:present?)
+    [selected_publisher, selected_topic, selected_format, selected_licence].any?(&:present?)
   end
 
   def selected_publisher

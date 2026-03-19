@@ -10,6 +10,7 @@ RSpec.feature "Solr Search page" do
     and_i_do_not_see_remove_filters_link
     then_i_search_for_something
     and_i_can_see_the_search_result_count
+    and_i_do_not_see_remove_filters_link
     and_i_can_see_each_search_result_title
     and_i_can_see_the_publisher_for_each_search_result
     and_i_can_see_the_last_updated_for_each_search_result
