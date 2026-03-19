@@ -12,7 +12,7 @@ en:
       ask_for_help: "You can also %{support_link}"
     search:
       accessibility:
-        search_button_label: "Search data.gov.uk"
+        search_button_label: "Search directory"
     topics:
       topics_heading: "Data topics"
       business_and_economy_label: "Business and economy"

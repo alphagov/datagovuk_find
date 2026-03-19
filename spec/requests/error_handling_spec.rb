@@ -43,7 +43,7 @@ RSpec.describe "Error handling", type: :request do
     request = { uri: URI("http://solr-example.data.gov.uk") }
     allow(Search::Solr).to receive(:search).and_raise(RSolr::Error::ConnectionRefused.new(request))
 
-    get "/search"
+    get "/search", params: { q: "test" }
     expect(response).to have_http_status(:service_unavailable)
   end
 end

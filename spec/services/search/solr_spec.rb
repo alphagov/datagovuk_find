@@ -28,8 +28,8 @@ RSpec.describe Search::Solr do
 
     context "when the q param is empty" do
       let(:results) { described_class.search("q" => "") }
-      it "returns a response with no search terms" do
-        expect(results["response"]["numFound"]).to eq(0)
+      it "returns a response with all datasets" do
+        expect(results["response"]["numFound"]).to eq(2)
       end
     end
 
@@ -231,8 +231,8 @@ RSpec.describe Search::Solr do
     context "when there are no search terms" do
       let(:results) { described_class.search("q" => "") }
 
-      it "returns a response with no search terms" do
-        expect(results["response"]["numFound"]).to eq(0)
+      it "returns all search results" do
+        expect(results["response"]["numFound"]).to eq(2)
       end
     end
   end
@@ -293,12 +293,12 @@ RSpec.describe Search::Solr do
 
   describe ".build_term_query" do
     context "when the query is empty" do
-      it "returns an empty string" do
+      it "returns *:* string" do
         term_query = described_class.build_term_query(
           "",
         )
 
-        expect(term_query).to eq("")
+        expect(term_query).to eq("*:*")
       end
     end
 
