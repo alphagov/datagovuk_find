@@ -1,8 +1,8 @@
 ---
-title: Election results data
+title: Election results
 websites:
   - url: https://electionresults.parliament.uk/
-    link-text: Election results data
+    link-text: Election results
 api:
 dataset:
 page-last-updated:
