@@ -123,6 +123,21 @@ The data was save here as a csv file:
 The file [uk-trade/total-uk-imports-exports-2010-2025.json](uk-trade/total-uk-imports-exports-2010-2025.json) uses the data from the csv file as its two `series` objects.
 
 
+### Social mobility
+
+The source webpage for the data is [https://social-mobility.data.gov.uk/intermediate_outcomes/work_in_early_adulthood_(25_to_29_years)/unemployment/latest](https://social-mobility.data.gov.uk/intermediate_outcomes/work_in_early_adulthood_(25_to_29_years)/unemployment/latest)
+
+The visualisation data was from a CSV download file on the page above:
+
+[https://social-mobility.data.gov.uk/intermediate_outcomes/work_in_early_adulthood_(25_to_29_years)/unemployment/3.0/IN32-3.0-unemployment--by-SEB--table-format.csv](https://social-mobility.data.gov.uk/intermediate_outcomes/work_in_early_adulthood_(25_to_29_years)/unemployment/3.0/IN32-3.0-unemployment--by-SEB--table-format.csv)
+ 
+The data was save here as a csv file:
+
+[social-mobility/unemployment-by-socio-ecomomic-background.csv](social-mobility/unemployment-by-socio-ecomomic-background.csv)
+
+
+The file [social-mobility/unemployment-by-socio-ecomomic-background.json](social-mobility/unemployment-by-socio-ecomomic-background.json) uses the data from the csv file as its data object for a bar chart.
+
 ***
 
 
