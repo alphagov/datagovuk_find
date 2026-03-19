@@ -40,9 +40,9 @@ RSpec.feature "collections", type: :feature do
   def then_i_can_see_the_topic_content(topic_name)
     case topic_name
     when "Inflation"
-      expect(page).to have_content(/A range of data about inflation and price indices./)
+      expect(page).to have_css("h1", exact_text: "Inflation")
     when "Energy prices"
-      expect(page).to have_content(/Quarterly energy prices for every year since 2015./)
+      expect(page).to have_css("h1", exact_text: "Energy prices")
     end
   end
 
