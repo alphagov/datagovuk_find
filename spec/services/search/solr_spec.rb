@@ -37,6 +37,13 @@ RSpec.describe Search::Solr do
       expect { described_class.search({}) }.not_to raise_error
     end
 
+    context "when the page param is set" do
+      let(:results) { described_class.search("q" => "wow", "page" => 2) }
+      it "returns a response with no search terms" do
+        expect(results["response"]["numFound"]).to eq(2)
+      end
+    end
+
     it "returns a JSON response" do
       expect(results).to be_a(Hash)
     end
