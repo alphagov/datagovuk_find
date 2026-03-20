@@ -6,7 +6,7 @@
 <h2 class="govuk-heading-m datagovuk-heading-m"><%= local_assigns[:title] %></h2>
 
 <div class="govuk-grid-row bar-chart">
-  <%= bar_chart local_assigns[:data], 
+  <%= bar_chart local_assigns[:data], round: 2,
   colors: ["#C27A9A"],
   height: "600px",
   aspectRatio: 2,

@@ -14,7 +14,7 @@
 <h2 class="govuk-heading-m datagovuk-heading-m"><%= local_assigns[:title] %></h2>
 
 <div class="govuk-grid-row line-chart">
-  <%= line_chart data_series, suffix: suffix,
+  <%= line_chart data_series, suffix: suffix, round: 2,
   points: true,
   dataset: {
     empty: empty_description,
