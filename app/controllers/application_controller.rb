@@ -135,9 +135,12 @@ private
 
   def authenticate
     # /healthz endpoint override unnecessary as rails health endpoint does not inherit from this controller
+    if ENV["BASIC_AUTH_BYPASS"].present?
+      header_key, header_value = ENV["BASIC_AUTH_BYPASS"].split(":").map(&:strip)
 
-    if ENV["BASIC_AUTH_BYPASS"].present? && request.headers.key?(ENV["BASIC_AUTH_BYPASS"])
-      return true
+      if ENV["BASIC_AUTH_BYPASS"].present? && request.headers.key?(header_key) and request.headers[header_key] == header_value
+        return true
+      end
     end
 
     if ENV["BASIC_AUTH_USERNAME"].present? && ENV["BASIC_AUTH_PASSWORD"].present?
