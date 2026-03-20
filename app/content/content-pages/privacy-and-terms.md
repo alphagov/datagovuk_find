@@ -1,4 +1,4 @@
-# Terms of use and privacy
+# Privacy and terms
 
 ## Terms of use
 This page and any pages it links to explain data.gov.uk's terms of use. You must agree to these to use data.gov.uk.
