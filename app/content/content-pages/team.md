@@ -6,7 +6,7 @@ If you want to contact the team, please complete our [feedback form](https://for
 ## Team members
 Abdirizak Obsiye – Senior Developer
 
-Adam Shimali – Senior Technical Architect
+Adam Shimali – Technical Architect
 
 Amar Puttana – Site Reliability Engineer
 
