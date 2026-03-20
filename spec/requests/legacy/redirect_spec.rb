@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe "legacy", type: :request do
   describe "search query" do
-    it "is redirected to search results page with original query and filters" do
+    it "is redirected to search directory page with original query and filters" do
       legacy_params = {
         "q" => "foo",
         "res_format" => "bar",

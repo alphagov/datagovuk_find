@@ -29,4 +29,6 @@
   text: t(".accessibility.submit_button"),
   margin_bottom: true
 } %>
-<p class="govuk-body"><%= link_to t(".remove_filters"), search_path(q: @presenter.search_keywords), class: "govuk-link" %></p>
+<% if @presenter.filters_applied? %>
+  <p class="govuk-body"><%= link_to t(".remove_filters"), search_path(q: @presenter.search_keywords), class: "govuk-link" %></p>
+<% end %>

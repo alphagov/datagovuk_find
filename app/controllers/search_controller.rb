@@ -8,12 +8,12 @@ class SearchController < ApplicationController
   def search
     @sort = search_params[:sort]
 
-    @presenter = SearchPresenter.new(solr_search_response, search_params)
+    @presenter = SearchPresenter.new(search_response, search_params)
 
-    @num_results = solr_search_response["response"]["numFound"]
+    @num_results = search_response["response"]["numFound"]
 
     @datasets = Kaminari.paginate_array(
-      solr_search_response["response"]["docs"],
+      search_response["response"]["docs"],
       total_count: @num_results,
     )
     .page(search_params[:page])
@@ -26,6 +26,12 @@ private
     query = params[:q].to_s
 
     redirect_to root_path unless query.empty? || query.match?(VALID_SEARCH_REGEX)
+  end
+
+  def search_response
+    return solr_search_response if request.query_string.present?
+
+    no_results_found
   end
 
   def solr_search_response
