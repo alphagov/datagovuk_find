@@ -54,8 +54,12 @@
     text-align: center;
     border-radius: 30px;
     background-color: $datagovuk-light-green;
-    padding: 30px;
+    padding: 40px;
     margin-bottom: 30px;
+}
+
+.datagovuk-home-card :last-child {
+  margin-bottom: 0;
 }
 
 .datagovuk-home-card__heading {
@@ -64,6 +68,13 @@
 
 .datagovuk-home-card__description {
     margin-bottom: 20px;
+}
+
+.datagovuk-home-card__link-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 
 .datagovuk-home-publications__heading {
