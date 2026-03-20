@@ -115,13 +115,14 @@ The visualisation data was extracted from an .ods download file on ONS date from
 
 [https://assets.publishing.service.gov.uk/media/698eec9975466636847f6ab9/uk-exports-and-imports-seasonally-adjusted-current-prices.ods](https://assets.publishing.service.gov.uk/media/698eec9975466636847f6ab9/uk-exports-and-imports-seasonally-adjusted-current-prices.ods)
  
-The data was save here as a csv file:
+The data was saved here as a csv file:
 
-[uk-trade/total-uk-imports-exports.csv](uk-trade/total-uk-imports-exports.csv)
+[uk-trade/total-uk-imports-exports.csv](uk-trade/total-uk-imports-exports.csv). Note the original source data contains the values in millions but in the saved download data and
+the graph itself this was divided by the number base 1000 to give the number in billions.
 
 
-The file [uk-trade/total-uk-imports-exports-2010-2025.json](uk-trade/total-uk-imports-exports-2010-2025.json) uses the data from the csv file as its two `series` objects.
 
+The file [uk-trade/total-uk-imports-exports-2010-2025.json](uk-trade/total-uk-imports-exports-2010-2025.json) uses the data from the csv file as its two `series` objects. 
 
 ### Social mobility
 
