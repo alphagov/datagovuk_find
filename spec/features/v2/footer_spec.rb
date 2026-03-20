@@ -17,7 +17,7 @@ RSpec.feature "footer", type: :feature do
         "Report a problem",
         "Accessibility",
         "Cookies",
-        "Terms and conditions",
+        "Privacy and terms",
         "data.gov.uk team",
         "Open Government Licence v3.0",
         "© Crown copyright",
