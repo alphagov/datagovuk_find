@@ -42,7 +42,7 @@ Rails.application.routes.draw do
     get "support" => "pages#content_page", defaults: { slug: "support", title: "Support" }
     get "team" => "pages#content_page", defaults: { slug: "team", title: "Team" }
     get "roadmap" => "pages#content_page", defaults: { slug: "roadmap", title: "Our plan for data.gov.uk", template: "v2/pages/roadmap" }
-    get "terms" => "pages#content_page", defaults: { slug: "terms", title: "Terms & conditions and privacy" }
+    get "privacy-and-terms" => "pages#content_page", defaults: { slug: "privacy-and-terms", title: "Privacy and terms" }
     get "cookies" => "pages#cookies"
     get "collections/:collection/:topic/charts/:chart", to: "charts#download", as: "chart_download", constraints: {
       collection: /[a-zA-Z0-9\-_]+/,
