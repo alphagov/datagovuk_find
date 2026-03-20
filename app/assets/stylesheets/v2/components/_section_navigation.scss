@@ -1,15 +1,16 @@
 .datagovuk-section-navigation .datagovuk-section-navigation__item {
   padding: 10px;
-  margin-bottom: 1em;
+  margin-bottom: 15px;
 }
 
 .datagovuk-section-navigation .datagovuk-section-navigation__item.datagovuk-section-navigation__item--selected {
-  border-left: 4px solid $datagovuk-black;
+  border-left: 4px solid $datagovuk-green;
   margin-left: -10px;
   padding-left: 15px;
 }
 
 .datagovuk-section-navigation .datagovuk-section-navigation__link {
+  color: $datagovuk-green;
   text-decoration: none;
   font-size: 22px;
 }
@@ -65,5 +66,6 @@
 
   .datagovuk-section-navigation .datagovuk-section-navigation__items-desktop {
     display: block;
+    padding-right: 20px;
   }
 }
