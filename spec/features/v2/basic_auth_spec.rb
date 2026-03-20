@@ -24,6 +24,12 @@ RSpec.feature "basic auth", type: :feature do
     expect(page).to have_http_status(:ok)
   end
 
+  scenario "I visit the homepage with incorrect basic auth bypass header" do
+    page.driver.header "some-header", "some-incorrect-value"
+    visit "/"
+    expect(page).to have_http_status(:unauthorized)
+  end
+
   scenario "I visit the healthcheck page without setting authentication" do
     visit "/healthz"
     expect(page).to have_http_status(:ok)
