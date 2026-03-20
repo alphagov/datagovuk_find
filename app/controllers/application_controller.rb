@@ -134,9 +134,11 @@ private
   end
 
   def authenticate
-    # short–circuit the filter for the health‑check URL
-    true if request.path == "/healthz"
-    # (or: params[:controller] == "rails/health" && params[:action] == "show")
+    # /healthz endpoint override unnecessary as rails health endpoint does not inherit from this controller
+
+    if ENV["BASIC_AUTH_BYPASS"].present? && request.headers.key?(ENV["BASIC_AUTH_BYPASS"])
+      return true
+    end
 
     if ENV["BASIC_AUTH_USERNAME"].present? && ENV["BASIC_AUTH_PASSWORD"].present?
       authenticate_or_request_with_http_basic do |username, password|
