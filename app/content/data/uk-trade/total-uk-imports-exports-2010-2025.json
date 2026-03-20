@@ -6,6 +6,7 @@
   "publisher": "Department for Business and Trade",
   "number_base": 1000,
   "visualisation_suffix": "bn",
+  "min_value": 100,
   "series": [
     {
       "name": "Value of exports in £ billions",
