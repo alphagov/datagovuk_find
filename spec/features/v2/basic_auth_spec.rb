@@ -4,7 +4,7 @@ RSpec.feature "basic auth", type: :feature do
   before do
     stub_const("ENV", ENV.to_hash.merge("BASIC_AUTH_USERNAME" => "test-username"))
     stub_const("ENV", ENV.to_hash.merge("BASIC_AUTH_PASSWORD" => "test-password"))
-    stub_const("ENV", ENV.to_hash.merge("BASIC_AUTH_BYPASS" => "some-header"))
+    stub_const("ENV", ENV.to_hash.merge("BASIC_AUTH_BYPASS" => "some-header: some-value"))
   end
 
   scenario "I visit the homepage without setting authentication" do
