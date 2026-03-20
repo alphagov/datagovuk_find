@@ -46,7 +46,7 @@ sector does data’ and how to work with this data.
 We welcome your feedback on the data manual – whether you find it helpful, and if
 anything is missing, unclear or inaccurate.
 
-[Complete the feedback form](https://forms.office.com/e/9V26PNFQaR))
+[Complete the feedback form](https://forms.office.com/e/9V26PNFQaR)
 
 #### Critical improvements to the original data.gov.uk directory
 Limited data.gov.uk maintenance in the last few years has led to broken features and
@@ -61,7 +61,7 @@ data of lesser quality when navigating the data.gov.uk directory.
 You can continue to publish and update your data [following the publisher process](/).
 
 If you think you have data that might be a good candidate for the new, curated data
-pages, [tell us about your data in the feedback form](https://forms.office.com/e/9V26PNFQaR)).
+pages, [tell us about your data in the feedback form](https://forms.office.com/e/9V26PNFQaR).
 
 ### Next
 
