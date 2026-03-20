@@ -12,7 +12,7 @@ RSpec.feature "home", type: :feature do
   end
 
   def then_i_can_see_the_title
-    expect(page).to have_content("The home of UK data")
+    expect(page).to have_content("The home of UK public data")
   end
 
   def and_i_can_see_the_collections
