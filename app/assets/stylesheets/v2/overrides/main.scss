@@ -84,12 +84,22 @@
   color: $datagovuk-green;
 }
 
+.datagovuk-link--secondary:focus {
+  color: $datagovuk-black;
+}
+
 .datagovuk-button {
   background-color: $datagovuk-dark-green;
   border-radius: 20px;
   padding: 14px 18px;
   font-size: 20px;
   color: #fff;
+  box-shadow: none;
+}
+
+.datagovuk-button:focus:not(:active):not(:hover) {
+  box-shadow: none;
+  outline: 2px solid $datagovuk-dark-green;
 }
 
 .datagovuk-list {
