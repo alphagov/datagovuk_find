@@ -22,6 +22,6 @@ RSpec.feature "Search directory page", type: :feature do
   end
 
   def and_i_can_see_a_notification_banner
-    expect(page).to have_content("data.gov.uk is changing and you may experience some issues with the data in this directory.")
+    expect(page).to have_content("We’re making changes to data.gov.uk")
   end
 end
