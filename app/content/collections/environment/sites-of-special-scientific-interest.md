@@ -13,4 +13,6 @@ contact:
 status: for-publication
 ---
 
-Find Sites of Special Scientific Interest (SSSIs) in England. SSSIs are designated areas recognised for their ecological or geological significance. They support many characteristic, rare and endangered species, habitats and natural features. You can download data in various formats including CSV, Shapefile, GeoJSON, KML, XLSX and GeoPackage, or find SSSIs for an area on the interactive map. The data is provided by Natural England – a public body sponsored by the Department for Environment, Food and Rural Affairs.
+Find Sites of Special Scientific Interest (SSSIs) in England. SSSIs are designated areas recognised for their ecological or geological significance. They support many characteristic, rare and endangered species, habitats and natural features. 
+
+You can download data in various formats including CSV, Shapefile, GeoJSON, KML, XLSX and GeoPackage, or find SSSIs for an area on the interactive map. The data is provided by Natural England – a public body sponsored by the Department for Environment, Food and Rural Affairs.
