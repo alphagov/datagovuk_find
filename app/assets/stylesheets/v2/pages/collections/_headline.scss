@@ -53,7 +53,7 @@
     background-color: $datagovuk-light-pink;
 }
 
-@media (min-width: 40.0625em) {
+@media (min-width: $desktop-breakpoint) {
 
     .datagovuk-headline__columns {
         flex-direction: row;

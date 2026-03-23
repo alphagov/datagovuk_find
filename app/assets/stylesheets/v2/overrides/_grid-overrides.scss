@@ -1,0 +1,23 @@
+@media(min-width: $govuk-tablet-breakpoint) {
+  .govuk-grid-column-two-thirds {
+    width: 100%;
+    float: none;
+  }
+
+  .govuk-grid-column-one-third {
+    width: 100%;
+    float: none;
+  }
+}
+
+@media(min-width: $desktop-breakpoint) {
+  .govuk-grid-column-two-thirds {
+    width: 66.6666666667%; 
+    float: left;
+  }
+
+  .govuk-grid-column-one-third {
+    width: 33.3333333333%; 
+    float: left;
+  }
+}
