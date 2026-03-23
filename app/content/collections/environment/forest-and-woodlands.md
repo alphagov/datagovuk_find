@@ -11,4 +11,6 @@ contact:
 status: for-publication
 ---
 
-View the Forestry Commission’s National Forest Inventory woodland map. The map covers all forest and woodland area over 0.5 hectares with a minimum of 20% canopy cover, or the potential to achieve it, and a minimum width of 20 metres. Search the map of England and Wales by zooming in or drawing an area, and filter by various factors such as the type of woodland. Download the results in CSV, SHP, GeoJSON or KML format.
+View the Forestry Commission’s National Forest Inventory woodland map. The map covers all forest and woodland area over 0.5 hectares with a minimum of 20% canopy cover, or the potential to achieve it, and a minimum width of 20 metres. 
+
+Search the map of England and Wales by zooming in or drawing an area, and filter by various factors such as the type of woodland. Download the results in CSV, SHP, GeoJSON or KML format.

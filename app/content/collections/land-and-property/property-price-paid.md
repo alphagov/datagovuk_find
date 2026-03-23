@@ -13,4 +13,6 @@ contact:
 status: for-publication
 ---
 
-Property price paid data is a comprehensive record of residential property transactions in England and Wales, as recorded by HM Land Registry. The data includes the sale price, date of transfer, property type (detached, semi-detached, terraced, flat/maisonette, or other), tenure (freehold or leasehold), and whether the property is a new build. Find properties by searching by any combination of these characteristics. You can use this data to understand market activity, conduct research and inform decisions about buying and selling property.
+Property price paid data is a comprehensive record of residential property transactions in England and Wales, as recorded by HM Land Registry. The data includes the sale price, date of transfer, property type (detached, semi-detached, terraced, flat/maisonette, or other), tenure (freehold or leasehold), and whether the property is a new build. Find properties by searching by any combination of these characteristics. 
+
+You can use this data to understand market activity, conduct research and inform decisions about buying and selling property.

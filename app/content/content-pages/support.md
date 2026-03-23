@@ -19,7 +19,7 @@ If you have a question about the curated data collections, the data manual or ou
 ## If you want to propose new data for the data collections 
 Tell us about it on our [feedback form](https://forms.office.com/e/9V26PNFQaR). 
 
-## If you have a question about a dataset on the data directory 
+## If you have a question about a dataset on the data.gov.uk directory 
 Contact the publisher directly using the contact details on the dataset’s page.  
 
 ## Other requests  
