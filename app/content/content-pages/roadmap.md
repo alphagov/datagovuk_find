@@ -33,12 +33,12 @@ We’re testing how we present these curated data pages, including what informat
 and design help users understand and use the data. We welcome your input on what
 works well, and suggestions for what we can improve.
 
-[Complete the feedback form](https://forms.office.com/e/9V26PNFQaR)
+[Complete the feedback form](https://forms.office.com/e/9V26PNFQaR).
 
 #### Data manual with guidance for publishers and users
 
 Guidance on creating, managing and using data across the UK public sector is
-available in many places. We’ve started developing a data manual that brings
+available in many places. We’ve started developing a [data manual](/data-manual) that brings
 together the most useful current guidance to make it easier for users to find relevant
 information. We want this to become an authoritative source for ‘how the public
 sector does data’ and how to work with this data.
@@ -46,12 +46,12 @@ sector does data’ and how to work with this data.
 We welcome your feedback on the data manual – whether you find it helpful, and if
 anything is missing, unclear or inaccurate.
 
-[Complete the feedback form](https://forms.office.com/e/9V26PNFQaR)
+[Complete the feedback form](https://forms.office.com/e/9V26PNFQaR).
 
 #### Critical improvements to the original data.gov.uk directory
 Limited data.gov.uk maintenance in the last few years has led to broken features and
 data links. We’re identifying and addressing broken links and outdated datasets, and
-fixing issues with the publishing process in the original data.gov.uk directory.
+fixing issues with the publishing process in the original [data.gov.uk directory](/search).
 
 Because our primary focus is testing new ways of presenting data through curating
 useful data, for the moment we’ll mainly spend time on fixing the directory’s critical
