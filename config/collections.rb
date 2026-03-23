@@ -13,8 +13,8 @@ module Collections
       { "title": "Electricity", "slug": "electricity" },
     ],
     "environment": [
-      { "title": "Air quality", "slug": "air-quality" },
       { "title": "Weather", "slug": "weather" },
+      { "title": "Air quality", "slug": "air-quality" },
       { "title": "Long-term flood risk", "slug": "long-term-flood-risk" },
       { "title": "Flood alerts", "slug": "flood-alerts" },
       { "title": "Water quality", "slug": "water-quality" },
