@@ -10,7 +10,7 @@ data.gov.uk is a service provided by the [Government Digital Service (GDS)](http
 You agree to use data.gov.uk only for lawful purposes. You must also use it in a way that does not infringe the rights of, or restrict or inhibit the use and enjoyment of, this site by anyone else. 
 
 ### Linking from data.gov.uk
-Data.gov.uk links to websites that are managed by other government departments and agencies, service providers or other organisations. We do not have any control over the content on these websites.
+data.gov.uk links to websites that are managed by other government departments and agencies, service providers or other organisations. We do not have any control over the content on these websites.
 
 We're not responsible for:
 
@@ -22,7 +22,7 @@ You agree to release us from any claims or disputes that may come from using the
 You should read all terms and conditions, privacy policies and end user licences that relate to these websites before you use them.
 
 ### Responsibility for datasets
-Only publishers with accounts for the data directory on data.gov.uk can ask for datasets to be deleted. [Contact us](/support) to ask for datasets to be deleted if you’re a publisher.
+Only publishers with accounts for the data.gov.uk directory can ask for datasets to be deleted. [Contact us](/support) to ask for datasets to be deleted if you’re a publisher.
 
 data.gov.uk does not host datasets. They are the responsibility of the publishing organisation. All requests for data under the Freedom of Information Act and the Data Protection Act should be sent to the publishing organisation.
 
@@ -32,7 +32,7 @@ Please check these terms of use regularly. We can update them at any time withou
 You'll agree to any changes if you continue to use Find open data after the terms of use have been updated.
 
 ## Privacy notice
-DSIT and other government departments, agencies and organisations are joint controllers for pages that start with ‘www.data.gov.uk’. data.gov.uk helps people to find and use open government data, and supports government publishers to maintain data in the data directory.  
+DSIT and other government departments, agencies and organisations are joint controllers for pages that start with ‘www.data.gov.uk’. data.gov.uk helps people to find and use open government data, and supports government publishers to maintain data in the data.gov.uk directory.  
 
 ### What data we need
 We collect personal data from data publishers including:

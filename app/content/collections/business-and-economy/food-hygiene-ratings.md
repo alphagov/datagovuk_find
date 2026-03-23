@@ -13,4 +13,6 @@ contact:
 status: for-publication
 ---
 
-Use the Food Standards Agency website to find a food business’s hygiene rating by entering the business name or address. Businesses include restaurants, pubs, cafés, takeaways, hotels and other places where consumers eat, as well as supermarkets and other food shops. Results include the date of inspection by the local authority and the food hygiene rating or inspection result that was given. The data is also available via API in XML and JSON formats – a free service with no need to register.
+Use the Food Standards Agency website to find a food business’s hygiene rating by entering the business name or address. Businesses include restaurants, pubs, cafés, takeaways, hotels and other places where consumers eat, as well as supermarkets and other food shops.
+
+Results include the date of inspection by the local authority and the food hygiene rating or inspection result that was given. The data is also available via API in XML and JSON formats – a free service with no need to register.
