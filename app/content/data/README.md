@@ -19,9 +19,9 @@ The file [air-quality/air-quality.json](air-quality/air-quality.json) uses the d
 
 ### Average house prices
 
-The source webpage for the data is [https://www.gov.uk/government/statistical-data-sets/uk-house-price-index-data-downloads-november-2025](https://www.gov.uk/government/statistical-data-sets/uk-house-price-index-data-downloads-november-2025)
+The source webpage for the data is [https://www.gov.uk/government/statistical-data-sets/uk-house-price-index-data-downloads-december-2025](https://www.gov.uk/government/statistical-data-sets/uk-house-price-index-data-downloads-december-2025)
 
-The visualisation data was downloaded from here [https://publicdata.landregistry.gov.uk/market-trend-data/house-price-index-data/Average-prices-2025-11.csv](https://publicdata.landregistry.gov.uk/market-trend-data/house-price-index-data/Average-prices-2025-11.csv)
+The visualisation data was downloaded from here [https://publicdata.landregistry.gov.uk/market-trend-data/house-price-index-data/Average-prices-2025-12.csv](https://publicdata.landregistry.gov.uk/market-trend-data/house-price-index-data/Average-prices-2025-12.csv)
 
 The download contains records for all UK regions and local authorities. Only the rows for England, Wales, Scotland, and United Kingdom were kept. The Area_Code, Monthly_Change, Annual_Change, and Average_Price_SA columns were also discarded, leaving just Date, Region_Name, and Average_Price to create [average-house-prices/average-house-prices.csv](average-house-prices/average-house-prices.csv)
 
