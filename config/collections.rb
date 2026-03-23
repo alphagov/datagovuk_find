@@ -9,7 +9,6 @@ module Collections
       { "title": "Energy prices", "slug": "energy-prices" },
       { "title": "Electricity", "slug": "electricity" },
       { "title": "UK trade", "slug": "uk-trade" },
-      { "title": "Trade tariffs", "slug": "trade-tariffs" },
       { "title": "Bank of England interest rates", "slug": "bank-of-england-interest-rates" },
       { "title": "Inflation", "slug": "inflation" },
     ],
