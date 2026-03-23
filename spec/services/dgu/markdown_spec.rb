@@ -41,7 +41,7 @@ RSpec.describe Dgu::Markdown do
       MD
 
       expected_html = <<~HTML
-        <ul class="govuk-list govuk-list--bullet datagovuk-list">
+        <ul class="govuk-list govuk-list--bullet datagovuk-list datagovuk-body">
           <li>Item 1</li>
         <li>Item 2</li>
         <li>Item 3</li>
