@@ -237,6 +237,39 @@ RSpec.describe Search::Solr do
     end
   end
 
+  describe ".start_offset" do
+    let(:response) { File.read(Rails.root.join("spec/fixtures/solr_response.json").to_s) }
+
+    before do
+      allow_any_instance_of(RSolr::Client).to receive(:get).and_return(JSON.parse(response))
+    end
+
+    it "returns 0 for page 1" do
+      described_class.search("q" => "test", "page" => "1")
+      expect(described_class.send(:start_offset)).to eq(0)
+    end
+
+    it "returns 0 when page is nil" do
+      described_class.search("q" => "test")
+      expect(described_class.send(:start_offset)).to eq(0)
+    end
+
+    it "returns 20 for page 2" do
+      described_class.search("q" => "test", "page" => "2")
+      expect(described_class.send(:start_offset)).to eq(20)
+    end
+
+    it "returns 40 for page 3" do
+      described_class.search("q" => "test", "page" => "3")
+      expect(described_class.send(:start_offset)).to eq(40)
+    end
+
+    it "returns 0 for invalid page values" do
+      described_class.search("q" => "test", "page" => "-1")
+      expect(described_class.send(:start_offset)).to eq(0)
+    end
+  end
+
   describe "#query_solr_with_facets" do
     let(:response) { File.read(Rails.root.join("spec/fixtures/solr_response_with_facets.json").to_s) }
     let(:results) { described_class.search("q" => "interesting dataset") }
