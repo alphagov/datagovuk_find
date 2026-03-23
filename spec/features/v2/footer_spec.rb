@@ -14,7 +14,7 @@ RSpec.feature "footer", type: :feature do
     within(".datagovuk-footer") do
       links = [
         "Roadmap",
-        "Report a problem",
+        "Support",
         "Accessibility",
         "Cookies",
         "Privacy and terms",
