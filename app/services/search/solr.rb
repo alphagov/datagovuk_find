@@ -130,7 +130,7 @@ module Search
         "q.op": "OR",
         sow: true,
         fq: @filter_query,
-        start: @page,
+        start: start_offset,
         rows: RESULTS_PER_PAGE,
         fl: field_list,
         sort: @sort_query,
@@ -138,10 +138,6 @@ module Search
     end
 
     def self.query_solr_with_facets
-      start_offset = 0
-      if @page > 1
-        start_offset = (@page - 1) * RESULTS_PER_PAGE
-      end
       client.get "select", params: {
         q: @query,
         "q.op": "OR",
@@ -184,6 +180,12 @@ module Search
         "-res_format:\"#{format}\""
       end
       query_parts.join("")
+    end
+
+    def self.start_offset
+      return 0 if @page.nil? || @page <= 1
+
+      (@page - 1) * RESULTS_PER_PAGE
     end
 
     class NoSearchTermsError < StandardError; end
