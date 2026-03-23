@@ -11,4 +11,6 @@ contact:
 status: for-publication
 ---
 
-Explore statistics that set out the UK’s economic relationship with other countries and illustrate the UK’s bilateral trade on top exports and imports for goods and services. In addition, the UK trade summary statistics depict foreign direct investment (FDI), regional trade statistics, and the UK’s position in global trade and investment rankings. You can download more detailed data in ODS format. The data is provided by the Department for Business and Trade.
+Explore statistics that set out the UK’s economic relationship with other countries and illustrate the UK’s bilateral trade on top exports and imports for goods and services. In addition, the UK trade summary statistics depict foreign direct investment (FDI), regional trade statistics, and the UK’s position in global trade and investment rankings. 
+
+You can download more detailed data in ODS format. The data is provided by the Department for Business and Trade.
