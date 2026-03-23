@@ -11,7 +11,9 @@ contact:
 status: for-publication
 ---
 
-Explore a data collection about the number of theory and driving tests taken in England, Scotland and Wales, as well as pass rates and the number of instructors. View or download quarterly analysis reports for every year since 2015-16. There are also separate datasets – including data for England, Scotland and Wales overall, and for each test centre – for each type of test: 
+Explore a data collection about the number of theory and driving tests taken in England, Scotland and Wales, as well as pass rates and the number of instructors. View or download quarterly analysis reports for every year since 2015-16. 
+
+There are also separate datasets – including data for England, Scotland and Wales overall, and for each test centre – for each type of test: 
 
 - cars 
 - motorcycles 
