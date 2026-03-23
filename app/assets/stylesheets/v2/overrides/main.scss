@@ -34,6 +34,14 @@
 .datagovuk-heading-s,
 .datagovuk-heading-m,
 .datagovuk-heading-l,
+.datagovuk-heading-xl {
+  line-height: 140%;
+}
+
+.datagovuk-body,
+.datagovuk-heading-s,
+.datagovuk-heading-m,
+.datagovuk-heading-l,
 .datagovuk-link,
 .datagovuk-button {
   font-family: 'Inter', sans-serif;
@@ -58,24 +66,26 @@
 }
 
 .datagovuk-heading-m {
-  font-size: 30px;
+  font-size: 26px;
   font-weight: normal;
 }
 
 .datagovuk-body {
   font-size: 20px;
-  line-height: 140%;
 }
 
 .datagovuk-link:link,
 .datagovuk-link:visited {
   color: $datagovuk-black;
-  font-weight: 500;
 }
 
 .datagovuk-link--secondary:link,
 .datagovuk-link--secondary:visited {
   color: $datagovuk-green;
+}
+
+.datagovuk-link--secondary:focus {
+  color: $datagovuk-black;
 }
 
 .datagovuk-button {
@@ -84,6 +94,12 @@
   padding: 14px 18px;
   font-size: 20px;
   color: #fff;
+  box-shadow: none;
+}
+
+.datagovuk-button:focus:not(:active):not(:hover) {
+  box-shadow: none;
+  outline: 2px solid $datagovuk-dark-green;
 }
 
 .datagovuk-list {
@@ -117,6 +133,10 @@
 
   .datagovuk-heading-l {
     font-size: 42px;
+  }
+
+  .datagovuk-heading-m {
+    font-size: 30px;
   }
 
   .datagovuk-body {
