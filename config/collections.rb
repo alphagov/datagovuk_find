@@ -18,7 +18,6 @@ module Collections
       { "title": "Long-term flood risk", "slug": "long-term-flood-risk" },
       { "title": "Flood alerts", "slug": "flood-alerts" },
       { "title": "Water quality", "slug": "water-quality" },
-      { "title": "Fish and ecology", "slug": "fish-and-ecology" },
       { "title": "Public registers", "slug": "public-registers" },
       { "title": "LIDAR mapping", "slug": "lidar" },
       { "title": "Aerial photography mapping", "slug": "aerial-photography" },
