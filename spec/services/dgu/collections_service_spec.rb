@@ -8,7 +8,7 @@ RSpec.describe Dgu::CollectionsService, type: :service do
   let(:collection) { "business-and-economy" }
   let(:page) { "get-charity-information" }
   let(:first_page) { "uk-trade" }
-  let(:last_page) { "electricity" }
+  let(:last_page) { "agricultural-commodity-prices" }
 
   describe "#initialize" do
     it "sets the collection and page_name attributes" do
@@ -118,9 +118,9 @@ RSpec.describe Dgu::CollectionsService, type: :service do
       expect(service.next_page).to eq(
         {
           selected: false,
-          slug: "bank-of-england-interest-rates",
-          title: "Bank of England interest rates",
-          url: "/collections/business-and-economy/bank-of-england-interest-rates",
+          slug: "inflation",
+          title: "Inflation",
+          url: "/collections/business-and-economy/inflation",
         },
       )
     end
@@ -142,9 +142,9 @@ RSpec.describe Dgu::CollectionsService, type: :service do
       expect(service.previous_page).to eq(
         {
           selected: false,
-          slug: "energy-prices",
-          title: "Energy prices",
-          url: "/collections/business-and-economy/energy-prices",
+          slug: "electricity",
+          title: "Electricity",
+          url: "/collections/business-and-economy/electricity",
         },
       )
     end
