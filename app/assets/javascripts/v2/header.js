@@ -36,7 +36,7 @@ class DatagovukHeader {
 
   watchMediaQueryChange() {
     const style = getComputedStyle(document.documentElement)
-    const desktopBreakpoint = style.getPropertyValue('--datagovuk-desktop-breakpoint').trim()
+    const desktopBreakpoint = style.getPropertyValue('--datagovuk-desktop-header-breakpoint').trim()
     const mediaQuery = window.matchMedia('(max-width: ' + desktopBreakpoint + ')')
     mediaQuery.addEventListener('change', (event) => this.handleMediaQueryChange(event))
   }
