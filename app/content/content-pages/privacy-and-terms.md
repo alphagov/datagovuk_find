@@ -93,23 +93,23 @@ Email: [gds.data.protection@dsit.gov.uk](mailto:gds.data.protection@dsit.gov.uk)
 
 The contact details for our Data Protection Officer are:
 
-DSIT Data Protection Officer  
-Department for Science, Innovation and Technology  
-22-26 Whitehall  
-London  
-SW1A 2EG  
-
-[dataprotection@dsit.gov.uk](mailto:dataprotection@dsit.gov.uk)
+> DSIT Data Protection Officer  
+> Department for Science, Innovation and Technology  
+> 22-26 Whitehall  
+> London  
+> SW1A 2EG  
+> 
+> [dataprotection@dsit.gov.uk](mailto:dataprotection@dsit.gov.uk)
 
 The Data Protection Officer provides independent advice and monitoring of our use of personal information.
 
 If you have a complaint, you can also contact the [Information Commissioner](https://ico.org.uk/), who is an independent regulator set up to uphold information rights.
 
-Information Commissioner’s Office  
-[casework@ico.org.uk](mailto:casework@ico.org.uk)  
-0303 123 1113  
-Wycliffe House  
-Water Lane  
-Wilmslow  
-Cheshire  
-SK9 5AF
+> Information Commissioner’s Office  
+> [casework@ico.org.uk](mailto:casework@ico.org.uk)  
+> 0303 123 1113  
+> Wycliffe House  
+> Water Lane  
+> Wilmslow  
+> Cheshire  
+> SK9 5AF
