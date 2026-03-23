@@ -35,7 +35,7 @@ GDS is committed to making its website accessible, in accordance with the Public
 ## Compliance status
 This website is partially compliant with the Web Content Accessibility Guidelines version 2.2 AA standard, due to the non-compliances listed below.
 
-### Non-accessible content
+## Non-accessible content
 The content listed below is non-accessible for the following reasons.
 
 ### Non-compliance with the accessibility regulations
@@ -46,9 +46,9 @@ Charts have hover pop-ups that cannot be dismissed. This fails WCAG 2.2 success 
 Some data sets have broken links. This fails WCAG 2.2 success criterion 2.4.4 Link Purpose (In Context).
 
 ## What we’re doing to improve accessibility
-We're working to fix content which fails to meet the [Web Content Accessibility Guidelines version 2.2](https://www.w3.org/TR/WCAG22/) AA standard. We’re in the process of commissioning a full accessibility audit of the data.gov.uk website, including the data.gov.uk directory. This will help us prioritise improvements, especially where existing features fail to meet the Web Content Accessibility Guidelines version 2.2 AA standard.
+We're working to fix content which fails to meet the [Web Content Accessibility Guidelines version 2.2](https://www.w3.org/TR/WCAG22/) AA standard. We’re in the process of commissioning a full external accessibility audit of the data.gov.uk website, including the data.gov.uk directory. This will help us prioritise improvements, especially where existing features fail to meet the Web Content Accessibility Guidelines version 2.2 AA standard.
 
 ## Preparation of this accessibility statement
 This statement was prepared on 19 March 2026. It was last reviewed on 19 March 2026.
 
-This website was last tested in March 2026. The test was carried out by GDS. The website is scheduled to undergo testing again in summer 2026. 
+This website was last tested in March 2026. The test was carried out by GDS. The website is scheduled to undergo external testing in summer 2026. 
