@@ -5,7 +5,7 @@ websites:
     link-text: Fuel and oil prices
 api:
 dataset:
-page-last-updated:
+page-last-updated: "2026-03-24"
 visualisation-data: fuel-and-oil-prices/fuel-and-oil-prices.json
 contact:
 status: for-publication

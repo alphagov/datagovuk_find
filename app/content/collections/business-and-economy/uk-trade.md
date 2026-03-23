@@ -5,7 +5,7 @@ websites:
     link-text: UK trade statistics
 api:
 dataset:
-page-last-updated:
+page-last-updated: "2026-03-24"
 visualisation-data: uk-trade/total-uk-imports-exports-2010-2025.json
 contact:
 status: for-publication

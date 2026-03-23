@@ -7,7 +7,7 @@ api:
 dataset:
   url: https://www.gov.uk/government/collections/maritime-and-shipping-statistics
   link-text: Maritime and shipping statistics
-page-last-updated:
+page-last-updated: "2026-03-24"
 visualisation-data:
 contact:
 status: for-publication

@@ -1,5 +1,12 @@
 require Rails.root.join("app/services/dgu/markdown")
 
+def format_date(date_str)
+  Date.iso8601(date_str).strftime("%-d/%-m/%Y")
+rescue ArgumentError, TypeError
+  nil
+end
+
+
 namespace :markdown do
   desc "Convert markdown to static html pages"
   task render: :environment do
@@ -52,7 +59,7 @@ namespace :markdown do
         websites: front_matter["websites"] || [],
         api_link: front_matter["api"],
         dataset: front_matter["dataset"],
-        page_last_updated: front_matter["page-last-updated"],
+        page_last_updated: format_date(front_matter["page-last-updated"]),
         tags: front_matter["tags"],
         visualisation_data: front_matter["visualisation-data"],
         visualisation_suffix: front_matter["visualisation-suffix"],

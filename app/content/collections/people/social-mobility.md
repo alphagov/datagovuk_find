@@ -5,7 +5,7 @@ websites:
     link-text: Social mobility
 api:
 dataset:
-page-last-updated:
+page-last-updated: "2026-03-24"
 visualisation-data: social-mobility/unemployment-by-socio-ecomomic-background.json
 contact:
 status: for-publication

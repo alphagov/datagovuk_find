@@ -7,7 +7,7 @@ api:
 dataset:
   url: https://environment.data.gov.uk/dataset/7a955570-d465-11e4-a37c-f0def148f590
   link-text: Historic landfill sites
-page-last-updated:
+page-last-updated: "2026-03-24"
 visualisation-data:
 contact:
 status: for-publication

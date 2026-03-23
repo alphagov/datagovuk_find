@@ -9,7 +9,7 @@ api:
   url: https://api.education.gov.uk/statistics/docs
   link-text:  Education statistics explorer (API)
 dataset:
-page-last-updated:
+page-last-updated: "2026-03-24"
 visualisation-data:
 contact:
 status: for-publication

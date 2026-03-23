@@ -5,7 +5,7 @@ websites:
     link-text: Births
 api:
 dataset:
-page-last-updated:
+page-last-updated: "2026-03-24"
 visualisation-data: births/live-births-england-and-wales-1938-2024.json
 contact:
 status: for-publication

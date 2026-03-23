@@ -7,7 +7,7 @@ api:
   url: https://developer.company-information.service.gov.uk/
   link-text: Companies House API
 dataset:
-page-last-updated:
+page-last-updated: "2026-03-24"
 visualisation-data: get-company-information/companies-house-register-headlines.json
 contact:
 status: for-publication

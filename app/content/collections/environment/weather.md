@@ -9,7 +9,7 @@ api:
 dataset:
   url: https://climate-themetoffice.hub.arcgis.com
   link-text: Met Office Climate Data Portal
-page-last-updated:
+page-last-updated: "2026-03-24"
 visualisation-data: weather/uk-mean-temperature.json
 contact:
 status: for-publication

@@ -7,7 +7,7 @@ api:
 dataset:
   url: https://www.compare-school-performance.service.gov.uk/download-data
   link-text: Download school performance data
-page-last-updated:
+page-last-updated: "2026-03-24"
 visualisation-data:
 contact:
 status: for-publication
