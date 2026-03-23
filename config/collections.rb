@@ -22,7 +22,7 @@ module Collections
       { "title": "Main rivers", "slug": "main-rivers" },
       { "title": "Coastal erosion", "slug": "coastal-erosion" },
       { "title": "Climate projections", "slug": "climate-projections" },
-      { "title": "Public registers", "slug": "public-registers" },
+      { "title": "Environmental public registers", "slug": "public-registers" },
       { "title": "LIDAR mapping", "slug": "lidar" },
       { "title": "Aerial photography mapping", "slug": "aerial-photography" },
       { "title": "Landfill sites", "slug": "landfill-sites" },
