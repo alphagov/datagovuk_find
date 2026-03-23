@@ -13,4 +13,6 @@ contact:
 status: for-publication
 ---
 
-View the main rivers map – a spatial (polyline) dataset that allows you to explore rivers in England that are designated as ‘main rivers’ by statute. The Environment Agency carries out maintenance, improvement or construction work on main rivers to manage flood risk. On the datasets page, you can also download the data in various formats including GDP, GeoJSON, GPKG, LYR and SHP.
+View the main rivers map – a spatial (polyline) dataset that allows you to explore rivers in England that are designated as ‘main rivers’ by statute. The Environment Agency carries out maintenance, improvement or construction work on main rivers to manage flood risk. 
+
+On the datasets page, you can also download the data in various formats including GDP, GeoJSON, GPKG, LYR and SHP.
