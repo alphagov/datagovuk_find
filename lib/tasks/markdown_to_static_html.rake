@@ -6,7 +6,6 @@ rescue ArgumentError, TypeError
   nil
 end
 
-
 namespace :markdown do
   desc "Convert markdown to static html pages"
   task render: :environment do
