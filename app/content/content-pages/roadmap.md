@@ -99,7 +99,7 @@ We’d like to:
 - experiment with options to promote data reuse through best practice use cases, common data service components and gamification
 - develop tools and support for experimentation with government data
 
-#### Out of scope
+### Out of scope
 The following are not current priorities:
 
 - replacing specialist or departmental data services
