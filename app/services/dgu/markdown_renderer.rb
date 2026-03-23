@@ -76,13 +76,13 @@ module Dgu
       case list_type
       when :unordered
         <<~HTML
-          <ul class="govuk-list govuk-list--bullet datagovuk-list">
+          <ul class="govuk-list govuk-list--bullet datagovuk-list datagovuk-body">
             #{contents}
           </ul>
         HTML
       when :ordered
         <<~HTML
-          <ol class="govuk-list govuk-list--number datagovuk-list">
+          <ol class="govuk-list govuk-list--number datagovuk-list datagovuk-body">
             #{contents}
           </ol>
         HTML
