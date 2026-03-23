@@ -72,6 +72,14 @@ module Dgu
       HTML
     end
 
+    def block_quote(quote)
+      <<~HTML
+        <blockquote class="govuk-inset-text datagovuk-inset-text">
+          #{quote}
+        </blockquote>
+      HTML
+    end
+
     def list(contents, list_type)
       case list_type
       when :unordered
