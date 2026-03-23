@@ -2,15 +2,15 @@ module Collections
   COLLECTIONS = {
     "business-and-economy": [
       { "title": "UK trade", "slug": "uk-trade" },
-      { "title": "Bank of England interest rates", "slug": "bank-of-england-interest-rates" },
       { "title": "Inflation", "slug": "inflation" },
+      { "title": "Bank of England interest rates", "slug": "bank-of-england-interest-rates" },
       { "title": "Get company information", "slug": "get-company-information" },
       { "title": "Get charity information", "slug": "get-charity-information" },
       { "title": "Food hygiene ratings", "slug": "food-hygiene-ratings" },
       { "title": "Fuel and oil prices", "slug": "fuel-and-oil-prices" },
-      { "title": "Agricultural commodity prices", "slug": "agricultural-commodity-prices" },
       { "title": "Energy prices", "slug": "energy-prices" },
       { "title": "Electricity", "slug": "electricity" },
+      { "title": "Agricultural commodity prices", "slug": "agricultural-commodity-prices" },
     ],
     "environment": [
       { "title": "Weather", "slug": "weather" },
