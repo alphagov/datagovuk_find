@@ -51,7 +51,7 @@ anything is missing, unclear or inaccurate.
 #### Critical improvements to the original data.gov.uk directory
 Limited data.gov.uk maintenance in the last few years has led to broken features and
 data links. We’re identifying and addressing broken links and outdated datasets, and
-fixing issues with the publishing process in the original data.gov.uk directory.
+fixing issues with the publishing process in the original [data.gov.uk directory](/search).
 
 Because our primary focus is testing new ways of presenting data through curating
 useful data, for the moment we’ll mainly spend time on fixing the directory’s critical
