@@ -28,32 +28,32 @@ private
       {
         title: "Business and economy",
         slug: "business-and-economy",
-        description: "Company information, economic indicators, markets",
+        description: "Company information, prices, trade, economic indicators",
       },
       {
         title: "Environment",
         slug: "environment",
-        description: "Nature, conservation, climate, and sustainability",
+        description: "Nature, climate, floods, mapping",
       },
       {
         title: "Government",
         slug: "government",
-        description: "Political systems, policies, and public administration",
+        description: "Election results, local government finance, Council Tax",
       },
       {
         title: "Land and property",
         slug: "land-and-property",
-        description: "Housing, land use, and property rights",
+        description: "Housing, ownership, planning, addresses",
       },
       {
         title: "People",
         slug: "people",
-        description: "Population, immigration and emmigration, health",
+        description: "Population, health, immigration, social mobility",
       },
       {
         title: "Transport",
         slug: "transport",
-        description: "Public transport, cars, cycling and walking",
+        description: "Roads, driving, public transport, shipping",
       },
     ]
   end
