@@ -1,12 +1,13 @@
 <%
   size = local_assigns[:size] || 20
   collection_topic_path = local_assigns[:collection_topic_path] || ""
+  data = data.transform_values { |v| v.round(2) }
 %>
 
 <h2 class="govuk-heading-m datagovuk-heading-m"><%= local_assigns[:title] %></h2>
 
 <div class="govuk-grid-row bar-chart">
-  <%= bar_chart local_assigns[:data], round: 2,
+  <%= bar_chart data, round: 2,
   colors: ["#C27A9A"],
   height: "600px",
   aspectRatio: 2,
