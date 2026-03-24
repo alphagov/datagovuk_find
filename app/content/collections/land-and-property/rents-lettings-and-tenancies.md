@@ -11,6 +11,15 @@ contact:
 status: for-publication
 ---
 
-Get the latest data for England from the Ministry of Housing, Communities and Local Government. There are datasets in ODS format for the number of households on local authority waiting lists from 1987, and local authority-owned dwellings let by local authorities from 1981. You can also get data since 2010 on evictions from local authority-owned dwellings by reason, such as rent arrears or anti-social behaviour. 
+Get the latest data for England from the Ministry of Housing, Communities and Local Government. There are datasets in ODS format for: 
 
-The page includes other historical and discontinued datasets, such as local authority average weekly rents by district and region since 1991. 
+- the number of households on local authority waiting lists since 1987
+- local authority-owned dwellings let by local authorities since 1981
+- evictions from local authority-owned dwellings by reason (such as rent arrears or anti-social behaviour) since 2010
+
+You can also download historical or discontinued datasets in ODS or XLSX format on: 
+
+- local authority dwelling stock and average weekly rents, from 2011 to 2019
+- local authority lettings, by region, from 1988 to 2011
+- local authority average weekly rents, by district and region, from 1991 to 2023
+- Private Registered Provider (PRP) average weekly rents, by district, from 1997 to 2023 
