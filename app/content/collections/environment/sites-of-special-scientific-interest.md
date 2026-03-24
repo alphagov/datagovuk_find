@@ -7,7 +7,7 @@ api:
 dataset:
   url: https://naturalengland-defra.opendata.arcgis.com/datasets/Defra::sites-of-special-scientific-interest-england/explore
   link-text: "Sites of Special Scientific Interest (England): map"
-page-last-updated:
+page-last-updated: "2026-03-24"
 visualisation-data:
 contact:
 status: for-publication

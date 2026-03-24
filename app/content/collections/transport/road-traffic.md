@@ -9,7 +9,7 @@ api:
 dataset:
   url: https://roadtraffic.dft.gov.uk/downloads
   link-text: Road traffic datasets
-page-last-updated:
+page-last-updated: "2026-03-24"
 visualisation-data: road-traffic/road-traffic-headline.json
 contact:
 status: for-publication

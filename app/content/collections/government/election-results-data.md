@@ -5,7 +5,7 @@ websites:
     link-text: Election results
 api:
 dataset:
-page-last-updated:
+page-last-updated: "2026-03-24"
 visualisation-data: election-results-data/vote-share.json
 contact:
 status: for-publication

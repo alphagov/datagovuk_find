@@ -7,7 +7,7 @@ api:
 dataset:
   url: https://environment.data.gov.uk/dataset/25dde009-ba7d-40de-8380-c5c3bb32ccdc
   link-text: "Main rivers map: datasets"
-page-last-updated:
+page-last-updated: "2026-03-24"
 visualisation-data:
 contact:
 status: for-publication

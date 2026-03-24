@@ -24,6 +24,7 @@ RSpec.describe "Markdown to Static HTML Rake Task", type: :task do
     generated_files.each do |file|
       content = File.read(file)
       expect(content).to include("<h2")
+      expect(content).to include("The page was last updated 1/6/2024")
     end
   end
 
