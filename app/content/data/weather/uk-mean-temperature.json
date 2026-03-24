@@ -7,6 +7,7 @@
   "series": [
     {
       "color": "#C27A9A",
+      "name": "Mean temperature (°C)",
       "data": {
         "1884": 8.48,
         "1885": 7.36,
