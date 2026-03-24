@@ -2,6 +2,9 @@ name: Create charts PR on tags creation
 
 on:
   workflow_dispatch:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
 
 jobs:
   create_pr:
