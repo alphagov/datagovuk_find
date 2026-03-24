@@ -33,7 +33,7 @@ module Collections
       { "title": "Sites of Special Scientific Interest", "slug": "sites-of-special-scientific-interest" },
     ],
     "government": [
-      { "title": "Election results data", "slug": "election-results-data" },
+      { "title": "Election results", "slug": "election-results" },
       { "title": "Service assessment reports", "slug": "service-assessment-reports" },
       { "title": "Local government finance", "slug": "local-government-finance" },
       { "title": "Council Tax statistics", "slug": "council-tax-statistics" },

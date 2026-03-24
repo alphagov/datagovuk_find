@@ -10,7 +10,7 @@ RSpec.describe "Charts", type: :system do
   scenario "I can see a bar chart on a collection page" do
     given_i_visit_a_collection_page_with_a_bar_chart
     then_i_should_see_a_bar_chart_with_expected_data
-    and_i_should_see_a_download_link_for_the_chart_data("Download the chart data", "/collections/government/election-results-data/charts/vote-share-at-least-1-seat-won.csv")
+    and_i_should_see_a_download_link_for_the_chart_data("Download the chart data", "/collections/government/election-results/charts/vote-share-at-least-1-seat-won.csv")
   end
 
   scenario "I can see a headline chart on a collection page" do
@@ -42,7 +42,7 @@ private
   end
 
   def given_i_visit_a_collection_page_with_a_bar_chart
-    visit "/collections/government/election-results-data"
+    visit "/collections/government/election-results"
   end
 
   def then_i_should_see_a_bar_chart_with_expected_data
