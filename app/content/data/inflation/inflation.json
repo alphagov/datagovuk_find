@@ -1,13 +1,13 @@
 {
   "max_value": 8.0,
-  "title": "Rate of inflation (%)",
+  "title": "Rate of inflation - CPIH (%)",
   "publisher": "Office for National Statistics (ONS)",
   "source": "https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/l55o/mm23",
   "download": "inflation-1989-2025.csv",
   "visualisation_type": "line",
   "series": [
     {
-      "name": "Inflation",
+      "name": "Rate",
       "color": "#000000",
       "data": {
         "1989": 5.7,
