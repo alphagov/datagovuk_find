@@ -25,8 +25,7 @@ These include:
 - data stewards
 - information asset owners (IAOs)
 - data analysts and data scientists
-- anyone whose role involves delivering digital services – for
-- example, product owners, software developers, designers and project and programme managers
+- anyone whose role involves delivering digital services – for example, product owners, software developers, designers and project and programme managers
 - IT operations roles (DevOps)
 - technical, data and security architects
 - commercial and legal teams responsible for ensuring the safe handling of personal data is included in relevant contracts
