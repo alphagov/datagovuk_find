@@ -1,4 +1,5 @@
 ## data.gov.uk roadmap
+
 This roadmap sets out our priorities and direction for data.gov.uk, as of March 2026:
 
 - 'Now' covers work that’s underway
@@ -10,6 +11,7 @@ Our priorities may change as we learn more about what our users need. We’ve in
 We’ll update this roadmap at least every 6 months in a commitment to work in the open.
 
 ### Now
+
 data.gov.uk is designed to help people find and reuse public data, but for many
 reasons the original approach has failed and led to broken links and low usage.
 
@@ -24,6 +26,7 @@ Our current focus is on setting up the foundations for a modern home for UK publ
 - sharing this roadmap and creating user feedback forms
 
 #### Curated useful data
+
 We’ve created [data collections pages](/), organised by theme, based on some of the
 UK’s widely used public datasets. We selected datasets which are well maintained,
 reliable and authoritative, with complete information, wide coverage and which are
@@ -49,6 +52,7 @@ anything is missing, unclear or inaccurate.
 [Complete the feedback form](https://forms.office.com/e/9V26PNFQaR).
 
 #### Critical improvements to the original data.gov.uk directory
+
 Limited data.gov.uk maintenance in the last few years has led to broken features and
 data links. We’re identifying and addressing broken links and outdated datasets, and
 fixing issues with the publishing process in the original [data.gov.uk directory](/search).
@@ -58,7 +62,7 @@ useful data, for the moment we’ll mainly spend time on fixing the directory’
 issues that affect a lot of users. That means you may still experience issues or see
 data of lesser quality when navigating the data.gov.uk directory.
 
-You can continue to publish and update your data [following the publisher process](/).
+You can continue to publish and update your data [following the publisher process](/publishers).
 
 If you think you have data that might be a good candidate for the new, curated data
 pages, [tell us about your data in the feedback form](https://forms.office.com/e/9V26PNFQaR).
@@ -73,12 +77,14 @@ pages. We’ll also add more data listings and streamline the data manual by
 experimenting with how we best present the information.
 
 #### Improving discovery
+
 As we increase the amount of curated data on the platform, we’ll focus on how to
 improve search and browsing. We’ll trial different approaches to see what reduces
 effort in finding relevant data, including experimenting with new technologies and
 optimising for machine interactions.
 
 #### Platform redesign
+
 Fixing issues and testing new approaches will help us understand the requirements
 that a modern data portal needs to meet. We expect we’ll need to redesign core
 parts of the current service to meet these requirements before more closely linking
@@ -87,7 +93,9 @@ the new data collections and the data.gov.uk directory.
 ### Later
 
 #### An extended front door to government data
+
 We’d like to:
+
 - help users navigate different types of government data, beyond open data
 - curate new data, which may not be available anywhere yet
 - make relationships between datasets clearer – this may include enriching metadata and experimenting with user-generated metadata
@@ -95,11 +103,13 @@ We’d like to:
 #### Stronger foundations for reuse
 
 We’d like to:
+
 - explore interoperability with other data services
 - experiment with options to promote data reuse through best practice use cases, common data service components and gamification
 - develop tools and support for experimentation with government data
 
 ### Out of scope
+
 The following are not current priorities:
 
 - replacing specialist or departmental data services
