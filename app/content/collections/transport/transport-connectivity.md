@@ -4,7 +4,7 @@ websites:
   - url: https://www.gov.uk/government/statistical-data-sets/mot-testing-data-for-great-britain
     link-text: Connectivity Tool Lite
   - url: https://www.gov.uk/guidance/connectivity-tool
-    link-text: Connectivity Tool: guidance for built environment professionals
+    link-text: "Connectivity Tool: guidance for built environment professionals"
   - url: https://www.gov.uk/government/publications/transport-connectivity-metric
     link-text: Transport connectivity metric
 api:
