@@ -1,5 +1,5 @@
 ---
-title: UK House prices
+title: UK house prices
 websites:
   - url: https://landregistry.data.gov.uk/app/ukhpi/
     link-text: Search UK house price index
