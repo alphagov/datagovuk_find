@@ -60,8 +60,9 @@ RSpec.describe Dgu::Markdown do
       MD
 
       expected_html = <<~HTML
-        <blockquote>
-        <p class="govuk-body-m datagovuk-body">This is a blockquote.</p>
+        <blockquote class="govuk-inset-text datagovuk-inset-text">
+          <p class="govuk-body-m datagovuk-body">This is a blockquote.</p>
+
         </blockquote>
       HTML
 

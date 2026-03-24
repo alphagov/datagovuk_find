@@ -42,7 +42,8 @@
 .datagovuk-heading-m,
 .datagovuk-heading-l,
 .datagovuk-link,
-.datagovuk-button {
+.datagovuk-button,
+.datagovuk-inset-text {
   font-family: 'Inter', sans-serif;
   color: $datagovuk-black;
 }
@@ -108,6 +109,10 @@
 .datagovuk-list {
   font-size: 20px;
   font-family: 'Inter', sans-serif;
+}
+
+.datagovuk-inset-text {
+  border-left-color: $datagovuk-light-green;
 }
 
 /* 
