@@ -110,7 +110,7 @@ We’d like to:
 
 ### Out of scope
 
-The following are not current priorities:
+The following are not part of the scope of this work at the moment: 
 
 - replacing specialist or departmental data services
 - mandating data publication or standards across government
