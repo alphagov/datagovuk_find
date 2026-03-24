@@ -21,6 +21,10 @@
     color: #583F38;
 }
 
+ .datagovuk-home-section {
+    margin-bottom: 50px;
+ }
+
 .datagovuk-home-collections__heading {
     text-align: center;
 }
@@ -44,10 +48,6 @@
 
 .datagovuk-home-collections__item-decription {
     color: $datagovuk-grey;
-}
-
-.datagovuk-home-cards {
-    margin-bottom: 40px;    
 }
 
 .datagovuk-home-card {
@@ -79,6 +79,7 @@
 
 .datagovuk-home-publications__heading {
     text-align: center;
+    margin-bottom: 30px;
 }
 
 .datagovuk-home-publications__item {

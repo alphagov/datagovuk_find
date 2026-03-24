@@ -41,14 +41,6 @@
 .datagovuk-heading-s,
 .datagovuk-heading-m,
 .datagovuk-heading-l,
-.datagovuk-heading-xl {
-  line-height: 140%;
-}
-
-.datagovuk-body,
-.datagovuk-heading-s,
-.datagovuk-heading-m,
-.datagovuk-heading-l,
 .datagovuk-link,
 .datagovuk-button {
   font-family: 'Inter', sans-serif;
@@ -66,19 +58,23 @@
 .datagovuk-heading-l {
   font-size: 32px;
   font-weight: normal;
-}
-
-.datagovuk-heading-s {
-  font-size: 22px;
+  line-height: 120%;
 }
 
 .datagovuk-heading-m {
   font-size: 26px;
   font-weight: normal;
+  line-height: 120%;
+}
+
+.datagovuk-heading-s {
+  font-size: 22px;
+  line-height: 120%;
 }
 
 .datagovuk-body {
   font-size: 20px;
+  line-height: 140%;
 }
 
 .datagovuk-link:link,
