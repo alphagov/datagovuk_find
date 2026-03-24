@@ -50,10 +50,3 @@ This service, still in private beta, is for people who work in government
 organisations to find, request and share data. After creating an account,
 you can search a data catalogue and request data from other
 organisations by answering a short set of questions.
-
-## [Unlocking data sharing across government](https://dataingovernment.blog.gov.uk/2025/04/07/unlocking-data-sharing-across-government/)
-This government blog explains the work of the Data Sharing Network of
-Experts (DSNE). DSNE is a cross-government virtual team that helps
-solve problems with sharing data between government departments and
-agencies. You can contact the team with questions or if you need
-assistance with a data sharing case.
