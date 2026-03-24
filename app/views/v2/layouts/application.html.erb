@@ -4,6 +4,9 @@
     <meta charset="utf-8">
     <title><%= yield(:page_title) %><%= content_for?(:page_title_full) ? yield(:page_title_full) : " - data.gov.uk" %></title>
     
+    <% if content_for?(:page_description) %>
+      <meta name="description" content="<%= yield(:page_description) %>">
+    <% end %>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="theme-color" content="#FFFFFF">
 
