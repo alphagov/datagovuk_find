@@ -42,4 +42,16 @@ RSpec.describe DatasetsController, type: :controller do
       expect(response).to redirect_to(dataset_url(dataset.uuid, dataset.name))
     end
   end
+
+  describe "visiting the dataset page from search results" do
+    it "links back to the search results page with the same query parameters" do
+      query_params = "q=&filters%5Bpublisher%5D=Ministry%20of%20Housing%2C%20Communities%20and%20Local%20Government&filters%5Btopic%5D=&filters%5Bformat%5D=CSV&sort=best"
+      request.env["HTTP_REFERER"] = "http://test.host/search?#{query_params}"
+      get :show, params: { uuid: dataset.uuid, name: dataset.name }
+
+      expect(response.body).to have_css("div.breadcrumbs")
+      expect(response.body).to have_css("li", text: "Search")
+      expect(response.body).to have_link("Search", href: "/search?#{query_params}")
+    end
+  end
 end

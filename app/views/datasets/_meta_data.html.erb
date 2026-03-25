@@ -89,7 +89,7 @@
       </div>
 
       <h3 class="heading-small"><%= t('.search_gov_data') %></h3>
-      <form action="/search" method="GET" class="dgu-search-box">
+      <form action="<%= search_path %>" method="GET" class="dgu-search-box">
         <label for="q" class="visuallyhidden"><%= t('.accessibility.search_box_label') %></label>
         <input id="q"
                name="q"
