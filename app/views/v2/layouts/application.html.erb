@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="theme-color" content="#FFFFFF">
 
-    <link rel="stylesheet" href="/stylesheets/govuk-frontend-6.0.0.min.css" media="all">
+    <%= stylesheet_link_tag 'v2/govuk-frontend-6.0.0.min.css' %>
     <%= stylesheet_link_tag 'v2/application' %>
 
     <%= csrf_meta_tags %>
@@ -88,11 +88,6 @@
     <%= render "v2/footer" %>
 
     <%= javascript_include_tag 'v2/application' %>
-    <script type="module" src="/javascript/govuk-frontend-6.0.0.min.js"></script>
-    <script type="module">
-      import { initAll } from '/javascript/govuk-frontend-6.0.0.min.js'
-      initAll()
-    </script>
     <%= yield :extra_javascript %>
 </body>
 </html>

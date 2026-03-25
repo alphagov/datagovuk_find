@@ -20,3 +20,4 @@
 //= require chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels
 
 Chart.register(ChartDataLabels);
+window.GOVUKFrontend.initAll()
