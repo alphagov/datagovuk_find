@@ -1,0 +1,32 @@
+.datagovuk-data-manual-hero {
+  text-align: center;
+  padding: 70px 15px;
+  margin-bottom: 60px;
+  background-image: image-url("v2/hero_background_data_manual");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.datagovuk-data-manual-content .datagovuk-heading-xl {
+  font-family: Inter, sans-serif;
+  font-size: 32px;
+  line-height: 120%;
+}
+
+.datagovuk-data-manual-content .datagovuk-heading-l {
+  font-size: 26px;
+}
+
+@media (min-width: $desktop-breakpoint) {
+  .datagovuk-data-manual-content .datagovuk-heading-xl {
+    font-size: 42px;
+  }
+
+  .datagovuk-data-manual-content .datagovuk-heading-l {
+    font-size: 30px;
+  }
+  .datagovuk-data-manual-hero {
+    padding: 90px 15px;
+    margin-bottom: 80px;
+  }
+}

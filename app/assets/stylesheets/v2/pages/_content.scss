@@ -1,0 +1,19 @@
+.datagovuk-content .datagovuk-heading-xl {
+  font-family: Inter, sans-serif;
+  font-size: 32px;
+}
+
+.datagovuk-content .datagovuk-heading-l {
+  font-size: 26px;
+}
+
+@media (min-width: $desktop-breakpoint) {
+  .datagovuk-content .datagovuk-heading-xl {
+    font-size: 42px;
+  }
+
+  .datagovuk-content .datagovuk-heading-l {
+    font-size: 30px;
+  }
+
+}

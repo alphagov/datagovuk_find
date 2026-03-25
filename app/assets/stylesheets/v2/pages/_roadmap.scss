@@ -1,0 +1,10 @@
+.datagovuk-roadmap__image {
+  display: block;
+  margin: 40px auto;
+}
+
+@media (min-width: $desktop-breakpoint) {
+  .datagovuk-roadmap__image {
+    margin: -20px auto 0 auto;
+  }
+}

@@ -18,7 +18,7 @@
 //= require govuk_publishing_components/all_components
 //= require_tree ./organograms/lib
 //= require_tree ./organograms
+//= require v2/header
 //= require_tree .
 
 window.GOVUK.modules.start()
-window.GOVUK.analyticsInit()

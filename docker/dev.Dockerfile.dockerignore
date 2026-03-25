@@ -1,0 +1,13 @@
+.dockerignore
+.git
+.gitignore
+.github
+Dockerfile
+README.md
+coverage
+docs
+log
+node_modules
+test
+tmp
+vendor/bundle

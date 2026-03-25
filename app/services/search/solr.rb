@@ -7,7 +7,7 @@ module Search
       query_param = (params["q"] || "").to_s.squish
       @page = params["page"]
       sort_param = params["sort"]
-      @page && @page.to_i.positive? ? @page.to_i : 1
+      @page = @page && @page.is_a?(String) && @page.to_i.positive? ? @page.to_i : 1
 
       get_organisations
 
@@ -43,6 +43,8 @@ module Search
     end
 
     def self.publisher_filter(organisation)
+      return "" if @organisations_list.nil?
+
       "organization:#{@organisations_list[organisation]}"
     end
 
@@ -118,13 +120,17 @@ module Search
       end
     end
 
+    def self.empty_result
+      { "response" => { "numFound" => 0, "docs" => [] } }
+    end
+
     def self.query_solr
       client.get "select", params: {
         q: @query,
         "q.op": "OR",
         sow: true,
         fq: @filter_query,
-        start: @page,
+        start: start_offset,
         rows: RESULTS_PER_PAGE,
         fl: field_list,
         sort: @sort_query,
@@ -137,7 +143,7 @@ module Search
         "q.op": "OR",
         sow: true,
         fq: @filter_query,
-        start: @page,
+        start: start_offset,
         rows: RESULTS_PER_PAGE,
         fl: field_list,
         sort: @sort_query,
@@ -174,6 +180,12 @@ module Search
         "-res_format:\"#{format}\""
       end
       query_parts.join("")
+    end
+
+    def self.start_offset
+      return 0 if @page.nil? || @page <= 1
+
+      (@page - 1) * RESULTS_PER_PAGE
     end
 
     class NoSearchTermsError < StandardError; end

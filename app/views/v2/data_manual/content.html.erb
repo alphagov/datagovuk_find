@@ -1,0 +1,42 @@
+<% content_for :page_title, "#{title} - Data manual" %>
+
+<div class="govuk-width-container datagovuk-width-container govuk-!-margin-bottom-6">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third govuk-!-margin-bottom-6">
+      <% extra_section_nav = capture do %>
+        <div class="datagovuk-data-manual-card datagovuk-data-manual-card--borderless">
+          <%= image_tag "v2/icons/form.svg", class: "datagovuk-data-manual-card__icon", alt: "" %>
+          <h2 class="govuk-body datagovuk-body">
+            <a href="https://forms.office.com/e/9V26PNFQaR" class="govuk-link datagovuk-link datagovuk-!-colour-dark-green">Tell us what you think</a>
+          </h2>
+          <p class="govuk-body datagovuk-body govuk-!-margin-bottom-0 datagovuk-!-colour-dark-green">
+            We’d love your feedback. Is this manual useful? Can we improve it?
+          </p>
+        </div>
+
+        <div class="datagovuk-data-manual-card datagovuk-data-manual-card--secondary datagovuk-data-manual-card--borderless">
+          <%= image_tag "v2/icons/community.svg", class: "datagovuk-data-manual-card__icon", alt: "" %>
+          <h2 class="govuk-body datagovuk-body">
+            <a href="/data-manual/join-a-data-community" class="govuk-link datagovuk-link datagovuk-!-colour-dark-pink">Join a data community</a>
+          </h2>
+          <p class="govuk-body datagovuk-body govuk-!-margin-bottom-0 datagovuk-!-colour-dark-pink">
+            Find Slack channels, events and other ways to connect with data practitioners.
+          </p>
+        </div>
+      <% end %>
+
+      <%= render partial: "v2/components/section_navigation", locals: {
+        items: data_manual_pages,
+        extra_section_nav: extra_section_nav,
+      } %>
+
+
+    </div>
+    <div class="govuk-grid-column-two-thirds">
+      <div class="datagovuk-data-manual-content govuk-!-margin-bottom-9">
+        <%= rendered_content %>
+      </div>
+      <%= render partial: "v2/components/feedback" %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,141 @@
+.datagovuk-home-hero {
+    text-align: center;
+    padding: 60px 40px;
+    margin-bottom: 40px;
+    border-radius: 30px;
+    background-image: image-url('v2/home-hero-bg');
+    background-size: cover;
+}
+
+.datagovuk-home-hero :last-child {
+  margin-bottom: 0;
+}
+
+.datagovuk-home-hero .datagovuk-home-hero__heading {
+    display: inline-block;
+    color: #583F38;
+    max-width: 620px;
+}
+
+.datagovuk-home-hero .datagovuk-home-hero__link {
+    color: #583F38;
+}
+
+ .datagovuk-home-section {
+    margin-bottom: 50px;
+ }
+
+.datagovuk-home-collections__heading {
+    text-align: center;
+}
+
+.datagovuk-home-collections__description {
+    text-align: center;
+    color: $datagovuk-grey;
+    margin-bottom: 40px;
+}
+
+.datagovuk-home-collections__item {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 25px;
+}
+
+.datagovuk-home-collections__item-image {
+    width: 70px;
+    height: 70px;
+}
+
+.datagovuk-home-collections__item-decription {
+    color: $datagovuk-grey;
+}
+
+.datagovuk-home-card {
+    text-align: center;
+    border-radius: 30px;
+    background-color: $datagovuk-light-green;
+    padding: 40px;
+    margin-bottom: 30px;
+}
+
+.datagovuk-home-card :last-child {
+  margin-bottom: 0;
+}
+
+.datagovuk-home-card__heading {
+    display: inline-block;
+}
+
+.datagovuk-home-card__description {
+    margin-bottom: 20px;
+}
+
+.datagovuk-home-card__link-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.datagovuk-home-publications__heading {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.datagovuk-home-publications__item {
+    margin-bottom: 30px;
+}
+
+.datagovuk-home-publications__link {
+    display: block;
+    margin-bottom: 15px;
+}
+
+.datagovuk-home-publications__date {
+    color: $datagovuk-grey;
+}
+
+/* Desktop styling overrides */
+@media (min-width: 40.0625em) {
+    .datagovuk-home-hero {
+        padding: 80px 40px;
+        margin-bottom: 60px;
+    }
+
+    .datagovuk-home-collections__description {
+        margin-bottom: 60px;
+    }
+
+    .datagovuk-home-collections__items {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+
+    .datagovuk-home-collections__item-heading {
+        font-size: 28px;
+    }
+
+    .datagovuk-home-collections__item-image {
+        width: 110px;
+        height: 110px;
+    }
+
+    .datagovuk-home-cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+
+    .datagovuk-home-card__description {
+        max-width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .datagovuk-home-publications {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+}

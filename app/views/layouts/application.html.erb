@@ -33,6 +33,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <%= stylesheet_link_tag 'application' %>
+    <%= stylesheet_link_tag 'v2/application' %>
     <%= csrf_meta_tags %>
 
     <%= yield :head %>
@@ -48,12 +49,16 @@
 
     <%= render "govuk_publishing_components/components/skip_link", {} %>
 
+    <div class="datagovuk-directory-header">
+      <%= render partial: "v2/header", locals: {collections: @collections, data_manual_pages: @data_manual_pages} %>
+    </div>
+
     <header role="banner" class="govuk-header" data-module="govuk-header">
       <div class="govuk-header__container govuk-width-container">
         <div class="govuk-grid-row">
           <div class="govuk-header__logo govuk-grid-column-one-half">
-            <a href="<%= root_path %>" class="govuk-header__link govuk-header__link--homepage">
-                <%= t('.data_gov_uk')%> | <%= t('.find_open_data') %>
+            <a href="<%= search_path %>" class="govuk-header__link govuk-header__link--homepage">
+                Directory
               </a>
           </div>
           <div class="govuk-grid-column-one-half">
@@ -63,12 +68,24 @@
       </div>
     </header>
 
+    <div class="datagovuk-v2-banner govuk-!-margin-top-2">
+      <div class="govuk-width-container">
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full">
+            <p class="govuk-body govuk-!-padding-top-4 govuk-!-padding-bottom-4 govuk-!-margin-bottom-0"> 
+              We’re making changes to data.gov.uk — <a class="govuk-link" href="/roadmap">Find out more</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <%= render 'layouts/integration_ribbon' if Rails.env.integration? %>
     <%= render 'layouts/staging_ribbon' if Rails.env.staging? %>
 
     <div class="dgu-top-non-content">
       <div class="dgu-top-non-content__inner">
-        <%= render 'layouts/feedback_survey_banner' %>
+
         <%= yield :breadcrumb %>
       </div>
     </div>
@@ -93,12 +110,8 @@
             text: "Cookies"
           },
           {
-            href: "/privacy",
-            text: "Privacy"
-          },
-          {
-            href: "/terms",
-            text: "Terms and conditions"
+            href: "/privacy-and-terms",
+            text: "Privacy and terms"
           },
           {
             href: "/support",

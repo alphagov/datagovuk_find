@@ -1,0 +1,10 @@
+.line-chart div {
+    height: 500px !important;
+}
+
+/* Desktop styling overrides */
+@media (min-width: $desktop-breakpoint) {
+    .line-chart div {
+        height: 500px !important;
+    }
+}

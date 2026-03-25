@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root to: "pages#home"
+  root to: "v2/pages#home"
+
+  get "healthz" => "rails/health#show", as: :rails_health_check
 
   get "/sites/default/files/*organogram_path", to: redirect("https://s3-eu-west-1.amazonaws.com/datagovuk-#{Rails.env}-ckan-organogram/legacy/%{organogram_path}"), format: false
 
@@ -22,21 +24,35 @@ Rails.application.routes.draw do
   end
 
   scope module: "pages" do
-    get "about"
-    get "accessibility"
-    get "cookies"
     get "dashboard" # 410 Gone
-    get "privacy"
     get "publishers"
     get "site-changes"
-    get "support"
     get "support/new", to: redirect("/support")
-    get "terms"
     get "ckan_maintenance"
   end
 
-  match "404", to: "errors#not_found", via: :all
-  match "500", to: "errors#internal_server_error", via: :all
+  scope module: "v2" do
+    get "collections/:collection", to: "collection#collection", as: "collection"
+    get "collections/:collection/:page", to: "collection#collection_page", as: "collection_page"
+    get "components" => "pages#components"
+    get "data-manual", to: "data_manual#home", as: "data_manual_home"
+    get "data-manual/:slug", to: "data_manual#content", as: "data_manual_content", constraints: { slug: /[a-z0-9-]+/ }
+    get "about" => "pages#content_page", defaults: { slug: "about", title: "About" }
+    get "accessibility" => "pages#content_page", defaults: { slug: "accessibility", title: "Accessibility" }
+    get "support" => "pages#content_page", defaults: { slug: "support", title: "Support" }
+    get "team" => "pages#content_page", defaults: { slug: "team", title: "Team" }
+    get "roadmap" => "pages#content_page", defaults: { slug: "roadmap", title: "Our plan for data.gov.uk", template: "v2/pages/roadmap" }
+    get "privacy-and-terms" => "pages#content_page", defaults: { slug: "privacy-and-terms", title: "Privacy and terms" }
+    get "cookies" => "pages#cookies"
+    get "collections/:collection/:topic/charts/:chart", to: "charts#download", as: "chart_download", constraints: {
+      collection: /[a-zA-Z0-9\-_]+/,
+      topic: /[a-zA-Z0-9\-_]+/,
+      chart: /[a-zA-Z0-9\-_]+/,
+    }
+    match "404", to: "errors#not_found", via: :all
+    match "500", to: "errors#internal_server_error", via: :all
+    match "500-test", to: "errors#internal_server_error_test", via: :all
+  end
 
   get "search/", to: "search#search"
 
@@ -45,11 +61,11 @@ Rails.application.routes.draw do
 
   get "acknowledge", to: "messages#acknowledge"
 
-  # Route everything else to CKAN
+  # Route an allow list of base paths to CKAN
   if ENV["CKAN_DOMAIN"].present?
     match "*path",
           to: redirect(domain: ENV["CKAN_DOMAIN"], subdomain: "", path: "/%{path}"),
           via: :all,
-          constraints: { path: /(?!#{Regexp.quote(Rails.application.config.assets.prefix[1..])}).+/ }
+          constraints: { path: /(?!#{Regexp.quote(Rails.application.config.assets.prefix[1..])})(dataset\/edit|user|api|harvest).*/ }
   end
 end

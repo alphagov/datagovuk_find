@@ -6,7 +6,11 @@ RSpec.feature "Solr Search page" do
 
     then_i_can_see_the_search_heading
     and_i_can_see_the_search_box
+    and_i_do_not_see_search_results
+    and_i_do_not_see_remove_filters_link
+    then_i_search_for_something
     and_i_can_see_the_search_result_count
+    and_i_do_not_see_remove_filters_link
     and_i_can_see_each_search_result_title
     and_i_can_see_the_publisher_for_each_search_result
     and_i_can_see_the_last_updated_for_each_search_result
@@ -21,12 +25,31 @@ RSpec.feature "Solr Search page" do
     and_i_can_see_the_format_filter
     and_i_can_see_the_ogl_filter
     and_i_can_see_the_apply_filters_button
+    and_i_filter_by_an_organisation
     and_i_can_see_the_remove_filters_link
 
     when_i_sort_results_by_most_recent
     then_i_can_see_results_sorted_by_most_recent
 
     then_i_can_see_pagination_info
+  end
+
+  def and_i_do_not_see_search_results
+    expect(page).not_to have_css(".dgu-results__result")
+  end
+
+  def and_i_do_not_see_remove_filters_link
+    expect(page).not_to have_link("Remove filters")
+  end
+
+  def then_i_search_for_something
+    fill_in "q", with: "abc"
+    click_button "Search"
+  end
+
+  def and_i_filter_by_an_organisation
+    select "Ministry of Housing, Communities and Local Government", from: "Publisher"
+    click_button "Apply filters"
   end
 
   def given_i_am_on_the_solr_search_page
@@ -36,15 +59,21 @@ RSpec.feature "Solr Search page" do
       "Ministry of Housing, Communities and Local Government" => "department-for-communities-and-local-government",
       "Academics" => "academics",
     })
+    allow(Search::Solr).to receive(:get_organisation)
+      .with("department-for-communities-and-local-government")
+      .and_return({ "response" => { "docs" => [{ "title" => "Ministry of Housing, Communities and Local Government" }] } })
+    allow(Search::Solr).to receive(:get_organisation)
+      .with("mole-valley-district-council")
+      .and_return({ "response" => { "docs" => [{ "title" => "Mole Valley District Council" }] } })
     visit search_path
   end
 
   def then_i_can_see_the_search_heading
-    expect(page).to have_css("h1", text: "Search results")
+    expect(page).to have_css("h1", text: "Search directory")
   end
 
   def and_i_can_see_the_search_box
-    expect(page).to have_content("Search data.gov.uk")
+    expect(page).to have_content("Search directory")
   end
 
   def and_i_can_see_the_search_result_count
@@ -84,9 +113,9 @@ RSpec.feature "Solr Search page" do
 
   def and_i_can_see_the_list_of_organisations_in_publisher_filter
     select_options = all("select#publisher option")
-    expect(select_options.length).to be(4)
-    expect(select_options[1]).to have_content "Aberdeen City Council"
-    expect(select_options[2]).to have_content "Ministry of Housing, Communities and Local Government"
+    expect(select_options.length).to be(3)
+    expect(select_options[1]).to have_content "Ministry of Housing, Communities and Local Government"
+    expect(select_options[2]).to have_content "Mole Valley District Council"
   end
 
   def and_i_can_select_an_organisation_in_publisher_filter
@@ -114,7 +143,7 @@ RSpec.feature "Solr Search page" do
   end
 
   def and_i_can_see_the_remove_filters_link
-    expect(page).to have_link("Remove filters", href: "/search?q=")
+    expect(page).to have_link("Remove filters", href: "/search?q=abc")
   end
 
   def when_i_sort_results_by_most_recent

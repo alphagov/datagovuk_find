@@ -2,10 +2,9 @@ name: Create charts PR on tags creation
 
 on:
   workflow_dispatch:
-  workflow_run:
-    workflows: [ "Build and push DGU Find Image on tags" ]
-    types:
-      - completed
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
 
 jobs:
   create_pr:

@@ -30,13 +30,17 @@
         </div>
         <div class="govuk-grid-column-two-thirds dgu-results">
           <%= render 'sort' if @num_results > 1 %>
-          <span class="dgu-results__summary">
-            <span class="govuk-body-s govuk-!-font-weight-bold"><%= number_with_delimiter(@num_results) %></span>
-            <%= t('.result').pluralize(@num_results) %> <%= t('.found') %>
-          </span>
+          <% if @presenter.search_term.present? %>
+            <span class="dgu-results__summary">
+              <span class="govuk-body-s govuk-!-font-weight-bold"><%= number_with_delimiter(@num_results) %></span>
+              <%= t('.result').pluralize(@num_results) %> <%= t('.found') %>
+            </span>
+          <% end %>
 
           <% if @num_results.zero? %>
-            <%= render "no_results" %>
+            <% if @presenter.search_term.present? %>
+              <%= render "no_results" %>
+            <% end %>
           <% else %>
             <% @datasets.each do |dataset| %>
               <div class="dgu-results__result">
@@ -44,8 +48,10 @@
                   <%= link_to dataset["title"], dataset_path(dataset["id"], dataset["name"]), class: 'govuk-link' %>
                 </h2>
                 <dl class="dgu-metadata__box">
+                  <% if JSON.parse(dataset["validated_data_dict"])["organization"].present? %>
                   <dt><%= t('.meta_data_box.published_by') %>:</dt>
                   <dd class="published_by"><%= JSON.parse(dataset["validated_data_dict"])["organization"]["title"] %></dd>
+                  <% end %>
                   <dt><%= t('.meta_data_box.last_updated') %>:</dt>
                   <% if dataset["metadata_modified"].present? %>
                     <dd><%= format_timestamp(dataset["metadata_modified"]) %></dd>

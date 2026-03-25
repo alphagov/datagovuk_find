@@ -1,0 +1,117 @@
+{
+  "title": "UK monthly maximum temperature (°C) at 25-year intervals",
+  "visualisation_type": "line",
+  "source": "https://www.metoffice.gov.uk/research/climate/maps-and-data/uk-and-regional-series",
+  "download": "uk-monthly-max-temperature.csv",
+  "publisher": "Met Office",
+  "series": [
+    {
+      "name": "1900",
+      "color": "#1d70b8",
+      "data": {
+        "Jan": 6.0,
+        "Feb": 4.3,
+        "Mar": 6.0,
+        "Apr": 11.6,
+        "May": 13.4,
+        "Jun": 17.7,
+        "Jul": 20.3,
+        "Aug": 18.0,
+        "Sep": 17.0,
+        "Oct": 11.9,
+        "Nov": 8.6,
+        "Dec": 8.7
+      }
+    },
+    {
+      "name": "1925",
+      "color": "#4c2c92",
+      "data": {
+        "Jan": 7.1,
+        "Feb": 6.7,
+        "Mar": 7.3,
+        "Apr": 10.3,
+        "May": 14.0,
+        "Jun": 18.5,
+        "Jul": 19.9,
+        "Aug": 18.3,
+        "Sep": 14.1,
+        "Oct": 12.9,
+        "Nov": 6.3,
+        "Dec": 4.8
+      }
+    },
+    {
+      "name": "1950",
+      "color": "#00703c",
+      "data": {
+        "Jan": 6.2,
+        "Feb": 7.1,
+        "Mar": 10.3,
+        "Apr": 10.2,
+        "May": 14.3,
+        "Jun": 19.1,
+        "Jul": 18.7,
+        "Aug": 18.4,
+        "Sep": 15.0,
+        "Oct": 11.9,
+        "Nov": 7.5,
+        "Dec": 3.0
+      }
+    },
+    {
+      "name": "1975",
+      "color": "#f47738",
+      "data": {
+        "Jan": 8.1,
+        "Feb": 6.8,
+        "Mar": 6.9,
+        "Apr": 10.7,
+        "May": 13.0,
+        "Jun": 18.4,
+        "Jul": 19.9,
+        "Aug": 21.6,
+        "Sep": 15.8,
+        "Oct": 12.6,
+        "Nov": 8.6,
+        "Dec": 7.3
+      }
+    },
+    {
+      "name": "2000",
+      "color": "#d4351c",
+      "data": {
+        "Jan": 7.2,
+        "Feb": 8.1,
+        "Mar": 9.9,
+        "Apr": 10.6,
+        "May": 15.4,
+        "Jun": 17.3,
+        "Jul": 18.2,
+        "Aug": 19.6,
+        "Sep": 17.1,
+        "Oct": 12.5,
+        "Nov": 8.7,
+        "Dec": 7.0
+      }
+    },
+    {
+      "name": "2025",
+      "color": "#aa2e48",
+      "data": {
+        "Jan": 5.9,
+        "Feb": 7.4,
+        "Mar": 11.4,
+        "Apr": 14.9,
+        "May": 17.4,
+        "Jun": 19.7,
+        "Jul": 21.3,
+        "Aug": 20.9,
+        "Sep": 16.9,
+        "Oct": 13.3,
+        "Nov": 10.1,
+        "Dec": 8.4
+      }
+    }
+  ]
+}

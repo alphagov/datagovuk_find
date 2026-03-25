@@ -65,6 +65,10 @@ class SearchPresenter
     search_params.fetch("q", "")
   end
 
+  def filters_applied?
+    [selected_publisher, selected_topic, selected_format, selected_licence].any?(&:present?)
+  end
+
   def selected_publisher
     search_params.dig(:filters, :publisher)
   end
