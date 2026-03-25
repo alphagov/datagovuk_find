@@ -7,6 +7,6 @@ en:
       support: "Support"
     application:
       site_name: "data.gov.uk"
-      find_open_data: "Find open data"
+      directory: "directory"
       data_gov_uk: "data.gov.uk"
       go_to_home: "Go to the Find open data homepage"

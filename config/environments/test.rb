@@ -17,6 +17,13 @@ Rails.application.configure do
   # loading is working properly before deploying your code.
   config.eager_load = ENV["CI"].present?
 
+  config.x.data_location = "spec/fixtures/data"
+  config.x.markdown_collections_location = "spec/fixtures/content"
+  config.x.markdown_collections_location_glob = "spec/fixtures/content/**/*.md"
+  config.x.markdown_collections_output_location = "tmp/views/generated/collections"
+  config.x.markdown_location_directory = "spec/fixtures/content"
+  config.x.markdown_content_pages_location = "app/content/content-pages"
+
   # Configure public file server for tests with Cache-Control for performance.
   config.public_file_server.headers = { "Cache-Control" => "public, max-age=#{1.hour.to_i}" }
 

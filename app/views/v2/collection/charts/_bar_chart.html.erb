@@ -1,0 +1,81 @@
+<%
+  size = local_assigns[:size] || 20
+  collection_topic_path = local_assigns[:collection_topic_path] || ""
+  data = data.transform_values { |v| v.round(2) }
+%>
+
+<h2 class="govuk-heading-m datagovuk-heading-m"><%= local_assigns[:title] %></h2>
+
+<div class="govuk-grid-row bar-chart">
+  <%= bar_chart data, round: 2,
+  colors: ["#C27A9A"],
+  height: "600px",
+  aspectRatio: 2,
+  library: {
+    indexAxis: 'y',
+    responsive: true,
+    maintainAspectRatio: false,
+    layout: {
+      padding: {
+        left: 20,
+        right: 20,
+        top: 20,
+        bottom: 20
+      }
+    },
+    plugins: {
+      datalabels: {
+        display: true,
+        anchor: 'end',
+        align: 'right',
+        offset: 3,
+        clip: false,
+        color: '#5D5D5D',
+        font: {
+          family: "Inter, sans-serif",
+          size: size,
+          weight: 'bold'
+        }
+      },
+      legend: {
+        display: false,
+      },
+      tooltip: {
+        bodyFont: { size: 20, family: "Inter, sans-serif", weight: "bold" },
+        titleFont: { size: 20, family: "Inter, sans-serif", weight: "bold" }
+      }
+    },
+    scales: {
+      x: {
+        grid: { 
+          display: true,
+          drawTicks: false
+        },
+        border: {
+          width: 1,
+          color: "#5D5D5D",
+          dash: [5, 5]
+        },
+        ticks: {
+          display: false
+        },
+      },
+      y: {
+        border: {
+          width: 1,
+          color: "#5D5D5D"
+        },
+        ticks: {
+          font: { size: size, family: "Inter, sans-serif" } 
+        },
+      }
+    }
+  },
+  dataset: {
+    hoverBackgroundColor: "#C27A9A",
+    backgroundColor: "#C27A9A",
+    hoverBorderColor: "#C27A9A",
+    borderWidth: 0
+  }
+  %>
+</div>

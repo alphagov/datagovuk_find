@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe "legacy", type: :request do
   describe "search query" do
-    it "is redirected to search results page with original query and filters" do
+    it "is redirected to search directory page with original query and filters" do
       legacy_params = {
         "q" => "foo",
         "res_format" => "bar",
@@ -81,23 +81,16 @@ end
 
 RSpec.describe "CKANRouter" do
   describe "routing" do
-    it "routes GET /publish to CKAN domain" do
-      get "/publish"
-      location = "http://testdomain/publish"
-
-      expect(response).to redirect_to(location)
-    end
-
-    it "routes GET /publish?id=123 to CKAN domain and retains query string" do
-      get "/publish?id=123"
-      location = "http://testdomain/publish?id=123"
-
-      expect(response).to redirect_to(location)
-    end
-
     it "routes GET /dataset/edit/:legacy_name to CKAN domain" do
       get "/dataset/edit/some_dataset"
       location = "http://testdomain/dataset/edit/some_dataset"
+
+      expect(response).to redirect_to(location)
+    end
+
+    it "routes GET /user/login to CKAN domain" do
+      get "/user/login"
+      location = "http://testdomain/user/login"
 
       expect(response).to redirect_to(location)
     end

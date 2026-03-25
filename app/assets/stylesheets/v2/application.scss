@@ -1,0 +1,23 @@
+$desktop-breakpoint: 40.0625em;
+$desktop-header-breakpoint: 780px;
+$datagovuk-max-width: 1100px;
+
+:root {
+  // Make desktop breakpoint easily readable by our header javascript
+  --datagovuk-desktop-breakpoint: #{$desktop-breakpoint};
+  --datagovuk-desktop-header-breakpoint: #{$desktop-breakpoint};
+}
+
+// Components from govuk_publishing_components gem
+@import 'govuk_publishing_components/govuk_frontend_support';
+@import 'govuk_publishing_components/component_support';
+@import 'govuk_publishing_components/components/_cookie-banner';
+
+@import "colours";
+@import "typography";
+
+@import 'overrides/main';
+
+@import 'components/main';
+
+@import 'pages/main';

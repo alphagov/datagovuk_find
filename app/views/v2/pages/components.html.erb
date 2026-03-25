@@ -1,0 +1,69 @@
+<% content_for :page_title, "Component test" %>
+
+<div class="govuk-width-container datagovuk-width-container">
+  <h1 class="govuk-heading-xl datagovuk-heading-xl">Test heading-xl</h1>
+  
+  <h2 class="govuk-heading-l datagovuk-heading-l">Test heading-l</h1>
+  
+  <h2 class="govuk-heading-m datagovuk-heading-m">Test heading-m</h1>
+  
+  <p class="govuk-body datagovuk-body">Test govuk-body <a href="#" class="govuk-link datagovuk-link">test link</a></p>
+  <div class="govuk-!-margin-top-5">
+    <button class="govuk-button datagovuk-button">Test button</button>
+  </div>
+  <div class="govuk-!-margin-top-5">
+    <a href="#" class="govuk-button datagovuk-button">Test link button</a>
+  </div>
+
+  <%= render partial: "v2/components/feedback" %>
+
+  <%= render partial: "v2/collection/charts/headline/headline", locals: {
+    title: "Companies incorporated and dissolved (2024-25)",
+    items: [{
+      subtitle: "Companies incorporated",
+      description: "Optional description here",
+      value: 581_768,
+      analysis: "In 2024 compared to 2023.",
+      trend: "up",
+      value_change: 100,
+      percent_change: 10
+    },
+    {
+      subtitle: "Companies dissolved",
+      description: "Optional description here",
+      value: 200_210,
+      analysis: "In 2024 compared to 2023.",
+      trend: "down",
+      value_change: 50,
+      percent_change: 5
+    }]
+  } 
+  %>
+
+  <%= render partial: "v2/collection/charts/line_chart", locals: { 
+    max_value: @average_house_prices["max_value"],
+    title: @average_house_prices["title"],
+    empty_description: "No data available",
+    number_base: @average_house_prices["number_base"],
+    data_series: @average_house_prices["series"],
+    suffix: @average_house_prices["visualisation_suffix"],
+    min: @average_house_prices["min_value"],
+    download: @average_house_prices["download"]
+  } %>
+
+  <%= render partial: "v2/collection/charts/line_chart", locals: { 
+    max_value: @fuel_and_oil_prices["max_value"],
+    title: @fuel_and_oil_prices["title"],
+    empty_description: "No data available",
+    number_base: nil,
+    data_series: @fuel_and_oil_prices["series"],
+    download: @fuel_and_oil_prices["download"]
+  } %>
+
+  <%= render partial: "v2/collection/charts/bar_chart", locals: {
+    title: @bar_chart["title"],
+    data: @bar_chart["data"],
+    download: @bar_chart["download"],
+    size: 15
+  } %>
+</div>

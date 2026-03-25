@@ -1,0 +1,57 @@
+require Rails.root.join("app/services/dgu/markdown")
+
+module V2
+  class DataManualController < ApplicationController
+    rescue_from Dgu::MarkdownContentNotFound, with: :render_not_found
+
+    def home
+      expires_in 30.minutes, public: true
+      render layout: "v2/layouts/data_manual"
+    end
+
+    def content
+      expires_in 30.minutes, public: true
+      render layout: "v2/layouts/data_manual", locals: {
+        rendered_content: render_content,
+        data_manual_pages: data_manual_pages,
+        title: title,
+      }
+    end
+
+  private
+
+    def render_content
+      # The sanitizer is a double protection against attempts to render markdown files
+      #   other than the ones in the data manual. The route also specifies the slug parameter
+      #   as having the slug constraint
+      @sanitizer = Rails::Html::FullSanitizer.new
+      safe_slug = @sanitizer.sanitize(params[:slug])
+      Dgu::Markdown.render_from_file(
+        Rails.configuration.x.markdown_data_manual_location,
+        safe_slug,
+      )
+    end
+
+    def data_manual_pages
+      data_manual_pages = @data_manual_pages.deep_dup
+      data_manual_pages.each do |data_manual_item|
+        if data_manual_item[:url] == request.path
+          data_manual_item[:selected] = true
+        end
+      end
+      data_manual_pages
+    end
+
+    def title
+      # This could be more efficient by making the data structure a hashmap, but it's
+      # not going to wildly slow us down right now..
+      selected_title = nil
+      @data_manual_menu_items.each do |data_manual_item|
+        if data_manual_item[:url] == request.path
+          selected_title = data_manual_item[:title]
+        end
+      end
+      selected_title
+    end
+  end
+end

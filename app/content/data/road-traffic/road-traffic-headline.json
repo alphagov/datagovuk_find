@@ -1,0 +1,26 @@
+  {
+    "title": "Road traffic levels by vehicle type",
+    "visualisation_type": "headline",
+    "source": "https://roadtraffic.dft.gov.uk",
+    "publisher": "Department for Transports",
+    "items": [
+      {
+        "subtitle": "Cars and taxis",
+        "description": "Billion vehicle miles",
+        "value": 256.1,
+        "analysis": "Increase of 1.9% from 2023 to 2024",
+        "trend": "up",
+        "value_change": null,
+        "percent_change": 1.9
+      },
+      {
+        "subtitle": "Buses and coaches",
+        "description": "Billion vehicle miles",
+        "value": 2.0,
+        "analysis": "Increase of 1.7% from 2023 to 2024",
+        "trend": "up",
+        "value_change": null,
+        "percent_change": 1.7
+      }
+    ]
+  }

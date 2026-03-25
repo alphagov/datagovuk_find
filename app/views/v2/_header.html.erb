@@ -1,0 +1,48 @@
+<header role="banner" class="datagovuk-header">
+  <div class="govuk-width-container datagovuk-width-container datagovuk-header__inner">
+    <div class="datagovuk-header__logo">
+      <a class="datagovuk-header__logo-link" href="<%= root_path %>">   
+        <%= image_tag 'v2/logo.svg', size: "231x35", class:"datagovuk-header__logo-image", alt:"Home" %>
+      </a>
+    </div>
+    <button type="button" class="datagovuk-header__button" id="datagovuk-header-button-all" aria-controls="datagovuk-menu-collections">
+      Menu
+    </button>
+    <button type="button" class="datagovuk-header__button" id="datagovuk-header-button-collections" aria-controls="datagovuk-menu-collections">
+      Collections
+    </button>
+    <div class="datagovuk-menu" id="datagovuk-menu-collections">
+      <h2 class="datagovuk-menu__heading">Collections</h2>
+      <div class="datagovuk-menu__items">
+        <% collections.each do |collection| %>
+          <a href="/collections/<%= collection[:slug] %>" class="govuk-link datagovuk-link datagovuk-menu__item-link">
+            <%= collection[:title] %>
+          </a>
+        <% end %>
+      </div>
+    </div>
+    <button type="button" class="datagovuk-header__button" id="datagovuk-header-button-data-manual" aria-controls="datagovuk-menu-data-manual">
+      Data manual
+    </button>
+    <div class="datagovuk-menu" id="datagovuk-menu-data-manual">
+      <h2 class="datagovuk-menu__heading">Data manual</h2>
+      <div class="datagovuk-menu__items">
+        <% @data_manual_menu_items.each do |page| %>
+          <a href="<%= page[:url] %>" class="govuk-link datagovuk-link datagovuk-menu__item-link">
+            <%= page[:title] %>
+          </a>
+        <% end %>
+      </div>
+    </div>
+    <a class="datagovuk-header__link" href="<%= search_path %>">
+      Directory
+    </a>
+    <div class="datagovuk-menu">
+      <div class="datagovuk-menu__items">
+        <a href="<%= search_path %>" class="govuk-link datagovuk-link datagovuk-menu__item-link">
+          Directory
+        </a>
+      </div>
+    </div>
+  </div>
+</header>

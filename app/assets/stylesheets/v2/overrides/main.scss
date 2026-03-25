@@ -1,0 +1,162 @@
+@import 'footer';
+@import 'cookie-banner';
+
+/* inter-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/inter-v20-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* inter-600 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  src: url('/fonts/inter-v20-latin-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Libre Baskerville';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/libre-baskerville-v24-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+.datagovuk-template {
+  background-color: $datagovuk-light-grey;
+}
+
+.datagovuk-main {
+  margin: 30px 0 80px 0;
+}
+
+.datagovuk-width-container {
+  max-width: $datagovuk-max-width;
+}
+
+.datagovuk-body,
+.datagovuk-heading-s,
+.datagovuk-heading-m,
+.datagovuk-heading-l,
+.datagovuk-link,
+.datagovuk-button,
+.datagovuk-inset-text {
+  font-family: 'Inter', sans-serif;
+  color: $datagovuk-black;
+}
+
+.datagovuk-heading-xl {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 28px;
+  color: $datagovuk-black;
+  font-weight: normal;
+  line-height: 140%;
+}
+
+.datagovuk-heading-l {
+  font-size: 32px;
+  font-weight: normal;
+  line-height: 120%;
+}
+
+.datagovuk-heading-m {
+  font-size: 26px;
+  font-weight: normal;
+  line-height: 120%;
+}
+
+.datagovuk-heading-s {
+  font-size: 22px;
+  line-height: 120%;
+}
+
+.datagovuk-body {
+  font-size: 20px;
+  line-height: 140%;
+}
+
+.datagovuk-link:link,
+.datagovuk-link:visited {
+  color: $datagovuk-black;
+}
+
+.datagovuk-link--secondary:link,
+.datagovuk-link--secondary:visited {
+  color: $datagovuk-green;
+}
+
+.datagovuk-link--secondary:focus {
+  color: $datagovuk-black;
+}
+
+.datagovuk-button {
+  background-color: $datagovuk-dark-green;
+  border-radius: 20px;
+  padding: 14px 18px;
+  font-size: 20px;
+  color: #fff;
+  box-shadow: none;
+}
+
+.datagovuk-button:focus:not(:active):not(:hover) {
+  box-shadow: none;
+  outline: 2px solid $datagovuk-dark-green;
+}
+
+.datagovuk-list {
+  font-size: 20px;
+  font-family: 'Inter', sans-serif;
+}
+
+.datagovuk-inset-text {
+  border-left-color: $datagovuk-light-green;
+}
+
+/* 
+  Necessary to override this media query provided by govuk styling; 
+  ensure margins until we hit 1160px where we use auto/auto 
+*/
+@media (min-width: 1020px) {
+  .datagovuk-width-container {
+    margin-right: 30px;
+    margin-left: 30px;
+  }
+}
+
+@media (min-width: 1160px) {
+  .datagovuk-width-container {
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+/* Desktop styling overrides */
+@media (min-width: $desktop-breakpoint) {
+  .datagovuk-heading-xl{
+    font-size: 42px;
+  }
+
+  .datagovuk-heading-l {
+    font-size: 42px;
+  }
+
+  .datagovuk-heading-m {
+    font-size: 30px;
+  }
+
+  .datagovuk-body {
+    font-size: 22px;
+  }
+
+  .datagovuk-button {
+    font-size: 22px;
+  }
+
+  .datagovuk-list {
+    font-size: 22px;
+  }
+
+}

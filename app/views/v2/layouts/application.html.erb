@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template datagovuk-template">
+ <head>
+    <meta charset="utf-8">
+    <title><%= yield(:page_title) %><%= content_for?(:page_title_full) ? yield(:page_title_full) : " - data.gov.uk" %></title>
+    
+    <% if content_for?(:page_description) %>
+      <meta name="description" content="<%= yield(:page_description) %>">
+    <% end %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#FFFFFF">
+
+    <link rel="stylesheet" href="/stylesheets/govuk-frontend-6.0.0.min.css" media="all">
+    <%= stylesheet_link_tag 'v2/application' %>
+
+    <%= csrf_meta_tags %>
+
+    <%= favicon_link_tag asset_path('v2/favicon.png') %>
+
+    <% if ENV["GOOGLE_TAG_MANAGER_ID"] %>
+      <% 
+        gtm_auth = ENV["GOOGLE_TAG_MANAGER_AUTH"]
+        gtm_preview = ENV["GOOGLE_TAG_MANAGER_PREVIEW"]
+      
+        gtm_attributes = []
+          gtm_attributes << "gtm_auth=" + gtm_auth if gtm_auth
+          gtm_attributes << "gtm_preview=#{gtm_preview}&gtm_cookies_win=x" if gtm_preview
+        gtm_attributes = gtm_attributes.join('&')
+      %>
+      <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl+'&<%= raw gtm_attributes %>';f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','<%= ENV["GOOGLE_TAG_MANAGER_ID"] %>');
+      </script>
+    <% end %>
+
+    <%= yield :head %>
+
+  </head>
+
+  <body class="govuk-template__body">
+    <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');</script>
+
+    <div id="global-cookie-message" data-module="cookie-banner" role="region" aria-label="cookie banner" data-nosnippet="">
+      <div class="govuk-cookie-banner datagovuk-cookie-banner js-banner-wrapper" role="region" aria-label="Cookies on data.gov.uk">
+        <div class="govuk-cookie-banner__message govuk-width-container datagovuk-width-container">
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-three-quarters">
+              <h2 class="govuk-cookie-banner__heading govuk-heading-m datagovuk-heading-m">Cookies on data.gov.uk</h2>
+              <div class="govuk-cookie-banner__content">
+                <p class="govuk-body datagovuk-body">
+                  We use some essential cookies to make this website work. We’d like to set additional cookies to understand how you use data.gov.uk and improve the service.
+              </div>
+              
+              <div class="govuk-button-group">
+                <button class="govuk-button datagovuk-button gem-c-button" type="submit" data-accept-cookies="true" data-track-category="cookieBanner" data-track-action="Cookie banner accepted" data-cookie-types="all">
+                  Accept additional cookies
+                </button>
+                <button class="govuk-button datagovuk-button gem-c-button" type="submit" data-reject-cookies="true" data-track-category="cookieBanner" data-track-action="Cookie banner rejected">
+                  Reject additional cookies
+                </button>
+                <a class="govuk-body datagovuk-body govuk-link datagovuk-link" href="/cookies">View cookies</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="gem-c-cookie-banner__confirmation govuk-width-container datagovuk-width-container" tabindex="-1" hidden="">
+        <p class="gem-c-cookie-banner__confirmation-message govuk-body datagovuk-body govuk-!-margin-bottom-4" role="alert">
+          You can <a class="govuk-link datagovuk-link" data-track-category="cookieBanner" data-track-action="Cookie banner settings clicked from confirmation" href="/cookies">change your cookie settings</a> at any time.
+        </p>
+        <div class="govuk-button-group">
+          <button class="govuk-button datagovuk-button" data-hide-cookie-banner="true" data-module="gem-track-click" data-track-category="cookieBanner" data-track-action="Hide cookie banner">Hide this message</button>
+        </div>
+      </div>
+    </div>
+
+    <a href="#main" class="govuk-skip-link" data-module="govuk-skip-link">Skip to main content</a>
+
+    <%= render partial: "v2/header", locals: {collections: @collections, data_manual_pages: @data_manual_pages} %>
+
+    <main id="main" class="datagovuk-main">
+      <%= content_for?(:main) ? yield(:main) : yield %>
+    </main>
+
+    <%= render "v2/footer" %>
+
+    <%= javascript_include_tag 'v2/application' %>
+    <script type="module" src="/javascript/govuk-frontend-6.0.0.min.js"></script>
+    <script type="module">
+      import { initAll } from '/javascript/govuk-frontend-6.0.0.min.js'
+      initAll()
+    </script>
+    <%= yield :extra_javascript %>
+</body>
+</html>

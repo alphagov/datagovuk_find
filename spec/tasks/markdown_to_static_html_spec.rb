@@ -1,0 +1,80 @@
+require "rake"
+require "rails_helper"
+
+RSpec.describe "Markdown to Static HTML Rake Task", type: :task do
+  before(:all) do
+    Rake.application.rake_require("tasks/markdown_to_static_html")
+    Rake::Task.define_task(:environment)
+  end
+
+  let(:task) { Rake::Task["markdown:render"] }
+  let(:output_directory) { Rails.configuration.x.markdown_collections_output_location }
+
+  before do
+    FileUtils.mkdir_p(output_directory)
+  end
+
+  it "parses markdown files and generates HTML/ERB files" do
+    task.reenable
+    task.invoke
+    generated_files = Dir.glob(File.join(output_directory, "**/*.html.erb"))
+
+    expect(generated_files).not_to be_empty
+
+    generated_files.each do |file|
+      content = File.read(file)
+      expect(content).to include("<h2")
+      expect(content).to include("The page was last updated 1/6/2024")
+    end
+  end
+
+  context "generated files maintain markdown content directory structure" do
+    it "outputs generated view into a duplicated collections directory structure" do
+      task.reenable
+      task.invoke
+      expect(Dir.glob(File.join(output_directory, "**/*.html.erb"))).to include(
+        File.join(output_directory, "collections/sample.html.erb"),
+        File.join(output_directory, "collections/nested-collection/sample-nested.html.erb"),
+      )
+    end
+  end
+
+  context "when markdown files are missing the status with value 'for-publication' in the front matter" do
+    let(:markdown_input_dir) { Rails.configuration.x.markdown_location_directory }
+
+    it "skips those markdown files" do
+      task.reenable
+      expect { task.invoke }.to output(/Skipping markdown file/).to_stdout
+    end
+
+    it "skips files that are marked for publication with a different status" do
+      task.reenable
+      draft_markdown_path = create_markdown_file("notforpublication", "draft")
+      expect { task.invoke }.to output(/Skipping markdown file #{draft_markdown_path}/).to_stdout
+      FileUtils.rm_f(draft_markdown_path)
+    end
+
+    it "skips files that have no status" do
+      task.reenable
+      nostatus_markdown_path = create_markdown_file("nostatus", nil)
+      expect { task.invoke }.to output(/Skipping markdown file #{nostatus_markdown_path}/).to_stdout
+      FileUtils.rm_f(nostatus_markdown_path)
+    end
+  end
+
+  def create_markdown_file(title, status = "for-publication")
+    markdown_path = Rails.root.join(markdown_input_dir, "#{title}.md")
+    markdown_path.write(<<~MARKDOWN)
+      ---
+      title: #{title}
+      status: #{status}
+      ---
+      # Sample Markdown Content
+    MARKDOWN
+    markdown_path
+  end
+
+  after do
+    FileUtils.rm_rf(Rails.root.join(Rails.configuration.x.markdown_collections_output_location)) if Dir.exist?(Rails.root.join(Rails.configuration.x.markdown_collections_output_location))
+  end
+end

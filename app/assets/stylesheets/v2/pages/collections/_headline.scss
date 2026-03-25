@@ -1,0 +1,64 @@
+.datagovuk-headline {
+    font-family: Inter, sans-serif;
+}
+
+.datagovuk-headline__columns {
+  padding: 30px 0;
+}
+
+
+
+.datagovuk-headline__subtitle {
+    color: $datagovuk-light-grey;
+}
+
+.datagovuk-headline__number {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 42px;
+    margin-bottom: 20px;
+}
+
+.datagovuk-headline__change {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 28px;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.datagovuk-headline__change-value, 
+.datagovuk-headline__change-value-percent {
+    margin: 0;
+}
+
+.datagovuk-headline__arrow {
+    display: flex;
+    align-items: center;
+}
+
+.datagovuk-headline__trendup {
+    background-color: $datagovuk-light-green;
+}
+
+.datagovuk-headline__trenddown {
+    background-color: $datagovuk-light-pink;
+}
+
+@media (min-width: 810px) {
+
+    .datagovuk-headline__columns {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        grid-template-rows: auto auto auto auto; /* one per element */
+        column-gap: 40px;
+    }
+
+    .datagovuk-headline__column {
+        display: grid;
+        grid-row: 1 / -1;           /* span ALL row tracks */
+        grid-template-rows: subgrid; /* inherit parent's rows exactly */
+    }
+
+}
