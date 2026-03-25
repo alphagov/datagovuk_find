@@ -88,6 +88,11 @@
     <%= render "v2/footer" %>
 
     <%= javascript_include_tag 'v2/application' %>
+    <script type="module" src="/javascript/govuk-frontend-6.0.0.min.js"></script>
+    <script type="module">
+      import { initAll } from '/javascript/govuk-frontend-6.0.0.min.js'
+      initAll()
+    </script>
     <%= yield :extra_javascript %>
 </body>
 </html>
