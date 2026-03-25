@@ -54,7 +54,7 @@ The source webpage for the data is [https://www.ons.gov.uk/economy/inflationandp
 
 The visualisation data was generated via [https://www.ons.gov.uk/generator?format=csv&uri=/economy/inflationandpriceindices/timeseries/l55o/mm23](https://www.ons.gov.uk/generator?format=csv&uri=/economy/inflationandpriceindices/timeseries/l55o/mm23)
 
-The resulting CSV contains metadata header rows and three time series (annual, quarterly, and monthly rates). Only the annual rates were extracted to create [inflation/inflation-1989-2025.csv](inflation/inflation-1989-2025.csv)
+The resulting CSV contains metadata header rows and three time series (annual, quarterly, and monthly rates). Only the quarterly rates were extracted to create [inflation/inflation-1989-2025.csv](inflation/inflation-1989-2025.csv)
 
 The file [inflation/inflation.json](inflation/inflation.json) uses the data from the csv file as its `series.data` object.
 
