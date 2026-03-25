@@ -5,9 +5,7 @@ Rails.application.config.assets.version = "1.0"
 
 # Compile assets to a location that doesn't conflict with upstream requests
 Rails.application.config.assets.prefix = "/find-assets"
-Rails.application.config.assets.paths << Rails.root.join("app/assets/fonts")
 Rails.application.config.assets.precompile += %w[v2/govuk-frontend-6.0.0.min.css]
-Rails.application.config.assets.precompile += %w[.svg .eot .woff .woff2 .ttf]
 
 # Add additional assets to the asset load path.
 # Rails.application.config.assets.paths << Emoji.images_path
