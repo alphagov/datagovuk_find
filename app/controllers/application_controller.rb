@@ -138,7 +138,7 @@ private
     if ENV["BASIC_AUTH_BYPASS"].present?
       header_key, header_value = ENV["BASIC_AUTH_BYPASS"].split(":").map(&:strip)
 
-      if ENV["BASIC_AUTH_BYPASS"].present? && request.headers.key?(header_key) && (request.headers[header_key] == header_value)
+      if request.headers.key?(header_key) && (request.headers[header_key] == header_value)
         return true
       end
     end
