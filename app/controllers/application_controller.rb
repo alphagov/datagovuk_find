@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception, prepend: true
-  before_action :restrict_request_format
+  before_action :authenticate, :restrict_request_format
   rescue_from SolrDataset::NotFound, with: :render_not_found
   rescue_from SolrDatafile::NotFound, with: :render_not_found
   before_action :set_collections
@@ -131,5 +131,26 @@ private
         description: "Find Slack channels, events and other ways to connect with data practitioners. Learn more.",
       },
     ]
+  end
+
+  def authenticate
+    # /healthz endpoint override unnecessary as rails health endpoint does not inherit from this controller
+    if ENV["BASIC_AUTH_BYPASS"].present?
+      header_key, header_value = ENV["BASIC_AUTH_BYPASS"].split(":").map(&:strip)
+
+      if request.headers.key?(header_key) && (request.headers[header_key] == header_value)
+        return true
+      end
+    end
+
+    if ENV["BASIC_AUTH_USERNAME"].present? && ENV["BASIC_AUTH_PASSWORD"].present?
+      authenticate_or_request_with_http_basic do |username, password|
+        ActiveSupport::SecurityUtils.secure_compare(username, ENV["BASIC_AUTH_USERNAME"]) &
+          ActiveSupport::SecurityUtils.secure_compare(password, ENV["BASIC_AUTH_PASSWORD"])
+      end
+    else
+      logger.warn "BASIC_AUTH_USERNAME and BASIC_AUTH_PASSWORD environment variables are not set. Basic authentication is disabled."
+      true
+    end
   end
 end
