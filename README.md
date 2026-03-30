@@ -135,6 +135,14 @@ git checkout -b feature/jira-ticket-requirement
 git push origin feature/jira-ticket-requirement
 ```
 
+#### Run markdown rendering rake task locally
+
+This is useful to see the changes you made to markdown content. It will parse the markdown files, read the front matter, body and create or update the corresponding content in `app/views/generated/collections` directory.
+
+```bash
+bundle exec rake markdown:render
+```
+
 #### Creating a Pull Request
 
 1. Go to GitHub and create PR targeting `main-mvp`
