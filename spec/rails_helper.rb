@@ -19,6 +19,8 @@ require "capybara/rails"
 require "capybara/rspec"
 require "factory_bot"
 require "webmock/rspec"
+require "rake"
+
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -43,6 +45,22 @@ WebMock.disable_net_connect!(
 )
 
 RSpec.configure do |config|
+  config.before(:suite) do
+    Rake.application.rake_require("tasks/markdown_to_static_html")
+    Rake::Task.define_task(:environment)
+    original_glob = Rails.configuration.x.markdown_collections_location_glob
+    original_data = Rails.configuration.x.visualisations_data_location
+    Rails.configuration.x.markdown_collections_location_glob = "app/content/collections/**/*.md"
+    Rails.configuration.x.visualisations_data_location = "app/content/data"
+    Rake::Task["markdown:render"].invoke
+    Rails.configuration.x.markdown_collections_location_glob = original_glob
+    Rails.configuration.x.visualisations_data_location = original_data
+  end
+
+  config.after(:suite) do
+    FileUtils.rm_rf(Rails.root.join("app/views/generated"))
+  end
+
   # RSpec Rails can automatically mix in different behaviours to your tests
   # based on their file location, for example enabling you to call `get` and
   # `post` in specs under `spec/controllers`.

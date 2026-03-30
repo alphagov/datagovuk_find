@@ -18,7 +18,7 @@ RSpec.describe "chart download", type: :request do
     end
 
     it "returns the correct CSV file" do
-      expect(response.body).to eq(File.read(Rails.root.join("spec/fixtures/content/data/test-topic/test-chart.csv")))
+      expect(response.body.gsub("\r\n", "\n")).to eq(File.read(Rails.root.join("spec/fixtures/content/data/test-topic/test-chart.csv")).gsub("\r\n", "\n"))
     end
 
     context "chart does not exist" do

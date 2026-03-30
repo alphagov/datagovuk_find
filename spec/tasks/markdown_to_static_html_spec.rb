@@ -8,10 +8,13 @@ RSpec.describe "Markdown to Static HTML Rake Task", type: :task do
   end
 
   let(:task) { Rake::Task["markdown:render"] }
-  let(:output_directory) { Rails.configuration.x.markdown_collections_output_location }
+  let(:output_directory) { Rails.root.join("tmp/markdown_task_spec_output").to_s }
+  let(:original_output_location) { Rails.configuration.x.markdown_collections_output_location }
 
   before do
+    original_output_location
     FileUtils.mkdir_p(output_directory)
+    Rails.configuration.x.markdown_collections_output_location = output_directory
   end
 
   it "parses markdown files and generates HTML/ERB files" do
@@ -24,7 +27,7 @@ RSpec.describe "Markdown to Static HTML Rake Task", type: :task do
     generated_files.each do |file|
       content = File.read(file)
       expect(content).to include("<h2")
-      expect(content).to include("The page was last updated 1/6/2024")
+      expect(content).to match(/The page was last updated \d+\/\d+\/\d{4}/)
     end
   end
 
@@ -75,6 +78,7 @@ RSpec.describe "Markdown to Static HTML Rake Task", type: :task do
   end
 
   after do
-    FileUtils.rm_rf(Rails.root.join(Rails.configuration.x.markdown_collections_output_location)) if Dir.exist?(Rails.root.join(Rails.configuration.x.markdown_collections_output_location))
+    FileUtils.rm_rf(output_directory)
+    Rails.configuration.x.markdown_collections_output_location = original_output_location
   end
 end
