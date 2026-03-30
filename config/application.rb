@@ -14,7 +14,6 @@ require "action_view/railtie"
 # require "action_cable/engine"
 require "sprockets/railtie"
 require "rails/test_unit/railtie"
-require_relative "./collections"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -43,8 +42,6 @@ module FindDataBeta
     config.x.generated_collections_location = "app/views/generated/collections"
     config.x.markdown_data_manual_location = "app/content/data-manual"
     config.x.markdown_content_pages_location = "app/content/content-pages"
-
-    config.x.collection_pages = Collections::COLLECTIONS.with_indifferent_access
 
     config.ssl_options = { hsts: { expires: 1.week } }
 

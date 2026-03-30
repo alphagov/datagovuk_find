@@ -1,18 +1,14 @@
 module Dgu
-  class CollectionNotFound < LoadError
-  end
-
   class CollectionsService
-    COLLECTIONS_LOCATION = Rails.configuration.x.generated_collections_location
-    COLLECTION_PAGES = Rails.configuration.x.collection_pages.deep_dup
+    attr_reader :collection, :page_name, :collection_pages
 
     def initialize(collection, page_name = nil)
       unless collection?(collection)
-        raise CollectionNotFound
+        raise Dgu::CollectionNotFound, "Collection #{collection} does not exist"
       end
 
       @collection = collection
-      @collection_pages = COLLECTION_PAGES[collection].map do |collection_page|
+      @collection_pages = collection_pages_config[collection].map do |collection_page|
         {
           url: "/collections/#{@collection}/#{collection_page[:slug]}",
           slug: collection_page[:slug],
@@ -31,17 +27,13 @@ module Dgu
       @page_name.presence
     end
 
-    attr_reader :collection, :page_name, :collection_pages
+    def image_path
+      "/v2/collections/badge-#{collection}.png"
+    end
 
     def collections_slugs
-      Dir.entries(Rails.root.join(COLLECTIONS_LOCATION)).sort
-      .reject { |files|
-        [".", ".."].include?(files)
-      }.map do |collection|
-        Struct.new(:slug, :title).new(
-          collection,
-          collection.gsub("-", " ").humanize,
-        )
+      @collections_slugs ||= collection_pages_config.keys.map do |collection_slug|
+        Struct.new(:slug, :title).new(collection_slug.to_s, collection_slug.to_s.tr("-", " ").humanize)
       end
     end
 
@@ -71,24 +63,22 @@ module Dgu
 
   private
 
+    def collection_pages_config
+      @collection_pages_config ||= YAML.load_file(Rails.root.join("config/collections.yml")).with_indifferent_access
+    end
+
     def pages
-      Dir.entries(Rails.root.join(COLLECTIONS_LOCATION, @collection)).sort
-      .reject { |entry|
-        [".", ".."].include?(entry)
-      }
-      .map do |page_file_name|
-        page_file_name.gsub(".html.erb", "")
-      end
+      @pages ||= collection_pages_config[@collection].map { |page| page[:slug] }
     end
 
     def page?(page = nil)
       return true if page.blank?
 
-      Rails.root.join(COLLECTIONS_LOCATION, @collection, "#{page}.html.erb").exist?
+      pages.include?(page)
     end
 
     def collection?(collection)
-      Rails.root.join(COLLECTIONS_LOCATION, collection).exist?
+      collections_slugs.map(&:slug).include?(collection)
     end
 
     def current_page_index

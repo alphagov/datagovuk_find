@@ -1,13 +1,13 @@
 {
-  "title": "Test collection",
+  "title": "Test title",
   "visualisation_type": "line",
-  "source": "",
-  "download": "test-topic/test-chart",
-  "publisher": "Publisher",
+  "source": "test-source",
+  "download": "test-collection.csv",
+  "publisher": "Test publisher",
   "series": [
     {
       "color": "#C27A9A",
-      "data ": {
+      "data": {
         "2010": 15.58181818,
         "2011": 23.55357143,
         "2012": 18.19642857,

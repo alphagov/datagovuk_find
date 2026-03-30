@@ -11,6 +11,7 @@ namespace :markdown do
   task render: :environment do
     markdown_input = Rails.configuration.x.markdown_collections_location_glob
     markdown_output_dir = Rails.configuration.x.markdown_collections_output_location
+    visualisations_data_location = Rails.configuration.x.visualisations_data_location
 
     input_root = Pathname.new(Rails.root.join(markdown_input.split("*").first)).cleanpath
     markdowns = Dir.glob(Rails.root.join(markdown_input))
@@ -34,7 +35,7 @@ namespace :markdown do
       end
 
       if front_matter["visualisation-data"]
-        chart_data = File.read(Rails.root.join("app/content/data/#{front_matter['visualisation-data']}")) if front_matter["visualisation-data"]
+        chart_data = File.read(Rails.root.join("#{visualisations_data_location}/#{front_matter['visualisation-data']}")) if front_matter["visualisation-data"]
         chart_json = JSON.parse(chart_data)
 
         if chart_json["visualisation_type"] == "line"
