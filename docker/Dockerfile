@@ -8,8 +8,10 @@ WORKDIR $APP_HOME
 COPY Gemfile* .ruby-version ./
 RUN bundle install
 COPY . ./
-RUN rails assets:precompile && rm -fr log
 
+RUN bundle exec rake markdown:render
+
+RUN rails assets:precompile && rm -fr log
 
 FROM $base_image
 

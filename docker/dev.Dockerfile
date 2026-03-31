@@ -13,6 +13,7 @@ RUN apt-get update && apt-get install -y \
     libmariadb-dev-compat libpq-dev libyaml-dev make xz-utils \
     software-properties-common vim wget 
 RUN bundle install
+RUN bundle exec rake markdown:render
 RUN bin/yarn
 RUN rails assets:precompile
 
