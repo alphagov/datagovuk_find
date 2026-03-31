@@ -26,6 +26,7 @@ RSpec.describe "rack-attack throttling", type: :request do
       allow_any_instance_of(RSolr::Client).to receive(:get).and_return(solr_response_no_results)
       allow(Rack::Attack).to receive(:enabled).and_return(true)
       allow(Search::Solr).to receive(:search).and_return(solr_response_no_results)
+      allow(ENV).to receive(:fetch).and_call_original
     end
 
     after do

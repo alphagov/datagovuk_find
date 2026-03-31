@@ -22,7 +22,6 @@ RSpec.feature "directory header", type: :feature do
   end
 
   def and_i_can_see_a_link_to_the_search_directory_in_the_mobile_menu
-    find(".govuk-header__menu-button").click
     within("#navigation") do
       expect(page).to have_link("Publish your data", href: "/publishers")
       expect(page).to have_link("Documentation", href: "https://guidance.data.gov.uk/publish_and_manage_data/")
