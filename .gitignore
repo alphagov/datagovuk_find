@@ -15,3 +15,5 @@ spec/examples.txt
 /tmp
 /public/assets
 /node_modules/
+/app/views/generated
+/app/views/generated/collections/*
