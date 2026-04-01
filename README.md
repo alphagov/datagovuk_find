@@ -17,7 +17,6 @@ This repository contains an automated CI/CD pipeline for the `main-mvp` branch t
 - Automatically updates deployment configurations
 - Deploys to Integration environment via ArgoCD
 
-
 ### Branch Structure
 
 ```
@@ -176,14 +175,48 @@ Most of these can be installed with Homebrew on a Mac.
 
 ### Getting Started
 
-First run `yarn`
+#### 1. Run the rake task
 
-Then run `bin/setup` to bundle, etc
+```bash
+bundle exec rake markdown:render
+```
 
-Then run `rails s`.
+⚠️ This is a required step to see content in the app. This is a one time setup step and you can run it again whenever you make changes to the markdown files located at `app/content`.
 
-Or: `yarn && bundle exec rails s`
+#### 2. Build the dependencies
 
+```bash
+yarn
+```
+yarn installs the node dependencies and builds the assets for the app.
+
+```bash
+bin/setup
+```
+This will install the ruby dependencies and start the server on `http://localhost:3000` and you can view the app in your browser.
+
+
+#### 3. Run the server
+
+```
+bundle exec rails s
+```
+Or 
+```
+yarn && bundle exec rails s
+```
+
+### Markdown rendering 
+
+The markdown rendering executed by the rake task `markdown:render` is a two step process:
+
+1. The markdown files located at `app/content` are parsed and the content is extracted.
+
+2. The content is then used to create or update the corresponding content in the `app/views/generated/collections` directory.
+
+⚠️ The generated files are ignored by git and are not meant to be edited directly. Any changes to the content should be made in the markdown files and the rake task should be run again to see the changes reflected in the app.
+
+This rake task is also used in the CI pipeline to ensure that any changes to the markdown files are reflected in the app when deployed.
 
 ## Deployment
 
@@ -197,14 +230,3 @@ See [the developer docs on data.gov.uk deployment](https://docs.publishing.servi
 - Dataset with publisher login: https://data.gov.uk/dataset/cf725d50-6535-4f8b-bc98-5ab01aa866a7/grants-to-voluntary-community-and-social-enterprise-organisations-local-government-transparency-code
 - Support page: https://data.gov.uk/support
 - Publisher login page: https://data.gov.uk/publishers
-
-## Markdown rendering
-
-The markdown contents live in the `app/content` directory. The markdown parser rake task (`lib/tasks/markdown_to_static_html.rake`) will parse the markdown files, read the front matter, body and create or update the corresponding content in `app/views/generated/collections` directory. This allows us to manage content in markdown files while still being able to serve it dynamically.
-
-### How to run the markdown parser rake task locally
-
-```bash
-# Run the rake task
-bundle exec rake markdown:render
-```
