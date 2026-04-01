@@ -18,10 +18,11 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: alphagov/datagovuk_find
-      - name: Create PR
+      - name: Update integration SHA
         run: bash ./docker/create-pr.sh
         env:
           GH_TOKEN: ${{ secrets.PR_GITHUB_TOKEN }}
           GH_REF: ${{ github.ref_name }}
           IS_TAG: "false"
           ENVS: "integration"
+          DIRECT_PUSH: "true"
