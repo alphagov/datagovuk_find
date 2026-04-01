@@ -27,8 +27,12 @@ for ENV in $(echo $ENVS | tr "," " "); do
     if [[ $(git status | grep "nothing to commit") ]]; then
       echo "Nothing to commit"
     elif [[ "${DIRECT_PUSH:-false}" == "true" ]]; then
+      BRANCH="ci/${IMAGE_TAG}-${ENV}"
+      git checkout -b ${BRANCH}
       git commit -m "Update datagovuk_find image tags for ${ENV} to ${IMAGE_TAG}"
-      git push origin main
+      git push --set-upstream origin "${BRANCH}"
+      PR_URL=$(gh pr create --title "Update datagovuk_find image tags for ${ENV} (${IMAGE_TAG})" --base main --head "${BRANCH}" --fill --repo alphagov/govuk-dgu-charts)
+      gh pr merge "${PR_URL}" --merge --delete-branch
     else
       BRANCH="ci/${IMAGE_TAG}-${ENV}"
 
