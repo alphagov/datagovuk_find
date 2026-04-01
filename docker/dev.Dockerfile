@@ -5,12 +5,15 @@ USER root
 COPY ./spec ./spec
 ENV BUNDLE_WITHOUT=""
 ENV RAILS_ENV=development
+ENV BASIC_AUTH_USERNAME=admin
+ENV BASIC_AUTH_PASSWORD=password
 ENV GOVUK_TEST_CHROME_NO_SANDBOX=1
 RUN apt-get update && apt-get install -y \
     g++ git gpg libc-dev libcurl4-openssl-dev libgdbm-dev libssl-dev \
     libmariadb-dev-compat libpq-dev libyaml-dev make xz-utils \
     software-properties-common vim wget 
 RUN bundle install
+RUN bundle exec rake markdown:render
 RUN bin/yarn
 RUN rails assets:precompile
 
