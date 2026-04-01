@@ -66,4 +66,54 @@
     download: @bar_chart["download"],
     size: 15
   } %>
+
+  <div data-highcharts-base-chart data-highcharts-type="line" data-highcharts-theme="primary"
+    data-highcharts-title="Sales volumes and values saw moderate growth in July 2024" data-highcharts-id="id"
+    data-highcharts-percentage-height-desktop="35" data-highcharts-percentage-height-mobile="90"
+    data-highcharts-x-axis-tick-interval-mobile="30" data-highcharts-x-axis-tick-interval-desktop="15">
+    <figure class="ons-chart" aria-describedby="chart-audio-description-id">
+      <h4 class="ons-chart__title"><%= @ons_line_chart["title"] %></h4>
+      <h5 class="ons-chart__subtitle"><%= @ons_line_chart["subtitle"] %></h5>
+      <p class="ons-u-vh" id="chart-audio-description-id"><%= @ons_line_chart["audio_description"] %></p>
+      <div data-highcharts-chart-container class="ons-chart__container" tabindex="0" role="region"
+        aria-label="chart container" aria-describedby="chart-instructions-id">
+        <div id="chart-instructions-id" class="ons-u-vh"><%= @ons_line_chart["instructions"] %></div>
+        <div data-highcharts-chart class="ons-chart__chart"></div>
+      </div>
+      <noscript id="fallback-image--id">
+        <%# TODO: Add fallback image %>
+        <img src="/img/small/line-chart-screenshot.png" alt="Fallback image for the chart as JavaScript is disabled" class="ons-chart__fallback-image" />
+      </noscript>
+      <figcaption class="ons-chart__caption">Source: <%= @ons_line_chart["source"] %></figcaption>
+    </figure>
+    <h6 class="ons-chart__download-title">Download Figure 1 data</h6>
+    <ol class="ons-list">
+      <li class="ons-list__item">
+        <a href="#" class="ons-list__link"><%= "Download data" %></a>
+      </li>
+      <li class="ons-list__item">
+        <a href="#" class="ons-list__link"><%= "Download data" %></a>
+      </li>
+      <li class="ons-list__item">
+        <a href="#" class="ons-list__link"><%= "Download data" %></a>
+      </li>
+    </ol>
+    <div id="footnotes--id" class="ons-details ons-js-details ons-u-mt-xl">
+      <div class="ons-details__heading ons-js-details-heading" role="button">
+        <h6 class="ons-details__title ons-u-fs-r--b">Footnotes</h6>
+        <span class="ons-details__icon">
+          <svg class="ons-icon" viewBox="0 0 8 13" xmlns="http://www.w3.org/2000/svg" focusable="false" fill="currentColor" role="img" aria-hidden="true">
+            <path d="M5.74,14.28l-.57-.56a.5.5,0,0,1,0-.71h0l5-5-5-5a.5.5,0,0,1,0-.71h0l.57-.56a.5.5,0,0,1,.71,0h0l5.93,5.93a.5.5,0,0,1,0,.7L6.45,14.28a.5.5,0,0,1-.71,0Z" transform="translate(-5.02 -1.59)" />
+          </svg>
+        </span>
+      </div>
+      <div id="footnotes--id-content" class="ons-details__content ons-js-details-content">
+        <ol>
+          <li>---</li>
+          <li>---</li>
+        </ol>
+      </div>
+    </div>
+    <%= ons_line_chart(@ons_line_chart) %>
+  </div>
 </div>

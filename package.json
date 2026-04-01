@@ -2,8 +2,10 @@
   "name": "datagovuk_find",
   "license": "UNLICENSED",
   "dependencies": {
+    "@ons/design-system": "^73.3.0",
     "accessible-autocomplete": "^2.0.2",
-    "chartjs-plugin-datalabels": "^2.2.0"
+    "chartjs-plugin-datalabels": "^2.2.0",
+    "highcharts": "^12.5.0"
   },
   "devDependencies": {
     "govuk-frontend": "^6.0.0"
