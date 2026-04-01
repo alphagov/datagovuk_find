@@ -19,21 +19,23 @@ cd charts/charts/datagovuk/images
 
 for ENV in $(echo $ENVS | tr "," " "); do
   (
-    BRANCH="ci/${IMAGE_TAG}-${ENV}"
+    cd "${ENV}"
+    yq -i '.tag = env(IMAGE_TAG)' "find.yaml"
+    yq -i '.branch = env(SOURCE_BRANCH)' "find.yaml"
+    git add "find.yaml"
 
-    if git show-ref --quiet refs/heads/${BRANCH}; then
-      echo "Branch ${BRANCH} already exists on govuk-dgu-charts"
+    if [[ $(git status | grep "nothing to commit") ]]; then
+      echo "Nothing to commit"
+    elif [[ "${DIRECT_PUSH:-false}" == "true" ]]; then
+      git commit -m "Update datagovuk_find image tags for ${ENV} to ${IMAGE_TAG}"
+      git push origin main
     else
-      git checkout -b ${BRANCH}
+      BRANCH="ci/${IMAGE_TAG}-${ENV}"
 
-      cd "${ENV}"
-      yq -i '.tag = env(IMAGE_TAG)' "find.yaml"
-      yq -i '.branch = env(SOURCE_BRANCH)' "find.yaml"
-      git add "find.yaml"
-
-      if [[ $(git status | grep "nothing to commit") ]]; then
-        echo "Nothing to commit"
+      if git show-ref --quiet refs/heads/${BRANCH}; then
+        echo "Branch ${BRANCH} already exists on govuk-dgu-charts"
       else
+        git checkout -b ${BRANCH}
         git commit -m "Update datagovuk_find image tags for ${ENV} to ${IMAGE_TAG}"
         git push --set-upstream origin "${BRANCH}"
         gh pr create --title "Update datagovuk_find image tags for ${ENV} (${IMAGE_TAG})" --base main --head "${BRANCH}" --fill
