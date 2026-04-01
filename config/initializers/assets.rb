@@ -11,6 +11,7 @@ Rails.application.config.assets.precompile += %w[v2/govuk-frontend-6.0.0.min.css
 # Rails.application.config.assets.paths << Emoji.images_path
 # Add Yarn node_modules folder to the asset load path.
 Rails.application.config.assets.paths << Rails.root.join("node_modules")
+Rails.application.config.assets.paths << Rails.root.join("node_modules/@ons/design-system")
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
