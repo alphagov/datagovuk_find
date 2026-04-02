@@ -32,7 +32,7 @@ for ENV in $(echo $ENVS | tr "," " "); do
       git commit -m "Update datagovuk_find image tags for ${ENV} to ${IMAGE_TAG}"
       git push --set-upstream origin "${BRANCH}"
       PR_URL=$(gh pr create --title "Update datagovuk_find image tags for ${ENV} (${IMAGE_TAG})" --base main --head "${BRANCH}" --fill --repo alphagov/govuk-dgu-charts)
-      gh pr merge "${PR_URL}" --merge --delete-branch
+      gh pr merge "${PR_URL}" --auto --merge --delete-branch
     else
       BRANCH="ci/${IMAGE_TAG}-${ENV}"
 
