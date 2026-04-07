@@ -18,7 +18,6 @@
 //= require chartkick
 //= require Chart.bundle
 //= require chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels
-// TODO: include highcharts ?
 //= require @ons/design-system/scripts/main.es5
 
 
