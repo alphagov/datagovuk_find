@@ -33,6 +33,7 @@
 
 
     Highcharts.chart('datagovuk-line-chart', {
+      credits: { enabled: false },
       chart: { type: 'line', borderWidth: 0, backgroundColor: 'transparent' },
       title: { text: chartData.title },
       xAxis: {
