@@ -12,6 +12,8 @@
 //
 //= require govuk_publishing_components/dependencies
 //= require govuk_publishing_components/all_components
+//= require highcharts
+//= require v2/line-chart
 //= require v2/header
 //= require v2/section-navigation
 //= require cookie-settings
