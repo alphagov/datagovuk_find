@@ -13,7 +13,6 @@ module V2
       @ons_line_chart = JSON.parse(File.read(Rails.root.join("app/content/data/fuel-and-oil-prices/fuel-and-oil-prices-2.json")))
 
       @bar_chart = bar_chart
-      @fuel_price_chart = build_fuel_price_chart
       render layout: "v2/layouts/application"
     end
 
@@ -63,56 +62,6 @@ module V2
         }
       end
       fuel_and_oil_prices
-    end
-
-    def build_fuel_price_chart
-      {
-        chartType: "line",
-        title: "Fuel price in pence per litre (yearly)",
-        subtitle: "Average annual prices for Premium unleaded (ULSP) and Diesel (ULSD)",
-        id: "fuel-price-chart",
-        description: "Line chart showing the rise and fall of fuel prices in the UK from 1977 to 2025.",
-        theme: "primary",
-        legend: true,
-        caption: "Source: Department for Energy Security and Net Zero",
-        download: {
-          title: "Download Figure 1 data",
-          itemsList: [
-            { text: "Excel spreadsheet (XLSX format, 18KB)", url: "#" },
-            { text: "Simple text file (CSV format, 25KB)", url: "#" },
-            { text: "Image (PNG format, 25KB)", url: "#" },
-          ],
-        },
-        footnotes: {
-          title: "Footnotes",
-          content: "<ol><li>---</li><li>---</li></ol>",
-        },
-        xAxis: {
-          title: { text: "Year" },
-          type: "linear",
-          lineWidth: 0,
-          categories: %w[1977 1978 1979 1980 1981 1982 1983 1984 1985 1986 1987 1988 1989 1990 1991 1992 1993 1994 1995 1996 1997 1998 1999 2000 2001 2002 2003 2004 2005 2006 2007 2008 2009 2010 2011 2012 2013 2014 2015 2016 2017 2018 2019 2020 2021 2022 2023 2024 2025],
-        },
-        yAxis: {
-          title: { text: "Pence per litre" },
-          labels: { format: "{value:,.f}" },
-          gridLineDashStyle: "LongDash",
-        },
-        series: [
-          {
-            name: "Premium unleaded / ULSP",
-            marker: { enabled: false },
-            dataLabels: { enabled: false },
-            data: [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, 38.29, 42.03, 45.07, 46.07, 49.44, 51.58, 53.77, 56.52, 61.82, 64.8, 70.16, 79.93, 75.72, 73.24, 76.04, 80.22, 86.75, 91.32, 94.24, 107.08, 99.29, 116.9, 133.27, 135.39, 134.15, 127.5, 111.13, 108.85, 117.59, 125.2, 124.88, 113.95, 131.27, 164.73, 147.75, 141.48, 135.07],
-          },
-          {
-            name: "Diesel / ULSD",
-            marker: { enabled: false },
-            dataLabels: { enabled: false },
-            data: [18.21, 18.46, 23.65, 29.67, 34.01, 35.86, 37.3, 38.33, 41.94, 35.6, 34.58, 34.0, 36.18, 40.48, 43.82, 45.01, 49.2, 51.53, 54.24, 57.71, 62.47, 65.5, 72.49, 81.34, 77.84, 75.46, 77.92, 81.91, 90.86, 95.21, 96.85, 117.51, 103.93, 119.26, 138.72, 141.83, 140.41, 133.46, 114.9, 110.13, 120.15, 129.98, 131.48, 119.14, 134.94, 177.66, 158.19, 148.33, 142.55],
-          },
-        ],
-      }
     end
   end
 end
