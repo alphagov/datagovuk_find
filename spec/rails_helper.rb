@@ -44,22 +44,6 @@ WebMock.disable_net_connect!(
 )
 
 RSpec.configure do |config|
-  config.before(:suite) do
-    Rake.application.rake_require("tasks/markdown_to_static_html")
-    Rake::Task.define_task(:environment)
-    original_glob = Rails.configuration.x.markdown_collections_location_glob
-    original_data = Rails.configuration.x.visualisations_data_location
-    Rails.configuration.x.markdown_collections_location_glob = "app/content/collections/**/*.md"
-    Rails.configuration.x.visualisations_data_location = "app/content/data"
-    Rake::Task["markdown:render"].invoke
-    Rails.configuration.x.markdown_collections_location_glob = original_glob
-    Rails.configuration.x.visualisations_data_location = original_data
-  end
-
-  config.after(:suite) do
-    FileUtils.rm_rf(Rails.root.join("app/views/generated"))
-  end
-
   # RSpec Rails can automatically mix in different behaviours to your tests
   # based on their file location, for example enabling you to call `get` and
   # `post` in specs under `spec/controllers`.
@@ -82,6 +66,22 @@ RSpec.configure do |config|
 
   config.include Capybara::DSL
   config.include FactoryBot::Syntax::Methods
+end
+
+RSpec.configure do |config|
+  config.before(:suite) do
+    Rake.application.rake_require("tasks/markdown_to_static_html")
+    Rake::Task.define_task(:environment)
+    Rails.configuration.x.markdown_collections_output_location = "app/views/generated/collections"
+    Rails.configuration.x.markdown_collections_location_glob = "app/content/collections/**/*.md"
+    Rails.configuration.x.visualisations_data_location = "app/content/data"
+    Rake::Task["markdown:render"].reenable
+    Rake::Task["markdown:render"].invoke
+  end
+
+  config.after(:suite) do
+    FileUtils.rm_rf("app/views/generated")
+  end
 end
 
 # Setup chrome headless driver
