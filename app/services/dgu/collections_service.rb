@@ -1,8 +1,5 @@
 module Dgu
   class CollectionsService
-    COLLECTIONS_LOCATION = Rails.configuration.x.generated_collections_location
-    COLLECTION_PAGES = Rails.configuration.x.collection_pages.deep_dup
-
     attr_reader :collection, :page_name, :collection_pages
 
     def initialize(collection, page_name = nil)
@@ -11,7 +8,7 @@ module Dgu
       end
 
       @collection = collection
-      @collection_pages = COLLECTION_PAGES[collection].map do |collection_page|
+      @collection_pages = collections_config[collection].map do |collection_page|
         {
           url: "/collections/#{@collection}/#{collection_page[:slug]}",
           slug: collection_page[:slug],
@@ -32,18 +29,6 @@ module Dgu
 
     def image_path
       "v2/collections/badge-#{collection}.png"
-    end
-
-    def collections_slugs
-      Dir.entries(Rails.root.join(COLLECTIONS_LOCATION)).sort
-      .reject { |files|
-        [".", ".."].include?(files)
-      }.map do |collection|
-        Struct.new(:slug, :title).new(
-          collection,
-          collection.gsub("-", " ").humanize,
-        )
-      end
     end
 
     def view_template_path
@@ -72,8 +57,22 @@ module Dgu
 
   private
 
+    def collections_config
+      Rails.configuration.x.collection_pages
+    end
+
+    def collections_slugs
+      Dir.children(Rails.root.join(collections_location)).sort
+      .map do |collection|
+        Struct.new(:slug, :title).new(
+          collection,
+          collection.gsub("-", " ").humanize,
+        )
+      end
+    end
+
     def pages
-      Dir.entries(Rails.root.join(COLLECTIONS_LOCATION, @collection)).sort
+      Dir.entries(Rails.root.join(collections_location, @collection)).sort
       .reject { |entry|
         [".", ".."].include?(entry)
       }
@@ -85,15 +84,19 @@ module Dgu
     def page?(page = nil)
       return true if page.blank?
 
-      Rails.root.join(COLLECTIONS_LOCATION, @collection, "#{page}.html.erb").exist?
+      Rails.root.join(collections_location, @collection, "#{page}.html.erb").exist?
     end
 
     def collection?(collection)
-      Rails.root.join(COLLECTIONS_LOCATION, collection).exist?
+      Rails.root.join(collections_location, collection).exist?
     end
 
     def current_page_index
       @collection_pages.index { |page| page[:slug] == @page_name }
+    end
+
+    def collections_location
+      Rails.configuration.x.generated_collections_location
     end
   end
 end

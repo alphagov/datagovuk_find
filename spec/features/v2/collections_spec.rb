@@ -1,16 +1,7 @@
 require "rails_helper"
 
 RSpec.feature "collections", type: :feature do
-  before(:all) do
-    Rake.application.rake_require("tasks/markdown_to_static_html")
-    Rake::Task.define_task(:environment)
-    Rake::Task["markdown:render"].invoke
-  end
-
-  after(:all) do
-    output_directory = Rails.configuration.x.markdown_collections_output_location
-    FileUtils.rm_rf(output_directory)
-  end
+  # Setup and teardown for generated views is handled globally in rails_helper.rb
 
   scenario "I visit a collection page" do
     given_i_am_on_a_collection_page
