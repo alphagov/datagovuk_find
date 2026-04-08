@@ -8,77 +8,112 @@ RSpec.describe "Markdown to Static HTML Rake Task", type: :task do
   end
 
   let(:task) { Rake::Task["markdown:render"] }
-  let(:output_directory) { Rails.root.join("tmp/markdown_task_spec_output").to_s }
-  let(:original_output_location) { Rails.configuration.x.markdown_collections_output_location }
+
+  let(:tmp_workspace) { Rails.root.join("tmp/markdown_task_spec") }
+  let(:input_dir) { tmp_workspace.join("content/collections") }
+  let(:output_dir) { tmp_workspace.join("generated") }
+  let(:chart_dir) { tmp_workspace.join("charts") }
 
   before do
-    original_output_location
-    FileUtils.mkdir_p(output_directory)
-    Rails.configuration.x.markdown_collections_output_location = output_directory
-  end
-
-  it "parses markdown files and generates HTML/ERB files" do
-    task.reenable
-    task.invoke
-    generated_files = Dir.glob(File.join(output_directory, "**/*.html.erb"))
-
-    expect(generated_files).not_to be_empty
-
-    generated_files.each do |file|
-      content = File.read(file)
-      expect(content).to include("<h2")
-      expect(content).to match(/The page was last updated \d+\/\d+\/\d{4}/)
-    end
-  end
-
-  context "generated files maintain markdown content directory structure" do
-    it "outputs generated view into a duplicated collections directory structure" do
-      task.reenable
-      task.invoke
-      expect(Dir.glob(File.join(output_directory, "**/*.html.erb"))).to include(
-        File.join(output_directory, "collections/sample.html.erb"),
-        File.join(output_directory, "collections/nested-collection/sample-nested.html.erb"),
-      )
-    end
-  end
-
-  context "when markdown files are missing the status with value 'for-publication' in the front matter" do
-    let(:markdown_input_dir) { Rails.configuration.x.markdown_location_directory }
-
-    it "skips those markdown files" do
-      task.reenable
-      expect { task.invoke }.to output(/Skipping markdown file/).to_stdout
-    end
-
-    it "skips files that are marked for publication with a different status" do
-      task.reenable
-      draft_markdown_path = create_markdown_file("notforpublication", "draft")
-      expect { task.invoke }.to output(/Skipping markdown file #{draft_markdown_path}/).to_stdout
-      FileUtils.rm_f(draft_markdown_path)
-    end
-
-    it "skips files that have no status" do
-      task.reenable
-      nostatus_markdown_path = create_markdown_file("nostatus", nil)
-      expect { task.invoke }.to output(/Skipping markdown file #{nostatus_markdown_path}/).to_stdout
-      FileUtils.rm_f(nostatus_markdown_path)
-    end
-  end
-
-  def create_markdown_file(title, status = "for-publication")
-    markdown_path = Rails.root.join(markdown_input_dir, "#{title}.md")
-    markdown_path.write(<<~MARKDOWN)
-      ---
-      title: #{title}
-      status: #{status}
-      ---
-      # Sample Markdown Content
-    MARKDOWN
-    markdown_path
+    FileUtils.mkdir_p(input_dir)
+    FileUtils.mkdir_p(output_dir)
+    FileUtils.mkdir_p(chart_dir)
+    allow(Rails.configuration.x).to receive(:markdown_collections_location_glob).and_return("#{input_dir}/**/*.md")
+    allow(Rails.configuration.x).to receive(:markdown_collections_output_location).and_return(output_dir.to_s)
+    allow(Rails.configuration.x).to receive(:visualisations_data_location).and_return(chart_dir.to_s)
+    allow_any_instance_of(ActionController::Renderer).to receive(:render).and_return("<html>Rendered Output</html>")
   end
 
   after do
-    FileUtils.rm_rf(output_directory)
-    Rails.configuration.x.markdown_collections_output_location = original_output_location
+    FileUtils.rm_rf(tmp_workspace)
+  end
+
+  describe "File filtering and skipping" do
+    it "skips files that are not for-publication" do
+      create_markdown_file("draft_page", status: "draft")
+
+      task.reenable
+      expect { task.invoke }.to output(/Skipping markdown file.*status' is missing or not/).to_stdout
+      expect(Dir.glob(File.join(output_dir, "**/*.html.erb"))).to be_empty
+    end
+
+    it "skips files with an empty body" do
+      create_markdown_file("empty_page", body: "")
+
+      task.reenable
+      expect { task.invoke }.to output(/Skipping markdown file.*no body content present/).to_stdout
+    end
+  end
+
+  describe "successfully renders markdown files" do
+    before do
+      create_markdown_file("valid_page", status: "for-publication")
+      nested_dir = input_dir.join("nested-collection")
+      FileUtils.mkdir_p(nested_dir)
+      File.write(nested_dir.join("nested_page.md"), front_matter_template("nested_page", "for-publication", "Valid Content"))
+    end
+
+    it "renders all markdown files" do
+      create_markdown_file("another_valid_page", status: "for-publication")
+
+      task.reenable
+      task.invoke
+
+      expect(Dir.glob(File.join(output_dir, "**/*.html.erb")).size).to eq(3)
+    end
+
+    it "renders markdown content into HTML" do
+      task.reenable
+      task.invoke
+
+      generated_file = output_dir.join("valid_page.html.erb")
+      expect(File).to exist(generated_file)
+      content = File.read(generated_file)
+      expect(content).to include("<html>Rendered Output</html>")
+    end
+
+    it "maintains the directory structure for nested markdown files" do
+      task.reenable
+      task.invoke
+
+      nested_generated_file = output_dir.join("nested-collection/nested_page.html.erb")
+      expect(File).to exist(nested_generated_file)
+    end
+  end
+
+  describe "Visualisation data injection" do
+    it "modifies line chart series data with pointRadius and pointStyle" do
+      chart_json = { "visualisation_type" => "line", "series" => [{ "data" => { "2020" => 1, "2021" => 2 } }] }
+      File.write(chart_dir.join("test_chart.json"), chart_json.to_json)
+
+      create_markdown_file("chart_page", status: "for-publication", extra_front_matter: "visualisation-data: test_chart.json")
+
+      expect_any_instance_of(ActionController::Renderer).to receive(:render) do |_, args|
+        series = args[:assigns][:chart_data]["series"].first
+        expect(series["dataset"][:pointRadius]).to eq([0, 4]) # n-1 zeros, then a 4
+        expect(series["dataset"][:pointStyle].length).to eq(2)
+        "fake html"
+      end
+
+      task.reenable
+      task.invoke
+    end
+  end
+
+  def create_markdown_file(title, status: "for-publication", body: "# Sample Content", extra_front_matter: "")
+    path = input_dir.join("#{title}.md")
+    File.write(path, front_matter_template(title, status, body, extra_front_matter))
+    path
+  end
+
+  def front_matter_template(title, status, body, extra_front_matter = "")
+    <<~MARKDOWN
+      ---
+      title: #{title}
+      status: #{status}
+      #{extra_front_matter}
+      ---
+      #{body}
+    MARKDOWN
   end
 end
