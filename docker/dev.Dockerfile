@@ -13,9 +13,9 @@ RUN apt-get update && apt-get install -y \
     libmariadb-dev-compat libpq-dev libyaml-dev make xz-utils \
     software-properties-common vim wget 
 RUN bundle install
-RUN bundle exec rake markdown:render
 RUN bin/yarn
-RUN rails assets:precompile
+RUN bundle exec rails assets:precompile
+RUN bundle exec rake markdown:render
 
 # Ubuntu 24.04 will always use snap to install chromium 
 # so use an alternative PPA to install chromiumn and chromiun-driver

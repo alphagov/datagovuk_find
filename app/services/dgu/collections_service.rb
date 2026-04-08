@@ -31,7 +31,7 @@ module Dgu
     end
 
     def image_path
-      "/images/collections/#{collection}.jpg"
+      "v2/collections/badge-#{collection}.png"
     end
 
     def collections_slugs

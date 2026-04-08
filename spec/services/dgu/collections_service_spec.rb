@@ -131,6 +131,13 @@ RSpec.describe Dgu::CollectionsService, type: :service do
     end
   end
 
+  describe "#image_path" do
+    it "returns the image path for the collection" do
+      service = Dgu::CollectionsService.new(collection)
+      expect(service.image_path).to eq("v2/collections/badge-#{collection}.png")
+    end
+  end
+
   describe "#previous_page" do
     it "returns nil when on the first page" do
       service = Dgu::CollectionsService.new(collection, first_page)
