@@ -1,6 +1,8 @@
 require "rails_helper"
 
 RSpec.feature "collections", type: :feature do
+  # Setup and teardown for generated views is handled globally in rails_helper.rb
+
   scenario "I visit a collection page" do
     given_i_am_on_a_collection_page
     and_top_navigation_has_drop_down_of_collections

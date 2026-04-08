@@ -67,6 +67,22 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
 end
 
+RSpec.configure do |config|
+  config.before(:suite) do
+    Rake.application.rake_require("tasks/markdown_to_static_html")
+    Rake::Task.define_task(:environment)
+    Rails.configuration.x.markdown_collections_output_location = "app/views/generated/collections"
+    Rails.configuration.x.markdown_collections_location_glob = "app/content/collections/**/*.md"
+    Rails.configuration.x.visualisations_data_location = "app/content/data"
+    Rake::Task["markdown:render"].reenable
+    Rake::Task["markdown:render"].invoke
+  end
+
+  config.after(:suite) do
+    FileUtils.rm_rf("app/views/generated")
+  end
+end
+
 # Setup chrome headless driver
 GovukTest.configure
 

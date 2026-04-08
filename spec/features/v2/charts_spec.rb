@@ -1,6 +1,8 @@
 require "rails_helper"
 
-RSpec.describe "Charts", type: :system do
+RSpec.describe "Charts", type: :system, js: true do
+  # Setup and teardown for generated views is handled globally in rails_helper.rb
+
   scenario "I can see a single series line chart on a collection page" do
     given_i_visit_a_collection_page_with_a_single_series_line_chart
     then_i_should_see_a_line_chart_with_expected_data
