@@ -12,6 +12,7 @@ module V2
 
       @collection = collections_service.collection
       @collection_pages = collections_service.collection_pages
+      @image_path = collections_service.image_path
       @current_page = collections_service.page
       @view_template = collections_service.view_template_path
       @next_page = collections_service.next_page

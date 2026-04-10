@@ -9,9 +9,11 @@ COPY Gemfile* .ruby-version ./
 RUN bundle install
 COPY . ./
 
+RUN bundle exec rails assets:precompile
+
 RUN bundle exec rake markdown:render
 
-RUN rails assets:precompile && rm -fr log
+RUN rm -fr log tmp/cache
 
 FROM $base_image
 
