@@ -2,6 +2,7 @@ module Search
   class Solr
     RESULTS_PER_PAGE = 20
     ORGANISATIONS_LIMIT = 3000 # Should match `rows` in https://github.com/alphagov/ckanext-datagovuk/blob/4cfb397/ckanext/datagovuk/lib/cli.py#L398
+    DGU_ORGANISATIONS_ID = "dgu_organisations_2".freeze # Should match DGU_ORGANISATIONS_ID in https://github.com/alphagov/ckanext-datagovuk/blob/e774ed637178533a47ddfa8fadaf83adc9e903be/ckanext/datagovuk/lib/cli.py#L26
 
     def self.search(params)
       query_param = (params["q"] || "").to_s.squish
@@ -24,7 +25,7 @@ module Search
       processed_query = SearchHelper.process_query(query_param)
       raise NoSearchTermsError, "Query string is empty after processing" if processed_query.blank?
 
-      @query = "(title:(#{processed_query})^2 OR notes:(#{processed_query})) AND NOT site_id:dgu_organisations"
+      @query = "(title:(#{processed_query})^2 OR notes:(#{processed_query})) AND NOT site_id:#{DGU_ORGANISATIONS_ID}"
     end
 
     def self.build_filter_query(params)
@@ -92,7 +93,7 @@ module Search
         query = solr_client.get "select", params: {
           q: "*:*",
           fq: [
-            "site_id:dgu_organisations",
+            "site_id:#{DGU_ORGANISATIONS_ID}",
           ],
           fl: %w[title name],
           rows: ORGANISATIONS_LIMIT,
@@ -112,7 +113,7 @@ module Search
         solr_client.get "select", params: {
           q: "*:*",
           fq: [
-            "site_id:dgu_organisations",
+            "site_id:#{DGU_ORGANISATIONS_ID}",
             "name:#{name}",
           ],
           fl: %w[title name extras_contact-email extras_foi-email extras_foi-web extras_foi-name],
