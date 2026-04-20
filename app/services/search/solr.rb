@@ -2,7 +2,8 @@ module Search
   class Solr
     RESULTS_PER_PAGE = 20
     ORGANISATIONS_LIMIT = 3000 # Should match `rows` in https://github.com/alphagov/ckanext-datagovuk/blob/4cfb397/ckanext/datagovuk/lib/cli.py#L398
-    DGU_ORGANISATIONS_ID = "dgu_organisations_2".freeze # Should match DGU_ORGANISATIONS_ID in https://github.com/alphagov/ckanext-datagovuk/blob/e774ed637178533a47ddfa8fadaf83adc9e903be/ckanext/datagovuk/lib/cli.py#L26
+    DGU_ORGANISATIONS_PREFIX = "dgu_organisations".freeze
+    DGU_ORGANISATIONS_ID = "#{DGU_ORGANISATIONS_PREFIX}_2".freeze # Should match DGU_ORGANISATIONS_ID in https://github.com/alphagov/ckanext-datagovuk/blob/e774ed637178533a47ddfa8fadaf83adc9e903be/ckanext/datagovuk/lib/cli.py#L26
 
     def self.search(params)
       query_param = (params["q"] || "").to_s.squish
@@ -25,7 +26,7 @@ module Search
       processed_query = SearchHelper.process_query(query_param)
       raise NoSearchTermsError, "Query string is empty after processing" if processed_query.blank?
 
-      @query = "(title:(#{processed_query})^2 OR notes:(#{processed_query})) AND NOT site_id:#{DGU_ORGANISATIONS_ID}"
+      @query = "(title:(#{processed_query})^2 OR notes:(#{processed_query})) AND NOT site_id:#{DGU_ORGANISATIONS_PREFIX}.*"
     end
 
     def self.build_filter_query(params)
