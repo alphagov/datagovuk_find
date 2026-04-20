@@ -1,3 +1,6 @@
+---
+title: Team
+---
 # data.gov.uk team
 The data.gov.uk team at the Government Digital Service (GDS) is transforming the data.gov.uk website and the experience of finding and using public sector data.
 

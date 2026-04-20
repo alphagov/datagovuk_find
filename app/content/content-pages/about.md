@@ -1,3 +1,6 @@
+---
+title: About
+---
 # About data.gov.uk
 Since 2010, data.gov.uk has been helping people to find and use open government data, and supporting government publishers to maintain data. The website is run by the Government Digital Service (GDS).
 

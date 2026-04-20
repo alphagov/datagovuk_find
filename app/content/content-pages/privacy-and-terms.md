@@ -1,3 +1,6 @@
+---
+title: Privacy and terms
+---
 # Privacy and terms
 
 ## Terms of use
