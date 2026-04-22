@@ -3,7 +3,7 @@
 Find Slack channels, events and other ways to connect with
 data practitioners.
 
-## [Data Communities Newsletter](https://mailchi.mp/dsit.gov.uk/data-newsletter)
+## [Data communities newsletter](https://mailchi.mp/dsit.gov.uk/data-newsletter)
 A monthly newsletter produced by the Government Digital Service (GDS) for people who work in the public sector. Sign up to learn about cross-government collaboration, discover best practices, and help shape the future of digital and data in the public sector.
 
 ## Data management community
