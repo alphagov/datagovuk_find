@@ -1,3 +1,6 @@
+---
+title: Accessibility
+---
 # Accessibility statement for data.gov.uk
 This accessibility statement applies to https://data.gov.uk. It does not cover other data.gov.uk subdomains (for example, environment.data.gov.uk) which have their own accessibility statements.
 
