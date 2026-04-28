@@ -21,7 +21,7 @@ Learn about data controllers and processors, principles such as
 minimisation, international data transfers, AI and data protection,
 protecting privacy and more.
 
-## [Data Protection Impact Assessments (DPIAs)](https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/accountability-and-governance/data-protection-impact-assessments-dpias/)
+## [Data protection impact assessments (DPIAs)](https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/accountability-and-governance/data-protection-impact-assessments-dpias/)
 A DPIA is a process for analysing, identifying and minimising the data
 protection risks of a project or plan. It’s an important part of complying
 with the UK GDPR legislation. This page on the ICO website explains

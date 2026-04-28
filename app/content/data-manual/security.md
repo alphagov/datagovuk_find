@@ -29,7 +29,7 @@ concepts and provides steps to form the basis of any cyber security risk
 management process. If you’re new to this topic, the site also includes a
 basic risk assessment template.
 
-## [Service Manual: Securing your information](https://www.gov.uk/service-manual/technology/securing-your-information)
+## [Service Manual: securing your information](https://www.gov.uk/service-manual/technology/securing-your-information)
 A general introduction to information security when building government
 services. Learn how to assess the information security of your service,
 protect information and get an IT Health Check. This check provides

@@ -13,14 +13,14 @@ understand interoperability problems that can be tackled by adopting
 common data standards. This page includes various resources for
 government data projects.
 
-## [Office for National Statistics (ONS) Data Standards](https://www.ons.gov.uk/aboutus/transparencyandgovernance/datastrategy/datastandards)
+## [Office for National Statistics (ONS) data standards](https://www.ons.gov.uk/aboutus/transparencyandgovernance/datastrategy/datastandards)
 These standards define how ONS carries out its statistical and business
 activities. This page includes examples of data standards for anyone
 working on data-related initiatives and projects, or who have an interest
 in the acquisition, management, provision and subsequent dissemination
 of data.
 
-## [UK Geospatial Data Standards Register](https://www.gov.uk/government/publications/uk-geospatial-data-standards-register/national-geospatial-data-standards-register)
+## [UK geospatial data standards register](https://www.gov.uk/government/publications/uk-geospatial-data-standards-register/national-geospatial-data-standards-register)
 The register entries are agreed ways of sharing and accessing
 geographic information. They help ensure that the data is findable,
 accessible, interoperable and re-usable (FAIR). The standards, in

@@ -19,4 +19,4 @@ View a map of England’s trees outside woodlands, which make up 30% of the nati
 - displays woodland types – lone tree, group of trees, small woodland – for each English region
 - also displays the National Forest Inventory England map, allowing for side-by-side comparison with trees outside woodland 
 
-On the datasets page, you can download the full map data as a GDP file or download ZIP files of data for each English region. The map is a project funded by the Department for Environment, Food and Rural Affairs through its Natural Capital and Ecosystem Assessment programme (NCEA).
+On the datasets page, you can download the full map data as a GDB file or download ZIP files of data for each English region. The map is a project funded by the Department for Environment, Food and Rural Affairs through its Natural Capital and Ecosystem Assessment programme (NCEA).

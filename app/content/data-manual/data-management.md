@@ -2,9 +2,9 @@
 Understand data roles and responsibilities, and how to manage
 data quality.
 
-## [Data Ownership in Government](https://www.gov.uk/government/publications/essential-shared-data-assets-and-data-ownership-in-government/data-ownership-in-government-html)
+## [Data ownership in government](https://www.gov.uk/government/publications/data-ownership-in-government)
 Data ownership is important to all parts of government that handle,
-produce or use data. This guidance sets out a Data Ownership Model
+produce or use data. This guidance sets out a data ownership model
 that defines the 3 main government data ownership roles and their
 attached responsibilities.
 
@@ -15,7 +15,13 @@ information. They’re responsible for protecting information assets in their
 department or organisation. Learn more about who IAOs should be,
 what they’re accountable for and how they should carry out their role.
 
-## [The Government Data Quality Framework](https://www.gov.uk/government/publications/the-government-data-quality-framework)
+## [Identify and record critical data assets](https://www.gov.uk/government/publications/identify-and-record-critical-data-assets)
+Find out what critical data assets are in a cross-government context, why they matter, and how to report them. This guidance is mandatory for UK central government departments and arm’s length bodies (ALBs), and optional for public corporations.
+
+## [Record metadata to describe critical data assets](https://www.gov.uk/government/publications/record-metadata-to-describe-critical-data-assets)
+Find out what metadata to record about government data assets and where to store it. Using metadata to describe government data assets will make it easier to catalogue, validate, reuse and share your data.
+
+## [The government data quality framework](https://www.gov.uk/government/publications/the-government-data-quality-framework)
 The framework sets out an approach for managing and using data in a
 public organisation to ensure the data’s quality is fit for its intended
 purpose.The guidance includes data quality principles and dimensions,
@@ -27,11 +33,11 @@ explains how public sector organisations can assess and manage the
 quality of their data. The implementation guide covers 7 steps for
 implementing a data quality action plan (DQAP) from start to finish.
 
-## [Government Digital and Data Profession Capability Framework](https://ddat-capability-framework.service.gov.uk/)
+## [Government digital and data profession capability framework](https://ddat-capability-framework.service.gov.uk/)
 Learn about the digital, data and technology roles in government, and
 the skills needed for each role.
 
-## [Government Data Maturity Hub](https://www.gov.uk/government/collections/data-maturity-assessment-for-government)
+## [Government data maturity hub](https://www.gov.uk/government/collections/data-maturity-assessment-for-government)
 This hub will help you understand your organisation’s data maturity and
 identify strengths and weaknesses in your data ecosystem. Making good
 use of the data you generate, collect, acquire and provide means your
@@ -50,9 +56,3 @@ interoperability.
 Learn how to maintain your data independently of any technology or
 service. This involves using data standards to help you store your data
 so other government organisations can find and reuse it.
-
-## [Essential Shared Data Assets \(ESDAs\)](https://www.gov.uk/government/publications/essential-shared-data-assets-and-data-ownership-in-government)
-ESDAs are the most important data assets that are requested and
-shared across government. Linked with the data ownership guidance,
-this guidance explains what ESDAs are, why they’re important and how
-to identify them.
