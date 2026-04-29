@@ -1,7 +1,7 @@
 ---
 title: Transport connectivity 
 websites:
-  - url: https://www.gov.uk/government/statistical-data-sets/mot-testing-data-for-great-britain
+  - url: https://connectivity-tool-lite.dft.gov.uk/index
     link-text: Connectivity Tool Lite
   - url: https://www.gov.uk/guidance/connectivity-tool
     link-text: "Connectivity Tool: guidance for built environment professionals"
