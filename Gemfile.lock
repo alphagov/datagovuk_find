@@ -456,7 +456,7 @@ GEM
     parser (3.3.7.1)
       ast (~> 2.4.1)
       racc
-    plek (4.1.0)
+    plek (5.3.1)
     pp (0.6.2)
       prettyprint
     prettyprint (0.2.0)
@@ -697,7 +697,7 @@ DEPENDENCIES
   logstash-event
   mime-types
   nokogiri
-  plek (~> 4.1)
+  plek (~> 5.3)
   pry
   pry-byebug
   pry-stack_explorer
