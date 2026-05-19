@@ -186,7 +186,7 @@ GEM
       puma
       selenium-webdriver (>= 4.0)
     hashdiff (1.1.2)
-    htmlentities (4.3.4)
+    htmlentities (4.4.2)
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
     io-console (0.8.0)
