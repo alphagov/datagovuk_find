@@ -8,6 +8,8 @@ RSpec.feature "Solr Search page" do
     and_i_can_see_the_search_box
     and_i_do_not_see_search_results
     and_i_do_not_see_remove_filters_link
+    then_i_click_search_without_entering_a_search_term
+    and_i_can_see_all_search_results
     then_i_search_for_something
     and_i_can_see_the_search_result_count
     and_i_do_not_see_remove_filters_link
@@ -45,6 +47,16 @@ RSpec.feature "Solr Search page" do
   def then_i_search_for_something
     fill_in "q", with: "abc"
     click_button "Search"
+  end
+
+  def then_i_click_search_without_entering_a_search_term
+    click_button "Search"
+  end
+
+  def and_i_can_see_all_search_results
+    within(".dgu-results__summary") do
+      expect(page).to have_content("2 results found")
+    end
   end
 
   def and_i_filter_by_an_organisation

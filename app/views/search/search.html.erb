@@ -30,7 +30,7 @@
         </div>
         <div class="govuk-grid-column-two-thirds dgu-results">
           <%= render 'sort' if @num_results > 1 %>
-          <% if @presenter.search_term.present? %>
+          <% if @presenter.search_params.present? || @presenter.search_term.present? %>
             <span class="dgu-results__summary">
               <span class="govuk-body-s govuk-!-font-weight-bold"><%= number_with_delimiter(@num_results) %></span>
               <%= t('.result').pluralize(@num_results) %> <%= t('.found') %>

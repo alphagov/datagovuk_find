@@ -24,6 +24,17 @@ RSpec.describe "Search", type: :request do
       expect(response.body).not_to match(/<div class="dgu-results__result">/)
     end
 
+    context "when all parameters are empty" do
+      before do
+        allow(Search::Solr).to receive(:search).and_return(JSON.parse(File.read(Rails.root.join("spec/fixtures/solr_response.json").to_s)))
+        get search_path(q: "", organisation: "", format: "")
+      end
+
+      it "shows all results found" do
+        expect(response.body).to match(/<span class="dgu-results__summary">.*<span class="govuk-body-s govuk-!-font-weight-bold">2<\/span>.*results found.*<\/span>/m)
+      end
+    end
+
     context "when the q parameter is empty" do
       before do
         get search_path(q: "")
