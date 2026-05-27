@@ -18,12 +18,13 @@ jobs:
       buildType: build_push_with_gittag
       gitRef: ${{ github.ref_name }}
   notify-slack-if-failure-on-main:
+    if: ${{ failure() }}
+    needs: [build_and_push]
     runs-on: ubuntu-latest
     steps:
-      - name: Notify Slack if failure on main
-        if: ${{ failure() }}
+      - name: Notify Slack if failure
         uses: alphagov/govuk-infrastructure/.github/actions/report-run-failure@main
         with:
           slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
           channel: "datagovuk-technical"
-          message: "datagovuk_find build-image-on-tags workflow failed on main branch"
+          message: "datagovuk_find build-image-on-tags workflow failed"
