@@ -1,59 +1,80 @@
 require "rails_helper"
 
 RSpec.feature "Solr Search page" do
-  scenario "User views and interacts with the search page" do
+  scenario "User visits the search page with no params" do
     given_i_am_on_the_solr_search_page
 
     then_i_can_see_the_search_heading
-    and_i_can_see_the_search_box
+    and_i_can_see_the_search_box_is_empty
     and_i_do_not_see_search_results
+    and_i_do_not_see_search_results_found_count
     and_i_do_not_see_remove_filters_link
-    then_i_search_for_something
+  end
+
+  scenario "User searches with an empty query" do
+    given_i_visit_search_with_empty_params
+
+    and_i_can_see_the_search_box_is_empty
+    and_i_can_see_zero_results_found_count
+    and_i_do_not_see_search_results
+  end
+
+  scenario "User searches with a term that returns no results" do
+    given_i_am_on_the_solr_search_page
+
+    when_i_search_for_something_with_no_results
+    and_i_can_see_zero_results_found_count
+    and_i_do_not_see_search_results
+  end
+
+  scenario "User searches with a term that returns results" do
+    given_i_am_on_the_solr_search_page
+
+    when_i_search_for_something_with_results
     and_i_can_see_the_search_result_count
-    and_i_do_not_see_remove_filters_link
+    and_i_can_see_the_search_term_in_the_search_box
     and_i_can_see_each_search_result_title
     and_i_can_see_the_publisher_for_each_search_result
     and_i_can_see_the_last_updated_for_each_search_result
     and_i_can_see_results_sorted_by_best_match_by_default
+    and_i_do_not_see_remove_filters_link
+  end
 
+  scenario "User filters search results by organisation" do
+    given_i_am_on_the_solr_search_page
+
+    when_i_search_for_something_with_results
     then_i_can_see_the_filter_by_heading
     and_i_can_see_the_publisher_filter
     and_i_can_see_the_list_of_organisations_in_publisher_filter
-    and_i_can_select_an_organisation_in_publisher_filter
-
-    then_i_can_see_the_topic_filter
+    and_i_can_see_the_topic_filter
     and_i_can_see_the_format_filter
     and_i_can_see_the_ogl_filter
     and_i_can_see_the_apply_filters_button
     and_i_filter_by_an_organisation
     and_i_can_see_the_remove_filters_link
+  end
 
+  scenario "User sorts search results by most recent" do
+    given_i_am_on_the_solr_search_page
+
+    when_i_search_for_something_with_results
     when_i_sort_results_by_most_recent
     then_i_can_see_results_sorted_by_most_recent
+  end
 
+  scenario "User sees pagination for search results" do
+    given_i_am_on_the_solr_search_page
+
+    when_i_search_for_something_with_results
     then_i_can_see_pagination_info
   end
 
-  def and_i_do_not_see_search_results
-    expect(page).not_to have_css(".dgu-results__result")
-  end
-
-  def and_i_do_not_see_remove_filters_link
-    expect(page).not_to have_link("Remove filters")
-  end
-
-  def then_i_search_for_something
-    fill_in "q", with: "abc"
-    click_button "Search"
-  end
-
-  def and_i_filter_by_an_organisation
-    select "Ministry of Housing, Communities and Local Government", from: "Publisher"
-    click_button "Apply filters"
-  end
-
   def given_i_am_on_the_solr_search_page
-    allow(Search::Solr).to receive(:search).and_return(JSON.parse(File.read(Rails.root.join("spec/fixtures/solr_response.json").to_s)))
+    results_found = JSON.parse(File.read(Rails.root.join("spec/fixtures/solr_response.json").to_s))
+    empty_response = { "response" => { "numFound" => 0, "start" => 0, "numFoundExact" => true, "docs" => [] }, "facet_counts" => results_found["facet_counts"] }
+    allow(Search::Solr).to receive(:search).and_return(results_found)
+    allow(Search::Solr).to receive(:search).with(hash_including("q" => "empty results term")).and_return(empty_response)
     allow(Search::Solr).to receive(:get_organisations).and_return({
       "Aberdeen City Council" => "aberdeen-city-council",
       "Ministry of Housing, Communities and Local Government" => "department-for-communities-and-local-government",
@@ -68,12 +89,50 @@ RSpec.feature "Solr Search page" do
     visit search_path
   end
 
+  def given_i_visit_search_with_empty_params
+    allow(Search::Solr).to receive(:search).and_raise(Search::Solr::NoSearchTermsError)
+    allow(Search::Solr).to receive(:get_organisations).and_return({})
+    visit search_path(q: "")
+  end
+
   def then_i_can_see_the_search_heading
     expect(page).to have_css("h1", text: "Search directory")
   end
 
-  def and_i_can_see_the_search_box
-    expect(page).to have_content("Search directory")
+  def and_i_can_see_the_search_box_is_empty
+    expect(page).to have_field("q", with: "")
+  end
+
+  def and_i_can_see_the_search_term_in_the_search_box
+    expect(page).to have_field("q", with: "dataset")
+  end
+
+  def and_i_do_not_see_search_results
+    expect(page).not_to have_css(".dgu-results__result")
+  end
+
+  def and_i_do_not_see_search_results_found_count
+    expect(page).not_to have_css(".dgu-results__summary")
+  end
+
+  def and_i_do_not_see_remove_filters_link
+    expect(page).not_to have_link("Remove filters")
+  end
+
+  def when_i_search_for_something_with_no_results
+    fill_in "q", with: "empty results term"
+    click_button "Search"
+  end
+
+  def when_i_search_for_something_with_results
+    fill_in "q", with: "dataset"
+    click_button "Search"
+  end
+
+  def and_i_can_see_zero_results_found_count
+    within(".dgu-results__summary") do
+      expect(page).to have_content("0 results found")
+    end
   end
 
   def and_i_can_see_the_search_result_count
@@ -118,13 +177,7 @@ RSpec.feature "Solr Search page" do
     expect(select_options[2]).to have_content "Mole Valley District Council"
   end
 
-  def and_i_can_select_an_organisation_in_publisher_filter
-    select "Ministry of Housing, Communities and Local Government", from: "Publisher"
-    click_button "Apply filters"
-    expect(page).to have_select("publisher", selected: "Ministry of Housing, Communities and Local Government")
-  end
-
-  def then_i_can_see_the_topic_filter
+  def and_i_can_see_the_topic_filter
     expect(page).to have_css(".dgu-filters .govuk-form-group", text: "Topic")
     expect(page).to have_css("select#topic")
   end
@@ -142,8 +195,13 @@ RSpec.feature "Solr Search page" do
     expect(page).to have_css("button", text: "Apply filters")
   end
 
+  def and_i_filter_by_an_organisation
+    select "Ministry of Housing, Communities and Local Government", from: "Publisher"
+    click_button "Apply filters"
+  end
+
   def and_i_can_see_the_remove_filters_link
-    expect(page).to have_link("Remove filters", href: "/search?q=abc")
+    expect(page).to have_link("Remove filters", href: "/search?q=dataset")
   end
 
   def when_i_sort_results_by_most_recent
