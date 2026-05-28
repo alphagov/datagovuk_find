@@ -2,6 +2,15 @@
 Understand data roles and responsibilities, and how to manage
 data quality.
 
+## [Data asset management policy in government](https://www.gov.uk/government/publications/data-asset-management-policy-in-government)
+This policy sets out the requirements for UK government departments and their arm's length bodies (ALBs) to identify, record and centrally report data assets.
+
+## [Identify and record critical data assets](https://www.gov.uk/government/publications/identify-and-record-critical-data-assets)
+Find out what critical data assets are in a cross-government context, why they matter, and how to report them. This guidance is mandatory for UK central government departments and ALBs, and optional for public corporations.
+
+## [Record metadata to describe critical data assets](https://www.gov.uk/government/publications/record-metadata-to-describe-critical-data-assets)
+Find out what metadata to record about government data assets and where to store it. Using metadata to describe government data assets will make it easier to catalogue, validate, reuse and share your data.
+
 ## [Data ownership in government](https://www.gov.uk/government/publications/data-ownership-in-government)
 Data ownership is important to all parts of government that handle,
 produce or use data. This guidance sets out a data ownership model
@@ -15,16 +24,10 @@ information. They’re responsible for protecting information assets in their
 department or organisation. Learn more about who IAOs should be,
 what they’re accountable for and how they should carry out their role.
 
-## [Identify and record critical data assets](https://www.gov.uk/government/publications/identify-and-record-critical-data-assets)
-Find out what critical data assets are in a cross-government context, why they matter, and how to report them. This guidance is mandatory for UK central government departments and arm’s length bodies (ALBs), and optional for public corporations.
-
-## [Record metadata to describe critical data assets](https://www.gov.uk/government/publications/record-metadata-to-describe-critical-data-assets)
-Find out what metadata to record about government data assets and where to store it. Using metadata to describe government data assets will make it easier to catalogue, validate, reuse and share your data.
-
 ## [The government data quality framework](https://www.gov.uk/government/publications/the-government-data-quality-framework)
 The framework sets out an approach for managing and using data in a
 public organisation to ensure the data’s quality is fit for its intended
-purpose.The guidance includes data quality principles and dimensions,
+purpose. The guidance includes data quality principles and dimensions,
 and explains the data life cycle.
 
 ## [Implementing a data quality action plan](https://www.gov.uk/government/publications/implementing-a-data-quality-action-plan)
