@@ -23,3 +23,14 @@ jobs:
           GH_TOKEN: ${{ secrets.PR_GITHUB_TOKEN }}
           IS_TAG: "true"
           ENVS: "staging,production"
+  notify-slack-if-failure-on-main:
+    if: ${{ failure() && github.ref == 'refs/heads/main' }}
+    needs: [create_pr]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notify Slack if failure on main
+        uses: alphagov/govuk-infrastructure/.github/actions/report-run-failure@main
+        with:
+          slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
+          channel: "datagovuk-technical"
+          message: "datagovuk_find create-pr-on-tags workflow failed on main branch"
