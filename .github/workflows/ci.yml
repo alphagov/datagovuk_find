@@ -66,3 +66,15 @@ jobs:
           sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional
       - run: bundle install --jobs 4 --retry 3 --deployment
       - run: bundle exec rake
+
+  notify-slack-if-failure-on-main:
+    if: ${{ failure() && github.ref == 'refs/heads/main' }}
+    needs: [test, security-analysis, codeql-sast, dependency-review]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notify Slack if failure on main
+        uses: alphagov/govuk-infrastructure/.github/actions/report-run-failure@main
+        with:
+          slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
+          channel: "datagovuk-technical"
+          message: "datagovuk_find ci workflow failed on main branch"

@@ -239,3 +239,15 @@ jobs:
           IMAGEREF: '${{ env.REGISTRY_BASE }}/${{ fromJson(needs.configure_builds.outputs.app_metadata).name }}:${{ steps.app-metadata.outputs.version }}'
         run: |
           docker buildx imagetools inspect "$IMAGEREF"
+
+  notify-slack-if-failure-on-main:
+    if: ${{ failure() && github.ref == 'refs/heads/main' }}
+    needs: [configure_builds, build_and_push_multiarch_image, create_image_manifest]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notify Slack if failure on main
+        uses: alphagov/govuk-infrastructure/.github/actions/report-run-failure@main
+        with:
+          slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
+          channel: "datagovuk-technical"
+          message: "datagovuk_find build-image workflow failed on main branch"
