@@ -149,7 +149,6 @@ private
           ActiveSupport::SecurityUtils.secure_compare(password, ENV["BASIC_AUTH_PASSWORD"])
       end
     else
-      logger.warn "BASIC_AUTH_USERNAME and BASIC_AUTH_PASSWORD environment variables are not set. Basic authentication is disabled."
       true
     end
   end
