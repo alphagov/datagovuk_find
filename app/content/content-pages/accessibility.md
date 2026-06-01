@@ -1,10 +1,10 @@
 ---
 title: Accessibility
 ---
-# Accessibility statement for data.gov.uk
-This accessibility statement applies to https://data.gov.uk. It does not cover other data.gov.uk subdomains (for example, environment.data.gov.uk) which have their own accessibility statements.
+# Accessibility statement for the National Data Library
+This accessibility statement applies to the National Data Library at https://data.gov.uk. It does not cover subdomains such as environment.data.gov.uk which have their own accessibility statements.
 
-This website is run by the Government Digital Service (GDS). We want as many people as possible to be able to use this website. For example, that means you should be able to:
+This website is run by the Government Digital Service (GDS) in the Department for Science, Innovation and Technology. We want as many people as possible to be able to use this website. For example, that means you should be able to:
 
 - change colours, contrast levels and fonts
 - zoom in up to 300% without problems
@@ -21,13 +21,13 @@ Parts of this website are not fully accessible. For example:
 
 - some data sets have broken links
 - we use charts and visualisations which may present some accessibility issues, though you can download the chart data
-- the data.gov.uk directory does not have a recent audit – we'll resolve this in 2026 
+- the directory does not have a recent audit – we'll resolve this in 2026 
 
 ## Feedback and contact information
 If you need any part of this service in a different format – like large print, audio recording or braille – please contact the dataset publisher.
 
 ## Reporting accessibility problems with this website
-We’re always looking to improve the accessibility of this website. If you find any problems not listed on this page or think we’re not meeting accessibility requirements, please report them via the [GOV.UK support form](https://www.gov.uk/contact/govuk) and mention that it’s about data.gov.uk. 
+We’re always looking to improve the accessibility of this website. If you find any problems not listed on this page or think we’re not meeting accessibility requirements, please report them via the [GOV.UK support form](https://www.gov.uk/contact/govuk) and mention that it’s about the National Data Library at data.gov.uk. 
 
 ## Enforcement procedure
 The Equality and Human Rights Commission (EHRC) is responsible for enforcing the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018 (the ‘accessibility regulations’). If you’re not happy with how we respond to your complaint, contact the [Equality Advisory and Support Service (EASS)](https://www.equalityadvisoryservice.com).
@@ -49,9 +49,9 @@ Charts have hover pop-ups that cannot be dismissed. This fails WCAG 2.2 success 
 Some data sets have broken links. This fails WCAG 2.2 success criterion 2.4.4 Link Purpose (In Context).
 
 ## What we’re doing to improve accessibility
-We're working to fix content which fails to meet the [Web Content Accessibility Guidelines version 2.2](https://www.w3.org/TR/WCAG22/) AA standard. We’re in the process of commissioning a full external accessibility audit of the data.gov.uk website, including the data.gov.uk directory. This will help us prioritise improvements, especially where existing features fail to meet the Web Content Accessibility Guidelines version 2.2 AA standard.
+We're working to fix content which fails to meet the [Web Content Accessibility Guidelines version 2.2](https://www.w3.org/TR/WCAG22/) AA standard. We’re in the process of commissioning a full external accessibility audit of the National Data Library website, including the directory. This will help us prioritise improvements, especially where existing features fail to meet the Web Content Accessibility Guidelines version 2.2 AA standard.
 
 ## Preparation of this accessibility statement
-This statement was prepared on 19 March 2026. It was last reviewed on 19 March 2026.
+This statement was prepared on 5 June 2026. It was last reviewed on 5 June 2026.
 
 This website was last tested in March 2026. The test was carried out by GDS. The website is scheduled to undergo external testing in summer 2026. 
