@@ -12,7 +12,7 @@ dataset:
 page-last-updated: "2026-03-24"
 visualisation-data:
 contact:
-status: for-publication
+status: draft
 ---
 
 Explore a collection of statistics on pupil attendance and pupil absence in state-funded primary, secondary and special schools in England. For the latest pupil attendance data, the Department of Education (DfE) publishes a fortnightly release. There are also yearly statistics for the autumn term, autumn and spring term combined, and full year since 2009-10. 
