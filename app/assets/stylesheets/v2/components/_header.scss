@@ -100,9 +100,11 @@
     .datagovuk-header {
         padding-top: 20px;
     }
-
-    .datagovuk-header__logo-link {
-        width: 235px;
+    
+    .datagovuk-directory-header .datagovuk-header {
+      max-width: 960px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .datagovuk-header__link,
@@ -120,4 +122,11 @@
         gap: 10px 30px;
     }
 
+}
+
+@media (min-width: 1020px) {
+    .datagovuk-directory-header .datagovuk-header .datagovuk-width-container {
+      margin-left: 0;
+      margin-right: 0;
+    }
 }
