@@ -4,16 +4,16 @@ title: Privacy and terms
 # Privacy and terms
 
 ## Terms of use
-This page and any pages it links to explain data.gov.uk's terms of use. You must agree to these to use data.gov.uk.
+This page and any pages it links to explain the National Data Library's terms of use. You must agree to these to use the National Data Library on data.gov.uk.
 
 ### Who we are
-data.gov.uk is a service provided by the [Government Digital Service (GDS)](https://www.gov.uk/government/organisations/government-digital-service), part of the Department for Science, Innovation and Technology (DSIT). It helps people find and use open data from the public sector. [Find out more about data.gov.uk](/about).
+The National Data Library is a service provided by the [Government Digital Service (GDS)](https://www.gov.uk/government/organisations/government-digital-service), part of the Department for Science, Innovation and Technology (DSIT). It helps people find and use open data from the public sector. [Find out more about the National Data Library](/about).
 
-### Using data.gov.uk
-You agree to use data.gov.uk only for lawful purposes. You must also use it in a way that does not infringe the rights of, or restrict or inhibit the use and enjoyment of, this site by anyone else. 
+### Using the National Data Library
+You agree to use the National Data Library on data.gov.uk only for lawful purposes. You must also use it in a way that does not infringe the rights of, or restrict or inhibit the use and enjoyment of, this site by anyone else. 
 
-### Linking from data.gov.uk
-data.gov.uk links to websites that are managed by other government departments and agencies, service providers or other organisations. We do not have any control over the content on these websites.
+### Linking from the National Data Library
+The National Data Library links to websites that are managed by other government departments and agencies, service providers or other organisations. We do not have any control over the content on these websites.
 
 We're not responsible for:
 
@@ -25,9 +25,9 @@ You agree to release us from any claims or disputes that may come from using the
 You should read all terms and conditions, privacy policies and end user licences that relate to these websites before you use them.
 
 ### Responsibility for datasets
-Only publishers with accounts for the data.gov.uk directory can ask for datasets to be deleted. [Contact us](/support) to ask for datasets to be deleted if you’re a publisher.
+Only publishers with accounts for the directory can ask for datasets to be deleted. [Contact us](/support) to ask for datasets to be deleted if you’re a publisher.
 
-data.gov.uk does not host datasets. They are the responsibility of the publishing organisation. All requests for data under the Freedom of Information Act and the Data Protection Act should be sent to the publishing organisation.
+the National Data Library does not host datasets. They are the responsibility of the publishing organisation. All requests for data under the Freedom of Information Act and the Data Protection Act should be sent to the publishing organisation.
 
 ### Changes to these terms of use
 Please check these terms of use regularly. We can update them at any time without notice.
@@ -35,7 +35,7 @@ Please check these terms of use regularly. We can update them at any time withou
 You'll agree to any changes if you continue to use Find open data after the terms of use have been updated.
 
 ## Privacy notice
-DSIT and other government departments, agencies and organisations are joint controllers for pages that start with ‘www.data.gov.uk’. data.gov.uk helps people to find and use open government data, and supports government publishers to maintain data in the data.gov.uk directory.  
+DSIT and other government departments, agencies and organisations are joint controllers for pages that start with ‘www.data.gov.uk’. The National Data Library on data.gov.uk helps people to find and use open government data, and supports government publishers to maintain data in the directory.  
 
 ### What data we need
 We collect personal data from data publishers including:
@@ -47,7 +47,7 @@ We collect personal data from data publishers including:
 The legal basis for processing this data is in the exercise of a public task of a government department to undertake its functions.
 
 ### Why we need it
-We collect personal data from data publishers using the data.gov.uk directory to publish their data. This is so that we can provide access to the publishing service and send publishers email notifications about service changes.
+We collect personal data from data publishers using the directory to publish their data. This is so that we can provide access to the publishing service and send publishers email notifications about service changes.
 
 We collect an email address and name so we can verify you work for the publishing organisation.
 
@@ -88,7 +88,7 @@ You have the right to:
 We may change this privacy notice at our discretion at any time. In that case the ‘Last updated’ date at the top of this page will also change. Any changes to this privacy notice will apply to you and your data immediately. If these changes affect how your personal data is processed, GDS will take reasonable steps to make sure you know.
 
 ### Questions and complaints
-GDS, as part of DSIT, acts as a joint controller for personal data published on data.gov.uk with other government departments, agencies and public bodies.
+GDS, as part of DSIT, acts as a joint controller for personal data published on the National Data Library on data.gov.uk with other government departments, agencies and public bodies.
 
 Contact the GDS Privacy Team if you have any questions or think that your personal data has been misused or mishandled.
 
