@@ -134,7 +134,7 @@ RSpec.describe "pages", type: :request do
     end
 
     it "renders the roadmap page" do
-      expect(response.body).to include("data.gov.uk roadmap")
+      expect(response.body).to include("National Data Library roadmap")
     end
   end
 
