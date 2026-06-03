@@ -52,6 +52,6 @@ Some data sets have broken links. This fails WCAG 2.2 success criterion 2.4.4 Li
 We're working to fix content which fails to meet the [Web Content Accessibility Guidelines version 2.2](https://www.w3.org/TR/WCAG22/) AA standard. We’re in the process of commissioning a full external accessibility audit of the National Data Library website, including the directory. This will help us prioritise improvements, especially where existing features fail to meet the Web Content Accessibility Guidelines version 2.2 AA standard.
 
 ## Preparation of this accessibility statement
-This statement was prepared on 5 June 2026. It was last reviewed on 5 June 2026.
+This statement was prepared on 19 March 2026. It was last reviewed on 5 June 2026.
 
 This website was last tested in March 2026. The test was carried out by GDS. The website is scheduled to undergo external testing in summer 2026. 
