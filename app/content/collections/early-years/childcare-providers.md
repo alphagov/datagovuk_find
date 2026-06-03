@@ -19,10 +19,10 @@ Get reports and figures on childcare providers, places and inspections for Engla
 
 Reports cover areas such as:
 
-- types of childcare available
-- numbers of childcare providers, places and registrations in England
+- types of childcare providers available
+- numbers of childcare providers, places and registrations
 - inspections and inspection outcomes
 
 Additionally, the Department for Education (DfE) runs an annual survey of childcare and early years providers adding more analysis on numbers of providers and registered places, childcare workforce, fees and funding.
 
-To get support with finding childcare and financial support, go to the GOV.UK Childcare and parenting page.
+To get support with finding childcare and financial support, go to the GOV.UK find childcare page.
