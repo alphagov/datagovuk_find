@@ -21,6 +21,7 @@ If you have a question about the curated data collections, the data manual or ou
 
 ## If you want to propose new data for the data collections 
 Tell us about it on our [feedback form](https://forms.office.com/e/9V26PNFQaR). 
+You can [see and comment on upcoming data pages on our Github repository](https://github.com/alphagov/datagovuk_find/issues). The repository is open but you will need to create a Github account to comment.
 
 ## If you have a question about a dataset on the directory 
 Contact the publisher directly using the contact details on the dataset’s page.  
