@@ -98,7 +98,7 @@ the new data collections and the directory.
 
 ### Later
 
-#### An single trusted gateway to high-quality public sector data
+#### A single trusted gateway to high-quality public sector data
 
 We’d like to:
 
