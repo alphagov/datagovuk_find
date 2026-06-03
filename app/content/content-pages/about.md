@@ -13,7 +13,7 @@ In early 2026, we added new features to the site and new branding. These were fi
 - a [roadmap](/roadmap) that explains our current and upcoming work
 
 ## Changes to the previous data.gov.uk functionality
-The previous functionality is still available. We’ve renamed this 'the directory’ to differentiate it from the data collections and data manual.
+The previous service allowing public sector officials to self publish data is still available in the area called 'directory'. We’ve renamed this it to 'directory’ to differentiate it from the data collections and data manual.
 
 On the directory, you can still: 
 
