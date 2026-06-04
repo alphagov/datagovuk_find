@@ -21,10 +21,10 @@ status: for-publication
 
 Explore research on what it is like for children to grow up today.
 
-Children of the 2020s is a study funded by the Department for Education (DfE) in England. The study follows 8,500 children and their families over the course of their first five years starting in 2022. Surveys completed by parents/carers and their children give data at specific stages of development on their background, behaviours and experiences.
+Children of the 2020s is a study funded by the Department for Education (DfE) in England. The study follows 8,500 children and their families over the course of their first 5 years. Starting in 2022, surveys completed by parents/carers and their children give data at specific stages of development on their background, behaviours and experiences.
 
-Data is collected by the independent research organisation Ipsos and the study is being led by University College London. Reports are published in PDF format by the DfE in an 'Education and outcomes pathways studies' page. The study data is available only to approved researchers through the Office for National Statistics (ONS) Secure Research Service.
+This is part of a collection of studies known as Education and outcomes pathways studies (EOPS) led by University College London, with data collected by independent research organisation Ipsos. Reports are published in PDF format by the DfE. The study data is available only to approved researchers through the Office for National Statistics (ONS) Secure Research Service.
 
-A similar study titled 'Growing up in Scotland' was commissioned by the Scottish Government in 2007. It follows 5,217 children, born between June 2004 and May 2005 and 6,127 children born between March 2010 and February 2011 as they go through life. It is run by the Scottish Centre for Social Research with regular open PDF and HTML reports published on the programme's official website since its start.
+A similar study titled 'Growing up in Scotland' was commissioned by the Scottish Government in 2007. It follows the lives of 5,217 children born between June 2004 and May 2005, and 6,127 children born between March 2010 and February 2011. It is run by the Scottish Centre for Social Research with regular open PDF and HTML reports published on the programme's official website since its start.
 
 Growing up in Scotland study data is not open but GUS data can be accessed under different access arrangements by registered users on the UK Data Service.

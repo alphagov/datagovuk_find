@@ -21,7 +21,7 @@ contact:
 status: for-publication
 ---
 
-Explore general health trends, search by specific health indicators you are interested in and explore pre-defined public health topics.
+Explore general health trends, search by specific health indicators you're interested in and explore pre-defined public health topics.
 
 You can view data on reviews from England through Fingertips – a service provided by the Office for Health Improvement and Disparities, part of the Department for Health and Social Care. An API is available to retrieve data in JSON or CSV format.
 
@@ -30,7 +30,7 @@ You can view data on reviews from Scotland through the Scottish Public Health Ob
 Charts and data can be found in 'profiles' topic pages including on:
 
 - pregnancy and birth health indicators, breastfeeding prevalence, hospital admissions and A&E attendances
-- factors affecting perinatal and children's mental health, mental health services and outcomes
+- mental health services and outcomes including perinatal and children's mental health 
 - patterns and trends in child obesity, physical activity, and nutrition at national, regional, and local levels
 
 For Welsh health data you can search and download public health reports on the Public Health Wales website in PDF and Word document formats.

@@ -31,4 +31,4 @@ In Scotland the Child Health Programme has published data about height and weigh
 
 In Wales the Child Measurement Programme delivered by Public Health Wales measures the height and weight of children aged 4-5 years old. Public Health Wales have published Word document reports and XLSX data tables since the 2011/12 school year. You can explore the data visually and filter for downloading (XLSX) using the Child Measurement Programme dashboard.
 
-In Northern Ireland the Public Health Agency publishes statistical profiles of Children's Health in PDF reports, XLSX and CSV data tables. Publications go back to 2022/23 and include growth measurements of children aged 4-5 years old.
+In Northern Ireland the Public Health Agency publishes statistical profiles of children's health in PDF reports, XLSX and CSV data tables. Publications go back to 2022/23 and include growth measurements of children aged 4-5 years old.

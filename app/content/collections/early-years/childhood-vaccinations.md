@@ -25,10 +25,12 @@ status: for-publication
 
 Explore childhood vaccination coverage across the UK.
 
-UK Health Security Agency (UKHSA) provide a dashboard where you can see data on vaccination coverage by 12 months old, 24 months old and 5 years old. You can:
+UK Health Security Agency (UKHSA) provide a dashboard where you can see data on vaccination coverage by 12 months, 24 months and 5 years old. 
+
+You can:
 
 - explore data across 8 vaccine types since 2013 on a map or in charts
 - view local authority or region data in England, as well as country wide data for England, Scotland, Wales and Northern Ireland
 - export CSV or JSON files of data you have filtered
 
-This dashboard supplements the annual statistics report for the cover of vaccinations evaluated rapidly (COVER) programme. The UKHSA publishes quarterly and annual statistical reports on the COVER programme in England, Public Health Scotland in Scotland, Public Health Wales in Wales and the Public Health Agency in Ireland.
+This dashboard supplements the annual statistics report for the cover of vaccinations evaluated rapidly (COVER) programme.  You can find quarterly and annual statistical reports published on the COVER programme by the UKHSA in England, Public Health Scotland in Scotland, Public Health Wales in Wales and the Public Health Agency in Northern Ireland.

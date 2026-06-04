@@ -17,7 +17,7 @@ status: for-publication
 
 Explore analysis of early years child development.
 
-Children in the UK are offered a health visitor review between the age of 2 and 2 and a half years old. This review looks at how the child is growing and developing, and helps spot any areas where they might need extra support.
+Children in the UK are offered a health visitor review between the age of 2 to 2 and a half years old. The review looks at how the child is growing and developing, and helps spot any areas where they might need extra support.
 
 In England this is recorded in the Ages and Stages Questionnaire. Analysis is published annually in the Child development outcomes at 2 to 2 and a half years report. The report covers level of development across 5 areas:
 
@@ -27,12 +27,12 @@ In England this is recorded in the Ages and Stages Questionnaire. Analysis is pu
 - problem solving
 - personal social skills
 
-Data from annual reports since the 2020/21 academic year is available as tables in XLS format. More detailed annual commentaries are available as web publications with key statistics and visualisations since the 2023/24 academic year.
+Data from annual reports since the 2020/21 school year is available in XLS format. More detailed annual commentaries are available as web publications with key statistics and visualisations since the 2023/24 school year.
 
-Public Health Scotland (PHS) capture this data in Scotland through the Child Health Programme. Data collected from 13 to 15 month, and 4 to 5 year assessments is also captured in Scotland as well as 3 additional development categories:
+Public Health Scotland capture similar data in Scotland through the Child Health Programme. Data collected from 13 to 15 month, and 4 to 5 year assessments also includes 3 additional development categories:
 
 - emotional/behavioural
 - vision
 - hearing
 
-Data is downloadable as PDF reports and data tables and available since 2013/14 academic year.
+Data since the 2013/14 school year is downloadable as PDF reports and data tables.
