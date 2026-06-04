@@ -28,7 +28,7 @@ Explore early years education statistics in England including:
 - early childcare entitlements
 - funded early education and childcare
 
-The Department for Education statistics service allows you to browse and view reports and headline figures, explore previous reports through a times series tab. You can download their associated data, or create custom filters for the data you're ar interested in as ODS or CSV files. An API is also available which allows you to automate access to statistics and data available via the service.
+The Department for Education statistics service allows you to browse and view reports and headline figures, explore previous reports through a time series tab. You can download their associated data, or create custom filters for the data you're interested in as ODS or CSV files. An API is also available which allows you to automate access to statistics and data available via the service.
 
 You can find early years education data and statistics for Scotland on the Scottish Government website.  Data is collected as part of the Early Learning and Childcare census.  Previous reports published as summary statistics for schools in Scotland go back to 2012, with XLSX tables you can download.
 
