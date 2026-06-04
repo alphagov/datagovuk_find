@@ -15,7 +15,6 @@ RUN apt-get update && apt-get install -y \
 RUN bundle install
 RUN bin/yarn
 RUN bundle exec rails assets:precompile
-RUN bundle exec rake markdown:render
 
 # Ubuntu 24.04 will always use snap to install chromium 
 # so use an alternative PPA to install chromiumn and chromiun-driver

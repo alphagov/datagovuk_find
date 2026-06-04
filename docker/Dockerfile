@@ -11,8 +11,6 @@ COPY . ./
 
 RUN bundle exec rails assets:precompile
 
-RUN bundle exec rake markdown:render
-
 RUN rm -fr log tmp/cache
 
 FROM $base_image
