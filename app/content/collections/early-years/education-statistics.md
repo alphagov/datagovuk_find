@@ -32,4 +32,4 @@ The Department for Education statistics service allows you to browse and view re
 
 You can find early years education data and statistics for Scotland on the Scottish Government website.  Data is collected as part of the Early Learning and Childcare census.  Previous reports published as summary statistics for schools in Scotland go back to 2012, with XLSX tables you can download.
 
-The Welsh Government and Department of Education also publish education statistics, some of which contains early years data.  
+The Welsh Government and Department of Education in Northern Ireland also publish education statistics, some of which contains early years data.  
