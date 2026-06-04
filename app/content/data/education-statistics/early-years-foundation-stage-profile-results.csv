@@ -1,0 +1,5 @@
+time_period,time_identifier,geographic_level,country_code,country_name,region_code,region_name,old_la_code,new_la_code,la_name,lad_code,lad_name,breakdown_topic,breakdown,sex,elgs_expected_average,all_elgs_expected_children_percent,gld_children_percent
+202425,Academic year,National,E92000001,England,,,,,,,,Total,Total,Total,14.108663,66.908974,68.296998
+202324,Academic year,National,E92000001,England,,,,,,,,Total,Total,Total,14.0665,66.234748,67.67749
+202223,Academic year,National,E92000001,England,,,,,,,,Total,Total,Total,14.126358,65.640153,67.223469
+202122,Academic year,National,E92000001,England,,,,,,,,Total,Total,Total,14.052584,63.367293,65.167696

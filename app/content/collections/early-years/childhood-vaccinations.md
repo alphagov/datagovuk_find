@@ -18,7 +18,7 @@ websites:
 api:
 dataset:
 page-last-updated: "2026-06-03"
-visualisation-data:
+visualisation-data: childhood-vaccinations/mmr2-coverage-by-nations.json
 contact:
 status: for-publication
 ---

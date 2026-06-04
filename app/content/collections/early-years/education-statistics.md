@@ -14,7 +14,7 @@ websites:
 api:
 dataset:
 page-last-updated: "2026-06-03"
-visualisation-data:
+visualisation-data: education-statistics/early-years-foundation-stage-profile-results.json
 contact:
 status: for-publication
 ---
