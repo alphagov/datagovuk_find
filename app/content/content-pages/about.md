@@ -4,7 +4,7 @@ title: About
 # About the National Data Library
 Since 2010, the data.gov.uk website, now known as the National Data Library, has been helping people to find and use open government data, and supporting government publishers to maintain data. The website is run by the Government Digital Service (GDS) in the Department for Science, Innovation and Technology (DSIT).
 
-In early 2026, we added new features to the site and new branding. These were first steps to transforming the data.gov.uk website into the UK National Data Library and a commitment to making the service a single trusted gateway to curated, high-quality public sector data. In the first two releases we added:
+In early 2026, we added new features to the site and new branding. These were the first steps to transforming the data.gov.uk website into the UK National Data Library and a commitment to making the service a single trusted gateway to curated, high-quality public sector data. In the first two releases we added:
 
 - a new visual design and name
 - curated [collections](/) of trusted, open data that’s in high demand
