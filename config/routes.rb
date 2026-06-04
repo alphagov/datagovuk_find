@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root to: "v2/pages#home"
+  root to: redirect(path: "/search")
 
   get "healthz" => "rails/health#show", as: :rails_health_check
 
@@ -32,23 +32,7 @@ Rails.application.routes.draw do
   end
 
   scope module: "v2" do
-    get "collections/:collection", to: "collection#collection", as: "collection"
-    get "collections/:collection/:page", to: "collection#collection_page", as: "collection_page"
     get "components" => "pages#components"
-    get "data-manual", to: "data_manual#home", as: "data_manual_home"
-    get "data-manual/:slug", to: "data_manual#content", as: "data_manual_content", constraints: { slug: /[a-z0-9-]+/ }
-    get "about" => "pages#content_page", defaults: { slug: "about", title: "About" }
-    get "accessibility" => "pages#content_page", defaults: { slug: "accessibility", title: "Accessibility" }
-    get "support" => "pages#content_page", defaults: { slug: "support", title: "Support" }
-    get "team" => "pages#content_page", defaults: { slug: "team", title: "Team" }
-    get "roadmap" => "pages#content_page", defaults: { slug: "roadmap", title: "Our plan for data.gov.uk", template: "v2/pages/roadmap" }
-    get "privacy-and-terms" => "pages#content_page", defaults: { slug: "privacy-and-terms", title: "Privacy and terms" }
-    get "cookies" => "pages#cookies"
-    get "collections/:collection/:topic/charts/:chart", to: "charts#download", as: "chart_download", constraints: {
-      collection: /[a-zA-Z0-9\-_]+/,
-      topic: /[a-zA-Z0-9\-_]+/,
-      chart: /[a-zA-Z0-9\-_]+/,
-    }
     match "404", to: "errors#not_found", via: :all
     match "500", to: "errors#internal_server_error", via: :all
     match "500-test", to: "errors#internal_server_error_test", via: :all
