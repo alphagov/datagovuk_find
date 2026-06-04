@@ -33,4 +33,4 @@ You can:
 - view local authority or region data in England, as well as country wide data for England, Scotland, Wales and Northern Ireland
 - export CSV or JSON files of data you have filtered
 
-This dashboard supplements the annual statistics report for the cover of vaccinations evaluated rapidly (COVER) programme.  You can find quarterly and annual statistical reports published on the COVER programme by The UKHSA in England, Public Health Scotland in Scotland, Public Health Wales in Wales and the Public Health Agency in Northern Ireland.
+This dashboard supplements the annual statistics report for the cover of vaccinations evaluated rapidly (COVER) programme.  You can find quarterly and annual statistical reports published on the COVER programme by the UKHSA in England, Public Health Scotland in Scotland, Public Health Wales in Wales and the Public Health Agency in Northern Ireland.
