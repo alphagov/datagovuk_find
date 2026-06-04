@@ -44,9 +44,3 @@ data, with whom and under what conditions.
 A guide for UK government departments, devolved governments, public
 bodies and local authorities. Learn how to request data from HMRC for
 policy development, operations or analytical purposes.
-
-## [Data Marketplace](https://datamarketplace.gov.uk/)
-This service, still in private beta, is for people who work in government
-organisations to find, request and share data. After creating an account,
-you can search a data catalogue and request data from other
-organisations by answering a short set of questions.
