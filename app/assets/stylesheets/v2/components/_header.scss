@@ -99,8 +99,30 @@
     text-decoration: underline;
 }
 
+.datagovuk-menu__item-spotlight-link {
+  border-top: 1px solid $datagovuk-grey;
+  margin-top: 10px;
+  padding-top: 20px;
+}
+
+.datagovuk-menu__spotlight-tag {
+    display: inline-block;
+    font-size: 16px;
+    font-family: Inter, sans-serif;
+    line-height: 1;
+    padding: 3px 7px;
+    border-radius: 4px;
+    background-color: #F1FAF0;
+    color: #333333;
+    margin-left: 6px;
+    text-decoration: none;
+}
+
 /* Desktop styling overrides */
 @media (min-width: $desktop-header-breakpoint) {
+    .datagovuk-menu__item-spotlight-link {
+      margin-top: 0;
+    }
 
     .datagovuk-header {
         padding-top: 20px;
