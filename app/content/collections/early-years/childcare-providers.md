@@ -1,6 +1,8 @@
 ---
 title: Childcare providers
 websites:
+  - url: https://reports.ofsted.gov.uk
+    link-text: Find an Ofsted inspection report
   - url: https://www.gov.uk/government/collections/early-years-and-childcare-statistics
     link-text: Ofsted Childcare providers and inspections statistics
   - url: https://explore-education-statistics.service.gov.uk/find-statistics/childcare-and-early-years-provider-survey/releases
@@ -14,6 +16,8 @@ visualisation-data:
 contact:
 status: for-publication
 ---
+
+Find Ofsted inspection reports by provider name, Unique Reference Number, keywords or location.  Filter providers by categories including childcare and early and children's social care.  You can view reports online or download PDF versions.  Ofsted also provide key statistics and breakdowns of the pupils at the end of reports.
 
 Get reports and figures on childcare providers, places and inspections for England. Reports are based on data gathered in annual Ofsted inspections in England since 2019.
 
