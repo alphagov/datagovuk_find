@@ -2,10 +2,14 @@
     max-width: 960px;
 }
 
+.datagovuk-header__inner .datagovuk-header__link {
+    font-family: 'Inter', sans-serif !important;
+}
+
 .datagovuk-header__inner {
     display: flex;
     flex-wrap: wrap;
-    align-items: start;
+    align-items: center;
     gap: 0 20px;
 }
 
@@ -16,7 +20,7 @@
 
 .datagovuk-header__logo-link {
     display: block;
-    width: 165px;
+    width: 170px;
     text-decoration: none;
 }
 
@@ -75,12 +79,13 @@
 }
 
 .datagovuk-menu__heading {
-    font-family: Inter, sans-serif;
+    font-family: Inter, sans-serif !important;
     font-size: 20px;
     text-transform: uppercase;
     -webkit-font-smoothing: antialiased;
     letter-spacing: 8%;
     color: $datagovuk-grey;
+    margin: 20px 0;
 }
 
 .datagovuk-menu__item-link {
@@ -100,11 +105,15 @@
     .datagovuk-header {
         padding-top: 20px;
     }
-    
+
     .datagovuk-directory-header .datagovuk-header {
       max-width: 960px;
       margin-left: auto;
       margin-right: auto;
+    }
+
+    .datagovuk-header__logo-link {
+        width: 200px;
     }
 
     .datagovuk-header__link,
