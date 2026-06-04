@@ -99,6 +99,21 @@
     text-decoration: underline;
 }
 
+.datagovuk-menu__spotlight-tag {
+    display: inline-block;
+    font-size: 13px;
+    font-family: Inter, sans-serif;
+    font-weight: 600;
+    line-height: 1;
+    padding: 3px 7px;
+    border-radius: 4px;
+    background-color: #F1FAF0;
+    color: #333333;
+    vertical-align: middle;
+    margin-left: 6px;
+    text-decoration: none;
+}
+
 /* Desktop styling overrides */
 @media (min-width: $desktop-header-breakpoint) {
 
