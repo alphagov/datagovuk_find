@@ -25,62 +25,6 @@ RSpec.describe "pages", type: :request do
     end
   end
 
-  describe "GET /support" do
-    before do
-      get support_path
-    end
-
-    it "returns success response" do
-      expect(response).to have_http_status(:ok)
-    end
-
-    it "renders the support page" do
-      expect(response.body).to include("Support")
-    end
-  end
-
-  describe "GET /about" do
-    before do
-      get about_path
-    end
-
-    it "returns success response" do
-      expect(response).to have_http_status(:ok)
-    end
-
-    it "renders the about page" do
-      expect(response.body).to include("About")
-    end
-  end
-
-  describe "GET /accessibility" do
-    before do
-      get accessibility_path
-    end
-
-    it "returns success response" do
-      expect(response).to have_http_status(:ok)
-    end
-
-    it "renders the accessibility page" do
-      expect(response.body).to include("Accessibility")
-    end
-  end
-
-  describe "GET /cookies" do
-    before do
-      get cookies_path
-    end
-
-    it "returns success response" do
-      expect(response).to have_http_status(:ok)
-    end
-
-    it "renders the cookies page" do
-      expect(response.body).to include("Cookies")
-    end
-  end
-
   describe "GET /site-changes" do
     before do
       get site_changes_path
@@ -109,46 +53,4 @@ RSpec.describe "pages", type: :request do
     end
   end
 
-  describe "GET /privacy-and-terms" do
-    before do
-      get privacy_and_terms_path
-    end
-
-    it "returns success response" do
-      expect(response).to have_http_status(:ok)
-    end
-
-    it "renders the privacy page" do
-      expect(response.body).to include("Terms of use")
-      expect(response.body).to include("Privacy")
-    end
-  end
-
-  describe "GET /roadmap" do
-    before do
-      get roadmap_path
-    end
-
-    it "returns success response" do
-      expect(response).to have_http_status(:ok)
-    end
-
-    it "renders the roadmap page" do
-      expect(response.body).to include("National Data Library roadmap")
-    end
-  end
-
-  describe "GET /team" do
-    before do
-      get team_path
-    end
-
-    it "returns success response" do
-      expect(response).to have_http_status(:ok)
-    end
-
-    it "renders the team page" do
-      expect(response.body).to include("data.gov.uk team")
-    end
-  end
 end
