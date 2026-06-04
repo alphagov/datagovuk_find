@@ -7,20 +7,18 @@
       {
         "subtitle": "Good level of development",
         "description": "Percentage of children with a good level of development",
-        "value": 68.3,
+        "value": "68.3%",
         "analysis": "In 2024/25, up from 65.2% in 2021/22.",
         "trend": "up",
-        "value_change": 3.1,
-        "percent_change": null
+        "value_change": "3.1%"
       },
       {
         "subtitle": "Expected level across all early learning goals",
         "description": "Percentage of children at expected level across all early learning goals",
-        "value": 66.9,
+        "value": "66.9%",
         "analysis": "In 2024/25, up from 63.4% in 2021/22.",
         "trend": "up",
-        "value_change": 3.5,
-        "percent_change": null
+        "value_change": "3.5%"
       }
     ]
 }

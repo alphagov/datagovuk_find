@@ -7,20 +7,18 @@
       {
         "subtitle": "Outstanding",
         "description": "Percentage of inspected providers rated outstanding",
-        "value": 13,
+        "value": "13%",
         "analysis": "At 31 August 2025, down from 17% in 2021.",
         "trend": "down",
-        "value_change": 4,
-        "percent_change": null
+        "value_change": "4%"
       },
       {
         "subtitle": "Good",
         "description": "Percentage of inspected providers rated good",
-        "value": 85,
+        "value": "85%",
         "analysis": "At 31 August 2025, up from 80% in 2021.",
         "trend": "up",
-        "value_change": 5,
-        "percent_change": null
+        "value_change": "5%"
       }
     ]
 }
