@@ -1,5 +1,5 @@
 {
-    "title": "MMR2 coverage by nations",
+    "title": "MMR2 vaccination coverage by nations",
     "visualisation_type": "line",
     "source": "https://www.gov.uk/government/collections/vaccine-uptake",
     "download": "mmr2-coverage-by-nation.csv",
