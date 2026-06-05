@@ -1,0 +1,36 @@
+<% content_for :page_title do %><%= t('.title') %><% end %>
+
+<%= content_for :breadcrumb do %>
+  <%= render 'shared/breadcrumb' %>
+<% end%>
+
+<main role="main" id="content">
+  <div class="text">
+    <h1 class="heading-large">
+      <%= t('.publish_your_data') %>
+    </h1>
+
+    <p>
+      <%= t('.requirements') %>
+    </p>
+
+    <p>
+      <%= link_to 'Sign in', '/user/login', role: 'button', class: 'govuk-button', rel: %w(nofollow) %>
+    </p>
+
+    <div role="note" aria-label="Publisher information" class="panel panel-border-narrow text">
+      <p>
+        <%= t('.edit_dataset_info') %>
+      </p>
+    </div>
+
+    <h2 class="heading-medium">
+      <%= t('.become_a_publisher') %>
+    </h2>
+
+    <p>
+      <%= t('.to_get_started', guidance_link: link_to(t('.publish_dataset_info'), 'https://guidance.data.gov.uk/publish_and_manage_data/', target: '_blank', class: 'govuk-link')).html_safe %>
+      <%= t('.ask_for_help', support_link: link_to(t('.support_info'), support_path, class: 'govuk-link')).html_safe %>
+    </p>
+  </div>
+</main>
