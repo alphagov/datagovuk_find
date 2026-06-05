@@ -12,7 +12,7 @@ websites:
 api:
 dataset:
 page-last-updated: "2026-06-03"
-visualisation-data:
+visualisation-data: childcare-providers/childcare-providers.json
 contact:
 status: for-publication
 ---
