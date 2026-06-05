@@ -15,8 +15,10 @@ contact:
 status: for-publication
 ---
 
-Find land and housing data in England to inform planning and housing decisions. Built by the Ministry of Housing, Communities and Local Government, the Planning Data portal collects data from various datasets grouped by geography, category, legal instrument, document, organisation, policy, metric and timetable. 
+Find land and housing data in England to inform planning and housing decisions. Built by the Ministry of Housing, Communities and Local Government, the Planning Data platform collects data from various datasets grouped by geography, category, legal instrument, document, organisation, policy, metric and timetable. 
 
 To explore the data on a map, enter a postcode, Unique Property Reference Number (UPRN) or Local Planning Authority and then filter the results with combinations of more than 50 data layers such as brownfield site or conservation area. 
 
-Alternatively, you can search the data in bulk, filter by location, date and UPRN, and download the data as a JSON file. The portal is still in development so data may not be complete yet.
+Alternatively, you can search the data in bulk, filter by location, date and UPRN, and download the data as a JSON file. The Planning Data API gives you access to over 100 planning and housing datasets for England through a single, consistent interface, allowing anyone to build products and services that use the data.
+
+The platform is still in development so data may not be complete yet.
