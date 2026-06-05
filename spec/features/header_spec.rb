@@ -26,7 +26,7 @@ RSpec.feature "directory header", type: :feature do
     within("#navigation") do
       expect(page).to have_link("Publish your data", href: "/publishers")
       expect(page).to have_link("Documentation", href: "https://guidance.data.gov.uk/publish_and_manage_data/")
-      expect(page).to have_link("Support", href: "/support")
+      expect(page).to have_link("Support", href: "/support/")
     end
   end
 
