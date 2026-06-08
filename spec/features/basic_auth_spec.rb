@@ -7,26 +7,26 @@ RSpec.feature "basic auth", type: :feature do
     stub_const("ENV", ENV.to_hash.merge("BASIC_AUTH_BYPASS" => "some-header: some-value"))
   end
 
-  scenario "I visit the homepage without setting authentication" do
-    visit "/"
+  scenario "I visit the publishers page without setting authentication" do
+    visit "/publishers"
     expect(page).to have_http_status(:unauthorized)
   end
 
-  scenario "I visit the homepage with good authentication" do
+  scenario "I visit the publishers page  with good authentication" do
     page.driver.browser.authorize("test-username", "test-password")
-    visit "/"
+    visit "/publishers"
     expect(page).to have_http_status(:ok)
   end
 
-  scenario "I visit the homepage with basic auth bypass header" do
+  scenario "I visit the publishers page  with basic auth bypass header" do
     page.driver.header "some-header", "some-value"
-    visit "/"
+    visit "/publishers"
     expect(page).to have_http_status(:ok)
   end
 
-  scenario "I visit the homepage with incorrect basic auth bypass header" do
+  scenario "I visit the publishers page with incorrect basic auth bypass header" do
     page.driver.header "some-header", "some-incorrect-value"
-    visit "/"
+    visit "/publishers"
     expect(page).to have_http_status(:unauthorized)
   end
 
