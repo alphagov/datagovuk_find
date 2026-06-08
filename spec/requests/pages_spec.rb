@@ -1,7 +1,6 @@
 require "rails_helper"
 
 RSpec.describe "pages", type: :request do
-
   describe "GET /publishers" do
     before do
       get publishers_path
@@ -43,5 +42,4 @@ RSpec.describe "pages", type: :request do
       expect(response.body).to include("Data.gov.uk publishing freeze")
     end
   end
-
 end
