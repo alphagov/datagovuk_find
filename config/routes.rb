@@ -45,6 +45,10 @@ Rails.application.routes.draw do
 
   get "acknowledge", to: "messages#acknowledge"
 
+  direct :support do
+    "/support"
+  end
+
   # Route an allow list of base paths to CKAN
   if ENV["CKAN_DOMAIN"].present?
     match "*path",
