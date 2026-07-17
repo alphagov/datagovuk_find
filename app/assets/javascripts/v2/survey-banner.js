@@ -13,7 +13,7 @@ class DatagovukSurveyBanner {
     this.$closeLink.addEventListener('click', (event) => this.dismiss(event))
   }
 
-  getConsentCookie() {
+  getCookieSettings() {
     var consentCookie = window.GOVUK.cookie('cookies_policy')
     if (!consentCookie) return null
     try {
@@ -23,18 +23,18 @@ class DatagovukSurveyBanner {
     }
   }
 
-  hasSettingsConsent() {
-    var consent = this.getConsentCookie()
+  hasConsentedToCookies() {
+    var consent = this.getCookieSettings()
     return consent && consent.settings === true
   }
 
   getDismissedCookie() {
-    return document.cookie.split(';').some(c => c.trim() === 'survey_banner_dismissed_2026_07=true')
+    return document.cookie.split(';').some(cookie => cookie.trim() === 'survey_banner_dismissed_2026_07=true')
   }
 
   setDismissedCookie() {
-    if (!this.hasSettingsConsent()) return
-    var maxAge = 60 * 24 * 60 * 60 // 60 days in seconds
+    if (!this.hasConsentedToCookies()) return
+    var maxAge = 15 * 24 * 60 * 60 // 15 days in seconds
     document.cookie = 'survey_banner_dismissed_2026_07=true; max-age=' + maxAge + '; path=/'
   }
 
