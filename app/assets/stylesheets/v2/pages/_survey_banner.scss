@@ -18,15 +18,16 @@
   margin: 0;
 }
 
+.datagovuk-close {
+  padding: 12px;
+  margin-left: auto;
+  flex: 0 0 auto;
+}
+
 .datagovuk-close__image {
   display: block;
   width: 20px;
   height: 20px;
-}
-
-.datagovuk-close__container {
-  margin-left: auto;
-  flex: 0 0 auto;
 }
 
 /* Desktop styling overrides */
