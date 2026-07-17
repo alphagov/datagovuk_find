@@ -48,7 +48,7 @@ RSpec.feature "Solr Inspire dataset", type: :feature do
   end
 
   def then_i_can_see_the_survey_banner
-    expect(page).to have_content("Help us improve the National Data Library - complete this short survey.")
+    expect(page).to have_content("Help us improve the National Data Library - complete this short survey")
     expect(page).to have_link("complete this short survey", href: "https://surveys.publishing.service.gov.uk/s/2W0DN6/")
   end
 

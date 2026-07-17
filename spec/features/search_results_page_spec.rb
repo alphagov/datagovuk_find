@@ -22,7 +22,7 @@ RSpec.feature "Search directory page", type: :feature do
   end
 
   def and_i_can_see_a_survey_banner
-    expect(page).to have_content("Help us improve the National Data Library - complete this short survey.")
+    expect(page).to have_content("Help us improve the National Data Library - complete this short survey")
     expect(page).to have_link("complete this short survey", href: "https://surveys.publishing.service.gov.uk/s/2W0DN6/")
   end
 end
