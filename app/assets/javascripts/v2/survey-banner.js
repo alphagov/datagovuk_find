@@ -14,12 +14,10 @@ class DatagovukSurveyBanner {
   }
 
   getConsentCookie() {
-    var cookies = document.cookie.split(';').map(cookie => cookie.trim())
-    var match = cookies.find(cookie => cookie.startsWith('cookies_policy='))
-
-    if (!match) return null
+    var consentCookie = window.GOVUK.cookie('cookies_policy')
+    if (!consentCookie) return null
     try {
-      return JSON.parse(decodeURIComponent(match.split('=').slice(1).join('=')))
+      return JSON.parse(consentCookie)
     } catch (e) {
       return null
     }
@@ -37,7 +35,7 @@ class DatagovukSurveyBanner {
   setDismissedCookie() {
     if (!this.hasSettingsConsent()) return
     var maxAge = 60 * 24 * 60 * 60 // 60 days in seconds
-    document.cookie = 'survey_banner_dismissed_2026_07=true; max-age=' + maxAge + '; path=/; SameSite=Strict'
+    document.cookie = 'survey_banner_dismissed_2026_07=true; max-age=' + maxAge + '; path=/'
   }
 
   dismiss(event) {
