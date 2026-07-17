@@ -1,5 +1,9 @@
 {
   "ignored_warnings": [
+    {
+      "fingerprint": "98b26f60d776fd41ee6f088c833725145be9aac2d7c5b33780241c273622db42",
+      "note": "Rails 7.2 EOL 2026-08-09 - suppressed pending upgrade to Rails 8"
+    }
   ],
   "brakeman_version": "7.0.0"
 }
