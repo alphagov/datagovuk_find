@@ -20,6 +20,10 @@ RSpec.describe "Search", type: :request do
       expect(response.body).to include("Search directory")
     end
 
+    it "renders a survey banner" do
+      expect(response.body).to match(%r{<a[^>]*href="https://surveys.publishing.service.gov.uk/s/2W0DN6/"[^>]*>\s*complete this short survey\s*</a>}i)
+    end
+
     it "returns no results section" do
       expect(response.body).not_to match(/<div class="dgu-results__result">/)
     end

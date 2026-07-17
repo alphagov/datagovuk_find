@@ -6,6 +6,8 @@ RSpec.feature "Solr Inspire dataset", type: :feature do
     given_an_inspire_dataset_exists
     when_i_visit_solr_dataset_page(@response_inspire, @dataset_inspire)
 
+    then_i_can_see_the_survey_banner
+
     # Custom Licence
     then_the_custom_licence_title_is_displayed
     then_the_custom_licence_information_is_displayed
@@ -43,6 +45,11 @@ RSpec.feature "Solr Inspire dataset", type: :feature do
 
   def when_i_visit_solr_dataset_page(_response, dataset)
     visit dataset_path(dataset.uuid, dataset.name)
+  end
+
+  def then_i_can_see_the_survey_banner
+    expect(page).to have_content("Help us improve the National Data Library - complete this short survey.")
+    expect(page).to have_link("complete this short survey", href: "https://surveys.publishing.service.gov.uk/s/2W0DN6/")
   end
 
   def then_the_custom_licence_title_is_displayed

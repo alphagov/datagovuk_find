@@ -1,0 +1,40 @@
+.datagovuk-notification-banner__inner {
+  border-left: 4px solid $datagovuk-pink;
+  background-color: $datagovuk-light-pink;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.datagovuk-notification-banner__content {
+  display: flex;
+  align-items: center;
+  min-height: 140px;
+  gap: 12px;
+}
+
+.datagovuk-notification-banner__content .datagovuk-body {
+   margin: 0;
+}
+
+.datagovuk-close__image {
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+
+.datagovuk-close__container {
+    margin-left: auto;
+    flex: 0 0 auto;
+}
+
+/* Desktop styling overrides */
+@media (min-width: $desktop-header-breakpoint) {
+    .datagovuk-notification-banner__content {
+        min-height: 80px;
+    }
+
+    .datagovuk-notification-banner__inner {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+}

@@ -4,7 +4,7 @@ RSpec.feature "Search directory page", type: :feature do
   scenario "User visits the search directory page" do
     given_i_am_on_the_search_directory_page
     then_i_can_see_the_title
-    and_i_can_see_a_notification_banner
+    and_i_can_see_a_survey_banner
   end
 
   def given_i_am_on_the_search_directory_page
@@ -21,7 +21,8 @@ RSpec.feature "Search directory page", type: :feature do
     expect(page).to have_content("Search directory")
   end
 
-  def and_i_can_see_a_notification_banner
-    expect(page).to have_content("We’re making changes to the National Data Library")
+  def and_i_can_see_a_survey_banner
+    expect(page).to have_content("Help us improve the National Data Library - complete this short survey.")
+    expect(page).to have_link("complete this short survey", href: "https://surveys.publishing.service.gov.uk/s/2W0DN6/")
   end
 end
