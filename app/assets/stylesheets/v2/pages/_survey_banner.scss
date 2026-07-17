@@ -1,3 +1,7 @@
+.datagovuk-notification-banner {
+  margin-bottom: 20px;
+}
+
 .datagovuk-notification-banner__inner {
   border-left: 4px solid $datagovuk-pink;
   background-color: $datagovuk-light-pink;
@@ -29,5 +33,9 @@
 @media (min-width: $desktop-header-breakpoint) {
   .datagovuk-notification-banner__inner {
     padding: 20px 40px;
+  }
+
+  .datagovuk-notification-banner {
+    margin-bottom: 10px;
   }
 }
