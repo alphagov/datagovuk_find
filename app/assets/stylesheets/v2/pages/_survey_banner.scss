@@ -30,6 +30,10 @@
   height: 20px;
 }
 
+.datagovuk-notification-banner__content .datagovuk-link {
+    color: $datagovuk-dark-pink;
+}
+
 /* Desktop styling overrides */
 @media (min-width: $desktop-header-breakpoint) {
   .datagovuk-notification-banner__inner {
