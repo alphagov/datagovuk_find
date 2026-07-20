@@ -1,0 +1,42 @@
+.datagovuk-notification-banner {
+  margin-bottom: 20px;
+}
+
+.datagovuk-notification-banner__inner {
+  border-left: 4px solid $datagovuk-pink;
+  background-color: $datagovuk-light-pink;
+  padding: 20px 30px;
+}
+
+.datagovuk-notification-banner__content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.datagovuk-notification-banner__content .datagovuk-body {
+  margin: 0;
+}
+
+.datagovuk-close {
+  padding: 12px;
+  margin-left: auto;
+  flex: 0 0 auto;
+}
+
+.datagovuk-close__image {
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+
+/* Desktop styling overrides */
+@media (min-width: $desktop-header-breakpoint) {
+  .datagovuk-notification-banner__inner {
+    padding: 20px 40px;
+  }
+
+  .datagovuk-notification-banner {
+    margin-bottom: 10px;
+  }
+}
