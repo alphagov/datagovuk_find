@@ -10,7 +10,6 @@ RSpec.feature "Solr Dataset page edge cases", type: :feature do
     when_i_visit_solr_dataset_page(@dataset_no_datafiles)
 
     then_a_message_indicates_no_data_links_are_available
-    and_a_not_released_label_is_displayed
   end
 
   scenario "User tries to visit a dataset page that doesn't exist" do
@@ -81,10 +80,6 @@ RSpec.feature "Solr Dataset page edge cases", type: :feature do
 
   def then_a_message_indicates_no_data_links_are_available
     expect(page).to have_css("h2", text: "Data links")
-    expect(page).to have_content("This data hasn’t been released by the publisher.")
-  end
-
-  def and_a_not_released_label_is_displayed
-    expect(page).to have_content("Availability: Not released")
+    expect(page).to have_content("There are no links to this data.")
   end
 end
