@@ -82,5 +82,4 @@ RSpec.feature "Solr Dataset page edge cases", type: :feature do
     expect(page).to have_css("h2", text: "Data links")
     expect(page).to have_content("There are no links to this data.")
   end
-
 end
